@@ -405,24 +405,38 @@ export default function MRTMap({ selectedStation, onStationClick }: MRTMapProps)
       }
     });
 
-    // 7. Adjust text positioning to avoid circle overlap
+    // 7. Fix multi-line text (tspans) and adjust positioning
     const textElements = svg.querySelectorAll('text');
     textElements.forEach(text => {
       // Make text more readable
       text.setAttribute('font-size', '9');
       text.setAttribute('font-family', 'Arial, sans-serif');
 
-      // Shift text slightly away from circles
+      // Check if text has tspan children (multi-line text)
+      const tspans = text.querySelectorAll('tspan');
+      if (tspans.length > 1) {
+        // Combine all tspan text into single line
+        const fullText = Array.from(tspans).map(t => t.textContent).join('');
+        // Remove tspans and set text directly
+        tspans.forEach(t => t.remove());
+        text.textContent = fullText;
+      }
+
+      const textContent = text.textContent?.toLowerCase() || '';
       const currentX = parseFloat(text.getAttribute('x') || '0');
-      const currentY = parseFloat(text.getAttribute('y') || '0');
       const textAnchor = text.getAttribute('text-anchor');
+
+      // Special handling for left-edge stations - move right to prevent cutoff
+      if (textContent.includes('tuas') || textContent.includes('gul') ||
+          textContent.includes('pioneer') || textContent.includes('joo koon')) {
+        text.setAttribute('x', String(currentX + 20));
+        return;
+      }
 
       // Add horizontal offset based on text alignment
       if (textAnchor === 'end') {
-        // Text is right-aligned (to the left of circle), move further left
         text.setAttribute('x', String(currentX - 5));
       } else if (textAnchor === 'start' || !textAnchor) {
-        // Text is left-aligned (to the right of circle), move further right
         text.setAttribute('x', String(currentX + 5));
       }
     });
