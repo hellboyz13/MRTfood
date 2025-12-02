@@ -403,6 +403,20 @@ export default function MRTMap({ selectedStation, onStationClick }: MRTMapProps)
       // Make text more readable
       text.setAttribute('font-size', '7');
       text.setAttribute('font-family', 'Arial, sans-serif');
+
+      // Shift text slightly away from circles
+      const currentX = parseFloat(text.getAttribute('x') || '0');
+      const currentY = parseFloat(text.getAttribute('y') || '0');
+      const textAnchor = text.getAttribute('text-anchor');
+
+      // Add horizontal offset based on text alignment
+      if (textAnchor === 'end') {
+        // Text is right-aligned (to the left of circle), move further left
+        text.setAttribute('x', String(currentX - 5));
+      } else if (textAnchor === 'start' || !textAnchor) {
+        // Text is left-aligned (to the right of circle), move further right
+        text.setAttribute('x', String(currentX + 5));
+      }
     });
   };
 
