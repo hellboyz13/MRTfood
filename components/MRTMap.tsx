@@ -372,7 +372,7 @@ export default function MRTMap({ selectedStation, onStationClick }: MRTMapProps)
       const currentFill = text.getAttribute('fill');
       if (currentFill !== '#ffffff') {
         text.setAttribute('fill', '#000000');
-        text.setAttribute('font-size', '8');
+        text.setAttribute('font-size', '9');
         text.removeAttribute('font-weight');
       }
     });
@@ -401,7 +401,7 @@ export default function MRTMap({ selectedStation, onStationClick }: MRTMapProps)
     const textElements = svg.querySelectorAll('text');
     textElements.forEach(text => {
       // Make text more readable
-      text.setAttribute('font-size', '7');
+      text.setAttribute('font-size', '9');
       text.setAttribute('font-family', 'Arial, sans-serif');
 
       // Shift text slightly away from circles
