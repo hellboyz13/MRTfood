@@ -659,36 +659,6 @@ export default function MRTMap({ selectedStation, onStationClick }: MRTMapProps)
               )}
 
               <div className="bg-white/95 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 p-1.5 flex flex-col gap-1">
-                {/* Zoom In */}
-                <button
-                  onClick={() => zoomIn(MAP_CONSTRAINTS.zoomStep)}
-                  disabled={isAtMaxZoom}
-                  className={`w-11 h-11 flex items-center justify-center rounded-lg text-xl font-bold transition-all
-                    ${isAtMaxZoom
-                      ? 'bg-gray-100 text-gray-300 cursor-not-allowed'
-                      : 'bg-white hover:bg-gray-100 text-gray-700 active:scale-95'
-                    }`}
-                  aria-label="Zoom in"
-                >
-                  +
-                </button>
-
-                {/* Zoom Out */}
-                <button
-                  onClick={() => zoomOut(MAP_CONSTRAINTS.zoomStep)}
-                  disabled={isAtMinZoom}
-                  className={`w-11 h-11 flex items-center justify-center rounded-lg text-xl font-bold transition-all
-                    ${isAtMinZoom
-                      ? 'bg-gray-100 text-gray-300 cursor-not-allowed'
-                      : 'bg-white hover:bg-gray-100 text-gray-700 active:scale-95'
-                    }`}
-                  aria-label="Zoom out"
-                >
-                  -
-                </button>
-
-                <div className="h-px bg-gray-200 mx-1" />
-
                 {/* Reset View */}
                 <button
                   onClick={() => {
