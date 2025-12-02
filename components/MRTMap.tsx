@@ -563,13 +563,14 @@ export default function MRTMap({ selectedStation, onStationClick }: MRTMapProps)
           // Center on the station
           if (transformRef.current && stationCoordinates[nearestStation]) {
             const coords = stationCoordinates[nearestStation];
-            // Calculate position to center the station
-            transformRef.current.setTransform(
-              -coords.cx * 1.5 + window.innerWidth / 2,
-              -coords.cy * 1.5 + window.innerHeight / 2,
-              1.5,
-              300
-            );
+            const padding = 300; // Container padding
+            const scale = 1.2; // Zoom level for station view
+            // Calculate position to center the station (accounting for padding)
+            const stationX = coords.cx + padding;
+            const stationY = coords.cy + padding;
+            const posX = window.innerWidth / 2 - stationX * scale;
+            const posY = window.innerHeight / 2 - stationY * scale;
+            transformRef.current.setTransform(posX, posY, scale, 300);
           }
         }
 
@@ -612,11 +613,11 @@ export default function MRTMap({ selectedStation, onStationClick }: MRTMapProps)
         minScale={MAP_CONSTRAINTS.minZoom}
         maxScale={MAP_CONSTRAINTS.maxZoom}
         centerOnInit={false}
-        limitToBounds={false}
-        minPositionX={-200}
-        maxPositionX={100}
-        minPositionY={-150}
-        maxPositionY={100}
+        limitToBounds={true}
+        minPositionX={-50}
+        maxPositionX={50}
+        minPositionY={-50}
+        maxPositionY={50}
         alignmentAnimation={{ sizeX: 0, sizeY: 0 }}
         velocityAnimation={{ sensitivity: 1, animationTime: 300 }}
         panning={{
