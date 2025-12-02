@@ -405,22 +405,30 @@ export default function MRTMap({ selectedStation, onStationClick }: MRTMapProps)
       }
     });
 
-    // 7. Fix multi-line text (tspans) and adjust positioning
+    // 7. Fix multi-line text and adjust positioning
     const textElements = svg.querySelectorAll('text');
     textElements.forEach(text => {
+      // Check if text has tspan children (multi-line text)
+      const tspans = text.querySelectorAll('tspan');
+      if (tspans.length > 0) {
+        // Get the first tspan's position
+        const firstTspan = tspans[0];
+        const baseX = firstTspan.getAttribute('x') || text.getAttribute('x') || '0';
+        const baseY = firstTspan.getAttribute('y') || text.getAttribute('y') || '0';
+
+        // Combine all tspan text into single line with space
+        const fullText = Array.from(tspans).map(t => t.textContent?.trim()).join(' ');
+
+        // Clear text and set combined content
+        text.innerHTML = '';
+        text.textContent = fullText;
+        text.setAttribute('x', baseX);
+        text.setAttribute('y', baseY);
+      }
+
       // Make text more readable
       text.setAttribute('font-size', '9');
       text.setAttribute('font-family', 'Arial, sans-serif');
-
-      // Check if text has tspan children (multi-line text)
-      const tspans = text.querySelectorAll('tspan');
-      if (tspans.length > 1) {
-        // Combine all tspan text into single line
-        const fullText = Array.from(tspans).map(t => t.textContent).join('');
-        // Remove tspans and set text directly
-        tspans.forEach(t => t.remove());
-        text.textContent = fullText;
-      }
 
       const textContent = text.textContent?.toLowerCase() || '';
       const currentX = parseFloat(text.getAttribute('x') || '0');
@@ -428,8 +436,9 @@ export default function MRTMap({ selectedStation, onStationClick }: MRTMapProps)
 
       // Special handling for left-edge stations - move right to prevent cutoff
       if (textContent.includes('tuas') || textContent.includes('gul') ||
-          textContent.includes('pioneer') || textContent.includes('joo koon')) {
-        text.setAttribute('x', String(currentX + 20));
+          textContent.includes('pioneer') || textContent.includes('joo koon') ||
+          textContent.includes('boon lay')) {
+        text.setAttribute('x', String(currentX + 25));
         return;
       }
 
