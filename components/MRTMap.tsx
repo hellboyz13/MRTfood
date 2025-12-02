@@ -447,6 +447,30 @@ export default function MRTMap({ selectedStation, onStationClick }: MRTMapProps)
         return;
       }
 
+      // Move Thomson line stations (Bright Hill, Upper Thomson) to the right like Mayflower
+      if (textContent.includes('bright hill') || textContent.includes('upper thomson')) {
+        text.setAttribute('x', String(currentX + 15));
+        return;
+      }
+
+      // Move North-South line stations (Yishun to Ang Mo Kio area) to the right
+      if (textContent.includes('yishun') || textContent.includes('khatib') ||
+          textContent.includes('yio chu kang') || textContent.includes('ang mo kio') ||
+          textContent.includes('canberra') || textContent.includes('sembawang')) {
+        text.setAttribute('x', String(currentX + 15));
+        return;
+      }
+
+      // Green line stations after Jurong East - reset/move to the right
+      if (textContent.includes('chinese garden') || textContent.includes('lakeside') ||
+          textContent.includes('clementi') || textContent.includes('dover') ||
+          textContent.includes('buona vista') || textContent.includes('commonwealth') ||
+          textContent.includes('queenstown') || textContent.includes('redhill') ||
+          textContent.includes('tiong bahru')) {
+        text.setAttribute('x', String(currentX + 10));
+        return;
+      }
+
       // Default: small offset to avoid circle overlap
       text.setAttribute('x', String(currentX + 3));
     });
