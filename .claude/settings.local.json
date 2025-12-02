@@ -24,7 +24,9 @@
       "Bash(git branch:*)",
       "Bash(git push:*)",
       "Bash(npm run build:*)",
-      "Bash(powershell -Command \"(Get-Content ''c:\\Users\\JeremyNg\\MRTfood\\public\\mrt-map.svg'' -Raw) -replace ''<text x=\"\"100\"\" y=\"\"508\"\"><tspan>Boon Lay</tspan></text>'', ''<text x=\"\"150\"\" y=\"\"508\"\"><tspan>Boon Lay</tspan></text>'' | Set-Content ''c:\\Users\\JeremyNg\\MRTfood\\public\\mrt-map.svg'' -NoNewline\")"
+      "Bash(powershell -Command \"(Get-Content ''c:\\Users\\JeremyNg\\MRTfood\\public\\mrt-map.svg'' -Raw) -replace ''<text x=\"\"100\"\" y=\"\"508\"\"><tspan>Boon Lay</tspan></text>'', ''<text x=\"\"150\"\" y=\"\"508\"\"><tspan>Boon Lay</tspan></text>'' | Set-Content ''c:\\Users\\JeremyNg\\MRTfood\\public\\mrt-map.svg'' -NoNewline\")",
+      "Bash(powershell -Command \"(Get-Content ''public/mrt-map.svg'' -Raw) -match ''stroke=\"\"#fa9e0d\"\"[^<]*<circle[^/]*'' ; $matches[0]\")",
+      "Bash(powershell -Command \"$content = Get-Content ''public/mrt-map.svg'' -Raw; $content -split ''<g stroke='' | ForEach-Object { if ($_-match ''#fa9e0d'') { $_Substring(0, [Math]::Min(1500, $_Length)) } }\")"
     ],
     "deny": [],
     "ask": []

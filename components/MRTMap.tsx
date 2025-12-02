@@ -611,12 +611,12 @@ export default function MRTMap({ selectedStation, onStationClick }: MRTMapProps)
         initialScale={MAP_CONSTRAINTS.defaultZoom}
         minScale={MAP_CONSTRAINTS.minZoom}
         maxScale={MAP_CONSTRAINTS.maxZoom}
-        centerOnInit={true}
+        centerOnInit={false}
         limitToBounds={false}
-        minPositionX={-800}
-        maxPositionX={800}
-        minPositionY={-500}
-        maxPositionY={500}
+        minPositionX={-1200}
+        maxPositionX={400}
+        minPositionY={-800}
+        maxPositionY={300}
         alignmentAnimation={{ sizeX: 0, sizeY: 0 }}
         velocityAnimation={{ sensitivity: 1, animationTime: 300 }}
         panning={{
@@ -627,6 +627,22 @@ export default function MRTMap({ selectedStation, onStationClick }: MRTMapProps)
         doubleClick={{ mode: 'toggle', step: 1.5 }}
         pinch={{ step: 5 }}
         wheel={{ step: 0.1 }}
+        onInit={(ref) => {
+          // Center on the actual map content (approximately center of MRT network)
+          // Map center is around (700, 500) in SVG coordinates
+          // With container padding of 300px, actual position is (1000, 800)
+          const mapCenterX = 700 + 300; // SVG center + padding
+          const mapCenterY = 500 + 300; // SVG center + padding
+          const scale = MAP_CONSTRAINTS.defaultZoom;
+          const viewportWidth = window.innerWidth;
+          const viewportHeight = window.innerHeight;
+
+          // Calculate position to center the map
+          const posX = viewportWidth / 2 - mapCenterX * scale;
+          const posY = viewportHeight / 2 - mapCenterY * scale;
+
+          ref.setTransform(posX, posY, scale, 0);
+        }}
         onZoom={handleZoomChange}
         onPanning={handleZoomChange}
       >
@@ -674,7 +690,15 @@ export default function MRTMap({ selectedStation, onStationClick }: MRTMapProps)
 
                 {/* Reset View */}
                 <button
-                  onClick={() => resetTransform(300)}
+                  onClick={() => {
+                    // Reset to centered view on map content
+                    const mapCenterX = 700 + 300;
+                    const mapCenterY = 500 + 300;
+                    const scale = MAP_CONSTRAINTS.defaultZoom;
+                    const posX = window.innerWidth / 2 - mapCenterX * scale;
+                    const posY = window.innerHeight / 2 - mapCenterY * scale;
+                    transformRef.current?.setTransform(posX, posY, scale, 300);
+                  }}
                   className="w-11 h-11 flex items-center justify-center bg-white hover:bg-gray-100 rounded-lg text-gray-700 transition-all active:scale-95"
                   aria-label="Reset view"
                 >
