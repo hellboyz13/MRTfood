@@ -613,10 +613,10 @@ export default function MRTMap({ selectedStation, onStationClick }: MRTMapProps)
         maxScale={MAP_CONSTRAINTS.maxZoom}
         centerOnInit={false}
         limitToBounds={false}
-        minPositionX={-600}
-        maxPositionX={200}
-        minPositionY={-400}
-        maxPositionY={150}
+        minPositionX={-200}
+        maxPositionX={100}
+        minPositionY={-150}
+        maxPositionY={100}
         alignmentAnimation={{ sizeX: 0, sizeY: 0 }}
         velocityAnimation={{ sensitivity: 1, animationTime: 300 }}
         panning={{
@@ -649,7 +649,7 @@ export default function MRTMap({ selectedStation, onStationClick }: MRTMapProps)
         {({ zoomIn, zoomOut, resetTransform }) => (
           <>
             {/* Control Buttons */}
-            <div className="absolute bottom-4 right-4 z-10 flex flex-col gap-2">
+            <div className="fixed bottom-20 right-4 z-50 flex flex-col gap-2">
               {/* Location error toast */}
               {locationError && (
                 <div className="absolute bottom-full right-0 mb-2 px-3 py-2 bg-red-100 text-red-700 text-xs rounded-lg shadow-lg whitespace-nowrap">
