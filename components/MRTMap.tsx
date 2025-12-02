@@ -92,6 +92,7 @@ const stationCoordinates: { [key: string]: { cx: number, cy: number, name: strin
   'gul-circle': { cx: 75, cy: 570, name: 'Gul Circle' },
   'tuas-crescent': { cx: 75, cy: 598, name: 'Tuas Crescent' },
   'tuas-west-road': { cx: 75, cy: 616, name: 'Tuas West Road' },
+  'tuas-link': { cx: 75, cy: 644, name: 'Tuas Link' },
   'tiong-bahru': { cx: 630, cy: 748, name: 'Tiong Bahru' },
   'redhill': { cx: 596, cy: 714, name: 'Redhill' },
   'tanjong-pagar': { cx: 699, cy: 848, name: 'Tanjong Pagar' },
@@ -433,46 +434,57 @@ export default function MRTMap({ selectedStation, onStationClick }: MRTMapProps)
       const textContent = text.textContent?.toLowerCase() || '';
       const currentX = parseFloat(text.getAttribute('x') || '0');
 
-      // Move Tuas/Gul area text to the LEFT of the circles
-      if (textContent.includes('tuas') || textContent.includes('gul')) {
-        text.setAttribute('x', String(currentX - 60));
+      // ISSUE 3: Tuas/Gul/Joo Koon area - move text to LEFT of circles with proper anchor
+      if (textContent.includes('tuas') || textContent.includes('gul') ||
+          textContent.includes('joo koon')) {
+        text.setAttribute('x', String(currentX - 10));
         text.setAttribute('text-anchor', 'end');
         return;
       }
 
-      // Move Pioneer, Joo Koon, Boon Lay to the right (they're on horizontal line)
-      if (textContent.includes('pioneer') || textContent.includes('joo koon') ||
-          textContent.includes('boon lay')) {
-        text.setAttribute('x', String(currentX + 15));
+      // Pioneer and Boon Lay - move to the right (they're on horizontal line)
+      if (textContent.includes('pioneer') || textContent.includes('boon lay')) {
+        text.setAttribute('x', String(currentX + 10));
+        text.setAttribute('text-anchor', 'start');
         return;
       }
 
-      // Move Thomson line stations (Bright Hill, Upper Thomson) to the right like Mayflower
+      // ISSUE 1: Thomson line stations (Bright Hill, Upper Thomson) - move to RIGHT like Mayflower
       if (textContent.includes('bright hill') || textContent.includes('upper thomson')) {
-        text.setAttribute('x', String(currentX + 15));
+        text.setAttribute('x', String(currentX + 12));
+        text.setAttribute('text-anchor', 'start');
         return;
       }
 
-      // Move North-South line stations (Yishun to Ang Mo Kio area) to the right
+      // ISSUE 2: North-South line stations (Yishun to Ang Mo Kio) - single line, RIGHT side
       if (textContent.includes('yishun') || textContent.includes('khatib') ||
           textContent.includes('yio chu kang') || textContent.includes('ang mo kio') ||
           textContent.includes('canberra') || textContent.includes('sembawang')) {
-        text.setAttribute('x', String(currentX + 15));
+        text.setAttribute('x', String(currentX + 12));
+        text.setAttribute('text-anchor', 'start');
         return;
       }
 
-      // Green line stations after Jurong East - reset/move to the right
-      if (textContent.includes('chinese garden') || textContent.includes('lakeside') ||
-          textContent.includes('clementi') || textContent.includes('dover') ||
+      // Green line stations west of Jurong East
+      if (textContent.includes('chinese garden') || textContent.includes('lakeside')) {
+        text.setAttribute('x', String(currentX + 10));
+        text.setAttribute('text-anchor', 'start');
+        return;
+      }
+
+      // Green line stations east of Jurong East
+      if (textContent.includes('clementi') || textContent.includes('dover') ||
           textContent.includes('buona vista') || textContent.includes('commonwealth') ||
           textContent.includes('queenstown') || textContent.includes('redhill') ||
           textContent.includes('tiong bahru')) {
-        text.setAttribute('x', String(currentX + 10));
+        text.setAttribute('x', String(currentX + 8));
+        text.setAttribute('text-anchor', 'start');
         return;
       }
 
       // Default: small offset to avoid circle overlap
       text.setAttribute('x', String(currentX + 3));
+      text.setAttribute('text-anchor', 'start');
     });
   };
 
