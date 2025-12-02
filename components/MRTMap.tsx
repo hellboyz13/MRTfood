@@ -434,19 +434,11 @@ export default function MRTMap({ selectedStation, onStationClick }: MRTMapProps)
       const textContent = text.textContent?.toLowerCase() || '';
       const currentX = parseFloat(text.getAttribute('x') || '0');
 
-      // ISSUE 3: Tuas/Gul/Joo Koon area - move text to LEFT of circles with proper anchor
+      // Tuas/Gul/Joo Koon area - positions already fixed in SVG, skip manipulation
       if (textContent.includes('tuas') || textContent.includes('gul') ||
-          textContent.includes('joo koon')) {
-        text.setAttribute('x', String(currentX - 10));
-        text.setAttribute('text-anchor', 'end');
-        return;
-      }
-
-      // Pioneer and Boon Lay - move to the right (they're on horizontal line)
-      if (textContent.includes('pioneer') || textContent.includes('boon lay')) {
-        text.setAttribute('x', String(currentX + 10));
-        text.setAttribute('text-anchor', 'start');
-        return;
+          textContent.includes('joo koon') || textContent.includes('pioneer') ||
+          textContent.includes('boon lay')) {
+        return; // Skip - positions are correct in SVG
       }
 
       // ISSUE 1: Thomson line stations (Bright Hill, Upper Thomson) - move to RIGHT like Mayflower
