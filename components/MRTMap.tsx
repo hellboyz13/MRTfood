@@ -432,22 +432,23 @@ export default function MRTMap({ selectedStation, onStationClick }: MRTMapProps)
 
       const textContent = text.textContent?.toLowerCase() || '';
       const currentX = parseFloat(text.getAttribute('x') || '0');
-      const textAnchor = text.getAttribute('text-anchor');
 
-      // Special handling for left-edge stations - move right to prevent cutoff
-      if (textContent.includes('tuas') || textContent.includes('gul') ||
-          textContent.includes('pioneer') || textContent.includes('joo koon') ||
-          textContent.includes('boon lay')) {
-        text.setAttribute('x', String(currentX + 25));
+      // Move Tuas/Gul area text to the LEFT of the circles
+      if (textContent.includes('tuas') || textContent.includes('gul')) {
+        text.setAttribute('x', String(currentX - 60));
+        text.setAttribute('text-anchor', 'end');
         return;
       }
 
-      // Add horizontal offset based on text alignment
-      if (textAnchor === 'end') {
-        text.setAttribute('x', String(currentX - 5));
-      } else if (textAnchor === 'start' || !textAnchor) {
-        text.setAttribute('x', String(currentX + 5));
+      // Move Pioneer, Joo Koon, Boon Lay to the right (they're on horizontal line)
+      if (textContent.includes('pioneer') || textContent.includes('joo koon') ||
+          textContent.includes('boon lay')) {
+        text.setAttribute('x', String(currentX + 15));
+        return;
       }
+
+      // Default: small offset to avoid circle overlap
+      text.setAttribute('x', String(currentX + 3));
     });
   };
 
