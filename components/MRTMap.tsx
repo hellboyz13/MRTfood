@@ -613,11 +613,11 @@ export default function MRTMap({ selectedStation, onStationClick }: MRTMapProps)
         minScale={MAP_CONSTRAINTS.minZoom}
         maxScale={MAP_CONSTRAINTS.maxZoom}
         centerOnInit={false}
-        limitToBounds={true}
-        minPositionX={-50}
-        maxPositionX={50}
-        minPositionY={-50}
-        maxPositionY={50}
+        limitToBounds={false}
+        minPositionX={-400}
+        maxPositionX={100}
+        minPositionY={-300}
+        maxPositionY={100}
         alignmentAnimation={{ sizeX: 0, sizeY: 0 }}
         velocityAnimation={{ sensitivity: 1, animationTime: 300 }}
         panning={{
