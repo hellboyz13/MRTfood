@@ -377,21 +377,32 @@ export default function MRTMap({ selectedStation, onStationClick }: MRTMapProps)
       }
     });
 
-    // 6. Make remaining station circles bigger
+    // 6. Make remaining station circles smaller for better text visibility
     const remainingCircles = svg.querySelectorAll('circle');
     remainingCircles.forEach(circle => {
       const r = parseFloat(circle.getAttribute('r') || '0');
 
       if (r === 6) {
-        circle.setAttribute('r', '10');
-        circle.setAttribute('stroke-width', '3');
-      } else if (r === 3) {
-        circle.setAttribute('r', '7');
-        circle.setAttribute('stroke-width', '2.5');
-      } else if (r >= 2.5 && r <= 2.7) {
-        circle.setAttribute('r', '5');
+        // Interchange stations - keep reasonable size
+        circle.setAttribute('r', '6');
         circle.setAttribute('stroke-width', '2');
+      } else if (r === 3) {
+        // Regular stations - smaller
+        circle.setAttribute('r', '4');
+        circle.setAttribute('stroke-width', '1.5');
+      } else if (r >= 2.5 && r <= 2.7) {
+        // LRT stations - keep small
+        circle.setAttribute('r', '3');
+        circle.setAttribute('stroke-width', '1');
       }
+    });
+
+    // 7. Adjust text positioning to avoid circle overlap
+    const textElements = svg.querySelectorAll('text');
+    textElements.forEach(text => {
+      // Make text more readable
+      text.setAttribute('font-size', '7');
+      text.setAttribute('font-family', 'Arial, sans-serif');
     });
   };
 
