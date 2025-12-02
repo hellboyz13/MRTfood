@@ -364,7 +364,15 @@ export default function MRTMap({ selectedStation, onStationClick }: MRTMapProps)
     const allTexts = svg.querySelectorAll('text');
     allTexts.forEach(text => {
       const y = parseFloat(text.getAttribute('y') || '0');
-      if (y < 50) {
+      const textContent = text.textContent?.toLowerCase() || '';
+
+      // Only remove title text, keep station names like "Woodlands North"
+      const isStationName = textContent.includes('woodlands') ||
+                            textContent.includes('north') ||
+                            textContent.includes('station') ||
+                            textContent.includes('mrt');
+
+      if (y < 30 && !isStationName) {
         text.remove();
         return;
       }
