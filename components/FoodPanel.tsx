@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useCallback } from 'react';
 import { SponsoredListing as MockSponsoredListing } from '@/types';
 import { SponsoredListing as DbSponsoredListing, FoodListingWithSource, FoodSource } from '@/types/database';
 import { stationNames, getSponsoredListing as getMockSponsored } from '@/data/mock-data';
@@ -7,6 +8,8 @@ import { getStationFood } from '@/data/stations';
 import { useStationFood } from '@/hooks/useStationFood';
 import SourceSection from './SourceSection';
 import SourceSectionDb from './SourceSectionDb';
+import MichelinSectionDb, { isMichelinSource } from './MichelinSectionDb';
+import SlotMachine from './SlotMachine';
 
 interface FoodPanelProps {
   stationId: string | null;
@@ -147,6 +150,14 @@ export default function FoodPanel({ stationId, onClose, isMobile = false }: Food
     isSupabaseConfigured() ? stationId : null
   );
 
+  // Track slot machine winner for highlighting
+  const [slotWinner, setSlotWinner] = useState<FoodListingWithSource | null>(null);
+
+  // Handle slot machine winner selection
+  const handleSlotWinner = useCallback((listing: FoodListingWithSource) => {
+    setSlotWinner(listing);
+  }, []);
+
   if (!stationId) return null;
 
   // Determine data source
@@ -161,6 +172,14 @@ export default function FoodPanel({ stationId, onClose, isMobile = false }: Food
   const mockSponsored = getMockSponsored(stationId);
   const mockStationFood = getStationFood(stationId);
 
+  // Get all listings for slot machine
+  const getAllListings = (): FoodListingWithSource[] => {
+    if (useSupabase && supabaseData) {
+      return supabaseData.listings;
+    }
+    return [];
+  };
+
   // Render content based on data source
   const renderContent = () => {
     if (useSupabase) {
@@ -170,19 +189,45 @@ export default function FoodPanel({ stationId, onClose, isMobile = false }: Food
 
       if (supabaseData) {
         const hasContent = supabaseData.sponsored || supabaseData.listingsBySource.length > 0;
+        const allListings = getAllListings();
+
+        // Separate Michelin sources from other sources
+        const michelinSources = supabaseData.listingsBySource.filter(
+          (sourceData) => isMichelinSource(sourceData.source.id)
+        );
+        const otherSources = supabaseData.listingsBySource.filter(
+          (sourceData) => !isMichelinSource(sourceData.source.id)
+        );
 
         return (
           <>
+            {/* Slot Machine - show when there are listings */}
+            {allListings.length > 1 && (
+              <SlotMachine
+                listings={allListings}
+                onSelectWinner={handleSlotWinner}
+              />
+            )}
             {supabaseData.sponsored && <SponsoredCardDb listing={supabaseData.sponsored} />}
             {supabaseData.listingsBySource.length > 0 ? (
-              supabaseData.listingsBySource.map((sourceData, index) => (
-                <SourceSectionDb
-                  key={sourceData.source.id}
-                  source={sourceData.source}
-                  listings={sourceData.listings}
-                  defaultExpanded={index === 0}
-                />
-              ))
+              <>
+                {/* Michelin container with sub-categories */}
+                {michelinSources.length > 0 && (
+                  <MichelinSectionDb
+                    sourceGroups={michelinSources}
+                    defaultExpanded={true}
+                  />
+                )}
+                {/* Other sources (Editor's Choice, etc.) */}
+                {otherSources.map((sourceData, index) => (
+                  <SourceSectionDb
+                    key={sourceData.source.id}
+                    source={sourceData.source}
+                    listings={sourceData.listings}
+                    defaultExpanded={michelinSources.length === 0 && index === 0}
+                  />
+                ))}
+              </>
             ) : (
               !supabaseData.sponsored && <EmptyState />
             )}

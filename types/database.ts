@@ -77,6 +77,10 @@ export interface Database {
           is_active: boolean;
           created_at: string;
           updated_at: string;
+          distance_to_station: number | null;
+          walking_time: number | null;
+          lat: number | null;
+          lng: number | null;
         };
         Insert: {
           id?: string;
@@ -92,6 +96,10 @@ export interface Database {
           is_active?: boolean;
           created_at?: string;
           updated_at?: string;
+          distance_to_station?: number | null;
+          walking_time?: number | null;
+          lat?: number | null;
+          lng?: number | null;
         };
         Update: {
           id?: string;
@@ -106,6 +114,10 @@ export interface Database {
           tags?: string[];
           is_active?: boolean;
           updated_at?: string;
+          distance_to_station?: number | null;
+          walking_time?: number | null;
+          lat?: number | null;
+          lng?: number | null;
         };
       };
       sponsored_listings: {

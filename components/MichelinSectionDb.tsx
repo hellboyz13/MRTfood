@@ -4,10 +4,20 @@ import { useState } from 'react';
 import { FoodSource, FoodListingWithSource } from '@/types/database';
 import { formatDistance, getWalkingTime, getMapsUrl } from '@/lib/distance';
 
-interface SourceSectionDbProps {
-  source: FoodSource;
-  listings: FoodListingWithSource[];
+interface MichelinSectionDbProps {
+  sourceGroups: {
+    source: FoodSource;
+    listings: FoodListingWithSource[];
+  }[];
   defaultExpanded?: boolean;
+}
+
+// Michelin sub-category IDs
+const MICHELIN_SOURCE_IDS = ['michelin-3-star', 'michelin-2-star', 'michelin-1-star', 'michelin-hawker'];
+
+// Helper to check if a source is a Michelin source
+export function isMichelinSource(sourceId: string): boolean {
+  return MICHELIN_SOURCE_IDS.includes(sourceId);
 }
 
 function FoodListingCardDb({ listing }: { listing: FoodListingWithSource }) {
@@ -96,20 +106,74 @@ function FoodListingCardDb({ listing }: { listing: FoodListingWithSource }) {
   );
 }
 
-export default function SourceSectionDb({ source, listings, defaultExpanded = true }: SourceSectionDbProps) {
+function SubCategorySection({
+  source,
+  listings,
+  defaultExpanded = true
+}: {
+  source: FoodSource;
+  listings: FoodListingWithSource[];
+  defaultExpanded?: boolean;
+}) {
   const [isExpanded, setIsExpanded] = useState(defaultExpanded);
 
   return (
     <div className="rounded-lg overflow-hidden" style={{ backgroundColor: source.bg_color }}>
-      {/* Header - Clickable to toggle */}
+      {/* Sub-category Header */}
       <button
         onClick={() => setIsExpanded(!isExpanded)}
-        className="w-full px-3 py-2.5 flex items-center justify-between hover:opacity-80 transition-opacity"
+        className="w-full px-3 py-2 flex items-center justify-between hover:opacity-80 transition-opacity"
       >
         <div className="flex items-center gap-2">
-          <span className="text-lg">{source.icon}</span>
-          <span className="font-semibold text-gray-800 text-sm">{source.name}</span>
+          <span className="text-base">{source.icon}</span>
+          <span className="font-medium text-gray-700 text-sm">{source.name}</span>
           <span className="text-xs text-gray-500">({listings.length})</span>
+        </div>
+        <svg
+          className={`w-3.5 h-3.5 text-gray-600 transition-transform duration-200 ${
+            isExpanded ? 'rotate-180' : ''
+          }`}
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+
+      {/* Listings */}
+      <div
+        className={`transition-all duration-200 ease-in-out overflow-hidden ${
+          isExpanded ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0'
+        }`}
+      >
+        <div className="px-3 pb-3 space-y-2">
+          {listings.map(listing => (
+            <FoodListingCardDb key={listing.id} listing={listing} />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default function MichelinSectionDb({ sourceGroups, defaultExpanded = true }: MichelinSectionDbProps) {
+  const [isExpanded, setIsExpanded] = useState(defaultExpanded);
+
+  // Calculate total count across all Michelin sub-categories
+  const totalCount = sourceGroups.reduce((sum, group) => sum + group.listings.length, 0);
+
+  return (
+    <div className="rounded-lg overflow-hidden bg-red-50 border border-red-100">
+      {/* Main Michelin Header */}
+      <button
+        onClick={() => setIsExpanded(!isExpanded)}
+        className="w-full px-3 py-2.5 flex items-center justify-between hover:bg-red-100/50 transition-colors"
+      >
+        <div className="flex items-center gap-2">
+          <span className="text-lg">🏅</span>
+          <span className="font-semibold text-gray-800 text-sm">Michelin</span>
+          <span className="text-xs text-gray-500">({totalCount})</span>
         </div>
         <svg
           className={`w-4 h-4 text-gray-600 transition-transform duration-200 ${
@@ -123,19 +187,23 @@ export default function SourceSectionDb({ source, listings, defaultExpanded = tr
         </svg>
       </button>
 
-      {/* Listings - Collapsible */}
+      {/* Sub-categories Container */}
       <div
         className={`transition-all duration-200 ease-in-out overflow-hidden ${
-          isExpanded ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0'
+          isExpanded ? 'max-h-[5000px] opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
-        <div className="px-3 pb-3 space-y-2">
-          {listings.map(listing => (
-            <FoodListingCardDb key={listing.id} listing={listing} />
+        <div className="px-2 pb-2 space-y-2">
+          {sourceGroups.map((group, index) => (
+            <SubCategorySection
+              key={group.source.id}
+              source={group.source}
+              listings={group.listings}
+              defaultExpanded={index === 0}
+            />
           ))}
         </div>
       </div>
-
     </div>
   );
 }

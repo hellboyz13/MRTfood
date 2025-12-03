@@ -24,47 +24,19 @@ export const foodSources: FoodSource[] = [
     bgColor: '#FEE2E2', // red-100
   },
   {
-    id: 'michelin-bib-gourmand',
-    name: 'Bib Gourmand',
+    id: 'michelin-hawker',
+    name: 'Michelin Hawker',
     icon: '🍽️',
     url: 'https://guide.michelin.com/sg/en',
     bgColor: '#DBEAFE', // blue-100
   },
-  // Other Sources
+  // Editor's Choice
   {
-    id: 'seth-lui',
-    name: 'Seth Lui',
-    icon: '🍜',
-    url: 'https://sethlui.com',
-    bgColor: '#FEF3C7', // amber-100
-  },
-  {
-    id: 'eatbook',
-    name: 'Eatbook',
-    icon: '🍔',
-    url: 'https://eatbook.sg',
-    bgColor: '#DBEAFE', // blue-100
-  },
-  {
-    id: 'miss-tam-chiak',
-    name: 'Miss Tam Chiak',
-    icon: '🥢',
-    url: 'https://misstamchiak.com',
-    bgColor: '#FCE7F3', // pink-100
-  },
-  {
-    id: 'ieatishootipost',
-    name: 'ieatishootipost',
-    icon: '📸',
-    url: 'https://ieatishootipost.sg',
-    bgColor: '#D1FAE5', // emerald-100
-  },
-  {
-    id: 'zermatt-neo',
-    name: 'Zermatt Neo',
-    icon: '🎬',
-    url: 'https://youtube.com/@ZermattNeo',
-    bgColor: '#E0E7FF', // indigo-100
+    id: 'editors-choice',
+    name: "Editor's Choice",
+    icon: '✨',
+    url: '',
+    bgColor: '#FDF4FF', // fuchsia-50
   },
 ];
 
