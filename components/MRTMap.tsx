@@ -630,9 +630,10 @@ export default function MRTMap({ selectedStation, onStationClick }: MRTMapProps)
           const mapWidth = 1410 + 600; // SVG width + padding
           const mapHeight = 1007 + 600; // SVG height + padding
 
-          // Calculate bounds to keep map visible
-          const minX = viewportWidth - mapWidth * scale;
-          const maxX = 0;
+          // Calculate bounds to keep map visible (with 100px margin for tighter horizontal bounds)
+          const margin = 100;
+          const minX = viewportWidth - mapWidth * scale + margin;
+          const maxX = -margin;
           const minY = viewportHeight - mapHeight * scale;
           const maxY = 0;
 
