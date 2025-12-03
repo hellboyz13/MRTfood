@@ -621,6 +621,35 @@ export default function MRTMap({ selectedStation, onStationClick }: MRTMapProps)
           lockAxisX: false,
           lockAxisY: false,
         }}
+        onPanningStop={(ref) => {
+          const { positionX, positionY, scale } = ref.state;
+          const viewportWidth = window.innerWidth;
+          const viewportHeight = window.innerHeight;
+
+          // Map boundaries (SVG dimensions + padding)
+          const mapWidth = 1410 + 600; // SVG width + padding
+          const mapHeight = 1007 + 600; // SVG height + padding
+
+          // Calculate bounds to keep map visible
+          const minX = viewportWidth - mapWidth * scale;
+          const maxX = 0;
+          const minY = viewportHeight - mapHeight * scale;
+          const maxY = 0;
+
+          // Clamp position to bounds
+          let newX = positionX;
+          let newY = positionY;
+
+          if (positionX < minX) newX = minX;
+          if (positionX > maxX) newX = maxX;
+          if (positionY < minY) newY = minY;
+          if (positionY > maxY) newY = maxY;
+
+          // Only update if position changed
+          if (newX !== positionX || newY !== positionY) {
+            ref.setTransform(newX, newY, scale, 200);
+          }
+        }}
         doubleClick={{ mode: 'toggle', step: 1.5 }}
         pinch={{ step: 5 }}
         wheel={{ step: 0.1 }}
