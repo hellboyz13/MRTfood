@@ -1,6 +1,36 @@
 import { FoodSource } from '@/types';
 
 export const foodSources: FoodSource[] = [
+  // Michelin Categories
+  {
+    id: 'michelin-3-star',
+    name: 'Michelin 3 Stars',
+    icon: '⭐⭐⭐',
+    url: 'https://guide.michelin.com/sg/en',
+    bgColor: '#FEF3C7', // amber-100 (gold)
+  },
+  {
+    id: 'michelin-2-star',
+    name: 'Michelin 2 Stars',
+    icon: '⭐⭐',
+    url: 'https://guide.michelin.com/sg/en',
+    bgColor: '#E5E7EB', // gray-200 (silver)
+  },
+  {
+    id: 'michelin-1-star',
+    name: 'Michelin 1 Star',
+    icon: '⭐',
+    url: 'https://guide.michelin.com/sg/en',
+    bgColor: '#FEE2E2', // red-100
+  },
+  {
+    id: 'michelin-bib-gourmand',
+    name: 'Bib Gourmand',
+    icon: '🍽️',
+    url: 'https://guide.michelin.com/sg/en',
+    bgColor: '#DBEAFE', // blue-100
+  },
+  // Other Sources
   {
     id: 'seth-lui',
     name: 'Seth Lui',
@@ -28,13 +58,6 @@ export const foodSources: FoodSource[] = [
     icon: '📸',
     url: 'https://ieatishootipost.sg',
     bgColor: '#D1FAE5', // emerald-100
-  },
-  {
-    id: 'michelin',
-    name: 'Michelin Guide',
-    icon: '⭐',
-    url: 'https://guide.michelin.com/sg/en',
-    bgColor: '#FEE2E2', // red-100
   },
   {
     id: 'zermatt-neo',
