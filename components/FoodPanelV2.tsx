@@ -128,12 +128,12 @@ export default function FoodPanelV2({ stationId, onClose, isMobile = false }: Fo
 
         {data.sponsored && <SponsoredCardDb listing={data.sponsored} />}
 
-        {/* Recommended section (Michelin, ieatishootipost, editors-choice) */}
+        {/* Michelin Guide section */}
         {recommended.length > 0 && (
           <div className="space-y-2">
             <h2 className="flex items-center gap-2 text-base font-semibold text-gray-800">
-              <span>🏆</span>
-              <span>Recommended</span>
+              <span>📕</span>
+              <span>Michelin Guide</span>
               <span className="text-xs font-normal text-gray-500">({recommended.length})</span>
             </h2>
             <div className="space-y-2">
