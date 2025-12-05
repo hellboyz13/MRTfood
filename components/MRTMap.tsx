@@ -792,42 +792,6 @@ export default function MRTMap({ selectedStation, onStationClick }: MRTMapProps)
                   )}
                 </button>
 
-                {/* Divider */}
-                <div className="h-px bg-gray-200 mx-1" />
-
-                {/* Michelin Filter */}
-                <button
-                  onClick={() => handleFilterToggle('michelin')}
-                  disabled={filterLoading}
-                  className={`w-11 h-11 flex items-center justify-center rounded-lg transition-all
-                    ${activeFilter === 'michelin'
-                      ? 'bg-red-500 text-white shadow-md'
-                      : 'bg-white hover:bg-gray-100 text-gray-700 active:scale-95'
-                    }
-                    ${filterLoading && activeFilter === 'michelin' ? 'animate-pulse' : ''}
-                  `}
-                  aria-label="Filter Michelin stations"
-                  title="Show Michelin restaurants"
-                >
-                  <span className="text-lg">⭐</span>
-                </button>
-
-                {/* Food King Filter */}
-                <button
-                  onClick={() => handleFilterToggle('food-king')}
-                  disabled={filterLoading}
-                  className={`w-11 h-11 flex items-center justify-center rounded-lg transition-all
-                    ${activeFilter === 'food-king'
-                      ? 'bg-orange-500 text-white shadow-md'
-                      : 'bg-white hover:bg-gray-100 text-gray-700 active:scale-95'
-                    }
-                    ${filterLoading && activeFilter === 'food-king' ? 'animate-pulse' : ''}
-                  `}
-                  aria-label="Filter Food King stations"
-                  title="Show Food King restaurants"
-                >
-                  <span className="text-lg">📺</span>
-                </button>
               </div>
             </div>
 

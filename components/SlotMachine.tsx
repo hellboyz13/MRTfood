@@ -153,30 +153,22 @@ export default function SlotMachine({ listings, onSelectWinner }: SlotMachinePro
   // Render idle state - the button
   if (phase === 'idle') {
     return (
-      <div className="bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-200 rounded-xl p-4 mb-4">
-        <div className="text-center mb-3">
-          <span className="text-lg">😵</span>
-          <p className="text-sm font-medium text-gray-700 mt-1">Can&apos;t decide what to eat?</p>
-        </div>
+      <div className="bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-200 rounded-lg p-2 mb-3">
         <button
           onClick={startSpin}
           disabled={listings.length === 0}
-          className="w-full py-3 px-4 bg-gradient-to-r from-amber-400 via-orange-400 to-amber-500
+          className="w-full py-2 px-3 bg-gradient-to-r from-amber-400 via-orange-400 to-amber-500
                      hover:from-amber-500 hover:via-orange-500 hover:to-amber-600
-                     text-white font-bold text-lg rounded-lg
-                     shadow-lg shadow-amber-200/50 hover:shadow-xl hover:shadow-amber-300/50
-                     transform hover:scale-[1.02] active:scale-[0.98]
+                     text-white font-semibold text-sm rounded-md
+                     shadow-md shadow-amber-200/50 hover:shadow-lg hover:shadow-amber-300/50
+                     transform hover:scale-[1.01] active:scale-[0.99]
                      transition-all duration-200
                      disabled:opacity-50 disabled:cursor-not-allowed
-                     animate-pulse-subtle
                      flex items-center justify-center gap-2"
         >
-          <span className="text-xl">🎰</span>
-          <span>SPIN TO EAT</span>
+          <span>🎰</span>
+          <span>Can&apos;t decide? SPIN TO EAT!</span>
         </button>
-        {listings.length === 0 && (
-          <p className="text-xs text-gray-500 text-center mt-2">No restaurants available</p>
-        )}
       </div>
     );
   }
@@ -185,37 +177,27 @@ export default function SlotMachine({ listings, onSelectWinner }: SlotMachinePro
   if (phase === 'spinning') {
     const currentListing = listings[displayIndex];
     return (
-      <div className="bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-200 rounded-xl p-4 mb-4">
-        <div className="text-center mb-3">
-          <span className="text-2xl animate-bounce">🎰</span>
-          <p className="text-sm font-medium text-gray-700 mt-1">Spinning...</p>
-        </div>
-
+      <div className="bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-200 rounded-lg p-2 mb-3">
         {/* Slot machine display */}
         <div
           ref={containerRef}
-          className="relative h-16 bg-white rounded-lg border-2 border-amber-300 overflow-hidden shadow-inner"
+          className="relative h-12 bg-white rounded-md border border-amber-300 overflow-hidden shadow-inner"
         >
           {/* Gradient overlays for slot machine effect */}
-          <div className="absolute inset-x-0 top-0 h-4 bg-gradient-to-b from-white to-transparent z-10" />
-          <div className="absolute inset-x-0 bottom-0 h-4 bg-gradient-to-t from-white to-transparent z-10" />
+          <div className="absolute inset-x-0 top-0 h-3 bg-gradient-to-b from-white to-transparent z-10" />
+          <div className="absolute inset-x-0 bottom-0 h-3 bg-gradient-to-t from-white to-transparent z-10" />
 
           {/* Current item */}
           <div
-            className="absolute inset-0 flex items-center justify-center px-4 transition-all"
+            className="absolute inset-0 flex items-center justify-center px-3 transition-all"
             style={{
               animationDuration: `${spinSpeed}ms`,
             }}
           >
             <div className={`text-center ${spinSpeed < 100 ? 'blur-[1px]' : ''}`}>
-              <p className="font-semibold text-gray-900 truncate">
-                {currentListing?.name || 'Loading...'}
+              <p className="font-semibold text-sm text-gray-900 truncate">
+                🎰 {currentListing?.name || 'Loading...'}
               </p>
-              {currentListing?.description && (
-                <p className="text-xs text-gray-500 truncate">
-                  {currentListing.description}
-                </p>
-              )}
             </div>
           </div>
         </div>
@@ -232,59 +214,35 @@ export default function SlotMachine({ listings, onSelectWinner }: SlotMachinePro
     const walkTime = formatWalkTime(winner.distance_to_station);
 
     return (
-      <div className="bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 border-2 border-amber-300 rounded-xl p-4 mb-4 animate-winner-glow">
-        {/* Header */}
-        <div className="text-center mb-3">
-          <p className="text-lg font-bold text-amber-700">
-            🎉 YOU&apos;RE EATING AT 🎉
-          </p>
-        </div>
-
+      <div className="bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 border border-amber-300 rounded-lg p-2 mb-3 animate-winner-glow">
         {/* Winner card */}
-        <div className="bg-white rounded-lg border border-amber-200 p-4 shadow-lg">
-          <h3 className="font-bold text-lg text-gray-900 mb-1">
+        <div className="bg-white rounded-md border border-amber-200 p-2 shadow-md mb-2">
+          <p className="text-xs text-amber-600 font-medium mb-1">🎉 You&apos;re eating at:</p>
+          <h3 className="font-bold text-sm text-gray-900">
             🍜 {winner.name}
           </h3>
 
-          {winner.description && (
-            <p className="text-sm text-gray-600 mb-2">{winner.description}</p>
-          )}
-
-          {/* Badges */}
-          <div className="space-y-1 mb-3">
+          {/* Badges inline */}
+          <div className="flex flex-wrap gap-2 mt-1 text-xs text-gray-500">
             {michelinBadge && (
-              <p className="text-sm font-medium text-amber-700">{michelinBadge}</p>
+              <span className="font-medium text-amber-700">{michelinBadge}</span>
             )}
             {(distance || walkTime) && (
-              <p className="text-sm text-gray-500">
-                🚶 {distance} · {walkTime}
-              </p>
+              <span>🚶 {distance} · {walkTime}</span>
             )}
           </div>
-
-          {/* Address / Directions link */}
-          {winner.address && (
-            <a
-              href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(winner.name + ' ' + winner.address)}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block text-sm text-blue-600 hover:text-blue-800 hover:underline"
-            >
-              📍 Tap for directions
-            </a>
-          )}
         </div>
 
         {/* Action buttons */}
-        <div className="flex gap-3 mt-4">
+        <div className="flex gap-2">
           <button
             onClick={reset}
-            className="flex-1 py-2.5 px-4 bg-gradient-to-r from-amber-400 to-orange-400
+            className="flex-1 py-1.5 px-3 bg-gradient-to-r from-amber-400 to-orange-400
                        hover:from-amber-500 hover:to-orange-500
-                       text-white font-semibold rounded-lg
-                       shadow-md hover:shadow-lg
+                       text-white font-semibold text-xs rounded-md
+                       shadow-sm hover:shadow-md
                        transition-all duration-200
-                       flex items-center justify-center gap-2"
+                       flex items-center justify-center gap-1"
           >
             <span>🎰</span>
             <span>Spin Again</span>
@@ -295,12 +253,12 @@ export default function SlotMachine({ listings, onSelectWinner }: SlotMachinePro
               href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(winner.name + ' ' + winner.address)}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 py-2.5 px-4 bg-gradient-to-r from-green-500 to-emerald-500
+              className="flex-1 py-1.5 px-3 bg-gradient-to-r from-green-500 to-emerald-500
                          hover:from-green-600 hover:to-emerald-600
-                         text-white font-semibold rounded-lg
-                         shadow-md hover:shadow-lg
+                         text-white font-semibold text-xs rounded-md
+                         shadow-sm hover:shadow-md
                          transition-all duration-200
-                         flex items-center justify-center gap-2"
+                         flex items-center justify-center gap-1"
             >
               <span>📍</span>
               <span>Let&apos;s Go!</span>
