@@ -53,6 +53,13 @@ export const foodSources: FoodSource[] = [
     url: 'https://ieatishootipost.sg/',
     bgColor: '#ECFCCB', // lime-100
   },
+  {
+    id: 'get-fed',
+    name: 'GET FED',
+    icon: '🍉',
+    url: 'https://www.youtube.com/@getfed',
+    bgColor: '#FED7AA', // orange-200
+  },
 ];
 
 // Helper to get a source by ID
