@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import confetti from 'canvas-confetti';
 import { FoodListingWithSources } from '@/types/database';
 
@@ -30,11 +30,30 @@ function formatWalkTime(meters: number | null): string {
   return `${minutes} min walk`;
 }
 
+// Dot patterns for cards (like dice)
+const dotPatterns: { [key: number]: { x: number; y: number }[] } = {
+  1: [{ x: 50, y: 50 }],
+  2: [{ x: 25, y: 25 }, { x: 75, y: 75 }],
+  3: [{ x: 25, y: 25 }, { x: 50, y: 50 }, { x: 75, y: 75 }],
+  4: [{ x: 25, y: 25 }, { x: 75, y: 25 }, { x: 25, y: 75 }, { x: 75, y: 75 }],
+  5: [{ x: 25, y: 25 }, { x: 75, y: 25 }, { x: 50, y: 50 }, { x: 25, y: 75 }, { x: 75, y: 75 }],
+};
+
+// Card positions (spread horizontally)
+const cardPositions = [
+  { x: 0, y: 0 },
+  { x: 70, y: 0 },
+  { x: 140, y: 0 },
+  { x: 210, y: 0 },
+  { x: 280, y: 0 },
+];
+
 export default function CardShuffleGame({ listings, onSelectWinner, onClose }: CardShuffleGameProps) {
-  const [phase, setPhase] = useState<'shuffling' | 'picking' | 'revealed'>('shuffling');
-  const [cardPositions, setCardPositions] = useState<number[]>([0, 1, 2, 3, 4]);
+  const [phase, setPhase] = useState<'idle' | 'shuffling' | 'picking' | 'revealed'>('idle');
+  const [positions, setPositions] = useState<number[]>([0, 1, 2, 3, 4]); // Which position each card is at
   const [winner, setWinner] = useState<FoodListingWithSources | null>(null);
-  const [shuffleCount, setShuffleCount] = useState(0);
+  const [selectedCard, setSelectedCard] = useState<number | null>(null);
+  const shuffleTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const fireConfetti = useCallback(() => {
     const count = 200;
@@ -57,36 +76,51 @@ export default function CardShuffleGame({ listings, onSelectWinner, onClose }: C
     }
   }, []);
 
-  // Shuffle animation
-  useEffect(() => {
-    if (phase !== 'shuffling') return;
+  // Start shuffling
+  const startShuffle = useCallback(() => {
+    setPhase('shuffling');
+    setWinner(null);
+    setSelectedCard(null);
 
-    const totalShuffles = 12;
-    const shuffleInterval = setInterval(() => {
-      setShuffleCount(prev => {
-        if (prev >= totalShuffles) {
-          clearInterval(shuffleInterval);
-          setPhase('picking');
-          return prev;
-        }
-        // Randomly shuffle positions
-        setCardPositions(prev => {
-          const newPositions = [...prev];
-          for (let i = newPositions.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [newPositions[i], newPositions[j]] = [newPositions[j], newPositions[i]];
-          }
-          return newPositions;
-        });
-        return prev + 1;
+    let shuffleCount = 0;
+    const totalShuffles = 15;
+
+    const doShuffle = () => {
+      if (shuffleCount >= totalShuffles) {
+        setPhase('picking');
+        return;
+      }
+
+      // Swap two random cards
+      setPositions(prev => {
+        const newPositions = [...prev];
+        const i = Math.floor(Math.random() * 5);
+        let j = Math.floor(Math.random() * 5);
+        while (j === i) j = Math.floor(Math.random() * 5);
+        [newPositions[i], newPositions[j]] = [newPositions[j], newPositions[i]];
+        return newPositions;
       });
-    }, 250);
 
-    return () => clearInterval(shuffleInterval);
-  }, [phase]);
+      shuffleCount++;
+      const delay = shuffleCount < 5 ? 150 : shuffleCount < 10 ? 200 : 300;
+      shuffleTimeoutRef.current = setTimeout(doShuffle, delay);
+    };
 
-  const handleCardClick = () => {
+    doShuffle();
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      if (shuffleTimeoutRef.current) {
+        clearTimeout(shuffleTimeoutRef.current);
+      }
+    };
+  }, []);
+
+  const handleCardClick = (cardIndex: number) => {
     if (phase !== 'picking') return;
+
+    setSelectedCard(cardIndex);
 
     // Pick a random winner from listings
     const randomIndex = Math.floor(Math.random() * listings.length);
@@ -100,54 +134,52 @@ export default function CardShuffleGame({ listings, onSelectWinner, onClose }: C
   };
 
   const handleDrawAgain = () => {
-    setPhase('shuffling');
-    setWinner(null);
-    setShuffleCount(0);
-    setCardPositions([0, 1, 2, 3, 4]);
+    setPositions([0, 1, 2, 3, 4]);
+    startShuffle();
   };
 
-  // Card back design
-  const CardBack = ({ index, onClick, isShuffling }: { index: number; onClick?: () => void; isShuffling: boolean }) => {
-    const position = cardPositions[index];
+  // White card with dots
+  const Card = ({ cardNumber, positionIndex, onClick, isSelected }: {
+    cardNumber: number;
+    positionIndex: number;
+    onClick?: () => void;
+    isSelected?: boolean;
+  }) => {
+    const pos = cardPositions[positionIndex];
+    const dots = dotPatterns[cardNumber];
 
     return (
       <div
         onClick={onClick}
         className={`
-          relative w-20 h-28 sm:w-24 sm:h-32 rounded-lg cursor-pointer
-          transform transition-all duration-300 ease-in-out
-          ${isShuffling ? 'hover:scale-100' : 'hover:scale-110 hover:-translate-y-2'}
-          ${onClick ? 'cursor-pointer' : 'cursor-default'}
+          absolute w-16 h-24 sm:w-20 sm:h-28 rounded-lg
+          transition-all duration-300 ease-out
+          ${phase === 'picking' ? 'cursor-pointer hover:scale-110 hover:-translate-y-2 hover:shadow-xl' : ''}
+          ${isSelected ? 'ring-4 ring-amber-400 scale-110 -translate-y-2' : ''}
         `}
         style={{
-          transform: isShuffling
-            ? `translateX(${(position - 2) * 10}px) rotate(${(position - 2) * 3}deg)`
-            : undefined,
+          left: `${pos.x}px`,
+          top: `${pos.y}px`,
+          zIndex: isSelected ? 10 : 1,
         }}
       >
         {/* Card shadow */}
         <div className="absolute inset-0 bg-black/20 rounded-lg transform translate-x-1 translate-y-1" />
 
-        {/* Card body */}
-        <div className="relative w-full h-full bg-gradient-to-br from-red-700 via-red-600 to-red-800 rounded-lg border-2 border-red-900 overflow-hidden">
-          {/* Inner border */}
-          <div className="absolute inset-1 border border-yellow-500/50 rounded-md" />
-
-          {/* Diamond pattern */}
-          <div className="absolute inset-0 opacity-30">
-            <div className="absolute inset-0" style={{
-              backgroundImage: `repeating-linear-gradient(45deg, transparent, transparent 8px, rgba(255,215,0,0.1) 8px, rgba(255,215,0,0.1) 16px)`,
-            }} />
-          </div>
-
-          {/* Center design */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="text-3xl sm:text-4xl">?</div>
-          </div>
-
-          {/* Corner designs */}
-          <div className="absolute top-1 left-1 text-yellow-400 text-xs font-bold">MRT</div>
-          <div className="absolute bottom-1 right-1 text-yellow-400 text-xs font-bold rotate-180">MRT</div>
+        {/* Card body - white with subtle gradient */}
+        <div className="relative w-full h-full bg-gradient-to-br from-white to-gray-100 rounded-lg border-2 border-gray-300 shadow-md overflow-hidden">
+          {/* Dots */}
+          {dots.map((dot, i) => (
+            <div
+              key={i}
+              className="absolute w-3 h-3 sm:w-4 sm:h-4 bg-gray-800 rounded-full"
+              style={{
+                left: `${dot.x}%`,
+                top: `${dot.y}%`,
+                transform: 'translate(-50%, -50%)',
+              }}
+            />
+          ))}
         </div>
       </div>
     );
@@ -163,17 +195,17 @@ export default function CardShuffleGame({ listings, onSelectWinner, onClose }: C
     const walkTime = formatWalkTime(winner.distance_to_station);
 
     return (
-      <div className="relative w-64 sm:w-72 bg-white rounded-xl shadow-2xl overflow-hidden animate-flip-in">
+      <div className="bg-white rounded-xl shadow-lg overflow-hidden animate-flip-in border border-gray-200">
         {/* Card header */}
         <div className="bg-gradient-to-r from-amber-400 to-orange-500 p-3 text-center">
-          <p className="text-white text-sm font-medium">You&apos;re eating at...</p>
+          <p className="text-white text-sm font-medium">🎉 You&apos;re eating at...</p>
         </div>
 
         {/* Card content */}
         <div className="p-4">
           {/* Food emoji and name */}
           <div className="text-center mb-3">
-            <span className="text-4xl mb-2 block">
+            <span className="text-3xl mb-2 block">
               {winner.tags?.includes('Japanese') ? '🍜' :
                winner.tags?.includes('Chinese') ? '🥢' :
                winner.tags?.includes('Korean') ? '🍲' :
@@ -230,7 +262,7 @@ export default function CardShuffleGame({ listings, onSelectWinner, onClose }: C
                          flex items-center justify-center gap-1"
             >
               <span>🔄</span>
-              <span>Draw Again</span>
+              <span>Again</span>
             </button>
 
             <a
@@ -254,77 +286,75 @@ export default function CardShuffleGame({ listings, onSelectWinner, onClose }: C
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center">
-      {/* Backdrop */}
-      <div
-        className="absolute inset-0 bg-black/70 backdrop-blur-sm"
-        onClick={onClose}
-      />
-
-      {/* Game container */}
-      <div className="relative w-full max-w-lg mx-4">
-        {/* Close button */}
-        <button
-          onClick={onClose}
-          className="absolute -top-12 right-0 z-10 w-10 h-10 bg-white/10 hover:bg-white/20
-                     rounded-full flex items-center justify-center text-white text-xl
-                     transition-colors duration-200"
-          aria-label="Close"
-        >
-          ✕
-        </button>
-
-        {/* Gambling board background */}
-        <div className="relative bg-gradient-to-b from-green-800 via-green-700 to-green-900
-                        rounded-2xl p-6 sm:p-8 shadow-2xl border-4 border-amber-600">
-          {/* Felt texture overlay */}
-          <div className="absolute inset-0 rounded-2xl opacity-20"
-               style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 100 100\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noise\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.8\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noise)\' opacity=\'0.5\'/%3E%3C/svg%3E")' }}
-          />
-
-          {/* Inner border */}
-          <div className="absolute inset-3 border-2 border-amber-500/30 rounded-xl pointer-events-none" />
-
-          {/* Title */}
-          <div className="text-center mb-6 relative">
-            <h2 className="text-2xl sm:text-3xl font-bold text-amber-400 drop-shadow-lg">
-              {phase === 'shuffling' ? '🃏 Shuffling...' :
-               phase === 'picking' ? '👆 Pick a Card!' :
-               '🎉 Winner!'}
-            </h2>
-            {phase === 'picking' && (
-              <p className="text-amber-200/80 text-sm mt-1">Choose your destiny!</p>
-            )}
-          </div>
-
-          {/* Cards area */}
-          <div className="relative min-h-[180px] flex items-center justify-center">
-            {phase !== 'revealed' ? (
-              <div className="flex gap-2 sm:gap-3 justify-center">
-                {[0, 1, 2, 3, 4].map((index) => (
-                  <CardBack
-                    key={index}
-                    index={index}
-                    onClick={phase === 'picking' ? handleCardClick : undefined}
-                    isShuffling={phase === 'shuffling'}
-                  />
-                ))}
-              </div>
-            ) : (
-              <RevealedCard />
-            )}
-          </div>
-
-          {/* Decorative elements */}
-          <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-2">
-            <span className="text-amber-500/40 text-xl">♠</span>
-            <span className="text-red-500/40 text-xl">♥</span>
-            <span className="text-amber-500/40 text-xl">♣</span>
-            <span className="text-red-500/40 text-xl">♦</span>
-          </div>
-        </div>
+    <div className="bg-gradient-to-br from-green-700 via-green-600 to-green-800 rounded-xl p-4 sm:p-6 shadow-lg border-2 border-amber-500/50">
+      {/* Title */}
+      <div className="text-center mb-4">
+        <h3 className="text-lg sm:text-xl font-bold text-amber-300">
+          {phase === 'idle' ? '🃏 Pick a Card Game' :
+           phase === 'shuffling' ? '🔀 Shuffling...' :
+           phase === 'picking' ? '👆 Pick a Card!' :
+           '🎉 Winner!'}
+        </h3>
+        {phase === 'idle' && (
+          <p className="text-amber-200/70 text-sm mt-1">Let fate decide your meal!</p>
+        )}
+        {phase === 'picking' && (
+          <p className="text-amber-200/70 text-sm mt-1">Choose your destiny!</p>
+        )}
       </div>
 
+      {/* Cards area */}
+      <div className="relative min-h-[140px] sm:min-h-[160px] flex items-center justify-center mb-4">
+        {phase !== 'revealed' ? (
+          <div className="relative" style={{ width: '350px', height: '112px' }}>
+            {[1, 2, 3, 4, 5].map((cardNum, index) => (
+              <Card
+                key={cardNum}
+                cardNumber={cardNum}
+                positionIndex={positions[index]}
+                onClick={phase === 'picking' ? () => handleCardClick(index) : undefined}
+                isSelected={selectedCard === index}
+              />
+            ))}
+          </div>
+        ) : (
+          <RevealedCard />
+        )}
+      </div>
+
+      {/* Start/Close buttons */}
+      {phase === 'idle' && (
+        <div className="flex gap-2">
+          <button
+            onClick={startShuffle}
+            disabled={listings.length === 0}
+            className="flex-1 py-2 px-4 bg-gradient-to-r from-amber-400 to-orange-500
+                       hover:from-amber-500 hover:to-orange-600
+                       text-white font-semibold text-sm rounded-lg
+                       shadow-md hover:shadow-lg
+                       transition-all duration-200
+                       disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            🎴 Start Shuffle
+          </button>
+          <button
+            onClick={onClose}
+            className="py-2 px-4 bg-white/10 hover:bg-white/20
+                       text-white font-medium text-sm rounded-lg
+                       transition-colors duration-200"
+          >
+            ✕ Close
+          </button>
+        </div>
+      )}
+
+      {/* Decorative elements */}
+      <div className="flex justify-center gap-2 mt-3 opacity-40">
+        <span className="text-amber-400">♠</span>
+        <span className="text-red-400">♥</span>
+        <span className="text-amber-400">♣</span>
+        <span className="text-red-400">♦</span>
+      </div>
     </div>
   );
 }
