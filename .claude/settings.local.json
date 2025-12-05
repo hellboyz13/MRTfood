@@ -10,7 +10,11 @@
       "Bash(powershell:*)",
       "Bash(findstr:*)",
       "Bash(Out-File -FilePath 'c:\\Users\\JeremyNg\\MRTfood\\public\\mrt-map-formatted.svg' -Encoding utf8)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(git pull:*)",
+      "Bash(git stash:*)"
     ],
     "deny": [],
     "ask": []
