@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import MRTMap from '@/components/MRTMap';
-import FoodPanel from '@/components/FoodPanel';
+import FoodPanelV2 from '@/components/FoodPanelV2';
 
 export default function Home() {
   const [selectedStation, setSelectedStation] = useState<string | null>(null);
@@ -29,6 +29,15 @@ export default function Home() {
 
   return (
     <main className="h-screen flex flex-col overflow-hidden">
+      {/* Logo - Top Left */}
+      <div className="absolute top-3 left-3 z-50">
+        <img
+          src="/logo.jpg"
+          alt="MRT Food Logo"
+          className="w-12 h-12 md:w-16 md:h-16 rounded-full shadow-lg border-2 border-white"
+        />
+      </div>
+
       {/* Main Content */}
       <div className="flex-1 flex relative overflow-hidden">
         {/* MRT Map */}
@@ -42,7 +51,7 @@ export default function Home() {
         {/* Food Panel - Desktop */}
         {selectedStation && !isMobile && (
           <div className="absolute top-0 right-0 h-full">
-            <FoodPanel
+            <FoodPanelV2
               stationId={selectedStation}
               onClose={handleClosePanel}
               isMobile={false}
@@ -50,20 +59,13 @@ export default function Home() {
           </div>
         )}
 
-        {/* Food Panel - Mobile Drawer */}
+        {/* Food Panel - Mobile Drawer (includes overlay) */}
         {selectedStation && isMobile && (
-          <>
-            {/* Overlay */}
-            <div
-              className="fixed inset-0 z-40 drawer-overlay"
-              onClick={handleClosePanel}
-            />
-            <FoodPanel
-              stationId={selectedStation}
-              onClose={handleClosePanel}
-              isMobile={true}
-            />
-          </>
+          <FoodPanelV2
+            stationId={selectedStation}
+            onClose={handleClosePanel}
+            isMobile={true}
+          />
         )}
       </div>
     </main>

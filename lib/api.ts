@@ -4,8 +4,9 @@ import {
   FoodSource,
   FoodListing,
   SponsoredListing,
-  FoodListingWithSource,
+  FoodListingWithSources,
   StationFoodData,
+  ListingSourceWithDetails,
 } from '@/types/database';
 
 // ============================================
@@ -58,30 +59,6 @@ export async function getFoodSources(): Promise<FoodSource[]> {
 }
 
 // ============================================
-// FOOD LISTINGS
-// ============================================
-export async function getFoodListingsByStation(
-  stationId: string
-): Promise<FoodListingWithSource[]> {
-  const { data, error } = await supabase
-    .from('food_listings')
-    .select(`
-      *,
-      food_sources (*)
-    `)
-    .eq('station_id', stationId)
-    .eq('is_active', true)
-    .order('rating', { ascending: false });
-
-  if (error) {
-    console.error('Error fetching food listings:', error);
-    return [];
-  }
-
-  return (data as FoodListingWithSource[]) || [];
-}
-
-// ============================================
 // SPONSORED LISTINGS
 // ============================================
 export async function getSponsoredListing(
@@ -108,47 +85,96 @@ export async function getSponsoredListing(
 }
 
 // ============================================
+// FOOD LISTINGS (Multi-source via junction table)
+// ============================================
+
+// Get listings with all their sources via junction table
+export async function getFoodListingsByStation(
+  stationId: string
+): Promise<FoodListingWithSources[]> {
+  // First get all listings for this station
+  const { data: listings, error: listingsError } = await supabase
+    .from('food_listings')
+    .select('*')
+    .eq('station_id', stationId)
+    .eq('is_active', true);
+
+  if (listingsError || !listings || listings.length === 0) {
+    if (listingsError) console.error('Error fetching food listings:', listingsError);
+    return [];
+  }
+
+  // Get all listing_sources for these listings with joined food_sources
+  const listingIds = listings.map((l: FoodListing) => l.id);
+  const { data: listingSources, error: sourcesError } = await supabase
+    .from('listing_sources')
+    .select(`
+      listing_id,
+      source_url,
+      is_primary,
+      food_sources (*)
+    `)
+    .in('listing_id', listingIds);
+
+  if (sourcesError) {
+    console.error('Error fetching listing sources:', sourcesError);
+  }
+
+  // Group sources by listing_id
+  const sourcesByListing = new Map<string, ListingSourceWithDetails[]>();
+  (listingSources || []).forEach((ls: { listing_id: string; source_url: string; is_primary: boolean; food_sources: FoodSource | null }) => {
+    if (!ls.food_sources) return;
+    const sources = sourcesByListing.get(ls.listing_id) || [];
+    sources.push({
+      source: ls.food_sources,
+      source_url: ls.source_url || '',
+      is_primary: ls.is_primary,
+    });
+    sourcesByListing.set(ls.listing_id, sources);
+  });
+
+  // Combine listings with their sources and compute trust score
+  const result: FoodListingWithSources[] = listings.map((listing: FoodListing) => {
+    const sources = sourcesByListing.get(listing.id) || [];
+    // Sort sources: primary first, then by weight descending
+    sources.sort((a, b) => {
+      if (a.is_primary !== b.is_primary) return a.is_primary ? -1 : 1;
+      return (b.source.weight || 1) - (a.source.weight || 1);
+    });
+    const trust_score = sources.reduce((sum, s) => sum + (s.source.weight || 1), 0);
+    return {
+      ...listing,
+      sources,
+      trust_score,
+    };
+  });
+
+  // Sort by trust score descending
+  result.sort((a, b) => (b.trust_score || 0) - (a.trust_score || 0));
+
+  return result;
+}
+
+// ============================================
 // COMBINED STATION FOOD DATA
 // ============================================
 export async function getStationFoodData(
   stationId: string
 ): Promise<StationFoodData | null> {
-  // Fetch all data in parallel
-  const [station, sponsored, listings, sources] = await Promise.all([
+  const [station, sponsored, listings] = await Promise.all([
     getStation(stationId),
     getSponsoredListing(stationId),
     getFoodListingsByStation(stationId),
-    getFoodSources(),
   ]);
 
   if (!station) {
     return null;
   }
 
-  // Group listings by source
-  const sourceMap = new Map<string, FoodListingWithSource[]>();
-
-  listings.forEach((listing) => {
-    if (listing.source_id) {
-      const existing = sourceMap.get(listing.source_id) || [];
-      existing.push(listing);
-      sourceMap.set(listing.source_id, existing);
-    }
-  });
-
-  // Build listingsBySource array, maintaining source order
-  const listingsBySource = sources
-    .filter((source) => sourceMap.has(source.id))
-    .map((source) => ({
-      source,
-      listings: sourceMap.get(source.id) || [],
-    }));
-
   return {
     station,
     sponsored,
     listings,
-    listingsBySource,
   };
 }
 
@@ -157,22 +183,102 @@ export async function getStationFoodData(
 // ============================================
 export async function searchFoodListings(
   query: string
-): Promise<FoodListingWithSource[]> {
-  const { data, error } = await supabase
+): Promise<FoodListingWithSources[]> {
+  // First get matching listings
+  const { data: listings, error: listingsError } = await supabase
     .from('food_listings')
-    .select(`
-      *,
-      food_sources (*)
-    `)
+    .select('*')
     .eq('is_active', true)
     .or(`name.ilike.%${query}%,description.ilike.%${query}%,tags.cs.{${query}}`)
     .order('rating', { ascending: false })
     .limit(20);
 
-  if (error) {
-    console.error('Error searching food listings:', error);
+  if (listingsError || !listings || listings.length === 0) {
+    if (listingsError) console.error('Error searching food listings:', listingsError);
     return [];
   }
 
-  return (data as FoodListingWithSource[]) || [];
+  // Get sources for these listings
+  const listingIds = listings.map((l: FoodListing) => l.id);
+  const { data: listingSources, error: sourcesError } = await supabase
+    .from('listing_sources')
+    .select(`
+      listing_id,
+      source_url,
+      is_primary,
+      food_sources (*)
+    `)
+    .in('listing_id', listingIds);
+
+  if (sourcesError) {
+    console.error('Error fetching listing sources:', sourcesError);
+  }
+
+  // Group sources by listing_id
+  const sourcesByListing = new Map<string, ListingSourceWithDetails[]>();
+  (listingSources || []).forEach((ls: { listing_id: string; source_url: string; is_primary: boolean; food_sources: FoodSource | null }) => {
+    if (!ls.food_sources) return;
+    const sources = sourcesByListing.get(ls.listing_id) || [];
+    sources.push({
+      source: ls.food_sources,
+      source_url: ls.source_url || '',
+      is_primary: ls.is_primary,
+    });
+    sourcesByListing.set(ls.listing_id, sources);
+  });
+
+  // Combine listings with their sources
+  return listings.map((listing: FoodListing) => {
+    const sources = sourcesByListing.get(listing.id) || [];
+    sources.sort((a, b) => {
+      if (a.is_primary !== b.is_primary) return a.is_primary ? -1 : 1;
+      return (b.source.weight || 1) - (a.source.weight || 1);
+    });
+    const trust_score = sources.reduce((sum, s) => sum + (s.source.weight || 1), 0);
+    return {
+      ...listing,
+      sources,
+      trust_score,
+    };
+  });
+}
+
+// ============================================
+// STATIONS BY SOURCE FILTER
+// ============================================
+
+// Get station IDs that have listings from specific source(s)
+export async function getStationsBySource(
+  sourceIds: string[]
+): Promise<string[]> {
+  if (sourceIds.length === 0) return [];
+
+  // Query listing_sources to find all listings with these sources
+  const { data: listingSources, error: sourcesError } = await supabase
+    .from('listing_sources')
+    .select('listing_id')
+    .in('source_id', sourceIds);
+
+  if (sourcesError || !listingSources || listingSources.length === 0) {
+    if (sourcesError) console.error('Error fetching listing sources:', sourcesError);
+    return [];
+  }
+
+  // Get unique listing IDs
+  const listingIds = [...new Set((listingSources as { listing_id: string }[]).map(ls => ls.listing_id))];
+
+  // Get station IDs for these listings
+  const { data: listings, error: listingsError } = await supabase
+    .from('food_listings')
+    .select('station_id')
+    .in('id', listingIds)
+    .eq('is_active', true);
+
+  if (listingsError || !listings) {
+    if (listingsError) console.error('Error fetching listings:', listingsError);
+    return [];
+  }
+
+  // Return unique station IDs
+  return [...new Set((listings as { station_id: string | null }[]).map(l => l.station_id).filter(Boolean))] as string[];
 }

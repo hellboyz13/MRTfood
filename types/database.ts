@@ -44,6 +44,7 @@ export interface Database {
           icon: string;
           url: string | null;
           bg_color: string;
+          weight: number;
           created_at: string;
         };
         Insert: {
@@ -52,6 +53,7 @@ export interface Database {
           icon?: string;
           url?: string | null;
           bg_color?: string;
+          weight?: number;
           created_at?: string;
         };
         Update: {
@@ -60,6 +62,32 @@ export interface Database {
           icon?: string;
           url?: string | null;
           bg_color?: string;
+          weight?: number;
+        };
+      };
+      listing_sources: {
+        Row: {
+          id: string;
+          listing_id: string;
+          source_id: string;
+          source_url: string;
+          is_primary: boolean;
+          created_at: string;
+        };
+        Insert: {
+          id?: string;
+          listing_id: string;
+          source_id: string;
+          source_url?: string;
+          is_primary?: boolean;
+          created_at?: string;
+        };
+        Update: {
+          id?: string;
+          listing_id?: string;
+          source_id?: string;
+          source_url?: string;
+          is_primary?: boolean;
         };
       };
       food_listings: {
@@ -181,18 +209,25 @@ export type Station = Database['public']['Tables']['stations']['Row'];
 export type FoodSource = Database['public']['Tables']['food_sources']['Row'];
 export type FoodListing = Database['public']['Tables']['food_listings']['Row'];
 export type SponsoredListing = Database['public']['Tables']['sponsored_listings']['Row'];
+export type ListingSource = Database['public']['Tables']['listing_sources']['Row'];
 
-// Types with joined data
-export interface FoodListingWithSource extends FoodListing {
-  food_sources: FoodSource | null;
+// Source with its metadata from junction table
+export interface ListingSourceWithDetails {
+  source: FoodSource;
+  source_url: string;
+  is_primary: boolean;
 }
 
+// Listing with all its sources (via junction table)
+export interface FoodListingWithSources extends FoodListing {
+  sources: ListingSourceWithDetails[];
+  // Computed trust score (sum of source weights)
+  trust_score?: number;
+}
+
+// Combined station food data
 export interface StationFoodData {
   station: Station;
   sponsored: SponsoredListing | null;
-  listings: FoodListingWithSource[];
-  listingsBySource: {
-    source: FoodSource;
-    listings: FoodListingWithSource[];
-  }[];
+  listings: FoodListingWithSources[];
 }

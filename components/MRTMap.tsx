@@ -2,12 +2,20 @@
 
 import { useEffect, useRef, useState, useCallback } from 'react';
 import { TransformWrapper, TransformComponent, ReactZoomPanPinchRef } from 'react-zoom-pan-pinch';
+import { getStationsBySource } from '@/lib/api';
+
+// Source filter types
+type SourceFilter = 'michelin' | 'food-king' | null;
+
+// Source IDs for each filter
+const MICHELIN_SOURCE_IDS = ['michelin-3-star', 'michelin-2-star', 'michelin-1-star', 'michelin-hawker'];
+const FOOD_KING_SOURCE_IDS = ['food-king'];
 
 // Map interaction constraints
 const MAP_CONSTRAINTS = {
   minZoom: 0.5,      // Cannot zoom out beyond 50%
   maxZoom: 3.0,      // Cannot zoom in beyond 300%
-  defaultZoom: 0.6,  // Initial zoom level
+  defaultZoom: 0.85, // Initial zoom level (more zoomed in)
   zoomStep: 0.5,     // Zoom increment for buttons/double-tap
 };
 
@@ -86,13 +94,13 @@ const stationCoordinates: { [key: string]: { cx: number, cy: number, name: strin
   'clementi': { cx: 407, cy: 526, name: 'Clementi' },
   'chinese-garden': { cx: 247, cy: 514, name: 'Chinese Garden' },
   'lakeside': { cx: 202, cy: 514, name: 'Lakeside' },
-  'boon-lay': { cx: 120, cy: 514, name: 'Boon Lay' },
-  'pioneer': { cx: 90, cy: 514, name: 'Pioneer' },
-  'joo-koon': { cx: 75, cy: 542, name: 'Joo Koon' },
-  'gul-circle': { cx: 75, cy: 570, name: 'Gul Circle' },
-  'tuas-crescent': { cx: 75, cy: 598, name: 'Tuas Crescent' },
-  'tuas-west-road': { cx: 75, cy: 616, name: 'Tuas West Road' },
-  'tuas-link': { cx: 75, cy: 644, name: 'Tuas Link' },
+  'boon-lay': { cx: 155, cy: 499, name: 'Boon Lay' },
+  'pioneer': { cx: 155, cy: 463, name: 'Pioneer' },
+  'joo-koon': { cx: 155, cy: 427, name: 'Joo Koon' },
+  'gul-circle': { cx: 155, cy: 391, name: 'Gul Circle' },
+  'tuas-crescent': { cx: 155, cy: 355, name: 'Tuas Crescent' },
+  'tuas-west-road': { cx: 155, cy: 319, name: 'Tuas West Road' },
+  'tuas-link': { cx: 155, cy: 283, name: 'Tuas Link' },
   'tiong-bahru': { cx: 630, cy: 748, name: 'Tiong Bahru' },
   'redhill': { cx: 596, cy: 714, name: 'Redhill' },
   'tanjong-pagar': { cx: 699, cy: 848, name: 'Tanjong Pagar' },
@@ -106,9 +114,9 @@ const stationCoordinates: { [key: string]: { cx: number, cy: number, name: strin
   'punggol-coast': { cx: 1230, cy: 157, name: 'Punggol Coast' },
 
   // Circle Line stations
-  'nicoll-highway': { cx: 980, cy: 766, name: 'Nicoll Highway' },
-  'stadium': { cx: 997, cy: 720, name: 'Stadium' },
-  'mountbatten': { cx: 1002, cy: 695, name: 'Mountbatten' },
+  'nicoll-highway': { cx: 988, cy: 750, name: 'Nicoll Highway' },
+  'stadium': { cx: 996, cy: 725, name: 'Stadium' },
+  'mountbatten': { cx: 1002, cy: 694, name: 'Mountbatten' },
   'dakota': { cx: 1005, cy: 670, name: 'Dakota' },
   'tai-seng': { cx: 985, cy: 552, name: 'Tai Seng' },
   'bartley': { cx: 964, cy: 514, name: 'Bartley' },
@@ -163,13 +171,13 @@ const stationCoordinates: { [key: string]: { cx: number, cy: number, name: strin
   'maxwell': { cx: 690, cy: 825, name: 'Maxwell' },
   'shenton-way': { cx: 745, cy: 881, name: 'Shenton Way' },
   'gardens-by-the-bay': { cx: 880, cy: 953, name: 'Gardens by the Bay' },
-  'tanjong-rhu': { cx: 951, cy: 915, name: 'Tanjong Rhu' },
-  'katong-park': { cx: 1001, cy: 865, name: 'Katong Park' },
-  'tanjong-katong': { cx: 1027, cy: 829, name: 'Tanjong Katong' },
-  'marine-parade': { cx: 1044, cy: 797, name: 'Marine Parade' },
-  'marine-terrace': { cx: 1085, cy: 766, name: 'Marine Terrace' },
-  'siglap': { cx: 1124, cy: 766, name: 'Siglap' },
-  'bayshore': { cx: 1163, cy: 766, name: 'Bayshore' },
+  'tanjong-rhu': { cx: 1001, cy: 865, name: 'Tanjong Rhu' },
+  'katong-park': { cx: 1027, cy: 829, name: 'Katong Park' },
+  'tanjong-katong': { cx: 1044, cy: 797, name: 'Tanjong Katong' },
+  'marine-parade': { cx: 1085, cy: 766, name: 'Marine Parade' },
+  'marine-terrace': { cx: 1124, cy: 766, name: 'Marine Terrace' },
+  'siglap': { cx: 1163, cy: 766, name: 'Siglap' },
+  'bayshore': { cx: 1202, cy: 766, name: 'Bayshore' },
 
   // EW Line additional
   'marina-south-pier': { cx: 786, cy: 962, name: 'Marina South Pier' },
@@ -261,6 +269,11 @@ export default function MRTMap({ selectedStation, onStationClick }: MRTMapProps)
   const [currentZoom, setCurrentZoom] = useState(MAP_CONSTRAINTS.defaultZoom);
   const [locationLoading, setLocationLoading] = useState(false);
   const [locationError, setLocationError] = useState<string | null>(null);
+
+  // Source filter state
+  const [activeFilter, setActiveFilter] = useState<SourceFilter>(null);
+  const [filteredStations, setFilteredStations] = useState<Set<string>>(new Set());
+  const [filterLoading, setFilterLoading] = useState(false);
 
   useEffect(() => {
     // Load the SVG and inject it into the DOM
@@ -564,7 +577,7 @@ export default function MRTMap({ selectedStation, onStationClick }: MRTMapProps)
           if (transformRef.current && stationCoordinates[nearestStation]) {
             const coords = stationCoordinates[nearestStation];
             const padding = 300; // Container padding
-            const scale = 1.2; // Zoom level for station view
+            const scale = 1.5; // Zoom level for station view (more zoomed in)
             // Calculate position to center the station (accounting for padding)
             const stationX = coords.cx + padding;
             const stationY = coords.cy + padding;
@@ -601,6 +614,57 @@ export default function MRTMap({ selectedStation, onStationClick }: MRTMapProps)
   const handleZoomChange = useCallback((ref: ReactZoomPanPinchRef) => {
     setCurrentZoom(ref.state.scale);
   }, []);
+
+  // Handle source filter toggle
+  const handleFilterToggle = useCallback(async (filter: SourceFilter) => {
+    // If same filter, turn it off
+    if (activeFilter === filter) {
+      setActiveFilter(null);
+      setFilteredStations(new Set());
+      return;
+    }
+
+    // Set new filter and fetch stations
+    setActiveFilter(filter);
+    setFilterLoading(true);
+
+    try {
+      const sourceIds = filter === 'michelin' ? MICHELIN_SOURCE_IDS : FOOD_KING_SOURCE_IDS;
+      const stations = await getStationsBySource(sourceIds);
+      setFilteredStations(new Set(stations));
+    } catch (error) {
+      console.error('Error fetching filtered stations:', error);
+      setFilteredStations(new Set());
+    } finally {
+      setFilterLoading(false);
+    }
+  }, [activeFilter]);
+
+  // Apply glow effect to filtered stations
+  useEffect(() => {
+    if (!svgContainerRef.current || !svgLoaded) return;
+
+    const svg = svgContainerRef.current.querySelector('svg');
+    if (!svg) return;
+
+    // Remove all existing glow effects
+    const circles = svg.querySelectorAll('circle[data-station-id]');
+    circles.forEach(circle => {
+      circle.classList.remove('station-glow-michelin', 'station-glow-foodking');
+    });
+
+    // If no filter active, we're done
+    if (!activeFilter || filteredStations.size === 0) return;
+
+    // Add glow class to filtered stations
+    const glowClass = activeFilter === 'michelin' ? 'station-glow-michelin' : 'station-glow-foodking';
+    filteredStations.forEach(stationId => {
+      const circle = svg.querySelector(`circle[data-station-id="${stationId}"]`);
+      if (circle) {
+        circle.classList.add(glowClass);
+      }
+    });
+  }, [activeFilter, filteredStations, svgLoaded]);
 
   const isAtMinZoom = currentZoom <= MAP_CONSTRAINTS.minZoom;
   const isAtMaxZoom = currentZoom >= MAP_CONSTRAINTS.maxZoom;
@@ -726,6 +790,43 @@ export default function MRTMap({ selectedStation, onStationClick }: MRTMapProps)
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
                   )}
+                </button>
+
+                {/* Divider */}
+                <div className="h-px bg-gray-200 mx-1" />
+
+                {/* Michelin Filter */}
+                <button
+                  onClick={() => handleFilterToggle('michelin')}
+                  disabled={filterLoading}
+                  className={`w-11 h-11 flex items-center justify-center rounded-lg transition-all
+                    ${activeFilter === 'michelin'
+                      ? 'bg-red-500 text-white shadow-md'
+                      : 'bg-white hover:bg-gray-100 text-gray-700 active:scale-95'
+                    }
+                    ${filterLoading && activeFilter === 'michelin' ? 'animate-pulse' : ''}
+                  `}
+                  aria-label="Filter Michelin stations"
+                  title="Show Michelin restaurants"
+                >
+                  <span className="text-lg">⭐</span>
+                </button>
+
+                {/* Food King Filter */}
+                <button
+                  onClick={() => handleFilterToggle('food-king')}
+                  disabled={filterLoading}
+                  className={`w-11 h-11 flex items-center justify-center rounded-lg transition-all
+                    ${activeFilter === 'food-king'
+                      ? 'bg-orange-500 text-white shadow-md'
+                      : 'bg-white hover:bg-gray-100 text-gray-700 active:scale-95'
+                    }
+                    ${filterLoading && activeFilter === 'food-king' ? 'animate-pulse' : ''}
+                  `}
+                  aria-label="Filter Food King stations"
+                  title="Show Food King restaurants"
+                >
+                  <span className="text-lg">📺</span>
                 </button>
               </div>
             </div>

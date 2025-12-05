@@ -2,13 +2,12 @@
 
 import { useState, useCallback } from 'react';
 import { SponsoredListing as MockSponsoredListing } from '@/types';
-import { SponsoredListing as DbSponsoredListing, FoodListingWithSource, FoodSource } from '@/types/database';
+import { SponsoredListing as DbSponsoredListing, FoodListingWithSources } from '@/types/database';
 import { stationNames, getSponsoredListing as getMockSponsored } from '@/data/mock-data';
 import { getStationFood } from '@/data/stations';
 import { useStationFood } from '@/hooks/useStationFood';
 import SourceSection from './SourceSection';
-import SourceSectionDb from './SourceSectionDb';
-import MichelinSectionDb, { isMichelinSource } from './MichelinSectionDb';
+import FoodListingCardV2 from './FoodListingCardV2';
 import SlotMachine from './SlotMachine';
 
 interface FoodPanelProps {
@@ -145,16 +144,16 @@ const isSupabaseConfigured = () => {
 };
 
 export default function FoodPanel({ stationId, onClose, isMobile = false }: FoodPanelProps) {
-  // Use Supabase data if configured
-  const { data: supabaseData, loading, error } = useStationFood(
+  // Use Supabase data if configured (multi-source support)
+  const { data: supabaseData, separatedListings, loading, error } = useStationFood(
     isSupabaseConfigured() ? stationId : null
   );
 
   // Track slot machine winner for highlighting
-  const [slotWinner, setSlotWinner] = useState<FoodListingWithSource | null>(null);
+  const [slotWinner, setSlotWinner] = useState<FoodListingWithSources | null>(null);
 
   // Handle slot machine winner selection
-  const handleSlotWinner = useCallback((listing: FoodListingWithSource) => {
+  const handleSlotWinner = useCallback((listing: FoodListingWithSources) => {
     setSlotWinner(listing);
   }, []);
 
@@ -173,7 +172,7 @@ export default function FoodPanel({ stationId, onClose, isMobile = false }: Food
   const mockStationFood = getStationFood(stationId);
 
   // Get all listings for slot machine
-  const getAllListings = (): FoodListingWithSource[] => {
+  const getAllListings = (): FoodListingWithSources[] => {
     if (useSupabase && supabaseData) {
       return supabaseData.listings;
     }
@@ -188,16 +187,9 @@ export default function FoodPanel({ stationId, onClose, isMobile = false }: Food
       }
 
       if (supabaseData) {
-        const hasContent = supabaseData.sponsored || supabaseData.listingsBySource.length > 0;
         const allListings = getAllListings();
-
-        // Separate Michelin sources from other sources
-        const michelinSources = supabaseData.listingsBySource.filter(
-          (sourceData) => isMichelinSource(sourceData.source.id)
-        );
-        const otherSources = supabaseData.listingsBySource.filter(
-          (sourceData) => !isMichelinSource(sourceData.source.id)
-        );
+        const { recommended, foodKingOnly } = separatedListings;
+        const hasContent = supabaseData.sponsored || recommended.length > 0 || foodKingOnly.length > 0;
 
         return (
           <>
@@ -209,28 +201,41 @@ export default function FoodPanel({ stationId, onClose, isMobile = false }: Food
               />
             )}
             {supabaseData.sponsored && <SponsoredCardDb listing={supabaseData.sponsored} />}
-            {supabaseData.listingsBySource.length > 0 ? (
-              <>
-                {/* Michelin container with sub-categories */}
-                {michelinSources.length > 0 && (
-                  <MichelinSectionDb
-                    sourceGroups={michelinSources}
-                    defaultExpanded={true}
-                  />
-                )}
-                {/* Other sources (Editor's Choice, etc.) */}
-                {otherSources.map((sourceData, index) => (
-                  <SourceSectionDb
-                    key={sourceData.source.id}
-                    source={sourceData.source}
-                    listings={sourceData.listings}
-                    defaultExpanded={michelinSources.length === 0 && index === 0}
-                  />
-                ))}
-              </>
-            ) : (
-              !supabaseData.sponsored && <EmptyState />
+
+            {/* Michelin section (Michelin, ieatishootipost, editors-choice) */}
+            {recommended.length > 0 && (
+              <div className="space-y-2">
+                <h2 className="flex items-center gap-2 text-base font-semibold text-gray-800">
+                  <span>📕</span>
+                  <span>Michelin</span>
+                  <span className="text-xs font-normal text-gray-500">({recommended.length})</span>
+                </h2>
+                <div className="space-y-2">
+                  {recommended.map((listing) => (
+                    <FoodListingCardV2 key={listing.id} listing={listing} />
+                  ))}
+                </div>
+              </div>
             )}
+
+            {/* Food King only section */}
+            {foodKingOnly.length > 0 && (
+              <div className="space-y-2">
+                <h2 className="flex items-center gap-2 text-base font-semibold text-gray-800">
+                  <span>🍉</span>
+                  <span>As Seen on Food King</span>
+                  <span className="text-xs font-normal text-gray-500">({foodKingOnly.length})</span>
+                </h2>
+                <div className="space-y-2">
+                  {foodKingOnly.map((listing) => (
+                    <FoodListingCardV2 key={listing.id} listing={listing} />
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Empty state */}
+            {!hasContent && <EmptyState />}
           </>
         );
       }

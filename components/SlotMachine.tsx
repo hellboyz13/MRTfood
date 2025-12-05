@@ -2,11 +2,11 @@
 
 import { useState, useEffect, useRef, useCallback } from 'react';
 import confetti from 'canvas-confetti';
-import { FoodListingWithSource, FoodSource } from '@/types/database';
+import { FoodListingWithSources } from '@/types/database';
 
 interface SlotMachineProps {
-  listings: FoodListingWithSource[];
-  onSelectWinner: (listing: FoodListingWithSource) => void;
+  listings: FoodListingWithSources[];
+  onSelectWinner: (listing: FoodListingWithSources) => void;
 }
 
 // Get Michelin badge text
@@ -34,7 +34,7 @@ function formatWalkTime(meters: number | null): string {
 
 export default function SlotMachine({ listings, onSelectWinner }: SlotMachineProps) {
   const [phase, setPhase] = useState<'idle' | 'spinning' | 'result'>('idle');
-  const [winner, setWinner] = useState<FoodListingWithSource | null>(null);
+  const [winner, setWinner] = useState<FoodListingWithSources | null>(null);
   const [displayIndex, setDisplayIndex] = useState(0);
   const [spinSpeed, setSpinSpeed] = useState(50);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -225,7 +225,9 @@ export default function SlotMachine({ listings, onSelectWinner }: SlotMachinePro
 
   // Render result state
   if (phase === 'result' && winner) {
-    const michelinBadge = winner.source_id ? getMichelinBadge(winner.source_id) : null;
+    // Check for Michelin badge from sources array
+    const michelinSource = winner.sources?.find(s => getMichelinBadge(s.source.id));
+    const michelinBadge = michelinSource ? getMichelinBadge(michelinSource.source.id) : null;
     const distance = formatDistance(winner.distance_to_station);
     const walkTime = formatWalkTime(winner.distance_to_station);
 
