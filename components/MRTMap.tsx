@@ -177,7 +177,7 @@ const stationCoordinates: { [key: string]: { cx: number, cy: number, name: strin
   'marine-parade': { cx: 1029, cy: 828, name: 'Marine Parade' },
   'marine-terrace': { cx: 1074, cy: 766, name: 'Marine Terrace' },
   'siglap': { cx: 1163, cy: 766, name: 'Siglap' },
-  'bayshore': { cx: 1202, cy: 766, name: 'Bayshore' },
+  'bayshore': { cx: 1201, cy: 766, name: 'Bayshore' },
 
   // EW Line additional
   'marina-south-pier': { cx: 786, cy: 962, name: 'Marina South Pier' },
