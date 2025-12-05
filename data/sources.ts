@@ -38,14 +38,6 @@ export const foodSources: FoodSource[] = [
     url: '',
     bgColor: '#FDF4FF', // fuchsia-50
   },
-  // YouTube Food Reviewers
-  {
-    id: 'gregs-big-eats',
-    name: "Greg's Big Eats",
-    icon: '🎬',
-    url: 'https://gregsbigeats.com/',
-    bgColor: '#DCFCE7', // green-100
-  },
 ];
 
 // Helper to get a source by ID
