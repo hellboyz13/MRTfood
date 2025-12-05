@@ -46,6 +46,13 @@ export const foodSources: FoodSource[] = [
     url: 'https://eatbook.sg/',
     bgColor: '#FEF3C7', // amber-100
   },
+  {
+    id: 'ieatishootipost',
+    name: 'ieatishootipost',
+    icon: '📸',
+    url: 'https://ieatishootipost.sg/',
+    bgColor: '#ECFCCB', // lime-100
+  },
 ];
 
 // Helper to get a source by ID
