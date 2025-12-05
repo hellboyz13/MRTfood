@@ -38,6 +38,14 @@ export const foodSources: FoodSource[] = [
     url: '',
     bgColor: '#FDF4FF', // fuchsia-50
   },
+  // Food Media
+  {
+    id: 'eatbook',
+    name: 'EatBook',
+    icon: '📖',
+    url: 'https://eatbook.sg/',
+    bgColor: '#FEF3C7', // amber-100
+  },
 ];
 
 // Helper to get a source by ID
