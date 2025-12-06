@@ -15,7 +15,11 @@
       "Bash(git push:*)",
       "Bash(git pull:*)",
       "Bash(git stash:*)",
-      "Bash(test -f:*)"
+      "Bash(test -f:*)",
+      "Bash(cat:*)",
+      "Bash(vercel env pull:*)",
+      "Bash(gh secret list:*)",
+      "Bash(npx ts-node:*)"
     ],
     "deny": [],
     "ask": []
