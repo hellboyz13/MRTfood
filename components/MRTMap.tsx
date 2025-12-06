@@ -121,7 +121,7 @@ const stationCoordinates: { [key: string]: { cx: number, cy: number, name: strin
   'dakota': { cx: 1005, cy: 670, name: 'Dakota' },
   'tai-seng': { cx: 985, cy: 552, name: 'Tai Seng' },
   'bartley': { cx: 964, cy: 514, name: 'Bartley' },
-  'lorong-chuan': { cx: 859, cy: 418, name: 'Lorong Chuan' },
+  'lorong-chuan': { cx: 876, cy: 415, name: 'Lorong Chuan' },
   'marymount': { cx: 721, cy: 391, name: 'Marymount' },
   'farrer-road': { cx: 516, cy: 514, name: 'Farrer Road' },
   'holland-village': { cx: 497, cy: 549, name: 'Holland Village' },
