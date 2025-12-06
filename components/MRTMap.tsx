@@ -906,7 +906,7 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
           <>
             {/* Control Buttons */}
             <div
-              className={`z-50 flex flex-col gap-2 ${isMobile ? 'fixed' : 'fixed bottom-20 right-4'}`}
+              className={`z-50 flex flex-col gap-2 transition-all ${isMobile ? 'fixed' : 'fixed bottom-20 right-4'} ${isDraggingControls && isMobile ? 'ring-4 ring-blue-500 rounded-xl' : ''}`}
               style={
                 isMobile
                   ? {

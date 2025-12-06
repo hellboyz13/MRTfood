@@ -65,11 +65,11 @@ export default function SearchBar({ onSearch, onClear, isSearching }: SearchBarP
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
-      className={`z-50 w-full max-w-md px-3 ${
+      className={`z-50 w-full max-w-md px-3 transition-all ${
         isMobile
           ? 'fixed'
           : 'absolute bottom-3 left-1/2 transform -translate-x-1/2'
-      }`}
+      } ${isDragging && isMobile ? 'ring-4 ring-blue-500' : ''}`}
       style={
         isMobile
           ? {
