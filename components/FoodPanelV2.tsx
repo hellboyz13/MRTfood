@@ -6,6 +6,7 @@ import { stationNames } from '@/data/mock-data';
 import { useStationFood } from '@/hooks/useStationFood';
 import FoodListingCardV2 from './FoodListingCardV2';
 import SlotMachine from './SlotMachine';
+import ModeToggle from './ModeToggle';
 
 interface FoodPanelV2Props {
   stationId: string | null;
@@ -89,6 +90,8 @@ const isSupabaseConfigured = () => {
 };
 
 export default function FoodPanelV2({ stationId, onClose, isMobile = false, searchQuery = '' }: FoodPanelV2Props) {
+  const [mode, setMode] = useState<'curated' | 'popular'>('curated');
+
   const { data, separatedListings, loading, error } = useStationFood(
     isSupabaseConfigured() ? stationId : null
   );
@@ -120,7 +123,7 @@ export default function FoodPanelV2({ stationId, onClose, isMobile = false, sear
     return false;
   };
 
-  const renderContent = () => {
+  const renderCuratedContent = () => {
     if (loading) {
       return <LoadingState />;
     }
@@ -178,6 +181,25 @@ export default function FoodPanelV2({ stationId, onClose, isMobile = false, sear
     );
   };
 
+  const renderPopularContent = () => {
+    // Placeholder for popular chains - will be implemented next
+    return (
+      <div className="text-center py-8">
+        <div className="text-4xl mb-3">🍜</div>
+        <p className="text-gray-500 text-sm">
+          Popular chains coming soon!
+        </p>
+        <p className="text-gray-400 text-xs mt-1">
+          McDonald&apos;s, KFC, Din Tai Fung, and more...
+        </p>
+      </div>
+    );
+  };
+
+  const renderContent = () => {
+    return mode === 'curated' ? renderCuratedContent() : renderPopularContent();
+  };
+
   // Desktop panel
   if (!isMobile) {
     return (
@@ -194,6 +216,9 @@ export default function FoodPanelV2({ stationId, onClose, isMobile = false, sear
             </svg>
           </button>
         </div>
+        <div className="px-4 pt-3 pb-2 border-b border-gray-200">
+          <ModeToggle mode={mode} onModeChange={setMode} />
+        </div>
         <div className="flex-1 overflow-y-auto p-4 space-y-3">
           {renderContent()}
         </div>
@@ -203,7 +228,7 @@ export default function FoodPanelV2({ stationId, onClose, isMobile = false, sear
 
   // Mobile drawer with swipe-to-dismiss
   return (
-    <MobileDrawer stationName={stationName} onClose={onClose}>
+    <MobileDrawer stationName={stationName} onClose={onClose} mode={mode} onModeChange={setMode}>
       {renderContent()}
     </MobileDrawer>
   );
@@ -213,10 +238,14 @@ export default function FoodPanelV2({ stationId, onClose, isMobile = false, sear
 function MobileDrawer({
   stationName,
   onClose,
+  mode,
+  onModeChange,
   children
 }: {
   stationName: string;
   onClose: () => void;
+  mode: 'curated' | 'popular';
+  onModeChange: (mode: 'curated' | 'popular') => void;
   children: React.ReactNode;
 }) {
   const drawerRef = useRef<HTMLDivElement>(null);
@@ -330,6 +359,11 @@ function MobileDrawer({
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
+        </div>
+
+        {/* Mode Toggle */}
+        <div className="px-4 pt-3 pb-2 border-b border-gray-200">
+          <ModeToggle mode={mode} onModeChange={onModeChange} />
         </div>
 
         {/* Content - scrollable */}
