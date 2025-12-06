@@ -400,11 +400,6 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
   const [activeFilter, setActiveFilter] = useState<SourceFilter>(null);
   const [filteredStations, setFilteredStations] = useState<Set<string>>(new Set());
   const [filterLoading, setFilterLoading] = useState(false);
-
-  // Draggable controls state for mobile
-  const [controlsPosition, setControlsPosition] = useState({ x: 0, y: 0 });
-  const [isDraggingControls, setIsDraggingControls] = useState(false);
-  const controlsDragStart = useRef({ x: 0, y: 0 });
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -980,44 +975,10 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
         {({ zoomIn, zoomOut, resetTransform }) => (
           <>
             {/* Control Buttons */}
-            <div
-              className={`z-50 flex flex-col gap-2 transition-all ${isMobile ? 'fixed' : 'fixed bottom-20 right-4'} ${isDraggingControls && isMobile ? 'ring-4 ring-blue-500 rounded-xl' : ''}`}
-              style={
-                isMobile
-                  ? {
-                      right: controlsPosition.x || '16px',
-                      bottom: controlsPosition.y || '20px',
-                      cursor: isDraggingControls ? 'grabbing' : 'grab',
-                      touchAction: 'none',
-                    }
-                  : undefined
-              }
-              onTouchStart={(e) => {
-                if (!isMobile) return;
-                const touch = e.touches[0];
-                const rect = e.currentTarget.getBoundingClientRect();
-                controlsDragStart.current = {
-                  x: touch.clientX - rect.right + window.innerWidth,
-                  y: touch.clientY - rect.bottom + window.innerHeight,
-                };
-                setIsDraggingControls(true);
-              }}
-              onTouchMove={(e) => {
-                if (!isDraggingControls || !isMobile) return;
-                e.preventDefault();
-                const touch = e.touches[0];
-                setControlsPosition({
-                  x: window.innerWidth - touch.clientX + controlsDragStart.current.x - window.innerWidth,
-                  y: window.innerHeight - touch.clientY + controlsDragStart.current.y - window.innerHeight,
-                });
-              }}
-              onTouchEnd={() => {
-                setIsDraggingControls(false);
-              }}
-            >
+            <div className="fixed bottom-20 right-4 z-50 flex flex-col gap-2 pointer-events-none">
               {/* Location error toast */}
               {locationError && (
-                <div className="absolute bottom-full right-0 mb-2 px-3 py-2 bg-red-100 text-red-700 text-xs rounded-lg shadow-lg whitespace-nowrap">
+                <div className="mb-2 px-3 py-2 bg-red-100 text-red-700 text-xs rounded-lg shadow-lg whitespace-nowrap pointer-events-auto">
                   {locationError}
                 </div>
               )}

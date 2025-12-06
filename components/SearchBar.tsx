@@ -60,45 +60,24 @@ export default function SearchBar({ onSearch, onClear, isSearching }: SearchBarP
   }, []);
 
   return (
-    <div
-      ref={dragRef}
-      onTouchStart={handleTouchStart}
-      onTouchMove={handleTouchMove}
-      onTouchEnd={handleTouchEnd}
-      className={`z-50 w-full max-w-md px-3 transition-all ${
-        isMobile
-          ? 'fixed'
-          : 'absolute bottom-3 left-1/2 transform -translate-x-1/2'
-      } ${isDragging && isMobile ? 'ring-4 ring-blue-500' : ''}`}
-      style={
-        isMobile
-          ? {
-              left: position.x || '50%',
-              bottom: position.y || '120px',
-              transform: position.x ? 'none' : 'translateX(-50%)',
-              cursor: isDragging ? 'grabbing' : 'grab',
-              touchAction: 'none',
-            }
-          : undefined
-      }
-    >
-      <form onSubmit={handleSubmit} className="relative">
+    <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50 pointer-events-none">
+      <form onSubmit={handleSubmit} className="relative pointer-events-auto">
         <input
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          placeholder="Search: pasta, bubble tea, fried chicken..."
-          className="w-full px-4 py-2.5 pr-24 rounded-full border-2 border-gray-300
+          placeholder="Search food..."
+          className="w-64 px-4 py-2 pr-20 rounded-full border-2 border-gray-300
                      focus:border-red-500 focus:outline-none shadow-lg
-                     text-sm md:text-base bg-white"
+                     text-sm bg-white"
           disabled={isSearching}
         />
         {query && (
           <button
             type="button"
             onClick={handleClear}
-            className="absolute right-16 top-1/2 transform -translate-y-1/2
-                       text-gray-400 hover:text-gray-600 px-2"
+            className="absolute right-12 top-1/2 transform -translate-y-1/2
+                       text-gray-400 hover:text-gray-600 px-1"
           >
             ✕
           </button>
@@ -108,8 +87,8 @@ export default function SearchBar({ onSearch, onClear, isSearching }: SearchBarP
           disabled={!query.trim() || isSearching}
           className="absolute right-1 top-1/2 transform -translate-y-1/2
                      bg-red-500 hover:bg-red-600 disabled:bg-gray-300
-                     text-white px-4 py-1.5 rounded-full
-                     transition-colors duration-200 text-sm md:text-base"
+                     text-white px-3 py-1 rounded-full
+                     transition-colors duration-200 text-sm"
         >
           {isSearching ? '...' : '🔍'}
         </button>
