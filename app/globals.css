@@ -508,30 +508,36 @@ h1, h2, h3, h4, h5, h6 {
   padding: 48px 16px;
 }
 
-/* Panel slide animation */
+/* Panel slide animation - slide within same container */
 .panel-container {
-  display: flex;
-  overflow: hidden;
   position: relative;
   width: 100%;
   height: 100%;
+  overflow: hidden;
 }
 
-.panel-slide-wrapper {
-  display: flex;
-  width: 200%;
+.panel-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 100%;
   transition: transform 0.3s ease;
 }
 
-.panel-slide-wrapper.show-menu {
-  transform: translateX(-50%);
+.panel-content.slide-out-left {
+  transform: translateX(-100%);
 }
 
-.listing-panel,
-.menu-panel {
-  min-width: 50%;
-  width: 50%;
+.menu-panel-overlay {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 100%;
   height: 100%;
-  overflow-y: auto;
+  transition: transform 0.3s ease;
+}
+
+.menu-panel-overlay.slide-in {
+  transform: translateX(-100%);
 }

@@ -301,9 +301,9 @@ export default function FoodPanelV2({ stationId, onClose, isMobile = false, sear
   if (!isMobile) {
     return (
       <div className="w-[350px] h-full bg-white border-l border-gray-200 shadow-lg panel-container">
-        <div className={`panel-slide-wrapper ${selectedMenuListing ? 'show-menu' : ''} h-full`}>
-          {/* Main listing panel */}
-          <div className="listing-panel flex flex-col">
+        {/* Main listing panel */}
+        <div className={`panel-content ${selectedMenuListing ? 'slide-out-left' : ''} bg-white`}>
+          <div className="flex flex-col h-full">
             <div className="flex items-center justify-between px-4 py-3 border-b border-gray-200 bg-gray-50 flex-shrink-0">
               <h2 className="text-lg font-bold text-gray-900">{stationName}</h2>
               <button
@@ -323,16 +323,16 @@ export default function FoodPanelV2({ stationId, onClose, isMobile = false, sear
               {renderContent()}
             </div>
           </div>
+        </div>
 
-          {/* Menu preview panel */}
-          <div className="menu-panel">
-            {selectedMenuListing && (
-              <MenuPreview
-                listing={selectedMenuListing}
-                onBack={() => setSelectedMenuListing(null)}
-              />
-            )}
-          </div>
+        {/* Menu preview overlay */}
+        <div className={`menu-panel-overlay ${selectedMenuListing ? 'slide-in' : ''} bg-white`}>
+          {selectedMenuListing && (
+            <MenuPreview
+              listing={selectedMenuListing}
+              onBack={() => setSelectedMenuListing(null)}
+            />
+          )}
         </div>
       </div>
     );
@@ -454,7 +454,7 @@ function MobileDrawer({
       {/* Drawer */}
       <div
         ref={drawerRef}
-        className={`fixed inset-x-0 bottom-0 z-50 bg-white rounded-t-2xl shadow-2xl max-h-[70vh] flex flex-col touch-none ${
+        className={`fixed inset-x-0 bottom-0 z-50 bg-white rounded-t-2xl shadow-2xl max-h-[70vh] touch-none panel-container ${
           isClosing ? 'animate-slide-down' : 'animate-slide-up'
         }`}
         style={{
@@ -465,16 +465,16 @@ function MobileDrawer({
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
       >
-        <div className={`panel-slide-wrapper ${selectedMenuListing ? 'show-menu' : ''}`}>
-          {/* Main listing panel */}
-          <div className="listing-panel">
+        {/* Main listing panel */}
+        <div className={`panel-content ${selectedMenuListing ? 'slide-out-left' : ''}`}>
+          <div className="flex flex-col h-full">
             {/* Drag handle */}
-            <div data-drag-handle className="flex justify-center py-3 cursor-grab active:cursor-grabbing">
+            <div data-drag-handle className="flex justify-center py-3 cursor-grab active:cursor-grabbing flex-shrink-0">
               <div className="w-12 h-1.5 bg-gray-300 rounded-full" />
             </div>
 
             {/* Header */}
-            <div data-drag-handle className="flex items-center justify-between px-4 py-2 border-b border-gray-200">
+            <div data-drag-handle className="flex items-center justify-between px-4 py-2 border-b border-gray-200 flex-shrink-0">
               <h2 className="text-lg font-bold text-gray-900">{stationName}</h2>
               <button
                 onClick={handleClose}
@@ -488,7 +488,7 @@ function MobileDrawer({
             </div>
 
             {/* Mode Toggle */}
-            <div className="px-4 pt-3 pb-2 border-b border-gray-200">
+            <div className="px-4 pt-3 pb-2 border-b border-gray-200 flex-shrink-0">
               <ModeToggle mode={mode} onModeChange={onModeChange} />
             </div>
 
@@ -500,16 +500,16 @@ function MobileDrawer({
               {children}
             </div>
           </div>
+        </div>
 
-          {/* Menu preview panel */}
-          <div className="menu-panel">
-            {selectedMenuListing && (
-              <MenuPreview
-                listing={selectedMenuListing}
-                onBack={onBackFromMenu}
-              />
-            )}
-          </div>
+        {/* Menu preview overlay */}
+        <div className={`menu-panel-overlay ${selectedMenuListing ? 'slide-in' : ''}`}>
+          {selectedMenuListing && (
+            <MenuPreview
+              listing={selectedMenuListing}
+              onBack={onBackFromMenu}
+            />
+          )}
         </div>
       </div>
     </>
