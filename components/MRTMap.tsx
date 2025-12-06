@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState, useCallback } from 'react';
 import { TransformWrapper, TransformComponent, ReactZoomPanPinchRef } from 'react-zoom-pan-pinch';
-import { getStationsBySource } from '@/lib/api';
+import { getStationsBySource, StationSearchResult } from '@/lib/api';
 
 // Source filter types
 type SourceFilter = 'michelin' | 'food-king' | null;
@@ -22,7 +22,7 @@ const MAP_CONSTRAINTS = {
 interface MRTMapProps {
   selectedStation: string | null;
   onStationClick: (stationId: string) => void;
-  searchResults?: string[];
+  searchResults?: StationSearchResult[];
 }
 
 // Station coordinates for centering and location finding
@@ -446,29 +446,110 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
     const svg = svgContainerRef.current.querySelector('svg');
     if (!svg) return;
 
-    // Reset all station circles to white fill and remove animations
+    // Reset all station circles and remove old badges
     const circles = svg.querySelectorAll('circle[data-station-id]');
+    const oldBadges = svg.querySelectorAll('.result-badge, .result-badge-bg');
+    oldBadges.forEach(badge => badge.remove());
+
     circles.forEach(circle => {
       circle.setAttribute('fill', '#ffffff');
       (circle as HTMLElement).style.transform = 'scale(1)';
-      circle.classList.remove('station-heartbeat');
+      circle.classList.remove('station-highlighted', 'station-dimmed');
     });
 
-    // Highlight search result stations with heartbeat animation
-    if (searchResults.length > 0) {
-      searchResults.forEach(stationId => {
-        const circle = svg.querySelector(`circle[data-station-id="${stationId}"]`);
-        if (circle) {
-          circle.classList.add('station-heartbeat');
+    // Apply search result styling
+    if (searchResults && searchResults.length > 0) {
+      const searchResultIds = new Set(searchResults.map(r => r.stationId));
+
+      // Dim non-matching stations
+      circles.forEach(circle => {
+        const stationId = circle.getAttribute('data-station-id');
+        if (stationId && !searchResultIds.has(stationId)) {
+          circle.classList.add('station-dimmed');
         }
       });
+
+      // Highlight matching stations with pulse and add count badges
+      searchResults.forEach(result => {
+        const circle = svg.querySelector(`circle[data-station-id="${result.stationId}"]`) as SVGCircleElement;
+        if (circle) {
+          circle.classList.add('station-highlighted');
+
+          // Add count badge if count > 1
+          if (result.count > 1) {
+            const cx = parseFloat(circle.getAttribute('cx') || '0');
+            const cy = parseFloat(circle.getAttribute('cy') || '0');
+            const r = parseFloat(circle.getAttribute('r') || '6');
+
+            // Create badge group
+            const badgeGroup = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+
+            // Badge background circle
+            const badgeBg = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+            badgeBg.setAttribute('cx', String(cx + r + 3));
+            badgeBg.setAttribute('cy', String(cy - r - 3));
+            badgeBg.setAttribute('r', '8');
+            badgeBg.classList.add('result-badge-bg');
+
+            // Badge text
+            const badgeText = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+            badgeText.setAttribute('x', String(cx + r + 3));
+            badgeText.setAttribute('y', String(cy - r - 3 + 3.5));
+            badgeText.classList.add('result-badge');
+            badgeText.textContent = String(result.count);
+
+            badgeGroup.appendChild(badgeBg);
+            badgeGroup.appendChild(badgeText);
+            circle.parentNode?.appendChild(badgeGroup);
+          }
+        }
+      });
+
+      // Auto-zoom if 1-3 stations match
+      if (searchResults.length > 0 && searchResults.length <= 3 && transformRef.current) {
+        // Calculate bounding box of matching stations
+        let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
+
+        searchResults.forEach(result => {
+          const coords = stationCoordinates[result.stationId];
+          if (coords) {
+            minX = Math.min(minX, coords.cx);
+            maxX = Math.max(maxX, coords.cx);
+            minY = Math.min(minY, coords.cy);
+            maxY = Math.max(maxY, coords.cy);
+          }
+        });
+
+        if (isFinite(minX)) {
+          // Add padding
+          const padding = 300;
+          const centerX = (minX + maxX) / 2 + padding;
+          const centerY = (minY + maxY) / 2 + padding;
+
+          // Calculate zoom to fit all stations
+          const width = maxX - minX;
+          const height = maxY - minY;
+          const scale = searchResults.length === 1 ? 1.8 : Math.min(
+            window.innerWidth / (width + 400),
+            window.innerHeight / (height + 400),
+            2.0
+          );
+
+          const posX = window.innerWidth / 2 - centerX * scale;
+          const posY = window.innerHeight / 2 - centerY * scale;
+
+          setTimeout(() => {
+            transformRef.current?.setTransform(posX, posY, scale, 500);
+          }, 100);
+        }
+      }
     }
 
     // Highlight selected station with red and pulse animation (takes priority over search results)
     if (selectedStation) {
       const selectedCircle = svg.querySelector(`circle[data-station-id="${selectedStation}"]`);
       if (selectedCircle) {
-        selectedCircle.classList.remove('station-heartbeat');
+        selectedCircle.classList.remove('station-highlighted');
         selectedCircle.setAttribute('fill', '#dc2626');
         // Add pulse effect
         (selectedCircle as HTMLElement).style.transform = 'scale(1.2)';

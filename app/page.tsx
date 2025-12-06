@@ -4,14 +4,27 @@ import { useState, useEffect } from 'react';
 import MRTMap from '@/components/MRTMap';
 import FoodPanelV2 from '@/components/FoodPanelV2';
 import SearchBar from '@/components/SearchBar';
-import { searchStationsByFood } from '@/lib/api';
+import SearchResultsPanel from '@/components/SearchResultsPanel';
+import { searchStationsByFoodWithCounts, StationSearchResult, getStations } from '@/lib/api';
 
 export default function Home() {
   const [selectedStation, setSelectedStation] = useState<string | null>(null);
   const [isMobile, setIsMobile] = useState(false);
-  const [searchResults, setSearchResults] = useState<string[]>([]);
+  const [searchResults, setSearchResults] = useState<StationSearchResult[]>([]);
   const [isSearching, setIsSearching] = useState(false);
   const [searchQuery, setSearchQuery] = useState<string>('');
+  const [stationNames, setStationNames] = useState<{ [key: string]: string }>({});
+
+  // Load station names
+  useEffect(() => {
+    getStations().then(stations => {
+      const namesMap: { [key: string]: string } = {};
+      stations.forEach(station => {
+        namesMap[station.id] = station.name;
+      });
+      setStationNames(namesMap);
+    });
+  }, []);
 
   // Detect mobile viewport
   useEffect(() => {
@@ -36,8 +49,8 @@ export default function Home() {
     setIsSearching(true);
     setSearchQuery(query);
     try {
-      const stations = await searchStationsByFood(query);
-      setSearchResults(stations);
+      const results = await searchStationsByFoodWithCounts(query);
+      setSearchResults(results);
     } catch (error) {
       console.error('Search error:', error);
       setSearchResults([]);
@@ -68,6 +81,17 @@ export default function Home() {
         onClear={handleClearSearch}
         isSearching={isSearching}
       />
+
+      {/* Search Results Panel */}
+      {searchResults.length > 0 && (
+        <SearchResultsPanel
+          searchQuery={searchQuery}
+          results={searchResults}
+          onStationClick={handleStationClick}
+          onClose={handleClearSearch}
+          stationNames={stationNames}
+        />
+      )}
 
       {/* Main Content */}
       <div className="flex-1 flex relative overflow-hidden">

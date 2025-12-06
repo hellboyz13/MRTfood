@@ -362,6 +362,94 @@ export async function searchStationsByFood(query: string): Promise<string[]> {
   return Array.from(stationIdsSet);
 }
 
+// Search stations with result counts
+export interface StationSearchResult {
+  stationId: string;
+  count: number;
+  outlets: { name: string; type: 'listing' | 'chain' }[];
+}
+
+export async function searchStationsByFoodWithCounts(query: string): Promise<StationSearchResult[]> {
+  if (!query || query.trim().length === 0) return [];
+
+  const searchQuery = query.trim().toLowerCase();
+  const stationResultsMap = new Map<string, StationSearchResult>();
+
+  // 1. Search food listings
+  const { data: listings, error: listingsError } = await supabase
+    .from('food_listings')
+    .select('station_id, name, description, tags')
+    .eq('is_active', true)
+    .not('station_id', 'is', null);
+
+  if (!listingsError && listings) {
+    const matchingListings = listings.filter((listing: FoodListing) => {
+      if (listing.name?.toLowerCase().includes(searchQuery)) return true;
+      if (listing.description?.toLowerCase().includes(searchQuery)) return true;
+      if (listing.tags && Array.isArray(listing.tags)) {
+        return listing.tags.some((tag: string) =>
+          tag.toLowerCase().includes(searchQuery)
+        );
+      }
+      return false;
+    });
+
+    matchingListings.forEach((l: FoodListing) => {
+      if (!l.station_id) return;
+      if (!stationResultsMap.has(l.station_id)) {
+        stationResultsMap.set(l.station_id, {
+          stationId: l.station_id,
+          count: 0,
+          outlets: [],
+        });
+      }
+      const result = stationResultsMap.get(l.station_id)!;
+      result.count++;
+      result.outlets.push({ name: l.name || 'Unknown', type: 'listing' });
+    });
+  }
+
+  // 2. Search chain outlets
+  const { data: chainOutlets, error: outletsError } = await supabase
+    .from('chain_outlets')
+    .select('nearest_station_id, name, food_tags')
+    .eq('is_active', true)
+    .not('nearest_station_id', 'is', null);
+
+  if (!outletsError && chainOutlets) {
+    const matchingOutlets = chainOutlets.filter((outlet: any) => {
+      if (outlet.name?.toLowerCase().includes(searchQuery)) return true;
+      if (outlet.food_tags && Array.isArray(outlet.food_tags)) {
+        return outlet.food_tags.some((tag: string) =>
+          tag.toLowerCase().includes(searchQuery) ||
+          searchQuery.includes(tag.toLowerCase())
+        );
+      }
+      return false;
+    });
+
+    matchingOutlets.forEach((o: any) => {
+      if (!o.nearest_station_id) return;
+      if (!stationResultsMap.has(o.nearest_station_id)) {
+        stationResultsMap.set(o.nearest_station_id, {
+          stationId: o.nearest_station_id,
+          count: 0,
+          outlets: [],
+        });
+      }
+      const result = stationResultsMap.get(o.nearest_station_id)!;
+      result.count++;
+      result.outlets.push({ name: o.name || 'Unknown', type: 'chain' });
+    });
+  }
+
+  // Sort by count descending
+  const results = Array.from(stationResultsMap.values());
+  results.sort((a, b) => b.count - a.count);
+
+  return results;
+}
+
 // ============================================
 // CHAIN RESTAURANTS
 // ============================================
