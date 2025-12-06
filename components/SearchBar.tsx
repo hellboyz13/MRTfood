@@ -24,7 +24,7 @@ export default function SearchBar({ onSearch, onClear, isSearching }: SearchBarP
   }, [onClear]);
 
   return (
-    <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-md px-3">
+    <div className="absolute bottom-24 md:bottom-3 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-md px-3">
       <form onSubmit={handleSubmit} className="relative">
         <input
           type="text"
