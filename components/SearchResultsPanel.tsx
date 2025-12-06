@@ -22,7 +22,7 @@ export default function SearchResultsPanel({
   if (!results || results.length === 0) return null;
 
   return (
-    <div className="fixed top-20 left-4 z-40 w-80 max-h-[calc(100vh-160px)] bg-white rounded-xl shadow-2xl border-2 border-gray-200 overflow-hidden flex flex-col">
+    <div className="fixed top-20 left-4 right-4 md:right-auto z-40 md:w-80 max-h-[calc(100vh-160px)] bg-white rounded-xl shadow-2xl border-2 border-gray-200 overflow-hidden flex flex-col">
       {/* Header */}
       <div className="bg-gradient-to-r from-amber-500 to-orange-500 px-4 py-3 flex items-center justify-between">
         <div className="flex items-center gap-2 text-white">
