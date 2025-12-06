@@ -167,7 +167,7 @@ const stationCoordinates: { [key: string]: { cx: number, cy: number, name: strin
   'upper-thomson': { cx: 658, cy: 357, name: 'Upper Thomson' },
   'napier': { cx: 658, cy: 517, name: 'Napier' },
   'orchard-boulevard': { cx: 658, cy: 549, name: 'Orchard Boulevard' },
-  'great-world': { cx: 650, cy: 648, name: 'Great World' },
+  'great-world': { cx: 658, cy: 648, name: 'Great World' },
   'havelock': { cx: 658, cy: 694, name: 'Havelock' },
   'maxwell': { cx: 690, cy: 825, name: 'Maxwell' },
   'shenton-way': { cx: 745, cy: 881, name: 'Shenton Way' },
