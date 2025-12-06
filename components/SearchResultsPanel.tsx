@@ -8,6 +8,7 @@ interface SearchResultsPanelProps {
   onStationClick: (stationId: string) => void;
   onClose: () => void;
   stationNames: { [key: string]: string };
+  onStationZoom?: (stationId: string) => void;
 }
 
 export default function SearchResultsPanel({
@@ -16,6 +17,7 @@ export default function SearchResultsPanel({
   onStationClick,
   onClose,
   stationNames,
+  onStationZoom,
 }: SearchResultsPanelProps) {
   if (!results || results.length === 0) return null;
 
@@ -56,8 +58,13 @@ export default function SearchResultsPanel({
           return (
             <button
               key={result.stationId}
-              onClick={() => onStationClick(result.stationId)}
-              className="w-full px-4 py-3 border-b border-gray-100 hover:bg-amber-50 transition-colors text-left group"
+              onClick={() => {
+                if (onStationZoom) {
+                  onStationZoom(result.stationId);
+                }
+                onStationClick(result.stationId);
+              }}
+              className="w-full px-4 py-3 border-b border-gray-100 hover:bg-amber-50 transition-colors text-left group cursor-pointer"
             >
               {/* Station name and count */}
               <div className="flex items-center justify-between mb-2">

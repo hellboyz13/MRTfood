@@ -23,6 +23,7 @@ interface MRTMapProps {
   selectedStation: string | null;
   onStationClick: (stationId: string) => void;
   searchResults?: StationSearchResult[];
+  onZoomHandlerReady?: (handler: (stationId: string) => void) => void;
 }
 
 // Station coordinates for centering and location finding
@@ -387,7 +388,7 @@ const stationGeoCoordinates: { [key: string]: { lat: number, lng: number } } = {
   'bayshore': { lat: 1.3193, lng: 103.9378 },
 };
 
-export default function MRTMap({ selectedStation, onStationClick, searchResults = [] }: MRTMapProps) {
+export default function MRTMap({ selectedStation, onStationClick, searchResults = [], onZoomHandlerReady }: MRTMapProps) {
   const svgContainerRef = useRef<HTMLDivElement>(null);
   const transformRef = useRef<ReactZoomPanPinchRef>(null);
   const [svgLoaded, setSvgLoaded] = useState(false);
@@ -414,6 +415,27 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
+
+  // Zoom handler for external components (like SearchResultsPanel)
+  const zoomToStation = useCallback((stationId: string) => {
+    if (transformRef.current && stationCoordinates[stationId]) {
+      const coords = stationCoordinates[stationId];
+      const padding = 300;
+      const scale = 1.8; // Zoom level for focused view
+      const stationX = coords.cx + padding;
+      const stationY = coords.cy + padding;
+      const posX = window.innerWidth / 2 - stationX * scale;
+      const posY = window.innerHeight / 2 - stationY * scale;
+      transformRef.current.setTransform(posX, posY, scale, 500);
+    }
+  }, []);
+
+  // Expose zoom handler to parent component
+  useEffect(() => {
+    if (onZoomHandlerReady) {
+      onZoomHandlerReady(zoomToStation);
+    }
+  }, [onZoomHandlerReady, zoomToStation]);
 
   useEffect(() => {
     // Load the SVG and inject it into the DOM

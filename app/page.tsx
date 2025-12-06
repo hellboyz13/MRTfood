@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import MRTMap from '@/components/MRTMap';
 import FoodPanelV2 from '@/components/FoodPanelV2';
 import SearchBar from '@/components/SearchBar';
@@ -14,6 +14,7 @@ export default function Home() {
   const [isSearching, setIsSearching] = useState(false);
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [stationNames, setStationNames] = useState<{ [key: string]: string }>({});
+  const mapZoomHandlerRef = useRef<((stationId: string) => void) | null>(null);
 
   // Load station names
   useEffect(() => {
@@ -64,6 +65,12 @@ export default function Home() {
     setSearchQuery('');
   };
 
+  const handleStationZoom = (stationId: string) => {
+    if (mapZoomHandlerRef.current) {
+      mapZoomHandlerRef.current(stationId);
+    }
+  };
+
   return (
     <main className="h-screen flex flex-col overflow-hidden">
       {/* Logo - Top Left */}
@@ -90,6 +97,7 @@ export default function Home() {
           onStationClick={handleStationClick}
           onClose={handleClearSearch}
           stationNames={stationNames}
+          onStationZoom={handleStationZoom}
         />
       )}
 
@@ -101,6 +109,7 @@ export default function Home() {
             selectedStation={selectedStation}
             onStationClick={handleStationClick}
             searchResults={searchResults}
+            onZoomHandlerReady={(handler) => { mapZoomHandlerRef.current = handler; }}
           />
         </div>
 
