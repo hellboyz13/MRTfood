@@ -228,9 +228,10 @@ const stationCoordinates: { [key: string]: { cx: number, cy: number, name: strin
   'soo-teck': { cx: 1141, cy: 195, name: 'Soo Teck' },
 };
 
-// Approximate real-world coordinates for stations (lat, lng)
-// These are approximate and used for finding nearest station
+// Real-world coordinates for stations (lat, lng)
+// Used for finding nearest station based on user's GPS location
 const stationGeoCoordinates: { [key: string]: { lat: number, lng: number } } = {
+  // Major interchange stations
   'newton': { lat: 1.3138, lng: 103.8380 },
   'orchard': { lat: 1.3043, lng: 103.8322 },
   'dhoby-ghaut': { lat: 1.2987, lng: 103.8456 },
@@ -261,6 +262,134 @@ const stationGeoCoordinates: { [key: string]: { lat: number, lng: number } } = {
   'sengkang': { lat: 1.3920, lng: 103.8955 },
   'bedok': { lat: 1.3240, lng: 103.9300 },
   'tanjong-pagar': { lat: 1.2765, lng: 103.8455 },
+
+  // North-South Line
+  'yishun': { lat: 1.4291, lng: 103.8350 },
+  'khatib': { lat: 1.4172, lng: 103.8329 },
+  'yio-chu-kang': { lat: 1.3817, lng: 103.8448 },
+  'braddell': { lat: 1.3407, lng: 103.8477 },
+  'novena': { lat: 1.3203, lng: 103.8437 },
+  'marina-south-pier': { lat: 1.2710, lng: 103.8635 },
+  'bukit-batok': { lat: 1.3490, lng: 103.7496 },
+  'bukit-gombak': { lat: 1.3587, lng: 103.7518 },
+  'choa-chu-kang': { lat: 1.3854, lng: 103.7443 },
+  'yew-tee': { lat: 1.3972, lng: 103.7470 },
+  'kranji': { lat: 1.4250, lng: 103.7619 },
+  'marsiling': { lat: 1.4326, lng: 103.7741 },
+  'admiralty': { lat: 1.4406, lng: 103.8009 },
+  'sembawang': { lat: 1.4491, lng: 103.8202 },
+  'canberra': { lat: 1.4430, lng: 103.8296 },
+
+  // East-West Line
+  'chinese-garden': { lat: 1.3425, lng: 103.7326 },
+  'lakeside': { lat: 1.3444, lng: 103.7209 },
+  'pioneer': { lat: 1.3376, lng: 103.6974 },
+  'joo-koon': { lat: 1.3277, lng: 103.6783 },
+  'gul-circle': { lat: 1.3195, lng: 103.6605 },
+  'tuas-crescent': { lat: 1.3210, lng: 103.6492 },
+  'tuas-west-road': { lat: 1.3303, lng: 103.6397 },
+  'tuas-link': { lat: 1.3404, lng: 103.6368 },
+  'dover': { lat: 1.3113, lng: 103.7786 },
+  'commonwealth': { lat: 1.3026, lng: 103.7979 },
+  'queenstown': { lat: 1.2944, lng: 103.8061 },
+  'redhill': { lat: 1.2896, lng: 103.8175 },
+  'tiong-bahru': { lat: 1.2862, lng: 103.8270 },
+  'lavender': { lat: 1.3075, lng: 103.8631 },
+  'kallang': { lat: 1.3114, lng: 103.8714 },
+  'aljunied': { lat: 1.3164, lng: 103.8824 },
+  'eunos': { lat: 1.3198, lng: 103.9033 },
+  'kembangan': { lat: 1.3211, lng: 103.9127 },
+  'simei': { lat: 1.3433, lng: 103.9532 },
+
+  // Circle Line
+  'esplanade': { lat: 1.2934, lng: 103.8556 },
+  'bras-basah': { lat: 1.2969, lng: 103.8507 },
+  'nicoll-highway': { lat: 1.2996, lng: 103.8634 },
+  'stadium': { lat: 1.3030, lng: 103.8753 },
+  'mountbatten': { lat: 1.3062, lng: 103.8822 },
+  'dakota': { lat: 1.3082, lng: 103.8879 },
+  'tai-seng': { lat: 1.3357, lng: 103.8883 },
+  'bartley': { lat: 1.3425, lng: 103.8796 },
+  'lorong-chuan': { lat: 1.3516, lng: 103.8638 },
+  'marymount': { lat: 1.3480, lng: 103.8396 },
+  'farrer-road': { lat: 1.3172, lng: 103.8074 },
+  'holland-village': { lat: 1.3124, lng: 103.7963 },
+  'one-north': { lat: 1.2996, lng: 103.7872 },
+  'kent-ridge': { lat: 1.2935, lng: 103.7845 },
+  'haw-par-villa': { lat: 1.2824, lng: 103.7818 },
+  'pasir-panjang': { lat: 1.2763, lng: 103.7914 },
+  'labrador-park': { lat: 1.2722, lng: 103.8024 },
+  'telok-blangah': { lat: 1.2705, lng: 103.8095 },
+  'promenade': { lat: 1.2930, lng: 103.8610 },
+
+  // Downtown Line
+  'bukit-panjang': { lat: 1.3792, lng: 103.7619 },
+  'cashew': { lat: 1.3693, lng: 103.7719 },
+  'hillview': { lat: 1.3625, lng: 103.7676 },
+  'hume': { lat: 1.3526, lng: 103.7851 },
+  'beauty-world': { lat: 1.3416, lng: 103.7759 },
+  'king-albert-park': { lat: 1.3359, lng: 103.7834 },
+  'sixth-avenue': { lat: 1.3309, lng: 103.7965 },
+  'tan-kah-kee': { lat: 1.3256, lng: 103.8076 },
+  'botanic-gardens': { lat: 1.3224, lng: 103.8155 },
+  'stevens': { lat: 1.3200, lng: 103.8258 },
+  'rochor': { lat: 1.3040, lng: 103.8524 },
+  'downtown': { lat: 1.2795, lng: 103.8535 },
+  'telok-ayer': { lat: 1.2822, lng: 103.8484 },
+  'fort-canning': { lat: 1.2917, lng: 103.8446 },
+  'bencoolen': { lat: 1.2986, lng: 103.8502 },
+  'jalan-besar': { lat: 1.3053, lng: 103.8554 },
+  'bendemeer': { lat: 1.3140, lng: 103.8619 },
+  'geylang-bahru': { lat: 1.3215, lng: 103.8712 },
+  'mattar': { lat: 1.3267, lng: 103.8828 },
+  'ubi': { lat: 1.3299, lng: 103.8995 },
+  'kaki-bukit': { lat: 1.3351, lng: 103.9081 },
+  'bedok-north': { lat: 1.3346, lng: 103.9179 },
+  'bedok-reservoir': { lat: 1.3362, lng: 103.9331 },
+  'tampines-west': { lat: 1.3457, lng: 103.9378 },
+  'tampines': { lat: 1.3540, lng: 103.9455 },
+  'tampines-east': { lat: 1.3566, lng: 103.9545 },
+  'upper-changi': { lat: 1.3418, lng: 103.9615 },
+  'expo': { lat: 1.3349, lng: 103.9616 },
+
+  // North-East Line
+  'punggol': { lat: 1.4050, lng: 103.9025 },
+  'sengkang': { lat: 1.3920, lng: 103.8955 },
+  'buangkok': { lat: 1.3829, lng: 103.8928 },
+  'hougang': { lat: 1.3712, lng: 103.8862 },
+  'kovan': { lat: 1.3607, lng: 103.8849 },
+  'woodleigh': { lat: 1.3394, lng: 103.8709 },
+  'potong-pasir': { lat: 1.3318, lng: 103.8688 },
+  'boon-keng': { lat: 1.3196, lng: 103.8617 },
+  'farrer-park': { lat: 1.3121, lng: 103.8540 },
+  'clarke-quay': { lat: 1.2887, lng: 103.8467 },
+
+  // Thomson-East Coast Line
+  'woodlands-north': { lat: 1.4481, lng: 103.7858 },
+  'woodlands-south': { lat: 1.4276, lng: 103.7943 },
+  'springleaf': { lat: 1.3979, lng: 103.8180 },
+  'lentor': { lat: 1.3847, lng: 103.8368 },
+  'mayflower': { lat: 1.3654, lng: 103.8366 },
+  'bright-hill': { lat: 1.3631, lng: 103.8338 },
+  'upper-thomson': { lat: 1.3548, lng: 103.8348 },
+  'caldecott': { lat: 1.3376, lng: 103.8394 },
+  'mount-pleasant': { lat: 1.3263, lng: 103.8353 },
+  'stevens': { lat: 1.3200, lng: 103.8258 },
+  'napier': { lat: 1.3104, lng: 103.8265 },
+  'orchard-boulevard': { lat: 1.3016, lng: 103.8328 },
+  'great-world': { lat: 1.2935, lng: 103.8317 },
+  'havelock': { lat: 1.2873, lng: 103.8352 },
+  'maxwell': { lat: 1.2805, lng: 103.8445 },
+  'shenton-way': { lat: 1.2790, lng: 103.8497 },
+  'marina-bay': { lat: 1.2765, lng: 103.8545 },
+  'gardens-by-the-bay': { lat: 1.2817, lng: 103.8636 },
+  'tanjong-rhu': { lat: 1.2942, lng: 103.8756 },
+  'katong-park': { lat: 1.3031, lng: 103.8920 },
+  'tanjong-katong': { lat: 1.3107, lng: 103.9027 },
+  'marine-parade': { lat: 1.3023, lng: 103.9063 },
+  'marine-terrace': { lat: 1.3014, lng: 103.9130 },
+  'siglap': { lat: 1.3132, lng: 103.9265 },
+  'bayshore': { lat: 1.3193, lng: 103.9378 },
 };
 
 export default function MRTMap({ selectedStation, onStationClick, searchResults = [] }: MRTMapProps) {
@@ -549,21 +678,34 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
     });
   };
 
+  // Calculate distance between two coordinates using Haversine formula
+  // Returns distance in kilometers
+  const calculateDistance = (lat1: number, lng1: number, lat2: number, lng2: number): number => {
+    const R = 6371; // Earth's radius in kilometers
+    const dLat = (lat2 - lat1) * Math.PI / 180;
+    const dLng = (lng2 - lng1) * Math.PI / 180;
+    const a =
+      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+      Math.sin(dLng / 2) * Math.sin(dLng / 2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    return R * c;
+  };
+
   // Find nearest station to given coordinates
   const findNearestStation = useCallback((lat: number, lng: number): string | null => {
     let nearestStation: string | null = null;
     let minDistance = Infinity;
 
     for (const [stationId, coords] of Object.entries(stationGeoCoordinates)) {
-      const distance = Math.sqrt(
-        Math.pow(lat - coords.lat, 2) + Math.pow(lng - coords.lng, 2)
-      );
+      const distance = calculateDistance(lat, lng, coords.lat, coords.lng);
       if (distance < minDistance) {
         minDistance = distance;
         nearestStation = stationId;
       }
     }
 
+    console.log(`Nearest station: ${nearestStation} (${minDistance.toFixed(2)}km away)`);
     return nearestStation;
   }, []);
 
