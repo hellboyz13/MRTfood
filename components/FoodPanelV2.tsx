@@ -1,7 +1,7 @@
 'use client';
 
 import { useRef, useState, useCallback, useEffect } from 'react';
-import { SponsoredListing as DbSponsoredListing, GroupedChainOutlets } from '@/types/database';
+import { SponsoredListing as DbSponsoredListing, GroupedChainOutlets, FoodListingWithSources } from '@/types/database';
 import { stationNames } from '@/data/mock-data';
 import { useStationFood } from '@/hooks/useStationFood';
 import { getChainOutletsByStation } from '@/lib/api';
@@ -9,6 +9,7 @@ import FoodListingCardV2 from './FoodListingCardV2';
 import SlotMachine from './SlotMachine';
 import ModeToggle from './ModeToggle';
 import ChainOutletCard from './ChainOutletCard';
+import MenuPreview from './MenuPreview';
 
 interface FoodPanelV2Props {
   stationId: string | null;
@@ -95,6 +96,7 @@ export default function FoodPanelV2({ stationId, onClose, isMobile = false, sear
   const [mode, setMode] = useState<'curated' | 'popular'>('curated');
   const [chainOutlets, setChainOutlets] = useState<GroupedChainOutlets[]>([]);
   const [loadingChains, setLoadingChains] = useState(false);
+  const [selectedMenuListing, setSelectedMenuListing] = useState<FoodListingWithSources | null>(null);
 
   const { data, separatedListings, loading, error } = useStationFood(
     isSupabaseConfigured() ? stationId : null
@@ -174,7 +176,12 @@ export default function FoodPanelV2({ stationId, onClose, isMobile = false, sear
           <div className="space-y-2">
             <div className="space-y-2">
               {recommended.map((listing) => (
-                <FoodListingCardV2 key={listing.id} listing={listing} highlighted={matchesSearch(listing)} />
+                <FoodListingCardV2
+                  key={listing.id}
+                  listing={listing}
+                  highlighted={matchesSearch(listing)}
+                  onViewMenu={setSelectedMenuListing}
+                />
               ))}
             </div>
           </div>
@@ -190,7 +197,12 @@ export default function FoodPanelV2({ stationId, onClose, isMobile = false, sear
             </h2>
             <div className="space-y-2">
               {foodKingOnly.map((listing) => (
-                <FoodListingCardV2 key={listing.id} listing={listing} highlighted={matchesSearch(listing)} />
+                <FoodListingCardV2
+                  key={listing.id}
+                  listing={listing}
+                  highlighted={matchesSearch(listing)}
+                  onViewMenu={setSelectedMenuListing}
+                />
               ))}
             </div>
           </div>
@@ -286,24 +298,41 @@ export default function FoodPanelV2({ stationId, onClose, isMobile = false, sear
   // Desktop panel
   if (!isMobile) {
     return (
-      <div className="w-[350px] h-full bg-white border-l border-gray-200 shadow-lg flex flex-col">
-        <div className="flex items-center justify-between px-4 py-3 border-b border-gray-200 bg-gray-50">
-          <h2 className="text-lg font-bold text-gray-900">{stationName}</h2>
-          <button
-            onClick={onClose}
-            className="p-1 hover:bg-gray-200 rounded-full transition-colors"
-            aria-label="Close panel"
-          >
-            <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-        </div>
-        <div className="px-4 pt-3 pb-2 border-b border-gray-200">
-          <ModeToggle mode={mode} onModeChange={setMode} />
-        </div>
-        <div className="flex-1 overflow-y-auto p-4 space-y-3">
-          {renderContent()}
+      <div className="w-[350px] h-full bg-white border-l border-gray-200 shadow-lg flex flex-col panel-container">
+        <div className={`panel-slide-wrapper ${selectedMenuListing ? 'show-menu' : ''}`}>
+          {/* Main listing panel */}
+          <div className="listing-panel">
+            <div className="flex flex-col h-full">
+              <div className="flex items-center justify-between px-4 py-3 border-b border-gray-200 bg-gray-50">
+                <h2 className="text-lg font-bold text-gray-900">{stationName}</h2>
+                <button
+                  onClick={onClose}
+                  className="p-1 hover:bg-gray-200 rounded-full transition-colors"
+                  aria-label="Close panel"
+                >
+                  <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+              <div className="px-4 pt-3 pb-2 border-b border-gray-200">
+                <ModeToggle mode={mode} onModeChange={setMode} />
+              </div>
+              <div className="flex-1 overflow-y-auto p-4 space-y-3">
+                {renderContent()}
+              </div>
+            </div>
+          </div>
+
+          {/* Menu preview panel */}
+          <div className="menu-panel">
+            {selectedMenuListing && (
+              <MenuPreview
+                listing={selectedMenuListing}
+                onBack={() => setSelectedMenuListing(null)}
+              />
+            )}
+          </div>
         </div>
       </div>
     );
@@ -311,7 +340,14 @@ export default function FoodPanelV2({ stationId, onClose, isMobile = false, sear
 
   // Mobile drawer with swipe-to-dismiss
   return (
-    <MobileDrawer stationName={stationName} onClose={onClose} mode={mode} onModeChange={setMode}>
+    <MobileDrawer
+      stationName={stationName}
+      onClose={onClose}
+      mode={mode}
+      onModeChange={setMode}
+      selectedMenuListing={selectedMenuListing}
+      onBackFromMenu={() => setSelectedMenuListing(null)}
+    >
       {renderContent()}
     </MobileDrawer>
   );
@@ -323,12 +359,16 @@ function MobileDrawer({
   onClose,
   mode,
   onModeChange,
+  selectedMenuListing,
+  onBackFromMenu,
   children
 }: {
   stationName: string;
   onClose: () => void;
   mode: 'curated' | 'popular';
   onModeChange: (mode: 'curated' | 'popular') => void;
+  selectedMenuListing: FoodListingWithSources | null;
+  onBackFromMenu: () => void;
   children: React.ReactNode;
 }) {
   const drawerRef = useRef<HTMLDivElement>(null);
@@ -425,36 +465,51 @@ function MobileDrawer({
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
       >
-        {/* Drag handle */}
-        <div data-drag-handle className="flex justify-center py-3 cursor-grab active:cursor-grabbing">
-          <div className="w-12 h-1.5 bg-gray-300 rounded-full" />
-        </div>
+        <div className={`panel-slide-wrapper ${selectedMenuListing ? 'show-menu' : ''}`}>
+          {/* Main listing panel */}
+          <div className="listing-panel">
+            {/* Drag handle */}
+            <div data-drag-handle className="flex justify-center py-3 cursor-grab active:cursor-grabbing">
+              <div className="w-12 h-1.5 bg-gray-300 rounded-full" />
+            </div>
 
-        {/* Header */}
-        <div data-drag-handle className="flex items-center justify-between px-4 py-2 border-b border-gray-200">
-          <h2 className="text-lg font-bold text-gray-900">{stationName}</h2>
-          <button
-            onClick={handleClose}
-            className="p-2 hover:bg-gray-100 rounded-full transition-colors"
-            aria-label="Close drawer"
-          >
-            <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-        </div>
+            {/* Header */}
+            <div data-drag-handle className="flex items-center justify-between px-4 py-2 border-b border-gray-200">
+              <h2 className="text-lg font-bold text-gray-900">{stationName}</h2>
+              <button
+                onClick={handleClose}
+                className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+                aria-label="Close drawer"
+              >
+                <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
 
-        {/* Mode Toggle */}
-        <div className="px-4 pt-3 pb-2 border-b border-gray-200">
-          <ModeToggle mode={mode} onModeChange={onModeChange} />
-        </div>
+            {/* Mode Toggle */}
+            <div className="px-4 pt-3 pb-2 border-b border-gray-200">
+              <ModeToggle mode={mode} onModeChange={onModeChange} />
+            </div>
 
-        {/* Content - scrollable */}
-        <div
-          ref={contentRef}
-          className="flex-1 overflow-y-auto overscroll-contain p-4 space-y-3"
-        >
-          {children}
+            {/* Content - scrollable */}
+            <div
+              ref={contentRef}
+              className="flex-1 overflow-y-auto overscroll-contain p-4 space-y-3"
+            >
+              {children}
+            </div>
+          </div>
+
+          {/* Menu preview panel */}
+          <div className="menu-panel">
+            {selectedMenuListing && (
+              <MenuPreview
+                listing={selectedMenuListing}
+                onBack={onBackFromMenu}
+              />
+            )}
+          </div>
         </div>
       </div>
     </>

@@ -6,6 +6,7 @@ import { formatDistance, getWalkingTime, getMapsUrl } from '@/lib/distance';
 interface FoodListingCardV2Props {
   listing: FoodListingWithSources;
   highlighted?: boolean;
+  onViewMenu?: (listing: FoodListingWithSources) => void;
 }
 
 // Helper to get Michelin distinction from source
@@ -63,7 +64,7 @@ function SourceBadge({
   return content;
 }
 
-export default function FoodListingCardV2({ listing, highlighted = false }: FoodListingCardV2Props) {
+export default function FoodListingCardV2({ listing, highlighted = false, onViewMenu }: FoodListingCardV2Props) {
   const distance = listing.distance_to_station;
   const walkingTime = getWalkingTime(listing.walking_time, distance);
   const formattedDistance = formatDistance(distance);
@@ -175,6 +176,17 @@ export default function FoodListingCardV2({ listing, highlighted = false }: Food
             </span>
           )}
         </div>
+      )}
+
+      {/* View Menu Button */}
+      {onViewMenu && (
+        <button
+          onClick={() => onViewMenu(listing)}
+          className="w-full mt-3 py-2 px-3 bg-primary hover:bg-primary-hover text-white text-xs font-medium rounded-md transition-colors flex items-center justify-center gap-1"
+        >
+          <span>📸</span>
+          <span>View Menu</span>
+        </button>
       )}
     </div>
   );
