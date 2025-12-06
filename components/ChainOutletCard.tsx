@@ -1,12 +1,14 @@
 'use client';
 
-import { ChainOutlet } from '@/types/database';
+import { ChainOutlet, FoodListingWithSources } from '@/types/database';
 import { getChainLogo } from '@/lib/chainLogos';
 import { useState } from 'react';
 
 interface ChainOutletCardProps {
   outlet: ChainOutlet;
   brandName: string;
+  highlighted?: boolean;
+  onViewMenu?: (listing: FoodListingWithSources) => void;
 }
 
 function formatDistance(meters: number | null): string {
@@ -20,7 +22,7 @@ function formatWalkTime(minutes: number | null): string {
   return `${minutes} min walk`;
 }
 
-export default function ChainOutletCard({ outlet, brandName }: ChainOutletCardProps) {
+export default function ChainOutletCard({ outlet, brandName, highlighted = false, onViewMenu }: ChainOutletCardProps) {
   const distance = formatDistance(outlet.distance_to_station);
   const walkTime = formatWalkTime(outlet.walk_time);
   const [logoError, setLogoError] = useState(false);
@@ -31,8 +33,40 @@ export default function ChainOutletCard({ outlet, brandName }: ChainOutletCardPr
     window.open(`https://www.google.com/maps/search/?api=1&query=${query}`, '_blank');
   };
 
+  // Convert outlet to FoodListingWithSources format for menu preview
+  const handleViewMenu = () => {
+    if (!onViewMenu) return;
+
+    const listing: FoodListingWithSources = {
+      id: outlet.id,
+      name: outlet.name,
+      description: brandName,
+      address: outlet.address,
+      station_id: outlet.nearest_station_id,
+      image_url: null,
+      rating: outlet.rating,
+      source_id: null,
+      source_url: null,
+      tags: outlet.food_tags || [],
+      is_active: outlet.is_active,
+      created_at: outlet.created_at,
+      updated_at: outlet.updated_at,
+      distance_to_station: outlet.distance_to_station,
+      walking_time: outlet.walk_time,
+      lat: outlet.latitude,
+      lng: outlet.longitude,
+      sources: [],
+      trust_score: 0,
+    };
+    onViewMenu(listing);
+  };
+
   return (
-    <div className="bg-white border border-gray-200 rounded-lg p-3 hover:shadow-md transition-shadow">
+    <div className={`rounded-lg p-3 hover:shadow-md transition-shadow ${
+      highlighted
+        ? 'bg-green-50 border-2 border-green-400 ring-2 ring-green-200'
+        : 'bg-white border border-gray-200'
+    }`}>
       <div className="flex items-start gap-3 mb-2">
         {/* Brand Logo */}
         <div className="flex-shrink-0 w-12 h-12 rounded-lg overflow-hidden bg-gray-100 flex items-center justify-center">
@@ -73,12 +107,23 @@ export default function ChainOutletCard({ outlet, brandName }: ChainOutletCardPr
         </div>
       )}
 
-      <button
-        onClick={handleGetDirections}
-        className="w-full py-1.5 px-3 bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-medium rounded transition-colors"
-      >
-        Get Directions
-      </button>
+      <div className="flex gap-2">
+        <button
+          onClick={handleGetDirections}
+          className="flex-1 py-1.5 px-3 bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-medium rounded transition-colors"
+        >
+          Get Directions
+        </button>
+        {onViewMenu && (
+          <button
+            onClick={handleViewMenu}
+            className="flex-1 py-1.5 px-3 bg-primary hover:bg-primary-hover text-white text-xs font-medium rounded transition-colors flex items-center justify-center gap-1"
+          >
+            <span>📸</span>
+            <span>View Menu</span>
+          </button>
+        )}
+      </div>
     </div>
   );
 }

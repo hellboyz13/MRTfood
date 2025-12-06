@@ -281,6 +281,8 @@ export default function FoodPanelV2({ stationId, onClose, isMobile = false, sear
                     key={outlet.id}
                     outlet={outlet}
                     brandName={group.brand.name}
+                    highlighted={matchesSearch({ name: outlet.name, tags: outlet.food_tags || [] })}
+                    onViewMenu={setSelectedMenuListing}
                   />
                 ))}
               </div>
@@ -298,29 +300,27 @@ export default function FoodPanelV2({ stationId, onClose, isMobile = false, sear
   // Desktop panel
   if (!isMobile) {
     return (
-      <div className="w-[350px] h-full bg-white border-l border-gray-200 shadow-lg flex flex-col panel-container">
-        <div className={`panel-slide-wrapper ${selectedMenuListing ? 'show-menu' : ''}`}>
+      <div className="w-[350px] h-full bg-white border-l border-gray-200 shadow-lg panel-container">
+        <div className={`panel-slide-wrapper ${selectedMenuListing ? 'show-menu' : ''} h-full`}>
           {/* Main listing panel */}
-          <div className="listing-panel">
-            <div className="flex flex-col h-full">
-              <div className="flex items-center justify-between px-4 py-3 border-b border-gray-200 bg-gray-50">
-                <h2 className="text-lg font-bold text-gray-900">{stationName}</h2>
-                <button
-                  onClick={onClose}
-                  className="p-1 hover:bg-gray-200 rounded-full transition-colors"
-                  aria-label="Close panel"
-                >
-                  <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                </button>
-              </div>
-              <div className="px-4 pt-3 pb-2 border-b border-gray-200">
-                <ModeToggle mode={mode} onModeChange={setMode} />
-              </div>
-              <div className="flex-1 overflow-y-auto p-4 space-y-3">
-                {renderContent()}
-              </div>
+          <div className="listing-panel flex flex-col">
+            <div className="flex items-center justify-between px-4 py-3 border-b border-gray-200 bg-gray-50 flex-shrink-0">
+              <h2 className="text-lg font-bold text-gray-900">{stationName}</h2>
+              <button
+                onClick={onClose}
+                className="p-1 hover:bg-gray-200 rounded-full transition-colors"
+                aria-label="Close panel"
+              >
+                <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            <div className="px-4 pt-3 pb-2 border-b border-gray-200 flex-shrink-0">
+              <ModeToggle mode={mode} onModeChange={setMode} />
+            </div>
+            <div className="flex-1 overflow-y-auto p-4 space-y-3">
+              {renderContent()}
             </div>
           </div>
 
