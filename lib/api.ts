@@ -282,3 +282,53 @@ export async function getStationsBySource(
   // Return unique station IDs
   return [...new Set((listings as { station_id: string | null }[]).map(l => l.station_id).filter(Boolean))] as string[];
 }
+
+// ============================================
+// SEARCH STATIONS BY FOOD
+// ============================================
+
+// Search for stations that have food matching the query
+export async function searchStationsByFood(query: string): Promise<string[]> {
+  if (!query || query.trim().length === 0) return [];
+
+  const searchQuery = query.trim().toLowerCase();
+
+  // Search for matching listings
+  const { data: listings, error } = await supabase
+    .from('food_listings')
+    .select('station_id, name, description, tags')
+    .eq('is_active', true)
+    .not('station_id', 'is', null);
+
+  if (error || !listings) {
+    if (error) console.error('Error searching food listings:', error);
+    return [];
+  }
+
+  // Filter listings that match the search query
+  const matchingListings = listings.filter((listing: FoodListing) => {
+    // Check name
+    if (listing.name?.toLowerCase().includes(searchQuery)) return true;
+
+    // Check description
+    if (listing.description?.toLowerCase().includes(searchQuery)) return true;
+
+    // Check tags
+    if (listing.tags && Array.isArray(listing.tags)) {
+      return listing.tags.some((tag: string) =>
+        tag.toLowerCase().includes(searchQuery)
+      );
+    }
+
+    return false;
+  });
+
+  // Extract unique station IDs
+  const stationIds = [...new Set(
+    matchingListings
+      .map((l: FoodListing) => l.station_id)
+      .filter(Boolean)
+  )] as string[];
+
+  return stationIds;
+}

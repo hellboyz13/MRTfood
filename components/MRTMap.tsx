@@ -22,6 +22,7 @@ const MAP_CONSTRAINTS = {
 interface MRTMapProps {
   selectedStation: string | null;
   onStationClick: (stationId: string) => void;
+  searchResults?: string[];
 }
 
 // Station coordinates for centering and location finding
@@ -262,7 +263,7 @@ const stationGeoCoordinates: { [key: string]: { lat: number, lng: number } } = {
   'tanjong-pagar': { lat: 1.2765, lng: 103.8455 },
 };
 
-export default function MRTMap({ selectedStation, onStationClick }: MRTMapProps) {
+export default function MRTMap({ selectedStation, onStationClick, searchResults = [] }: MRTMapProps) {
   const svgContainerRef = useRef<HTMLDivElement>(null);
   const transformRef = useRef<ReactZoomPanPinchRef>(null);
   const [svgLoaded, setSvgLoaded] = useState(false);
@@ -306,17 +307,29 @@ export default function MRTMap({ selectedStation, onStationClick }: MRTMapProps)
     const svg = svgContainerRef.current.querySelector('svg');
     if (!svg) return;
 
-    // Reset all station circles to white fill
+    // Reset all station circles to white fill and remove animations
     const circles = svg.querySelectorAll('circle[data-station-id]');
     circles.forEach(circle => {
       circle.setAttribute('fill', '#ffffff');
       (circle as HTMLElement).style.transform = 'scale(1)';
+      circle.classList.remove('station-heartbeat');
     });
 
-    // Highlight selected station with red and pulse animation
+    // Highlight search result stations with heartbeat animation
+    if (searchResults.length > 0) {
+      searchResults.forEach(stationId => {
+        const circle = svg.querySelector(`circle[data-station-id="${stationId}"]`);
+        if (circle) {
+          circle.classList.add('station-heartbeat');
+        }
+      });
+    }
+
+    // Highlight selected station with red and pulse animation (takes priority over search results)
     if (selectedStation) {
       const selectedCircle = svg.querySelector(`circle[data-station-id="${selectedStation}"]`);
       if (selectedCircle) {
+        selectedCircle.classList.remove('station-heartbeat');
         selectedCircle.setAttribute('fill', '#dc2626');
         // Add pulse effect
         (selectedCircle as HTMLElement).style.transform = 'scale(1.2)';
@@ -325,7 +338,7 @@ export default function MRTMap({ selectedStation, onStationClick }: MRTMapProps)
         }, 150);
       }
     }
-  }, [selectedStation, svgLoaded]);
+  }, [selectedStation, svgLoaded, searchResults]);
 
   const cleanupSvg = (svg: SVGSVGElement) => {
     // 1. Remove the legend area

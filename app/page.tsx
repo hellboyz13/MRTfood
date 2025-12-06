@@ -3,10 +3,14 @@
 import { useState, useEffect } from 'react';
 import MRTMap from '@/components/MRTMap';
 import FoodPanelV2 from '@/components/FoodPanelV2';
+import SearchBar from '@/components/SearchBar';
+import { searchStationsByFood } from '@/lib/api';
 
 export default function Home() {
   const [selectedStation, setSelectedStation] = useState<string | null>(null);
   const [isMobile, setIsMobile] = useState(false);
+  const [searchResults, setSearchResults] = useState<string[]>([]);
+  const [isSearching, setIsSearching] = useState(false);
 
   // Detect mobile viewport
   useEffect(() => {
@@ -27,6 +31,23 @@ export default function Home() {
     setSelectedStation(null);
   };
 
+  const handleSearch = async (query: string) => {
+    setIsSearching(true);
+    try {
+      const stations = await searchStationsByFood(query);
+      setSearchResults(stations);
+    } catch (error) {
+      console.error('Search error:', error);
+      setSearchResults([]);
+    } finally {
+      setIsSearching(false);
+    }
+  };
+
+  const handleClearSearch = () => {
+    setSearchResults([]);
+  };
+
   return (
     <main className="h-screen flex flex-col overflow-hidden">
       {/* Logo - Top Left */}
@@ -38,6 +59,13 @@ export default function Home() {
         />
       </div>
 
+      {/* Search Bar - Top Center */}
+      <SearchBar
+        onSearch={handleSearch}
+        onClear={handleClearSearch}
+        isSearching={isSearching}
+      />
+
       {/* Main Content */}
       <div className="flex-1 flex relative overflow-hidden">
         {/* MRT Map */}
@@ -45,6 +73,7 @@ export default function Home() {
           <MRTMap
             selectedStation={selectedStation}
             onStationClick={handleStationClick}
+            searchResults={searchResults}
           />
         </div>
 
