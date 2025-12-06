@@ -291,6 +291,30 @@ export async function getStationsBySource(
 // SEARCH STATIONS BY FOOD
 // ============================================
 
+// Helper function to check if search query matches food tags
+// Prevents false positives like "fried chicken" matching "chicha"
+function matchesFoodTags(searchQuery: string, tags: string[]): boolean {
+  if (!tags || tags.length === 0) return false;
+
+  // Split search query into individual terms (words)
+  const searchTerms = searchQuery.toLowerCase().split(/\s+/).filter(term => term.length > 2);
+
+  // Normalize tags to lowercase
+  const normalizedTags = tags.map(tag => tag.toLowerCase());
+
+  // Check if any search term matches a complete tag or is contained as a whole word in a tag
+  return searchTerms.some(term =>
+    normalizedTags.some(tag => {
+      // Exact tag match
+      if (tag === term) return true;
+
+      // Tag contains the search term as a complete word (not substring)
+      const tagWords = tag.split(/\s+/);
+      return tagWords.includes(term);
+    })
+  );
+}
+
 // Search for stations that have food matching the query
 export async function searchStationsByFood(query: string): Promise<string[]> {
   if (!query || query.trim().length === 0) return [];
@@ -339,15 +363,12 @@ export async function searchStationsByFood(query: string): Promise<string[]> {
 
   if (!outletsError && chainOutlets) {
     const matchingOutlets = chainOutlets.filter((outlet: any) => {
-      // Check outlet/brand name
-      if (outlet.name?.toLowerCase().includes(searchQuery)) return true;
+      // REMOVED: Partial chain name matching to prevent false positives
+      // Only match on food tags now
 
       // Check food tags (AI-generated tags for dishes, cuisine, categories)
       if (outlet.food_tags && Array.isArray(outlet.food_tags)) {
-        return outlet.food_tags.some((tag: string) =>
-          tag.toLowerCase().includes(searchQuery) ||
-          searchQuery.includes(tag.toLowerCase())
-        );
+        return matchesFoodTags(searchQuery, outlet.food_tags);
       }
 
       return false;
@@ -418,12 +439,11 @@ export async function searchStationsByFoodWithCounts(query: string): Promise<Sta
 
   if (!outletsError && chainOutlets) {
     const matchingOutlets = chainOutlets.filter((outlet: any) => {
-      if (outlet.name?.toLowerCase().includes(searchQuery)) return true;
+      // REMOVED: Partial chain name matching to prevent false positives
+      // Only match on food tags now
+
       if (outlet.food_tags && Array.isArray(outlet.food_tags)) {
-        return outlet.food_tags.some((tag: string) =>
-          tag.toLowerCase().includes(searchQuery) ||
-          searchQuery.includes(tag.toLowerCase())
-        );
+        return matchesFoodTags(searchQuery, outlet.food_tags);
       }
       return false;
     });
