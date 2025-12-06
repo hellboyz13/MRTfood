@@ -52,25 +52,66 @@ Return ONLY a JSON array of lowercase strings, no explanation. Example: ["pizza"
 async function generateAllTags() {
   console.log('🤖 Generating AI food tags for all chain brands...\n');
 
-  // Get all unique brands
-  const { data: brands } = await supabase
-    .from('chain_brands')
-    .select('id, name, category')
-    .eq('is_active', true)
-    .order('name');
+  // Get all outlets to find unique brands
+  const { data: outlets } = await supabase
+    .from('chain_outlets')
+    .select('brand_id')
+    .eq('is_active', true);
 
-  if (!brands || brands.length === 0) {
-    console.log('No brands found!');
+  if (!outlets || outlets.length === 0) {
+    console.log('No outlets found!');
     return;
   }
 
-  console.log(`Found ${brands.length} brands to process\n`);
+  // Get unique brand IDs
+  const uniqueBrandIds = [...new Set(outlets.map(o => o.brand_id))];
+  console.log(`Found ${uniqueBrandIds.length} unique brands to process\n`);
+
+  // Map brand IDs to readable names and categories
+  const brandInfo: Record<string, { name: string; category: string }> = {
+    'mcdonalds': { name: "McDonald's", category: 'fast-food' },
+    'kfc': { name: 'KFC', category: 'fast-food' },
+    'subway': { name: 'Subway', category: 'fast-food' },
+    'jollibee': { name: 'Jollibee', category: 'fast-food' },
+    'burger-king': { name: 'Burger King', category: 'fast-food' },
+    'din-tai-fung': { name: 'Din Tai Fung', category: 'chinese' },
+    'tim-ho-wan': { name: 'Tim Ho Wan', category: 'chinese' },
+    'crystal-jade': { name: 'Crystal Jade', category: 'chinese' },
+    'putien': { name: 'Putien', category: 'chinese' },
+    'haidilao': { name: 'Haidilao', category: 'hotpot' },
+    'beauty-in-the-pot': { name: 'Beauty in the Pot', category: 'hotpot' },
+    'suki-ya': { name: 'Suki-Ya', category: 'hotpot' },
+    'seoul-garden': { name: 'Seoul Garden', category: 'hotpot' },
+    'koi': { name: 'KOI', category: 'bubble-tea' },
+    'liho': { name: 'LiHO', category: 'bubble-tea' },
+    'gong-cha': { name: 'Gong Cha', category: 'bubble-tea' },
+    'tiger-sugar': { name: 'Tiger Sugar', category: 'bubble-tea' },
+    'chicha-san-chen': { name: 'Chicha San Chen', category: 'bubble-tea' },
+    'the-alley': { name: 'The Alley', category: 'bubble-tea' },
+    'each-a-cup': { name: 'Each A Cup', category: 'bubble-tea' },
+    'ya-kun': { name: 'Ya Kun Kaya Toast', category: 'local' },
+    'toast-box': { name: 'Toast Box', category: 'local' },
+    'old-chang-kee': { name: 'Old Chang Kee', category: 'local' },
+    'mr-bean': { name: 'Mr Bean', category: 'local' },
+    '4fingers': { name: '4Fingers', category: 'local' },
+    'pepper-lunch': { name: 'Pepper Lunch', category: 'japanese' },
+    'genki-sushi': { name: 'Genki Sushi', category: 'japanese' },
+    'sushi-express': { name: 'Sushi Express', category: 'japanese' },
+    'ajisen-ramen': { name: 'Ajisen Ramen', category: 'japanese' },
+  };
 
   let processed = 0;
   let failed = 0;
 
-  for (const brand of brands) {
-    console.log(`[${processed + 1}/${brands.length}] Processing: ${brand.name} (${brand.category})`);
+  for (const brandId of uniqueBrandIds) {
+    const brand = brandInfo[brandId];
+    if (!brand) {
+      console.log(`[${processed + 1}/${uniqueBrandIds.length}] ⚠️  Unknown brand: ${brandId} - skipping`);
+      failed++;
+      continue;
+    }
+
+    console.log(`[${processed + 1}/${uniqueBrandIds.length}] Processing: ${brand.name} (${brand.category})`);
 
     try {
       // Generate tags
@@ -84,23 +125,11 @@ async function generateAllTags() {
 
       console.log(`  Generated ${tags.length} tags:`, tags.join(', '));
 
-      // Update brand
-      const { error: brandError } = await supabase
-        .from('chain_brands')
-        .update({ food_tags: tags })
-        .eq('id', brand.id);
-
-      if (brandError) {
-        console.error(`  ❌ Error updating brand:`, brandError);
-        failed++;
-        continue;
-      }
-
       // Update all outlets for this brand
       const { error: outletError } = await supabase
         .from('chain_outlets')
         .update({ food_tags: tags })
-        .eq('brand_id', brand.id);
+        .eq('brand_id', brandId);
 
       if (outletError) {
         console.error(`  ❌ Error updating outlets:`, outletError);
@@ -108,7 +137,7 @@ async function generateAllTags() {
         continue;
       }
 
-      console.log(`  ✅ Updated brand and outlets\n`);
+      console.log(`  ✅ Updated all outlets for this brand\n`);
       processed++;
 
       // Rate limiting - wait 1 second between requests
@@ -122,7 +151,7 @@ async function generateAllTags() {
 
   console.log('\n' + '='.repeat(60));
   console.log(`✅ Complete!`);
-  console.log(`   Processed: ${processed}/${brands.length}`);
+  console.log(`   Processed: ${processed}/${uniqueBrandIds.length}`);
   console.log(`   Failed: ${failed}`);
   console.log('='.repeat(60));
 }
