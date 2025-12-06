@@ -31,6 +31,11 @@ export async function getStations(): Promise<Station[]> {
 }
 
 export async function getStation(stationId: string): Promise<Station | null> {
+  if (!stationId) {
+    console.warn('getStation called with empty stationId');
+    return null;
+  }
+
   const { data, error } = await supabase
     .from('stations')
     .select('*')
@@ -38,7 +43,7 @@ export async function getStation(stationId: string): Promise<Station | null> {
     .single();
 
   if (error) {
-    console.error('Error fetching station:', error);
+    console.error('Error fetching station:', stationId, error);
     return null;
   }
 
