@@ -218,29 +218,64 @@ export default function FoodPanelV2({ stationId, onClose, isMobile = false, sear
       );
     }
 
-    return (
-      <div className="space-y-4">
-        {chainOutlets.map((group) => (
-          <div key={group.brand.id} className="space-y-2">
-            {/* Brand header */}
-            <div className="flex items-center gap-2 pb-1 border-b border-gray-200">
-              <h3 className="font-semibold text-gray-800 text-sm">{group.brand.name}</h3>
-              <span className="text-xs text-gray-400">({group.outlets.length})</span>
-            </div>
+    // Flatten all outlets for slot machine - convert to FoodListingWithSources format
+    const allOutlets = chainOutlets.flatMap(group =>
+      group.outlets.map(outlet => ({
+        id: outlet.id,
+        name: outlet.name,
+        description: group.brand.name,
+        address: outlet.address,
+        station_id: outlet.nearest_station_id,
+        image_url: null,
+        rating: outlet.rating,
+        source_id: null,
+        source_url: null,
+        tags: outlet.food_tags || [],
+        is_active: outlet.is_active,
+        created_at: outlet.created_at,
+        updated_at: outlet.updated_at,
+        distance_to_station: outlet.distance_to_station,
+        walking_time: outlet.walk_time,
+        lat: outlet.latitude,
+        lng: outlet.longitude,
+        sources: [],
+        trust_score: 0,
+      }))
+    );
 
-            {/* Outlets */}
-            <div className="space-y-2">
-              {group.outlets.map((outlet) => (
-                <ChainOutletCard
-                  key={outlet.id}
-                  outlet={outlet}
-                  brandName={group.brand.name}
-                />
-              ))}
+    return (
+      <>
+        {/* Slot Machine - show when there are 2+ outlets */}
+        {allOutlets.length > 1 && (
+          <SlotMachine
+            listings={allOutlets}
+            onSelectWinner={() => {}}
+          />
+        )}
+
+        <div className="space-y-4">
+          {chainOutlets.map((group) => (
+            <div key={group.brand.id} className="space-y-2">
+              {/* Brand header */}
+              <div className="flex items-center gap-2 pb-1 border-b border-gray-200">
+                <h3 className="font-semibold text-gray-800 text-sm">{group.brand.name}</h3>
+                <span className="text-xs text-gray-400">({group.outlets.length})</span>
+              </div>
+
+              {/* Outlets */}
+              <div className="space-y-2">
+                {group.outlets.map((outlet) => (
+                  <ChainOutletCard
+                    key={outlet.id}
+                    outlet={outlet}
+                    brandName={group.brand.name}
+                  />
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      </>
     );
   };
 

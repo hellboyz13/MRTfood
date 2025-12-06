@@ -231,6 +231,7 @@ export interface Database {
           phone: string | null;
           opening_hours: Json | null;
           rating: number | null;
+          food_tags: string[] | null;
           is_active: boolean;
           created_at: string;
           updated_at: string;
@@ -249,6 +250,7 @@ export interface Database {
           phone?: string | null;
           opening_hours?: Json | null;
           rating?: number | null;
+          food_tags?: string[] | null;
           is_active?: boolean;
           created_at?: string;
           updated_at?: string;
@@ -267,6 +269,7 @@ export interface Database {
           phone?: string | null;
           opening_hours?: Json | null;
           rating?: number | null;
+          food_tags?: string[] | null;
           is_active?: boolean;
           updated_at?: string;
         };
