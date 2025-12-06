@@ -1,12 +1,14 @@
 'use client';
 
 import { useRef, useState, useCallback, useEffect } from 'react';
-import { SponsoredListing as DbSponsoredListing } from '@/types/database';
+import { SponsoredListing as DbSponsoredListing, GroupedChainOutlets } from '@/types/database';
 import { stationNames } from '@/data/mock-data';
 import { useStationFood } from '@/hooks/useStationFood';
+import { getChainOutletsByStation } from '@/lib/api';
 import FoodListingCardV2 from './FoodListingCardV2';
 import SlotMachine from './SlotMachine';
 import ModeToggle from './ModeToggle';
+import ChainOutletCard from './ChainOutletCard';
 
 interface FoodPanelV2Props {
   stationId: string | null;
@@ -91,10 +93,26 @@ const isSupabaseConfigured = () => {
 
 export default function FoodPanelV2({ stationId, onClose, isMobile = false, searchQuery = '' }: FoodPanelV2Props) {
   const [mode, setMode] = useState<'curated' | 'popular'>('curated');
+  const [chainOutlets, setChainOutlets] = useState<GroupedChainOutlets[]>([]);
+  const [loadingChains, setLoadingChains] = useState(false);
 
   const { data, separatedListings, loading, error } = useStationFood(
     isSupabaseConfigured() ? stationId : null
   );
+
+  // Load chain outlets when switching to popular mode
+  useEffect(() => {
+    if (mode === 'popular' && stationId && isSupabaseConfigured()) {
+      setLoadingChains(true);
+      getChainOutletsByStation(stationId)
+        .then(setChainOutlets)
+        .catch((err) => {
+          console.error('Error loading chain outlets:', err);
+          setChainOutlets([]);
+        })
+        .finally(() => setLoadingChains(false));
+    }
+  }, [mode, stationId]);
 
   if (!stationId) return null;
 
@@ -182,16 +200,46 @@ export default function FoodPanelV2({ stationId, onClose, isMobile = false, sear
   };
 
   const renderPopularContent = () => {
-    // Placeholder for popular chains - will be implemented next
+    if (loadingChains) {
+      return <LoadingState />;
+    }
+
+    if (chainOutlets.length === 0) {
+      return (
+        <div className="text-center py-8">
+          <div className="text-4xl mb-3">🍜</div>
+          <p className="text-gray-500 text-sm">
+            No popular chain outlets near this station yet.
+          </p>
+          <p className="text-gray-400 text-xs mt-1">
+            Check back soon!
+          </p>
+        </div>
+      );
+    }
+
     return (
-      <div className="text-center py-8">
-        <div className="text-4xl mb-3">🍜</div>
-        <p className="text-gray-500 text-sm">
-          Popular chains coming soon!
-        </p>
-        <p className="text-gray-400 text-xs mt-1">
-          McDonald&apos;s, KFC, Din Tai Fung, and more...
-        </p>
+      <div className="space-y-4">
+        {chainOutlets.map((group) => (
+          <div key={group.brand.id} className="space-y-2">
+            {/* Brand header */}
+            <div className="flex items-center gap-2 pb-1 border-b border-gray-200">
+              <h3 className="font-semibold text-gray-800 text-sm">{group.brand.name}</h3>
+              <span className="text-xs text-gray-400">({group.outlets.length})</span>
+            </div>
+
+            {/* Outlets */}
+            <div className="space-y-2">
+              {group.outlets.map((outlet) => (
+                <ChainOutletCard
+                  key={outlet.id}
+                  outlet={outlet}
+                  brandName={group.brand.name}
+                />
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
     );
   };

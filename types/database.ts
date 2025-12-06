@@ -191,6 +191,86 @@ export interface Database {
           updated_at?: string;
         };
       };
+      chain_brands: {
+        Row: {
+          id: string;
+          name: string;
+          category: string;
+          logo_url: string | null;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: {
+          id: string;
+          name: string;
+          category: string;
+          logo_url?: string | null;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Update: {
+          id?: string;
+          name?: string;
+          category?: string;
+          logo_url?: string | null;
+          updated_at?: string;
+        };
+      };
+      chain_outlets: {
+        Row: {
+          id: string;
+          brand_id: string;
+          name: string;
+          address: string | null;
+          latitude: number;
+          longitude: number;
+          nearest_station_id: string | null;
+          distance_to_station: number | null;
+          walk_time: number | null;
+          google_place_id: string | null;
+          phone: string | null;
+          opening_hours: Json | null;
+          rating: number | null;
+          is_active: boolean;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: {
+          id: string;
+          brand_id: string;
+          name: string;
+          address?: string | null;
+          latitude: number;
+          longitude: number;
+          nearest_station_id?: string | null;
+          distance_to_station?: number | null;
+          walk_time?: number | null;
+          google_place_id?: string | null;
+          phone?: string | null;
+          opening_hours?: Json | null;
+          rating?: number | null;
+          is_active?: boolean;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Update: {
+          id?: string;
+          brand_id?: string;
+          name?: string;
+          address?: string | null;
+          latitude?: number;
+          longitude?: number;
+          nearest_station_id?: string | null;
+          distance_to_station?: number | null;
+          walk_time?: number | null;
+          google_place_id?: string | null;
+          phone?: string | null;
+          opening_hours?: Json | null;
+          rating?: number | null;
+          is_active?: boolean;
+          updated_at?: string;
+        };
+      };
     };
     Views: {
       [_ in never]: never;
@@ -210,6 +290,8 @@ export type FoodSource = Database['public']['Tables']['food_sources']['Row'];
 export type FoodListing = Database['public']['Tables']['food_listings']['Row'];
 export type SponsoredListing = Database['public']['Tables']['sponsored_listings']['Row'];
 export type ListingSource = Database['public']['Tables']['listing_sources']['Row'];
+export type ChainBrand = Database['public']['Tables']['chain_brands']['Row'];
+export type ChainOutlet = Database['public']['Tables']['chain_outlets']['Row'];
 
 // Source with its metadata from junction table
 export interface ListingSourceWithDetails {
@@ -230,4 +312,15 @@ export interface StationFoodData {
   station: Station;
   sponsored: SponsoredListing | null;
   listings: FoodListingWithSources[];
+}
+
+// Chain outlet with brand info
+export interface ChainOutletWithBrand extends ChainOutlet {
+  brand: ChainBrand;
+}
+
+// Grouped chain outlets by brand
+export interface GroupedChainOutlets {
+  brand: ChainBrand;
+  outlets: ChainOutlet[];
 }

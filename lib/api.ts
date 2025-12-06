@@ -7,6 +7,10 @@ import {
   FoodListingWithSources,
   StationFoodData,
   ListingSourceWithDetails,
+  ChainBrand,
+  ChainOutlet,
+  ChainOutletWithBrand,
+  GroupedChainOutlets,
 } from '@/types/database';
 
 // ============================================
@@ -331,4 +335,69 @@ export async function searchStationsByFood(query: string): Promise<string[]> {
   )] as string[];
 
   return stationIds;
+}
+
+// ============================================
+// CHAIN RESTAURANTS
+// ============================================
+
+// Get all chain brands
+export async function getChainBrands(): Promise<ChainBrand[]> {
+  const { data, error } = await supabase
+    .from('chain_brands')
+    .select('*')
+    .order('name');
+
+  if (error) {
+    console.error('Error fetching chain brands:', error);
+    return [];
+  }
+
+  return data || [];
+}
+
+// Get chain outlets by station - grouped by brand
+export async function getChainOutletsByStation(
+  stationId: string
+): Promise<GroupedChainOutlets[]> {
+  // Get all outlets for this station
+  const { data: outlets, error: outletsError } = await supabase
+    .from('chain_outlets')
+    .select(`
+      *,
+      chain_brands (*)
+    `)
+    .eq('nearest_station_id', stationId)
+    .eq('is_active', true)
+    .order('distance_to_station', { ascending: true });
+
+  if (outletsError || !outlets || outlets.length === 0) {
+    if (outletsError) console.error('Error fetching chain outlets:', outletsError);
+    return [];
+  }
+
+  // Group outlets by brand
+  const brandMap = new Map<string, GroupedChainOutlets>();
+
+  outlets.forEach((outlet: any) => {
+    if (!outlet.chain_brands) return;
+
+    const brand = outlet.chain_brands as ChainBrand;
+    if (!brandMap.has(brand.id)) {
+      brandMap.set(brand.id, {
+        brand,
+        outlets: [],
+      });
+    }
+
+    // Remove the nested brand from outlet
+    const { chain_brands, ...outletData } = outlet;
+    brandMap.get(brand.id)!.outlets.push(outletData as ChainOutlet);
+  });
+
+  // Convert to array and sort by brand name
+  const result = Array.from(brandMap.values());
+  result.sort((a, b) => a.brand.name.localeCompare(b.brand.name));
+
+  return result;
 }
