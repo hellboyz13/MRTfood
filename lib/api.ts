@@ -360,7 +360,7 @@ export async function getChainBrands(): Promise<ChainBrand[]> {
 export async function getChainOutletsByStation(
   stationId: string
 ): Promise<GroupedChainOutlets[]> {
-  // Get all outlets for this station
+  // Get all outlets for this station within 1km (reasonable walking distance)
   const { data: outlets, error: outletsError } = await supabase
     .from('chain_outlets')
     .select(`
@@ -369,6 +369,7 @@ export async function getChainOutletsByStation(
     `)
     .eq('nearest_station_id', stationId)
     .eq('is_active', true)
+    .lte('distance_to_station', 1000) // Max 1km (12-15 min walk)
     .order('distance_to_station', { ascending: true });
 
   if (outletsError || !outlets || outlets.length === 0) {
