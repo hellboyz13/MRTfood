@@ -391,6 +391,7 @@ const stationGeoCoordinates: { [key: string]: { lat: number, lng: number } } = {
 export default function MRTMap({ selectedStation, onStationClick, searchResults = [], onZoomHandlerReady }: MRTMapProps) {
   const svgContainerRef = useRef<HTMLDivElement>(null);
   const transformRef = useRef<ReactZoomPanPinchRef>(null);
+  const previousSelectedStationRef = useRef<string | null>(null);
   const [svgLoaded, setSvgLoaded] = useState(false);
   const [currentZoom, setCurrentZoom] = useState(MAP_CONSTRAINTS.defaultZoom);
   const [locationLoading, setLocationLoading] = useState(false);
@@ -530,6 +531,15 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
       }
     }
 
+    // Clear previous selected station highlighting
+    if (previousSelectedStationRef.current && previousSelectedStationRef.current !== selectedStation) {
+      const previousCircle = svg.querySelector(`circle[data-station-id="${previousSelectedStationRef.current}"]`);
+      if (previousCircle) {
+        previousCircle.setAttribute('fill', '#ffffff');
+        (previousCircle as HTMLElement).style.transform = 'scale(1)';
+      }
+    }
+
     // Highlight selected station with red and pulse animation (takes priority over search results)
     if (selectedStation) {
       const selectedCircle = svg.querySelector(`circle[data-station-id="${selectedStation}"]`);
@@ -542,6 +552,9 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
           (selectedCircle as HTMLElement).style.transform = 'scale(1)';
         }, 150);
       }
+      previousSelectedStationRef.current = selectedStation;
+    } else {
+      previousSelectedStationRef.current = null;
     }
   }, [selectedStation, svgLoaded, searchResults]);
 
