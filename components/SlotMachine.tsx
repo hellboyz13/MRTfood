@@ -34,12 +34,7 @@ export default function SlotMachine({ listings, onSelectWinner }: SlotMachinePro
   const [winner, setWinner] = useState<FoodListingWithSources | null>(null);
   const spinIntervalRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Initialize with random listing
-  useEffect(() => {
-    if (listings.length > 0 && !currentListing) {
-      setCurrentListing(listings[Math.floor(Math.random() * listings.length)]);
-    }
-  }, [listings, currentListing]);
+  // Don't initialize with a random listing - keep it null for neutral placeholder
 
   const spin = useCallback(() => {
     if (listings.length === 0 || isSpinning) return;
@@ -179,9 +174,14 @@ export default function SlotMachine({ listings, onSelectWinner }: SlotMachinePro
               animation: isSpinning ? 'slideUp 0.1s ease-in-out infinite' : 'none'
             }}
           >
-            {currentListing ? currentListing.name : '...'}
+            {isSpinning && currentListing ? currentListing.name : (!winner ? 'Ready to spin!' : currentListing?.name || '...')}
           </div>
-          {!isSpinning && currentListing && currentListing.tags && (
+          {!isSpinning && !winner && (
+            <div className="mt-1 text-xs text-slate-400">
+              Press Spin to discover something delicious
+            </div>
+          )}
+          {!isSpinning && currentListing && currentListing.tags && winner && (
             <div className="mt-1 text-xs text-slate-400">
               {currentListing.tags.slice(0, 2).join(' • ')}
             </div>
