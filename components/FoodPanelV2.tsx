@@ -11,6 +11,7 @@ interface FoodPanelV2Props {
   stationId: string | null;
   onClose: () => void;
   isMobile?: boolean;
+  searchQuery?: string;
 }
 
 // Sponsored listing card for Supabase data
@@ -87,7 +88,7 @@ const isSupabaseConfigured = () => {
   );
 };
 
-export default function FoodPanelV2({ stationId, onClose, isMobile = false }: FoodPanelV2Props) {
+export default function FoodPanelV2({ stationId, onClose, isMobile = false, searchQuery = '' }: FoodPanelV2Props) {
   const { data, separatedListings, loading, error } = useStationFood(
     isSupabaseConfigured() ? stationId : null
   );
@@ -99,6 +100,25 @@ export default function FoodPanelV2({ stationId, onClose, isMobile = false }: Fo
   const stationName = useSupabase && data?.station
     ? data.station.name
     : stationNames[stationId] || stationId.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+
+  // Helper function to check if listing matches search query
+  const matchesSearch = (listing: any) => {
+    if (!searchQuery) return false;
+    const query = searchQuery.toLowerCase();
+
+    // Check name
+    if (listing.name?.toLowerCase().includes(query)) return true;
+
+    // Check description
+    if (listing.description?.toLowerCase().includes(query)) return true;
+
+    // Check tags
+    if (listing.tags && Array.isArray(listing.tags)) {
+      return listing.tags.some((tag: string) => tag.toLowerCase().includes(query));
+    }
+
+    return false;
+  };
 
   const renderContent = () => {
     if (loading) {
@@ -133,7 +153,7 @@ export default function FoodPanelV2({ stationId, onClose, isMobile = false }: Fo
           <div className="space-y-2">
             <div className="space-y-2">
               {recommended.map((listing) => (
-                <FoodListingCardV2 key={listing.id} listing={listing} />
+                <FoodListingCardV2 key={listing.id} listing={listing} highlighted={matchesSearch(listing)} />
               ))}
             </div>
           </div>
@@ -149,7 +169,7 @@ export default function FoodPanelV2({ stationId, onClose, isMobile = false }: Fo
             </h2>
             <div className="space-y-2">
               {foodKingOnly.map((listing) => (
-                <FoodListingCardV2 key={listing.id} listing={listing} />
+                <FoodListingCardV2 key={listing.id} listing={listing} highlighted={matchesSearch(listing)} />
               ))}
             </div>
           </div>

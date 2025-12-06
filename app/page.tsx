@@ -11,6 +11,7 @@ export default function Home() {
   const [isMobile, setIsMobile] = useState(false);
   const [searchResults, setSearchResults] = useState<string[]>([]);
   const [isSearching, setIsSearching] = useState(false);
+  const [searchQuery, setSearchQuery] = useState<string>('');
 
   // Detect mobile viewport
   useEffect(() => {
@@ -33,6 +34,7 @@ export default function Home() {
 
   const handleSearch = async (query: string) => {
     setIsSearching(true);
+    setSearchQuery(query);
     try {
       const stations = await searchStationsByFood(query);
       setSearchResults(stations);
@@ -46,6 +48,7 @@ export default function Home() {
 
   const handleClearSearch = () => {
     setSearchResults([]);
+    setSearchQuery('');
   };
 
   return (
@@ -84,6 +87,7 @@ export default function Home() {
               stationId={selectedStation}
               onClose={handleClosePanel}
               isMobile={false}
+              searchQuery={searchQuery}
             />
           </div>
         )}
@@ -94,6 +98,7 @@ export default function Home() {
             stationId={selectedStation}
             onClose={handleClosePanel}
             isMobile={true}
+            searchQuery={searchQuery}
           />
         )}
       </div>

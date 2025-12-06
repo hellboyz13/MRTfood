@@ -5,6 +5,7 @@ import { formatDistance, getWalkingTime, getMapsUrl } from '@/lib/distance';
 
 interface FoodListingCardV2Props {
   listing: FoodListingWithSources;
+  highlighted?: boolean;
 }
 
 // Helper to get Michelin distinction from source
@@ -62,7 +63,7 @@ function SourceBadge({
   return content;
 }
 
-export default function FoodListingCardV2({ listing }: FoodListingCardV2Props) {
+export default function FoodListingCardV2({ listing, highlighted = false }: FoodListingCardV2Props) {
   const distance = listing.distance_to_station;
   const walkingTime = getWalkingTime(listing.walking_time, distance);
   const formattedDistance = formatDistance(distance);
@@ -72,7 +73,11 @@ export default function FoodListingCardV2({ listing }: FoodListingCardV2Props) {
   const secondarySources = listing.sources.filter(s => !s.is_primary);
 
   return (
-    <div className="bg-white rounded-lg p-3 border border-gray-100 shadow-sm">
+    <div className={`rounded-lg p-3 shadow-sm ${
+      highlighted
+        ? 'bg-green-50 border-2 border-green-400 ring-2 ring-green-200'
+        : 'bg-white border border-gray-100'
+    }`}>
       <div className="flex gap-3">
         {/* Image placeholder */}
         <div className="w-16 h-16 bg-gray-100 rounded-md flex-shrink-0 flex items-center justify-center overflow-hidden">
