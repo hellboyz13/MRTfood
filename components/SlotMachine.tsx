@@ -166,7 +166,6 @@ export default function SlotMachine({ listings, onSelectWinner }: SlotMachinePro
         <h3 className="text-sm font-semibold text-slate-700 mb-0.5">
           Can&apos;t Decide?
         </h3>
-        <p className="text-xs text-slate-500">Let fate choose</p>
       </div>
 
       {/* Slot Machine Display */}
