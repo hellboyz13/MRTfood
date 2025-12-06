@@ -522,7 +522,7 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   width: 100%;
   height: 100%;
-  overflow-y: auto;
+  overflow: hidden;
   transition: transform 0.3s ease;
 }
 
@@ -536,7 +536,7 @@ h1, h2, h3, h4, h5, h6 {
   left: 100%;
   width: 100%;
   height: 100%;
-  overflow-y: auto;
+  overflow: hidden;
   transition: transform 0.3s ease;
 }
 

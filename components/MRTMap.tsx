@@ -415,12 +415,9 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
   const zoomToStation = useCallback((stationId: string) => {
     if (transformRef.current && stationCoordinates[stationId]) {
       const coords = stationCoordinates[stationId];
-      const padding = 300;
       const scale = 1.8; // Zoom level for focused view
-      const stationX = coords.cx + padding;
-      const stationY = coords.cy + padding;
-      const posX = window.innerWidth / 2 - stationX * scale;
-      const posY = window.innerHeight / 2 - stationY * scale;
+      const posX = window.innerWidth / 2 - coords.cx * scale;
+      const posY = window.innerHeight / 2 - coords.cy * scale;
       transformRef.current.setTransform(posX, posY, scale, 500);
     }
   }, []);
@@ -510,10 +507,9 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
         });
 
         if (isFinite(minX)) {
-          // Add padding
-          const padding = 300;
-          const centerX = (minX + maxX) / 2 + padding;
-          const centerY = (minY + maxY) / 2 + padding;
+          // Calculate center of matching stations
+          const centerX = (minX + maxX) / 2;
+          const centerY = (minY + maxY) / 2;
 
           // Calculate zoom to fit all stations
           const width = maxX - minX;
