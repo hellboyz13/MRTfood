@@ -296,45 +296,70 @@ export async function searchStationsByFood(query: string): Promise<string[]> {
   if (!query || query.trim().length === 0) return [];
 
   const searchQuery = query.trim().toLowerCase();
+  const stationIdsSet = new Set<string>();
 
-  // Search for matching listings
-  const { data: listings, error } = await supabase
+  // 1. Search food listings
+  const { data: listings, error: listingsError } = await supabase
     .from('food_listings')
     .select('station_id, name, description, tags')
     .eq('is_active', true)
     .not('station_id', 'is', null);
 
-  if (error || !listings) {
-    if (error) console.error('Error searching food listings:', error);
-    return [];
+  if (!listingsError && listings) {
+    // Filter listings that match the search query
+    const matchingListings = listings.filter((listing: FoodListing) => {
+      // Check name
+      if (listing.name?.toLowerCase().includes(searchQuery)) return true;
+
+      // Check description
+      if (listing.description?.toLowerCase().includes(searchQuery)) return true;
+
+      // Check tags
+      if (listing.tags && Array.isArray(listing.tags)) {
+        return listing.tags.some((tag: string) =>
+          tag.toLowerCase().includes(searchQuery)
+        );
+      }
+
+      return false;
+    });
+
+    // Add station IDs
+    matchingListings.forEach((l: FoodListing) => {
+      if (l.station_id) stationIdsSet.add(l.station_id);
+    });
   }
 
-  // Filter listings that match the search query
-  const matchingListings = listings.filter((listing: FoodListing) => {
-    // Check name
-    if (listing.name?.toLowerCase().includes(searchQuery)) return true;
+  // 2. Search chain outlets by name and food tags
+  const { data: chainOutlets, error: outletsError } = await supabase
+    .from('chain_outlets')
+    .select('nearest_station_id, name, food_tags, brand_id')
+    .eq('is_active', true)
+    .not('nearest_station_id', 'is', null);
 
-    // Check description
-    if (listing.description?.toLowerCase().includes(searchQuery)) return true;
+  if (!outletsError && chainOutlets) {
+    const matchingOutlets = chainOutlets.filter((outlet: any) => {
+      // Check outlet/brand name
+      if (outlet.name?.toLowerCase().includes(searchQuery)) return true;
 
-    // Check tags
-    if (listing.tags && Array.isArray(listing.tags)) {
-      return listing.tags.some((tag: string) =>
-        tag.toLowerCase().includes(searchQuery)
-      );
-    }
+      // Check food tags (AI-generated tags for dishes, cuisine, categories)
+      if (outlet.food_tags && Array.isArray(outlet.food_tags)) {
+        return outlet.food_tags.some((tag: string) =>
+          tag.toLowerCase().includes(searchQuery) ||
+          searchQuery.includes(tag.toLowerCase())
+        );
+      }
 
-    return false;
-  });
+      return false;
+    });
 
-  // Extract unique station IDs
-  const stationIds = [...new Set(
-    matchingListings
-      .map((l: FoodListing) => l.station_id)
-      .filter(Boolean)
-  )] as string[];
+    // Add station IDs
+    matchingOutlets.forEach((o: any) => {
+      if (o.nearest_station_id) stationIdsSet.add(o.nearest_station_id);
+    });
+  }
 
-  return stationIds;
+  return Array.from(stationIdsSet);
 }
 
 // ============================================

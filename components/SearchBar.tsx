@@ -87,7 +87,7 @@ export default function SearchBar({ onSearch, onClear, isSearching }: SearchBarP
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          placeholder="Search for food (e.g., Thai, Bak Kut Teh)"
+          placeholder="Search: pasta, bubble tea, fried chicken..."
           className="w-full px-4 py-2.5 pr-24 rounded-full border-2 border-gray-300
                      focus:border-red-500 focus:outline-none shadow-lg
                      text-sm md:text-base bg-white"
