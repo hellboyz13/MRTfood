@@ -491,39 +491,11 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
         }
       });
 
-      // Highlight matching stations with pulse and add count badges
+      // Highlight matching stations with pulse (no badges - count shown in search panel)
       searchResults.forEach(result => {
         const circle = svg.querySelector(`circle[data-station-id="${result.stationId}"]`) as SVGCircleElement;
         if (circle) {
           circle.classList.add('station-highlighted');
-
-          // Add count badge if count > 1
-          if (result.count > 1) {
-            const cx = parseFloat(circle.getAttribute('cx') || '0');
-            const cy = parseFloat(circle.getAttribute('cy') || '0');
-            const r = parseFloat(circle.getAttribute('r') || '6');
-
-            // Create badge group
-            const badgeGroup = document.createElementNS('http://www.w3.org/2000/svg', 'g');
-
-            // Badge background circle
-            const badgeBg = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-            badgeBg.setAttribute('cx', String(cx + r + 3));
-            badgeBg.setAttribute('cy', String(cy - r - 3));
-            badgeBg.setAttribute('r', '8');
-            badgeBg.classList.add('result-badge-bg');
-
-            // Badge text
-            const badgeText = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-            badgeText.setAttribute('x', String(cx + r + 3));
-            badgeText.setAttribute('y', String(cy - r - 3 + 3.5));
-            badgeText.classList.add('result-badge');
-            badgeText.textContent = String(result.count);
-
-            badgeGroup.appendChild(badgeBg);
-            badgeGroup.appendChild(badgeText);
-            circle.parentNode?.appendChild(badgeGroup);
-          }
         }
       });
 
