@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useRef, useEffect } from 'react';
 
 interface SearchBarProps {
   onSearch: (query: string) => void;
@@ -10,6 +10,21 @@ interface SearchBarProps {
 
 export default function SearchBar({ onSearch, onClear, isSearching }: SearchBarProps) {
   const [query, setQuery] = useState('');
+  const [isMobile, setIsMobile] = useState(false);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [isDragging, setIsDragging] = useState(false);
+  const dragRef = useRef<HTMLDivElement>(null);
+  const startPos = useRef({ x: 0, y: 0 });
+
+  // Detect mobile
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const handleSubmit = useCallback((e: React.FormEvent) => {
     e.preventDefault();
@@ -23,8 +38,50 @@ export default function SearchBar({ onSearch, onClear, isSearching }: SearchBarP
     onClear();
   }, [onClear]);
 
+  const handleTouchStart = useCallback((e: React.TouchEvent) => {
+    if (!isMobile) return;
+    const touch = e.touches[0];
+    startPos.current = { x: touch.clientX - position.x, y: touch.clientY - position.y };
+    setIsDragging(true);
+  }, [isMobile, position]);
+
+  const handleTouchMove = useCallback((e: React.TouchEvent) => {
+    if (!isDragging || !isMobile) return;
+    e.preventDefault();
+    const touch = e.touches[0];
+    setPosition({
+      x: touch.clientX - startPos.current.x,
+      y: touch.clientY - startPos.current.y,
+    });
+  }, [isDragging, isMobile]);
+
+  const handleTouchEnd = useCallback(() => {
+    setIsDragging(false);
+  }, []);
+
   return (
-    <div className="absolute bottom-24 md:bottom-3 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-md px-3">
+    <div
+      ref={dragRef}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+      className={`z-50 w-full max-w-md px-3 ${
+        isMobile
+          ? 'fixed'
+          : 'absolute bottom-3 left-1/2 transform -translate-x-1/2'
+      }`}
+      style={
+        isMobile
+          ? {
+              left: position.x || '50%',
+              bottom: position.y || '120px',
+              transform: position.x ? 'none' : 'translateX(-50%)',
+              cursor: isDragging ? 'grabbing' : 'grab',
+              touchAction: 'none',
+            }
+          : undefined
+      }
+    >
       <form onSubmit={handleSubmit} className="relative">
         <input
           type="text"

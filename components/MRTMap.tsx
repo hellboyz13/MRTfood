@@ -400,6 +400,21 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
   const [filteredStations, setFilteredStations] = useState<Set<string>>(new Set());
   const [filterLoading, setFilterLoading] = useState(false);
 
+  // Draggable controls state for mobile
+  const [controlsPosition, setControlsPosition] = useState({ x: 0, y: 0 });
+  const [isDraggingControls, setIsDraggingControls] = useState(false);
+  const controlsDragStart = useRef({ x: 0, y: 0 });
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   useEffect(() => {
     // Load the SVG and inject it into the DOM
     fetch('/mrt-map.svg')
@@ -890,7 +905,41 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
         {({ zoomIn, zoomOut, resetTransform }) => (
           <>
             {/* Control Buttons */}
-            <div className="fixed bottom-20 right-4 z-50 flex flex-col gap-2">
+            <div
+              className={`z-50 flex flex-col gap-2 ${isMobile ? 'fixed' : 'fixed bottom-20 right-4'}`}
+              style={
+                isMobile
+                  ? {
+                      right: controlsPosition.x || '16px',
+                      bottom: controlsPosition.y || '20px',
+                      cursor: isDraggingControls ? 'grabbing' : 'grab',
+                      touchAction: 'none',
+                    }
+                  : undefined
+              }
+              onTouchStart={(e) => {
+                if (!isMobile) return;
+                const touch = e.touches[0];
+                const rect = e.currentTarget.getBoundingClientRect();
+                controlsDragStart.current = {
+                  x: touch.clientX - rect.right + window.innerWidth,
+                  y: touch.clientY - rect.bottom + window.innerHeight,
+                };
+                setIsDraggingControls(true);
+              }}
+              onTouchMove={(e) => {
+                if (!isDraggingControls || !isMobile) return;
+                e.preventDefault();
+                const touch = e.touches[0];
+                setControlsPosition({
+                  x: window.innerWidth - touch.clientX + controlsDragStart.current.x - window.innerWidth,
+                  y: window.innerHeight - touch.clientY + controlsDragStart.current.y - window.innerHeight,
+                });
+              }}
+              onTouchEnd={() => {
+                setIsDraggingControls(false);
+              }}
+            >
               {/* Location error toast */}
               {locationError && (
                 <div className="absolute bottom-full right-0 mb-2 px-3 py-2 bg-red-100 text-red-700 text-xs rounded-lg shadow-lg whitespace-nowrap">
@@ -898,7 +947,7 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
                 </div>
               )}
 
-              <div className="bg-white/95 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 p-1.5 flex flex-col gap-1">
+              <div className="bg-white/95 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 p-1.5 flex flex-col gap-1 pointer-events-auto">
                 {/* Reset View */}
                 <button
                   onClick={() => {
