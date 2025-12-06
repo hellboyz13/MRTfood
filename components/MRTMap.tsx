@@ -320,7 +320,6 @@ const stationGeoCoordinates: { [key: string]: { lat: number, lng: number } } = {
   'pasir-panjang': { lat: 1.2763, lng: 103.7914 },
   'labrador-park': { lat: 1.2722, lng: 103.8024 },
   'telok-blangah': { lat: 1.2705, lng: 103.8095 },
-  'promenade': { lat: 1.2930, lng: 103.8610 },
 
   // Downtown Line
   'bukit-panjang': { lat: 1.3792, lng: 103.7619 },
@@ -347,14 +346,11 @@ const stationGeoCoordinates: { [key: string]: { lat: number, lng: number } } = {
   'bedok-north': { lat: 1.3346, lng: 103.9179 },
   'bedok-reservoir': { lat: 1.3362, lng: 103.9331 },
   'tampines-west': { lat: 1.3457, lng: 103.9378 },
-  'tampines': { lat: 1.3540, lng: 103.9455 },
   'tampines-east': { lat: 1.3566, lng: 103.9545 },
   'upper-changi': { lat: 1.3418, lng: 103.9615 },
   'expo': { lat: 1.3349, lng: 103.9616 },
 
   // North-East Line
-  'punggol': { lat: 1.4050, lng: 103.9025 },
-  'sengkang': { lat: 1.3920, lng: 103.8955 },
   'buangkok': { lat: 1.3829, lng: 103.8928 },
   'hougang': { lat: 1.3712, lng: 103.8862 },
   'kovan': { lat: 1.3607, lng: 103.8849 },
@@ -374,14 +370,12 @@ const stationGeoCoordinates: { [key: string]: { lat: number, lng: number } } = {
   'upper-thomson': { lat: 1.3548, lng: 103.8348 },
   'caldecott': { lat: 1.3376, lng: 103.8394 },
   'mount-pleasant': { lat: 1.3263, lng: 103.8353 },
-  'stevens': { lat: 1.3200, lng: 103.8258 },
   'napier': { lat: 1.3104, lng: 103.8265 },
   'orchard-boulevard': { lat: 1.3016, lng: 103.8328 },
   'great-world': { lat: 1.2935, lng: 103.8317 },
   'havelock': { lat: 1.2873, lng: 103.8352 },
   'maxwell': { lat: 1.2805, lng: 103.8445 },
   'shenton-way': { lat: 1.2790, lng: 103.8497 },
-  'marina-bay': { lat: 1.2765, lng: 103.8545 },
   'gardens-by-the-bay': { lat: 1.2817, lng: 103.8636 },
   'tanjong-rhu': { lat: 1.2942, lng: 103.8756 },
   'katong-park': { lat: 1.3031, lng: 103.8920 },
