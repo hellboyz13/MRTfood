@@ -24,7 +24,7 @@ export default function SearchBar({ onSearch, onClear, isSearching }: SearchBarP
   }, [onClear]);
 
   return (
-    <div className="absolute top-3 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-md px-3">
+    <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-md px-3">
       <form onSubmit={handleSubmit} className="relative">
         <input
           type="text"
@@ -33,7 +33,7 @@ export default function SearchBar({ onSearch, onClear, isSearching }: SearchBarP
           placeholder="Search for food (e.g., Thai, Bak Kut Teh)"
           className="w-full px-4 py-2.5 pr-24 rounded-full border-2 border-gray-300
                      focus:border-red-500 focus:outline-none shadow-lg
-                     text-sm md:text-base"
+                     text-sm md:text-base bg-white"
           disabled={isSearching}
         />
         {query && (

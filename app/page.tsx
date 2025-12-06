@@ -62,7 +62,7 @@ export default function Home() {
         />
       </div>
 
-      {/* Search Bar - Top Center */}
+      {/* Search Bar - Bottom Center */}
       <SearchBar
         onSearch={handleSearch}
         onClear={handleClearSearch}
