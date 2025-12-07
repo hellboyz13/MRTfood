@@ -2,7 +2,7 @@
 
 import { ChainOutlet, FoodListingWithSources } from '@/types/database';
 import { getChainLogo } from '@/lib/chainLogos';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 interface ChainOutletCardProps {
   outlet: ChainOutlet;
@@ -26,7 +26,28 @@ export default function ChainOutletCard({ outlet, brandName, highlighted = false
   const distance = formatDistance(outlet.distance_to_station);
   const walkTime = formatWalkTime(outlet.walk_time);
   const [logoError, setLogoError] = useState(false);
+  const [thumbnailImage, setThumbnailImage] = useState<string | null>(null);
   const logoUrl = getChainLogo(brandName);
+
+  // Fetch header/thumbnail image from menu_images for chain outlets
+  useEffect(() => {
+    async function fetchThumbnail() {
+      try {
+        const response = await fetch(`/api/get-menu-images?outletId=${outlet.id}`);
+        const data = await response.json();
+
+        if (data.success && data.images.length > 0) {
+          // Get the header image (first image with is_header=true)
+          const headerImg = data.images.find((img: any) => img.is_header);
+          setThumbnailImage(headerImg?.image_url || data.images[0]?.image_url);
+        }
+      } catch (error) {
+        // Silently fail - will show fallback image
+      }
+    }
+
+    fetchThumbnail();
+  }, [outlet.id]);
 
   const handleGetDirections = () => {
     const query = encodeURIComponent(outlet.name + ' ' + (outlet.address || 'Singapore'));
@@ -68,9 +89,15 @@ export default function ChainOutletCard({ outlet, brandName, highlighted = false
         : 'bg-white border border-gray-200'
     }`}>
       <div className="flex items-start gap-3 mb-2">
-        {/* Brand Logo */}
+        {/* Brand Logo or Food Thumbnail */}
         <div className="flex-shrink-0 w-12 h-12 rounded-lg overflow-hidden bg-gray-100 flex items-center justify-center">
-          {logoUrl && !logoError ? (
+          {thumbnailImage ? (
+            <img
+              src={thumbnailImage}
+              alt={outlet.name}
+              className="w-full h-full object-cover"
+            />
+          ) : logoUrl && !logoError ? (
             <img
               src={logoUrl}
               alt={brandName}

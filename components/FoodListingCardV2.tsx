@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { FoodListingWithSources, ListingSourceWithDetails } from '@/types/database';
 import { formatDistance, getWalkingTime, getMapsUrl } from '@/lib/distance';
 
@@ -65,6 +66,8 @@ function SourceBadge({
 }
 
 export default function FoodListingCardV2({ listing, highlighted = false, onViewMenu }: FoodListingCardV2Props) {
+  const [thumbnailImage, setThumbnailImage] = useState<string | null>(null);
+
   const distance = listing.distance_to_station;
   const walkingTime = getWalkingTime(listing.walking_time, distance);
   const formattedDistance = formatDistance(distance);
@@ -73,6 +76,26 @@ export default function FoodListingCardV2({ listing, highlighted = false, onView
   const primarySources = listing.sources.filter(s => s.is_primary);
   const secondarySources = listing.sources.filter(s => !s.is_primary);
 
+  // Fetch header/thumbnail image from menu_images
+  useEffect(() => {
+    async function fetchThumbnail() {
+      try {
+        const response = await fetch(`/api/get-menu-images?listingId=${listing.id}`);
+        const data = await response.json();
+
+        if (data.success && data.images.length > 0) {
+          // Get the header image (first image with is_header=true)
+          const headerImg = data.images.find((img: any) => img.is_header);
+          setThumbnailImage(headerImg?.image_url || data.images[0]?.image_url);
+        }
+      } catch (error) {
+        // Silently fail - will show fallback image
+      }
+    }
+
+    fetchThumbnail();
+  }, [listing.id]);
+
   return (
     <div className={`rounded-lg p-3 shadow-sm ${
       highlighted
@@ -80,11 +103,11 @@ export default function FoodListingCardV2({ listing, highlighted = false, onView
         : 'bg-white border border-gray-100'
     }`}>
       <div className="flex gap-3">
-        {/* Image placeholder */}
+        {/* Image thumbnail */}
         <div className="w-16 h-16 bg-gray-100 rounded-md flex-shrink-0 flex items-center justify-center overflow-hidden">
-          {listing.image_url && listing.image_url.startsWith('http') ? (
+          {thumbnailImage || (listing.image_url && listing.image_url.startsWith('http')) ? (
             <img
-              src={listing.image_url}
+              src={thumbnailImage || listing.image_url || ''}
               alt={listing.name}
               className="w-full h-full object-cover"
             />

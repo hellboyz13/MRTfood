@@ -11,6 +11,14 @@ interface MenuPreviewProps {
 interface MenuImage {
   url: string;
   link: string;
+  is_header?: boolean;
+}
+
+interface StoredMenuImage {
+  id: string;
+  image_url: string;
+  is_header: boolean;
+  display_order: number;
 }
 
 function formatDistance(meters: number | null): string {
@@ -32,15 +40,50 @@ function getMichelinBadge(sources: any[]): string | null {
 
 export default function MenuPreview({ listing, onBack }: MenuPreviewProps) {
   const [images, setImages] = useState<MenuImage[]>([]);
+  const [headerImage, setHeaderImage] = useState<string | null>(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Placeholder for menu images - could be fetched from Google Places API later
-    // For now, create placeholder grid
-    const placeholders: MenuImage[] = Array.from({ length: 9 }, (_, i) => ({
-      url: listing.image_url || '/default-food.jpg',
-      link: '#'
-    }));
-    setImages(placeholders);
+    async function loadMenuImages() {
+      setLoading(true);
+
+      try {
+        // Detect if this is a chain outlet (TEXT id) or food listing (UUID)
+        // Chain outlet IDs contain hyphens and letters (e.g., "kfc-ChIJ...")
+        // UUIDs are formatted differently (e.g., "123e4567-e89b-12d3-a456-426614174000")
+        const isChainOutlet = listing.id.includes('ChIJ') || listing.id.split('-').length > 5;
+        const queryParam = isChainOutlet ? `outletId=${listing.id}` : `listingId=${listing.id}`;
+
+        // Fetch existing images from database
+        const response = await fetch(`/api/get-menu-images?${queryParam}`);
+        const data = await response.json();
+
+        if (data.success && data.images.length > 0) {
+          // We have images in database
+          const storedImages: StoredMenuImage[] = data.images;
+          const header = storedImages.find(img => img.is_header);
+
+          setHeaderImage(header?.image_url || storedImages[0]?.image_url || null);
+          setImages(storedImages.map(img => ({
+            url: img.image_url,
+            link: '#',
+            is_header: img.is_header
+          })));
+        } else {
+          // No images in database, use fallback
+          setHeaderImage(listing.image_url || null);
+          setImages([]);
+        }
+      } catch (error) {
+        console.error('Error loading menu images:', error);
+        setHeaderImage(listing.image_url || null);
+        setImages([]);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    loadMenuImages();
   }, [listing]);
 
   const distance = formatDistance(listing.distance_to_station);
@@ -61,13 +104,23 @@ export default function MenuPreview({ listing, onBack }: MenuPreviewProps) {
       {/* Profile section */}
       <div className="profile-section">
         <div className="profile-pic">
-          <img
-            src={listing.image_url || '/default-food.jpg'}
-            alt={listing.name}
-            onError={(e) => {
-              (e.target as HTMLImageElement).src = '/default-food.jpg';
-            }}
-          />
+          {loading ? (
+            <div className="flex items-center justify-center h-full bg-gray-100">
+              <div className="text-2xl">⏳</div>
+            </div>
+          ) : headerImage || listing.image_url ? (
+            <img
+              src={headerImage || listing.image_url || ''}
+              alt={listing.name}
+              onError={(e) => {
+                (e.target as HTMLImageElement).style.display = 'none';
+              }}
+            />
+          ) : (
+            <div className="flex items-center justify-center h-full bg-gray-100">
+              <span className="text-6xl">🍽️</span>
+            </div>
+          )}
         </div>
         <div className="profile-info">
           <h2>{listing.name}</h2>
@@ -102,37 +155,39 @@ export default function MenuPreview({ listing, onBack }: MenuPreviewProps) {
       </div>
 
       {/* Image grid - Instagram style 3 columns */}
-      <div className="insta-grid">
-        {images.map((img, i) => (
-          <div
-            key={i}
-            className="insta-img"
-            onClick={() => {
-              if (img.link !== '#') {
-                window.open(img.link, '_blank');
-              }
-            }}
-          >
-            <img
-              src={img.url}
-              alt={`Dish ${i + 1}`}
-              onError={(e) => {
-                (e.target as HTMLImageElement).src = '/default-food.jpg';
+      {images.length > 0 && (
+        <div className="insta-grid">
+          {images.map((img, i) => (
+            <div
+              key={i}
+              className="insta-img"
+              onClick={() => {
+                if (img.link !== '#') {
+                  window.open(img.link, '_blank');
+                }
               }}
-            />
-          </div>
-        ))}
-      </div>
+            >
+              <img
+                src={img.url}
+                alt={`Dish ${i + 1}`}
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = '/default-food.jpg';
+                }}
+              />
+            </div>
+          ))}
+        </div>
+      )}
 
-      {/* Empty state if no images */}
-      {images.length === 0 && (
+      {/* Empty state if no images and not loading */}
+      {!loading && images.length === 0 && (
         <div className="empty-menu">
           <div className="text-4xl mb-3">📸</div>
           <p className="text-gray-500 text-sm">
-            Menu photos coming soon!
+            No menu photos available
           </p>
           <p className="text-gray-400 text-xs mt-1">
-            Check back later for food photos.
+            Photos could not be found for this restaurant
           </p>
         </div>
       )}

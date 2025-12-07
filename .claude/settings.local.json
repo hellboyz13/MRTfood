@@ -22,7 +22,10 @@
       "Bash(npx ts-node:*)",
       "Bash(npx vercel --prod --yes)",
       "Bash(git restore:*)",
-      "Bash(node scripts/check-svg-circles.js:*)"
+      "Bash(node scripts/check-svg-circles.js:*)",
+      "Bash(psql:*)",
+      "Bash(nul)",
+      "Bash(.gitignore)"
     ],
     "deny": [],
     "ask": []

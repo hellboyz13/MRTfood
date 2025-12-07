@@ -925,9 +925,10 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
         alignmentAnimation={{ sizeX: 0, sizeY: 0 }}
         velocityAnimation={{ sensitivity: 1, animationTime: 300 }}
         panning={{
-          velocityDisabled: false,
-          lockAxisX: false,
-          lockAxisY: false,
+          disabled: true, // Disable panning to prevent map moving on click
+          velocityDisabled: true,
+          lockAxisX: true,
+          lockAxisY: true,
         }}
         onPanningStop={(ref) => {
           const { positionX, positionY, scale } = ref.state;

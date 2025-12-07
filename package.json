@@ -10,7 +10,9 @@
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.86.0",
+    "axios": "^1.13.2",
     "canvas-confetti": "^1.9.4",
+    "cheerio": "^1.1.2",
     "dotenv": "^17.2.3",
     "next": "^15",
     "openai": "^6.10.0",
