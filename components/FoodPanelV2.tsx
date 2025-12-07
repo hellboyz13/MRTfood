@@ -454,7 +454,7 @@ function MobileDrawer({
       {/* Drawer */}
       <div
         ref={drawerRef}
-        className={`fixed inset-x-0 bottom-0 z-50 bg-white rounded-t-2xl shadow-2xl max-h-[70vh] touch-none panel-container ${
+        className={`fixed inset-x-0 bottom-0 z-50 bg-white rounded-t-2xl shadow-2xl max-h-[60vh] touch-none panel-container ${
           isClosing ? 'animate-slide-down' : 'animate-slide-up'
         }`}
         style={{
