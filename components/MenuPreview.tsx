@@ -108,7 +108,7 @@ export default function MenuPreview({ listing, onBack }: MenuPreviewProps) {
             <div className="flex items-center justify-center h-full bg-gray-100">
               <div className="text-2xl">⏳</div>
             </div>
-          ) : headerImage || listing.image_url ? (
+          ) : (headerImage || listing.image_url) ? (
             <img
               src={headerImage || listing.image_url || ''}
               alt={listing.name}
