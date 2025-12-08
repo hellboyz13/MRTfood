@@ -12,6 +12,7 @@ import {
   ChainOutletWithBrand,
   GroupedChainOutlets,
 } from '@/types/database';
+import { getChainTagWeights, calculateTagMatchScore } from './tag-weights';
 
 // ============================================
 // STATIONS
@@ -43,7 +44,10 @@ export async function getStation(stationId: string): Promise<Station | null> {
     .single();
 
   if (error) {
-    console.error('Error fetching station:', stationId, error);
+    // PGRST116 = no rows returned, which is normal for stations without data
+    if (error.code !== 'PGRST116') {
+      console.error('Error fetching station:', stationId, error);
+    }
     return null;
   }
 
@@ -82,15 +86,14 @@ export async function getSponsoredListing(
     .eq('is_active', true)
     .lte('start_date', today)
     .gte('end_date', today)
-    .limit(1)
-    .single();
+    .limit(1);
 
-  if (error && error.code !== 'PGRST116') {
-    // PGRST116 = no rows returned, which is fine
+  if (error) {
     console.error('Error fetching sponsored listing:', error);
+    return null;
   }
 
-  return data || null;
+  return data && data.length > 0 ? data[0] : null;
 }
 
 // ============================================
@@ -293,190 +296,228 @@ export async function getStationsBySource(
 }
 
 // ============================================
-// SEARCH STATIONS BY FOOD
+// UNIFIED SEARCH - Food & Restaurant
 // ============================================
 
-// Helper function to check if search query matches food tags
-// Prevents false positives like "fried chicken" matching "chicha"
-function matchesFoodTags(searchQuery: string, tags: string[]): boolean {
-  if (!tags || tags.length === 0) return false;
-
-  // Split search query into individual terms (words)
-  const searchTerms = searchQuery.toLowerCase().split(/\s+/).filter(term => term.length > 2);
-
-  // Normalize tags to lowercase
-  const normalizedTags = tags.map(tag => tag.toLowerCase());
-
-  // Check if any search term matches a complete tag or is contained as a whole word in a tag
-  return searchTerms.some(term =>
-    normalizedTags.some(tag => {
-      // Exact tag match
-      if (tag === term) return true;
-
-      // Tag contains the search term as a complete word (not substring)
-      const tagWords = tag.split(/\s+/);
-      return tagWords.includes(term);
-    })
-  );
+export interface SearchMatch {
+  id: string;           // listing ID or outlet ID
+  name: string;         // restaurant/outlet name
+  type: 'curated' | 'chain';
+  matchType: 'food' | 'restaurant';
+  matchedTags?: string[];  // What tags matched (for food search)
 }
 
-// Search for stations that have food matching the query
-export async function searchStationsByFood(query: string): Promise<string[]> {
-  if (!query || query.trim().length === 0) return [];
-
-  const searchQuery = query.trim().toLowerCase();
-  const stationIdsSet = new Set<string>();
-
-  // 1. Search food listings
-  const { data: listings, error: listingsError } = await supabase
-    .from('food_listings')
-    .select('station_id, name, description, tags')
-    .eq('is_active', true)
-    .not('station_id', 'is', null);
-
-  if (!listingsError && listings) {
-    // Filter listings that match the search query
-    const matchingListings = listings.filter((listing: FoodListing) => {
-      // Check name
-      if (listing.name?.toLowerCase().includes(searchQuery)) return true;
-
-      // Check description
-      if (listing.description?.toLowerCase().includes(searchQuery)) return true;
-
-      // Check tags
-      if (listing.tags && Array.isArray(listing.tags)) {
-        return listing.tags.some((tag: string) =>
-          tag.toLowerCase().includes(searchQuery)
-        );
-      }
-
-      return false;
-    });
-
-    // Add station IDs
-    matchingListings.forEach((l: FoodListing) => {
-      if (l.station_id) stationIdsSet.add(l.station_id);
-    });
-  }
-
-  // 2. Search chain outlets by name and food tags
-  const { data: chainOutlets, error: outletsError } = await supabase
-    .from('chain_outlets')
-    .select('nearest_station_id, name, food_tags, brand_id')
-    .eq('is_active', true)
-    .not('nearest_station_id', 'is', null);
-
-  if (!outletsError && chainOutlets) {
-    const matchingOutlets = chainOutlets.filter((outlet: any) => {
-      // For longer queries (4+ chars), allow partial brand name matching to find specific brands
-      // For shorter queries, only match on food tags to prevent false positives
-      if (searchQuery.length >= 4 && outlet.name?.toLowerCase().includes(searchQuery)) {
-        return true;
-      }
-
-      // Check food tags (AI-generated tags for dishes, cuisine, categories)
-      if (outlet.food_tags && Array.isArray(outlet.food_tags)) {
-        return matchesFoodTags(searchQuery, outlet.food_tags);
-      }
-
-      return false;
-    });
-
-    // Add station IDs
-    matchingOutlets.forEach((o: any) => {
-      if (o.nearest_station_id) stationIdsSet.add(o.nearest_station_id);
-    });
-  }
-
-  return Array.from(stationIdsSet);
-}
-
-// Search stations with result counts
 export interface StationSearchResult {
   stationId: string;
-  count: number;
-  outlets: { name: string; type: 'listing' | 'chain' }[];
+  matches: SearchMatch[];
 }
 
+// Determine if query is searching for food or restaurant name
+function detectSearchType(query: string): 'food' | 'restaurant' {
+  // Heuristics to detect restaurant name search:
+  // 1. Contains common chain indicators (brand names often have these)
+  // 2. Multiple capital letters (e.g., "DTF", "KFC")
+  // 3. Length > 8 chars with mixed case suggests brand name
+
+  // Simple heuristic: if query has 2+ consecutive capitals or specific brand patterns, it's likely a restaurant
+  const hasMultipleCaps = /[A-Z]{2,}/.test(query);
+  const hasNumber = /\d/.test(query);
+
+  // Known restaurant patterns
+  const restaurantPatterns = [
+    /koi/i, /gong cha/i, /din tai/i, /tim ho/i, /chicha/i, /tiger sugar/i,
+    /mcdonald/i, /kfc/i, /subway/i, /xiang xiang/i, /haidilao/i,
+    /genki/i, /sushi/i, /pepper lunch/i, /crystal jade/i
+  ];
+
+  const matchesRestaurantPattern = restaurantPatterns.some(pattern => pattern.test(query));
+
+  // If it looks like a brand name, treat as restaurant search
+  if (hasMultipleCaps || hasNumber || (matchesRestaurantPattern && query.length >= 3)) {
+    return 'restaurant';
+  }
+
+  // Otherwise, treat as food search
+  return 'food';
+}
+
+// Check if food tags match the search query (whole word matching only)
+function matchesFoodTags(searchQuery: string, tags: string[]): { matches: boolean; matchedTags: string[] } {
+  if (!tags || tags.length === 0) return { matches: false, matchedTags: [] };
+
+  const queryLower = searchQuery.toLowerCase().trim();
+  const matchedTags: string[] = [];
+
+  for (const tag of tags) {
+    const tagLower = tag.toLowerCase().trim();
+
+    // Exact match
+    if (tagLower === queryLower) {
+      matchedTags.push(tag);
+      continue;
+    }
+
+    // Check if query is a whole word within the tag
+    // e.g., "chicken" matches "fried chicken" but NOT "chicha"
+    const tagWords = tagLower.split(/\s+/);
+    const queryWords = queryLower.split(/\s+/);
+
+    // All query words must be present as complete words in the tag
+    const allWordsMatch = queryWords.every(qw =>
+      tagWords.some(tw => tw === qw)
+    );
+
+    if (allWordsMatch) {
+      matchedTags.push(tag);
+    }
+  }
+
+  return { matches: matchedTags.length > 0, matchedTags };
+}
+
+// NEW: Unified search that handles both food and restaurant searches
 export async function searchStationsByFoodWithCounts(query: string): Promise<StationSearchResult[]> {
   if (!query || query.trim().length === 0) return [];
 
-  const searchQuery = query.trim().toLowerCase();
+  const searchQuery = query.trim();
+  const searchType = detectSearchType(searchQuery);
+  const queryLower = searchQuery.toLowerCase();
+
+  console.log(`🔍 Search type: ${searchType}, query: "${searchQuery}"`);
+
   const stationResultsMap = new Map<string, StationSearchResult>();
 
-  // 1. Search food listings
+  // ===== SEARCH CURATED LISTINGS (Michelin/Eatbook) =====
   const { data: listings, error: listingsError } = await supabase
     .from('food_listings')
-    .select('station_id, name, description, tags')
+    .select('id, station_id, name, description, tags')
     .eq('is_active', true)
     .not('station_id', 'is', null);
 
   if (!listingsError && listings) {
-    const matchingListings = listings.filter((listing: FoodListing) => {
-      if (listing.name?.toLowerCase().includes(searchQuery)) return true;
-      if (listing.description?.toLowerCase().includes(searchQuery)) return true;
-      if (listing.tags && Array.isArray(listing.tags)) {
-        return listing.tags.some((tag: string) =>
-          tag.toLowerCase().includes(searchQuery)
-        );
-      }
-      return false;
-    });
+    listings.forEach((listing: FoodListing) => {
+      if (!listing.station_id) return;
 
-    matchingListings.forEach((l: FoodListing) => {
-      if (!l.station_id) return;
-      if (!stationResultsMap.has(l.station_id)) {
-        stationResultsMap.set(l.station_id, {
-          stationId: l.station_id,
-          count: 0,
-          outlets: [],
+      let matched = false;
+      let matchType: 'food' | 'restaurant' = 'food';
+      let matchedTags: string[] = [];
+
+      if (searchType === 'restaurant') {
+        // Restaurant name search: partial match on name
+        if (listing.name?.toLowerCase().includes(queryLower)) {
+          matched = true;
+          matchType = 'restaurant';
+        }
+      } else {
+        // Food search: match against tags (whole word only)
+        if (listing.tags && Array.isArray(listing.tags)) {
+          const tagMatch = matchesFoodTags(searchQuery, listing.tags);
+          if (tagMatch.matches) {
+            matched = true;
+            matchType = 'food';
+            matchedTags = tagMatch.matchedTags;
+          }
+        }
+
+        // Also check description for food keywords (whole word)
+        if (!matched && listing.description) {
+          const descWords = listing.description.toLowerCase().split(/\s+/);
+          const queryWords = queryLower.split(/\s+/);
+          const allWordsMatch = queryWords.every(qw => descWords.includes(qw));
+          if (allWordsMatch) {
+            matched = true;
+            matchType = 'food';
+          }
+        }
+      }
+
+      if (matched) {
+        if (!stationResultsMap.has(listing.station_id)) {
+          stationResultsMap.set(listing.station_id, {
+            stationId: listing.station_id,
+            matches: [],
+          });
+        }
+
+        stationResultsMap.get(listing.station_id)!.matches.push({
+          id: listing.id,
+          name: listing.name || 'Unknown',
+          type: 'curated',
+          matchType,
+          matchedTags: matchedTags.length > 0 ? matchedTags : undefined,
         });
       }
-      const result = stationResultsMap.get(l.station_id)!;
-      result.count++;
-      result.outlets.push({ name: l.name || 'Unknown', type: 'listing' });
     });
   }
 
-  // 2. Search chain outlets
+  // ===== SEARCH CHAIN OUTLETS =====
   const { data: chainOutlets, error: outletsError } = await supabase
     .from('chain_outlets')
-    .select('nearest_station_id, name, food_tags')
+    .select('id, nearest_station_id, name, brand_id')
     .eq('is_active', true)
     .not('nearest_station_id', 'is', null);
 
   if (!outletsError && chainOutlets) {
-    const matchingOutlets = chainOutlets.filter((outlet: any) => {
-      // For longer queries (4+ chars), allow partial brand name matching to find specific brands
-      // For shorter queries, only match on food tags to prevent false positives
-      if (searchQuery.length >= 4 && outlet.name?.toLowerCase().includes(searchQuery)) {
-        return true;
+    chainOutlets.forEach((outlet: any) => {
+      if (!outlet.nearest_station_id) return;
+
+      let matched = false;
+      let matchType: 'food' | 'restaurant' = 'food';
+      let matchedTags: string[] = [];
+
+      if (searchType === 'restaurant') {
+        // Restaurant name search: partial match on outlet/brand name
+        if (outlet.name?.toLowerCase().includes(queryLower)) {
+          matched = true;
+          matchType = 'restaurant';
+        }
+      } else {
+        // Food search: match against weighted tags
+        const tagWeights = getChainTagWeights(outlet.brand_id);
+
+        // Check primary tags first (exact or whole-word match)
+        const primaryMatch = matchesFoodTags(searchQuery, tagWeights.primary);
+        if (primaryMatch.matches) {
+          matched = true;
+          matchType = 'food';
+          matchedTags = primaryMatch.matchedTags;
+        }
+
+        // If no primary match, check secondary tags (but only for longer queries to reduce noise)
+        if (!matched && searchQuery.length >= 5) {
+          const secondaryMatch = matchesFoodTags(searchQuery, tagWeights.secondary);
+          if (secondaryMatch.matches) {
+            matched = true;
+            matchType = 'food';
+            matchedTags = secondaryMatch.matchedTags;
+          }
+        }
       }
 
-      if (outlet.food_tags && Array.isArray(outlet.food_tags)) {
-        return matchesFoodTags(searchQuery, outlet.food_tags);
-      }
-      return false;
-    });
+      if (matched) {
+        if (!stationResultsMap.has(outlet.nearest_station_id)) {
+          stationResultsMap.set(outlet.nearest_station_id, {
+            stationId: outlet.nearest_station_id,
+            matches: [],
+          });
+        }
 
-    matchingOutlets.forEach((o: any) => {
-      if (!o.nearest_station_id) return;
-      if (!stationResultsMap.has(o.nearest_station_id)) {
-        stationResultsMap.set(o.nearest_station_id, {
-          stationId: o.nearest_station_id,
-          count: 0,
-          outlets: [],
+        stationResultsMap.get(outlet.nearest_station_id)!.matches.push({
+          id: outlet.id,
+          name: outlet.name,
+          type: 'chain',
+          matchType,
+          matchedTags: matchedTags.length > 0 ? matchedTags : undefined,
         });
       }
-      const result = stationResultsMap.get(o.nearest_station_id)!;
-      result.count++;
-      result.outlets.push({ name: o.name || 'Unknown', type: 'chain' });
     });
   }
 
-  // Sort by count descending
+  // Convert to array and sort by number of matches
   const results = Array.from(stationResultsMap.values());
-  results.sort((a, b) => b.count - a.count);
+  results.sort((a, b) => b.matches.length - a.matches.length);
+
+  console.log(`✅ Found ${results.length} stations with matches`);
 
   return results;
 }

@@ -60,24 +60,39 @@ export default function SearchBar({ onSearch, onClear, isSearching }: SearchBarP
   }, []);
 
   return (
-    <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50 pointer-events-none">
+    <div
+      className="fixed left-1/2 transform -translate-x-1/2 z-50 pointer-events-none bottom-4"
+    >
       <form onSubmit={handleSubmit} className="relative pointer-events-auto">
         <input
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Search food..."
-          className="w-64 px-4 py-2 pr-20 rounded-full border-2 border-gray-300
+          className="border-2 border-gray-300
                      focus:border-red-500 focus:outline-none shadow-lg
-                     text-sm bg-white"
+                     bg-white min-h-[44px]"
           disabled={isSearching}
+          style={{
+            width: 'clamp(240px, 70vw, 280px)',
+            paddingLeft: 'clamp(12px, 4vw, 16px)',
+            paddingRight: 'clamp(70px, 20vw, 80px)',
+            paddingTop: 'clamp(8px, 2vw, 10px)',
+            paddingBottom: 'clamp(8px, 2vw, 10px)',
+            fontSize: 'clamp(13px, 3.5vw, 14px)',
+            borderRadius: 'clamp(20px, 6vw, 24px)',
+          }}
         />
         {query && (
           <button
             type="button"
             onClick={handleClear}
-            className="absolute right-12 top-1/2 transform -translate-y-1/2
-                       text-gray-400 hover:text-gray-600 px-1"
+            className="absolute top-1/2 transform -translate-y-1/2
+                       text-gray-400 hover:text-gray-600 active:text-gray-700 min-w-[44px] min-h-[44px] flex items-center justify-center"
+            style={{
+              right: 'clamp(40px, 12vw, 48px)',
+              fontSize: 'clamp(14px, 4vw, 16px)',
+            }}
           >
             ✕
           </button>
@@ -85,10 +100,18 @@ export default function SearchBar({ onSearch, onClear, isSearching }: SearchBarP
         <button
           type="submit"
           disabled={!query.trim() || isSearching}
-          className="absolute right-1 top-1/2 transform -translate-y-1/2
-                     bg-red-500 hover:bg-red-600 disabled:bg-gray-300
-                     text-white px-3 py-1 rounded-full
-                     transition-colors duration-200 text-sm"
+          className="absolute top-1/2 transform -translate-y-1/2
+                     bg-red-500 hover:bg-red-600 active:bg-red-700 disabled:bg-gray-300
+                     text-white transition-colors duration-200 min-w-[44px] min-h-[44px] flex items-center justify-center"
+          style={{
+            right: 'clamp(2px, 0.5vw, 4px)',
+            paddingLeft: 'clamp(10px, 3vw, 12px)',
+            paddingRight: 'clamp(10px, 3vw, 12px)',
+            paddingTop: 'clamp(6px, 1.5vw, 8px)',
+            paddingBottom: 'clamp(6px, 1.5vw, 8px)',
+            fontSize: 'clamp(12px, 3.5vw, 14px)',
+            borderRadius: 'clamp(18px, 5vw, 20px)',
+          }}
         >
           {isSearching ? '...' : '🔍'}
         </button>

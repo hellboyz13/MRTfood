@@ -42,6 +42,13 @@ export default function Home() {
     setSelectedStation(stationId);
   };
 
+  // Get search matches for the currently selected station
+  const getSearchMatches = () => {
+    if (!selectedStation || searchResults.length === 0) return [];
+    const result = searchResults.find(r => r.stationId === selectedStation);
+    return result?.matches || [];
+  };
+
   const handleClosePanel = () => {
     setSelectedStation(null);
   };
@@ -121,6 +128,7 @@ export default function Home() {
               onClose={handleClosePanel}
               isMobile={false}
               searchQuery={searchQuery}
+              searchMatches={getSearchMatches()}
             />
           </div>
         )}
@@ -132,6 +140,7 @@ export default function Home() {
             onClose={handleClosePanel}
             isMobile={true}
             searchQuery={searchQuery}
+            searchMatches={getSearchMatches()}
           />
         )}
       </div>

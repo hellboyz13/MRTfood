@@ -4,7 +4,7 @@ import { useRef, useState, useCallback, useEffect } from 'react';
 import { SponsoredListing as DbSponsoredListing, GroupedChainOutlets, FoodListingWithSources } from '@/types/database';
 import { stationNames } from '@/data/mock-data';
 import { useStationFood } from '@/hooks/useStationFood';
-import { getChainOutletsByStation } from '@/lib/api';
+import { getChainOutletsByStation, SearchMatch } from '@/lib/api';
 import FoodListingCardV2 from './FoodListingCardV2';
 import SlotMachine from './SlotMachine';
 import ModeToggle from './ModeToggle';
@@ -16,6 +16,7 @@ interface FoodPanelV2Props {
   onClose: () => void;
   isMobile?: boolean;
   searchQuery?: string;
+  searchMatches?: SearchMatch[];
 }
 
 // Sponsored listing card for Supabase data
@@ -92,7 +93,7 @@ const isSupabaseConfigured = () => {
   );
 };
 
-export default function FoodPanelV2({ stationId, onClose, isMobile = false, searchQuery = '' }: FoodPanelV2Props) {
+export default function FoodPanelV2({ stationId, onClose, isMobile = false, searchQuery = '', searchMatches = [] }: FoodPanelV2Props) {
   const [mode, setMode] = useState<'curated' | 'popular'>('curated');
   const [chainOutlets, setChainOutlets] = useState<GroupedChainOutlets[]>([]);
   const [loadingChains, setLoadingChains] = useState(false);
@@ -125,19 +126,18 @@ export default function FoodPanelV2({ stationId, onClose, isMobile = false, sear
     : stationNames[stationId] || stationId.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
 
   // Helper function to check if listing matches search query
-  const matchesSearch = (listing: any) => {
-    if (!searchQuery) return false;
-    const query = searchQuery.toLowerCase();
+  // Check if a listing/outlet matches the current search
+  const matchesSearch = (item: { id?: string; name?: string }) => {
+    if (!searchQuery || searchMatches.length === 0) return false;
 
-    // Check name
-    if (listing.name?.toLowerCase().includes(query)) return true;
+    // Check if this item's ID is in the search matches
+    if (item.id) {
+      return searchMatches.some(match => match.id === item.id);
+    }
 
-    // Check description
-    if (listing.description?.toLowerCase().includes(query)) return true;
-
-    // Check tags
-    if (listing.tags && Array.isArray(listing.tags)) {
-      return listing.tags.some((tag: string) => tag.toLowerCase().includes(query));
+    // Fallback: check by name (for items without ID)
+    if (item.name) {
+      return searchMatches.some(match => match.name === item.name);
     }
 
     return false;
@@ -152,8 +152,8 @@ export default function FoodPanelV2({ stationId, onClose, isMobile = false, sear
       return <EmptyState />;
     }
 
-    const { recommended, foodKingOnly } = separatedListings;
-    const hasContent = data.sponsored || recommended.length > 0 || foodKingOnly.length > 0;
+    const { recommended, popular, foodKingOnly, other } = separatedListings;
+    const hasContent = data.sponsored || recommended.length > 0 || foodKingOnly.length > 0 || other.length > 0;
 
     if (!hasContent) {
       return <EmptyState />;
@@ -176,6 +176,22 @@ export default function FoodPanelV2({ stationId, onClose, isMobile = false, sear
           <div className="space-y-2">
             <div className="space-y-2">
               {recommended.map((listing) => (
+                <FoodListingCardV2
+                  key={listing.id}
+                  listing={listing}
+                  highlighted={matchesSearch(listing)}
+                  onViewMenu={setSelectedMenuListing}
+                />
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Other listings (not Michelin/Food King) */}
+        {other.length > 0 && (
+          <div className="space-y-2">
+            <div className="space-y-2">
+              {other.map((listing) => (
                 <FoodListingCardV2
                   key={listing.id}
                   listing={listing}
@@ -212,16 +228,19 @@ export default function FoodPanelV2({ stationId, onClose, isMobile = false, sear
   };
 
   const renderPopularContent = () => {
-    if (loadingChains) {
+    if (loadingChains || loading) {
       return <LoadingState />;
     }
 
-    if (chainOutlets.length === 0) {
+    const { popular } = separatedListings;
+    const hasChainOutlets = chainOutlets.length > 0;
+
+    if (popular.length === 0 && !hasChainOutlets) {
       return (
         <div className="text-center py-8">
           <div className="text-4xl mb-3">🍜</div>
           <p className="text-gray-500 text-sm">
-            No popular chain outlets near this station yet.
+            No popular restaurants near this station yet.
           </p>
           <p className="text-gray-400 text-xs mt-1">
             Check back soon!
@@ -255,40 +274,60 @@ export default function FoodPanelV2({ stationId, onClose, isMobile = false, sear
       }))
     );
 
+    // Combine popular listings and chain outlets for slot machine
+    const allPopularItems = [...popular, ...allOutlets];
+
     return (
       <>
-        {/* Slot Machine - show when there are 2+ outlets */}
-        {allOutlets.length > 1 && (
+        {/* Slot Machine - show when there are 2+ items */}
+        {allPopularItems.length > 1 && (
           <SlotMachine
-            listings={allOutlets}
+            listings={allPopularItems}
             onSelectWinner={() => {}}
           />
         )}
 
-        <div className="space-y-4">
-          {chainOutlets.map((group) => (
-            <div key={group.brand.id} className="space-y-2">
-              {/* Brand header */}
-              <div className="flex items-center gap-2 pb-1 border-b border-gray-200">
-                <h3 className="font-semibold text-gray-800 text-sm">{group.brand.name}</h3>
-                <span className="text-xs text-gray-400">({group.outlets.length})</span>
-              </div>
+        {/* Popular listings (Google Places 4.5+ restaurants) - no header */}
+        {popular.length > 0 && (
+          <div className="space-y-2">
+            {popular.map((listing) => (
+              <FoodListingCardV2
+                key={listing.id}
+                listing={listing}
+                highlighted={matchesSearch(listing)}
+                onViewMenu={setSelectedMenuListing}
+              />
+            ))}
+          </div>
+        )}
 
-              {/* Outlets */}
-              <div className="space-y-2">
-                {group.outlets.map((outlet) => (
-                  <ChainOutletCard
-                    key={outlet.id}
-                    outlet={outlet}
-                    brandName={group.brand.name}
-                    highlighted={matchesSearch({ name: outlet.name, tags: outlet.food_tags || [] })}
-                    onViewMenu={setSelectedMenuListing}
-                  />
-                ))}
+        {/* Chain outlets */}
+        {hasChainOutlets && (
+          <div className="space-y-4">
+            {chainOutlets.map((group) => (
+              <div key={group.brand.id} className="space-y-2">
+                {/* Brand header */}
+                <div className="flex items-center gap-2 pb-1 border-b border-gray-200">
+                  <h3 className="font-semibold text-gray-800 text-sm">{group.brand.name}</h3>
+                  <span className="text-xs text-gray-400">({group.outlets.length})</span>
+                </div>
+
+                {/* Outlets */}
+                <div className="space-y-2">
+                  {group.outlets.map((outlet) => (
+                    <ChainOutletCard
+                      key={outlet.id}
+                      outlet={outlet}
+                      brandName={group.brand.name}
+                      highlighted={matchesSearch({ id: outlet.id, name: outlet.name })}
+                      onViewMenu={setSelectedMenuListing}
+                    />
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
       </>
     );
   };
@@ -454,48 +493,102 @@ function MobileDrawer({
       {/* Drawer */}
       <div
         ref={drawerRef}
-        className={`fixed inset-x-0 bottom-0 z-50 bg-white rounded-t-2xl shadow-2xl max-h-[60vh] touch-none panel-container ${
+        className={`fixed inset-x-0 bottom-0 z-50 bg-white rounded-t-[clamp(12px,3vw,20px)] shadow-2xl ${
           isClosing ? 'animate-slide-down' : 'animate-slide-up'
         }`}
         style={{
+          height: 'min(80dvh, 80vh)',
+          paddingBottom: 'max(env(safe-area-inset-bottom), 0px)',
           transform: isClosing ? undefined : `translateY(${dragY}px)`,
           transition: isDragging ? 'none' : 'transform 0.2s ease-out',
+          WebkitOverflowScrolling: 'touch',
         }}
-        onTouchStart={handleTouchStart}
-        onTouchMove={handleTouchMove}
-        onTouchEnd={handleTouchEnd}
       >
         {/* Main listing panel */}
         <div className={`panel-content ${selectedMenuListing ? 'slide-out-left' : ''}`}>
           <div className="flex flex-col h-full">
             {/* Drag handle */}
-            <div data-drag-handle className="flex justify-center py-3 cursor-grab active:cursor-grabbing flex-shrink-0">
-              <div className="w-12 h-1.5 bg-gray-300 rounded-full" />
+            <div
+              data-drag-handle
+              className="flex justify-center cursor-grab active:cursor-grabbing flex-shrink-0"
+              style={{
+                paddingTop: 'clamp(8px, 2vw, 12px)',
+                paddingBottom: 'clamp(8px, 2vw, 12px)',
+              }}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+            >
+              <div
+                className="bg-gray-300 rounded-full"
+                style={{
+                  width: 'clamp(40px, 12vw, 48px)',
+                  height: 'clamp(4px, 1vw, 6px)',
+                }}
+              />
             </div>
 
             {/* Header */}
-            <div data-drag-handle className="flex items-center justify-between px-4 py-2 border-b border-gray-200 flex-shrink-0">
-              <h2 className="text-lg font-bold text-gray-900">{stationName}</h2>
+            <div
+              data-drag-handle
+              className="flex items-center justify-between border-b border-gray-200 flex-shrink-0"
+              style={{
+                paddingLeft: 'clamp(12px, 4vw, 20px)',
+                paddingRight: 'clamp(12px, 4vw, 20px)',
+                paddingTop: 'clamp(8px, 2vw, 12px)',
+                paddingBottom: 'clamp(8px, 2vw, 12px)',
+              }}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+            >
+              <h2
+                className="font-bold text-gray-900"
+                style={{ fontSize: 'clamp(16px, 4.5vw, 20px)' }}
+              >
+                {stationName}
+              </h2>
               <button
                 onClick={handleClose}
-                className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+                className="hover:bg-gray-100 rounded-full transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
                 aria-label="Close drawer"
+                style={{
+                  padding: 'clamp(8px, 2vw, 10px)',
+                }}
               >
-                <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg
+                  className="text-gray-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  style={{ width: 'clamp(18px, 5vw, 20px)', height: 'clamp(18px, 5vw, 20px)' }}
+                >
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </button>
             </div>
 
             {/* Mode Toggle */}
-            <div className="px-4 pt-3 pb-2 border-b border-gray-200 flex-shrink-0">
+            <div
+              className="border-b border-gray-200 flex-shrink-0"
+              style={{
+                paddingLeft: 'clamp(12px, 4vw, 20px)',
+                paddingRight: 'clamp(12px, 4vw, 20px)',
+                paddingTop: 'clamp(10px, 3vw, 14px)',
+                paddingBottom: 'clamp(6px, 2vw, 10px)',
+              }}
+            >
               <ModeToggle mode={mode} onModeChange={onModeChange} />
             </div>
 
             {/* Content - scrollable */}
             <div
               ref={contentRef}
-              className="flex-1 overflow-y-auto overscroll-contain p-4 space-y-3"
+              className="flex-1 overflow-y-auto overscroll-contain space-y-3"
+              style={{
+                padding: 'clamp(12px, 4vw, 20px)',
+                WebkitOverflowScrolling: 'touch',
+              }}
             >
               {children}
             </div>

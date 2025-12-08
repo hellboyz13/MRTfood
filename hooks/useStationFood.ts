@@ -6,7 +6,8 @@ import { getStationFoodData } from '@/lib/api';
 
 // Source IDs for categorization
 const MICHELIN_SOURCE_IDS = ['michelin-3-star', 'michelin-2-star', 'michelin-1-star', 'michelin-hawker'];
-const RECOMMENDED_SOURCE_IDS = [...MICHELIN_SOURCE_IDS, 'ieatishootipost', 'editors-choice'];
+const RECOMMENDED_SOURCE_IDS = [...MICHELIN_SOURCE_IDS, 'ieatishootipost', 'editors-choice', 'eatbook', 'get-fed'];
+const POPULAR_SOURCE_ID = 'popular';
 const FOOD_KING_SOURCE_ID = 'food-king';
 
 // Helper to check if listing has any of the specified source IDs
@@ -23,7 +24,9 @@ function isOnlyFoodKing(listing: FoodListingWithSources): boolean {
 
 export interface SeparatedListings {
   recommended: FoodListingWithSources[];
+  popular: FoodListingWithSources[]; // Popular source + chain outlets
   foodKingOnly: FoodListingWithSources[];
+  other: FoodListingWithSources[]; // Listings that don't fit other categories
 }
 
 interface UseStationFoodResult {
@@ -45,13 +48,20 @@ export function useStationFood(stationId: string | null): UseStationFoodResult {
       return;
     }
 
+    console.log('🎣 useStationFood: Fetching data for station:', stationId);
     setLoading(true);
     setError(null);
 
     try {
       const result = await getStationFoodData(stationId);
+      console.log('✅ useStationFood: Got result:', {
+        hasStation: !!result?.station,
+        hasSponsored: !!result?.sponsored,
+        listingsCount: result?.listings?.length || 0
+      });
       setData(result);
     } catch (err) {
+      console.error('❌ useStationFood: Error:', err);
       setError(err instanceof Error ? err : new Error('Failed to fetch data'));
       setData(null);
     } finally {
@@ -63,21 +73,32 @@ export function useStationFood(stationId: string | null): UseStationFoodResult {
     fetchData();
   }, [stationId]);
 
-  // Separate listings into recommended and food-king-only sections
+  // Separate listings into recommended, popular, food-king-only, and other sections
   const separatedListings = useMemo((): SeparatedListings => {
     if (!data?.listings) {
-      return { recommended: [], foodKingOnly: [] };
+      return { recommended: [], popular: [], foodKingOnly: [], other: [] };
     }
 
     const recommended = data.listings.filter(listing =>
       hasSource(listing, RECOMMENDED_SOURCE_IDS)
     );
 
+    const popular = data.listings.filter(listing =>
+      hasSource(listing, [POPULAR_SOURCE_ID])
+    );
+
     const foodKingOnly = data.listings.filter(listing =>
       isOnlyFoodKing(listing)
     );
 
-    return { recommended, foodKingOnly };
+    // Get listings that aren't in any category
+    const other = data.listings.filter(listing =>
+      !hasSource(listing, RECOMMENDED_SOURCE_IDS) &&
+      !hasSource(listing, [POPULAR_SOURCE_ID]) &&
+      !isOnlyFoodKing(listing)
+    );
+
+    return { recommended, popular, foodKingOnly, other };
   }, [data?.listings]);
 
   return {

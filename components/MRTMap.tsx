@@ -74,7 +74,7 @@ const stationCoordinates: { [key: string]: { cx: number, cy: number, name: strin
   'sembawang': { cx: 685, cy: 87, name: 'Sembawang' },
   'admiralty': { cx: 612, cy: 87, name: 'Admiralty' },
   'marsiling': { cx: 435, cy: 87, name: 'Marsiling' },
-  'kranji': { cx: 352, cy: 87, name: 'Kranji' },
+  'kranji': { cx: 394, cy: 87, name: 'Kranji' },
   'yew-tee': { cx: 286, cy: 173, name: 'Yew Tee' },
   'bukit-gombak': { cx: 286, cy: 291, name: 'Bukit Gombak' },
   'bukit-batok': { cx: 286, cy: 351, name: 'Bukit Batok' },
@@ -122,7 +122,7 @@ const stationCoordinates: { [key: string]: { cx: number, cy: number, name: strin
   'dakota': { cx: 1005, cy: 670, name: 'Dakota' },
   'tai-seng': { cx: 985, cy: 552, name: 'Tai Seng' },
   'bartley': { cx: 964, cy: 514, name: 'Bartley' },
-  'lorong-chuan': { cx: 876, cy: 415, name: 'Lorong Chuan' },
+  'lorong-chuan': { cx: 859, cy: 418, name: 'Lorong Chuan' },
   'marymount': { cx: 721, cy: 391, name: 'Marymount' },
   'farrer-road': { cx: 516, cy: 514, name: 'Farrer Road' },
   'holland-village': { cx: 497, cy: 549, name: 'Holland Village' },
@@ -177,7 +177,7 @@ const stationCoordinates: { [key: string]: { cx: number, cy: number, name: strin
   'katong-park': { cx: 969, cy: 900, name: 'Katong Park' },
   'tanjong-katong': { cx: 1001, cy: 866, name: 'Tanjong Katong' },
   'marine-parade': { cx: 1027, cy: 828, name: 'Marine Parade' },
-  'marine-terrace': { cx: 1074, cy: 766, name: 'Marine Terrace' },
+  'marine-terrace': { cx: 1094, cy: 766, name: 'Marine Terrace' },
   'siglap': { cx: 1153, cy: 766, name: 'Siglap' },
   'bayshore': { cx: 1196, cy: 766, name: 'Bayshore' },
 
@@ -416,9 +416,13 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
   const zoomToStation = useCallback((stationId: string) => {
     if (transformRef.current && stationCoordinates[stationId]) {
       const coords = stationCoordinates[stationId];
+      const padding = 300; // Container padding
       const scale = 1.8; // Zoom level for focused view
-      const posX = window.innerWidth / 2 - coords.cx * scale;
-      const posY = window.innerHeight / 2 - coords.cy * scale;
+      // Account for padding when calculating position
+      const stationX = coords.cx + padding;
+      const stationY = coords.cy + padding;
+      const posX = window.innerWidth / 2 - stationX * scale;
+      const posY = window.innerHeight / 2 - stationY * scale;
       transformRef.current.setTransform(posX, posY, scale, 500);
     }
   }, []);
@@ -433,7 +437,12 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
   useEffect(() => {
     // Load the SVG and inject it into the DOM
     fetch('/mrt-map.svg')
-      .then(response => response.text())
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.text();
+      })
       .then(svgText => {
         if (svgContainerRef.current) {
           svgContainerRef.current.innerHTML = svgText;
@@ -451,6 +460,9 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
             setSvgLoaded(true);
           }
         }
+      })
+      .catch(error => {
+        console.error('Error loading SVG:', error);
       });
   }, []);
 
@@ -718,6 +730,20 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
         return;
       }
 
+      // Lorong Chuan - move left by 3px
+      if (textContent.includes('lorong chuan')) {
+        text.setAttribute('x', String(currentX - 3));
+        text.setAttribute('text-anchor', 'start');
+        return;
+      }
+
+      // Bayshore - move left by 20px
+      if (textContent.includes('bayshore')) {
+        text.setAttribute('x', String(currentX - 20));
+        text.setAttribute('text-anchor', 'start');
+        return;
+      }
+
       // Default: small offset to avoid circle overlap
       text.setAttribute('x', String(currentX + 3));
       text.setAttribute('text-anchor', 'start');
@@ -763,6 +789,9 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
             circle.setAttribute('fill', '#ffffff');
           }
         });
+      } else {
+        // Remove circles that don't match any station coordinates (orphans)
+        circle.remove();
       }
     });
   };
@@ -925,10 +954,8 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
         alignmentAnimation={{ sizeX: 0, sizeY: 0 }}
         velocityAnimation={{ sensitivity: 1, animationTime: 300 }}
         panning={{
-          disabled: true, // Disable panning to prevent map moving on click
-          velocityDisabled: true,
-          lockAxisX: true,
-          lockAxisY: true,
+          disabled: false,
+          velocityDisabled: false,
         }}
         onPanningStop={(ref) => {
           const { positionX, positionY, scale } = ref.state;
