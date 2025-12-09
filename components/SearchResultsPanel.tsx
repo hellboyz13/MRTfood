@@ -49,14 +49,14 @@ export default function SearchResultsPanel({
     <>
       {/* Mobile: Slide-able Panel */}
       <div
-        className="md:hidden fixed top-20 z-40 flex"
+        className={`md:hidden fixed top-20 z-40 flex transition-transform duration-300 ease-in-out ${
+          isCollapsed ? '-translate-x-[140px]' : 'translate-x-0'
+        }`}
         style={{ left: 0 }}
       >
-        {/* Panel content - slides in/out */}
+        {/* Panel content */}
         <div
-          className={`w-[140px] max-h-[calc(4*44px+44px)] bg-white/95 backdrop-blur-sm rounded-r-xl shadow-xl border-2 border-gray-200 border-l-0 overflow-hidden flex flex-col transition-transform duration-300 ease-in-out ${
-            isCollapsed ? '-translate-x-full' : 'translate-x-0'
-          }`}
+          className="w-[140px] max-h-[calc(4*44px+44px)] bg-white/95 backdrop-blur-sm rounded-r-xl shadow-xl border-2 border-gray-200 border-l-0 overflow-hidden flex flex-col"
         >
             {/* Close button */}
             <button
@@ -129,14 +129,14 @@ export default function SearchResultsPanel({
 
       {/* Desktop: Slide-able Full Panel */}
       <div
-        className="hidden md:flex fixed top-20 z-40"
+        className={`hidden md:flex fixed top-20 z-40 transition-transform duration-300 ease-in-out ${
+          isCollapsed ? '-translate-x-[calc(24rem+16px)]' : 'translate-x-0'
+        }`}
         style={{ left: '16px' }}
       >
-        {/* Panel content - slides in/out */}
+        {/* Panel content */}
         <div
-          className={`w-96 max-h-[calc(100vh-160px)] bg-white rounded-xl shadow-2xl border-2 border-gray-200 overflow-hidden flex flex-col transition-transform duration-300 ease-in-out ${
-            isCollapsed ? '-translate-x-[calc(100%+16px)]' : 'translate-x-0'
-          }`}
+          className="w-96 max-h-[calc(100vh-160px)] bg-white rounded-xl shadow-2xl border-2 border-gray-200 overflow-hidden flex flex-col"
         >
             {/* Header */}
             <div className="bg-gradient-to-r from-amber-500 to-orange-500 px-4 py-3 flex items-center justify-between flex-shrink-0">
