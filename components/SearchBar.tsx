@@ -11,12 +11,21 @@ interface SearchBarProps {
   is24hActive?: boolean;
 }
 
+// Rotating placeholder examples
+const PLACEHOLDER_EXAMPLES = [
+  'Chinese, Indian, Malay',
+  'Pizza, Pasta, Fried Rice',
+  'Sin Kee Seafood Soup',
+];
+
 export default function SearchBar({ onSearch, onClear, isSearching, noResults, on24hClick, is24hActive }: SearchBarProps) {
   const [query, setQuery] = useState('');
   const [isMobile, setIsMobile] = useState(false);
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
   const [showNoResults, setShowNoResults] = useState(false);
+  const [placeholderIndex, setPlaceholderIndex] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
   const dragRef = useRef<HTMLDivElement>(null);
   const startPos = useRef({ x: 0, y: 0 });
 
@@ -41,6 +50,18 @@ export default function SearchBar({ onSearch, onClear, isSearching, noResults, o
     checkMobile();
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Rotate placeholder text every 3 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsAnimating(true);
+      setTimeout(() => {
+        setPlaceholderIndex((prev) => (prev + 1) % PLACEHOLDER_EXAMPLES.length);
+        setIsAnimating(false);
+      }, 300); // Match CSS transition duration
+    }, 3000);
+    return () => clearInterval(interval);
   }, []);
 
   const handleSubmit = useCallback((e: React.FormEvent) => {
@@ -98,7 +119,7 @@ export default function SearchBar({ onSearch, onClear, isSearching, noResults, o
       </div>
 
       <div className="flex items-center gap-2 pointer-events-auto">
-        {/* 24/7 Button */}
+        {/* Supper Button */}
         {on24hClick && (
           <button
             type="button"
@@ -108,33 +129,53 @@ export default function SearchBar({ onSearch, onClear, isSearching, noResults, o
                 ? 'bg-purple-600 text-white shadow-purple-300'
                 : 'bg-white border-2 border-gray-300 text-gray-700 hover:border-purple-500 hover:text-purple-600 hover:bg-purple-50'
             }`}
-            title="Find 24/7 restaurants"
+            title="Find supper spots"
           >
             <span className="mr-1">🌙</span>
-            24/7
+            Supper
           </button>
         )}
 
         <form onSubmit={handleSubmit} className="relative">
-          <input
-            type="text"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search food..."
-            className="border-2 border-gray-300
-                       focus:border-red-500 focus:outline-none shadow-lg
-                       bg-white min-h-[44px]"
-            disabled={isSearching}
-            style={{
-              width: 'clamp(240px, 70vw, 280px)',
-              paddingLeft: 'clamp(12px, 4vw, 16px)',
-              paddingRight: 'clamp(70px, 20vw, 80px)',
-              paddingTop: 'clamp(8px, 2vw, 10px)',
-              paddingBottom: 'clamp(8px, 2vw, 10px)',
-              fontSize: 'clamp(13px, 3.5vw, 14px)',
-              borderRadius: 'clamp(20px, 6vw, 24px)',
-            }}
-          />
+          <div className="relative">
+            <input
+              type="text"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              className="border-2 border-gray-300
+                         focus:border-red-500 focus:outline-none shadow-lg
+                         bg-white min-h-[44px]"
+              disabled={isSearching}
+              style={{
+                width: 'clamp(240px, 70vw, 280px)',
+                paddingLeft: 'clamp(12px, 4vw, 16px)',
+                paddingRight: 'clamp(70px, 20vw, 80px)',
+                paddingTop: 'clamp(8px, 2vw, 10px)',
+                paddingBottom: 'clamp(8px, 2vw, 10px)',
+                fontSize: 'clamp(13px, 3.5vw, 14px)',
+                borderRadius: 'clamp(20px, 6vw, 24px)',
+              }}
+            />
+            {/* Custom rotating placeholder */}
+            {!query && (
+              <div
+                className="absolute top-1/2 -translate-y-1/2 pointer-events-none text-gray-400 flex items-center whitespace-nowrap"
+                style={{
+                  left: 'clamp(12px, 4vw, 16px)',
+                  fontSize: 'clamp(11px, 3vw, 12px)',
+                }}
+              >
+                <span className="flex-shrink-0">Search Food:&nbsp;</span>
+                <span
+                  className={`transition-all duration-300 ${
+                    isAnimating ? 'opacity-0 -translate-y-2' : 'opacity-100 translate-y-0'
+                  }`}
+                >
+                  {PLACEHOLDER_EXAMPLES[placeholderIndex]}
+                </span>
+              </div>
+            )}
+          </div>
           {query && (
             <button
               type="button"

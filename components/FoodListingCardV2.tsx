@@ -184,14 +184,18 @@ export default function FoodListingCardV2({ listing, highlighted = false, onView
       {/* Tags */}
       {listing.tags && listing.tags.length > 0 && (
         <div className="flex flex-wrap gap-1 mt-2">
-          {listing.tags.slice(0, 4).map((tag) => (
-            <span
-              key={tag}
-              className="px-1.5 py-0.5 bg-gray-100 text-gray-600 rounded text-xs"
-            >
-              {tag}
-            </span>
-          ))}
+          {listing.tags.slice(0, 4).map((tag) => {
+            // Transform "24 hour" tag to "Supper"
+            const displayTag = tag.toLowerCase() === '24 hour' ? 'Supper' : tag;
+            return (
+              <span
+                key={tag}
+                className="px-1.5 py-0.5 bg-gray-100 text-gray-600 rounded text-xs"
+              >
+                {displayTag}
+              </span>
+            );
+          })}
           {listing.tags.length > 4 && (
             <span className="px-1.5 py-0.5 text-gray-400 text-xs">
               +{listing.tags.length - 4} more

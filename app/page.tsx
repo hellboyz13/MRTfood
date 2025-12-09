@@ -82,10 +82,10 @@ export default function Home() {
       setSearchResults([]);
       setSearchQuery('');
     } else {
-      // Toggle on - fetch 24/7 listings
+      // Toggle on - fetch supper spots (24h listings)
       setIsSearching(true);
       setIs24hActive(true);
-      setSearchQuery('24/7 Restaurants');
+      setSearchQuery('Supper Spots');
       try {
         const results = await get24hListingsByStation();
         setSearchResults(results);
