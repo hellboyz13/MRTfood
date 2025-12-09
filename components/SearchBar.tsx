@@ -6,15 +6,30 @@ interface SearchBarProps {
   onSearch: (query: string) => void;
   onClear: () => void;
   isSearching: boolean;
+  noResults?: boolean;
 }
 
-export default function SearchBar({ onSearch, onClear, isSearching }: SearchBarProps) {
+export default function SearchBar({ onSearch, onClear, isSearching, noResults }: SearchBarProps) {
   const [query, setQuery] = useState('');
   const [isMobile, setIsMobile] = useState(false);
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
+  const [showNoResults, setShowNoResults] = useState(false);
   const dragRef = useRef<HTMLDivElement>(null);
   const startPos = useRef({ x: 0, y: 0 });
+
+  // Show no results animation when noResults prop changes
+  useEffect(() => {
+    if (noResults) {
+      setShowNoResults(true);
+      const timer = setTimeout(() => {
+        setShowNoResults(false);
+      }, 3000);
+      return () => clearTimeout(timer);
+    } else {
+      setShowNoResults(false);
+    }
+  }, [noResults]);
 
   // Detect mobile
   useEffect(() => {
@@ -63,6 +78,23 @@ export default function SearchBar({ onSearch, onClear, isSearching }: SearchBarP
     <div
       className="fixed left-1/2 transform -translate-x-1/2 z-50 pointer-events-none bottom-4"
     >
+      {/* No Results Popup Animation */}
+      <div
+        className={`absolute left-1/2 -translate-x-1/2 transition-all duration-500 ease-out pointer-events-none ${
+          showNoResults
+            ? 'opacity-100 -translate-y-14'
+            : 'opacity-0 translate-y-0'
+        }`}
+        style={{
+          bottom: '100%',
+        }}
+      >
+        <div className="bg-gray-800 text-white px-4 py-2 rounded-full shadow-lg whitespace-nowrap flex items-center gap-2">
+          <span className="text-lg">(x.x)</span>
+          <span className="text-sm font-medium">No food found</span>
+        </div>
+      </div>
+
       <form onSubmit={handleSubmit} className="relative pointer-events-auto">
         <input
           type="text"

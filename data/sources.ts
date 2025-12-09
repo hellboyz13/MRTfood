@@ -1,34 +1,20 @@
 import { FoodSource } from '@/types';
 
 export const foodSources: FoodSource[] = [
-  // Michelin Categories
-  {
-    id: 'michelin-3-star',
-    name: 'Michelin 3 Stars',
-    icon: '⭐⭐⭐',
-    url: 'https://guide.michelin.com/sg/en',
-    bgColor: '#FEF3C7', // amber-100 (gold)
-  },
-  {
-    id: 'michelin-2-star',
-    name: 'Michelin 2 Stars',
-    icon: '⭐⭐',
-    url: 'https://guide.michelin.com/sg/en',
-    bgColor: '#E5E7EB', // gray-200 (silver)
-  },
-  {
-    id: 'michelin-1-star',
-    name: 'Michelin 1 Star',
-    icon: '⭐',
-    url: 'https://guide.michelin.com/sg/en',
-    bgColor: '#FEE2E2', // red-100
-  },
+  // Michelin Categories (only Hawker and Bib Gourmand)
   {
     id: 'michelin-hawker',
     name: 'Michelin Hawker',
     icon: '🍽️',
     url: 'https://guide.michelin.com/sg/en',
     bgColor: '#DBEAFE', // blue-100
+  },
+  {
+    id: 'michelin-bib-gourmand',
+    name: 'Bib Gourmand',
+    icon: '🍴',
+    url: 'https://guide.michelin.com/sg/en',
+    bgColor: '#FEF3C7', // amber-100
   },
   // Editor's Choice
   {

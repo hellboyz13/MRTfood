@@ -16,24 +16,6 @@ export default function ModeToggle({ mode, onModeChange }: ModeToggleProps) {
       }}
     >
       <button
-        onClick={() => onModeChange('curated')}
-        className={`flex-1 font-medium transition-colors min-h-[44px] flex items-center justify-center ${
-          mode === 'curated'
-            ? 'bg-white text-gray-900 shadow-sm'
-            : 'text-gray-600 hover:text-gray-900 active:bg-gray-50'
-        }`}
-        style={{
-          paddingLeft: 'clamp(10px, 3vw, 14px)',
-          paddingRight: 'clamp(10px, 3vw, 14px)',
-          paddingTop: 'clamp(8px, 2vw, 10px)',
-          paddingBottom: 'clamp(8px, 2vw, 10px)',
-          fontSize: 'clamp(13px, 3.5vw, 14px)',
-          borderRadius: 'clamp(5px, 1.5vw, 8px)',
-        }}
-      >
-        ⭐ Curated
-      </button>
-      <button
         onClick={() => onModeChange('popular')}
         className={`flex-1 font-medium transition-colors min-h-[44px] flex items-center justify-center ${
           mode === 'popular'
@@ -50,6 +32,24 @@ export default function ModeToggle({ mode, onModeChange }: ModeToggleProps) {
         }}
       >
         🍜 Popular
+      </button>
+      <button
+        onClick={() => onModeChange('curated')}
+        className={`flex-1 font-medium transition-colors min-h-[44px] flex items-center justify-center ${
+          mode === 'curated'
+            ? 'bg-white text-gray-900 shadow-sm'
+            : 'text-gray-600 hover:text-gray-900 active:bg-gray-50'
+        }`}
+        style={{
+          paddingLeft: 'clamp(10px, 3vw, 14px)',
+          paddingRight: 'clamp(10px, 3vw, 14px)',
+          paddingTop: 'clamp(8px, 2vw, 10px)',
+          paddingBottom: 'clamp(8px, 2vw, 10px)',
+          fontSize: 'clamp(13px, 3.5vw, 14px)',
+          borderRadius: 'clamp(5px, 1.5vw, 8px)',
+        }}
+      >
+        ⭐ Curated
       </button>
     </div>
   );

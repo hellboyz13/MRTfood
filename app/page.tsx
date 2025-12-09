@@ -94,10 +94,11 @@ export default function Home() {
         onSearch={handleSearch}
         onClear={handleClearSearch}
         isSearching={isSearching}
+        noResults={!isSearching && searchQuery.length > 0 && searchResults.length === 0}
       />
 
-      {/* Search Results Panel */}
-      {searchResults.length > 0 && (
+      {/* Search Results Panel - only show if there are results */}
+      {searchQuery && searchResults.length > 0 && (
         <SearchResultsPanel
           searchQuery={searchQuery}
           results={searchResults}

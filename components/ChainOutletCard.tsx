@@ -70,6 +70,7 @@ export default function ChainOutletCard({ outlet, brandName, highlighted = false
       source_url: null,
       tags: outlet.food_tags || [],
       is_active: outlet.is_active,
+      is_24h: false,
       created_at: outlet.created_at,
       updated_at: outlet.updated_at,
       distance_to_station: outlet.distance_to_station,

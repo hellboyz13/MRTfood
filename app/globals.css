@@ -188,20 +188,25 @@ h1, h2, h3, h4, h5, h6 {
 @keyframes green-pulse {
   0%, 100% {
     fill: #22c55e;
-    filter: drop-shadow(0 0 8px rgba(34, 197, 94, 0.9));
+    transform: scale(1);
+    filter: drop-shadow(0 0 4px rgba(34, 197, 94, 0.6));
   }
   50% {
-    fill: #16a34a;
-    filter: drop-shadow(0 0 16px rgba(34, 197, 94, 1));
+    fill: #4ade80;
+    transform: scale(1.4);
+    filter: drop-shadow(0 0 12px rgba(34, 197, 94, 1));
   }
 }
 
 /* Apply to ALL station highlight types */
 svg circle.station-highlighted,
 svg circle.station-glow-michelin,
-svg circle.station-glow-foodking {
-  animation: green-pulse 1.5s ease-in-out infinite !important;
+svg circle.station-glow-foodking,
+svg circle.station-glow-24h {
+  animation: green-pulse 1s ease-in-out infinite !important;
   fill: #22c55e !important;
+  transform-origin: center !important;
+  transform-box: fill-box !important;
 }
 
 /* Dimmed stations (non-matching in search) */

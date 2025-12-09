@@ -2,10 +2,10 @@
 
 import { useEffect, useRef, useState, useCallback } from 'react';
 import { TransformWrapper, TransformComponent, ReactZoomPanPinchRef } from 'react-zoom-pan-pinch';
-import { getStationsBySource, StationSearchResult } from '@/lib/api';
+import { getStationsBySource, getStationsWith24h, StationSearchResult } from '@/lib/api';
 
 // Source filter types
-type SourceFilter = 'michelin' | 'food-king' | null;
+type SourceFilter = 'michelin' | 'food-king' | '24h' | null;
 
 // Source IDs for each filter
 const MICHELIN_SOURCE_IDS = ['michelin-3-star', 'michelin-2-star', 'michelin-1-star', 'michelin-hawker'];
@@ -59,7 +59,7 @@ const stationCoordinates: { [key: string]: { cx: number, cy: number, name: strin
   'choa-chu-kang': { cx: 286, cy: 226, name: 'Choa Chu Kang' },
   'sengkang': { cx: 1081, cy: 305, name: 'Sengkang' },
   'punggol': { cx: 1177, cy: 210, name: 'Punggol' },
-  'changi-airport': { cx: 1389, cy: 717, name: 'Changi Airport' },
+  'changi-airport': { cx: 1334, cy: 674, name: 'Changi Airport' },
 
   // Regular stations (originally r="3", now r="7")
   'somerset': { cx: 702, cy: 632, name: 'Somerset' },
@@ -74,7 +74,7 @@ const stationCoordinates: { [key: string]: { cx: number, cy: number, name: strin
   'sembawang': { cx: 685, cy: 87, name: 'Sembawang' },
   'admiralty': { cx: 612, cy: 87, name: 'Admiralty' },
   'marsiling': { cx: 435, cy: 87, name: 'Marsiling' },
-  'kranji': { cx: 394, cy: 87, name: 'Kranji' },
+  'kranji': { cx: 347, cy: 87, name: 'Kranji' },
   'yew-tee': { cx: 286, cy: 173, name: 'Yew Tee' },
   'bukit-gombak': { cx: 286, cy: 291, name: 'Bukit Gombak' },
   'bukit-batok': { cx: 286, cy: 351, name: 'Bukit Batok' },
@@ -95,7 +95,7 @@ const stationCoordinates: { [key: string]: { cx: number, cy: number, name: strin
   'dover': { cx: 451, cy: 570, name: 'Dover' },
   'clementi': { cx: 407, cy: 526, name: 'Clementi' },
   'chinese-garden': { cx: 247, cy: 514, name: 'Chinese Garden' },
-  'lakeside': { cx: 212, cy: 518, name: 'Lakeside' },
+  'lakeside': { cx: 205, cy: 514, name: 'Lakeside' },
   'boon-lay': { cx: 155, cy: 489, name: 'Boon Lay' },
   'pioneer': { cx: 155, cy: 453, name: 'Pioneer' },
   'joo-koon': { cx: 155, cy: 417, name: 'Joo Koon' },
@@ -779,13 +779,16 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
         });
 
         circle.addEventListener('mouseenter', () => {
-          if (circle.getAttribute('fill') !== '#dc2626') {
+          // Don't change fill if station is selected (red) or highlighted (green)
+          if (circle.getAttribute('fill') !== '#dc2626' && !circle.classList.contains('station-highlighted') && !circle.classList.contains('station-glow-michelin') && !circle.classList.contains('station-glow-foodking') && !circle.classList.contains('station-glow-24h')) {
             circle.setAttribute('fill', '#fca5a5');
           }
         });
 
         circle.addEventListener('mouseleave', () => {
-          if (circle.getAttribute('fill') !== '#dc2626') {
+          // Don't reset fill if station is selected (red) or highlighted (green)
+          const currentFill = circle.getAttribute('fill');
+          if (currentFill !== '#dc2626' && !circle.classList.contains('station-highlighted') && !circle.classList.contains('station-glow-michelin') && !circle.classList.contains('station-glow-foodking') && !circle.classList.contains('station-glow-24h')) {
             circle.setAttribute('fill', '#ffffff');
           }
         });
@@ -902,8 +905,13 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
     setFilterLoading(true);
 
     try {
-      const sourceIds = filter === 'michelin' ? MICHELIN_SOURCE_IDS : FOOD_KING_SOURCE_IDS;
-      const stations = await getStationsBySource(sourceIds);
+      let stations: string[];
+      if (filter === '24h') {
+        stations = await getStationsWith24h();
+      } else {
+        const sourceIds = filter === 'michelin' ? MICHELIN_SOURCE_IDS : FOOD_KING_SOURCE_IDS;
+        stations = await getStationsBySource(sourceIds);
+      }
       setFilteredStations(new Set(stations));
     } catch (error) {
       console.error('Error fetching filtered stations:', error);
@@ -923,14 +931,21 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
     // Remove all existing glow effects
     const circles = svg.querySelectorAll('circle[data-station-id]');
     circles.forEach(circle => {
-      circle.classList.remove('station-glow-michelin', 'station-glow-foodking');
+      circle.classList.remove('station-glow-michelin', 'station-glow-foodking', 'station-glow-24h');
     });
 
     // If no filter active, we're done
     if (!activeFilter || filteredStations.size === 0) return;
 
     // Add glow class to filtered stations
-    const glowClass = activeFilter === 'michelin' ? 'station-glow-michelin' : 'station-glow-foodking';
+    let glowClass: string;
+    if (activeFilter === 'michelin') {
+      glowClass = 'station-glow-michelin';
+    } else if (activeFilter === '24h') {
+      glowClass = 'station-glow-24h';
+    } else {
+      glowClass = 'station-glow-foodking';
+    }
     filteredStations.forEach(stationId => {
       const circle = svg.querySelector(`circle[data-station-id="${stationId}"]`);
       if (circle) {
@@ -1011,6 +1026,54 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
       >
         {({ zoomIn, zoomOut, resetTransform }) => (
           <>
+            {/* Filter Buttons - Top Left */}
+            <div className="fixed top-20 left-3 z-50 flex flex-row gap-2 pointer-events-auto">
+              {/* Michelin Filter */}
+              <button
+                onClick={() => handleFilterToggle('michelin')}
+                disabled={filterLoading}
+                className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all shadow-md border
+                  ${activeFilter === 'michelin'
+                    ? 'bg-red-500 text-white border-red-600'
+                    : 'bg-white/95 text-gray-700 border-gray-200 hover:bg-gray-50'
+                  }
+                  ${filterLoading ? 'opacity-50 cursor-wait' : 'active:scale-95'}
+                `}
+              >
+                ⭐ Michelin
+              </button>
+
+              {/* Food King Filter */}
+              <button
+                onClick={() => handleFilterToggle('food-king')}
+                disabled={filterLoading}
+                className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all shadow-md border
+                  ${activeFilter === 'food-king'
+                    ? 'bg-yellow-500 text-white border-yellow-600'
+                    : 'bg-white/95 text-gray-700 border-gray-200 hover:bg-gray-50'
+                  }
+                  ${filterLoading ? 'opacity-50 cursor-wait' : 'active:scale-95'}
+                `}
+              >
+                👑 Food King
+              </button>
+
+              {/* 24/7 Filter */}
+              <button
+                onClick={() => handleFilterToggle('24h')}
+                disabled={filterLoading}
+                className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all shadow-md border
+                  ${activeFilter === '24h'
+                    ? 'bg-indigo-500 text-white border-indigo-600'
+                    : 'bg-white/95 text-gray-700 border-gray-200 hover:bg-gray-50'
+                  }
+                  ${filterLoading ? 'opacity-50 cursor-wait' : 'active:scale-95'}
+                `}
+              >
+                🌙 24/7
+              </button>
+            </div>
+
             {/* Control Buttons */}
             <div className="fixed bottom-20 right-4 z-50 flex flex-col gap-2 pointer-events-none">
               {/* Location error toast */}

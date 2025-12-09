@@ -100,6 +100,9 @@ export async function getSponsoredListing(
 // FOOD LISTINGS (Multi-source via junction table)
 // ============================================
 
+// Source IDs to exclude from listings (Michelin 1-3 stars)
+const EXCLUDED_SOURCE_IDS = ['michelin-1-star', 'michelin-2-star', 'michelin-3-star'];
+
 // Get listings with all their sources via junction table
 export async function getFoodListingsByStation(
   stationId: string
@@ -161,10 +164,19 @@ export async function getFoodListingsByStation(
     };
   });
 
-  // Sort by trust score descending
-  result.sort((a, b) => (b.trust_score || 0) - (a.trust_score || 0));
+  // Filter out listings that ONLY have excluded sources (Michelin 1-3 stars)
+  const filteredResult = result.filter(listing => {
+    // Get all source IDs for this listing
+    const sourceIds = listing.sources.map(s => s.source.id);
+    // Check if listing has at least one non-excluded source
+    const hasValidSource = sourceIds.some(id => !EXCLUDED_SOURCE_IDS.includes(id));
+    return hasValidSource || sourceIds.length === 0;
+  });
 
-  return result;
+  // Sort by trust score descending
+  filteredResult.sort((a, b) => (b.trust_score || 0) - (a.trust_score || 0));
+
+  return filteredResult;
 }
 
 // ============================================
@@ -240,7 +252,7 @@ export async function searchFoodListings(
   });
 
   // Combine listings with their sources
-  return listings.map((listing: FoodListing) => {
+  const result = listings.map((listing: FoodListing) => {
     const sources = sourcesByListing.get(listing.id) || [];
     sources.sort((a, b) => {
       if (a.is_primary !== b.is_primary) return a.is_primary ? -1 : 1;
@@ -252,6 +264,13 @@ export async function searchFoodListings(
       sources,
       trust_score,
     };
+  });
+
+  // Filter out listings that ONLY have excluded sources (Michelin 1-3 stars)
+  return result.filter(listing => {
+    const sourceIds = listing.sources.map(s => s.source.id);
+    const hasValidSource = sourceIds.some(id => !EXCLUDED_SOURCE_IDS.includes(id));
+    return hasValidSource || sourceIds.length === 0;
   });
 }
 
@@ -288,6 +307,24 @@ export async function getStationsBySource(
 
   if (listingsError || !listings) {
     if (listingsError) console.error('Error fetching listings:', listingsError);
+    return [];
+  }
+
+  // Return unique station IDs
+  return [...new Set((listings as { station_id: string | null }[]).map(l => l.station_id).filter(Boolean))] as string[];
+}
+
+// Get station IDs that have 24/7 listings
+export async function getStationsWith24h(): Promise<string[]> {
+  const { data: listings, error } = await supabase
+    .from('food_listings')
+    .select('station_id')
+    .eq('is_active', true)
+    .eq('is_24h', true)
+    .not('station_id', 'is', null);
+
+  if (error || !listings) {
+    if (error) console.error('Error fetching 24h listings:', error);
     return [];
   }
 
@@ -394,8 +431,30 @@ export async function searchStationsByFoodWithCounts(query: string): Promise<Sta
     .eq('is_active', true)
     .not('station_id', 'is', null);
 
+  // Get sources for all listings to filter out Michelin 1-3 star only listings
+  let listingSourceMap = new Map<string, string[]>();
+  if (listings && listings.length > 0) {
+    const listingIds = listings.map((l: FoodListing) => l.id);
+    const { data: listingSources } = await supabase
+      .from('listing_sources')
+      .select('listing_id, source_id')
+      .in('listing_id', listingIds);
+
+    if (listingSources) {
+      listingSources.forEach((ls: { listing_id: string; source_id: string }) => {
+        const sources = listingSourceMap.get(ls.listing_id) || [];
+        sources.push(ls.source_id);
+        listingSourceMap.set(ls.listing_id, sources);
+      });
+    }
+  }
+
   if (!listingsError && listings) {
     listings.forEach((listing: FoodListing) => {
+      // Filter out listings that ONLY have Michelin 1-3 star sources
+      const sourceIds = listingSourceMap.get(listing.id) || [];
+      const hasValidSource = sourceIds.some(id => !EXCLUDED_SOURCE_IDS.includes(id));
+      if (sourceIds.length > 0 && !hasValidSource) return; // Skip this listing
       if (!listing.station_id) return;
 
       let matched = false;

@@ -103,6 +103,7 @@ export interface Database {
           source_url: string | null;
           tags: string[];
           is_active: boolean;
+          is_24h: boolean;
           created_at: string;
           updated_at: string;
           distance_to_station: number | null;
@@ -122,6 +123,7 @@ export interface Database {
           source_url?: string | null;
           tags?: string[];
           is_active?: boolean;
+          is_24h?: boolean;
           created_at?: string;
           updated_at?: string;
           distance_to_station?: number | null;
@@ -141,6 +143,7 @@ export interface Database {
           source_url?: string | null;
           tags?: string[];
           is_active?: boolean;
+          is_24h?: boolean;
           updated_at?: string;
           distance_to_station?: number | null;
           walking_time?: number | null;

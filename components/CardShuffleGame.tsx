@@ -11,9 +11,7 @@ interface CardShuffleGameProps {
 }
 
 function getMichelinBadge(sourceId: string): string | null {
-  if (sourceId === 'michelin-3-star') return '3 Michelin Stars';
-  if (sourceId === 'michelin-2-star') return '2 Michelin Stars';
-  if (sourceId === 'michelin-1-star') return '1 Michelin Star';
+  if (sourceId === 'michelin-hawker') return 'Michelin Hawker';
   if (sourceId === 'michelin-bib-gourmand') return 'Bib Gourmand';
   return null;
 }

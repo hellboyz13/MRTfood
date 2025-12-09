@@ -32,7 +32,11 @@
       "Bash(npx vercel login)",
       "Bash(npx prisma generate)",
       "Bash(timeout /t 2)",
-      "Bash(timeout /t 5)"
+      "Bash(timeout /t 5)",
+      "Bash(pkill:*)",
+      "Bash(npm install:*)",
+      "Bash(timeout /t 2 /nobreak)",
+      "Bash(npm run dev:*)"
     ],
     "deny": [],
     "ask": []

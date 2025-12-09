@@ -10,21 +10,20 @@ interface FoodListingCardV2Props {
   onViewMenu?: (listing: FoodListingWithSources) => void;
 }
 
-// Helper to get Michelin distinction from source
+// Helper to get Michelin distinction from source (only hawker and bib gourmand)
 function getMichelinDistinction(sourceId: string): string | null {
   switch (sourceId) {
-    case 'michelin-3-star':
-      return '3-Star';
-    case 'michelin-2-star':
-      return '2-Star';
-    case 'michelin-1-star':
-      return '1-Star';
     case 'michelin-hawker':
       return 'Hawker';
+    case 'michelin-bib-gourmand':
+      return 'Bib Gourmand';
     default:
       return null;
   }
 }
+
+// Sources to hide from badge display
+const HIDDEN_SOURCE_IDS = ['popular', 'michelin-3-star', 'michelin-2-star', 'michelin-1-star'];
 
 // Source badge component
 function SourceBadge({
@@ -72,9 +71,9 @@ export default function FoodListingCardV2({ listing, highlighted = false, onView
   const walkingTime = getWalkingTime(listing.walking_time, distance);
   const formattedDistance = formatDistance(distance);
 
-  // Get primary and secondary sources
-  const primarySources = listing.sources.filter(s => s.is_primary);
-  const secondarySources = listing.sources.filter(s => !s.is_primary);
+  // Get primary and secondary sources, filtering out hidden sources (Popular, Michelin 1-3 stars)
+  const primarySources = listing.sources.filter(s => s.is_primary && !HIDDEN_SOURCE_IDS.includes(s.source.id));
+  const secondarySources = listing.sources.filter(s => !s.is_primary && !HIDDEN_SOURCE_IDS.includes(s.source.id));
 
   // Fetch header/thumbnail image from menu_images
   useEffect(() => {

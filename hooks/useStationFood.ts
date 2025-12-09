@@ -4,8 +4,8 @@ import { useState, useEffect, useMemo } from 'react';
 import { StationFoodData, FoodListingWithSources } from '@/types/database';
 import { getStationFoodData } from '@/lib/api';
 
-// Source IDs for categorization
-const MICHELIN_SOURCE_IDS = ['michelin-3-star', 'michelin-2-star', 'michelin-1-star', 'michelin-hawker'];
+// Source IDs for categorization (only hawker and bib gourmand for Michelin)
+const MICHELIN_SOURCE_IDS = ['michelin-hawker', 'michelin-bib-gourmand'];
 const RECOMMENDED_SOURCE_IDS = [...MICHELIN_SOURCE_IDS, 'ieatishootipost', 'editors-choice', 'eatbook', 'get-fed'];
 const POPULAR_SOURCE_ID = 'popular';
 const FOOD_KING_SOURCE_ID = 'food-king';

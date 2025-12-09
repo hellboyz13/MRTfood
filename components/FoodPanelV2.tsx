@@ -1,14 +1,12 @@
 'use client';
 
 import { useRef, useState, useCallback, useEffect } from 'react';
-import { SponsoredListing as DbSponsoredListing, GroupedChainOutlets, FoodListingWithSources } from '@/types/database';
+import { SponsoredListing as DbSponsoredListing, FoodListingWithSources } from '@/types/database';
 import { stationNames } from '@/data/mock-data';
 import { useStationFood } from '@/hooks/useStationFood';
-import { getChainOutletsByStation, SearchMatch } from '@/lib/api';
+import { SearchMatch } from '@/lib/api';
 import FoodListingCardV2 from './FoodListingCardV2';
 import SlotMachine from './SlotMachine';
-import ModeToggle from './ModeToggle';
-import ChainOutletCard from './ChainOutletCard';
 import MenuPreview from './MenuPreview';
 
 interface FoodPanelV2Props {
@@ -94,28 +92,11 @@ const isSupabaseConfigured = () => {
 };
 
 export default function FoodPanelV2({ stationId, onClose, isMobile = false, searchQuery = '', searchMatches = [] }: FoodPanelV2Props) {
-  const [mode, setMode] = useState<'curated' | 'popular'>('curated');
-  const [chainOutlets, setChainOutlets] = useState<GroupedChainOutlets[]>([]);
-  const [loadingChains, setLoadingChains] = useState(false);
   const [selectedMenuListing, setSelectedMenuListing] = useState<FoodListingWithSources | null>(null);
 
   const { data, separatedListings, loading, error } = useStationFood(
     isSupabaseConfigured() ? stationId : null
   );
-
-  // Load chain outlets when switching to popular mode
-  useEffect(() => {
-    if (mode === 'popular' && stationId && isSupabaseConfigured()) {
-      setLoadingChains(true);
-      getChainOutletsByStation(stationId)
-        .then(setChainOutlets)
-        .catch((err) => {
-          console.error('Error loading chain outlets:', err);
-          setChainOutlets([]);
-        })
-        .finally(() => setLoadingChains(false));
-    }
-  }, [mode, stationId]);
 
   if (!stationId) return null;
 
@@ -227,113 +208,8 @@ export default function FoodPanelV2({ stationId, onClose, isMobile = false, sear
     );
   };
 
-  const renderPopularContent = () => {
-    if (loadingChains || loading) {
-      return <LoadingState />;
-    }
-
-    const { popular } = separatedListings;
-    const hasChainOutlets = chainOutlets.length > 0;
-
-    if (popular.length === 0 && !hasChainOutlets) {
-      return (
-        <div className="text-center py-8">
-          <div className="text-4xl mb-3">🍜</div>
-          <p className="text-gray-500 text-sm">
-            No popular restaurants near this station yet.
-          </p>
-          <p className="text-gray-400 text-xs mt-1">
-            Check back soon!
-          </p>
-        </div>
-      );
-    }
-
-    // Flatten all outlets for slot machine - convert to FoodListingWithSources format
-    const allOutlets = chainOutlets.flatMap(group =>
-      group.outlets.map(outlet => ({
-        id: outlet.id,
-        name: outlet.name,
-        description: group.brand.name,
-        address: outlet.address,
-        station_id: outlet.nearest_station_id,
-        image_url: null,
-        rating: outlet.rating,
-        source_id: null,
-        source_url: null,
-        tags: outlet.food_tags || [],
-        is_active: outlet.is_active,
-        created_at: outlet.created_at,
-        updated_at: outlet.updated_at,
-        distance_to_station: outlet.distance_to_station,
-        walking_time: outlet.walk_time,
-        lat: outlet.latitude,
-        lng: outlet.longitude,
-        sources: [],
-        trust_score: 0,
-      }))
-    );
-
-    // Combine popular listings and chain outlets for slot machine
-    const allPopularItems = [...popular, ...allOutlets];
-
-    return (
-      <>
-        {/* Slot Machine - show when there are 2+ items */}
-        {allPopularItems.length > 1 && (
-          <SlotMachine
-            listings={allPopularItems}
-            onSelectWinner={() => {}}
-          />
-        )}
-
-        {/* Popular listings (Google Places 4.5+ restaurants) - no header */}
-        {popular.length > 0 && (
-          <div className="space-y-2">
-            {popular.map((listing) => (
-              <FoodListingCardV2
-                key={listing.id}
-                listing={listing}
-                highlighted={matchesSearch(listing)}
-                onViewMenu={setSelectedMenuListing}
-              />
-            ))}
-          </div>
-        )}
-
-        {/* Chain outlets */}
-        {hasChainOutlets && (
-          <div className="space-y-4">
-            {chainOutlets.map((group) => (
-              <div key={group.brand.id} className="space-y-2">
-                {/* Brand header */}
-                <div className="flex items-center gap-2 pb-1 border-b border-gray-200">
-                  <h3 className="font-semibold text-gray-800 text-sm">{group.brand.name}</h3>
-                  <span className="text-xs text-gray-400">({group.outlets.length})</span>
-                </div>
-
-                {/* Outlets */}
-                <div className="space-y-2">
-                  {group.outlets.map((outlet) => (
-                    <ChainOutletCard
-                      key={outlet.id}
-                      outlet={outlet}
-                      brandName={group.brand.name}
-                      highlighted={matchesSearch({ id: outlet.id, name: outlet.name })}
-                      onViewMenu={setSelectedMenuListing}
-                    />
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
-      </>
-    );
-  };
-
   const renderContent = () => {
-    return mode === 'curated' ? renderCuratedContent() : renderPopularContent();
+    return renderCuratedContent();
   };
 
   // Desktop panel
@@ -354,9 +230,6 @@ export default function FoodPanelV2({ stationId, onClose, isMobile = false, sear
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </button>
-            </div>
-            <div className="px-4 pt-3 pb-2 border-b border-gray-200 flex-shrink-0">
-              <ModeToggle mode={mode} onModeChange={setMode} />
             </div>
             <div className="flex-1 overflow-y-auto p-4 space-y-3">
               {renderContent()}
@@ -382,8 +255,6 @@ export default function FoodPanelV2({ stationId, onClose, isMobile = false, sear
     <MobileDrawer
       stationName={stationName}
       onClose={onClose}
-      mode={mode}
-      onModeChange={setMode}
       selectedMenuListing={selectedMenuListing}
       onBackFromMenu={() => setSelectedMenuListing(null)}
     >
@@ -396,16 +267,12 @@ export default function FoodPanelV2({ stationId, onClose, isMobile = false, sear
 function MobileDrawer({
   stationName,
   onClose,
-  mode,
-  onModeChange,
   selectedMenuListing,
   onBackFromMenu,
   children
 }: {
   stationName: string;
   onClose: () => void;
-  mode: 'curated' | 'popular';
-  onModeChange: (mode: 'curated' | 'popular') => void;
   selectedMenuListing: FoodListingWithSources | null;
   onBackFromMenu: () => void;
   children: React.ReactNode;
@@ -566,19 +433,6 @@ function MobileDrawer({
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </button>
-            </div>
-
-            {/* Mode Toggle */}
-            <div
-              className="border-b border-gray-200 flex-shrink-0"
-              style={{
-                paddingLeft: 'clamp(12px, 4vw, 20px)',
-                paddingRight: 'clamp(12px, 4vw, 20px)',
-                paddingTop: 'clamp(10px, 3vw, 14px)',
-                paddingBottom: 'clamp(6px, 2vw, 10px)',
-              }}
-            >
-              <ModeToggle mode={mode} onModeChange={onModeChange} />
             </div>
 
             {/* Content - scrollable */}
