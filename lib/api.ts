@@ -16,6 +16,9 @@ import {
 // Re-export the new food search function
 export { searchStationsByFoodWithCounts } from './food-search';
 
+// Re-export types used by other modules
+export type { StationSearchResult, SearchMatch } from '@/types/database';
+
 // ============================================
 // STATIONS
 // ============================================
