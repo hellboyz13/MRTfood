@@ -143,7 +143,7 @@ export default function SearchBar({ onSearch, onClear, isSearching, noResults, o
               type="text"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              className="bg-transparent focus:outline-none min-h-[44px] text-sm w-[200px] md:w-[240px] pl-4 pr-2"
+              className="bg-transparent focus:outline-none min-h-[44px] text-sm w-[240px] md:w-[280px] pl-4 pr-2"
               disabled={isSearching}
             />
             {/* Custom rotating placeholder */}
