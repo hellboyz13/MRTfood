@@ -5,7 +5,7 @@ import MRTMap from '@/components/MRTMap';
 import FoodPanelV2 from '@/components/FoodPanelV2';
 import SearchBar from '@/components/SearchBar';
 import SearchResultsPanel from '@/components/SearchResultsPanel';
-import { searchStationsByFoodWithCounts, StationSearchResult, getStations, get24hListingsByStation } from '@/lib/api';
+import { searchStationsByFoodWithCounts, StationSearchResult, getStations, getSupperSpotsByStation } from '@/lib/api';
 
 export default function Home() {
   const [selectedStation, setSelectedStation] = useState<string | null>(null);
@@ -75,22 +75,22 @@ export default function Home() {
     setIs24hActive(false);
   };
 
-  const handle24hClick = async () => {
+  const handleSupperClick = async () => {
     if (is24hActive) {
       // Toggle off
       setIs24hActive(false);
       setSearchResults([]);
       setSearchQuery('');
     } else {
-      // Toggle on - fetch supper spots (24h listings)
+      // Toggle on - fetch supper spots
       setIsSearching(true);
       setIs24hActive(true);
       setSearchQuery('Supper Spots');
       try {
-        const results = await get24hListingsByStation();
+        const results = await getSupperSpotsByStation();
         setSearchResults(results);
       } catch (error) {
-        console.error('24h search error:', error);
+        console.error('Supper search error:', error);
         setSearchResults([]);
       } finally {
         setIsSearching(false);
@@ -121,7 +121,7 @@ export default function Home() {
         onClear={handleClearSearch}
         isSearching={isSearching}
         noResults={!isSearching && searchQuery.length > 0 && searchResults.length === 0}
-        on24hClick={handle24hClick}
+        on24hClick={handleSupperClick}
         is24hActive={is24hActive}
       />
 

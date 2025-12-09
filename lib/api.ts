@@ -349,17 +349,18 @@ export interface StationSearchResult {
   matches: SearchMatch[];
 }
 
-// Get 24/7 listings grouped by station for the search panel
-export async function get24hListingsByStation(): Promise<StationSearchResult[]> {
+// Get supper spots (listings with "Supper" tag) grouped by station for the search panel
+export async function getSupperSpotsByStation(): Promise<StationSearchResult[]> {
+  // Fetch listings that have "Supper" tag
   const { data: listings, error } = await supabase
     .from('food_listings')
     .select('id, station_id, name')
     .eq('is_active', true)
-    .eq('is_24h', true)
-    .not('station_id', 'is', null);
+    .not('station_id', 'is', null)
+    .contains('tags', ['Supper']);
 
   if (error || !listings) {
-    if (error) console.error('Error fetching 24h listings:', error);
+    if (error) console.error('Error fetching supper listings:', error);
     return [];
   }
 
