@@ -7,9 +7,11 @@ interface SearchBarProps {
   onClear: () => void;
   isSearching: boolean;
   noResults?: boolean;
+  on24hClick?: () => void;
+  is24hActive?: boolean;
 }
 
-export default function SearchBar({ onSearch, onClear, isSearching, noResults }: SearchBarProps) {
+export default function SearchBar({ onSearch, onClear, isSearching, noResults, on24hClick, is24hActive }: SearchBarProps) {
   const [query, setQuery] = useState('');
   const [isMobile, setIsMobile] = useState(false);
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -95,59 +97,78 @@ export default function SearchBar({ onSearch, onClear, isSearching, noResults }:
         </div>
       </div>
 
-      <form onSubmit={handleSubmit} className="relative pointer-events-auto">
-        <input
-          type="text"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          placeholder="Search food..."
-          className="border-2 border-gray-300
-                     focus:border-red-500 focus:outline-none shadow-lg
-                     bg-white min-h-[44px]"
-          disabled={isSearching}
-          style={{
-            width: 'clamp(240px, 70vw, 280px)',
-            paddingLeft: 'clamp(12px, 4vw, 16px)',
-            paddingRight: 'clamp(70px, 20vw, 80px)',
-            paddingTop: 'clamp(8px, 2vw, 10px)',
-            paddingBottom: 'clamp(8px, 2vw, 10px)',
-            fontSize: 'clamp(13px, 3.5vw, 14px)',
-            borderRadius: 'clamp(20px, 6vw, 24px)',
-          }}
-        />
-        {query && (
+      <div className="flex items-center gap-2 pointer-events-auto">
+        {/* 24/7 Button */}
+        {on24hClick && (
           <button
             type="button"
-            onClick={handleClear}
-            className="absolute top-1/2 transform -translate-y-1/2
-                       text-gray-400 hover:text-gray-600 active:text-gray-700 min-w-[44px] min-h-[44px] flex items-center justify-center"
-            style={{
-              right: 'clamp(40px, 12vw, 48px)',
-              fontSize: 'clamp(14px, 4vw, 16px)',
-            }}
+            onClick={on24hClick}
+            className={`px-4 py-2.5 rounded-full shadow-lg transition-all duration-200 flex items-center justify-center font-bold text-sm active:scale-95 ${
+              is24hActive
+                ? 'bg-purple-600 text-white shadow-purple-300'
+                : 'bg-white border-2 border-gray-300 text-gray-700 hover:border-purple-500 hover:text-purple-600 hover:bg-purple-50'
+            }`}
+            title="Find 24/7 restaurants"
           >
-            ✕
+            <span className="mr-1">🌙</span>
+            24/7
           </button>
         )}
-        <button
-          type="submit"
-          disabled={!query.trim() || isSearching}
-          className="absolute top-1/2 transform -translate-y-1/2
-                     bg-red-500 hover:bg-red-600 active:bg-red-700 disabled:bg-gray-300
-                     text-white transition-colors duration-200 min-w-[44px] min-h-[44px] flex items-center justify-center"
-          style={{
-            right: 'clamp(2px, 0.5vw, 4px)',
-            paddingLeft: 'clamp(10px, 3vw, 12px)',
-            paddingRight: 'clamp(10px, 3vw, 12px)',
-            paddingTop: 'clamp(6px, 1.5vw, 8px)',
-            paddingBottom: 'clamp(6px, 1.5vw, 8px)',
-            fontSize: 'clamp(12px, 3.5vw, 14px)',
-            borderRadius: 'clamp(18px, 5vw, 20px)',
-          }}
-        >
-          {isSearching ? '...' : '🔍'}
-        </button>
-      </form>
+
+        <form onSubmit={handleSubmit} className="relative">
+          <input
+            type="text"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Search food..."
+            className="border-2 border-gray-300
+                       focus:border-red-500 focus:outline-none shadow-lg
+                       bg-white min-h-[44px]"
+            disabled={isSearching}
+            style={{
+              width: 'clamp(240px, 70vw, 280px)',
+              paddingLeft: 'clamp(12px, 4vw, 16px)',
+              paddingRight: 'clamp(70px, 20vw, 80px)',
+              paddingTop: 'clamp(8px, 2vw, 10px)',
+              paddingBottom: 'clamp(8px, 2vw, 10px)',
+              fontSize: 'clamp(13px, 3.5vw, 14px)',
+              borderRadius: 'clamp(20px, 6vw, 24px)',
+            }}
+          />
+          {query && (
+            <button
+              type="button"
+              onClick={handleClear}
+              className="absolute top-1/2 transform -translate-y-1/2
+                         text-gray-400 hover:text-gray-600 active:text-gray-700 min-w-[44px] min-h-[44px] flex items-center justify-center"
+              style={{
+                right: 'clamp(40px, 12vw, 48px)',
+                fontSize: 'clamp(14px, 4vw, 16px)',
+              }}
+            >
+              ✕
+            </button>
+          )}
+          <button
+            type="submit"
+            disabled={!query.trim() || isSearching}
+            className="absolute top-1/2 transform -translate-y-1/2
+                       bg-red-500 hover:bg-red-600 active:bg-red-700 disabled:bg-gray-300
+                       text-white transition-colors duration-200 min-w-[44px] min-h-[44px] flex items-center justify-center"
+            style={{
+              right: 'clamp(2px, 0.5vw, 4px)',
+              paddingLeft: 'clamp(10px, 3vw, 12px)',
+              paddingRight: 'clamp(10px, 3vw, 12px)',
+              paddingTop: 'clamp(6px, 1.5vw, 8px)',
+              paddingBottom: 'clamp(6px, 1.5vw, 8px)',
+              fontSize: 'clamp(12px, 3.5vw, 14px)',
+              borderRadius: 'clamp(18px, 5vw, 20px)',
+            }}
+          >
+            {isSearching ? '...' : '🔍'}
+          </button>
+        </form>
+      </div>
     </div>
   );
 }

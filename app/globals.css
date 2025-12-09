@@ -184,35 +184,31 @@ h1, h2, h3, h4, h5, h6 {
   animation: flip-in 0.5s ease-out forwards;
 }
 
-/* Simple Green Pulse - ONE animation for ALL highlights */
-@keyframes green-pulse {
+/* Dimmed stations (non-matching in search/filter) - gray and faded */
+svg circle.station-dimmed {
+  opacity: 0.2 !important;
+  fill: #ccc !important;
+  transition: opacity 0.3s ease, fill 0.3s ease;
+}
+
+/* Highlighted stations (matching in search/filter) - keep original color, pop by contrast */
+svg circle.station-highlighted {
+  opacity: 1 !important;
+  transition: opacity 0.3s ease;
+}
+
+/* Floating pin marker animation */
+.station-pin-marker .pin-icon {
+  animation: pin-bounce 1s ease-in-out infinite;
+}
+
+@keyframes pin-bounce {
   0%, 100% {
-    fill: #22c55e;
-    transform: scale(1);
-    filter: drop-shadow(0 0 4px rgba(34, 197, 94, 0.6));
+    transform: translateY(0);
   }
   50% {
-    fill: #4ade80;
-    transform: scale(1.4);
-    filter: drop-shadow(0 0 12px rgba(34, 197, 94, 1));
+    transform: translateY(-4px);
   }
-}
-
-/* Apply to ALL station highlight types */
-svg circle.station-highlighted,
-svg circle.station-glow-michelin,
-svg circle.station-glow-foodking,
-svg circle.station-glow-24h {
-  animation: green-pulse 1s ease-in-out infinite !important;
-  fill: #22c55e !important;
-  transform-origin: center !important;
-  transform-box: fill-box !important;
-}
-
-/* Dimmed stations (non-matching in search) */
-.station-dimmed {
-  opacity: 0.25;
-  transition: opacity 0.3s ease;
 }
 
 /* Result count badge styles */

@@ -56,7 +56,7 @@ export default function SearchResultsPanel({
       >
         <div className="flex">
           {/* Panel content */}
-          <div className="w-[140px] max-h-[calc(7*44px+44px)] bg-white/95 backdrop-blur-sm rounded-r-xl shadow-xl border-2 border-gray-200 border-l-0 overflow-hidden flex flex-col">
+          <div className="w-[140px] max-h-[calc(4*44px+44px)] bg-white/95 backdrop-blur-sm rounded-r-xl shadow-xl border-2 border-gray-200 border-l-0 overflow-hidden flex flex-col">
             {/* Close button */}
             <button
               onClick={onClose}
@@ -70,7 +70,7 @@ export default function SearchResultsPanel({
 
             {/* Results list or no results message */}
             {hasResults ? (
-              <div className="flex-1 overflow-y-auto overflow-x-hidden" style={{ WebkitOverflowScrolling: 'touch', maxHeight: 'calc(7 * 44px)' }}>
+              <div className="flex-1 overflow-y-auto overflow-x-hidden" style={{ WebkitOverflowScrolling: 'touch', maxHeight: 'calc(4 * 44px)' }}>
                 {results.map((result) => {
                   const stationName = stationNames[result.stationId] || result.stationId;
 
@@ -97,8 +97,8 @@ export default function SearchResultsPanel({
               <NoResultsMessage />
             )}
 
-            {/* Scroll indicator when more than 7 results */}
-            {hasResults && results.length > 7 && (
+            {/* Scroll indicator when more than 4 results */}
+            {hasResults && results.length > 4 && (
               <div className="py-1.5 bg-orange-50 border-t border-orange-200 flex items-center justify-center">
                 <svg className="w-4 h-4 text-orange-500 animate-bounce" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
@@ -166,7 +166,7 @@ export default function SearchResultsPanel({
 
             {/* Results list or no results message */}
             {hasResults ? (
-              <div className="flex-1 overflow-y-auto" style={{ maxHeight: 'calc(7 * 90px)' }}>
+              <div className="flex-1 overflow-y-auto" style={{ maxHeight: 'calc(4 * 90px)' }}>
                 {results.map((result) => {
                   const stationName = stationNames[result.stationId] || result.stationId;
 
@@ -216,8 +216,8 @@ export default function SearchResultsPanel({
               </div>
             )}
 
-            {/* Scroll indicator when more than 7 results */}
-            {hasResults && results.length > 7 && (
+            {/* Scroll indicator when more than 4 results */}
+            {hasResults && results.length > 4 && (
               <div className="py-2 bg-orange-50 border-t border-orange-200 flex items-center justify-center flex-shrink-0">
                 <svg className="w-5 h-5 text-orange-500 animate-bounce" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />

@@ -349,6 +349,48 @@ export interface StationSearchResult {
   matches: SearchMatch[];
 }
 
+// Get 24/7 listings grouped by station for the search panel
+export async function get24hListingsByStation(): Promise<StationSearchResult[]> {
+  const { data: listings, error } = await supabase
+    .from('food_listings')
+    .select('id, station_id, name')
+    .eq('is_active', true)
+    .eq('is_24h', true)
+    .not('station_id', 'is', null);
+
+  if (error || !listings) {
+    if (error) console.error('Error fetching 24h listings:', error);
+    return [];
+  }
+
+  // Group by station
+  const stationResultsMap = new Map<string, StationSearchResult>();
+
+  listings.forEach((listing: { id: string; station_id: string | null; name: string }) => {
+    if (!listing.station_id) return;
+
+    if (!stationResultsMap.has(listing.station_id)) {
+      stationResultsMap.set(listing.station_id, {
+        stationId: listing.station_id,
+        matches: [],
+      });
+    }
+
+    stationResultsMap.get(listing.station_id)!.matches.push({
+      id: listing.id,
+      name: listing.name || 'Unknown',
+      type: 'curated',
+      matchType: 'restaurant',
+    });
+  });
+
+  // Convert to array and sort by number of matches
+  const results = Array.from(stationResultsMap.values());
+  results.sort((a, b) => b.matches.length - a.matches.length);
+
+  return results;
+}
+
 // Determine if query is searching for food or restaurant name
 function detectSearchType(query: string): 'food' | 'restaurant' {
   // Heuristics to detect restaurant name search:

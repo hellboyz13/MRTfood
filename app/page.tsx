@@ -5,7 +5,7 @@ import MRTMap from '@/components/MRTMap';
 import FoodPanelV2 from '@/components/FoodPanelV2';
 import SearchBar from '@/components/SearchBar';
 import SearchResultsPanel from '@/components/SearchResultsPanel';
-import { searchStationsByFoodWithCounts, StationSearchResult, getStations } from '@/lib/api';
+import { searchStationsByFoodWithCounts, StationSearchResult, getStations, get24hListingsByStation } from '@/lib/api';
 
 export default function Home() {
   const [selectedStation, setSelectedStation] = useState<string | null>(null);
@@ -14,6 +14,7 @@ export default function Home() {
   const [isSearching, setIsSearching] = useState(false);
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [stationNames, setStationNames] = useState<{ [key: string]: string }>({});
+  const [is24hActive, setIs24hActive] = useState(false);
   const mapZoomHandlerRef = useRef<((stationId: string) => void) | null>(null);
 
   // Load station names
@@ -56,6 +57,7 @@ export default function Home() {
   const handleSearch = async (query: string) => {
     setIsSearching(true);
     setSearchQuery(query);
+    setIs24hActive(false); // Turn off 24h filter when doing regular search
     try {
       const results = await searchStationsByFoodWithCounts(query);
       setSearchResults(results);
@@ -70,6 +72,30 @@ export default function Home() {
   const handleClearSearch = () => {
     setSearchResults([]);
     setSearchQuery('');
+    setIs24hActive(false);
+  };
+
+  const handle24hClick = async () => {
+    if (is24hActive) {
+      // Toggle off
+      setIs24hActive(false);
+      setSearchResults([]);
+      setSearchQuery('');
+    } else {
+      // Toggle on - fetch 24/7 listings
+      setIsSearching(true);
+      setIs24hActive(true);
+      setSearchQuery('24/7 Restaurants');
+      try {
+        const results = await get24hListingsByStation();
+        setSearchResults(results);
+      } catch (error) {
+        console.error('24h search error:', error);
+        setSearchResults([]);
+      } finally {
+        setIsSearching(false);
+      }
+    }
   };
 
   const handleStationZoom = (stationId: string) => {
@@ -95,6 +121,8 @@ export default function Home() {
         onClear={handleClearSearch}
         isSearching={isSearching}
         noResults={!isSearching && searchQuery.length > 0 && searchResults.length === 0}
+        on24hClick={handle24hClick}
+        is24hActive={is24hActive}
       />
 
       {/* Search Results Panel - only show if there are results */}

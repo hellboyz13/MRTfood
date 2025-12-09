@@ -2,14 +2,7 @@
 
 import { useEffect, useRef, useState, useCallback } from 'react';
 import { TransformWrapper, TransformComponent, ReactZoomPanPinchRef } from 'react-zoom-pan-pinch';
-import { getStationsBySource, getStationsWith24h, StationSearchResult } from '@/lib/api';
-
-// Source filter types
-type SourceFilter = 'michelin' | 'food-king' | '24h' | null;
-
-// Source IDs for each filter
-const MICHELIN_SOURCE_IDS = ['michelin-3-star', 'michelin-2-star', 'michelin-1-star', 'michelin-hawker'];
-const FOOD_KING_SOURCE_IDS = ['food-king'];
+import { StationSearchResult } from '@/lib/api';
 
 // Map interaction constraints
 const MAP_CONSTRAINTS = {
@@ -397,10 +390,6 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
   const [locationLoading, setLocationLoading] = useState(false);
   const [locationError, setLocationError] = useState<string | null>(null);
 
-  // Source filter state
-  const [activeFilter, setActiveFilter] = useState<SourceFilter>(null);
-  const [filteredStations, setFilteredStations] = useState<Set<string>>(new Set());
-  const [filterLoading, setFilterLoading] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -473,10 +462,12 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
     const svg = svgContainerRef.current.querySelector('svg');
     if (!svg) return;
 
-    // Reset all station circles and remove old badges
+    // Reset all station circles and remove old badges/pins
     const circles = svg.querySelectorAll('circle[data-station-id]');
     const oldBadges = svg.querySelectorAll('.result-badge, .result-badge-bg');
+    const oldPins = svg.querySelectorAll('.station-pin-marker');
     oldBadges.forEach(badge => badge.remove());
+    oldPins.forEach(pin => pin.remove());
 
     circles.forEach(circle => {
       circle.setAttribute('fill', '#ffffff');
@@ -496,11 +487,32 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
         }
       });
 
-      // Highlight matching stations with pulse (no badges - count shown in search panel)
+      // Highlight matching stations with floating pin markers
       searchResults.forEach(result => {
         const circle = svg.querySelector(`circle[data-station-id="${result.stationId}"]`) as SVGCircleElement;
         if (circle) {
           circle.classList.add('station-highlighted');
+
+          // Add floating pin icon above the station
+          const cx = parseFloat(circle.getAttribute('cx') || '0');
+          const cy = parseFloat(circle.getAttribute('cy') || '0');
+
+          // Create pin marker group
+          const pinGroup = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+          pinGroup.classList.add('station-pin-marker');
+          pinGroup.setAttribute('data-station-pin', result.stationId);
+
+          // Pin icon (food/location marker) - positioned above station
+          const pin = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+          pin.setAttribute('x', String(cx));
+          pin.setAttribute('y', String(cy - 18)); // Position above station
+          pin.setAttribute('text-anchor', 'middle');
+          pin.setAttribute('font-size', '16');
+          pin.classList.add('pin-icon');
+          pin.textContent = '📍';
+
+          pinGroup.appendChild(pin);
+          svg.appendChild(pinGroup);
         }
       });
 
@@ -780,7 +792,7 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
 
         circle.addEventListener('mouseenter', () => {
           // Don't change fill if station is selected (red) or highlighted (green)
-          if (circle.getAttribute('fill') !== '#dc2626' && !circle.classList.contains('station-highlighted') && !circle.classList.contains('station-glow-michelin') && !circle.classList.contains('station-glow-foodking') && !circle.classList.contains('station-glow-24h')) {
+          if (circle.getAttribute('fill') !== '#dc2626' && !circle.classList.contains('station-highlighted')) {
             circle.setAttribute('fill', '#fca5a5');
           }
         });
@@ -788,7 +800,7 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
         circle.addEventListener('mouseleave', () => {
           // Don't reset fill if station is selected (red) or highlighted (green)
           const currentFill = circle.getAttribute('fill');
-          if (currentFill !== '#dc2626' && !circle.classList.contains('station-highlighted') && !circle.classList.contains('station-glow-michelin') && !circle.classList.contains('station-glow-foodking') && !circle.classList.contains('station-glow-24h')) {
+          if (currentFill !== '#dc2626' && !circle.classList.contains('station-highlighted')) {
             circle.setAttribute('fill', '#ffffff');
           }
         });
@@ -891,69 +903,6 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
     setCurrentZoom(ref.state.scale);
   }, []);
 
-  // Handle source filter toggle
-  const handleFilterToggle = useCallback(async (filter: SourceFilter) => {
-    // If same filter, turn it off
-    if (activeFilter === filter) {
-      setActiveFilter(null);
-      setFilteredStations(new Set());
-      return;
-    }
-
-    // Set new filter and fetch stations
-    setActiveFilter(filter);
-    setFilterLoading(true);
-
-    try {
-      let stations: string[];
-      if (filter === '24h') {
-        stations = await getStationsWith24h();
-      } else {
-        const sourceIds = filter === 'michelin' ? MICHELIN_SOURCE_IDS : FOOD_KING_SOURCE_IDS;
-        stations = await getStationsBySource(sourceIds);
-      }
-      setFilteredStations(new Set(stations));
-    } catch (error) {
-      console.error('Error fetching filtered stations:', error);
-      setFilteredStations(new Set());
-    } finally {
-      setFilterLoading(false);
-    }
-  }, [activeFilter]);
-
-  // Apply glow effect to filtered stations
-  useEffect(() => {
-    if (!svgContainerRef.current || !svgLoaded) return;
-
-    const svg = svgContainerRef.current.querySelector('svg');
-    if (!svg) return;
-
-    // Remove all existing glow effects
-    const circles = svg.querySelectorAll('circle[data-station-id]');
-    circles.forEach(circle => {
-      circle.classList.remove('station-glow-michelin', 'station-glow-foodking', 'station-glow-24h');
-    });
-
-    // If no filter active, we're done
-    if (!activeFilter || filteredStations.size === 0) return;
-
-    // Add glow class to filtered stations
-    let glowClass: string;
-    if (activeFilter === 'michelin') {
-      glowClass = 'station-glow-michelin';
-    } else if (activeFilter === '24h') {
-      glowClass = 'station-glow-24h';
-    } else {
-      glowClass = 'station-glow-foodking';
-    }
-    filteredStations.forEach(stationId => {
-      const circle = svg.querySelector(`circle[data-station-id="${stationId}"]`);
-      if (circle) {
-        circle.classList.add(glowClass);
-      }
-    });
-  }, [activeFilter, filteredStations, svgLoaded]);
-
   const isAtMinZoom = currentZoom <= MAP_CONSTRAINTS.minZoom;
   const isAtMaxZoom = currentZoom >= MAP_CONSTRAINTS.maxZoom;
 
@@ -1026,54 +975,6 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
       >
         {({ zoomIn, zoomOut, resetTransform }) => (
           <>
-            {/* Filter Buttons - Top Left */}
-            <div className="fixed top-20 left-3 z-50 flex flex-row gap-2 pointer-events-auto">
-              {/* Michelin Filter */}
-              <button
-                onClick={() => handleFilterToggle('michelin')}
-                disabled={filterLoading}
-                className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all shadow-md border
-                  ${activeFilter === 'michelin'
-                    ? 'bg-red-500 text-white border-red-600'
-                    : 'bg-white/95 text-gray-700 border-gray-200 hover:bg-gray-50'
-                  }
-                  ${filterLoading ? 'opacity-50 cursor-wait' : 'active:scale-95'}
-                `}
-              >
-                ⭐ Michelin
-              </button>
-
-              {/* Food King Filter */}
-              <button
-                onClick={() => handleFilterToggle('food-king')}
-                disabled={filterLoading}
-                className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all shadow-md border
-                  ${activeFilter === 'food-king'
-                    ? 'bg-yellow-500 text-white border-yellow-600'
-                    : 'bg-white/95 text-gray-700 border-gray-200 hover:bg-gray-50'
-                  }
-                  ${filterLoading ? 'opacity-50 cursor-wait' : 'active:scale-95'}
-                `}
-              >
-                👑 Food King
-              </button>
-
-              {/* 24/7 Filter */}
-              <button
-                onClick={() => handleFilterToggle('24h')}
-                disabled={filterLoading}
-                className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all shadow-md border
-                  ${activeFilter === '24h'
-                    ? 'bg-indigo-500 text-white border-indigo-600'
-                    : 'bg-white/95 text-gray-700 border-gray-200 hover:bg-gray-50'
-                  }
-                  ${filterLoading ? 'opacity-50 cursor-wait' : 'active:scale-95'}
-                `}
-              >
-                🌙 24/7
-              </button>
-            </div>
-
             {/* Control Buttons */}
             <div className="fixed bottom-20 right-4 z-50 flex flex-col gap-2 pointer-events-none">
               {/* Location error toast */}
