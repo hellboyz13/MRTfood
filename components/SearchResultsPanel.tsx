@@ -49,14 +49,15 @@ export default function SearchResultsPanel({
     <>
       {/* Mobile: Slide-able Panel */}
       <div
-        className={`md:hidden fixed top-20 z-40 transition-transform duration-300 ease-in-out ${
-          isCollapsed ? '-translate-x-full' : 'translate-x-0'
-        }`}
+        className="md:hidden fixed top-20 z-40 flex"
         style={{ left: 0 }}
       >
-        <div className="flex">
-          {/* Panel content */}
-          <div className="w-[140px] max-h-[calc(4*44px+44px)] bg-white/95 backdrop-blur-sm rounded-r-xl shadow-xl border-2 border-gray-200 border-l-0 overflow-hidden flex flex-col">
+        {/* Panel content - slides in/out */}
+        <div
+          className={`w-[140px] max-h-[calc(4*44px+44px)] bg-white/95 backdrop-blur-sm rounded-r-xl shadow-xl border-2 border-gray-200 border-l-0 overflow-hidden flex flex-col transition-transform duration-300 ease-in-out ${
+            isCollapsed ? '-translate-x-full' : 'translate-x-0'
+          }`}
+        >
             {/* Close button */}
             <button
               onClick={onClose}
@@ -123,20 +124,20 @@ export default function SearchResultsPanel({
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
           </button>
-        </div>
       </div>
 
 
       {/* Desktop: Slide-able Full Panel */}
       <div
-        className={`hidden md:flex fixed top-20 z-40 transition-transform duration-300 ease-in-out ${
-          isCollapsed ? '-translate-x-full' : 'translate-x-0'
-        }`}
+        className="hidden md:flex fixed top-20 z-40"
         style={{ left: '16px' }}
       >
-        <div className="flex">
-          {/* Panel content */}
-          <div className="w-96 max-h-[calc(100vh-160px)] bg-white rounded-xl shadow-2xl border-2 border-gray-200 overflow-hidden flex flex-col">
+        {/* Panel content - slides in/out */}
+        <div
+          className={`w-96 max-h-[calc(100vh-160px)] bg-white rounded-xl shadow-2xl border-2 border-gray-200 overflow-hidden flex flex-col transition-transform duration-300 ease-in-out ${
+            isCollapsed ? '-translate-x-[calc(100%+16px)]' : 'translate-x-0'
+          }`}
+        >
             {/* Header */}
             <div className="bg-gradient-to-r from-amber-500 to-orange-500 px-4 py-3 flex items-center justify-between flex-shrink-0">
               <div className="flex items-center gap-2 text-white min-w-0 flex-1">
@@ -227,22 +228,21 @@ export default function SearchResultsPanel({
             )}
           </div>
 
-          {/* Toggle button */}
-          <button
-            onClick={() => setIsCollapsed(!isCollapsed)}
-            className="self-start mt-4 ml-2 w-8 h-16 bg-orange-500 hover:bg-orange-600 text-white rounded-r-lg shadow-lg flex items-center justify-center transition-colors"
-            aria-label={isCollapsed ? "Show search results" : "Hide search results"}
+        {/* Toggle button - always visible */}
+        <button
+          onClick={() => setIsCollapsed(!isCollapsed)}
+          className="self-start mt-4 ml-2 w-8 h-16 bg-orange-500 hover:bg-orange-600 text-white rounded-r-lg shadow-lg flex items-center justify-center transition-colors"
+          aria-label={isCollapsed ? "Show search results" : "Hide search results"}
+        >
+          <svg
+            className={`w-5 h-5 transition-transform duration-300 ${isCollapsed ? 'rotate-180' : ''}`}
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
           >
-            <svg
-              className={`w-5 h-5 transition-transform duration-300 ${isCollapsed ? 'rotate-180' : ''}`}
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-          </button>
-        </div>
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
       </div>
 
     </>

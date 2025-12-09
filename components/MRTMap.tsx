@@ -519,34 +519,48 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
       // Auto-zoom if 1-3 stations match
       if (searchResults.length > 0 && searchResults.length <= 3 && transformRef.current) {
         // Calculate bounding box of matching stations
-        let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
+        const validCoords: { cx: number, cy: number }[] = [];
 
         searchResults.forEach(result => {
           const coords = stationCoordinates[result.stationId];
-          if (coords) {
+          // Only include valid coordinates (must exist and be reasonable values)
+          if (coords && coords.cx > 0 && coords.cy > 0) {
+            validCoords.push(coords);
+          }
+        });
+
+        // Only auto-zoom if we have valid coordinates
+        if (validCoords.length > 0) {
+          let minX = validCoords[0].cx, maxX = validCoords[0].cx;
+          let minY = validCoords[0].cy, maxY = validCoords[0].cy;
+
+          validCoords.forEach(coords => {
             minX = Math.min(minX, coords.cx);
             maxX = Math.max(maxX, coords.cx);
             minY = Math.min(minY, coords.cy);
             maxY = Math.max(maxY, coords.cy);
-          }
-        });
+          });
 
-        if (isFinite(minX)) {
           // Calculate center of matching stations
           const centerX = (minX + maxX) / 2;
           const centerY = (minY + maxY) / 2;
 
+          // Account for padding in SVG container
+          const padding = 300;
+          const adjustedCenterX = centerX + padding;
+          const adjustedCenterY = centerY + padding;
+
           // Calculate zoom to fit all stations
           const width = maxX - minX;
           const height = maxY - minY;
-          const scale = searchResults.length === 1 ? 1.8 : Math.min(
+          const scale = validCoords.length === 1 ? 1.8 : Math.min(
             window.innerWidth / (width + 400),
             window.innerHeight / (height + 400),
             2.0
           );
 
-          const posX = window.innerWidth / 2 - centerX * scale;
-          const posY = window.innerHeight / 2 - centerY * scale;
+          const posX = window.innerWidth / 2 - adjustedCenterX * scale;
+          const posY = window.innerHeight / 2 - adjustedCenterY * scale;
 
           setTimeout(() => {
             transformRef.current?.setTransform(posX, posY, scale, 500);
