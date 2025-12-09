@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { StationFoodBySource } from '@/types';
 import FoodListingCard from './FoodListingCard';
+import { IconChevronDown } from './Icons';
 
 interface SourceSectionProps {
   data: StationFoodBySource;
@@ -25,16 +26,11 @@ export default function SourceSection({ data, defaultExpanded = true }: SourceSe
           <span className="font-semibold text-gray-800 text-sm">{source.name}</span>
           <span className="text-xs text-gray-500">({listings.length})</span>
         </div>
-        <svg
+<IconChevronDown
           className={`w-4 h-4 text-gray-600 transition-transform duration-200 ${
             isExpanded ? 'rotate-180' : ''
           }`}
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-        </svg>
+        />
       </button>
 
       {/* Listings - Collapsible */}

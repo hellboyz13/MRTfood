@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { StationSearchResult } from '@/lib/api';
+import { IconClose, IconChevronLeft, IconChevronDown } from './Icons';
 
 interface SearchResultsPanelProps {
   searchQuery: string;
@@ -64,9 +65,7 @@ export default function SearchResultsPanel({
               className="w-full py-2 bg-gradient-to-r from-amber-500 to-orange-500 text-white hover:from-amber-600 hover:to-orange-600 transition-colors flex items-center justify-center flex-shrink-0"
               aria-label="Close results"
             >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
+              <IconClose className="w-4 h-4" />
             </button>
 
             {/* Results list or no results message */}
@@ -101,9 +100,7 @@ export default function SearchResultsPanel({
             {/* Scroll indicator when more than 4 results */}
             {hasResults && results.length > 4 && (
               <div className="py-1.5 bg-orange-50 border-t border-orange-200 flex items-center justify-center">
-                <svg className="w-4 h-4 text-orange-500 animate-bounce" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
-                </svg>
+                <IconChevronDown className="w-4 h-4 text-orange-500 animate-bounce" />
                 <span className="text-xs text-orange-600 ml-1">Scroll</span>
               </div>
             )}
@@ -115,14 +112,7 @@ export default function SearchResultsPanel({
             className="self-start mt-4 w-6 h-12 bg-orange-500 hover:bg-orange-600 text-white rounded-r-lg shadow-lg flex items-center justify-center transition-colors"
             aria-label={isCollapsed ? "Show search results" : "Hide search results"}
           >
-            <svg
-              className={`w-4 h-4 transition-transform duration-300 ${isCollapsed ? 'rotate-180' : ''}`}
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
+            <IconChevronLeft className={`w-4 h-4 transition-transform duration-300 ${isCollapsed ? 'rotate-180' : ''}`} />
           </button>
       </div>
 
@@ -152,9 +142,7 @@ export default function SearchResultsPanel({
                 className="text-white hover:bg-white/20 rounded-full p-1 transition-colors flex-shrink-0"
                 aria-label="Close results panel"
               >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
+                <IconClose className="w-6 h-6" />
               </button>
             </div>
 
@@ -220,9 +208,7 @@ export default function SearchResultsPanel({
             {/* Scroll indicator when more than 4 results */}
             {hasResults && results.length > 4 && (
               <div className="py-2 bg-orange-50 border-t border-orange-200 flex items-center justify-center flex-shrink-0">
-                <svg className="w-5 h-5 text-orange-500 animate-bounce" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
-                </svg>
+                <IconChevronDown className="w-5 h-5 text-orange-500 animate-bounce" />
                 <span className="text-sm text-orange-600 ml-1 font-medium">Scroll for more</span>
               </div>
             )}
@@ -234,14 +220,7 @@ export default function SearchResultsPanel({
           className="self-start mt-4 ml-2 w-8 h-16 bg-orange-500 hover:bg-orange-600 text-white rounded-r-lg shadow-lg flex items-center justify-center transition-colors"
           aria-label={isCollapsed ? "Show search results" : "Hide search results"}
         >
-          <svg
-            className={`w-5 h-5 transition-transform duration-300 ${isCollapsed ? 'rotate-180' : ''}`}
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-          </svg>
+          <IconChevronLeft className={`w-5 h-5 transition-transform duration-300 ${isCollapsed ? 'rotate-180' : ''}`} />
         </button>
       </div>
 

@@ -8,6 +8,7 @@ import { SearchMatch } from '@/lib/api';
 import FoodListingCardV2 from './FoodListingCardV2';
 import SlotMachine from './SlotMachine';
 import MenuPreview from './MenuPreview';
+import { IconClose } from './Icons';
 
 interface FoodPanelV2Props {
   stationId: string | null;
@@ -226,9 +227,7 @@ export default function FoodPanelV2({ stationId, onClose, isMobile = false, sear
                 className="p-1 hover:bg-gray-200 rounded-full transition-colors"
                 aria-label="Close panel"
               >
-                <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
+                <IconClose className="w-5 h-5 text-gray-600" />
               </button>
             </div>
             <div className="flex-1 overflow-y-auto p-4 space-y-3">
@@ -423,15 +422,10 @@ function MobileDrawer({
                   padding: 'clamp(8px, 2vw, 10px)',
                 }}
               >
-                <svg
+                <IconClose
                   className="text-gray-600"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
                   style={{ width: 'clamp(18px, 5vw, 20px)', height: 'clamp(18px, 5vw, 20px)' }}
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
+                />
               </button>
             </div>
 

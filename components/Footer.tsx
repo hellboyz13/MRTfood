@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
+import { IconInfo } from './Icons';
 
 export default function Footer() {
   const [isOpen, setIsOpen] = useState(false);
@@ -29,11 +30,7 @@ export default function Footer() {
         className="w-10 h-10 md:w-11 md:h-11 bg-white/90 backdrop-blur-sm rounded-full shadow-lg border border-gray-200 flex items-center justify-center text-gray-500 hover:text-orange-600 hover:border-orange-300 transition-colors"
         aria-label="Info menu"
       >
-        <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <circle cx="12" cy="12" r="10"></circle>
-          <line x1="12" y1="16" x2="12" y2="12"></line>
-          <line x1="12" y1="8" x2="12.01" y2="8"></line>
-        </svg>
+<IconInfo className="w-5 h-5" />
       </button>
 
       {/* Dropdown menu */}
