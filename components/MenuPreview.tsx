@@ -112,6 +112,8 @@ export default function MenuPreview({ listing, onBack }: MenuPreviewProps) {
             <img
               src={headerImage || listing.image_url || ''}
               alt={listing.name}
+              loading="lazy"
+              decoding="async"
               onError={(e) => {
                 (e.target as HTMLImageElement).style.display = 'none';
               }}
@@ -170,6 +172,8 @@ export default function MenuPreview({ listing, onBack }: MenuPreviewProps) {
               <img
                 src={img.url}
                 alt={`Dish ${i + 1}`}
+                loading="lazy"
+                decoding="async"
                 onError={(e) => {
                   (e.target as HTMLImageElement).src = '/default-food.jpg';
                 }}

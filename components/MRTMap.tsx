@@ -69,9 +69,8 @@ const stationCoordinates: { [key: string]: { cx: number, cy: number, name: strin
   'marsiling': { cx: 435, cy: 87, name: 'Marsiling' },
   'kranji': { cx: 347, cy: 87, name: 'Kranji' },
   'yew-tee': { cx: 286, cy: 173, name: 'Yew Tee' },
-  'bukit-gombak': { cx: 286, cy: 291, name: 'Bukit Gombak' },
-  'bukit-batok': { cx: 286, cy: 351, name: 'Bukit Batok' },
-  'bukit-batok-alt': { cx: 286, cy: 413, name: 'Bukit Batok' },
+  'bukit-gombak': { cx: 286, cy: 321, name: 'Bukit Gombak' },
+  'bukit-batok': { cx: 286, cy: 413, name: 'Bukit Batok' },
   'bras-basah': { cx: 824, cy: 739, name: 'Bras Basah' },
   'esplanade': { cx: 870, cy: 785, name: 'Esplanade' },
   'clarke-quay': { cx: 724, cy: 725, name: 'Clarke Quay' },
@@ -385,6 +384,7 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
   const svgContainerRef = useRef<HTMLDivElement>(null);
   const transformRef = useRef<ReactZoomPanPinchRef>(null);
   const previousSelectedStationRef = useRef<string | null>(null);
+  const previousSearchResultsRef = useRef<StationSearchResult[]>([]);
   const [svgLoaded, setSvgLoaded] = useState(false);
   const [currentZoom, setCurrentZoom] = useState(MAP_CONSTRAINTS.defaultZoom);
   const [locationLoading, setLocationLoading] = useState(false);
@@ -487,13 +487,13 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
         }
       });
 
-      // Highlight matching stations with floating pin markers
+      // Highlight matching stations with pin markers directly on the circle
       searchResults.forEach(result => {
         const circle = svg.querySelector(`circle[data-station-id="${result.stationId}"]`) as SVGCircleElement;
         if (circle) {
           circle.classList.add('station-highlighted');
 
-          // Add floating pin icon above the station
+          // Add pin icon directly on the station circle
           const cx = parseFloat(circle.getAttribute('cx') || '0');
           const cy = parseFloat(circle.getAttribute('cy') || '0');
 
@@ -502,12 +502,13 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
           pinGroup.classList.add('station-pin-marker');
           pinGroup.setAttribute('data-station-pin', result.stationId);
 
-          // Pin icon (food/location marker) - positioned above station
+          // Pin icon - centered directly on the station circle
           const pin = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-          pin.setAttribute('x', String(cx));
-          pin.setAttribute('y', String(cy - 18)); // Position above station
+          pin.setAttribute('x', String(cx)); // centered
+          pin.setAttribute('y', String(cy - 5)); // 1px up from previous
           pin.setAttribute('text-anchor', 'middle');
-          pin.setAttribute('font-size', '16');
+          pin.setAttribute('font-size', '12');
+          pin.setAttribute('dominant-baseline', 'middle');
           pin.classList.add('pin-icon');
           pin.textContent = '📍';
 
@@ -516,8 +517,13 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
         }
       });
 
-      // Auto-zoom if 1-3 stations match
-      if (searchResults.length > 0 && searchResults.length <= 3 && transformRef.current) {
+      // Auto-zoom if 1-3 stations match - ONLY when searchResults actually changed
+      // (not when just selectedStation changes, to allow clicking between search results)
+      const searchResultsChanged =
+        searchResults.length !== previousSearchResultsRef.current.length ||
+        searchResults.some((r, i) => previousSearchResultsRef.current[i]?.stationId !== r.stationId);
+
+      if (searchResultsChanged && searchResults.length > 0 && searchResults.length <= 3 && transformRef.current) {
         // Calculate bounding box of matching stations
         const validCoords: { cx: number, cy: number }[] = [];
 
@@ -567,6 +573,9 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
           }, 100);
         }
       }
+
+      // Update the ref to track current searchResults
+      previousSearchResultsRef.current = searchResults;
     }
 
     // Clear previous selected station highlighting

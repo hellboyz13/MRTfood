@@ -5,6 +5,7 @@ import MRTMap from '@/components/MRTMap';
 import FoodPanelV2 from '@/components/FoodPanelV2';
 import SearchBar from '@/components/SearchBar';
 import SearchResultsPanel from '@/components/SearchResultsPanel';
+import Footer from '@/components/Footer';
 import { searchStationsByFoodWithCounts, StationSearchResult, getStations, getSupperSpotsByStation } from '@/lib/api';
 
 export default function Home() {
@@ -173,6 +174,9 @@ export default function Home() {
           />
         )}
       </div>
+
+      {/* Footer with legal links */}
+      <Footer />
     </main>
   );
 }

@@ -108,6 +108,8 @@ export default function FoodListingCardV2({ listing, highlighted = false, onView
             <img
               src={thumbnailImage || listing.image_url || ''}
               alt={listing.name}
+              loading="lazy"
+              decoding="async"
               className="w-full h-full object-cover"
             />
           ) : (

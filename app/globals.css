@@ -514,3 +514,145 @@ svg circle.station-highlighted {
 .menu-panel-overlay.slide-in {
   transform: translateX(-100%);
 }
+
+/* ============================================
+   MOBILE PERFORMANCE OPTIMIZATIONS
+   ============================================ */
+
+/* Smooth scrolling & momentum */
+html {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Smooth scrolling for scrollable containers */
+.food-list-container,
+.restaurant-list,
+.station-list,
+.panel-scrollable {
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  overscroll-behavior: contain;
+}
+
+/* GPU-accelerated transforms for animations */
+.animated-panel,
+.slide-panel,
+.bottom-sheet,
+.food-panel {
+  will-change: transform;
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+/* Smooth panel transitions */
+.food-panel {
+  transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.food-panel.open {
+  transform: translateY(0);
+}
+
+.food-panel.closed {
+  transform: translateY(100%);
+}
+
+/* Touch-friendly interactions */
+.station-circle,
+.restaurant-card,
+.filter-button,
+.clickable {
+  min-width: 44px;
+  min-height: 44px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Visual feedback on touch */
+.station-circle:active {
+  transform: scale(1.1);
+  transition: transform 0.1s ease;
+}
+
+.restaurant-card:active,
+.food-card:active {
+  opacity: 0.85;
+  transform: scale(0.98);
+  transition: all 0.1s ease;
+}
+
+/* Prevent layout shifts with aspect-ratio */
+.restaurant-image,
+.food-image,
+.menu-image {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  object-fit: cover;
+}
+
+.restaurant-image-square,
+.menu-thumbnail {
+  aspect-ratio: 1;
+  width: 100%;
+  object-fit: cover;
+}
+
+/* Lazy loading image states */
+.lazy-image {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.lazy-image.loaded {
+  opacity: 1;
+}
+
+/* Blur placeholder for images */
+.image-placeholder {
+  background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+  filter: blur(5px);
+}
+
+/* Prevent scroll jank */
+.restaurant-card,
+.food-card {
+  contain: layout style paint;
+}
+
+/* Font display optimization */
+body {
+  font-display: swap;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Performance-optimized scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
+}

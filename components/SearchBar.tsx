@@ -52,7 +52,7 @@ export default function SearchBar({ onSearch, onClear, isSearching, noResults, o
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // Rotate placeholder text every 3 seconds
+  // Rotate placeholder text every 2 seconds with downward morph effect
   useEffect(() => {
     const interval = setInterval(() => {
       setIsAnimating(true);
@@ -60,7 +60,7 @@ export default function SearchBar({ onSearch, onClear, isSearching, noResults, o
         setPlaceholderIndex((prev) => (prev + 1) % PLACEHOLDER_EXAMPLES.length);
         setIsAnimating(false);
       }, 300); // Match CSS transition duration
-    }, 3000);
+    }, 2000);
     return () => clearInterval(interval);
   }, []);
 
@@ -112,8 +112,8 @@ export default function SearchBar({ onSearch, onClear, isSearching, noResults, o
           bottom: '100%',
         }}
       >
-        <div className="bg-gray-800 text-white px-4 py-2 rounded-full shadow-lg whitespace-nowrap flex items-center gap-2">
-          <span className="text-lg">(x.x)</span>
+        <div className="bg-red-500 text-white px-4 py-2 rounded-full shadow-lg whitespace-nowrap flex items-center gap-2">
+          <span className="text-lg">😵</span>
           <span className="text-sm font-medium">No food found</span>
         </div>
       </div>
@@ -136,78 +136,56 @@ export default function SearchBar({ onSearch, onClear, isSearching, noResults, o
           </button>
         )}
 
-        <form onSubmit={handleSubmit} className="relative">
-          <div className="relative">
+        <form onSubmit={handleSubmit} className="relative flex items-center">
+          <div className="relative flex items-center bg-white rounded-full shadow-lg border-2 border-gray-300 focus-within:border-red-500 transition-colors">
             <input
               type="text"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              className="border-2 border-gray-300
-                         focus:border-red-500 focus:outline-none shadow-lg
-                         bg-white min-h-[44px]"
+              className="bg-transparent focus:outline-none min-h-[44px] text-sm w-[200px] md:w-[240px] pl-4 pr-2"
               disabled={isSearching}
-              style={{
-                width: 'clamp(240px, 70vw, 280px)',
-                paddingLeft: 'clamp(12px, 4vw, 16px)',
-                paddingRight: 'clamp(70px, 20vw, 80px)',
-                paddingTop: 'clamp(8px, 2vw, 10px)',
-                paddingBottom: 'clamp(8px, 2vw, 10px)',
-                fontSize: 'clamp(13px, 3.5vw, 14px)',
-                borderRadius: 'clamp(20px, 6vw, 24px)',
-              }}
             />
             {/* Custom rotating placeholder */}
             {!query && (
               <div
-                className="absolute top-1/2 -translate-y-1/2 pointer-events-none text-gray-400 flex items-center whitespace-nowrap"
-                style={{
-                  left: 'clamp(12px, 4vw, 16px)',
-                  fontSize: 'clamp(11px, 3vw, 12px)',
-                }}
+                className="absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400 flex items-center whitespace-nowrap text-xs md:text-sm"
               >
                 <span className="flex-shrink-0">Search Food:&nbsp;</span>
                 <span
                   className={`transition-all duration-300 ${
-                    isAnimating ? 'opacity-0 -translate-y-2' : 'opacity-100 translate-y-0'
+                    isAnimating ? 'opacity-0 translate-y-2' : 'opacity-100 translate-y-0'
                   }`}
                 >
                   {PLACEHOLDER_EXAMPLES[placeholderIndex]}
                 </span>
               </div>
             )}
-          </div>
-          {query && (
+            {/* Clear button */}
+            {query && (
+              <button
+                type="button"
+                onClick={handleClear}
+                className="text-gray-400 hover:text-gray-600 active:text-gray-700 w-8 h-8 flex items-center justify-center flex-shrink-0"
+              >
+                ✕
+              </button>
+            )}
+            {/* Search button - integrated inside the container */}
             <button
-              type="button"
-              onClick={handleClear}
-              className="absolute top-1/2 transform -translate-y-1/2
-                         text-gray-400 hover:text-gray-600 active:text-gray-700 min-w-[44px] min-h-[44px] flex items-center justify-center"
-              style={{
-                right: 'clamp(40px, 12vw, 48px)',
-                fontSize: 'clamp(14px, 4vw, 16px)',
-              }}
+              type="submit"
+              disabled={!query.trim() || isSearching}
+              className="bg-red-500 hover:bg-red-600 active:bg-red-700 disabled:bg-gray-300
+                         text-white transition-colors duration-200 w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 mr-0.5"
             >
-              ✕
+              {isSearching ? (
+                <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+              ) : (
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+              )}
             </button>
-          )}
-          <button
-            type="submit"
-            disabled={!query.trim() || isSearching}
-            className="absolute top-1/2 transform -translate-y-1/2
-                       bg-red-500 hover:bg-red-600 active:bg-red-700 disabled:bg-gray-300
-                       text-white transition-colors duration-200 min-w-[44px] min-h-[44px] flex items-center justify-center"
-            style={{
-              right: 'clamp(2px, 0.5vw, 4px)',
-              paddingLeft: 'clamp(10px, 3vw, 12px)',
-              paddingRight: 'clamp(10px, 3vw, 12px)',
-              paddingTop: 'clamp(6px, 1.5vw, 8px)',
-              paddingBottom: 'clamp(6px, 1.5vw, 8px)',
-              fontSize: 'clamp(12px, 3.5vw, 14px)',
-              borderRadius: 'clamp(18px, 5vw, 20px)',
-            }}
-          >
-            {isSearching ? '...' : '🔍'}
-          </button>
+          </div>
         </form>
       </div>
     </div>

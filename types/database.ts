@@ -330,3 +330,19 @@ export interface GroupedChainOutlets {
   brand: ChainBrand;
   outlets: ChainOutlet[];
 }
+
+// Search match result
+export interface SearchMatch {
+  id: string;
+  name: string;
+  type: 'curated' | 'chain';
+  matchType: 'food' | 'restaurant';
+  matchedTags?: string[];
+  score?: number;  // Lower is better match
+}
+
+// Station search result with matches
+export interface StationSearchResult {
+  stationId: string;
+  matches: SearchMatch[];
+}
