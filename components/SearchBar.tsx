@@ -149,7 +149,7 @@ export default function SearchBar({ onSearch, onClear, isSearching, noResults, o
             {/* Custom rotating placeholder */}
             {!query && (
               <div
-                className="absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400 flex items-center whitespace-nowrap text-xs md:text-sm"
+                className="absolute left-4 right-12 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400 flex items-center text-xs md:text-sm overflow-hidden"
               >
                 <span className="flex-shrink-0">Search Food:&nbsp;</span>
                 <span
