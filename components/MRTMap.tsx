@@ -156,7 +156,7 @@ const stationCoordinates: { [key: string]: { cx: number, cy: number, name: strin
   'woodlands-south': { cx: 589, cy: 127, name: 'Woodlands South' },
   'springleaf': { cx: 624, cy: 162, name: 'Springleaf' },
   'lentor': { cx: 658, cy: 208, name: 'Lentor' },
-  'mayflower': { cx: 665, cy: 258, name: 'Mayflower' },
+  'mayflower': { cx: 657, cy: 258, name: 'Mayflower' },
   'bright-hill': { cx: 658, cy: 309, name: 'Bright Hill' },
   'upper-thomson': { cx: 658, cy: 357, name: 'Upper Thomson' },
   'napier': { cx: 658, cy: 517, name: 'Napier' },
