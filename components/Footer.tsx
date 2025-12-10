@@ -27,7 +27,7 @@ export default function Footer() {
       {/* Info button - Golden Yellow Theme */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-10 h-10 md:w-11 md:h-11 bg-[#E8B931] hover:bg-[#F5D251] rounded-full shadow-lg border-2 border-[#1a1a1a] flex items-center justify-center text-[#1a1a1a] transition-all active:scale-95"
+        className="w-10 h-10 md:w-11 md:h-11 bg-[#E8B931] hover:bg-[#F5D251] hover:scale-[1.02] rounded-full shadow-lg border-2 border-[#1a1a1a] flex items-center justify-center text-[#1a1a1a] transition-all active:scale-95 cursor-pointer"
         aria-label="Info menu"
       >
         <IconInfo className="w-5 h-5" />

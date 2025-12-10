@@ -1008,8 +1008,8 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
                 </div>
               )}
 
-              <div className="bg-[#1a1a1a]/95 backdrop-blur-sm rounded-xl shadow-lg border-2 border-[#E8B931] p-1.5 flex flex-col gap-1 pointer-events-auto">
-                {/* Reset View - Golden Yellow Theme */}
+              <div className="bg-[#E8B931] backdrop-blur-sm rounded-xl shadow-lg border-2 border-[#1a1a1a] p-1.5 flex flex-col gap-1 pointer-events-auto">
+                {/* Reset View - Black Button */}
                 <button
                   onClick={() => {
                     // Reset to centered view on map content
@@ -1020,20 +1020,20 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
                     const posY = window.innerHeight / 2 - mapCenterY * scale;
                     transformRef.current?.setTransform(posX, posY, scale, 300);
                   }}
-                  className="w-11 h-11 flex items-center justify-center bg-[#E8B931] hover:bg-[#F5D251] rounded-lg text-[#1a1a1a] transition-all active:scale-95"
+                  className="w-11 h-11 flex items-center justify-center bg-[#1a1a1a] hover:bg-[#2a2a2a] hover:scale-[1.02] rounded-lg text-[#E8B931] transition-all active:scale-95 cursor-pointer"
                   aria-label="Reset view"
                 >
                   <IconReset className="w-5 h-5" />
                 </button>
 
-                {/* My Location - Golden Yellow Theme */}
+                {/* My Location - Black Button */}
                 <button
                   onClick={handleLocationClick}
                   disabled={locationLoading}
-                  className={`w-11 h-11 flex items-center justify-center rounded-lg transition-all
+                  className={`w-11 h-11 flex items-center justify-center rounded-lg transition-all cursor-pointer
                     ${locationLoading
-                      ? 'bg-[#F5D251] text-[#1a1a1a]/60'
-                      : 'bg-[#E8B931] hover:bg-[#F5D251] text-[#1a1a1a] active:scale-95'
+                      ? 'bg-[#1a1a1a]/60 text-[#E8B931]/60'
+                      : 'bg-[#1a1a1a] hover:bg-[#2a2a2a] hover:scale-[1.02] text-[#E8B931] active:scale-95'
                     }`}
                   aria-label="Find nearest station"
                 >

@@ -191,12 +191,12 @@ export default function SearchBar({ onSearch, onClear, isSearching, noResults, o
             <button
               type="button"
               onClick={() => setIsFilterOpen(!isFilterOpen)}
-              className={`px-4 py-2.5 rounded-full shadow-lg transition-all duration-200 flex items-center justify-center font-bold text-sm active:scale-95 border-2 ${
+              className={`px-4 py-2.5 rounded-full shadow-lg transition-all duration-200 flex items-center justify-center font-bold text-sm active:scale-95 border-2 cursor-pointer ${
                 is24hActive || isDessertActive
-                  ? 'bg-[#E8B931] border-[#1a1a1a] text-[#1a1a1a] shadow-[0_4px_12px_rgba(232,185,49,0.4)]'
+                  ? 'bg-[#E8B931] border-[#1a1a1a] text-[#1a1a1a] shadow-[0_4px_12px_rgba(232,185,49,0.4)] hover:scale-[1.02]'
                   : isFilterOpen
                     ? 'bg-[#F5D251] border-[#1a1a1a] text-[#1a1a1a]'
-                    : 'bg-[#E8B931] border-[#1a1a1a] text-[#1a1a1a] hover:bg-[#F5D251] hover:shadow-[0_6px_16px_rgba(232,185,49,0.5)]'
+                    : 'bg-[#E8B931] border-[#1a1a1a] text-[#1a1a1a] hover:bg-[#F5D251] hover:shadow-[0_6px_16px_rgba(232,185,49,0.5)] hover:scale-[1.02]'
               }`}
               title="Filter options"
             >

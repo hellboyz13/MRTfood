@@ -279,6 +279,7 @@ export default function HowToUseCard() {
       fontFamily: "'Fredoka', sans-serif",
       cursor: 'pointer',
       transition: 'all 0.2s ease',
+      boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
     },
     footer: {
       textAlign: 'center' as const,
