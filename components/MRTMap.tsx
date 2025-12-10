@@ -1008,8 +1008,8 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
                 </div>
               )}
 
-              <div className="bg-white/95 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 p-1.5 flex flex-col gap-1 pointer-events-auto">
-                {/* Reset View */}
+              <div className="bg-[#1a1a1a]/95 backdrop-blur-sm rounded-xl shadow-lg border-2 border-[#E8B931] p-1.5 flex flex-col gap-1 pointer-events-auto">
+                {/* Reset View - Golden Yellow Theme */}
                 <button
                   onClick={() => {
                     // Reset to centered view on map content
@@ -1020,20 +1020,20 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
                     const posY = window.innerHeight / 2 - mapCenterY * scale;
                     transformRef.current?.setTransform(posX, posY, scale, 300);
                   }}
-                  className="w-11 h-11 flex items-center justify-center bg-white hover:bg-gray-100 rounded-lg text-gray-700 transition-all active:scale-95"
+                  className="w-11 h-11 flex items-center justify-center bg-[#E8B931] hover:bg-[#F5D251] rounded-lg text-[#1a1a1a] transition-all active:scale-95"
                   aria-label="Reset view"
                 >
                   <IconReset className="w-5 h-5" />
                 </button>
 
-                {/* My Location */}
+                {/* My Location - Golden Yellow Theme */}
                 <button
                   onClick={handleLocationClick}
                   disabled={locationLoading}
                   className={`w-11 h-11 flex items-center justify-center rounded-lg transition-all
                     ${locationLoading
-                      ? 'bg-blue-50 text-blue-400'
-                      : 'bg-white hover:bg-gray-100 text-gray-700 active:scale-95'
+                      ? 'bg-[#F5D251] text-[#1a1a1a]/60'
+                      : 'bg-[#E8B931] hover:bg-[#F5D251] text-[#1a1a1a] active:scale-95'
                     }`}
                   aria-label="Find nearest station"
                 >

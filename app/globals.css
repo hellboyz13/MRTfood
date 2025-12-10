@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -96,6 +98,140 @@ h1, h2, h3, h4, h5, h6 {
   100% {
     opacity: 0;
   }
+}
+
+/* HowToUseCard animations */
+
+/* Drop with bounce - card drops from top, bounces in center like physics */
+/* Mobile-optimized: shorter rope, faster animation, better positioning */
+@keyframes drop-bounce {
+  0% {
+    transform: translateX(-50%) translateY(-100vh);
+  }
+  45% {
+    transform: translateX(-50%) translateY(25vh);
+  }
+  55% {
+    transform: translateX(-50%) translateY(calc(25vh - 30px));
+  }
+  70% {
+    transform: translateX(-50%) translateY(calc(25vh + 12px));
+  }
+  82% {
+    transform: translateX(-50%) translateY(calc(25vh - 6px));
+  }
+  92% {
+    transform: translateX(-50%) translateY(calc(25vh + 2px));
+  }
+  100% {
+    transform: translateX(-50%) translateY(25vh);
+  }
+}
+
+/* Retract up - string pulling card back up off screen */
+@keyframes retract-up {
+  0% {
+    transform: translateX(-50%) translateY(25vh);
+  }
+  12% {
+    transform: translateX(-50%) translateY(calc(25vh + 20px));
+  }
+  100% {
+    transform: translateX(-50%) translateY(-100vh);
+  }
+}
+
+/* Rope extending animation - synced with drop, mobile-optimized */
+@keyframes rope-extend {
+  0% {
+    height: 0px;
+  }
+  45% {
+    height: 70px;
+  }
+  55% {
+    height: 40px;
+  }
+  70% {
+    height: 75px;
+  }
+  82% {
+    height: 58px;
+  }
+  92% {
+    height: 65px;
+  }
+  100% {
+    height: 60px;
+  }
+}
+
+/* Rope retracting animation */
+@keyframes rope-retract {
+  0% {
+    height: 60px;
+  }
+  12% {
+    height: 80px;
+  }
+  100% {
+    height: 0px;
+  }
+}
+
+.animate-drop-bounce {
+  animation: drop-bounce 1s cubic-bezier(0.34, 1, 0.64, 1) forwards;
+}
+
+.animate-retract-up {
+  animation: retract-up 0.5s cubic-bezier(0.55, 0, 1, 0.45) forwards;
+}
+
+.animate-rope-extend {
+  animation: rope-extend 1s cubic-bezier(0.34, 1, 0.64, 1) forwards;
+}
+
+.animate-rope-retract {
+  animation: rope-retract 0.5s cubic-bezier(0.55, 0, 1, 0.45) forwards;
+}
+
+/* Legacy animations for backwards compatibility */
+@keyframes card-slide-down {
+  from {
+    transform: translateX(-50%) translateY(-120%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes card-slide-up {
+  from {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-50%) translateY(-120%);
+    opacity: 0;
+  }
+}
+
+.animate-slide-down-card {
+  animation: card-slide-down 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.animate-slide-up-card {
+  animation: card-slide-up 0.4s cubic-bezier(0.4, 0, 1, 1) forwards;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease forwards;
+}
+
+.animate-fade-out {
+  animation: fade-out 0.5s ease forwards;
 }
 
 /* Line clamp utility */

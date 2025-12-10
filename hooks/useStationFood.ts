@@ -22,6 +22,16 @@ function isOnlyFoodKing(listing: FoodListingWithSources): boolean {
          !sourceIds.some(id => RECOMMENDED_SOURCE_IDS.includes(id));
 }
 
+// Helper to sort listings by distance (closest first)
+function sortByDistance(listings: FoodListingWithSources[]): FoodListingWithSources[] {
+  return [...listings].sort((a, b) => {
+    // Use distance_to_station first, then walking_time as fallback
+    const distA = a.distance_to_station ?? a.walking_time ?? Infinity;
+    const distB = b.distance_to_station ?? b.walking_time ?? Infinity;
+    return distA - distB;
+  });
+}
+
 export interface SeparatedListings {
   recommended: FoodListingWithSources[];
   popular: FoodListingWithSources[]; // Popular source + chain outlets
@@ -74,29 +84,30 @@ export function useStationFood(stationId: string | null): UseStationFoodResult {
   }, [stationId]);
 
   // Separate listings into recommended, popular, food-king-only, and other sections
+  // Sort each category by distance (closest first)
   const separatedListings = useMemo((): SeparatedListings => {
     if (!data?.listings) {
       return { recommended: [], popular: [], foodKingOnly: [], other: [] };
     }
 
-    const recommended = data.listings.filter(listing =>
+    const recommended = sortByDistance(data.listings.filter(listing =>
       hasSource(listing, RECOMMENDED_SOURCE_IDS)
-    );
+    ));
 
-    const popular = data.listings.filter(listing =>
+    const popular = sortByDistance(data.listings.filter(listing =>
       hasSource(listing, [POPULAR_SOURCE_ID])
-    );
+    ));
 
-    const foodKingOnly = data.listings.filter(listing =>
+    const foodKingOnly = sortByDistance(data.listings.filter(listing =>
       isOnlyFoodKing(listing)
-    );
+    ));
 
     // Get listings that aren't in any category
-    const other = data.listings.filter(listing =>
+    const other = sortByDistance(data.listings.filter(listing =>
       !hasSource(listing, RECOMMENDED_SOURCE_IDS) &&
       !hasSource(listing, [POPULAR_SOURCE_ID]) &&
       !isOnlyFoodKing(listing)
-    );
+    ));
 
     return { recommended, popular, foodKingOnly, other };
   }, [data?.listings]);

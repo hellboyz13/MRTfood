@@ -134,12 +134,18 @@ export default function FoodPanelV2({ stationId, onClose, isMobile = false, sear
       return <EmptyState />;
     }
 
-    const { recommended, popular, foodKingOnly, other } = separatedListings;
-    const hasContent = data.sponsored || recommended.length > 0 || foodKingOnly.length > 0 || other.length > 0;
+    const hasContent = data.sponsored || data.listings.length > 0;
 
     if (!hasContent) {
       return <EmptyState />;
     }
+
+    // Sort all listings by distance (closest first)
+    const sortedListings = [...data.listings].sort((a, b) => {
+      const distA = a.distance_to_station ?? a.walking_time ?? Infinity;
+      const distB = b.distance_to_station ?? b.walking_time ?? Infinity;
+      return distA - distB;
+    });
 
     return (
       <>
@@ -153,56 +159,22 @@ export default function FoodPanelV2({ stationId, onClose, isMobile = false, sear
 
         {data.sponsored && <SponsoredCardDb listing={data.sponsored} />}
 
-        {/* Michelin Guide section */}
-        {recommended.length > 0 && (
+        {/* All listings sorted by distance */}
+        {sortedListings.length > 0 && (
           <div className="space-y-2">
-            <div className="space-y-2">
-              {recommended.map((listing) => (
-                <FoodListingCardV2
-                  key={listing.id}
-                  listing={listing}
-                  highlighted={matchesSearch(listing)}
-                  onViewMenu={setSelectedMenuListing}
-                />
-              ))}
+            {/* Sort indicator */}
+            <div className="flex items-center gap-1.5 text-xs text-gray-500 pb-1">
+              <span>🚶</span>
+              <span>Sorted by walking distance</span>
             </div>
-          </div>
-        )}
-
-        {/* Other listings (not Michelin/Food King) */}
-        {other.length > 0 && (
-          <div className="space-y-2">
-            <div className="space-y-2">
-              {other.map((listing) => (
-                <FoodListingCardV2
-                  key={listing.id}
-                  listing={listing}
-                  highlighted={matchesSearch(listing)}
-                  onViewMenu={setSelectedMenuListing}
-                />
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* Food King only section */}
-        {foodKingOnly.length > 0 && (
-          <div className="space-y-2">
-            <h2 className="flex items-center gap-2 text-base font-semibold text-gray-800">
-              <span>📺</span>
-              <span>As Seen on Food King</span>
-              <span className="text-xs font-normal text-gray-500">({foodKingOnly.length})</span>
-            </h2>
-            <div className="space-y-2">
-              {foodKingOnly.map((listing) => (
-                <FoodListingCardV2
-                  key={listing.id}
-                  listing={listing}
-                  highlighted={matchesSearch(listing)}
-                  onViewMenu={setSelectedMenuListing}
-                />
-              ))}
-            </div>
+            {sortedListings.map((listing) => (
+              <FoodListingCardV2
+                key={listing.id}
+                listing={listing}
+                highlighted={matchesSearch(listing)}
+                onViewMenu={setSelectedMenuListing}
+              />
+            ))}
           </div>
         )}
       </>
@@ -220,14 +192,14 @@ export default function FoodPanelV2({ stationId, onClose, isMobile = false, sear
         {/* Main listing panel */}
         <div className={`panel-content ${selectedMenuListing ? 'slide-out-left' : ''} bg-white`}>
           <div className="flex flex-col h-full">
-            <div className="flex items-center justify-between px-4 py-3 border-b border-gray-200 bg-gray-50 flex-shrink-0">
-              <h2 className="text-lg font-bold text-gray-900">{stationName}</h2>
+            <div className="flex items-center justify-between px-4 py-3 border-b border-[#E8B931] bg-[#E8B931] flex-shrink-0">
+              <h2 className="text-lg font-bold text-[#1a1a1a]">{stationName}</h2>
               <button
                 onClick={onClose}
-                className="p-1 hover:bg-gray-200 rounded-full transition-colors"
+                className="p-1 hover:bg-[#F5D251] rounded-full transition-colors"
                 aria-label="Close panel"
               >
-                <IconClose className="w-5 h-5 text-gray-600" />
+                <IconClose className="w-5 h-5 text-[#1a1a1a]" />
               </button>
             </div>
             <div className="flex-1 overflow-y-auto p-4 space-y-3">
@@ -397,7 +369,7 @@ function MobileDrawer({
             {/* Header */}
             <div
               data-drag-handle
-              className="flex items-center justify-between border-b border-gray-200 flex-shrink-0"
+              className="flex items-center justify-between border-b border-[#E8B931] bg-[#E8B931] flex-shrink-0"
               style={{
                 paddingLeft: 'clamp(12px, 4vw, 20px)',
                 paddingRight: 'clamp(12px, 4vw, 20px)',
@@ -409,21 +381,21 @@ function MobileDrawer({
               onTouchEnd={handleTouchEnd}
             >
               <h2
-                className="font-bold text-gray-900"
+                className="font-bold text-[#1a1a1a]"
                 style={{ fontSize: 'clamp(16px, 4.5vw, 20px)' }}
               >
                 {stationName}
               </h2>
               <button
                 onClick={handleClose}
-                className="hover:bg-gray-100 rounded-full transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
+                className="hover:bg-[#F5D251] rounded-full transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
                 aria-label="Close drawer"
                 style={{
                   padding: 'clamp(8px, 2vw, 10px)',
                 }}
               >
                 <IconClose
-                  className="text-gray-600"
+                  className="text-[#1a1a1a]"
                   style={{ width: 'clamp(18px, 5vw, 20px)', height: 'clamp(18px, 5vw, 20px)' }}
                 />
               </button>

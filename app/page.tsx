@@ -6,7 +6,8 @@ import FoodPanelV2 from '@/components/FoodPanelV2';
 import SearchBar from '@/components/SearchBar';
 import SearchResultsPanel from '@/components/SearchResultsPanel';
 import Footer from '@/components/Footer';
-import { searchStationsByFoodWithCounts, StationSearchResult, getStations, getSupperSpotsByStation } from '@/lib/api';
+import HowToUseCard from '@/components/HowToUseCard';
+import { searchStationsByFoodWithCounts, StationSearchResult, getStations, getSupperSpotsByStation, getDessertSpotsByStation } from '@/lib/api';
 
 export default function Home() {
   const [selectedStation, setSelectedStation] = useState<string | null>(null);
@@ -16,6 +17,7 @@ export default function Home() {
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [stationNames, setStationNames] = useState<{ [key: string]: string }>({});
   const [is24hActive, setIs24hActive] = useState(false);
+  const [isDessertActive, setIsDessertActive] = useState(false);
   const mapZoomHandlerRef = useRef<((stationId: string) => void) | null>(null);
 
   // Load station names
@@ -59,6 +61,7 @@ export default function Home() {
     setIsSearching(true);
     setSearchQuery(query);
     setIs24hActive(false); // Turn off 24h filter when doing regular search
+    setIsDessertActive(false); // Turn off dessert filter when doing regular search
     try {
       const results = await searchStationsByFoodWithCounts(query);
       setSearchResults(results);
@@ -74,6 +77,7 @@ export default function Home() {
     setSearchResults([]);
     setSearchQuery('');
     setIs24hActive(false);
+    setIsDessertActive(false);
   };
 
   const handleSupperClick = async () => {
@@ -86,12 +90,37 @@ export default function Home() {
       // Toggle on - fetch supper spots
       setIsSearching(true);
       setIs24hActive(true);
+      setIsDessertActive(false); // Turn off dessert filter
       setSearchQuery('Supper Spots');
       try {
         const results = await getSupperSpotsByStation();
         setSearchResults(results);
       } catch (error) {
         console.error('Supper search error:', error);
+        setSearchResults([]);
+      } finally {
+        setIsSearching(false);
+      }
+    }
+  };
+
+  const handleDessertClick = async () => {
+    if (isDessertActive) {
+      // Toggle off
+      setIsDessertActive(false);
+      setSearchResults([]);
+      setSearchQuery('');
+    } else {
+      // Toggle on - fetch dessert spots
+      setIsSearching(true);
+      setIsDessertActive(true);
+      setIs24hActive(false); // Turn off supper filter
+      setSearchQuery('Dessert Spots');
+      try {
+        const results = await getDessertSpotsByStation();
+        setSearchResults(results);
+      } catch (error) {
+        console.error('Dessert search error:', error);
         setSearchResults([]);
       } finally {
         setIsSearching(false);
@@ -124,6 +153,8 @@ export default function Home() {
         noResults={!isSearching && searchQuery.length > 0 && searchResults.length === 0}
         on24hClick={handleSupperClick}
         is24hActive={is24hActive}
+        onDessertClick={handleDessertClick}
+        isDessertActive={isDessertActive}
       />
 
       {/* Search Results Panel - only show if there are results */}
@@ -177,6 +208,9 @@ export default function Home() {
 
       {/* Footer with legal links */}
       <Footer />
+
+      {/* How to Use Card - Shows on first visit */}
+      <HowToUseCard />
     </main>
   );
 }
