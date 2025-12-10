@@ -809,11 +809,28 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
         circle.style.transformOrigin = 'center';
         circle.style.transformBox = 'fill-box';
 
-        circle.addEventListener('click', (e) => {
+        // Create invisible larger touch target for mobile (radius 12px instead of 3px)
+        const touchTarget = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        touchTarget.setAttribute('cx', String(cx));
+        touchTarget.setAttribute('cy', String(cy));
+        touchTarget.setAttribute('r', '12'); // 4x larger hit area
+        touchTarget.setAttribute('fill', 'transparent');
+        touchTarget.setAttribute('data-station-id', matchedStation);
+        touchTarget.style.cursor = 'pointer';
+
+        // Insert touch target before the visible circle (so circle appears on top)
+        circle.parentNode?.insertBefore(touchTarget, circle);
+
+        // Click handler for both touch target and visible circle
+        const handleClick = (e: Event) => {
           e.stopPropagation();
           onStationClick(matchedStation!);
-        });
+        };
 
+        touchTarget.addEventListener('click', handleClick);
+        circle.addEventListener('click', handleClick);
+
+        // Hover effects only on visible circle
         circle.addEventListener('mouseenter', () => {
           // Don't change fill if station is selected (red) or highlighted (green)
           if (circle.getAttribute('fill') !== '#dc2626' && !circle.classList.contains('station-highlighted')) {
@@ -823,6 +840,20 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
 
         circle.addEventListener('mouseleave', () => {
           // Don't reset fill if station is selected (red) or highlighted (green)
+          const currentFill = circle.getAttribute('fill');
+          if (currentFill !== '#dc2626' && !circle.classList.contains('station-highlighted')) {
+            circle.setAttribute('fill', '#ffffff');
+          }
+        });
+
+        // Also add hover effects when touching the larger target
+        touchTarget.addEventListener('mouseenter', () => {
+          if (circle.getAttribute('fill') !== '#dc2626' && !circle.classList.contains('station-highlighted')) {
+            circle.setAttribute('fill', '#fca5a5');
+          }
+        });
+
+        touchTarget.addEventListener('mouseleave', () => {
           const currentFill = circle.getAttribute('fill');
           if (currentFill !== '#dc2626' && !circle.classList.contains('station-highlighted')) {
             circle.setAttribute('fill', '#ffffff');
@@ -1009,7 +1040,7 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
               )}
 
               <div className="bg-[#E8B931] backdrop-blur-sm rounded-xl shadow-lg border-2 border-[#1a1a1a] p-1.5 flex flex-col gap-1 pointer-events-auto">
-                {/* Reset View - Black Button */}
+                {/* Reset View - Border Only Button */}
                 <button
                   onClick={() => {
                     // Reset to centered view on map content
@@ -1020,20 +1051,20 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
                     const posY = window.innerHeight / 2 - mapCenterY * scale;
                     transformRef.current?.setTransform(posX, posY, scale, 300);
                   }}
-                  className="w-11 h-11 flex items-center justify-center bg-[#1a1a1a] hover:bg-[#2a2a2a] hover:scale-[1.02] rounded-lg text-[#E8B931] transition-all active:scale-95 cursor-pointer"
+                  className="w-11 h-11 flex items-center justify-center bg-transparent hover:bg-[#1a1a1a]/10 hover:scale-[1.02] rounded-lg border-2 border-[#1a1a1a] text-[#1a1a1a] transition-all active:scale-95 cursor-pointer"
                   aria-label="Reset view"
                 >
                   <IconReset className="w-5 h-5" />
                 </button>
 
-                {/* My Location - Black Button */}
+                {/* My Location - Border Only Button */}
                 <button
                   onClick={handleLocationClick}
                   disabled={locationLoading}
-                  className={`w-11 h-11 flex items-center justify-center rounded-lg transition-all cursor-pointer
+                  className={`w-11 h-11 flex items-center justify-center rounded-lg border-2 border-[#1a1a1a] transition-all cursor-pointer
                     ${locationLoading
-                      ? 'bg-[#1a1a1a]/60 text-[#E8B931]/60'
-                      : 'bg-[#1a1a1a] hover:bg-[#2a2a2a] hover:scale-[1.02] text-[#E8B931] active:scale-95'
+                      ? 'bg-transparent text-[#1a1a1a]/60'
+                      : 'bg-transparent hover:bg-[#1a1a1a]/10 hover:scale-[1.02] text-[#1a1a1a] active:scale-95'
                     }`}
                   aria-label="Find nearest station"
                 >

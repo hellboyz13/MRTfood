@@ -30,8 +30,10 @@ export default function SearchBar({ onSearch, onClear, isSearching, noResults, o
   const [placeholderIndex, setPlaceholderIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
+  const [keyboardHeight, setKeyboardHeight] = useState(0);
   const dragRef = useRef<HTMLDivElement>(null);
   const filterRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
   const startPos = useRef({ x: 0, y: 0 });
 
   // Close filter menu when clicking outside
@@ -66,6 +68,35 @@ export default function SearchBar({ onSearch, onClear, isSearching, noResults, o
     checkMobile();
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Handle keyboard visibility on mobile using VisualViewport API
+  useEffect(() => {
+    if (typeof window === 'undefined' || !window.visualViewport) return;
+
+    const handleViewportResize = () => {
+      const viewport = window.visualViewport;
+      if (!viewport) return;
+
+      // Calculate keyboard height: difference between window height and viewport height
+      const keyboardH = window.innerHeight - viewport.height;
+      // Only set if keyboard is actually open (more than 100px difference to filter out URL bar changes)
+      const isKeyboardOpen = keyboardH > 100;
+      setKeyboardHeight(isKeyboardOpen ? keyboardH : 0);
+
+      // Close filter menu when keyboard opens to prevent overlap
+      if (isKeyboardOpen) {
+        setIsFilterOpen(false);
+      }
+    };
+
+    window.visualViewport.addEventListener('resize', handleViewportResize);
+    window.visualViewport.addEventListener('scroll', handleViewportResize);
+
+    return () => {
+      window.visualViewport?.removeEventListener('resize', handleViewportResize);
+      window.visualViewport?.removeEventListener('scroll', handleViewportResize);
+    };
   }, []);
 
   // Rotate placeholder text every 2 seconds with downward morph effect
@@ -115,7 +146,8 @@ export default function SearchBar({ onSearch, onClear, isSearching, noResults, o
 
   return (
     <div
-      className="fixed left-1/2 transform -translate-x-1/2 z-50 pointer-events-none bottom-4"
+      className="fixed left-1/2 transform -translate-x-1/2 z-50 pointer-events-none transition-all duration-200"
+      style={{ bottom: keyboardHeight > 0 ? `${keyboardHeight + 16}px` : '16px' }}
     >
       {/* No Results Popup Animation */}
       <div
@@ -154,10 +186,10 @@ export default function SearchBar({ onSearch, onClear, isSearching, noResults, o
                     onDessertClick();
                     setIsFilterOpen(false);
                   }}
-                  className={`px-4 py-2.5 rounded-full shadow-lg transition-all duration-200 flex items-center justify-center font-bold text-sm active:scale-95 whitespace-nowrap ${
+                  className={`px-4 py-2.5 rounded-full shadow-lg transition-all duration-200 flex items-center justify-center font-bold text-sm active:scale-95 whitespace-nowrap border-2 border-[#1a1a1a] ${
                     isDessertActive
                       ? 'bg-pink-500 text-white shadow-pink-300'
-                      : 'bg-white border-2 border-gray-300 text-gray-700 hover:border-pink-500 hover:text-pink-600 hover:bg-pink-50'
+                      : 'bg-white text-[#1a1a1a] hover:bg-pink-50 hover:text-pink-600'
                   }`}
                   title="Find dessert spots"
                 >
@@ -174,10 +206,10 @@ export default function SearchBar({ onSearch, onClear, isSearching, noResults, o
                     on24hClick();
                     setIsFilterOpen(false);
                   }}
-                  className={`px-4 py-2.5 rounded-full shadow-lg transition-all duration-200 flex items-center justify-center font-bold text-sm active:scale-95 whitespace-nowrap ${
+                  className={`px-4 py-2.5 rounded-full shadow-lg transition-all duration-200 flex items-center justify-center font-bold text-sm active:scale-95 whitespace-nowrap border-2 border-[#1a1a1a] ${
                     is24hActive
                       ? 'bg-purple-600 text-white shadow-purple-300'
-                      : 'bg-white border-2 border-gray-300 text-gray-700 hover:border-purple-500 hover:text-purple-600 hover:bg-purple-50'
+                      : 'bg-white text-[#1a1a1a] hover:bg-purple-50 hover:text-purple-600'
                   }`}
                   title="Find supper spots"
                 >
@@ -214,6 +246,7 @@ export default function SearchBar({ onSearch, onClear, isSearching, noResults, o
         <form onSubmit={handleSubmit} className="relative flex items-center">
           <div className="relative flex items-center bg-white rounded-full shadow-lg border-2 border-[#1a1a1a] focus-within:border-[#E8B931] focus-within:shadow-[0_4px_12px_rgba(232,185,49,0.3)] transition-all">
             <input
+              ref={inputRef}
               type="text"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
