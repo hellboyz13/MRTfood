@@ -140,38 +140,69 @@ export default function FoodPanelV2({ stationId, onClose, isMobile = false, sear
       return <EmptyState />;
     }
 
-    // Sort all listings by distance (closest first)
-    const sortedListings = [...data.listings].sort((a, b) => {
+    // Filter listings based on search matches (if search is active)
+    const isSearchActive = searchQuery && searchMatches.length > 0;
+    const filteredListings = isSearchActive
+      ? data.listings.filter(listing => matchesSearch(listing))
+      : data.listings;
+
+    // Sort filtered listings by distance (closest first)
+    const sortedListings = [...filteredListings].sort((a, b) => {
       const distA = a.distance_to_station ?? a.walking_time ?? Infinity;
       const distB = b.distance_to_station ?? b.walking_time ?? Infinity;
       return distA - distB;
     });
 
+    // If search is active but no matches at this station, show empty state
+    if (isSearchActive && sortedListings.length === 0) {
+      return (
+        <div className="text-center py-8">
+          <div className="text-4xl mb-3">🔍</div>
+          <p className="text-gray-500 text-sm">
+            No "{searchQuery}" found at this station.
+          </p>
+          <p className="text-gray-400 text-xs mt-1">
+            Try a different station or search term.
+          </p>
+        </div>
+      );
+    }
+
     return (
       <>
-        {/* Slot Machine - show when there are 2+ listings */}
-        {data.listings.length > 1 && (
+        {/* Slot Machine - show when there are 2+ listings and no active search filter */}
+        {!isSearchActive && data.listings.length > 1 && (
           <SlotMachine
             listings={data.listings}
             onSelectWinner={() => {}}
           />
         )}
 
-        {data.sponsored && <SponsoredCardDb listing={data.sponsored} />}
+        {/* Show sponsored only when no search filter */}
+        {!isSearchActive && data.sponsored && <SponsoredCardDb listing={data.sponsored} />}
 
         {/* All listings sorted by distance */}
         {sortedListings.length > 0 && (
           <div className="space-y-2">
-            {/* Sort indicator */}
-            <div className="flex items-center gap-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg px-3 py-2 mb-1">
-              <span className="text-base">🚶</span>
-              <span>Sorted by walking distance</span>
-            </div>
+            {/* Search filter indicator */}
+            {isSearchActive && (
+              <div className="flex items-center gap-2 text-sm font-medium text-[#1a1a1a] bg-[#E8B931]/20 rounded-lg px-3 py-2 mb-1 border border-[#E8B931]">
+                <span className="text-base">🔍</span>
+                <span>Showing "{searchQuery}" ({sortedListings.length})</span>
+              </div>
+            )}
+            {/* Sort indicator - only when no search filter */}
+            {!isSearchActive && (
+              <div className="flex items-center gap-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg px-3 py-2 mb-1">
+                <span className="text-base">🚶</span>
+                <span>Sorted by walking distance</span>
+              </div>
+            )}
             {sortedListings.map((listing) => (
               <FoodListingCardV2
                 key={listing.id}
                 listing={listing}
-                highlighted={matchesSearch(listing)}
+                highlighted={false}
                 onViewMenu={setSelectedMenuListing}
               />
             ))}
