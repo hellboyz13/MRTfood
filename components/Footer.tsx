@@ -23,7 +23,7 @@ export default function Footer() {
   }, [isOpen]);
 
   return (
-    <div className="fixed top-3 right-3 z-50" ref={menuRef}>
+    <div className="fixed top-3 right-3 z-[60]" ref={menuRef}>
       {/* Info button - Golden Yellow Theme */}
       <button
         onClick={() => setIsOpen(!isOpen)}

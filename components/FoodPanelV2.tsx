@@ -163,8 +163,8 @@ export default function FoodPanelV2({ stationId, onClose, isMobile = false, sear
         {sortedListings.length > 0 && (
           <div className="space-y-2">
             {/* Sort indicator */}
-            <div className="flex items-center gap-1.5 text-xs text-gray-500 pb-1">
-              <span>🚶</span>
+            <div className="flex items-center gap-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg px-3 py-2 mb-1">
+              <span className="text-base">🚶</span>
               <span>Sorted by walking distance</span>
             </div>
             {sortedListings.map((listing) => (
