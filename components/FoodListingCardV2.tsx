@@ -22,8 +22,8 @@ function getMichelinDistinction(sourceId: string): string | null {
   }
 }
 
-// Sources to hide from badge display
-const HIDDEN_SOURCE_IDS = ['popular', 'michelin-3-star', 'michelin-2-star', 'michelin-1-star'];
+// Sources to hide from badge display (not recommendations, just categories/tags)
+const HIDDEN_SOURCE_IDS = ['popular', 'michelin-3-star', 'michelin-2-star', 'michelin-1-star', 'dessert'];
 
 // Source badge component
 function SourceBadge({
