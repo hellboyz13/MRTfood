@@ -44,7 +44,6 @@
     <circle cx="1173" cy="580" r="3" stroke="#005ec4"/> <!-- bedok-reservoir -->
     <!-- TE Line (brown #784008) -->
     <circle cx="624" cy="162" r="3" stroke="#784008"/> <!-- springleaf -->
-    <circle cx="658" cy="262" r="3" stroke="#784008"/> <!-- mayflower -->
     <!-- LRT (grey #999999) -->
     <circle cx="1113" cy="377" r="3" stroke="#999999"/> <!-- kangkar -->
     <circle cx="1096" cy="349" r="3" stroke="#999999"/> <!-- ranggung -->
