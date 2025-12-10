@@ -75,19 +75,28 @@ export default function HowToUsePage() {
   if (!show) return <main className="min-h-screen bg-white" />;
 
   const styles = {
-    container: {
+    outerContainer: {
       position: 'fixed' as const,
-      top: '100px',
-      left: '50%',
-      marginLeft: '-200px',
-      width: '400px',
-      maxWidth: '90%',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
       zIndex: 9999,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      padding: '16px',
+      pointerEvents: 'none' as const,
+    },
+    container: {
+      width: '100%',
+      maxWidth: '400px',
       display: 'flex',
       flexDirection: 'column' as const,
       alignItems: 'center',
       transformOrigin: 'top center',
       transform: 'translateY(-100vh)',
+      pointerEvents: 'auto' as const,
     },
     ropeContainer: {
       position: 'absolute' as const,
@@ -267,9 +276,10 @@ export default function HowToUsePage() {
 
   return (
     <main className="min-h-screen bg-white relative overflow-hidden">
-      <div ref={containerRef} style={styles.container}>
-        {/* Rope */}
-        <div style={styles.ropeContainer}>
+      <div style={styles.outerContainer}>
+        <div ref={containerRef} style={styles.container}>
+          {/* Rope */}
+          <div style={styles.ropeContainer}>
           <svg style={styles.ceilingHook} viewBox="0 0 30 24" fill="none">
             <rect x="10" y="0" width="10" height="6" rx="2" fill="#5a5a5a"/>
             <path d="M15 6 L15 10 Q15 16 20 16 Q26 16 26 20 Q26 24 15 24" stroke="#6a6a6a" strokeWidth="4" fill="none" strokeLinecap="round"/>
@@ -335,6 +345,7 @@ export default function HowToUsePage() {
             Back to Map
           </button>
           <p style={styles.footer}>© {new Date().getFullYear()} MRT Foodie • All rights reserved</p>
+        </div>
         </div>
       </div>
     </main>

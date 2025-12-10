@@ -809,22 +809,53 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
         circle.style.transformOrigin = 'center';
         circle.style.transformBox = 'fill-box';
 
-        // Click handler
+        // Create larger transparent hit area circle (44px minimum tap target)
+        const hitArea = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        hitArea.setAttribute('cx', String(cx));
+        hitArea.setAttribute('cy', String(cy));
+        hitArea.setAttribute('r', '22'); // 44px diameter for minimum tap target
+        hitArea.setAttribute('fill', 'transparent');
+        hitArea.setAttribute('stroke', 'none');
+        hitArea.style.cursor = 'pointer';
+        hitArea.setAttribute('data-station-hitarea', matchedStation);
+
+        // Insert hit area before the visible circle (so it's behind)
+        circle.parentNode?.insertBefore(hitArea, circle);
+
+        // Click handler on hit area
+        hitArea.addEventListener('click', (e: Event) => {
+          e.stopPropagation();
+          onStationClick(matchedStation!);
+        });
+
+        // Click handler on visible circle (for precision clicks)
         circle.addEventListener('click', (e: Event) => {
           e.stopPropagation();
           onStationClick(matchedStation!);
         });
 
-        // Hover effects
+        // Hover effects on hit area
+        hitArea.addEventListener('mouseenter', () => {
+          if (circle.getAttribute('fill') !== '#dc2626' && !circle.classList.contains('station-highlighted')) {
+            circle.setAttribute('fill', '#fca5a5');
+          }
+        });
+
+        hitArea.addEventListener('mouseleave', () => {
+          const currentFill = circle.getAttribute('fill');
+          if (currentFill !== '#dc2626' && !circle.classList.contains('station-highlighted')) {
+            circle.setAttribute('fill', '#ffffff');
+          }
+        });
+
+        // Keep original hover effects on visible circle too
         circle.addEventListener('mouseenter', () => {
-          // Don't change fill if station is selected (red) or highlighted (green)
           if (circle.getAttribute('fill') !== '#dc2626' && !circle.classList.contains('station-highlighted')) {
             circle.setAttribute('fill', '#fca5a5');
           }
         });
 
         circle.addEventListener('mouseleave', () => {
-          // Don't reset fill if station is selected (red) or highlighted (green)
           const currentFill = circle.getAttribute('fill');
           if (currentFill !== '#dc2626' && !circle.classList.contains('station-highlighted')) {
             circle.setAttribute('fill', '#ffffff');

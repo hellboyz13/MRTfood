@@ -27,17 +27,17 @@ export default function HowToUseCard() {
         { duration: 400, easing: 'ease', fill: 'forwards' }
       );
 
-      // Animate container drop with bounce
+      // Animate card wrapper drop with bounce
       containerRef.current?.animate(
         [
-          { transform: 'translate(-50%, -50%) translateY(-100vh)' },
-          { transform: 'translate(-50%, -50%) translateY(30px)' },
-          { transform: 'translate(-50%, -50%) translateY(-100px)' },
-          { transform: 'translate(-50%, -50%) translateY(15px)' },
-          { transform: 'translate(-50%, -50%) translateY(-45px)' },
-          { transform: 'translate(-50%, -50%) translateY(5px)' },
-          { transform: 'translate(-50%, -50%) translateY(-15px)' },
-          { transform: 'translate(-50%, -50%) translateY(0)' },
+          { transform: 'translateY(-100vh)' },
+          { transform: 'translateY(30px)' },
+          { transform: 'translateY(-100px)' },
+          { transform: 'translateY(15px)' },
+          { transform: 'translateY(-45px)' },
+          { transform: 'translateY(5px)' },
+          { transform: 'translateY(-15px)' },
+          { transform: 'translateY(0)' },
         ],
         { duration: 1400, easing: 'cubic-bezier(0.22, 0, 0.36, 1)', fill: 'forwards' }
       );
@@ -68,11 +68,11 @@ export default function HowToUseCard() {
       { duration: 500, easing: 'ease', fill: 'forwards' }
     );
 
-    // Animate container retract up
+    // Animate card wrapper retract up
     containerRef.current?.animate(
       [
-        { transform: 'translate(-50%, -50%) translateY(0)' },
-        { transform: 'translate(-50%, -50%) translateY(-120vh)' },
+        { transform: 'translateY(0)' },
+        { transform: 'translateY(-120vh)' },
       ],
       { duration: 400, easing: 'cubic-bezier(0.55, 0, 1, 0.45)', fill: 'forwards' }
     );
@@ -102,15 +102,26 @@ export default function HowToUseCard() {
     },
     container: {
       position: 'fixed' as const,
-      top: '50%',
-      left: '50%',
-      transform: 'translate(-50%, -50%) translateY(-100vh)',
-      width: 'min(400px, calc(100vw - 32px))',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
       zIndex: 9999,
       display: 'flex',
       flexDirection: 'column' as const,
       alignItems: 'center',
-      transformOrigin: 'top center',
+      justifyContent: 'center',
+      padding: '16px',
+      pointerEvents: 'none' as const,
+    },
+    cardWrapper: {
+      width: '100%',
+      maxWidth: '400px',
+      display: 'flex',
+      flexDirection: 'column' as const,
+      alignItems: 'center',
+      transform: 'translateY(-100vh)',
+      pointerEvents: 'auto' as const,
     },
     ropeContainer: {
       position: 'absolute' as const,
@@ -299,78 +310,81 @@ export default function HowToUseCard() {
       />
 
       {/* Container */}
-      <div ref={containerRef} style={styles.container}>
-        {/* Rope */}
-        <div style={styles.ropeContainer}>
-          <svg style={styles.ceilingHook} viewBox="0 0 30 24" fill="none">
-            <rect x="10" y="0" width="10" height="6" rx="2" fill="#5a5a5a"/>
-            <path d="M15 6 L15 10 Q15 16 20 16 Q26 16 26 20 Q26 24 15 24" stroke="#6a6a6a" strokeWidth="4" fill="none" strokeLinecap="round"/>
-            <path d="M15 6 L15 10 Q15 16 20 16 Q26 16 26 20" stroke="#8a8a8a" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
-          </svg>
-          <div ref={ropeRef} style={styles.rope} />
-        </div>
-
-        {/* Card Hook */}
-        <div style={styles.cardHook}>
-          <div style={styles.cardHookHole} />
-        </div>
-
-        {/* Card */}
-        <div style={styles.card}>
-          <div style={styles.circle1} />
-          <div style={styles.circle2} />
-
-          <div style={styles.header}>
-            <h2 style={styles.title}>MRT Foodie</h2>
-            <p style={styles.subtitle}>Your curated food map</p>
+      <div style={styles.container}>
+        {/* Card Wrapper - this is what gets animated */}
+        <div ref={containerRef} style={styles.cardWrapper}>
+          {/* Rope */}
+          <div style={styles.ropeContainer}>
+            <svg style={styles.ceilingHook} viewBox="0 0 30 24" fill="none">
+              <rect x="10" y="0" width="10" height="6" rx="2" fill="#5a5a5a"/>
+              <path d="M15 6 L15 10 Q15 16 20 16 Q26 16 26 20 Q26 24 15 24" stroke="#6a6a6a" strokeWidth="4" fill="none" strokeLinecap="round"/>
+              <path d="M15 6 L15 10 Q15 16 20 16 Q26 16 26 20" stroke="#8a8a8a" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
+            </svg>
+            <div ref={ropeRef} style={styles.rope} />
           </div>
 
-          <div style={styles.instructions}>
-            <div style={styles.row}>
-              <span style={styles.icon}><MapPin size={22} strokeWidth={2.5} /></span>
-              <span style={styles.text}>Tap any MRT station to discover nearby eats</span>
+          {/* Card Hook */}
+          <div style={styles.cardHook}>
+            <div style={styles.cardHookHole} />
+          </div>
+
+          {/* Card */}
+          <div style={styles.card}>
+            <div style={styles.circle1} />
+            <div style={styles.circle2} />
+
+            <div style={styles.header}>
+              <h2 style={styles.title}>MRT Foodie</h2>
+              <p style={styles.subtitle}>Your curated food map</p>
             </div>
 
-            <div style={styles.row}>
-              <span style={styles.icon}><Search size={22} strokeWidth={2.5} /></span>
-              <span style={styles.text}>Search for food like &apos;pizza&apos;, &apos;ramen&apos; or restaurant names</span>
-            </div>
+            <div style={styles.instructions}>
+              <div style={styles.row}>
+                <span style={styles.icon}><MapPin size={22} strokeWidth={2.5} /></span>
+                <span style={styles.text}>Tap any MRT station to discover nearby eats</span>
+              </div>
 
-            <div style={styles.row}>
-              <span style={styles.icon}><SlidersHorizontal size={22} strokeWidth={2.5} /></span>
-              <span style={styles.text}>Filter by Dessert and Supper</span>
-            </div>
+              <div style={styles.row}>
+                <span style={styles.icon}><Search size={22} strokeWidth={2.5} /></span>
+                <span style={styles.text}>Search for food like &apos;pizza&apos;, &apos;ramen&apos; or restaurant names</span>
+              </div>
 
-            <div style={styles.sources}>
-              <p style={styles.sourcesTitle}>Curated Sources</p>
-              <div style={styles.sourcesList}>
-                {['Michelin Guide', 'Eatbook', 'Burpple', 'Seth Lui', 'GetFed'].map((source) => (
-                  <span key={source} style={styles.tag}>{source}</span>
-                ))}
-                <span style={styles.more}>+more</span>
+              <div style={styles.row}>
+                <span style={styles.icon}><SlidersHorizontal size={22} strokeWidth={2.5} /></span>
+                <span style={styles.text}>Filter by Dessert and Supper</span>
+              </div>
+
+              <div style={styles.sources}>
+                <p style={styles.sourcesTitle}>Curated Sources</p>
+                <div style={styles.sourcesList}>
+                  {['Michelin Guide', 'Eatbook', 'Burpple', 'Seth Lui', 'GetFed'].map((source) => (
+                    <span key={source} style={styles.tag}>{source}</span>
+                  ))}
+                  <span style={styles.more}>+more</span>
+                </div>
               </div>
             </div>
-          </div>
 
-          <button
-            style={styles.button}
-            onClick={handleDismiss}
-            onTouchEnd={(e) => {
-              e.preventDefault();
-              handleDismiss();
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = 'scale(1.02)';
-              e.currentTarget.style.backgroundColor = '#2a2a2a';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = 'scale(1)';
-              e.currentTarget.style.backgroundColor = '#1a1a1a';
-            }}
-          >
-            Let&apos;s Eat!
-          </button>
-          <p style={styles.footer}>© {new Date().getFullYear()} MRT Foodie • All rights reserved</p>
+            <button
+              style={styles.button}
+              onClick={handleDismiss}
+              onTouchEnd={(e) => {
+                e.preventDefault();
+                handleDismiss();
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'scale(1.02)';
+                e.currentTarget.style.backgroundColor = '#2a2a2a';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'scale(1)';
+                e.currentTarget.style.backgroundColor = '#1a1a1a';
+              }}
+            >
+              Let&apos;s Eat!
+            </button>
+            <p style={styles.footer}>© {new Date().getFullYear()} MRT Foodie • All rights reserved</p>
+          </div>
         </div>
       </div>
     </>
