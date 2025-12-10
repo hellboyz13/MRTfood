@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { FoodListingWithSources } from '@/types/database';
 import { IconInstagram } from './Icons';
+import { getMapsUrl } from '@/lib/distance';
 
 interface MenuPreviewProps {
   listing: FoodListingWithSources;
@@ -128,7 +129,14 @@ export default function MenuPreview({ listing, onBack }: MenuPreviewProps) {
         <div className="profile-info">
           <h2>{listing.name}</h2>
           {listing.address && (
-            <p className="location">📍 {listing.address}</p>
+            <a
+              href={getMapsUrl(listing.name, listing.address)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="location text-blue-600 hover:text-blue-800 hover:underline"
+            >
+              📍 {listing.address}
+            </a>
           )}
           {badge && (
             <p className="badge">{badge}</p>

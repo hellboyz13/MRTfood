@@ -105,8 +105,7 @@ export default function HowToUseCard() {
       top: '100px',
       left: '50%',
       transform: 'translateX(-50%) translateY(-100vh)',
-      width: '400px',
-      maxWidth: '90%',
+      width: 'min(400px, calc(100vw - 32px))',
       zIndex: 9999,
       display: 'flex',
       flexDirection: 'column' as const,
@@ -356,6 +355,10 @@ export default function HowToUseCard() {
           <button
             style={styles.button}
             onClick={handleDismiss}
+            onTouchEnd={(e) => {
+              e.preventDefault();
+              handleDismiss();
+            }}
             onMouseEnter={(e) => {
               e.currentTarget.style.transform = 'scale(1.02)';
               e.currentTarget.style.backgroundColor = '#2a2a2a';

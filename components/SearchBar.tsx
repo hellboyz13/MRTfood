@@ -146,7 +146,7 @@ export default function SearchBar({ onSearch, onClear, isSearching, noResults, o
 
   return (
     <div
-      className="fixed left-1/2 transform -translate-x-1/2 z-50 pointer-events-none transition-all duration-200"
+      className="fixed left-0 right-0 flex justify-center z-50 pointer-events-none transition-all duration-200 px-4"
       style={{ bottom: keyboardHeight > 0 ? `${keyboardHeight + 16}px` : '16px' }}
     >
       {/* No Results Popup Animation */}
@@ -160,15 +160,15 @@ export default function SearchBar({ onSearch, onClear, isSearching, noResults, o
           bottom: '100%',
         }}
       >
-        <div className="bg-red-500 text-white px-4 py-2 rounded-full shadow-lg whitespace-nowrap flex items-center gap-2">
+        <div className="bg-[#1a1a1a] text-[#E8B931] px-4 py-2 rounded-full shadow-lg whitespace-nowrap flex items-center gap-2 border-2 border-[#E8B931]">
           <span className="text-lg">😵</span>
-          <span className="text-sm font-medium">No food found</span>
+          <span className="text-sm font-bold">No food found</span>
         </div>
       </div>
 
       <div className="flex items-center gap-2 pointer-events-auto">
-        {/* Filter Button with Expandable Menu */}
-        {(on24hClick || onDessertClick) && (
+        {/* Filter Button with Expandable Menu - Hide when keyboard is open */}
+        {(on24hClick || onDessertClick) && keyboardHeight === 0 && (
           <div ref={filterRef} className="relative">
             {/* Expandable Filter Options - Opens Upward */}
             <div

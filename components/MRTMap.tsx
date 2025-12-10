@@ -809,28 +809,13 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
         circle.style.transformOrigin = 'center';
         circle.style.transformBox = 'fill-box';
 
-        // Create invisible larger touch target for mobile (radius 12px instead of 3px)
-        const touchTarget = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-        touchTarget.setAttribute('cx', String(cx));
-        touchTarget.setAttribute('cy', String(cy));
-        touchTarget.setAttribute('r', '12'); // 4x larger hit area
-        touchTarget.setAttribute('fill', 'transparent');
-        touchTarget.setAttribute('data-station-id', matchedStation);
-        touchTarget.style.cursor = 'pointer';
-
-        // Insert touch target before the visible circle (so circle appears on top)
-        circle.parentNode?.insertBefore(touchTarget, circle);
-
-        // Click handler for both touch target and visible circle
-        const handleClick = (e: Event) => {
+        // Click handler
+        circle.addEventListener('click', (e: Event) => {
           e.stopPropagation();
           onStationClick(matchedStation!);
-        };
+        });
 
-        touchTarget.addEventListener('click', handleClick);
-        circle.addEventListener('click', handleClick);
-
-        // Hover effects only on visible circle
+        // Hover effects
         circle.addEventListener('mouseenter', () => {
           // Don't change fill if station is selected (red) or highlighted (green)
           if (circle.getAttribute('fill') !== '#dc2626' && !circle.classList.contains('station-highlighted')) {
@@ -840,20 +825,6 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
 
         circle.addEventListener('mouseleave', () => {
           // Don't reset fill if station is selected (red) or highlighted (green)
-          const currentFill = circle.getAttribute('fill');
-          if (currentFill !== '#dc2626' && !circle.classList.contains('station-highlighted')) {
-            circle.setAttribute('fill', '#ffffff');
-          }
-        });
-
-        // Also add hover effects when touching the larger target
-        touchTarget.addEventListener('mouseenter', () => {
-          if (circle.getAttribute('fill') !== '#dc2626' && !circle.classList.contains('station-highlighted')) {
-            circle.setAttribute('fill', '#fca5a5');
-          }
-        });
-
-        touchTarget.addEventListener('mouseleave', () => {
           const currentFill = circle.getAttribute('fill');
           if (currentFill !== '#dc2626' && !circle.classList.contains('station-highlighted')) {
             circle.setAttribute('fill', '#ffffff');
