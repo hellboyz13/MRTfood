@@ -30,14 +30,14 @@ export default function HowToUseCard() {
       // Animate container drop with bounce
       containerRef.current?.animate(
         [
-          { transform: 'translateX(-50%) translateY(-100vh)' },
-          { transform: 'translateX(-50%) translateY(30px)' },
-          { transform: 'translateX(-50%) translateY(-100px)' },
-          { transform: 'translateX(-50%) translateY(15px)' },
-          { transform: 'translateX(-50%) translateY(-45px)' },
-          { transform: 'translateX(-50%) translateY(5px)' },
-          { transform: 'translateX(-50%) translateY(-15px)' },
-          { transform: 'translateX(-50%) translateY(0)' },
+          { transform: 'translate(-50%, -50%) translateY(-100vh)' },
+          { transform: 'translate(-50%, -50%) translateY(30px)' },
+          { transform: 'translate(-50%, -50%) translateY(-100px)' },
+          { transform: 'translate(-50%, -50%) translateY(15px)' },
+          { transform: 'translate(-50%, -50%) translateY(-45px)' },
+          { transform: 'translate(-50%, -50%) translateY(5px)' },
+          { transform: 'translate(-50%, -50%) translateY(-15px)' },
+          { transform: 'translate(-50%, -50%) translateY(0)' },
         ],
         { duration: 1400, easing: 'cubic-bezier(0.22, 0, 0.36, 1)', fill: 'forwards' }
       );
@@ -71,8 +71,8 @@ export default function HowToUseCard() {
     // Animate container retract up
     containerRef.current?.animate(
       [
-        { transform: 'translateX(-50%) translateY(0)' },
-        { transform: 'translateX(-50%) translateY(-120vh)' },
+        { transform: 'translate(-50%, -50%) translateY(0)' },
+        { transform: 'translate(-50%, -50%) translateY(-120vh)' },
       ],
       { duration: 400, easing: 'cubic-bezier(0.55, 0, 1, 0.45)', fill: 'forwards' }
     );
@@ -102,9 +102,9 @@ export default function HowToUseCard() {
     },
     container: {
       position: 'fixed' as const,
-      top: '100px',
+      top: '50%',
       left: '50%',
-      transform: 'translateX(-50%) translateY(-100vh)',
+      transform: 'translate(-50%, -50%) translateY(-100vh)',
       width: 'min(400px, calc(100vw - 32px))',
       zIndex: 9999,
       display: 'flex',
