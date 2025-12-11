@@ -21,33 +21,6 @@ const PLACEHOLDER_EXAMPLES = [
   'Sin Kee Seafood Soup',
 ];
 
-// Quick witty no-results messages for the popup
-function getQuickNoResultsMessage(query: string): { emoji: string; text: string } {
-  const q = query.toLowerCase().trim();
-
-  // Absurd searches
-  if (['human', 'people', 'person', 'child', 'baby'].some(p => q.includes(p))) {
-    return { emoji: '👀', text: 'Uhh... you okay?' };
-  }
-  if (['dog', 'cat', 'pet'].some(p => q.includes(p))) {
-    return { emoji: '🐕', text: 'Not that kind of food!' };
-  }
-  if (['shit', 'poop', 'crap'].some(p => q.includes(p))) {
-    return { emoji: '💩', text: 'Very funny...' };
-  }
-  if (['drugs', 'weed', 'cocaine'].some(p => q.includes(p))) {
-    return { emoji: '🚫', text: 'Sir, this is a food app' };
-  }
-
-  // Generic
-  const messages = [
-    { emoji: '🤔', text: 'Hmm, not found' },
-    { emoji: '😅', text: 'No luck there' },
-    { emoji: '🔍', text: 'Try another search' },
-  ];
-  return messages[Math.floor(Math.random() * messages.length)];
-}
-
 export default function SearchBar({ onSearch, onClear, isSearching, noResults, on24hClick, is24hActive, onDessertClick, isDessertActive }: SearchBarProps) {
   const [query, setQuery] = useState('');
   const [isMobile, setIsMobile] = useState(false);
@@ -211,8 +184,8 @@ export default function SearchBar({ onSearch, onClear, isSearching, noResults, o
           }}
         >
           <div className="bg-[#E8B931] text-[#1a1a1a] px-4 py-2 rounded-full shadow-lg whitespace-nowrap flex items-center gap-2 border-2 border-[#1a1a1a]">
-            <span className="text-lg">{getQuickNoResultsMessage(query).emoji}</span>
-            <span className="text-sm font-bold">{getQuickNoResultsMessage(query).text}</span>
+            <span className="text-lg">😵</span>
+            <span className="text-sm font-bold">No food found</span>
           </div>
         </div>
       )}
