@@ -277,6 +277,40 @@ export interface Database {
           updated_at?: string;
         };
       };
+      listing_prices: {
+        Row: {
+          id: string;
+          listing_id: string;
+          item_name: string;
+          price: number;
+          description: string | null;
+          is_signature: boolean;
+          sort_order: number;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: {
+          id?: string;
+          listing_id: string;
+          item_name: string;
+          price: number;
+          description?: string | null;
+          is_signature?: boolean;
+          sort_order?: number;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Update: {
+          id?: string;
+          listing_id?: string;
+          item_name?: string;
+          price?: number;
+          description?: string | null;
+          is_signature?: boolean;
+          sort_order?: number;
+          updated_at?: string;
+        };
+      };
     };
     Views: {
       [_ in never]: never;
@@ -298,6 +332,7 @@ export type SponsoredListing = Database['public']['Tables']['sponsored_listings'
 export type ListingSource = Database['public']['Tables']['listing_sources']['Row'];
 export type ChainBrand = Database['public']['Tables']['chain_brands']['Row'];
 export type ChainOutlet = Database['public']['Tables']['chain_outlets']['Row'];
+export type ListingPrice = Database['public']['Tables']['listing_prices']['Row'];
 
 // Source with its metadata from junction table
 export interface ListingSourceWithDetails {
@@ -311,6 +346,8 @@ export interface FoodListingWithSources extends FoodListing {
   sources: ListingSourceWithDetails[];
   // Computed trust score (sum of source weights)
   trust_score?: number;
+  // Price range from listing_prices table
+  price_range?: string | null;
 }
 
 // Combined station food data

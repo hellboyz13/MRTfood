@@ -151,15 +151,21 @@ export default function FoodListingCardV2({ listing, highlighted = false, onView
             </div>
           )}
 
-          {/* Walking info */}
-          {(formattedDistance || walkingTime) && (
-            <div className="flex items-center gap-1 mt-1.5 text-xs text-gray-500">
-              <span>🚶</span>
-              {formattedDistance && <span>{formattedDistance}</span>}
-              {formattedDistance && walkingTime && <span>·</span>}
-              {walkingTime && <span>{walkingTime} min</span>}
-            </div>
-          )}
+          {/* Price and Walking info */}
+          <div className="flex items-center gap-2 mt-1.5 text-xs text-gray-500">
+            {listing.price_range && (
+              <span className="text-green-600 font-medium">{listing.price_range}</span>
+            )}
+            {listing.price_range && (formattedDistance || walkingTime) && <span>·</span>}
+            {(formattedDistance || walkingTime) && (
+              <span className="flex items-center gap-1">
+                <span>🚶</span>
+                {formattedDistance && <span>{formattedDistance}</span>}
+                {formattedDistance && walkingTime && <span>·</span>}
+                {walkingTime && <span>{walkingTime} min</span>}
+              </span>
+            )}
+          </div>
 
           {/* Address */}
           {listing.address && (

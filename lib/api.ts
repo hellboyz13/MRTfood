@@ -11,6 +11,7 @@ import {
   ChainOutlet,
   GroupedChainOutlets,
   StationSearchResult,
+  ListingPrice,
 } from '@/types/database';
 
 // Re-export the new food search function
@@ -153,6 +154,25 @@ export async function getFoodListingsByStation(
     sourcesByListing.set(ls.listing_id, sources);
   });
 
+  // Fetch prices for all listings
+  const { data: listingPrices, error: pricesError } = await supabase
+    .from('listing_prices')
+    .select('listing_id, description')
+    .in('listing_id', listingIds)
+    .eq('item_name', 'Price Range');
+
+  if (pricesError) {
+    console.error('Error fetching listing prices:', pricesError);
+  }
+
+  // Map prices by listing_id
+  const pricesByListing = new Map<string, string>();
+  (listingPrices || []).forEach((lp: { listing_id: string; description: string | null }) => {
+    if (lp.description) {
+      pricesByListing.set(lp.listing_id, lp.description);
+    }
+  });
+
   // Combine listings with their sources and compute trust score
   const result: FoodListingWithSources[] = listings.map((listing: FoodListing) => {
     const sources = sourcesByListing.get(listing.id) || [];
@@ -162,10 +182,12 @@ export async function getFoodListingsByStation(
       return (b.source.weight || 1) - (a.source.weight || 1);
     });
     const trust_score = sources.reduce((sum, s) => sum + (s.source.weight || 1), 0);
+    const price_range = pricesByListing.get(listing.id) || null;
     return {
       ...listing,
       sources,
       trust_score,
+      price_range,
     };
   });
 
