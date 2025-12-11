@@ -63,7 +63,6 @@ async function getOneMapToken(): Promise<string | null> {
   }
 
   try {
-    console.log('🔑 Requesting OneMap token...');
     const response = await fetch('https://www.onemap.gov.sg/api/auth/post/getToken', {
       method: 'POST',
       headers: {
@@ -73,10 +72,8 @@ async function getOneMapToken(): Promise<string | null> {
     });
 
     const responseText = await response.text();
-    console.log('Token response status:', response.status);
 
     if (!response.ok) {
-      console.error('Token response:', responseText);
       throw new Error(`Token request failed: ${response.status}`);
     }
 
@@ -86,8 +83,6 @@ async function getOneMapToken(): Promise<string | null> {
     cachedToken = data.access_token;
     tokenExpiry = parseInt(data.expiry_timestamp) * 1000 - (60 * 60 * 1000); // 1 hour before expiry
 
-    console.log('✅ OneMap token obtained successfully');
-    console.log('Token preview:', cachedToken?.substring(0, 20) + '...');
     return cachedToken;
   } catch (error) {
     console.error('Failed to get OneMap token:', error);
