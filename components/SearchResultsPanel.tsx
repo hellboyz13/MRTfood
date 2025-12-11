@@ -26,6 +26,67 @@ function getStationCode(stationId: string): string {
   return stationId.toUpperCase();
 }
 
+// Smart no-results message generator
+function getNoResultsMessage(query: string): { emoji: string; message: string; subtext: string } {
+  const q = query.toLowerCase().trim();
+
+  // Absurd/funny searches
+  const absurdPatterns = [
+    { patterns: ['human', 'people', 'person', 'man', 'woman', 'child', 'baby', 'kid'], emoji: '👀', message: 'Uhh... you okay there?', subtext: 'Maybe try chicken instead?' },
+    { patterns: ['dog', 'cat', 'pet', 'puppy', 'kitten'], emoji: '🐕', message: 'We don\'t serve pets here!', subtext: 'How about some actual food?' },
+    { patterns: ['shit', 'poop', 'crap', 'feces'], emoji: '💩', message: 'That\'s... not on the menu', subtext: 'Try something edible maybe?' },
+    { patterns: ['ass', 'butt'], emoji: '🍑', message: 'Looking for peaches?', subtext: 'We have desserts!' },
+    { patterns: ['dick', 'penis', 'cock'], emoji: '🌭', message: 'Hotdog? We might have that', subtext: 'Try searching "western"' },
+    { patterns: ['drugs', 'weed', 'cocaine', 'meth'], emoji: '🚫', message: 'Sir, this is a food app', subtext: 'Coffee is the only legal stimulant here' },
+    { patterns: ['poison', 'toxic', 'death'], emoji: '☠️', message: 'We only serve food, not revenge', subtext: 'All our listings are safe to eat!' },
+    { patterns: ['money', 'cash', 'free'], emoji: '💸', message: 'Sorry, no free food here', subtext: 'But we have affordable hawker options!' },
+    { patterns: ['girlfriend', 'boyfriend', 'love', 'date'], emoji: '💔', message: 'Can\'t help with that...', subtext: 'But good food might help!' },
+    { patterns: ['homework', 'exam', 'test', 'assignment'], emoji: '📚', message: 'Wrong app buddy', subtext: 'But brain food = fish?' },
+  ];
+
+  for (const { patterns, emoji, message, subtext } of absurdPatterns) {
+    if (patterns.some(p => q.includes(p))) {
+      return { emoji, message, subtext };
+    }
+  }
+
+  // Food-related suggestions based on what they searched
+  const foodSuggestions: { [key: string]: string } = {
+    'pizza': 'Try "Italian" or "Western"',
+    'burger': 'Try "Western" or "American"',
+    'sushi': 'Try "Japanese"',
+    'ramen': 'Try "Japanese" or "Noodles"',
+    'curry': 'Try "Indian" or "Japanese"',
+    'rice': 'Try "Chinese" or "Malay"',
+    'noodle': 'Try "Chinese" or "Japanese"',
+    'spicy': 'Try "Thai" or "Korean"',
+    'sweet': 'Try "Dessert"',
+    'cheap': 'Try "Hawker" or browse any station',
+    'halal': 'Try "Malay" or "Indian"',
+    'vegan': 'Try "Vegetarian"',
+    'vegetarian': 'We have some options! Try browsing stations',
+    'breakfast': 'Try "Cafe" or "Kaya Toast"',
+    'supper': 'Try the 24H filter!',
+    'late': 'Try the 24H filter for late night eats!',
+  };
+
+  for (const [key, suggestion] of Object.entries(foodSuggestions)) {
+    if (q.includes(key)) {
+      return { emoji: '💡', message: `No exact match for "${query}"`, subtext: suggestion };
+    }
+  }
+
+  // Random helpful messages for generic no-results
+  const genericMessages = [
+    { emoji: '🤔', message: `Hmm, no "${query}" found`, subtext: 'Did you mean something else?' },
+    { emoji: '🔍', message: `Can't find "${query}"`, subtext: 'Try a different keyword' },
+    { emoji: '😅', message: `"${query}" isn't in our database`, subtext: 'Try cuisine type like "Japanese" or "Thai"' },
+    { emoji: '🍜', message: `No results for "${query}"`, subtext: 'Browse stations to discover food!' },
+  ];
+
+  return genericMessages[Math.floor(Math.random() * genericMessages.length)];
+}
+
 export default function SearchResultsPanel({
   searchQuery,
   results,
@@ -84,10 +145,12 @@ export default function SearchResultsPanel({
   };
 
   // No results message component - Black background with yellow text
+  const noResultsMsg = getNoResultsMessage(searchQuery);
   const NoResultsMessage = () => (
     <div className="p-4 text-center bg-[#1a1a1a]">
-      <p className="text-[#E8B931] text-sm font-medium">No food found for "{searchQuery}"</p>
-      <p className="text-[#E8B931]/70 text-xs mt-1">Try a different search term</p>
+      <span className="text-2xl block mb-2">{noResultsMsg.emoji}</span>
+      <p className="text-[#E8B931] text-sm font-medium">{noResultsMsg.message}</p>
+      <p className="text-[#E8B931]/70 text-xs mt-1">{noResultsMsg.subtext}</p>
     </div>
   );
 
@@ -243,8 +306,9 @@ export default function SearchResultsPanel({
               </div>
             ) : (
               <div className="p-6 text-center bg-[#1a1a1a]">
-                <p className="text-[#E8B931] font-medium">No food found for "{searchQuery}"</p>
-                <p className="text-[#E8B931]/70 text-sm mt-2">Try a different search term</p>
+                <span className="text-4xl block mb-3">{noResultsMsg.emoji}</span>
+                <p className="text-[#E8B931] font-medium">{noResultsMsg.message}</p>
+                <p className="text-[#E8B931]/70 text-sm mt-2">{noResultsMsg.subtext}</p>
               </div>
             )}
 
