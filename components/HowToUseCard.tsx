@@ -68,25 +68,30 @@ export default function HowToUseCard() {
       { duration: 500, easing: 'ease', fill: 'forwards' }
     );
 
-    // Animate card wrapper retract up
+    // Animate card wrapper - stretch down first, then retract up
     containerRef.current?.animate(
       [
-        { transform: 'translateY(0)' },
-        { transform: 'translateY(-120vh)' },
+        { transform: 'translateY(0)', offset: 0 },
+        { transform: 'translateY(40px)', offset: 0.15 },
+        { transform: 'translateY(-120vh)', offset: 1 },
       ],
-      { duration: 400, easing: 'cubic-bezier(0.55, 0, 1, 0.45)', fill: 'forwards' }
+      { duration: 500, easing: 'cubic-bezier(0.55, 0, 1, 0.45)', fill: 'forwards' }
     );
 
-    // Animate rope retract
+    // Animate rope - extend slightly, then retract
     ropeRef.current?.animate(
-      [{ height: '80px' }, { height: '0px' }],
-      { duration: 400, easing: 'cubic-bezier(0.55, 0, 1, 0.45)', fill: 'forwards' }
+      [
+        { height: '80px', offset: 0 },
+        { height: '110px', offset: 0.15 },
+        { height: '0px', offset: 1 },
+      ],
+      { duration: 500, easing: 'cubic-bezier(0.55, 0, 1, 0.45)', fill: 'forwards' }
     );
 
     setTimeout(() => {
       localStorage.setItem('mrtfoodie_visited', 'true');
       setShow(false);
-    }, 500);
+    }, 550);
   };
 
   if (!show) return null;

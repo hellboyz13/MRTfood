@@ -157,7 +157,7 @@ export default function SlotMachine({ listings, onSelectWinner }: SlotMachinePro
     <div className="bg-white rounded-lg p-4 mb-4 border border-slate-200">
       <div className="text-center mb-3">
         <h3 className="text-sm font-semibold text-slate-700 mb-0.5">
-          Can&apos;t Decide?
+          🎰 Surprise Me!
         </h3>
       </div>
 
@@ -176,7 +176,7 @@ export default function SlotMachine({ listings, onSelectWinner }: SlotMachinePro
           </div>
           {!isSpinning && !winner && (
             <div className="mt-1 text-xs text-slate-400">
-              Press Spin to discover something delicious
+              Let fate decide your next meal!
             </div>
           )}
           {!isSpinning && currentListing && currentListing.tags && winner && (

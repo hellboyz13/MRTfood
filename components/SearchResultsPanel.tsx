@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { StationSearchResult } from '@/lib/api';
 import { IconClose, IconChevronLeft, IconChevronDown } from './Icons';
 
@@ -35,14 +35,59 @@ export default function SearchResultsPanel({
   onStationZoom,
 }: SearchResultsPanelProps) {
   const [isCollapsed, setIsCollapsed] = useState(false);
+  const mobilePanelRef = useRef<HTMLDivElement>(null);
+  const desktopPanelRef = useRef<HTMLDivElement>(null);
 
   const hasResults = results && results.length > 0;
 
-  // No results message component - White background theme
+  const handleToggle = () => {
+    const newCollapsed = !isCollapsed;
+
+    // Animate mobile panel
+    if (mobilePanelRef.current) {
+      mobilePanelRef.current.animate(
+        newCollapsed
+          ? [
+              { transform: 'translateX(0) scale(1)', opacity: 1 },
+              { transform: 'translateX(-20px) scale(0.95)', opacity: 0.8, offset: 0.3 },
+              { transform: 'translateX(-140px) scale(0.9)', opacity: 0.6 },
+            ]
+          : [
+              { transform: 'translateX(-140px) scale(0.9)', opacity: 0.6 },
+              { transform: 'translateX(-20px) scale(0.95)', opacity: 0.8, offset: 0.7 },
+              { transform: 'translateX(0) scale(1)', opacity: 1 },
+            ],
+        { duration: 350, easing: 'cubic-bezier(0.4, 0, 0.2, 1)', fill: 'forwards' }
+      );
+    }
+
+    // Animate desktop panel
+    if (desktopPanelRef.current) {
+      const desktopOffset = 'calc(-24rem - 16px)';
+      desktopPanelRef.current.animate(
+        newCollapsed
+          ? [
+              { transform: 'translateX(0) scale(1)', opacity: 1 },
+              { transform: `translateX(-50px) scale(0.98)`, opacity: 0.9, offset: 0.3 },
+              { transform: `translateX(${desktopOffset}) scale(0.95)`, opacity: 0.7 },
+            ]
+          : [
+              { transform: `translateX(${desktopOffset}) scale(0.95)`, opacity: 0.7 },
+              { transform: `translateX(-50px) scale(0.98)`, opacity: 0.9, offset: 0.7 },
+              { transform: 'translateX(0) scale(1)', opacity: 1 },
+            ],
+        { duration: 400, easing: 'cubic-bezier(0.4, 0, 0.2, 1)', fill: 'forwards' }
+      );
+    }
+
+    setIsCollapsed(newCollapsed);
+  };
+
+  // No results message component - Black background with yellow text
   const NoResultsMessage = () => (
-    <div className="p-4 text-center bg-white">
-      <p className="text-[#1a1a1a] text-sm">No food found for "{searchQuery}"</p>
-      <p className="text-[#1a1a1a]/60 text-xs mt-1">Try a different search term</p>
+    <div className="p-4 text-center bg-[#1a1a1a]">
+      <p className="text-[#E8B931] text-sm font-medium">No food found for "{searchQuery}"</p>
+      <p className="text-[#E8B931]/70 text-xs mt-1">Try a different search term</p>
     </div>
   );
 
@@ -50,9 +95,8 @@ export default function SearchResultsPanel({
     <>
       {/* Mobile: Slide-able Panel - White background theme */}
       <div
-        className={`md:hidden fixed top-20 z-40 flex transition-transform duration-300 ease-in-out ${
-          isCollapsed ? '-translate-x-[140px]' : 'translate-x-0'
-        }`}
+        ref={mobilePanelRef}
+        className="md:hidden fixed top-20 z-40 flex"
         style={{ left: 0 }}
       >
         {/* Panel content */}
@@ -108,7 +152,7 @@ export default function SearchResultsPanel({
 
           {/* Toggle button - always visible */}
           <button
-            onClick={() => setIsCollapsed(!isCollapsed)}
+            onClick={handleToggle}
             className="self-start mt-4 w-6 h-12 bg-[#E8B931] hover:bg-[#F5D251] text-[#1a1a1a] rounded-r-lg shadow-lg flex items-center justify-center transition-colors"
             aria-label={isCollapsed ? "Show search results" : "Hide search results"}
           >
@@ -119,9 +163,8 @@ export default function SearchResultsPanel({
 
       {/* Desktop: Slide-able Full Panel - White background theme */}
       <div
-        className={`hidden md:flex fixed top-20 z-40 transition-transform duration-300 ease-in-out ${
-          isCollapsed ? '-translate-x-[calc(24rem+16px)]' : 'translate-x-0'
-        }`}
+        ref={desktopPanelRef}
+        className="hidden md:flex fixed top-20 z-40"
         style={{ left: '16px' }}
       >
         {/* Panel content */}
@@ -199,9 +242,9 @@ export default function SearchResultsPanel({
                 })}
               </div>
             ) : (
-              <div className="p-6 text-center">
-                <p className="text-[#1a1a1a]">No food found for "{searchQuery}"</p>
-                <p className="text-[#1a1a1a]/60 text-sm mt-2">Try a different search term</p>
+              <div className="p-6 text-center bg-[#1a1a1a]">
+                <p className="text-[#E8B931] font-medium">No food found for "{searchQuery}"</p>
+                <p className="text-[#E8B931]/70 text-sm mt-2">Try a different search term</p>
               </div>
             )}
 
@@ -216,7 +259,7 @@ export default function SearchResultsPanel({
 
         {/* Toggle button - always visible */}
         <button
-          onClick={() => setIsCollapsed(!isCollapsed)}
+          onClick={handleToggle}
           className="self-start mt-4 ml-2 w-8 h-16 bg-[#E8B931] hover:bg-[#F5D251] text-[#1a1a1a] rounded-r-lg shadow-lg flex items-center justify-center transition-colors"
           aria-label={isCollapsed ? "Show search results" : "Hide search results"}
         >

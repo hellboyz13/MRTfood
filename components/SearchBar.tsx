@@ -33,6 +33,7 @@ export default function SearchBar({ onSearch, onClear, isSearching, noResults, o
   const [keyboardHeight, setKeyboardHeight] = useState(0);
   const dragRef = useRef<HTMLDivElement>(null);
   const filterRef = useRef<HTMLDivElement>(null);
+  const noResultsRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const startPos = useRef({ x: 0, y: 0 });
 
@@ -47,18 +48,39 @@ export default function SearchBar({ onSearch, onClear, isSearching, noResults, o
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  // Show no results animation when noResults prop changes
+  // Show no results when noResults prop changes
   useEffect(() => {
     if (noResults) {
       setShowNoResults(true);
-      const timer = setTimeout(() => {
-        setShowNoResults(false);
-      }, 3000);
-      return () => clearTimeout(timer);
-    } else {
-      setShowNoResults(false);
     }
   }, [noResults]);
+
+  // Animate after showNoResults renders the element
+  useEffect(() => {
+    if (showNoResults && noResultsRef.current) {
+      // Animate popup rising from below
+      noResultsRef.current.animate(
+        [
+          { transform: 'translateX(-50%) translateY(20px)', opacity: 0 },
+          { transform: 'translateX(-50%) translateY(-14px)', opacity: 1 },
+        ],
+        { duration: 400, easing: 'cubic-bezier(0.34, 1.56, 0.64, 1)', fill: 'forwards' }
+      );
+
+      const timer = setTimeout(() => {
+        // Animate popup dropping back down
+        noResultsRef.current?.animate(
+          [
+            { transform: 'translateX(-50%) translateY(-14px)', opacity: 1 },
+            { transform: 'translateX(-50%) translateY(20px)', opacity: 0 },
+          ],
+          { duration: 300, easing: 'cubic-bezier(0.36, 0, 0.66, -0.56)', fill: 'forwards' }
+        );
+        setTimeout(() => setShowNoResults(false), 300);
+      }, 2700);
+      return () => clearTimeout(timer);
+    }
+  }, [showNoResults]);
 
   // Detect mobile
   useEffect(() => {
@@ -149,22 +171,24 @@ export default function SearchBar({ onSearch, onClear, isSearching, noResults, o
       className="fixed left-0 right-0 flex justify-center z-50 pointer-events-none transition-all duration-200 px-4"
       style={{ bottom: keyboardHeight > 0 ? `${keyboardHeight + 16}px` : '16px' }}
     >
-      {/* No Results Popup Animation */}
-      <div
-        className={`absolute left-1/2 -translate-x-1/2 transition-all duration-500 ease-out pointer-events-none ${
-          showNoResults
-            ? 'opacity-100 -translate-y-14'
-            : 'opacity-0 translate-y-0'
-        }`}
-        style={{
-          bottom: '100%',
-        }}
-      >
-        <div className="bg-[#1a1a1a] text-[#E8B931] px-4 py-2 rounded-full shadow-lg whitespace-nowrap flex items-center gap-2 border-2 border-[#E8B931]">
-          <span className="text-lg">😵</span>
-          <span className="text-sm font-bold">No food found</span>
+      {/* No Results Popup Animation - rises from below search bar, drops back down */}
+      {showNoResults && (
+        <div
+          ref={noResultsRef}
+          className="absolute left-1/2 pointer-events-none"
+          style={{
+            bottom: '100%',
+            marginBottom: '8px',
+            transform: 'translateX(-50%) translateY(20px)',
+            opacity: 0,
+          }}
+        >
+          <div className="bg-[#E8B931] text-[#1a1a1a] px-4 py-2 rounded-full shadow-lg whitespace-nowrap flex items-center gap-2 border-2 border-[#1a1a1a]">
+            <span className="text-lg">😵</span>
+            <span className="text-sm font-bold">No food found</span>
+          </div>
         </div>
-      </div>
+      )}
 
       <div className="flex items-center gap-2 pointer-events-auto">
         {/* Filter Button with Expandable Menu - Hide when keyboard is open */}

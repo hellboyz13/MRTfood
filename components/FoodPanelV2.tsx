@@ -156,12 +156,12 @@ export default function FoodPanelV2({ stationId, onClose, isMobile = false, sear
     // If search is active but no matches at this station, show empty state
     if (isSearchActive && sortedListings.length === 0) {
       return (
-        <div className="text-center py-8">
+        <div className="text-center py-8 bg-[#1a1a1a] rounded-lg mx-2">
           <div className="text-4xl mb-3">🔍</div>
-          <p className="text-gray-500 text-sm">
+          <p className="text-[#E8B931] text-sm font-medium">
             No "{searchQuery}" found at this station.
           </p>
-          <p className="text-gray-400 text-xs mt-1">
+          <p className="text-[#E8B931]/70 text-xs mt-1">
             Try a different station or search term.
           </p>
         </div>
