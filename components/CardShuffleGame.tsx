@@ -264,7 +264,7 @@ export default function CardShuffleGame({ listings, onSelectWinner, onClose }: C
             </button>
 
             <a
-              href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(winner.name + ' ' + (winner.address || 'Singapore'))}`}
+              href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(winner.name + ' ' + (winner.landmark || 'Singapore'))}`}
               target="_blank"
               rel="noopener noreferrer"
               className="flex-1 py-2 px-3 bg-gradient-to-r from-green-500 to-emerald-500

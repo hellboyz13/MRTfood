@@ -110,6 +110,7 @@ export interface Database {
           walking_time: number | null;
           lat: number | null;
           lng: number | null;
+          landmark: string | null;
         };
         Insert: {
           id?: string;
@@ -130,6 +131,7 @@ export interface Database {
           walking_time?: number | null;
           lat?: number | null;
           lng?: number | null;
+          landmark?: string | null;
         };
         Update: {
           id?: string;
@@ -149,6 +151,7 @@ export interface Database {
           walking_time?: number | null;
           lat?: number | null;
           lng?: number | null;
+          landmark?: string | null;
         };
       };
       sponsored_listings: {

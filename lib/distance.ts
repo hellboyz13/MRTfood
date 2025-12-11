@@ -20,9 +20,8 @@ export function getWalkingTime(walkingTimeSeconds: number | null, distanceMeters
   return null;
 }
 
-// Generate Google Maps URL - searches by restaurant name for better results
-export function getMapsUrl(name: string, address?: string): string {
-  // Use restaurant name for search - Google is smart enough to find it
-  const query = name + (address ? ` Singapore` : '');
+// Generate Google Maps URL using name + landmark for precise location
+export function getMapsUrl(name: string, landmark?: string | null): string {
+  const query = landmark ? `${name} ${landmark}` : `${name} Singapore`;
   return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
 }
