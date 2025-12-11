@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { FoodListingWithSources } from '@/types/database';
+import { getMapsUrl } from '@/lib/distance';
 
 interface SlotMachineProps {
   listings: FoodListingWithSources[];
@@ -138,7 +139,7 @@ export default function SlotMachine({ listings, onSelectWinner }: SlotMachinePro
             </button>
 
             <a
-              href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(winner.name + ' ' + (winner.landmark || 'Singapore'))}`}
+              href={getMapsUrl(winner.name, winner.landmark, winner.address)}
               target="_blank"
               rel="noopener noreferrer"
               className="flex-1 py-2 px-3 bg-slate-800 hover:bg-slate-700

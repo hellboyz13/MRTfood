@@ -2,6 +2,7 @@
 
 import { ChainOutlet, FoodListingWithSources } from '@/types/database';
 import { getChainLogo } from '@/lib/chainLogos';
+import { getMapsUrl } from '@/lib/distance';
 import { useState, useEffect } from 'react';
 
 interface ChainOutletCardProps {
@@ -50,8 +51,7 @@ export default function ChainOutletCard({ outlet, brandName, highlighted = false
   }, [outlet.id]);
 
   const handleGetDirections = () => {
-    const query = encodeURIComponent(outlet.name + ' ' + (outlet.address || 'Singapore'));
-    window.open(`https://www.google.com/maps/search/?api=1&query=${query}`, '_blank');
+    window.open(getMapsUrl(outlet.name, null, outlet.address), '_blank');
   };
 
   // Convert outlet to FoodListingWithSources format for menu preview
@@ -77,6 +77,7 @@ export default function ChainOutletCard({ outlet, brandName, highlighted = false
       walking_time: outlet.walk_time,
       lat: outlet.latitude,
       lng: outlet.longitude,
+      landmark: null, // Chain outlets use address for Google Maps
       sources: [],
       trust_score: 0,
     };

@@ -130,7 +130,7 @@ export default function MenuPreview({ listing, onBack }: MenuPreviewProps) {
           <h2>{listing.name}</h2>
           {listing.address && (
             <a
-              href={getMapsUrl(listing.name, listing.address)}
+              href={getMapsUrl(listing.name, listing.landmark, listing.address)}
               target="_blank"
               rel="noopener noreferrer"
               className="location text-blue-600 hover:text-blue-800 hover:underline"

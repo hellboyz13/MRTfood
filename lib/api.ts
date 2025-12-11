@@ -173,6 +173,23 @@ export async function getFoodListingsByStation(
     }
   });
 
+  // Helper to get base chain name (strips location suffix like "(Katong)")
+  const getChainBaseName = (name: string): string => {
+    return name.replace(/\s*\([^)]+\)\s*$/, '').trim();
+  };
+
+  // Build a map of chain base names to their prices (for price sharing)
+  const pricesByChainName = new Map<string, string>();
+  listings.forEach((listing: FoodListing) => {
+    const price = pricesByListing.get(listing.id);
+    if (price) {
+      const baseName = getChainBaseName(listing.name);
+      if (!pricesByChainName.has(baseName)) {
+        pricesByChainName.set(baseName, price);
+      }
+    }
+  });
+
   // Combine listings with their sources and compute trust score
   const result: FoodListingWithSources[] = listings.map((listing: FoodListing) => {
     const sources = sourcesByListing.get(listing.id) || [];
@@ -182,7 +199,12 @@ export async function getFoodListingsByStation(
       return (b.source.weight || 1) - (a.source.weight || 1);
     });
     const trust_score = sources.reduce((sum, s) => sum + (s.source.weight || 1), 0);
-    const price_range = pricesByListing.get(listing.id) || null;
+    // Get price: first try direct lookup, then try chain name lookup
+    let price_range = pricesByListing.get(listing.id) || null;
+    if (!price_range) {
+      const baseName = getChainBaseName(listing.name);
+      price_range = pricesByChainName.get(baseName) || null;
+    }
     return {
       ...listing,
       sources,

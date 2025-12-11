@@ -170,7 +170,7 @@ export default function FoodListingCardV2({ listing, highlighted = false, onView
           {/* Address */}
           {listing.address && (
             <a
-              href={getMapsUrl(listing.name, listing.landmark)}
+              href={getMapsUrl(listing.name, listing.landmark, listing.address)}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1 mt-1 text-xs text-blue-600 hover:text-blue-800 hover:underline"
