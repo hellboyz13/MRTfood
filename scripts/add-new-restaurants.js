@@ -1,0 +1,289 @@
+// Script to add new restaurants with OneMap distance calculations
+const { createClient } = require('@supabase/supabase-js');
+require('dotenv').config({ path: '.env.local' });
+
+// Use service role key to bypass RLS
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL,
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJremZyZ3J4Zm5xb3VueWVxdnZuIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc2NDU3OTkzMCwiZXhwIjoyMDgwMTU1OTMwfQ.a5RNbenDZy-fWD6qlaip3w1t2HDqvd7dbRS6tawgQj4'
+);
+
+// New restaurants to add
+const newRestaurants = [
+  {
+    name: "Creamier (Gillman Barracks)",
+    address: "5A Lock Road, Gillman Barracks, Singapore 108927",
+    lat: 1.2744,
+    lng: 103.8069,
+    station_id: "labrador-park",
+    price_range: "$5 - $15",
+    sources: ["burpple"],
+    tags: ["Dessert", "Ice Cream", "Cafe"]
+  },
+  {
+    name: "Waa Cow!",
+    address: "1 HarbourFront Walk, #01-188C, VivoCity, Singapore 098585",
+    lat: 1.2643,
+    lng: 103.8221,
+    station_id: "harbourfront",
+    price_range: "$15 - $30",
+    sources: ["eatbook"],
+    tags: ["Japanese", "Donburi", "Beef"]
+  },
+  {
+    name: "Praelum Wine Bistro",
+    address: "4 Duxton Hill, Singapore 089590",
+    lat: 1.2784,
+    lng: 103.8429,
+    station_id: "tanjong-pagar",
+    price_range: "$30 - $60",
+    sources: ["burpple"],
+    tags: ["Western", "Wine", "Bistro"]
+  },
+  {
+    name: "Artichoke",
+    address: "46 Kim Yam Road #01-02, New Bahru, Singapore 239351",
+    lat: 1.2925,
+    lng: 103.837,
+    station_id: "fort-canning",
+    price_range: "$25 - $70",
+    sources: ["eatbook"],
+    tags: ["Middle Eastern", "Mediterranean", "Restaurant"]
+  },
+  {
+    name: "Blue Jasmine",
+    address: "10 Farrer Park Station Road, Level 5, Park Hotel Farrer Park, Singapore 217564",
+    lat: 1.3125,
+    lng: 103.8537,
+    station_id: "farrer-park",
+    price_range: "$12 - $30",
+    sources: ["burpple"],
+    tags: ["Thai", "Restaurant"]
+  },
+  {
+    name: "Dumpling Darlings",
+    address: "44 Amoy Street, Singapore 069870",
+    lat: 1.2804,
+    lng: 103.8474,
+    station_id: "telok-ayer",
+    price_range: "$8 - $22",
+    sources: ["burpple", "eatbook"],
+    tags: ["Chinese", "Dumplings", "Restaurant"]
+  }
+];
+
+// OneMap API token cache
+let cachedToken = null;
+let tokenExpiry = 0;
+
+async function getOneMapToken() {
+  if (cachedToken && Date.now() < tokenExpiry) {
+    return cachedToken;
+  }
+
+  const email = process.env.ONEMAP_EMAIL;
+  const password = process.env.ONEMAP_PASSWORD;
+
+  if (!email || !password) {
+    console.warn('OneMap credentials not configured');
+    return null;
+  }
+
+  try {
+    const response = await fetch('https://www.onemap.gov.sg/api/auth/post/getToken', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password }),
+    });
+
+    if (!response.ok) throw new Error(`Token request failed: ${response.status}`);
+
+    const data = await response.json();
+    cachedToken = data.access_token;
+    tokenExpiry = parseInt(data.expiry_timestamp) * 1000 - (60 * 60 * 1000);
+    console.log('✅ OneMap token obtained');
+    return cachedToken;
+  } catch (error) {
+    console.error('Failed to get OneMap token:', error);
+    return null;
+  }
+}
+
+async function getWalkingDistance(startLat, startLng, endLat, endLng) {
+  try {
+    const token = await getOneMapToken();
+
+    const url = new URL('https://www.onemap.gov.sg/api/public/routingsvc/route');
+    url.searchParams.append('start', `${startLat},${startLng}`);
+    url.searchParams.append('end', `${endLat},${endLng}`);
+    url.searchParams.append('routeType', 'walk');
+
+    const headers = { 'Accept': 'application/json' };
+    if (token) headers['Authorization'] = token;
+
+    const response = await fetch(url.toString(), { method: 'GET', headers });
+
+    if (!response.ok) throw new Error(`OneMap API error: ${response.status}`);
+
+    const data = await response.json();
+
+    if (data.status !== 0 || !data.route_summary) {
+      throw new Error(data.status_message || 'Route not found');
+    }
+
+    return {
+      distance: Math.round(data.route_summary.total_distance), // meters
+      duration: Math.round(data.route_summary.total_time / 60), // minutes
+      success: true
+    };
+  } catch (error) {
+    console.error('OneMap error:', error.message);
+    // Fallback to haversine calculation
+    const straightLine = haversineDistance(startLat, startLng, endLat, endLng);
+    const estimatedWalking = Math.round(straightLine * 1.3);
+    return {
+      distance: estimatedWalking,
+      duration: Math.round(estimatedWalking / 80),
+      success: false
+    };
+  }
+}
+
+function haversineDistance(lat1, lng1, lat2, lng2) {
+  const R = 6371000;
+  const dLat = toRad(lat2 - lat1);
+  const dLng = toRad(lng2 - lng1);
+  const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+            Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) *
+            Math.sin(dLng/2) * Math.sin(dLng/2);
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+  return R * c;
+}
+
+function toRad(deg) {
+  return deg * Math.PI / 180;
+}
+
+async function main() {
+  console.log('=== Adding New Restaurants ===\n');
+
+  // Get station coordinates
+  const { data: stations } = await supabase
+    .from('stations')
+    .select('id, name, lat, lng');
+
+  const stationMap = {};
+  stations.forEach(s => stationMap[s.id] = s);
+
+  // Check for existing restaurants to avoid duplicates
+  const { data: existingListings } = await supabase
+    .from('food_listings')
+    .select('name')
+    .eq('is_active', true);
+
+  const existingNames = new Set((existingListings || []).map(l => l.name.toLowerCase()));
+
+  let added = 0;
+  let skipped = 0;
+
+  for (const restaurant of newRestaurants) {
+    console.log(`\n📍 Processing: ${restaurant.name}`);
+
+    // Check if already exists
+    if (existingNames.has(restaurant.name.toLowerCase())) {
+      console.log(`   ⏭️  Already exists, skipping`);
+      skipped++;
+      continue;
+    }
+
+    const station = stationMap[restaurant.station_id];
+    if (!station) {
+      console.log(`   ❌ Station ${restaurant.station_id} not found`);
+      continue;
+    }
+
+    // Calculate walking distance using OneMap
+    let distance = null;
+    let walkingTime = null;
+
+    if (station.lat && station.lng && restaurant.lat && restaurant.lng) {
+      console.log(`   🚶 Calculating walking distance from ${station.name}...`);
+      const walkResult = await getWalkingDistance(
+        station.lat, station.lng,
+        restaurant.lat, restaurant.lng
+      );
+      distance = walkResult.distance;
+      walkingTime = walkResult.duration;
+      console.log(`   📏 Distance: ${distance}m, Walking: ${walkingTime} min ${walkResult.success ? '(OneMap)' : '(estimated)'}`);
+    }
+
+    // Insert the listing
+    const { data: listing, error: insertError } = await supabase
+      .from('food_listings')
+      .insert({
+        name: restaurant.name,
+        address: restaurant.address,
+        lat: restaurant.lat,
+        lng: restaurant.lng,
+        station_id: restaurant.station_id,
+        tags: restaurant.tags,
+        distance_to_station: distance,
+        walking_time: walkingTime,
+        is_active: true
+      })
+      .select()
+      .single();
+
+    if (insertError) {
+      console.log(`   ❌ Insert error: ${insertError.message}`);
+      continue;
+    }
+
+    console.log(`   ✅ Inserted listing: ${listing.id}`);
+
+    // Add sources to listing_sources
+    for (const sourceId of restaurant.sources) {
+      const { error: sourceError } = await supabase
+        .from('listing_sources')
+        .insert({
+          listing_id: listing.id,
+          source_id: sourceId,
+          is_primary: restaurant.sources.indexOf(sourceId) === 0
+        });
+
+      if (sourceError) {
+        console.log(`   ⚠️  Source ${sourceId} error: ${sourceError.message}`);
+      } else {
+        console.log(`   🏷️  Added source: ${sourceId}`);
+      }
+    }
+
+    // Add price range to listing_prices
+    const { error: priceError } = await supabase
+      .from('listing_prices')
+      .insert({
+        listing_id: listing.id,
+        item_name: 'Price Range',
+        price: 0,
+        description: restaurant.price_range
+      });
+
+    if (priceError) {
+      console.log(`   ⚠️  Price error: ${priceError.message}`);
+    } else {
+      console.log(`   💰 Added price: ${restaurant.price_range}`);
+    }
+
+    added++;
+
+    // Rate limiting delay
+    await new Promise(resolve => setTimeout(resolve, 500));
+  }
+
+  console.log('\n' + '='.repeat(50));
+  console.log(`\n📊 Summary:`);
+  console.log(`   ✅ Added: ${added} restaurants`);
+  console.log(`   ⏭️  Skipped: ${skipped} (already exist)`);
+}
+
+main().catch(console.error);
