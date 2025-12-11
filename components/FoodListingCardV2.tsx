@@ -212,14 +212,13 @@ export default function FoodListingCardV2({ listing, highlighted = false, onView
         </div>
       )}
 
-      {/* View Menu Button */}
+      {/* Menu Button */}
       {onViewMenu && (
         <button
           onClick={() => onViewMenu(listing)}
-          className="w-full mt-3 py-2 px-3 bg-primary hover:bg-primary-hover text-white text-xs font-medium rounded-md transition-colors flex items-center justify-center gap-1"
+          className="w-full mt-3 py-2 px-3 bg-[#E8B931] hover:bg-[#F5D251] text-[#1a1a1a] text-sm font-semibold rounded-md transition-colors flex items-center justify-center border-2 border-[#1a1a1a]"
         >
-          <span>📸</span>
-          <span>View Menu</span>
+          Menu
         </button>
       )}
     </div>

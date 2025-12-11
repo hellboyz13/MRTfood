@@ -146,10 +146,9 @@ export default function ChainOutletCard({ outlet, brandName, highlighted = false
         {onViewMenu && (
           <button
             onClick={handleViewMenu}
-            className="flex-1 py-1.5 px-3 bg-primary hover:bg-primary-hover text-white text-xs font-medium rounded transition-colors flex items-center justify-center gap-1"
+            className="flex-1 py-1.5 px-3 bg-[#E8B931] hover:bg-[#F5D251] text-[#1a1a1a] text-sm font-semibold rounded transition-colors flex items-center justify-center border-2 border-[#1a1a1a]"
           >
-            <span>📸</span>
-            <span>View Menu</span>
+            Menu
           </button>
         )}
       </div>

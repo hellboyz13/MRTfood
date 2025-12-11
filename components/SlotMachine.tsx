@@ -31,6 +31,8 @@ export default function SlotMachine({ listings, onSelectWinner }: SlotMachinePro
   const [isSpinning, setIsSpinning] = useState(false);
   const [currentListing, setCurrentListing] = useState<FoodListingWithSources | null>(null);
   const [winner, setWinner] = useState<FoodListingWithSources | null>(null);
+  const [showCelebration, setShowCelebration] = useState(false);
+  const [animationKey, setAnimationKey] = useState(0);
   const spinIntervalRef = useRef<NodeJS.Timeout | null>(null);
 
   // Don't initialize with a random listing - keep it null for neutral placeholder
@@ -40,6 +42,7 @@ export default function SlotMachine({ listings, onSelectWinner }: SlotMachinePro
 
     setIsSpinning(true);
     setWinner(null);
+    setShowCelebration(false);
 
     let spinCount = 0;
     const maxSpins = 30;
@@ -65,8 +68,13 @@ export default function SlotMachine({ listings, onSelectWinner }: SlotMachinePro
         const randomWinner = listings[Math.floor(Math.random() * listings.length)];
         setCurrentListing(randomWinner);
         setWinner(randomWinner);
+        setAnimationKey(prev => prev + 1); // Increment key to trigger animation once
         setIsSpinning(false);
+        setShowCelebration(true);
         onSelectWinner(randomWinner);
+
+        // Hide celebration after animation
+        setTimeout(() => setShowCelebration(false), 1500);
       }
     }, currentSpeed);
   }, [listings, isSpinning, onSelectWinner]);
@@ -79,7 +87,8 @@ export default function SlotMachine({ listings, onSelectWinner }: SlotMachinePro
     };
   }, []);
 
-  const WinnerCard = () => {
+  // Render winner card content (not as separate component to avoid remounting)
+  const renderWinnerCard = () => {
     if (!winner) return null;
 
     const michelinSource = winner.sources?.find(s => getMichelinBadge(s.source.id));
@@ -88,19 +97,25 @@ export default function SlotMachine({ listings, onSelectWinner }: SlotMachinePro
     const walkTime = formatWalkTime(winner.distance_to_station);
 
     return (
-      <div className="mt-3 bg-slate-50 rounded overflow-hidden border border-slate-200 animate-in fade-in duration-500">
-        <div className="bg-slate-800 p-3 text-center">
-          <p className="text-white text-sm font-medium">Your selection</p>
+      <div
+        key={animationKey}
+        className="mt-3 rounded-lg overflow-hidden border-2 border-[#1a1a1a]"
+        style={{
+          animation: 'winnerPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards'
+        }}
+      >
+        <div className="bg-white p-3 text-center border-b-2 border-[#1a1a1a]">
+          <p className="text-[#1a1a1a] text-sm font-medium">Your selection</p>
         </div>
 
-        <div className="p-4">
+        <div className="p-4 bg-[#E8B931]">
           <div className="text-center mb-3">
-            <h3 className="font-semibold text-lg text-slate-800 mb-1">{winner.name}</h3>
+            <h3 className="font-semibold text-lg text-[#1a1a1a] mb-1">{winner.name}</h3>
           </div>
 
           {michelinBadge && (
             <div className="flex justify-center mb-2">
-              <span className="px-2 py-1 bg-amber-50 text-amber-700 text-xs font-medium rounded border border-amber-200">
+              <span className="px-2 py-1 bg-[#1a1a1a] text-[#E8B931] text-xs font-medium rounded">
                 {michelinBadge}
               </span>
             </div>
@@ -109,7 +124,7 @@ export default function SlotMachine({ listings, onSelectWinner }: SlotMachinePro
           {winner.tags && winner.tags.length > 0 && (
             <div className="flex flex-wrap justify-center gap-1.5 mb-3">
               {winner.tags.slice(0, 3).map((tag, i) => (
-                <span key={i} className="px-2 py-0.5 bg-white text-slate-600 text-xs rounded border border-slate-200">
+                <span key={i} className="px-2 py-0.5 bg-white/80 text-[#1a1a1a] text-xs rounded">
                   {tag}
                 </span>
               ))}
@@ -117,13 +132,13 @@ export default function SlotMachine({ listings, onSelectWinner }: SlotMachinePro
           )}
 
           {(distance || walkTime) && (
-            <div className="text-center text-xs text-slate-500 mb-3">
+            <div className="text-center text-xs text-[#1a1a1a] font-medium mb-3">
               <span>{distance} {walkTime && `• ${walkTime}`}</span>
             </div>
           )}
 
           {winner.address && (
-            <p className="text-xs text-slate-400 text-center mb-4 line-clamp-2">
+            <p className="text-xs text-[#1a1a1a] text-center mb-4 line-clamp-2">
               {winner.address}
             </p>
           )}
@@ -131,9 +146,9 @@ export default function SlotMachine({ listings, onSelectWinner }: SlotMachinePro
           <div className="flex gap-2">
             <button
               onClick={spin}
-              className="flex-1 py-2 px-3 bg-white hover:bg-slate-50
-                         text-slate-700 font-medium text-sm rounded
-                         transition-colors duration-200 border border-slate-200"
+              className="flex-1 py-2 px-3 bg-white hover:bg-gray-100
+                         text-[#1a1a1a] font-medium text-sm rounded
+                         transition-colors duration-200 border border-[#1a1a1a]"
             >
               Spin Again
             </button>
@@ -142,9 +157,9 @@ export default function SlotMachine({ listings, onSelectWinner }: SlotMachinePro
               href={getMapsUrl(winner.name, winner.landmark, winner.address)}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 py-2 px-3 bg-slate-800 hover:bg-slate-700
-                         text-white font-medium text-sm rounded
-                         transition-colors duration-200"
+              className="flex-1 py-2 px-3 bg-white hover:bg-gray-100
+                         text-[#1a1a1a] font-medium text-sm rounded
+                         transition-colors duration-200 text-center border border-[#1a1a1a]"
             >
               Directions
             </a>
@@ -155,59 +170,104 @@ export default function SlotMachine({ listings, onSelectWinner }: SlotMachinePro
   };
 
   return (
-    <div className="bg-white rounded-lg p-4 mb-4 border border-slate-200">
+    <div className={`bg-white rounded-lg p-4 mb-4 border-2 border-[#1a1a1a] transition-all duration-300 ${
+      isSpinning ? 'animate-shake' : ''
+    } ${showCelebration ? 'ring-2 ring-[#E8B931] ring-offset-2' : ''}`}>
       <div className="text-center mb-3">
-        <h3 className="text-sm font-semibold text-slate-700 mb-0.5">
+        <h3 className="text-sm font-semibold text-[#1a1a1a] mb-0.5">
           🎰 Surprise Me!
         </h3>
       </div>
 
-      {/* Slot Machine Display */}
-      <div className="bg-slate-50 rounded p-3 mb-3 border border-slate-200 min-h-[70px] flex items-center justify-center">
-        <div className="text-center w-full overflow-hidden">
-          <div
-            className={`text-lg font-medium text-slate-800 transition-all duration-150 ${
-              isSpinning ? 'blur-sm opacity-70' : 'blur-0 opacity-100'
-            }`}
-            style={{
-              animation: isSpinning ? 'slideUp 0.1s ease-in-out infinite' : 'none'
-            }}
-          >
-            {isSpinning && currentListing ? currentListing.name : (!winner ? 'Ready to spin!' : currentListing?.name || '...')}
+      {/* Slot Machine Display - only show when spinning or no winner yet */}
+      {!winner && (
+        <div className={`bg-[#E8B931]/10 rounded p-3 mb-3 border border-[#E8B931] min-h-[70px] flex items-center justify-center relative overflow-hidden ${
+          showCelebration ? 'bg-[#E8B931]/30' : ''
+        }`}>
+          <div className="text-center w-full overflow-hidden relative z-10">
+            <div
+              className={`text-lg font-medium transition-all duration-150 ${
+                isSpinning ? 'blur-sm opacity-70 text-[#1a1a1a]' : 'blur-0 opacity-100'
+              } ${showCelebration ? 'text-[#1a1a1a] animate-bounce-subtle scale-105' : 'text-[#1a1a1a]'}`}
+              style={{
+                animation: isSpinning ? 'slotSpin 0.08s ease-in-out infinite' : undefined
+              }}
+            >
+              {isSpinning && currentListing ? currentListing.name : 'Ready to spin!'}
+            </div>
+            {!isSpinning && (
+              <div className="mt-1 text-xs text-[#1a1a1a]/60">
+                Let fate decide your next meal!
+              </div>
+            )}
           </div>
-          {!isSpinning && !winner && (
-            <div className="mt-1 text-xs text-slate-400">
-              Let fate decide your next meal!
-            </div>
-          )}
-          {!isSpinning && currentListing && currentListing.tags && winner && (
-            <div className="mt-1 text-xs text-slate-400">
-              {currentListing.tags.slice(0, 2).join(' • ')}
-            </div>
-          )}
         </div>
-      </div>
+      )}
 
       {!winner && (
         <button
           onClick={spin}
           disabled={listings.length === 0 || isSpinning}
-          className="w-full py-2 px-4 bg-slate-800 hover:bg-slate-700 text-white font-medium text-sm rounded transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+          className={`w-full py-2.5 px-4 font-medium text-sm rounded transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed ${
+            isSpinning
+              ? 'bg-[#E8B931] text-[#1a1a1a] animate-pulse'
+              : 'bg-[#1a1a1a] hover:bg-[#2a2a2a] hover:scale-[1.02] active:scale-[0.98] text-[#E8B931]'
+          }`}
         >
-          {isSpinning ? 'Spinning...' : 'Spin'}
+          {isSpinning ? '🎲 Spinning...' : '🎰 Spin'}
         </button>
       )}
 
-      {winner && <WinnerCard />}
+      {winner && renderWinnerCard()}
 
       <style jsx>{`
-        @keyframes slideUp {
-          0%, 100% {
-            transform: translateY(0);
+        @keyframes slotSpin {
+          0% {
+            transform: translateY(-100%);
+            opacity: 0;
           }
           50% {
-            transform: translateY(-5px);
+            opacity: 1;
           }
+          100% {
+            transform: translateY(100%);
+            opacity: 0;
+          }
+        }
+        @keyframes shake {
+          0%, 100% { transform: translateX(0); }
+          10%, 30%, 50%, 70%, 90% { transform: translateX(-2px); }
+          20%, 40%, 60%, 80% { transform: translateX(2px); }
+        }
+        .animate-shake {
+          animation: shake 0.5s ease-in-out infinite;
+        }
+        .animate-bounce-subtle {
+          animation: bounceSubtle 0.5s ease-out;
+        }
+        @keyframes bounceSubtle {
+          0% { transform: scale(0.9); opacity: 0; }
+          50% { transform: scale(1.1); }
+          100% { transform: scale(1.05); opacity: 1; }
+        }
+        @keyframes winnerPop {
+          0% {
+            transform: scale(0.3);
+            opacity: 0;
+          }
+          50% {
+            transform: scale(1.08);
+            opacity: 1;
+          }
+          70% {
+            transform: scale(0.95);
+          }
+          100% {
+            transform: scale(1);
+          }
+        }
+        .animate-winner-pop {
+          animation: winnerPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
         }
       `}</style>
     </div>

@@ -32,17 +32,17 @@ export default function HowToUsePage() {
         { duration: 1400, easing: 'cubic-bezier(0.22, 0, 0.36, 1)', fill: 'forwards' }
       );
 
-      // Animate rope extend
+      // Animate rope extend - from top of screen to card hook
       ropeRef.current?.animate(
         [
           { height: '0px' },
-          { height: '110px' },
-          { height: '50px' },
-          { height: '100px' },
-          { height: '60px' },
-          { height: '85px' },
-          { height: '72px' },
-          { height: '80px' },
+          { height: 'calc(50vh - 290px + 60px)' },
+          { height: 'calc(50vh - 290px - 50px)' },
+          { height: 'calc(50vh - 290px + 30px)' },
+          { height: 'calc(50vh - 290px - 30px)' },
+          { height: 'calc(50vh - 290px + 15px)' },
+          { height: 'calc(50vh - 290px - 10px)' },
+          { height: 'calc(50vh - 290px)' },
         ],
         { duration: 1400, easing: 'cubic-bezier(0.22, 0, 0.36, 1)', fill: 'forwards' }
       );
@@ -62,11 +62,11 @@ export default function HowToUsePage() {
       { duration: 500, easing: 'cubic-bezier(0.55, 0, 1, 0.45)', fill: 'forwards' }
     );
 
-    // Animate rope - extend slightly, then retract
+    // Animate rope - extend slightly, then retract to top
     ropeRef.current?.animate(
       [
-        { height: '80px', offset: 0 },
-        { height: '110px', offset: 0.15 },
+        { height: 'calc(50vh - 290px)', offset: 0 },
+        { height: 'calc(50vh - 290px + 40px)', offset: 0.15 },
         { height: '0px', offset: 1 },
       ],
       { duration: 500, easing: 'cubic-bezier(0.55, 0, 1, 0.45)', fill: 'forwards' }
@@ -102,16 +102,18 @@ export default function HowToUsePage() {
       transformOrigin: 'top center',
       transform: 'translateY(-100vh)',
       pointerEvents: 'auto' as const,
+      zIndex: 10001,
+      position: 'relative' as const,
     },
     ropeContainer: {
-      position: 'absolute' as const,
-      top: '-110px',
+      position: 'fixed' as const,
+      top: '0',
       left: '50%',
       transform: 'translateX(-50%)',
       display: 'flex',
       flexDirection: 'column' as const,
       alignItems: 'center',
-      zIndex: 1,
+      zIndex: 9999,
     },
     rope: {
       width: '5px',
@@ -281,22 +283,22 @@ export default function HowToUsePage() {
 
   return (
     <main className="min-h-screen bg-white relative overflow-hidden">
+      {/* Rope - fixed at top of screen */}
+      <div style={styles.ropeContainer}>
+        <svg style={styles.ceilingHook} viewBox="0 0 30 24" fill="none">
+          <rect x="10" y="0" width="10" height="6" rx="2" fill="#5a5a5a"/>
+          <path d="M15 6 L15 10 Q15 16 20 16 Q26 16 26 20 Q26 24 15 24" stroke="#6a6a6a" strokeWidth="4" fill="none" strokeLinecap="round"/>
+          <path d="M15 6 L15 10 Q15 16 20 16 Q26 16 26 20" stroke="#8a8a8a" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
+        </svg>
+        <div ref={ropeRef} style={styles.rope} />
+      </div>
+
       <div style={styles.outerContainer}>
         <div ref={containerRef} style={styles.container}>
-          {/* Rope */}
-          <div style={styles.ropeContainer}>
-          <svg style={styles.ceilingHook} viewBox="0 0 30 24" fill="none">
-            <rect x="10" y="0" width="10" height="6" rx="2" fill="#5a5a5a"/>
-            <path d="M15 6 L15 10 Q15 16 20 16 Q26 16 26 20 Q26 24 15 24" stroke="#6a6a6a" strokeWidth="4" fill="none" strokeLinecap="round"/>
-            <path d="M15 6 L15 10 Q15 16 20 16 Q26 16 26 20" stroke="#8a8a8a" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
-          </svg>
-          <div ref={ropeRef} style={styles.rope} />
-        </div>
-
-        {/* Card Hook */}
-        <div style={styles.cardHook}>
-          <div style={styles.cardHookHole} />
-        </div>
+          {/* Card Hook */}
+          <div style={styles.cardHook}>
+            <div style={styles.cardHookHole} />
+          </div>
 
         {/* Card */}
         <div style={styles.card}>

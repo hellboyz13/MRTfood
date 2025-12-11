@@ -306,8 +306,8 @@ export default function SearchBar({ onSearch, onClear, isSearching, noResults, o
             <button
               type="submit"
               disabled={!query.trim() || isSearching}
-              className="bg-[#1a1a1a] hover:bg-[#2a2a2a] active:bg-[#0a0a0a] disabled:bg-gray-300
-                         text-[#E8B931] transition-all duration-200 w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 mr-0.5"
+              className="bg-[#E8B931] hover:bg-[#F5D251] active:bg-[#d4a82a] disabled:bg-[#E8B931]/60
+                         text-[#1a1a1a] transition-all duration-200 w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 mr-0.5"
             >
               {isSearching ? (
                 <IconSpinner className="w-4 h-4 text-white" />
