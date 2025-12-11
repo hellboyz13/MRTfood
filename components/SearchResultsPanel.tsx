@@ -11,8 +11,6 @@ interface SearchResultsPanelProps {
   onClose: () => void;
   stationNames: { [key: string]: string };
   onStationZoom?: (stationId: string) => void;
-  suggestions?: string[];
-  onSuggestionClick?: (suggestion: string) => void;
 }
 
 // Extract station code from station ID (e.g., "ns1-jurong-east" -> "NS1")
@@ -96,8 +94,6 @@ export default function SearchResultsPanel({
   onClose,
   stationNames,
   onStationZoom,
-  suggestions = [],
-  onSuggestionClick,
 }: SearchResultsPanelProps) {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const mobilePanelRef = useRef<HTMLDivElement>(null);
@@ -150,33 +146,11 @@ export default function SearchResultsPanel({
 
   // No results message component - Black background with yellow text
   const noResultsMsg = getNoResultsMessage(searchQuery);
-  const hasSuggestions = suggestions && suggestions.length > 0;
-
-  const NoResultsMessage = ({ compact = false }: { compact?: boolean }) => (
-    <div className={`${compact ? 'p-3' : 'p-4'} text-center bg-[#1a1a1a]`}>
-      {!hasSuggestions && (
-        <>
-          <span className={`${compact ? 'text-xl' : 'text-2xl'} block mb-2`}>{noResultsMsg.emoji}</span>
-          <p className={`text-[#E8B931] ${compact ? 'text-xs' : 'text-sm'} font-medium`}>{noResultsMsg.message}</p>
-          <p className={`text-[#E8B931]/70 ${compact ? 'text-[10px]' : 'text-xs'} mt-1`}>{noResultsMsg.subtext}</p>
-        </>
-      )}
-      {hasSuggestions && (
-        <div className="mt-2">
-          <p className={`text-[#E8B931]/80 ${compact ? 'text-[10px]' : 'text-xs'} mb-2`}>Did you mean:</p>
-          <div className={`flex flex-col ${compact ? 'gap-1' : 'gap-1.5'}`}>
-            {suggestions.map((suggestion, idx) => (
-              <button
-                key={idx}
-                onClick={() => onSuggestionClick?.(suggestion)}
-                className={`bg-[#E8B931] text-[#1a1a1a] ${compact ? 'px-2 py-1 text-[10px]' : 'px-3 py-1.5 text-xs'} rounded-full font-medium hover:bg-[#F5D251] transition-colors cursor-pointer`}
-              >
-                {suggestion}
-              </button>
-            ))}
-          </div>
-        </div>
-      )}
+  const NoResultsMessage = () => (
+    <div className="p-4 text-center bg-[#1a1a1a]">
+      <span className="text-2xl block mb-2">{noResultsMsg.emoji}</span>
+      <p className="text-[#E8B931] text-sm font-medium">{noResultsMsg.message}</p>
+      <p className="text-[#E8B931]/70 text-xs mt-1">{noResultsMsg.subtext}</p>
     </div>
   );
 
@@ -227,7 +201,7 @@ export default function SearchResultsPanel({
                 })}
               </div>
             ) : (
-              <NoResultsMessage compact />
+              <NoResultsMessage />
             )}
 
             {/* Scroll indicator when more than 4 results */}
@@ -331,7 +305,11 @@ export default function SearchResultsPanel({
                 })}
               </div>
             ) : (
-              <NoResultsMessage />
+              <div className="p-6 text-center bg-[#1a1a1a]">
+                <span className="text-4xl block mb-3">{noResultsMsg.emoji}</span>
+                <p className="text-[#E8B931] font-medium">{noResultsMsg.message}</p>
+                <p className="text-[#E8B931]/70 text-sm mt-2">{noResultsMsg.subtext}</p>
+              </div>
             )}
 
             {/* Scroll indicator when more than 4 results */}

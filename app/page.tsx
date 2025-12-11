@@ -7,13 +7,12 @@ import SearchBar from '@/components/SearchBar';
 import SearchResultsPanel from '@/components/SearchResultsPanel';
 import Footer from '@/components/Footer';
 import HowToUseCard from '@/components/HowToUseCard';
-import { searchStationsByFoodWithCounts, StationSearchResult, getStations, getSupperSpotsByStation, getDessertSpotsByStation, SearchResultWithSuggestions } from '@/lib/api';
+import { searchStationsByFoodWithCounts, StationSearchResult, getStations, getSupperSpotsByStation, getDessertSpotsByStation } from '@/lib/api';
 
 export default function Home() {
   const [selectedStation, setSelectedStation] = useState<string | null>(null);
   const [isMobile, setIsMobile] = useState(false);
   const [searchResults, setSearchResults] = useState<StationSearchResult[]>([]);
-  const [searchSuggestions, setSearchSuggestions] = useState<string[]>([]);
   const [isSearching, setIsSearching] = useState(false);
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [stationNames, setStationNames] = useState<{ [key: string]: string }>({});
@@ -63,15 +62,12 @@ export default function Home() {
     setSearchQuery(query);
     setIs24hActive(false); // Turn off 24h filter when doing regular search
     setIsDessertActive(false); // Turn off dessert filter when doing regular search
-    setSearchSuggestions([]); // Clear previous suggestions
     try {
-      const { results, suggestions } = await searchStationsByFoodWithCounts(query);
+      const results = await searchStationsByFoodWithCounts(query);
       setSearchResults(results);
-      setSearchSuggestions(suggestions || []);
     } catch (error) {
       console.error('Search error:', error);
       setSearchResults([]);
-      setSearchSuggestions([]);
     } finally {
       setIsSearching(false);
     }
@@ -80,7 +76,6 @@ export default function Home() {
   const handleClearSearch = () => {
     setSearchResults([]);
     setSearchQuery('');
-    setSearchSuggestions([]);
     setIs24hActive(false);
     setIsDessertActive(false);
   };
@@ -162,8 +157,8 @@ export default function Home() {
         isDessertActive={isDessertActive}
       />
 
-      {/* Search Results Panel - show if there are results OR suggestions */}
-      {searchQuery && (searchResults.length > 0 || searchSuggestions.length > 0) && (
+      {/* Search Results Panel - only show if there are results */}
+      {searchQuery && searchResults.length > 0 && (
         <SearchResultsPanel
           searchQuery={searchQuery}
           results={searchResults}
@@ -171,8 +166,6 @@ export default function Home() {
           onClose={handleClearSearch}
           stationNames={stationNames}
           onStationZoom={handleStationZoom}
-          suggestions={searchSuggestions}
-          onSuggestionClick={handleSearch}
         />
       )}
 
