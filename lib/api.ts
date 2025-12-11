@@ -19,6 +19,7 @@ export { searchStationsByFoodWithCounts } from './food-search';
 
 // Re-export types used by other modules
 export type { StationSearchResult, SearchMatch } from '@/types/database';
+export type { SearchResultWithSuggestions } from './food-search';
 
 // ============================================
 // STATIONS

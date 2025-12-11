@@ -1,4 +1,4 @@
-import Fuse from 'fuse.js';
+import Fuse, { FuseResult } from 'fuse.js';
 import { supabase } from './supabase';
 import { FOOD_SYNONYMS, PLURALS, DISH_TERMS, VALID_SHORT_QUERIES } from './food-taxonomy';
 import { StationSearchResult, SearchMatch } from '@/types/database';
@@ -83,21 +83,67 @@ interface SearchableListing {
   station_id: string | null;
   tags: string[] | null;
   description: string | null;
+  landmark: string | null;
+  station_name: string | null;
 }
 
+// Standard Fuse instance for normal searching
 function createFuseInstance(listings: SearchableListing[]) {
   return new Fuse(listings, {
     keys: [
-      { name: 'name', weight: 0.7 },
-      { name: 'tags', weight: 0.2 },
-      { name: 'description', weight: 0.1 },
+      { name: 'name', weight: 2 },         // Highest priority - name matches
+      { name: 'tags', weight: 1.5 },       // Cuisine/food type matches
+      { name: 'landmark', weight: 1 },     // Area/landmark matches (e.g., "Maxwell")
+      { name: 'station_name', weight: 1 }, // Station area matches (e.g., "Bedok")
+      { name: 'description', weight: 0.5 },
     ],
-    threshold: 0.25,           // Strict - allows 1-2 typos max
+    threshold: 0.4,            // Standard threshold
     minMatchCharLength: 3,     // Minimum chars to match
     ignoreLocation: true,      // Match anywhere in string
     includeScore: true,        // For filtering low-confidence
     findAllMatches: true,
   });
+}
+
+// Relaxed Fuse instance for "Did you mean" suggestions
+function createRelaxedFuseInstance(listings: SearchableListing[]) {
+  return new Fuse(listings, {
+    keys: [
+      { name: 'name', weight: 2 },
+      { name: 'tags', weight: 1.5 },
+      { name: 'landmark', weight: 1 },
+      { name: 'station_name', weight: 1 },
+      { name: 'description', weight: 0.5 },
+    ],
+    threshold: 0.6,            // More relaxed for suggestions
+    minMatchCharLength: 2,
+    ignoreLocation: true,
+    includeScore: true,
+    findAllMatches: true,
+  });
+}
+
+// Get unique suggestions from fuzzy search results
+function getUniqueSuggestions(
+  fuseResults: FuseResult<SearchableListing>[],
+  limit: number = 3
+): string[] {
+  const seen = new Set<string>();
+  const suggestions: string[] = [];
+
+  for (const result of fuseResults) {
+    if (suggestions.length >= limit) break;
+
+    const name = result.item.name;
+    const normalizedName = name.toLowerCase().trim();
+
+    if (!seen.has(normalizedName)) {
+      seen.add(normalizedName);
+      suggestions.push(name);
+    }
+  }
+
+  return suggestions;
 }
 
 // ============================================
@@ -197,10 +243,18 @@ function detectSearchType(query: string): 'food' | 'restaurant' {
 }
 
 // ============================================
+// SEARCH RESULT WITH SUGGESTIONS
+// ============================================
+export interface SearchResultWithSuggestions {
+  results: StationSearchResult[];
+  suggestions?: string[];  // "Did you mean" suggestions when no results or low confidence
+}
+
+// ============================================
 // MAIN SEARCH FUNCTION
 // ============================================
-export async function searchStationsByFood(query: string): Promise<StationSearchResult[]> {
-  if (!query || query.trim().length < 2) return [];
+export async function searchStationsByFood(query: string): Promise<SearchResultWithSuggestions> {
+  if (!query || query.trim().length < 2) return { results: [] };
 
   const searchQuery = query.trim();
   const queryLower = searchQuery.toLowerCase();
@@ -210,20 +264,34 @@ export async function searchStationsByFood(query: string): Promise<StationSearch
   // Validate short queries
   if (searchQuery.length < 3 && !VALID_SHORT_QUERIES.has(queryLower)) {
     console.log('⚠️ Query too short, skipping');
-    return [];
+    return { results: [] };
   }
 
-  // ===== FETCH ALL LISTINGS =====
-  const { data: listings, error: listingsError } = await supabase
+  // ===== FETCH ALL LISTINGS WITH LANDMARK AND STATION NAME =====
+  const { data: listingsRaw, error: listingsError } = await supabase
     .from('food_listings')
-    .select('id, station_id, name, description, tags')
+    .select(`
+      id, station_id, name, description, tags, landmark,
+      stations!inner(name)
+    `)
     .eq('is_active', true)
     .not('station_id', 'is', null);
 
-  if (listingsError || !listings) {
+  if (listingsError || !listingsRaw) {
     console.error('Error fetching listings:', listingsError);
-    return [];
+    return { results: [] };
   }
+
+  // Transform to SearchableListing with station_name
+  const listings: SearchableListing[] = listingsRaw.map((l: any) => ({
+    id: l.id,
+    name: l.name,
+    station_id: l.station_id,
+    tags: l.tags,
+    description: l.description,
+    landmark: l.landmark,
+    station_name: l.stations?.name || null,
+  }));
 
   // ============================================
   // STEP 1: EXACT NAME MATCH (HIGHEST PRIORITY)
@@ -268,7 +336,7 @@ export async function searchStationsByFood(query: string): Promise<StationSearch
         });
       });
 
-      return Array.from(stationResultsMap.values());
+      return { results: Array.from(stationResultsMap.values()) };
     }
 
     // Also try fuzzy name matching for typos
@@ -312,7 +380,7 @@ export async function searchStationsByFood(query: string): Promise<StationSearch
           });
         });
 
-        return Array.from(stationResultsMap.values());
+        return { results: Array.from(stationResultsMap.values()) };
       }
     }
   }
@@ -437,7 +505,31 @@ export async function searchStationsByFood(query: string): Promise<StationSearch
   });
 
   console.log(`✅ Found ${results.length} stations with matches`);
-  return results;
+
+  // ============================================
+  // "DID YOU MEAN" SUGGESTIONS
+  // If no results OR top result has low confidence (score > 0.5)
+  // ============================================
+  const needsSuggestions = results.length === 0 ||
+    (results.length > 0 && results[0].matches.length > 0 && (results[0].matches[0].score || 0) > 0.5);
+
+  if (needsSuggestions) {
+    console.log('🔮 Generating "Did you mean" suggestions...');
+    const relaxedFuse = createRelaxedFuseInstance(listings);
+    const relaxedResults = relaxedFuse.search(searchQuery);
+
+    if (relaxedResults.length > 0) {
+      const suggestions = getUniqueSuggestions(relaxedResults, 3);
+      console.log(`💡 Suggestions: ${suggestions.join(', ')}`);
+
+      return {
+        results,
+        suggestions: suggestions.length > 0 ? suggestions : undefined,
+      };
+    }
+  }
+
+  return { results };
 }
 
 // ============================================
