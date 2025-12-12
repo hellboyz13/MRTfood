@@ -119,10 +119,18 @@ export default function FoodListingCardV2({ listing, highlighted = false, onView
 
         {/* Content */}
         <div className="flex-1 min-w-0">
-          {/* Name */}
-          <h3 className="font-semibold text-gray-900 text-sm leading-tight">
-            {listing.name}
-          </h3>
+          {/* Name and Rating */}
+          <div className="flex items-start justify-between gap-2">
+            <h3 className="font-semibold text-gray-900 text-sm leading-tight">
+              {listing.name}
+            </h3>
+            {listing.rating && (
+              <span className="flex items-center gap-0.5 text-xs font-medium text-amber-600 bg-amber-50 px-1.5 py-0.5 rounded flex-shrink-0">
+                <span>⭐</span>
+                <span>{listing.rating.toFixed(1)}</span>
+              </span>
+            )}
+          </div>
 
           {/* Primary source badges */}
           {primarySources.length > 0 && (
@@ -192,21 +200,21 @@ export default function FoodListingCardV2({ listing, highlighted = false, onView
       {/* Tags */}
       {listing.tags && listing.tags.length > 0 && (
         <div className="flex flex-wrap gap-1 mt-2">
-          {listing.tags.slice(0, 4).map((tag) => {
+          {[...new Set(listing.tags)].slice(0, 4).map((tag, index) => {
             // Transform "24 hour" tag to "Supper"
             const displayTag = tag.toLowerCase() === '24 hour' ? 'Supper' : tag;
             return (
               <span
-                key={tag}
+                key={`${tag}-${index}`}
                 className="px-1.5 py-0.5 bg-gray-100 text-gray-600 rounded text-xs"
               >
                 {displayTag}
               </span>
             );
           })}
-          {listing.tags.length > 4 && (
+          {[...new Set(listing.tags)].length > 4 && (
             <span className="px-1.5 py-0.5 text-gray-400 text-xs">
-              +{listing.tags.length - 4} more
+              +{[...new Set(listing.tags)].length - 4} more
             </span>
           )}
         </div>

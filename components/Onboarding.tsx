@@ -39,6 +39,16 @@ const steps: TourStep[] = [
     content: 'Filter by Desserts or Supper spots!',
     placement: 'top',
   },
+  {
+    target: '[data-tour="map"]',
+    content: (
+      <div className="flex flex-col items-center gap-2 text-center">
+        <span className="text-xl">⚠️</span>
+        <p><strong>Heads up!</strong> Some shops may have closed or changed their hours. Please check before visiting!</p>
+      </div>
+    ),
+    placement: 'center',
+  },
 ];
 
 const Onboarding = forwardRef<OnboardingRef>(function Onboarding(_, ref) {
@@ -143,7 +153,7 @@ const Onboarding = forwardRef<OnboardingRef>(function Onboarding(_, ref) {
   }));
 
   useEffect(() => {
-    const hasSeenTour = localStorage.getItem('mrtfoodie-tour-completed');
+    const hasSeenTour = localStorage.getItem('mrtfoodie-tour-v2');
 
     if (!hasSeenTour) {
       setTimeout(() => {
@@ -177,7 +187,7 @@ const Onboarding = forwardRef<OnboardingRef>(function Onboarding(_, ref) {
   };
 
   const handleComplete = () => {
-    localStorage.setItem('mrtfoodie-tour-completed', 'true');
+    localStorage.setItem('mrtfoodie-tour-v2', 'true');
     setIsVisible(false);
   };
 
