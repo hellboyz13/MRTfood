@@ -6,7 +6,7 @@ import FoodPanelV2 from '@/components/FoodPanelV2';
 import SearchBar from '@/components/SearchBar';
 import SearchResultsPanel from '@/components/SearchResultsPanel';
 import Footer from '@/components/Footer';
-import HowToUseCard from '@/components/HowToUseCard';
+import Onboarding, { OnboardingRef } from '@/components/Onboarding';
 import { searchStationsByFoodWithCounts, StationSearchResult, getStations, getSupperSpotsByStation, getDessertSpotsByStation } from '@/lib/api';
 
 export default function Home() {
@@ -19,6 +19,7 @@ export default function Home() {
   const [is24hActive, setIs24hActive] = useState(false);
   const [isDessertActive, setIsDessertActive] = useState(false);
   const mapZoomHandlerRef = useRef<((stationId: string) => void) | null>(null);
+  const onboardingRef = useRef<OnboardingRef>(null);
 
   // Load station names
   useEffect(() => {
@@ -136,14 +137,8 @@ export default function Home() {
 
   return (
     <main className="h-screen flex flex-col overflow-hidden">
-      {/* Logo - Top Left */}
-      <div className="absolute top-3 left-3 z-50">
-        <img
-          src="/logo.jpg"
-          alt="MRT Food Logo"
-          className="w-12 h-12 md:w-16 md:h-16 rounded-full shadow-lg border-2 border-white"
-        />
-      </div>
+      {/* Onboarding Tour */}
+      <Onboarding ref={onboardingRef} />
 
       {/* Search Bar - Bottom Center */}
       <SearchBar
@@ -172,7 +167,7 @@ export default function Home() {
       {/* Main Content */}
       <div className="flex-1 flex relative overflow-hidden">
         {/* MRT Map */}
-        <div className={`flex-1 h-full relative ${selectedStation && !isMobile ? 'mr-[350px]' : ''}`}>
+        <div data-tour="map" className={`flex-1 h-full relative ${selectedStation && !isMobile ? 'mr-[350px]' : ''}`}>
           <MRTMap
             selectedStation={selectedStation}
             onStationClick={handleStationClick}
@@ -207,10 +202,7 @@ export default function Home() {
       </div>
 
       {/* Footer with legal links */}
-      <Footer />
-
-      {/* How to Use Card - Shows on first visit */}
-      <HowToUseCard />
+      <Footer onHowToUseClick={() => onboardingRef.current?.restart()} />
     </main>
   );
 }

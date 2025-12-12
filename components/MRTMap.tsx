@@ -9,7 +9,7 @@ import { IconReset, IconLocation, IconSpinner } from './Icons';
 const MAP_CONSTRAINTS = {
   minZoom: 0.5,      // Cannot zoom out beyond 50%
   maxZoom: 3.0,      // Cannot zoom in beyond 300%
-  defaultZoom: 0.85, // Initial zoom level (more zoomed in)
+  defaultZoom: 1.3,  // Initial zoom level (50% more zoomed in)
   zoomStep: 0.5,     // Zoom increment for buttons/double-tap
 };
 
@@ -83,8 +83,8 @@ const stationCoordinates: { [key: string]: { cx: number, cy: number, name: strin
   'bedok': { cx: 1186, cy: 639, name: 'Bedok' },
   'simei': { cx: 1245, cy: 614, name: 'Simei' },
   'pasir-ris': { cx: 1283, cy: 525, name: 'Pasir Ris' },
-  'queenstown': { cx: 519, cy: 637, name: 'Queenstown' },
-  'commonwealth': { cx: 555, cy: 673, name: 'Commonwealth' },
+  'commonwealth': { cx: 519, cy: 637, name: 'Commonwealth' },
+  'queenstown': { cx: 555, cy: 673, name: 'Queenstown' },
   'dover': { cx: 451, cy: 570, name: 'Dover' },
   'clementi': { cx: 407, cy: 526, name: 'Clementi' },
   'chinese-garden': { cx: 247, cy: 514, name: 'Chinese Garden' },
@@ -809,6 +809,11 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
         circle.style.transformOrigin = 'center';
         circle.style.transformBox = 'fill-box';
 
+        // Add tour attribute to Orchard station for onboarding
+        if (matchedStation === 'orchard') {
+          circle.setAttribute('data-tour', 'station');
+        }
+
         // Create larger transparent hit area circle (44px minimum tap target)
         const hitArea = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
         hitArea.setAttribute('cx', String(cx));
@@ -951,7 +956,7 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
         }
         setTimeout(() => setLocationError(null), 3000);
       },
-      { enableHighAccuracy: true, timeout: 10000 }
+      { enableHighAccuracy: false, timeout: 30000, maximumAge: 60000 }
     );
   }, [findNearestStation, onStationClick]);
 

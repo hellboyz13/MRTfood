@@ -4,7 +4,11 @@ import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { IconInfo } from './Icons';
 
-export default function Footer() {
+interface FooterProps {
+  onHowToUseClick?: () => void;
+}
+
+export default function Footer({ onHowToUseClick }: FooterProps) {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
@@ -22,6 +26,13 @@ export default function Footer() {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [isOpen]);
 
+  const handleHowToUseClick = () => {
+    setIsOpen(false);
+    if (onHowToUseClick) {
+      onHowToUseClick();
+    }
+  };
+
   return (
     <div className="fixed top-3 right-3 z-[60]" ref={menuRef}>
       {/* Info button - Golden Yellow Theme */}
@@ -36,13 +47,12 @@ export default function Footer() {
       {/* Dropdown menu - White background */}
       {isOpen && (
         <div className="absolute top-12 right-0 bg-white rounded-xl shadow-xl border-2 border-[#E8B931] py-2 min-w-[160px] animate-in fade-in slide-in-from-top-2 duration-200">
-          <Link
-            href="/how-to-use"
-            className="block px-4 py-2.5 text-sm text-[#1a1a1a] hover:bg-[#E8B931] hover:text-[#1a1a1a] transition-colors font-medium"
-            onClick={() => setIsOpen(false)}
+          <button
+            onClick={handleHowToUseClick}
+            className="block w-full text-left px-4 py-2.5 text-sm text-[#1a1a1a] hover:bg-[#E8B931] hover:text-[#1a1a1a] transition-colors font-medium"
           >
             How to Use
-          </Link>
+          </button>
           <Link
             href="/credits"
             className="block px-4 py-2.5 text-sm text-[#1a1a1a] hover:bg-[#E8B931] hover:text-[#1a1a1a] transition-colors font-medium"

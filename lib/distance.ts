@@ -7,15 +7,15 @@ export function formatDistance(meters: number | null): string {
   return `${Math.round(meters)}m`;
 }
 
-// Get walking time from database (in seconds) and convert to minutes
+// Get walking time from database (already in minutes)
 // Falls back to estimate if walking_time not available
-export function getWalkingTime(walkingTimeSeconds: number | null, distanceMeters: number | null): number | null {
-  if (walkingTimeSeconds !== null) {
-    return Math.round(walkingTimeSeconds / 60);
+export function getWalkingTime(walkingTimeMinutes: number | null, distanceMeters: number | null): number | null {
+  if (walkingTimeMinutes !== null && walkingTimeMinutes > 0) {
+    return walkingTimeMinutes;
   }
-  // Fallback to estimate (80m/min)
+  // Fallback to estimate (80m/min), minimum 1 min
   if (distanceMeters !== null) {
-    return Math.round(distanceMeters / 80);
+    return Math.max(1, Math.round(distanceMeters / 80));
   }
   return null;
 }

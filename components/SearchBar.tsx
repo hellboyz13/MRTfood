@@ -246,6 +246,7 @@ export default function SearchBar({ onSearch, onClear, isSearching, noResults, o
             {/* Filter Toggle Button - Golden Yellow Theme */}
             <button
               type="button"
+              data-tour="filter"
               onClick={() => setIsFilterOpen(!isFilterOpen)}
               className={`px-4 py-2.5 rounded-full shadow-lg transition-all duration-200 flex items-center justify-center font-bold text-sm active:scale-95 border-2 cursor-pointer ${
                 is24hActive || isDessertActive
@@ -267,7 +268,7 @@ export default function SearchBar({ onSearch, onClear, isSearching, noResults, o
           </div>
         )}
 
-        <form onSubmit={handleSubmit} className="relative flex items-center">
+        <form onSubmit={handleSubmit} className="relative flex items-center" data-tour="search">
           <div className="relative flex items-center bg-white rounded-full shadow-lg border-2 border-[#1a1a1a] focus-within:border-[#E8B931] focus-within:shadow-[0_4px_12px_rgba(232,185,49,0.3)] transition-all">
             <input
               ref={inputRef}
