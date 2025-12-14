@@ -6,8 +6,10 @@ import { stationNames } from '@/data/mock-data';
 import { useStationFood } from '@/hooks/useStationFood';
 import { SearchMatch } from '@/lib/api';
 import FoodListingCardV2 from './FoodListingCardV2';
+import RestaurantGridCard from './RestaurantGridCard';
 import SlotMachine from './SlotMachine';
 import MenuPreview from './MenuPreview';
+import ModeToggle from './ModeToggle';
 import { IconClose } from './Icons';
 
 interface FoodPanelV2Props {
@@ -94,6 +96,7 @@ const isSupabaseConfigured = () => {
 
 export default function FoodPanelV2({ stationId, onClose, isMobile = false, searchQuery = '', searchMatches = [] }: FoodPanelV2Props) {
   const [selectedMenuListing, setSelectedMenuListing] = useState<FoodListingWithSources | null>(null);
+  const [mode, setMode] = useState<'curated' | 'popular'>('popular');
 
   const { data, separatedListings, loading, error } = useStationFood(
     isSupabaseConfigured() ? stationId : null
@@ -125,7 +128,7 @@ export default function FoodPanelV2({ stationId, onClose, isMobile = false, sear
     return false;
   };
 
-  const renderCuratedContent = () => {
+  const renderListings = () => {
     if (loading) {
       return <LoadingState />;
     }
@@ -134,7 +137,14 @@ export default function FoodPanelV2({ stationId, onClose, isMobile = false, sear
       return <EmptyState />;
     }
 
-    const hasContent = data.sponsored || data.listings.length > 0;
+    // Get listings based on mode
+    // Popular: popular source + other (no source)
+    // Curated: recommended + food king
+    const modeListings = mode === 'popular'
+      ? [...separatedListings.popular, ...separatedListings.other]
+      : [...separatedListings.recommended, ...separatedListings.foodKingOnly];
+
+    const hasContent = data.sponsored || modeListings.length > 0;
 
     if (!hasContent) {
       return <EmptyState />;
@@ -143,8 +153,8 @@ export default function FoodPanelV2({ stationId, onClose, isMobile = false, sear
     // Filter listings based on search matches (if search is active)
     const isSearchActive = searchQuery && searchMatches.length > 0;
     const filteredListings = isSearchActive
-      ? data.listings.filter(listing => matchesSearch(listing))
-      : data.listings;
+      ? modeListings.filter(listing => matchesSearch(listing))
+      : modeListings;
 
     // Sort filtered listings by distance (closest first)
     const sortedListings = [...filteredListings].sort((a, b) => {
@@ -156,13 +166,28 @@ export default function FoodPanelV2({ stationId, onClose, isMobile = false, sear
     // If search is active but no matches at this station, show empty state
     if (isSearchActive && sortedListings.length === 0) {
       return (
-        <div className="text-center py-8 bg-[#1a1a1a] rounded-lg mx-2">
+        <div className="text-center py-8 bg-[#F5F3F0] rounded-lg mx-2 border border-[#E0DCD7]">
           <div className="text-4xl mb-3">🔍</div>
-          <p className="text-[#E8B931] text-sm font-medium">
+          <p className="text-[#2D2D2D] text-sm font-medium">
             No "{searchQuery}" found at this station.
           </p>
-          <p className="text-[#E8B931]/70 text-xs mt-1">
+          <p className="text-[#757575] text-xs mt-1">
             Try a different station or search term.
+          </p>
+        </div>
+      );
+    }
+
+    // If no listings in this mode
+    if (sortedListings.length === 0) {
+      return (
+        <div className="text-center py-8 bg-[#F5F3F0] rounded-lg border border-[#E0DCD7]">
+          <div className="text-4xl mb-3">{mode === 'popular' ? '🧭' : '⭐'}</div>
+          <p className="text-[#2D2D2D] text-sm font-medium">
+            No {mode === 'popular' ? 'places to explore' : 'featured places'} yet.
+          </p>
+          <p className="text-[#757575] text-xs mt-1">
+            Try the other tab!
           </p>
         </div>
       );
@@ -171,9 +196,9 @@ export default function FoodPanelV2({ stationId, onClose, isMobile = false, sear
     return (
       <>
         {/* Slot Machine - show when there are 2+ listings and no active search filter */}
-        {!isSearchActive && data.listings.length > 1 && (
+        {!isSearchActive && sortedListings.length > 1 && (
           <SlotMachine
-            listings={data.listings}
+            listings={sortedListings}
             onSelectWinner={() => {}}
           />
         )}
@@ -182,22 +207,23 @@ export default function FoodPanelV2({ stationId, onClose, isMobile = false, sear
         {!isSearchActive && data.sponsored && <SponsoredCardDb listing={data.sponsored} />}
 
         {/* All listings sorted by distance */}
-        {sortedListings.length > 0 && (
+        <div>
+          {/* Search filter indicator */}
+          {isSearchActive && (
+            <div className="flex items-center gap-2 text-sm font-medium text-[#2D2D2D] bg-[#FFF0ED] rounded-lg px-3 py-2 mb-3 border border-[#FF6B4A]">
+              <span className="text-base">🔍</span>
+              <span>Showing "{searchQuery}" ({sortedListings.length})</span>
+            </div>
+          )}
+          {/* Sort indicator - only when no search filter */}
+          {!isSearchActive && (
+            <div className="flex items-center gap-2 text-sm font-medium text-[#2D2D2D] bg-[#F5F3F0] rounded-lg px-3 py-2 mb-3">
+              <span className="text-base">🚶</span>
+              <span>Sorted by walking distance</span>
+            </div>
+          )}
+          {/* Single column list */}
           <div className="space-y-2">
-            {/* Search filter indicator */}
-            {isSearchActive && (
-              <div className="flex items-center gap-2 text-sm font-medium text-[#1a1a1a] bg-[#E8B931]/20 rounded-lg px-3 py-2 mb-1 border border-[#E8B931]">
-                <span className="text-base">🔍</span>
-                <span>Showing "{searchQuery}" ({sortedListings.length})</span>
-              </div>
-            )}
-            {/* Sort indicator - only when no search filter */}
-            {!isSearchActive && (
-              <div className="flex items-center gap-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg px-3 py-2 mb-1">
-                <span className="text-base">🚶</span>
-                <span>Sorted by walking distance</span>
-              </div>
-            )}
             {sortedListings.map((listing) => (
               <FoodListingCardV2
                 key={listing.id}
@@ -207,13 +233,23 @@ export default function FoodPanelV2({ stationId, onClose, isMobile = false, sear
               />
             ))}
           </div>
-        )}
+        </div>
       </>
     );
   };
 
   const renderContent = () => {
-    return renderCuratedContent();
+    return (
+      <>
+        {/* Mode Toggle */}
+        <ModeToggle mode={mode} onModeChange={setMode} />
+
+        {/* Listings */}
+        <div className="mt-3">
+          {renderListings()}
+        </div>
+      </>
+    );
   };
 
   // Desktop panel
@@ -223,14 +259,14 @@ export default function FoodPanelV2({ stationId, onClose, isMobile = false, sear
         {/* Main listing panel */}
         <div className={`panel-content ${selectedMenuListing ? 'slide-out-left' : ''} bg-white`}>
           <div className="flex flex-col h-full">
-            <div className="flex items-center justify-between px-4 py-3 border-b border-[#E8B931] bg-[#E8B931] flex-shrink-0">
-              <h2 className="text-lg font-bold text-[#1a1a1a]">{stationName}</h2>
+            <div className="flex items-center justify-between px-4 py-3 border-b border-[#E0DCD7] bg-[#FFFBF7] flex-shrink-0">
+              <h2 className="text-lg font-bold text-[#2D2D2D]">{stationName}</h2>
               <button
                 onClick={onClose}
-                className="p-1 hover:bg-[#F5D251] rounded-full transition-colors"
+                className="p-1 hover:bg-[#FFF0ED] rounded-full transition-colors"
                 aria-label="Close panel"
               >
-                <IconClose className="w-5 h-5 text-[#1a1a1a]" />
+                <IconClose className="w-5 h-5 text-[#2D2D2D]" />
               </button>
             </div>
             <div className="flex-1 overflow-y-auto p-4 space-y-3">
@@ -400,7 +436,7 @@ function MobileDrawer({
             {/* Header */}
             <div
               data-drag-handle
-              className="flex items-center justify-between border-b border-[#E8B931] bg-[#E8B931] flex-shrink-0"
+              className="flex items-center justify-between border-b border-[#E0DCD7] bg-[#FFFBF7] flex-shrink-0"
               style={{
                 paddingLeft: 'clamp(12px, 4vw, 20px)',
                 paddingRight: 'clamp(12px, 4vw, 20px)',
@@ -412,21 +448,21 @@ function MobileDrawer({
               onTouchEnd={handleTouchEnd}
             >
               <h2
-                className="font-bold text-[#1a1a1a]"
+                className="font-bold text-[#2D2D2D]"
                 style={{ fontSize: 'clamp(16px, 4.5vw, 20px)' }}
               >
                 {stationName}
               </h2>
               <button
                 onClick={handleClose}
-                className="hover:bg-[#F5D251] rounded-full transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
+                className="hover:bg-[#FFF0ED] rounded-full transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
                 aria-label="Close drawer"
                 style={{
                   padding: 'clamp(8px, 2vw, 10px)',
                 }}
               >
                 <IconClose
-                  className="text-[#1a1a1a]"
+                  className="text-[#2D2D2D]"
                   style={{ width: 'clamp(18px, 5vw, 20px)', height: 'clamp(18px, 5vw, 20px)' }}
                 />
               </button>

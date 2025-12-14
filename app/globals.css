@@ -6,29 +6,29 @@
 
 :root {
   /* Backgrounds */
-  --bg-cream: #FFF8F0;
-  --bg-card: #FFFFFF;
-  --bg-card-hover: #FFF5EB;
-  --border: #F0E6D8;
+  --bg-cream: #FFFBF7;      /* Navigation bar background - cream white */
+  --bg-card: #F5F3F0;       /* Panel/card backgrounds - light warm gray */
+  --bg-card-hover: #FFF0ED; /* Active/selected state - light coral */
+  --border: #E0DCD7;        /* Borders/dividers - subtle gray */
 
   /* Brand colors */
-  --primary: #E85A4F;       /* Tomato red */
-  --primary-hover: #D14940;
-  --secondary: #8B4513;     /* Warm brown */
-  --accent: #F4A259;        /* Orange spice */
+  --primary: #FF6B4A;       /* Primary buttons - warm coral */
+  --primary-hover: #E55A3A; /* Primary button hover - darker coral */
+  --secondary: #E8E4E0;     /* Secondary buttons - soft gray */
+  --accent: #FF6B4A;        /* Accent color - warm coral */
 
   /* Text */
-  --text-dark: #3D2314;     /* Dark chocolate */
-  --text-body: #5D4E37;     /* Coffee */
-  --text-muted: #8B7355;    /* Latte */
+  --text-dark: #2D2D2D;     /* Body text - charcoal */
+  --text-body: #2D2D2D;     /* Body text - charcoal */
+  --text-muted: #757575;    /* Secondary text - medium gray */
 
   /* States */
   --success: #6B8E23;       /* Olive green */
-  --highlight: #FFE4B5;     /* Moccasin - for search results */
+  --highlight: #FFF0ED;     /* Light coral - for search results */
 
   /* Legacy variables for compatibility */
-  --background: #FFF8F0;
-  --foreground: #5D4E37;
+  --background: #FFFBF7;
+  --foreground: #2D2D2D;
 }
 
 body {
@@ -39,7 +39,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: var(--secondary);
+  color: var(--text-dark);
   font-weight: 700;
   font-family: var(--font-poppins), var(--font-nunito), system-ui, sans-serif;
 }
@@ -248,13 +248,13 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/* Slot Machine Animations - Updated with warm colors */
+/* Slot Machine Animations - Updated with warm coral */
 @keyframes pulse-subtle {
   0%, 100% {
-    box-shadow: 0 4px 6px -1px rgba(244, 162, 89, 0.3), 0 2px 4px -1px rgba(244, 162, 89, 0.2);
+    box-shadow: 0 4px 6px -1px rgba(255, 107, 74, 0.3), 0 2px 4px -1px rgba(255, 107, 74, 0.2);
   }
   50% {
-    box-shadow: 0 10px 15px -3px rgba(244, 162, 89, 0.4), 0 4px 6px -2px rgba(244, 162, 89, 0.3);
+    box-shadow: 0 10px 15px -3px rgba(255, 107, 74, 0.4), 0 4px 6px -2px rgba(255, 107, 74, 0.3);
   }
 }
 
@@ -264,10 +264,10 @@ h1, h2, h3, h4, h5, h6 {
 
 @keyframes winner-glow {
   0%, 100% {
-    box-shadow: 0 0 10px rgba(244, 162, 89, 0.3), 0 0 20px rgba(244, 162, 89, 0.2);
+    box-shadow: 0 0 10px rgba(255, 107, 74, 0.3), 0 0 20px rgba(255, 107, 74, 0.2);
   }
   50% {
-    box-shadow: 0 0 20px rgba(244, 162, 89, 0.5), 0 0 40px rgba(244, 162, 89, 0.3);
+    box-shadow: 0 0 20px rgba(255, 107, 74, 0.5), 0 0 40px rgba(255, 107, 74, 0.3);
   }
 }
 
@@ -357,24 +357,24 @@ svg circle.station-highlighted {
 }
 
 .result-badge-bg {
-  fill: #E85A4F;
+  fill: #FF6B4A;
   pointer-events: none;
 }
 
-/* Component Utility Classes - Warm Food Theme */
+/* Component Utility Classes - Warm Coral Theme */
 
 /* Cards */
 .card {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(139, 69, 19, 0.08);
+  box-shadow: 0 2px 8px rgba(45, 45, 45, 0.06);
   transition: all 0.2s ease;
 }
 
 .card:hover {
   background: var(--bg-card-hover);
-  box-shadow: 0 4px 12px rgba(139, 69, 19, 0.12);
+  box-shadow: 0 4px 12px rgba(45, 45, 45, 0.1);
 }
 
 /* Buttons */
@@ -392,8 +392,8 @@ svg circle.station-highlighted {
 }
 
 .btn-secondary {
-  background: var(--bg-cream);
-  color: var(--secondary);
+  background: var(--secondary);
+  color: var(--text-dark);
   border: 1px solid var(--border);
   border-radius: 8px;
   font-weight: 600;
@@ -401,8 +401,8 @@ svg circle.station-highlighted {
 }
 
 .btn-secondary:hover {
-  background: var(--bg-card-hover);
-  border-color: var(--accent);
+  background: #DDD9D4;
+  border-color: var(--border);
 }
 
 /* Toggles */

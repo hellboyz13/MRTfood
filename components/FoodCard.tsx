@@ -27,10 +27,6 @@ export default function FoodCard({ food }: FoodCardProps) {
           <span className="text-sm font-medium text-gray-700">{food.rating.toFixed(1)}</span>
         </div>
 
-        {/* Description */}
-        <p className="text-xs text-gray-500 mt-1 line-clamp-2">
-          {food.description}
-        </p>
       </div>
     </div>
   );

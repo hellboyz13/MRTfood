@@ -155,7 +155,7 @@ export default function HowToUseCard() {
     cardHook: {
       width: '44px',
       height: '22px',
-      background: 'linear-gradient(180deg, #D4A020 0%, #8B7355 50%, #6B5344 100%)',
+      background: 'linear-gradient(180deg, #FF6B4A 0%, #E55A3A 50%, #d4503a 100%)',
       borderRadius: '8px 8px 0 0',
       marginBottom: '-4px',
       position: 'relative' as const,
@@ -171,16 +171,16 @@ export default function HowToUseCard() {
       height: '14px',
       background: 'radial-gradient(circle at 30% 30%, #3a3a3a, #1a1a1a)',
       borderRadius: '50%',
-      border: '2px solid #8B7355',
+      border: '2px solid #E55A3A',
       boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.5)',
     },
     card: {
-      backgroundColor: '#E8B931',
+      backgroundColor: '#FFFBF7',
       borderRadius: '24px',
       padding: '28px 24px 24px',
       fontFamily: "'Fredoka', sans-serif",
       boxShadow: '0 20px 60px rgba(0,0,0,0.3), 0 8px 20px rgba(0,0,0,0.2)',
-      border: '4px solid #1a1a1a',
+      border: '2px solid #E0DCD7',
       position: 'relative' as const,
       overflow: 'hidden',
       width: '100%',
@@ -192,8 +192,8 @@ export default function HowToUseCard() {
       width: '80px',
       height: '80px',
       borderRadius: '50%',
-      backgroundColor: '#F5D251',
-      opacity: 0.6,
+      backgroundColor: '#FFF0ED',
+      opacity: 0.8,
     },
     circle2: {
       position: 'absolute' as const,
@@ -202,8 +202,8 @@ export default function HowToUseCard() {
       width: '100px',
       height: '100px',
       borderRadius: '50%',
-      backgroundColor: '#D4A020',
-      opacity: 0.4,
+      backgroundColor: '#FF6B4A',
+      opacity: 0.15,
     },
     header: {
       textAlign: 'center' as const,
@@ -213,13 +213,13 @@ export default function HowToUseCard() {
     title: {
       fontSize: '26px',
       fontWeight: 700,
-      color: '#1a1a1a',
+      color: '#2D2D2D',
       margin: 0,
       letterSpacing: '-0.5px',
     },
     subtitle: {
       fontSize: '14px',
-      color: '#4a4a4a',
+      color: '#757575',
       margin: '6px 0 0',
       fontWeight: 500,
     },
@@ -233,13 +233,13 @@ export default function HowToUseCard() {
       display: 'flex',
       alignItems: 'center',
       gap: '12px',
-      backgroundColor: 'rgba(255,255,255,0.5)',
+      backgroundColor: '#F5F3F0',
       padding: '12px 14px',
       borderRadius: '12px',
     },
     icon: {
       flexShrink: 0,
-      color: '#1a1a1a',
+      color: '#FF6B4A',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
@@ -247,18 +247,19 @@ export default function HowToUseCard() {
     text: {
       fontSize: '14px',
       fontWeight: 500,
-      color: '#1a1a1a',
+      color: '#2D2D2D',
       lineHeight: 1.4,
     },
     sources: {
-      backgroundColor: '#1a1a1a',
+      backgroundColor: '#F5F3F0',
       borderRadius: '12px',
       padding: '12px 16px',
       marginTop: '4px',
+      border: '1px solid #E0DCD7',
     },
     sourcesTitle: {
       fontSize: '12px',
-      color: '#E8B931',
+      color: '#757575',
       margin: '0 0 8px',
       fontWeight: 600,
       textTransform: 'uppercase' as const,
@@ -270,15 +271,15 @@ export default function HowToUseCard() {
       gap: '6px',
     },
     tag: {
-      backgroundColor: '#E8B931',
-      color: '#1a1a1a',
+      backgroundColor: '#FFF0ED',
+      color: '#FF6B4A',
       padding: '4px 10px',
       borderRadius: '20px',
       fontSize: '11px',
       fontWeight: 600,
     },
     more: {
-      color: '#888',
+      color: '#757575',
       padding: '4px 6px',
       fontSize: '11px',
       fontWeight: 500,
@@ -287,8 +288,8 @@ export default function HowToUseCard() {
       width: '100%',
       marginTop: '20px',
       padding: '14px 24px',
-      backgroundColor: '#1a1a1a',
-      color: '#E8B931',
+      backgroundColor: '#FF6B4A',
+      color: '#ffffff',
       border: 'none',
       borderRadius: '14px',
       fontSize: '16px',
@@ -296,12 +297,12 @@ export default function HowToUseCard() {
       fontFamily: "'Fredoka', sans-serif",
       cursor: 'pointer',
       transition: 'all 0.2s ease',
-      boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
+      boxShadow: '0 4px 12px rgba(255,107,74,0.3)',
     },
     footer: {
       textAlign: 'center' as const,
       fontSize: '10px',
-      color: '#6a6a6a',
+      color: '#757575',
       margin: '16px 0 0',
       fontWeight: 500,
     },
@@ -381,11 +382,11 @@ export default function HowToUseCard() {
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = 'scale(1.02)';
-                e.currentTarget.style.backgroundColor = '#2a2a2a';
+                e.currentTarget.style.backgroundColor = '#E55A3A';
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = 'scale(1)';
-                e.currentTarget.style.backgroundColor = '#1a1a1a';
+                e.currentTarget.style.backgroundColor = '#FF6B4A';
               }}
             >
               Let&apos;s Eat!

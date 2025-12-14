@@ -98,8 +98,8 @@ export default function FoodListingCardV2({ listing, highlighted = false, onView
   return (
     <div className={`rounded-lg p-3 shadow-sm ${
       highlighted
-        ? 'bg-green-50 border-2 border-green-400 ring-2 ring-green-200'
-        : 'bg-white border border-gray-100'
+        ? 'bg-[#FFF0ED] border-2 border-[#FF6B4A] ring-2 ring-[#FF6B4A]/20'
+        : 'bg-white border border-[#E0DCD7]'
     }`}>
       <div className="flex gap-3">
         {/* Image thumbnail */}
@@ -175,27 +175,8 @@ export default function FoodListingCardV2({ listing, highlighted = false, onView
             )}
           </div>
 
-          {/* Address */}
-          {listing.address && (
-            <a
-              href={getMapsUrl(listing.name, listing.landmark, listing.address)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1 mt-1 text-xs text-blue-600 hover:text-blue-800 hover:underline"
-            >
-              <span>📍</span>
-              <span className="truncate">{listing.address}</span>
-            </a>
-          )}
         </div>
       </div>
-
-      {/* Description if available */}
-      {listing.description && (
-        <p className="mt-2 text-xs text-gray-600 line-clamp-2">
-          {listing.description}
-        </p>
-      )}
 
       {/* Tags */}
       {listing.tags && listing.tags.length > 0 && (
@@ -220,15 +201,16 @@ export default function FoodListingCardV2({ listing, highlighted = false, onView
         </div>
       )}
 
-      {/* Menu Button */}
-      {onViewMenu && (
-        <button
-          onClick={() => onViewMenu(listing)}
-          className="w-full mt-3 py-2 px-3 bg-[#E8B931] hover:bg-[#F5D251] text-[#1a1a1a] text-sm font-semibold rounded-md transition-colors flex items-center justify-center border-2 border-[#1a1a1a]"
-        >
-          Menu
-        </button>
-      )}
+      {/* Directions & Menu Button */}
+      <a
+        href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${listing.name} ${listing.address || ''} Singapore`)}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center justify-center gap-1 w-full mt-3 py-1.5 px-3 bg-[#FFF0ED] text-[#FF6B4A] border border-[#FF6B4A] rounded-md text-[13px] font-medium hover:bg-[#FF6B4A] hover:text-white transition-colors"
+      >
+        <span>📍</span>
+        <span>Directions & Menu →</span>
+      </a>
     </div>
   );
 }

@@ -87,12 +87,12 @@ export default function ChainOutletCard({ outlet, brandName, highlighted = false
   return (
     <div className={`rounded-lg p-3 hover:shadow-md transition-shadow ${
       highlighted
-        ? 'bg-green-50 border-2 border-green-400 ring-2 ring-green-200'
-        : 'bg-white border border-gray-200'
+        ? 'bg-[#FFF0ED] border-2 border-[#FF6B4A] ring-2 ring-[#FF6B4A]/20'
+        : 'bg-white border border-[#E0DCD7]'
     }`}>
       <div className="flex items-start gap-3 mb-2">
         {/* Brand Logo or Food Thumbnail */}
-        <div className="flex-shrink-0 w-12 h-12 rounded-lg overflow-hidden bg-gray-100 flex items-center justify-center">
+        <div className="flex-shrink-0 w-12 h-12 rounded-lg overflow-hidden bg-[#F5F3F0] flex items-center justify-center">
           {thumbnailImage ? (
             <img
               src={thumbnailImage}
@@ -114,22 +114,22 @@ export default function ChainOutletCard({ outlet, brandName, highlighted = false
         {/* Content */}
         <div className="flex-1 min-w-0 flex items-start justify-between gap-2">
           <div className="flex-1 min-w-0">
-            <h4 className="font-medium text-gray-900 text-sm truncate">{outlet.name}</h4>
+            <h4 className="font-medium text-[#2D2D2D] text-sm truncate">{outlet.name}</h4>
             {outlet.address && (
-              <p className="text-xs text-gray-500 mt-0.5 line-clamp-2">{outlet.address}</p>
+              <p className="text-xs text-[#757575] mt-0.5 line-clamp-2">{outlet.address}</p>
             )}
           </div>
           {outlet.rating && (
             <div className="flex items-center gap-0.5 flex-shrink-0">
-              <span className="text-amber-500 text-xs">★</span>
-              <span className="text-xs text-gray-600">{outlet.rating.toFixed(1)}</span>
+              <span className="text-[#FF6B4A] text-xs">★</span>
+              <span className="text-xs text-[#757575]">{outlet.rating.toFixed(1)}</span>
             </div>
           )}
         </div>
       </div>
 
       {(distance || walkTime) && (
-        <div className="flex items-center gap-1 text-xs text-gray-500 mb-2">
+        <div className="flex items-center gap-1 text-xs text-[#757575] mb-2">
           <span>{distance}</span>
           {distance && walkTime && <span>•</span>}
           <span>{walkTime}</span>
@@ -139,14 +139,14 @@ export default function ChainOutletCard({ outlet, brandName, highlighted = false
       <div className="flex gap-2">
         <button
           onClick={handleGetDirections}
-          className="flex-1 py-1.5 px-3 bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-medium rounded transition-colors"
+          className="flex-1 py-1.5 px-3 bg-[#E8E4E0] hover:bg-[#DDD9D4] text-[#2D2D2D] text-xs font-medium rounded transition-colors"
         >
           Get Directions
         </button>
         {onViewMenu && (
           <button
             onClick={handleViewMenu}
-            className="flex-1 py-1.5 px-3 bg-[#E8B931] hover:bg-[#F5D251] text-[#1a1a1a] text-sm font-semibold rounded transition-colors flex items-center justify-center border-2 border-[#1a1a1a]"
+            className="flex-1 py-1.5 px-3 bg-[#FF6B4A] hover:bg-[#E55A3A] text-white text-sm font-semibold rounded transition-colors flex items-center justify-center"
           >
             Menu
           </button>

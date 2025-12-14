@@ -27,8 +27,6 @@ export default function FoodListingCard({ listing }: FoodListingCardProps) {
             </div>
           )}
 
-          {/* Description */}
-          <p className="text-xs text-gray-500 mt-1 line-clamp-2">{listing.description}</p>
         </div>
       </div>
 

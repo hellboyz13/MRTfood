@@ -226,13 +226,13 @@ const Onboarding = forwardRef<OnboardingRef>(function Onboarding(_, ref) {
         {/* Spotlight border - only show for non-center placements */}
         {!isCenter && (
           <div
-            className="absolute border-2 border-[#E8B931] rounded-xl transition-all duration-300 ease-out"
+            className="absolute border-2 border-[#FF6B4A] rounded-xl transition-all duration-300 ease-out"
             style={{
               top: spotlightPosition.top,
               left: spotlightPosition.left,
               width: spotlightPosition.width,
               height: spotlightPosition.height,
-              boxShadow: '0 0 0 4px rgba(232, 185, 49, 0.3)',
+              boxShadow: '0 0 0 4px rgba(255, 107, 74, 0.3)',
             }}
           />
         )}
@@ -244,7 +244,7 @@ const Onboarding = forwardRef<OnboardingRef>(function Onboarding(_, ref) {
         className="fixed z-[9999] pointer-events-auto transition-all duration-300 ease-out"
         style={tooltipStyle}
       >
-        <div className="bg-white rounded-xl shadow-2xl border-2 border-[#1a1a1a] p-4 relative">
+        <div className="bg-white rounded-xl shadow-2xl border border-[#E0DCD7] p-4 relative">
           {/* Arrow pointing up (for bottom placement) */}
           {currentPlacement === 'bottom' && (
             <div
@@ -252,7 +252,7 @@ const Onboarding = forwardRef<OnboardingRef>(function Onboarding(_, ref) {
               style={{ left: arrowStyle.left, transform: arrowStyle.transform }}
             >
               <svg width="20" height="12" viewBox="0 0 20 12" className="drop-shadow-sm">
-                <path d="M10 0L20 12H0L10 0Z" fill="white" stroke="#1a1a1a" strokeWidth="2" />
+                <path d="M10 0L20 12H0L10 0Z" fill="white" stroke="#E0DCD7" strokeWidth="1" />
                 <path d="M10 2L17 12H3L10 2Z" fill="white" />
               </svg>
             </div>
@@ -264,14 +264,14 @@ const Onboarding = forwardRef<OnboardingRef>(function Onboarding(_, ref) {
               style={{ left: arrowStyle.left, transform: arrowStyle.transform }}
             >
               <svg width="20" height="12" viewBox="0 0 20 12" className="drop-shadow-sm">
-                <path d="M10 12L0 0H20L10 12Z" fill="white" stroke="#1a1a1a" strokeWidth="2" />
+                <path d="M10 12L0 0H20L10 12Z" fill="white" stroke="#E0DCD7" strokeWidth="1" />
                 <path d="M10 10L3 0H17L10 10Z" fill="white" />
               </svg>
             </div>
           )}
 
           {/* Content */}
-          <div className="text-[#1a1a1a] text-sm mb-4 leading-relaxed">
+          <div className="text-[#2D2D2D] text-sm mb-4 leading-relaxed">
             {steps[currentStep].content}
           </div>
 
@@ -282,7 +282,7 @@ const Onboarding = forwardRef<OnboardingRef>(function Onboarding(_, ref) {
                 <div
                   key={index}
                   className={`w-2 h-2 rounded-full transition-colors ${
-                    index === currentStep ? 'bg-[#E8B931]' : 'bg-gray-300'
+                    index === currentStep ? 'bg-[#FF6B4A]' : 'bg-[#E0DCD7]'
                   }`}
                 />
               ))}
@@ -291,13 +291,13 @@ const Onboarding = forwardRef<OnboardingRef>(function Onboarding(_, ref) {
             <div className="flex gap-2">
               <button
                 onClick={handleSkip}
-                className="px-3 py-1.5 text-sm text-gray-500 hover:text-gray-700 transition-colors"
+                className="px-3 py-1.5 text-sm text-[#757575] hover:text-[#2D2D2D] transition-colors"
               >
                 Skip
               </button>
               <button
                 onClick={handleNext}
-                className="px-4 py-1.5 bg-[#E8B931] text-[#1a1a1a] text-sm font-semibold rounded-lg hover:bg-[#F5D251] transition-colors border-2 border-[#1a1a1a]"
+                className="px-4 py-1.5 bg-[#FF6B4A] text-white text-sm font-semibold rounded-lg hover:bg-[#E55A3A] transition-colors"
               >
                 {currentStep < steps.length - 1 ? 'Next' : 'Got it!'}
               </button>

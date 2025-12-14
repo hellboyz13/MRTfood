@@ -183,7 +183,7 @@ export default function SearchBar({ onSearch, onClear, isSearching, noResults, o
             opacity: 0,
           }}
         >
-          <div className="bg-[#E8B931] text-[#1a1a1a] px-4 py-2 rounded-full shadow-lg whitespace-nowrap flex items-center gap-2 border-2 border-[#1a1a1a]">
+          <div className="bg-[#FF6B4A] text-white px-4 py-2 rounded-full shadow-lg whitespace-nowrap flex items-center gap-2">
             <span className="text-lg">😵</span>
             <span className="text-sm font-bold">No food found</span>
           </div>
@@ -210,10 +210,10 @@ export default function SearchBar({ onSearch, onClear, isSearching, noResults, o
                     onDessertClick();
                     setIsFilterOpen(false);
                   }}
-                  className={`px-4 py-2.5 rounded-full shadow-lg transition-all duration-200 flex items-center justify-center font-bold text-sm active:scale-95 whitespace-nowrap border-2 border-[#1a1a1a] ${
+                  className={`px-4 py-2.5 rounded-full shadow-lg transition-all duration-200 flex items-center justify-center font-bold text-sm active:scale-95 whitespace-nowrap ${
                     isDessertActive
                       ? 'bg-pink-500 text-white shadow-pink-300'
-                      : 'bg-white text-[#1a1a1a] hover:bg-pink-50 hover:text-pink-600'
+                      : 'bg-[#E8E4E0] text-[#2D2D2D] hover:bg-pink-50 hover:text-pink-600'
                   }`}
                   title="Find dessert spots"
                 >
@@ -230,10 +230,10 @@ export default function SearchBar({ onSearch, onClear, isSearching, noResults, o
                     on24hClick();
                     setIsFilterOpen(false);
                   }}
-                  className={`px-4 py-2.5 rounded-full shadow-lg transition-all duration-200 flex items-center justify-center font-bold text-sm active:scale-95 whitespace-nowrap border-2 border-[#1a1a1a] ${
+                  className={`px-4 py-2.5 rounded-full shadow-lg transition-all duration-200 flex items-center justify-center font-bold text-sm active:scale-95 whitespace-nowrap ${
                     is24hActive
                       ? 'bg-purple-600 text-white shadow-purple-300'
-                      : 'bg-white text-[#1a1a1a] hover:bg-purple-50 hover:text-purple-600'
+                      : 'bg-[#E8E4E0] text-[#2D2D2D] hover:bg-purple-50 hover:text-purple-600'
                   }`}
                   title="Find supper spots"
                 >
@@ -243,17 +243,17 @@ export default function SearchBar({ onSearch, onClear, isSearching, noResults, o
               )}
             </div>
 
-            {/* Filter Toggle Button - Golden Yellow Theme */}
+            {/* Filter Toggle Button - Coral Theme */}
             <button
               type="button"
               data-tour="filter"
               onClick={() => setIsFilterOpen(!isFilterOpen)}
-              className={`px-4 py-2.5 rounded-full shadow-lg transition-all duration-200 flex items-center justify-center font-bold text-sm active:scale-95 border-2 cursor-pointer ${
+              className={`px-4 py-2.5 rounded-full shadow-lg transition-all duration-200 flex items-center justify-center font-bold text-sm active:scale-95 cursor-pointer ${
                 is24hActive || isDessertActive
-                  ? 'bg-[#E8B931] border-[#1a1a1a] text-[#1a1a1a] shadow-[0_4px_12px_rgba(232,185,49,0.4)] hover:scale-[1.02]'
+                  ? 'bg-[#FF6B4A] text-white shadow-[0_4px_12px_rgba(255,107,74,0.4)] hover:scale-[1.02]'
                   : isFilterOpen
-                    ? 'bg-[#F5D251] border-[#1a1a1a] text-[#1a1a1a]'
-                    : 'bg-[#E8B931] border-[#1a1a1a] text-[#1a1a1a] hover:bg-[#F5D251] hover:shadow-[0_6px_16px_rgba(232,185,49,0.5)] hover:scale-[1.02]'
+                    ? 'bg-[#E55A3A] text-white'
+                    : 'bg-[#FF6B4A] text-white hover:bg-[#E55A3A] hover:shadow-[0_6px_16px_rgba(255,107,74,0.5)] hover:scale-[1.02]'
               }`}
               title="Filter options"
             >
@@ -269,7 +269,7 @@ export default function SearchBar({ onSearch, onClear, isSearching, noResults, o
         )}
 
         <form onSubmit={handleSubmit} className="relative flex items-center" data-tour="search">
-          <div className="relative flex items-center bg-white rounded-full shadow-lg border-2 border-[#1a1a1a] focus-within:border-[#E8B931] focus-within:shadow-[0_4px_12px_rgba(232,185,49,0.3)] transition-all">
+          <div className="relative flex items-center bg-white rounded-full shadow-lg border border-[#E0DCD7] focus-within:border-[#FF6B4A] focus-within:shadow-[0_4px_12px_rgba(255,107,74,0.2)] transition-all">
             <input
               ref={inputRef}
               type="text"
@@ -303,12 +303,12 @@ export default function SearchBar({ onSearch, onClear, isSearching, noResults, o
                 ✕
               </button>
             )}
-            {/* Search button - Golden Yellow Theme */}
+            {/* Search button - Coral Theme */}
             <button
               type="submit"
               disabled={!query.trim() || isSearching}
-              className="bg-[#E8B931] hover:bg-[#F5D251] active:bg-[#d4a82a] disabled:bg-[#E8B931]/60
-                         text-[#1a1a1a] transition-all duration-200 w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 mr-0.5"
+              className="bg-[#FF6B4A] hover:bg-[#E55A3A] active:bg-[#d4503a] disabled:bg-[#FF6B4A]/60
+                         text-white transition-all duration-200 w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 mr-0.5"
             >
               {isSearching ? (
                 <IconSpinner className="w-4 h-4 text-white" />

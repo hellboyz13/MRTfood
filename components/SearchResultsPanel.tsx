@@ -83,11 +83,11 @@ export default function SearchResultsPanel({
     setIsCollapsed(newCollapsed);
   };
 
-  // No results message component - Black background with yellow text
+  // No results message component - Coral theme
   const NoResultsMessage = () => (
-    <div className="p-4 text-center bg-[#1a1a1a]">
-      <p className="text-[#E8B931] text-sm font-medium">No food found for "{searchQuery}"</p>
-      <p className="text-[#E8B931]/70 text-xs mt-1">Try a different search term</p>
+    <div className="p-4 text-center bg-[#FFF0ED]">
+      <p className="text-[#FF6B4A] text-sm font-medium">No food found for "{searchQuery}"</p>
+      <p className="text-[#757575] text-xs mt-1">Try a different search term</p>
     </div>
   );
 
@@ -101,12 +101,12 @@ export default function SearchResultsPanel({
       >
         {/* Panel content */}
         <div
-          className="w-[140px] max-h-[calc(4*44px+44px)] bg-white/95 backdrop-blur-sm rounded-r-xl shadow-xl border-2 border-[#E8B931] border-l-0 overflow-hidden flex flex-col"
+          className="w-[140px] max-h-[calc(4*44px+44px)] bg-white/95 backdrop-blur-sm rounded-r-xl shadow-xl border-2 border-[#FF6B4A] border-l-0 overflow-hidden flex flex-col"
         >
             {/* Close button */}
             <button
               onClick={onClose}
-              className="w-full py-2 bg-[#E8B931] text-[#1a1a1a] hover:bg-[#F5D251] transition-colors flex items-center justify-center flex-shrink-0"
+              className="w-full py-2 bg-[#FF6B4A] text-white hover:bg-[#E55A3A] transition-colors flex items-center justify-center flex-shrink-0"
               aria-label="Close results"
             >
               <IconClose className="w-4 h-4" />
@@ -127,10 +127,10 @@ export default function SearchResultsPanel({
                         }
                         onStationClick(result.stationId);
                       }}
-                      className="w-full py-2.5 px-2 border-b border-[#E8B931]/30 hover:bg-[#E8B931]/20 active:bg-[#E8B931]/30 transition-colors group cursor-pointer flex items-center justify-start min-h-[44px]"
+                      className="w-full py-2.5 px-2 border-b border-[#E0DCD7] hover:bg-[#FFF0ED] active:bg-[#FFF0ED] transition-colors group cursor-pointer flex items-center justify-start min-h-[44px]"
                     >
                       {/* Station Name - full width */}
-                      <div className="text-xs font-semibold text-[#1a1a1a] group-hover:text-[#E8B931] transition-colors leading-tight text-left truncate w-full">
+                      <div className="text-xs font-semibold text-[#2D2D2D] group-hover:text-[#FF6B4A] transition-colors leading-tight text-left truncate w-full">
                         {stationName}
                       </div>
                     </button>
@@ -143,9 +143,9 @@ export default function SearchResultsPanel({
 
             {/* Scroll indicator when more than 4 results */}
             {hasResults && results.length > 4 && (
-              <div className="py-1.5 bg-[#E8B931]/20 border-t border-[#E8B931]/30 flex items-center justify-center">
-                <IconChevronDown className="w-4 h-4 text-[#1a1a1a] animate-bounce" />
-                <span className="text-xs text-[#1a1a1a] ml-1">Scroll</span>
+              <div className="py-1.5 bg-[#FFF0ED] border-t border-[#E0DCD7] flex items-center justify-center">
+                <IconChevronDown className="w-4 h-4 text-[#FF6B4A] animate-bounce" />
+                <span className="text-xs text-[#2D2D2D] ml-1">Scroll</span>
               </div>
             )}
           </div>
@@ -153,7 +153,7 @@ export default function SearchResultsPanel({
           {/* Toggle button - always visible */}
           <button
             onClick={handleToggle}
-            className="self-start mt-4 w-6 h-12 bg-[#E8B931] hover:bg-[#F5D251] text-[#1a1a1a] rounded-r-lg shadow-lg flex items-center justify-center transition-colors"
+            className="self-start mt-4 w-6 h-12 bg-[#FF6B4A] hover:bg-[#E55A3A] text-white rounded-r-lg shadow-lg flex items-center justify-center transition-colors"
             aria-label={isCollapsed ? "Show search results" : "Hide search results"}
           >
             <IconChevronLeft className={`w-4 h-4 transition-transform duration-300 ${isCollapsed ? 'rotate-180' : ''}`} />
@@ -169,11 +169,11 @@ export default function SearchResultsPanel({
       >
         {/* Panel content */}
         <div
-          className="w-96 max-h-[calc(100vh-160px)] bg-white rounded-xl shadow-2xl border-2 border-[#E8B931] overflow-hidden flex flex-col"
+          className="w-96 max-h-[calc(100vh-160px)] bg-white rounded-xl shadow-2xl border-2 border-[#FF6B4A] overflow-hidden flex flex-col"
         >
             {/* Header */}
-            <div className="bg-[#E8B931] px-4 py-3 flex items-center justify-between flex-shrink-0">
-              <div className="flex items-center gap-2 text-[#1a1a1a] min-w-0 flex-1">
+            <div className="bg-[#FF6B4A] px-4 py-3 flex items-center justify-between flex-shrink-0">
+              <div className="flex items-center gap-2 text-white min-w-0 flex-1">
                 <span className="text-2xl flex-shrink-0">🔍</span>
                 <div className="min-w-0 flex-1">
                   <p className="text-sm opacity-80">Results for</p>
@@ -182,7 +182,7 @@ export default function SearchResultsPanel({
               </div>
               <button
                 onClick={onClose}
-                className="text-[#1a1a1a] hover:bg-[#1a1a1a]/20 rounded-full p-1 transition-colors flex-shrink-0"
+                className="text-white hover:bg-white/20 rounded-full p-1 transition-colors flex-shrink-0"
                 aria-label="Close results panel"
               >
                 <IconClose className="w-6 h-6" />
@@ -190,8 +190,8 @@ export default function SearchResultsPanel({
             </div>
 
             {/* Results count */}
-            <div className="px-4 py-2 bg-[#E8B931]/20 border-b border-[#E8B931]/30 flex-shrink-0">
-              <p className="text-sm text-[#1a1a1a] font-medium">
+            <div className="px-4 py-2 bg-[#FFF0ED] border-b border-[#E0DCD7] flex-shrink-0">
+              <p className="text-sm text-[#2D2D2D] font-medium">
                 {hasResults ? `${results.length} ${results.length === 1 ? 'station' : 'stations'}` : 'No results'}
               </p>
             </div>
@@ -211,28 +211,28 @@ export default function SearchResultsPanel({
                         }
                         onStationClick(result.stationId);
                       }}
-                      className="w-full px-4 py-3 border-b border-[#E8B931]/20 hover:bg-[#E8B931]/10 transition-colors text-left group cursor-pointer"
+                      className="w-full px-4 py-3 border-b border-[#E0DCD7] hover:bg-[#FFF0ED] transition-colors text-left group cursor-pointer"
                     >
                       {/* Station name */}
                       <div className="flex items-center gap-2 min-w-0">
                         <span className="text-lg flex-shrink-0">📍</span>
-                        <h3 className="font-bold text-base text-[#1a1a1a] group-hover:text-[#E8B931] transition-colors">
+                        <h3 className="font-bold text-base text-[#2D2D2D] group-hover:text-[#FF6B4A] transition-colors">
                           {stationName}
                         </h3>
                       </div>
 
                       {/* Matching restaurants preview */}
-                      <div className="text-xs text-[#1a1a1a]/70 ml-7 mt-2 space-y-0.5">
+                      <div className="text-xs text-[#757575] ml-7 mt-2 space-y-0.5">
                         {result.matches.slice(0, 3).map((match, idx) => (
                           <p key={idx} className="truncate">
-                            <span className="font-medium text-[#1a1a1a]/90">{match.name}</span>
+                            <span className="font-medium text-[#2D2D2D]">{match.name}</span>
                             {match.matchedTags && match.matchedTags.length > 0 && (
-                              <span className="text-[#E8B931] ml-1">• {match.matchedTags[0]}</span>
+                              <span className="text-[#FF6B4A] ml-1">• {match.matchedTags[0]}</span>
                             )}
                           </p>
                         ))}
                         {result.matches.length > 3 && (
-                          <p className="text-[#1a1a1a]/50 italic text-xs">
+                          <p className="text-[#757575] italic text-xs">
                             +{result.matches.length - 3} more...
                           </p>
                         )}
@@ -242,17 +242,17 @@ export default function SearchResultsPanel({
                 })}
               </div>
             ) : (
-              <div className="p-6 text-center bg-[#1a1a1a]">
-                <p className="text-[#E8B931] font-medium">No food found for "{searchQuery}"</p>
-                <p className="text-[#E8B931]/70 text-sm mt-2">Try a different search term</p>
+              <div className="p-6 text-center bg-[#FFF0ED]">
+                <p className="text-[#FF6B4A] font-medium">No food found for "{searchQuery}"</p>
+                <p className="text-[#757575] text-sm mt-2">Try a different search term</p>
               </div>
             )}
 
             {/* Scroll indicator when more than 4 results */}
             {hasResults && results.length > 4 && (
-              <div className="py-2 bg-[#E8B931]/20 border-t border-[#E8B931]/30 flex items-center justify-center flex-shrink-0">
-                <IconChevronDown className="w-5 h-5 text-[#1a1a1a] animate-bounce" />
-                <span className="text-sm text-[#1a1a1a] ml-1 font-medium">Scroll for more</span>
+              <div className="py-2 bg-[#FFF0ED] border-t border-[#E0DCD7] flex items-center justify-center flex-shrink-0">
+                <IconChevronDown className="w-5 h-5 text-[#FF6B4A] animate-bounce" />
+                <span className="text-sm text-[#2D2D2D] ml-1 font-medium">Scroll for more</span>
               </div>
             )}
           </div>
@@ -260,7 +260,7 @@ export default function SearchResultsPanel({
         {/* Toggle button - always visible */}
         <button
           onClick={handleToggle}
-          className="self-start mt-4 ml-2 w-8 h-16 bg-[#E8B931] hover:bg-[#F5D251] text-[#1a1a1a] rounded-r-lg shadow-lg flex items-center justify-center transition-colors"
+          className="self-start mt-4 ml-2 w-8 h-16 bg-[#FF6B4A] hover:bg-[#E55A3A] text-white rounded-r-lg shadow-lg flex items-center justify-center transition-colors"
           aria-label={isCollapsed ? "Show search results" : "Hide search results"}
         >
           <IconChevronLeft className={`w-5 h-5 transition-transform duration-300 ${isCollapsed ? 'rotate-180' : ''}`} />
