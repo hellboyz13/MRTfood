@@ -23,8 +23,8 @@ const steps: TourStep[] = [
     target: '[data-tour="map"]',
     content: (
       <div className="flex flex-col items-center gap-2">
-        <p>Pinch or scroll to zoom in and out of the map</p>
         <PinchAnimation />
+        <p className="text-sm text-center text-[#2D2D2D]">Pinch to zoom the map</p>
       </div>
     ),
     placement: 'center',
@@ -42,9 +42,25 @@ const steps: TourStep[] = [
   {
     target: '[data-tour="map"]',
     content: (
-      <div className="flex flex-col items-center gap-2 text-center">
-        <span className="text-xl">⚠️</span>
-        <p><strong>Heads up!</strong> Some shops may have closed or changed their hours. Please check before visiting!</p>
+      <div className="flex flex-col items-center gap-3 text-center">
+        {/* Pulsing warning icon */}
+        <div className="relative">
+          <span
+            className="text-3xl block"
+            style={{ animation: 'pulse-warning 1.5s ease-in-out infinite' }}
+          >
+            ⚠️
+          </span>
+          {/* Pulsing ring behind icon */}
+          <div
+            className="absolute inset-0 -m-2 rounded-full bg-amber-400/20"
+            style={{ animation: 'pulse-ring 1.5s ease-in-out infinite' }}
+          />
+        </div>
+        <div>
+          <p className="font-bold text-amber-600 text-base mb-1">Heads up!</p>
+          <p className="text-sm text-[#2D2D2D]">Some shops may have closed or changed their hours. Please check before visiting!</p>
+        </div>
       </div>
     ),
     placement: 'center',

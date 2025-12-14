@@ -3,56 +3,95 @@
 import { useEffect, useRef } from 'react';
 
 export function PinchAnimation() {
-  const leftHandRef = useRef<SVGGElement>(null);
-  const rightHandRef = useRef<SVGGElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const leftCircleRef = useRef<HTMLDivElement>(null);
+  const rightCircleRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const options: KeyframeAnimationOptions = {
-      duration: 1400,
+      duration: 1500,
       iterations: Infinity,
       easing: 'ease-in-out',
     };
 
-    leftHandRef.current?.animate(
+    // Animate touch points moving apart (zoom out gesture)
+    leftCircleRef.current?.animate(
       [
-        { transform: 'translateX(0)' },
-        { transform: 'translateX(6px)' },
-        { transform: 'translateX(0)' },
+        { transform: 'translate(0, 0) scale(1)', opacity: 1 },
+        { transform: 'translate(-12px, -8px) scale(0.9)', opacity: 0.7 },
+        { transform: 'translate(0, 0) scale(1)', opacity: 1 },
       ],
       options
     );
 
-    rightHandRef.current?.animate(
+    rightCircleRef.current?.animate(
       [
-        { transform: 'translateX(0)' },
-        { transform: 'translateX(-6px)' },
-        { transform: 'translateX(0)' },
+        { transform: 'translate(0, 0) scale(1)', opacity: 1 },
+        { transform: 'translate(12px, 8px) scale(0.9)', opacity: 0.7 },
+        { transform: 'translate(0, 0) scale(1)', opacity: 1 },
       ],
       options
     );
   }, []);
 
   return (
-    <div className="flex justify-center items-center py-2">
-      <svg width="80" height="50" viewBox="0 0 80 50">
-        {/* Left hand/finger */}
-        <g ref={leftHandRef}>
-          <ellipse cx="18" cy="25" rx="8" ry="12" fill="#2D2D2D" opacity="0.15" />
-          <ellipse cx="18" cy="25" rx="6" ry="10" fill="#2D2D2D" opacity="0.3" />
-          <circle cx="18" cy="20" r="3" fill="#2D2D2D" opacity="0.5" />
-        </g>
+    <div ref={containerRef} className="relative w-20 h-20 flex items-center justify-center">
+      {/* Subtle expanding rings to show zoom effect */}
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div
+          className="w-10 h-10 rounded-full border border-[#FF6B4A]/20"
+          style={{
+            animation: 'ping 1.5s ease-in-out infinite',
+          }}
+        />
+      </div>
 
-        {/* Right hand/finger */}
-        <g ref={rightHandRef}>
-          <ellipse cx="62" cy="25" rx="8" ry="12" fill="#2D2D2D" opacity="0.15" />
-          <ellipse cx="62" cy="25" rx="6" ry="10" fill="#2D2D2D" opacity="0.3" />
-          <circle cx="62" cy="20" r="3" fill="#2D2D2D" opacity="0.5" />
-        </g>
+      {/* Touch point circles - minimal iOS-style */}
+      <div
+        ref={leftCircleRef}
+        className="absolute w-8 h-8 rounded-full bg-gradient-to-br from-[#FF6B4A] to-[#FF8A6A] shadow-lg"
+        style={{
+          left: '18px',
+          top: '18px',
+          boxShadow: '0 2px 8px rgba(255, 107, 74, 0.4)',
+        }}
+      />
+      <div
+        ref={rightCircleRef}
+        className="absolute w-8 h-8 rounded-full bg-gradient-to-br from-[#FF6B4A] to-[#FF8A6A] shadow-lg"
+        style={{
+          right: '18px',
+          bottom: '18px',
+          boxShadow: '0 2px 8px rgba(255, 107, 74, 0.4)',
+        }}
+      />
+    </div>
+  );
+}
 
-        {/* Arrows indicating pinch direction */}
-        <path d="M30 25 L36 25 M34 22 L36 25 L34 28" stroke="#FF6B4A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-        <path d="M50 25 L44 25 M46 22 L44 25 L46 28" stroke="#FF6B4A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
+export function ScrollAnimation() {
+  const mouseRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    mouseRef.current?.animate(
+      [
+        { transform: 'translateY(0)' },
+        { transform: 'translateY(-4px)' },
+        { transform: 'translateY(0)' },
+        { transform: 'translateY(4px)' },
+        { transform: 'translateY(0)' },
+      ],
+      {
+        duration: 1500,
+        iterations: Infinity,
+        easing: 'ease-in-out',
+      }
+    );
+  }, []);
+
+  return (
+    <div ref={mouseRef} className="text-3xl">
+      🖱️
     </div>
   );
 }

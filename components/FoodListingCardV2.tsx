@@ -1,8 +1,67 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { FoodListingWithSources, ListingSourceWithDetails } from '@/types/database';
 import { formatDistance, getWalkingTime, getMapsUrl } from '@/lib/distance';
+
+// Image Lightbox Modal
+function ImageLightbox({
+  imageUrl,
+  alt,
+  onClose
+}: {
+  imageUrl: string;
+  alt: string;
+  onClose: () => void;
+}) {
+  // Close on escape key
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+    };
+    document.addEventListener('keydown', handleEscape);
+    return () => document.removeEventListener('keydown', handleEscape);
+  }, [onClose]);
+
+  // Prevent body scroll when modal is open
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, []);
+
+  return (
+    <div
+      className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/90 p-4"
+      onClick={onClose}
+    >
+      {/* Close button */}
+      <button
+        onClick={onClose}
+        className="absolute top-4 right-4 w-10 h-10 flex items-center justify-center rounded-full bg-white/20 text-white hover:bg-white/30 transition-colors"
+        aria-label="Close"
+      >
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <path d="M18 6L6 18M6 6l12 12" />
+        </svg>
+      </button>
+
+      {/* Image */}
+      <img
+        src={imageUrl}
+        alt={alt}
+        className="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl"
+        onClick={(e) => e.stopPropagation()}
+      />
+
+      {/* Tap to close hint */}
+      <p className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/60 text-sm">
+        Tap anywhere to close
+      </p>
+    </div>
+  );
+}
 
 interface FoodListingCardV2Props {
   listing: FoodListingWithSources;
@@ -66,6 +125,12 @@ function SourceBadge({
 
 export default function FoodListingCardV2({ listing, highlighted = false, onViewMenu }: FoodListingCardV2Props) {
   const [thumbnailImage, setThumbnailImage] = useState<string | null>(null);
+  const [showLightbox, setShowLightbox] = useState(false);
+
+  const displayImage = thumbnailImage || (listing.image_url?.startsWith('http') ? listing.image_url : null);
+  const handleImageClick = useCallback(() => {
+    if (displayImage) setShowLightbox(true);
+  }, [displayImage]);
 
   const distance = listing.distance_to_station;
   const walkingTime = getWalkingTime(listing.walking_time, distance);
@@ -101,17 +166,40 @@ export default function FoodListingCardV2({ listing, highlighted = false, onView
         ? 'bg-[#FFF0ED] border-2 border-[#FF6B4A] ring-2 ring-[#FF6B4A]/20'
         : 'bg-white border border-[#E0DCD7]'
     }`}>
+      {/* Lightbox Modal */}
+      {showLightbox && displayImage && (
+        <ImageLightbox
+          imageUrl={displayImage}
+          alt={listing.name}
+          onClose={() => setShowLightbox(false)}
+        />
+      )}
+
       <div className="flex gap-3">
-        {/* Image thumbnail */}
-        <div className="w-16 h-16 bg-gray-100 rounded-md flex-shrink-0 flex items-center justify-center overflow-hidden">
-          {thumbnailImage || (listing.image_url && listing.image_url.startsWith('http')) ? (
-            <img
-              src={thumbnailImage || listing.image_url || ''}
-              alt={listing.name}
-              loading="lazy"
-              decoding="async"
-              className="w-full h-full object-cover"
-            />
+        {/* Image thumbnail - clickable to view full size */}
+        <div
+          onClick={handleImageClick}
+          className={`w-16 h-16 bg-gray-100 rounded-md flex-shrink-0 flex items-center justify-center overflow-hidden relative ${
+            displayImage ? 'cursor-zoom-in' : ''
+          }`}
+        >
+          {displayImage ? (
+            <>
+              <img
+                src={displayImage}
+                alt={listing.name}
+                loading="lazy"
+                decoding="async"
+                className="w-full h-full object-cover"
+              />
+              {/* Zoom hint overlay */}
+              <div className="absolute inset-0 bg-black/0 hover:bg-black/20 transition-colors flex items-center justify-center opacity-0 hover:opacity-100">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" className="drop-shadow">
+                  <circle cx="11" cy="11" r="8" />
+                  <path d="M21 21l-4.35-4.35M11 8v6M8 11h6" />
+                </svg>
+              </div>
+            </>
           ) : (
             <span className="text-2xl">🍽️</span>
           )}
