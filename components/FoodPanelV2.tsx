@@ -98,6 +98,11 @@ export default function FoodPanelV2({ stationId, onClose, isMobile = false, sear
   const [selectedMenuListing, setSelectedMenuListing] = useState<FoodListingWithSources | null>(null);
   const [mode, setMode] = useState<'curated' | 'popular'>('popular');
 
+  // Reset selected menu listing when station changes
+  useEffect(() => {
+    setSelectedMenuListing(null);
+  }, [stationId]);
+
   const { data, separatedListings, loading, error } = useStationFood(
     isSupabaseConfigured() ? stationId : null
   );

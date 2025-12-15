@@ -78,6 +78,11 @@ export default function ChainOutletCard({ outlet, brandName, highlighted = false
       lat: outlet.latitude,
       lng: outlet.longitude,
       landmark: null, // Chain outlets use address for Google Maps
+      google_place_id: outlet.google_place_id,
+      review_count: null,
+      phone: outlet.phone,
+      website: null,
+      opening_hours: outlet.opening_hours,
       sources: [],
       trust_score: 0,
     };

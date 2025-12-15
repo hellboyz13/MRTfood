@@ -489,14 +489,19 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
       });
 
       // Highlight matching stations with pin markers directly on the circle
+      // Use querySelectorAll to handle interchange stations with multiple circles
       searchResults.forEach(result => {
-        const circle = svg.querySelector(`circle[data-station-id="${result.stationId}"]`) as SVGCircleElement;
-        if (circle) {
-          circle.classList.add('station-highlighted');
+        const circles = svg.querySelectorAll(`circle[data-station-id="${result.stationId}"]`);
+        if (circles.length > 0) {
+          // Add highlighted class to all circles at this station
+          circles.forEach(circle => {
+            circle.classList.add('station-highlighted');
+          });
 
-          // Add pin icon directly on the station circle
-          const cx = parseFloat(circle.getAttribute('cx') || '0');
-          const cy = parseFloat(circle.getAttribute('cy') || '0');
+          // Add pin icon only once, using first circle's position
+          const firstCircle = circles[0] as SVGCircleElement;
+          const cx = parseFloat(firstCircle.getAttribute('cx') || '0');
+          const cy = parseFloat(firstCircle.getAttribute('cy') || '0');
 
           // Create pin marker group
           const pinGroup = document.createElementNS('http://www.w3.org/2000/svg', 'g');
@@ -580,18 +585,20 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
     }
 
     // Clear previous selected station highlighting
+    // Use querySelectorAll to handle interchange stations with multiple circles
     if (previousSelectedStationRef.current && previousSelectedStationRef.current !== selectedStation) {
-      const previousCircle = svg.querySelector(`circle[data-station-id="${previousSelectedStationRef.current}"]`);
-      if (previousCircle) {
+      const previousCircles = svg.querySelectorAll(`circle[data-station-id="${previousSelectedStationRef.current}"]`);
+      previousCircles.forEach(previousCircle => {
         previousCircle.setAttribute('fill', '#ffffff');
         (previousCircle as HTMLElement).style.transform = 'scale(1)';
-      }
+      });
     }
 
     // Highlight selected station with red and pulse animation (takes priority over search results)
+    // Use querySelectorAll to handle interchange stations with multiple circles
     if (selectedStation) {
-      const selectedCircle = svg.querySelector(`circle[data-station-id="${selectedStation}"]`);
-      if (selectedCircle) {
+      const selectedCircles = svg.querySelectorAll(`circle[data-station-id="${selectedStation}"]`);
+      selectedCircles.forEach(selectedCircle => {
         selectedCircle.classList.remove('station-highlighted');
         selectedCircle.setAttribute('fill', '#dc2626');
         // Add pulse effect
@@ -599,7 +606,7 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
         setTimeout(() => {
           (selectedCircle as HTMLElement).style.transform = 'scale(1)';
         }, 150);
-      }
+      });
       previousSelectedStationRef.current = selectedStation;
     } else {
       previousSelectedStationRef.current = null;

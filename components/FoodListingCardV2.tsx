@@ -216,6 +216,9 @@ export default function FoodListingCardV2({ listing, highlighted = false, onView
               <span className="flex items-center gap-0.5 text-xs font-medium text-amber-600 bg-amber-50 px-1.5 py-0.5 rounded flex-shrink-0">
                 <span>⭐</span>
                 <span>{listing.rating.toFixed(1)}</span>
+                {listing.review_count && (
+                  <span className="text-amber-500">({listing.review_count.toLocaleString()})</span>
+                )}
               </span>
             )}
           </div>
@@ -290,15 +293,13 @@ export default function FoodListingCardV2({ listing, highlighted = false, onView
       )}
 
       {/* Directions & Menu Button */}
-      <a
-        href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${listing.name} ${listing.address || ''} Singapore`)}`}
-        target="_blank"
-        rel="noopener noreferrer"
+      <button
+        onClick={() => onViewMenu?.(listing)}
         className="flex items-center justify-center gap-1 w-full mt-3 py-1.5 px-3 bg-[#FFF0ED] text-[#FF6B4A] border border-[#FF6B4A] rounded-md text-[13px] font-medium hover:bg-[#FF6B4A] hover:text-white transition-colors"
       >
         <span>📍</span>
-        <span>Directions & Menu →</span>
-      </a>
+        <span>Direction, Opening Hours & Menu →</span>
+      </button>
     </div>
   );
 }

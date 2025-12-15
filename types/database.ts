@@ -111,6 +111,11 @@ export interface Database {
           lat: number | null;
           lng: number | null;
           landmark: string | null;
+          google_place_id: string | null;
+          review_count: number | null;
+          phone: string | null;
+          website: string | null;
+          opening_hours: Json | null;
         };
         Insert: {
           id?: string;
@@ -132,6 +137,11 @@ export interface Database {
           lat?: number | null;
           lng?: number | null;
           landmark?: string | null;
+          google_place_id?: string | null;
+          review_count?: number | null;
+          phone?: string | null;
+          website?: string | null;
+          opening_hours?: Json | null;
         };
         Update: {
           id?: string;
@@ -152,6 +162,11 @@ export interface Database {
           lat?: number | null;
           lng?: number | null;
           landmark?: string | null;
+          google_place_id?: string | null;
+          review_count?: number | null;
+          phone?: string | null;
+          website?: string | null;
+          opening_hours?: Json | null;
         };
       };
       sponsored_listings: {
