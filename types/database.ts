@@ -329,6 +329,74 @@ export interface Database {
           updated_at?: string;
         };
       };
+      malls: {
+        Row: {
+          id: string;
+          name: string;
+          station_id: string;
+          address: string | null;
+          thumbnail_url: string | null;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: {
+          id: string;
+          name: string;
+          station_id: string;
+          address?: string | null;
+          thumbnail_url?: string | null;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Update: {
+          id?: string;
+          name?: string;
+          station_id?: string;
+          address?: string | null;
+          thumbnail_url?: string | null;
+          updated_at?: string;
+        };
+      };
+      mall_outlets: {
+        Row: {
+          id: string;
+          name: string;
+          mall_id: string;
+          level: string | null;
+          category: string | null;
+          price_range: string | null;
+          thumbnail_url: string | null;
+          google_place_id: string | null;
+          opening_hours: Json | null;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: {
+          id?: string;
+          name: string;
+          mall_id: string;
+          level?: string | null;
+          category?: string | null;
+          price_range?: string | null;
+          thumbnail_url?: string | null;
+          google_place_id?: string | null;
+          opening_hours?: Json | null;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Update: {
+          id?: string;
+          name?: string;
+          mall_id?: string;
+          level?: string | null;
+          category?: string | null;
+          price_range?: string | null;
+          thumbnail_url?: string | null;
+          google_place_id?: string | null;
+          opening_hours?: Json | null;
+          updated_at?: string;
+        };
+      };
     };
     Views: {
       [_ in never]: never;
@@ -351,6 +419,13 @@ export type ListingSource = Database['public']['Tables']['listing_sources']['Row
 export type ChainBrand = Database['public']['Tables']['chain_brands']['Row'];
 export type ChainOutlet = Database['public']['Tables']['chain_outlets']['Row'];
 export type ListingPrice = Database['public']['Tables']['listing_prices']['Row'];
+export type Mall = Database['public']['Tables']['malls']['Row'];
+export type MallOutlet = Database['public']['Tables']['mall_outlets']['Row'];
+
+// Mall with outlet count
+export interface MallWithOutletCount extends Mall {
+  outlet_count: number;
+}
 
 // Source with its metadata from junction table
 export interface ListingSourceWithDetails {
@@ -366,6 +441,22 @@ export interface FoodListingWithSources extends FoodListing {
   trust_score?: number;
   // Price range from listing_prices table
   price_range?: string | null;
+  // Nearby station fallback fields
+  isNearby?: boolean;
+  nearbyStationId?: string;
+  nearbyStationName?: string;
+  walkingMinutes?: number; // Walking time to nearby station (for main line)
+  isLRTConnection?: boolean; // True if nearby station is via LRT
+  originalStationName?: string; // Name of the original empty station
+}
+
+// Nearby station redirect info for empty stations
+export interface NearbyStationRedirect {
+  nearbyStationId: string;
+  nearbyStationName: string;
+  walkingMinutes?: number;
+  isLRTConnection: boolean;
+  mallNames: string[]; // Preview of mall names at nearby station
 }
 
 // Combined station food data
@@ -373,6 +464,7 @@ export interface StationFoodData {
   station: Station;
   sponsored: SponsoredListing | null;
   listings: FoodListingWithSources[];
+  nearbyRedirect?: NearbyStationRedirect; // Info for redirect card if station is empty
 }
 
 // Chain outlet with brand info
@@ -390,10 +482,13 @@ export interface GroupedChainOutlets {
 export interface SearchMatch {
   id: string;
   name: string;
-  type: 'curated' | 'chain';
+  type: 'curated' | 'chain' | 'mall';
   matchType: 'food' | 'restaurant';
   matchedTags?: string[];
   score?: number;  // Lower is better match
+  // For mall outlets - the mall name for badge display
+  mallName?: string;
+  mallId?: string;
 }
 
 // Station search result with matches
