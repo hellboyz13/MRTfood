@@ -109,33 +109,37 @@ export default function OutletList({ mall, outlets, loading, onBack }: OutletLis
   const [showSpinWheel, setShowSpinWheel] = useState(false);
   const [selectedOutlet, setSelectedOutlet] = useState<MallOutlet | null>(null);
 
-  // Group outlets by floor level (exclude outlets with unclear unit info)
-  const groupedOutlets = useMemo((): GroupedOutlets[] => {
+  // Group outlets by floor level, with ungrouped outlets shown separately
+  const { groupedOutlets, ungroupedOutlets } = useMemo(() => {
     const groups: Record<string, MallOutlet[]> = {};
+    const ungrouped: MallOutlet[] = [];
 
     outlets.forEach((outlet) => {
       const parsedLevel = parseLevel(outlet.level);
-      // Skip outlets without valid floor level (they would go to "Others")
-      if (!parsedLevel) return;
-
-      if (!groups[parsedLevel]) {
-        groups[parsedLevel] = [];
+      if (parsedLevel) {
+        if (!groups[parsedLevel]) {
+          groups[parsedLevel] = [];
+        }
+        groups[parsedLevel].push(outlet);
+      } else {
+        ungrouped.push(outlet);
       }
-      groups[parsedLevel].push(outlet);
     });
 
     // Sort levels and convert to array
     const sortedKeys = Object.keys(groups).sort(sortLevelKeys);
 
-    return sortedKeys.map((key) => ({
+    const grouped: GroupedOutlets[] = sortedKeys.map((key) => ({
       level: key,
       displayLevel: `Level ${key}`,
       outlets: groups[key],
     }));
+
+    return { groupedOutlets: grouped, ungroupedOutlets: ungrouped };
   }, [outlets]);
 
-  // Count total displayed outlets (for spin button logic)
-  const displayedOutletsCount = groupedOutlets.reduce((sum, g) => sum + g.outlets.length, 0);
+  // Total outlets count (grouped + ungrouped)
+  const totalOutletsCount = outlets.length;
 
   // If an outlet is selected, show detail panel
   if (selectedOutlet && mall) {
@@ -163,12 +167,12 @@ export default function OutletList({ mall, outlets, loading, onBack }: OutletLis
 
       {loading ? (
         <LoadingState />
-      ) : displayedOutletsCount === 0 ? (
+      ) : totalOutletsCount === 0 ? (
         <EmptyState />
       ) : (
         <div className="space-y-6">
           {/* Spin Button - full width */}
-          {displayedOutletsCount >= 2 && (
+          {totalOutletsCount >= 2 && (
             <button
               onClick={() => setShowSpinWheel(true)}
               className="w-full flex items-center justify-center gap-2 py-2 bg-[#FF6B4A] text-white text-sm font-semibold rounded-lg hover:bg-[#E55A3A] transition-colors"
@@ -179,7 +183,7 @@ export default function OutletList({ mall, outlets, loading, onBack }: OutletLis
           )}
 
           {/* Grouped outlets by floor level */}
-          {groupedOutlets.map((group, index) => (
+          {groupedOutlets.map((group) => (
             <div key={group.level}>
               {/* Level header - prominent divider */}
               <div className="bg-[#F5F3F0] rounded-lg px-4 py-2 mb-3">
@@ -203,13 +207,40 @@ export default function OutletList({ mall, outlets, loading, onBack }: OutletLis
               </div>
             </div>
           ))}
+
+          {/* Ungrouped outlets (no level info) */}
+          {ungroupedOutlets.length > 0 && (
+            <div>
+              {/* Only show header if there are also grouped outlets */}
+              {groupedOutlets.length > 0 && (
+                <div className="bg-[#F5F3F0] rounded-lg px-4 py-2 mb-3">
+                  <span className="text-sm font-semibold text-[#2D2D2D]">
+                    Other Outlets
+                  </span>
+                  <span className="text-xs text-[#757575] ml-2">
+                    ({ungroupedOutlets.length})
+                  </span>
+                </div>
+              )}
+
+              <div className="space-y-2">
+                {ungroupedOutlets.map((outlet) => (
+                  <OutletCard
+                    key={outlet.id}
+                    outlet={outlet}
+                    onClick={() => setSelectedOutlet(outlet)}
+                  />
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       )}
 
       {/* Slot Machine Modal */}
       {showSpinWheel && (
         <OutletSlotMachine
-          outlets={groupedOutlets.flatMap(g => g.outlets)}
+          outlets={outlets}
           onClose={() => setShowSpinWheel(false)}
         />
       )}
