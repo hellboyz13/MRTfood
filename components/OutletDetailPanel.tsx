@@ -17,8 +17,8 @@ interface OpeningHours {
   weekday_text?: string[];
 }
 
-// Helper to format weekday hours for display (compact version)
-function formatWeeklyHours(openingHours: OpeningHours | null): { day: string; hours: string; isToday: boolean }[] | null {
+// Helper to format today's hours for compact display
+function formatTodayHours(openingHours: OpeningHours | null): { todayHours: string; isOpen: boolean | null } | null {
   if (!openingHours?.weekday_text || openingHours.weekday_text.length === 0) {
     return null;
   }
@@ -26,40 +26,37 @@ function formatWeeklyHours(openingHours: OpeningHours | null): { day: string; ho
   const now = new Date();
   const currentDay = now.getDay(); // 0 = Sunday
 
-  // Three letter day abbreviations matching weekday_text order (Mon-Sun)
-  const dayAbbrevs = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+  // Map Sunday=0 to index 6, Mon=1 to index 0, etc.
+  const todayIndex = currentDay === 0 ? 6 : currentDay - 1;
+  const todayText = openingHours.weekday_text[todayIndex];
 
-  return openingHours.weekday_text.map((text, index) => {
-    // Extract hours part (after "Day: ")
-    const match = text.match(/:\s*(.+)$/);
-    let hours = match ? match[1].trim() : text;
+  // Extract hours part (after "Day: ")
+  const match = todayText.match(/:\s*(.+)$/);
+  let hours = match ? match[1].trim() : todayText;
 
-    // Shorten common phrases
-    hours = hours
-      .replace('Closed', '✕')
-      .replace('Open 24 hours', '24h')
-      .replace(/\s*[–-]\s*/g, ' - ') // Normalize dashes with spaces
-      .replace(/(\d{1,2}):00/g, '$1') // Remove :00
-      .replace(/\s*(AM|PM)/gi, (_, p) => p.toLowerCase()); // Lowercase am/pm
+  // Check if closed
+  const isClosed = hours.toLowerCase() === 'closed';
 
-    // Map index to actual day (weekday_text is Mon=0 to Sun=6)
-    // currentDay is Sun=0 to Sat=6
-    const dayNumber = index === 6 ? 0 : index + 1;
+  // Shorten common phrases
+  hours = hours
+    .replace(/Closed/i, 'Closed')
+    .replace('Open 24 hours', '24h')
+    .replace(/\s*[–-]\s*/g, ' - ')
+    .replace(/(\d{1,2}):00/g, '$1')
+    .replace(/\s*(AM|PM)/gi, (_, p) => p.toLowerCase());
 
-    return {
-      day: dayAbbrevs[index],
-      hours: hours,
-      isToday: dayNumber === currentDay
-    };
-  });
+  return {
+    todayHours: hours,
+    isOpen: isClosed ? false : openingHours.open_now ?? null
+  };
 }
 
 export default function OutletDetailPanel({ outlet, mallName, onBack }: OutletDetailPanelProps) {
   // Get opening hours directly from outlet
   const openingHours = outlet.opening_hours as OpeningHours | null;
 
-  // Get weekly hours
-  const weeklyHours = openingHours ? formatWeeklyHours(openingHours) : null;
+  // Get today's hours (compact display)
+  const todayInfo = openingHours ? formatTodayHours(openingHours) : null;
 
   // Generate Google Maps search URL for mall + outlet name
   const mapsSearchUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${outlet.name} ${mallName} Singapore`)}`;
@@ -94,20 +91,21 @@ export default function OutletDetailPanel({ outlet, mallName, onBack }: OutletDe
         </div>
       )}
 
-      {/* Opening hours - full week */}
-      {weeklyHours && (
-        <div className="detail-hours-section">
-          <div className="detail-hours-header">
-            <span className="detail-hours-icon">🕐</span>
-            <span className="detail-hours-title">Opening Hours</span>
+      {/* Opening hours - compact single row */}
+      {todayInfo && (
+        <div className="detail-info-row detail-hours-compact">
+          <div className="detail-info-icon">
+            <span>🕐</span>
           </div>
-          <div className="detail-hours-grid">
-            {weeklyHours.map(({ day, hours, isToday }) => (
-              <div key={day} className={`detail-hours-row ${isToday ? 'detail-hours-today' : ''}`}>
-                <span className="detail-hours-day">{day}</span>
-                <span className="detail-hours-time">{hours}</span>
-              </div>
-            ))}
+          <div className="detail-info-content">
+            <p className="detail-info-text">
+              <span className={`detail-hours-status ${todayInfo.isOpen === true ? 'open' : todayInfo.isOpen === false ? 'closed' : ''}`}>
+                {todayInfo.isOpen === true ? 'Open' : todayInfo.isOpen === false ? 'Closed' : 'Today'}
+              </span>
+              {todayInfo.todayHours !== 'Closed' && (
+                <span className="detail-hours-time"> · {todayInfo.todayHours}</span>
+              )}
+            </p>
           </div>
         </div>
       )}
