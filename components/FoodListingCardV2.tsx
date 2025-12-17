@@ -126,6 +126,7 @@ function SourceBadge({
 export default function FoodListingCardV2({ listing, highlighted = false, onViewMenu }: FoodListingCardV2Props) {
   const [thumbnailImage, setThumbnailImage] = useState<string | null>(null);
   const [showLightbox, setShowLightbox] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   const displayImage = thumbnailImage || (listing.image_url?.startsWith('http') ? listing.image_url : null);
   const handleImageClick = useCallback(() => {
@@ -185,12 +186,16 @@ export default function FoodListingCardV2({ listing, highlighted = false, onView
         >
           {displayImage ? (
             <>
+              {!imageLoaded && (
+                <div className="absolute inset-0 bg-gray-200 animate-pulse" />
+              )}
               <img
                 src={displayImage}
                 alt={listing.name}
                 loading="lazy"
                 decoding="async"
-                className="w-full h-full object-cover"
+                className={`w-full h-full object-cover transition-opacity duration-200 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+                onLoad={() => setImageLoaded(true)}
               />
               {/* Zoom hint overlay */}
               <div className="absolute inset-0 bg-black/0 hover:bg-black/20 transition-colors flex items-center justify-center opacity-0 hover:opacity-100">
@@ -300,6 +305,47 @@ export default function FoodListingCardV2({ listing, highlighted = false, onView
         <span>📍</span>
         <span>Direction, Opening Hours & Menu →</span>
       </button>
+
+      {/* Share & Report Buttons */}
+      <div className="flex gap-2 mt-2">
+        <button
+          onClick={() => {
+            const shareUrl = `${window.location.origin}?listing=${listing.id}`;
+            const shareText = `Check out ${listing.name} on MRT Foodie!`;
+            if (navigator.share) {
+              navigator.share({ title: listing.name, text: shareText, url: shareUrl });
+            } else {
+              navigator.clipboard.writeText(shareUrl);
+              alert('Link copied to clipboard!');
+            }
+          }}
+          className="flex-1 flex items-center justify-center gap-1.5 py-1.5 px-2 bg-gray-100 text-gray-600 rounded-md text-xs font-medium hover:bg-gray-200 transition-colors"
+        >
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <circle cx="18" cy="5" r="3" />
+            <circle cx="6" cy="12" r="3" />
+            <circle cx="18" cy="19" r="3" />
+            <path d="M8.59 13.51l6.83 3.98M15.41 6.51l-6.82 3.98" />
+          </svg>
+          <span>Share</span>
+        </button>
+        <button
+          onClick={() => {
+            const subject = encodeURIComponent(`Issue Report: ${listing.name}`);
+            const body = encodeURIComponent(`Hi MRT Foodie team,\n\nI found an issue with the listing "${listing.name}":\n\n[Please describe the issue here]\n\n- Wrong address\n- Closed permanently\n- Wrong price\n- Other: ___\n\nThanks!`);
+            window.open(`mailto:feedback@mrtfoodie.sg?subject=${subject}&body=${body}`);
+          }}
+          className="flex-1 flex items-center justify-center gap-1.5 py-1.5 px-2 bg-gray-100 text-gray-600 rounded-md text-xs font-medium hover:bg-gray-200 transition-colors"
+        >
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M3 3h18l-2 13H5L3 3z" />
+            <path d="M3 3l1 10M21 3l-1 10" />
+            <circle cx="12" cy="21" r="1" />
+            <path d="M12 17v-4" />
+          </svg>
+          <span>Report Issue</span>
+        </button>
+      </div>
     </div>
   );
 }

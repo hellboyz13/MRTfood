@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import { MallWithOutletCount } from '@/types/database';
 
 interface MallCardProps {
@@ -8,6 +9,8 @@ interface MallCardProps {
 }
 
 export default function MallCard({ mall, onClick }: MallCardProps) {
+  const [imageLoaded, setImageLoaded] = useState(false);
+
   const handleAddressClick = (e: React.MouseEvent) => {
     e.stopPropagation(); // Prevent triggering the mall onClick
     const searchQuery = encodeURIComponent(`${mall.name} Singapore`);
@@ -15,20 +18,29 @@ export default function MallCard({ mall, onClick }: MallCardProps) {
   };
 
   return (
-    <button
+    <div
       onClick={onClick}
-      className="w-full text-left bg-white border border-[#E0DCD7] rounded-lg p-3 hover:bg-[#FFF0ED] hover:border-[#FF6B4A] transition-colors"
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') onClick(); }}
+      className="w-full text-left bg-white border border-[#E0DCD7] rounded-lg p-3 hover:bg-[#FFF0ED] hover:border-[#FF6B4A] transition-colors cursor-pointer"
     >
       <div className="flex items-center gap-3">
         {/* Mall thumbnail or icon */}
-        <div className="w-12 h-12 bg-[#F5F3F0] rounded-lg flex items-center justify-center flex-shrink-0 overflow-hidden">
+        <div className="w-12 h-12 bg-[#F5F3F0] rounded-lg flex items-center justify-center flex-shrink-0 overflow-hidden relative">
           {mall.thumbnail_url ? (
-            <img
-              src={mall.thumbnail_url}
-              alt={mall.name}
-              className="w-full h-full object-cover"
-              loading="lazy"
-            />
+            <>
+              {!imageLoaded && (
+                <div className="absolute inset-0 bg-gray-200 animate-pulse" />
+              )}
+              <img
+                src={mall.thumbnail_url}
+                alt={mall.name}
+                className={`w-full h-full object-cover transition-opacity duration-200 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+                loading="lazy"
+                onLoad={() => setImageLoaded(true)}
+              />
+            </>
           ) : (
             <span className="text-2xl">🏬</span>
           )}
@@ -64,6 +76,6 @@ export default function MallCard({ mall, onClick }: MallCardProps) {
           </svg>
         </div>
       </div>
-    </button>
+    </div>
   );
 }

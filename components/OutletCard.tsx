@@ -11,6 +11,7 @@ interface OutletCardProps {
 
 export default function OutletCard({ outlet, onClick }: OutletCardProps) {
   const [showLightbox, setShowLightbox] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   return (
     <>
@@ -21,7 +22,7 @@ export default function OutletCard({ outlet, onClick }: OutletCardProps) {
         <div className="flex gap-3">
           {/* Thumbnail - clickable to expand */}
           <div
-            className={`w-16 h-16 bg-gray-100 rounded-md flex-shrink-0 flex items-center justify-center overflow-hidden ${
+            className={`relative w-16 h-16 bg-gray-100 rounded-md flex-shrink-0 flex items-center justify-center overflow-hidden ${
               outlet.thumbnail_url ? 'cursor-pointer hover:opacity-90 transition-opacity' : ''
             }`}
             onClick={(e) => {
@@ -32,13 +33,19 @@ export default function OutletCard({ outlet, onClick }: OutletCardProps) {
             }}
           >
             {outlet.thumbnail_url ? (
-              <img
-                src={outlet.thumbnail_url}
-                alt={outlet.name}
-                loading="lazy"
-                decoding="async"
-                className="w-full h-full object-cover"
-              />
+              <>
+                {!imageLoaded && (
+                  <div className="absolute inset-0 bg-gray-200 animate-pulse" />
+                )}
+                <img
+                  src={outlet.thumbnail_url}
+                  alt={outlet.name}
+                  loading="lazy"
+                  decoding="async"
+                  className={`w-full h-full object-cover transition-opacity duration-200 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+                  onLoad={() => setImageLoaded(true)}
+                />
+              </>
             ) : (
               <span className="text-2xl">🍽️</span>
             )}

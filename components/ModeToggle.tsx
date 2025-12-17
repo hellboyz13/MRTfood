@@ -1,16 +1,34 @@
 'use client';
 
+export type PanelMode = 'curated' | 'popular' | 'malls';
+
 interface ModeToggleProps {
-  mode: 'curated' | 'popular';
-  onModeChange: (mode: 'curated' | 'popular') => void;
+  mode: PanelMode;
+  onModeChange: (mode: PanelMode) => void;
+  availableModes: PanelMode[];
 }
 
-export default function ModeToggle({ mode, onModeChange }: ModeToggleProps) {
+export default function ModeToggle({ mode, onModeChange, availableModes }: ModeToggleProps) {
+  // Calculate indicator position and width based on available modes
+  const modeCount = availableModes.length;
+  const modeIndex = availableModes.indexOf(mode);
+
+  const getIndicatorLeft = () => {
+    if (modeCount === 1) return 'clamp(3px, 0.5vw, 4px)';
+    const percentage = (modeIndex / modeCount) * 100;
+    return `calc(${percentage}% + clamp(1px, 0.17vw, 2px))`;
+  };
+
+  const getIndicatorWidth = () => {
+    if (modeCount === 1) return 'calc(100% - clamp(6px, 1vw, 8px))';
+    return `calc(${100 / modeCount}% - clamp(4px, 0.67vw, 6px))`;
+  };
+
   return (
     <div
       className="relative flex bg-[#F5F3F0]"
       style={{
-        gap: 'clamp(4px, 1vw, 8px)',
+        gap: 'clamp(2px, 0.5vw, 4px)',
         padding: 'clamp(3px, 0.5vw, 4px)',
         borderRadius: 'clamp(6px, 2vw, 10px)',
       }}
@@ -21,50 +39,87 @@ export default function ModeToggle({ mode, onModeChange }: ModeToggleProps) {
         style={{
           top: 'clamp(3px, 0.5vw, 4px)',
           bottom: 'clamp(3px, 0.5vw, 4px)',
-          left: mode === 'popular'
-            ? 'clamp(3px, 0.5vw, 4px)'
-            : 'calc(50% + clamp(2px, 0.25vw, 4px))',
-          width: 'calc(50% - clamp(5px, 0.75vw, 8px))',
+          left: getIndicatorLeft(),
+          width: getIndicatorWidth(),
           borderRadius: 'clamp(5px, 1.5vw, 8px)',
         }}
       />
 
-      <button
-        onClick={() => onModeChange('popular')}
-        className={`relative z-10 flex-1 font-medium min-h-[44px] flex items-center justify-center transition-colors duration-200 ${
-          mode === 'popular'
-            ? 'text-[#2D2D2D]'
-            : 'text-[#757575] hover:text-[#2D2D2D]'
-        }`}
-        style={{
-          paddingLeft: 'clamp(10px, 3vw, 14px)',
-          paddingRight: 'clamp(10px, 3vw, 14px)',
-          paddingTop: 'clamp(8px, 2vw, 10px)',
-          paddingBottom: 'clamp(8px, 2vw, 10px)',
-          fontSize: 'clamp(13px, 3.5vw, 14px)',
-          borderRadius: 'clamp(5px, 1.5vw, 8px)',
-        }}
-      >
-        🧭 Explore
-      </button>
-      <button
-        onClick={() => onModeChange('curated')}
-        className={`relative z-10 flex-1 font-medium min-h-[44px] flex items-center justify-center transition-colors duration-200 ${
-          mode === 'curated'
-            ? 'text-[#2D2D2D]'
-            : 'text-[#757575] hover:text-[#2D2D2D]'
-        }`}
-        style={{
-          paddingLeft: 'clamp(10px, 3vw, 14px)',
-          paddingRight: 'clamp(10px, 3vw, 14px)',
-          paddingTop: 'clamp(8px, 2vw, 10px)',
-          paddingBottom: 'clamp(8px, 2vw, 10px)',
-          fontSize: 'clamp(13px, 3.5vw, 14px)',
-          borderRadius: 'clamp(5px, 1.5vw, 8px)',
-        }}
-      >
-        ⭐ Featured
-      </button>
+      {availableModes.includes('popular') && (
+        <button
+          onClick={() => onModeChange('popular')}
+          className={`relative z-10 flex-1 font-medium min-h-[44px] flex flex-col items-center justify-center transition-colors duration-200 ${
+            mode === 'popular'
+              ? 'text-[#2D2D2D]'
+              : 'text-[#757575] hover:text-[#2D2D2D]'
+          }`}
+          style={{
+            paddingLeft: 'clamp(4px, 1.5vw, 8px)',
+            paddingRight: 'clamp(4px, 1.5vw, 8px)',
+            paddingTop: 'clamp(6px, 1.5vw, 8px)',
+            paddingBottom: 'clamp(6px, 1.5vw, 8px)',
+            borderRadius: 'clamp(5px, 1.5vw, 8px)',
+          }}
+        >
+          <span style={{ fontSize: 'clamp(12px, 3vw, 13px)' }}>⭐ Top Rated</span>
+          <span
+            className={mode === 'popular' ? 'text-[#757575]' : 'text-[#9CA3AF]'}
+            style={{ fontSize: 'clamp(9px, 2.2vw, 10px)', marginTop: '2px' }}
+          >
+            Popular picks
+          </span>
+        </button>
+      )}
+      {availableModes.includes('curated') && (
+        <button
+          onClick={() => onModeChange('curated')}
+          className={`relative z-10 flex-1 font-medium min-h-[44px] flex flex-col items-center justify-center transition-colors duration-200 ${
+            mode === 'curated'
+              ? 'text-[#2D2D2D]'
+              : 'text-[#757575] hover:text-[#2D2D2D]'
+          }`}
+          style={{
+            paddingLeft: 'clamp(4px, 1.5vw, 8px)',
+            paddingRight: 'clamp(4px, 1.5vw, 8px)',
+            paddingTop: 'clamp(6px, 1.5vw, 8px)',
+            paddingBottom: 'clamp(6px, 1.5vw, 8px)',
+            borderRadius: 'clamp(5px, 1.5vw, 8px)',
+          }}
+        >
+          <span style={{ fontSize: 'clamp(12px, 3vw, 13px)' }}>📖 Guides</span>
+          <span
+            className={mode === 'curated' ? 'text-[#757575]' : 'text-[#9CA3AF]'}
+            style={{ fontSize: 'clamp(9px, 2.2vw, 10px)', marginTop: '2px' }}
+          >
+            Michelin & blogs
+          </span>
+        </button>
+      )}
+      {availableModes.includes('malls') && (
+        <button
+          onClick={() => onModeChange('malls')}
+          className={`relative z-10 flex-1 font-medium min-h-[44px] flex flex-col items-center justify-center transition-colors duration-200 ${
+            mode === 'malls'
+              ? 'text-[#2D2D2D]'
+              : 'text-[#757575] hover:text-[#2D2D2D]'
+          }`}
+          style={{
+            paddingLeft: 'clamp(4px, 1.5vw, 8px)',
+            paddingRight: 'clamp(4px, 1.5vw, 8px)',
+            paddingTop: 'clamp(6px, 1.5vw, 8px)',
+            paddingBottom: 'clamp(6px, 1.5vw, 8px)',
+            borderRadius: 'clamp(5px, 1.5vw, 8px)',
+          }}
+        >
+          <span style={{ fontSize: 'clamp(12px, 3vw, 13px)' }}>🏢 Malls</span>
+          <span
+            className={mode === 'malls' ? 'text-[#757575]' : 'text-[#9CA3AF]'}
+            style={{ fontSize: 'clamp(9px, 2.2vw, 10px)', marginTop: '2px' }}
+          >
+            Nearby malls
+          </span>
+        </button>
+      )}
     </div>
   );
 }

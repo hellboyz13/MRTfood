@@ -1,4 +1,5 @@
 import { supabase } from './supabase';
+import { adjacentStations, walkingTimes, lrtStations } from './adjacent-stations';
 import {
   Station,
   FoodSource,
@@ -6,12 +7,16 @@ import {
   SponsoredListing,
   FoodListingWithSources,
   StationFoodData,
+  NearbyStationRedirect,
   ListingSourceWithDetails,
   ChainBrand,
   ChainOutlet,
   GroupedChainOutlets,
   StationSearchResult,
   ListingPrice,
+  Mall,
+  MallOutlet,
+  MallWithOutletCount,
 } from '@/types/database';
 
 // Re-export the new food search function
@@ -244,6 +249,42 @@ export async function getStationFoodData(
     return null;
   }
 
+  // If station has no listings and has adjacent stations, check for nearby redirect
+  if (listings.length === 0 && adjacentStations[stationId]) {
+    const nearbyStationIds = adjacentStations[stationId];
+
+    // Try each adjacent station in order until we find one with content
+    for (const nearbyId of nearbyStationIds) {
+      const [nearbyListings, nearbyMalls, nearbyStation] = await Promise.all([
+        getFoodListingsByStation(nearbyId),
+        getMallsByStation(nearbyId),
+        getStation(nearbyId),
+      ]);
+
+      // If nearby station has listings OR malls, show redirect card
+      if (nearbyListings.length > 0 || nearbyMalls.length > 0) {
+        const walkingMinutes = walkingTimes[stationId]?.[nearbyId];
+        const isLRTConnection = lrtStations.has(stationId);
+        const mallNames = nearbyMalls.slice(0, 3).map(mall => mall.name); // Top 3 malls
+
+        const nearbyRedirect: NearbyStationRedirect = {
+          nearbyStationId: nearbyId,
+          nearbyStationName: nearbyStation?.name || nearbyId,
+          walkingMinutes,
+          isLRTConnection,
+          mallNames,
+        };
+
+        return {
+          station,
+          sponsored: null,
+          listings: [], // Empty - show redirect card instead
+          nearbyRedirect,
+        };
+      }
+    }
+  }
+
   return {
     station,
     sponsored,
@@ -385,25 +426,33 @@ export async function getStationsWith24h(): Promise<string[]> {
 // UNIFIED SEARCH - Food & Restaurant
 // ============================================
 
-// Get supper spots (listings with "Supper" tag) grouped by station for the search panel
+// Get supper spots (listings with "Supper" tag + mall outlets with supper category) grouped by station
 export async function getSupperSpotsByStation(): Promise<StationSearchResult[]> {
   // Fetch listings that have "Supper" tag
-  const { data: listings, error } = await supabase
+  const { data: listings, error: listingsError } = await supabase
     .from('food_listings')
     .select('id, station_id, name')
     .eq('is_active', true)
     .not('station_id', 'is', null)
     .contains('tags', ['Supper']);
 
-  if (error || !listings) {
-    if (error) console.error('Error fetching supper listings:', error);
-    return [];
-  }
+  // Fetch mall outlets with supper-related categories (case-insensitive search)
+  const { data: mallOutlets, error: mallError } = await supabase
+    .from('mall_outlets')
+    .select(`
+      id, name, mall_id, category,
+      malls!inner (id, name, station_id)
+    `)
+    .or('category.ilike.%supper%,category.ilike.%24%,category.ilike.%late%night%');
+
+  if (listingsError) console.error('Error fetching supper listings:', listingsError);
+  if (mallError) console.error('Error fetching supper mall outlets:', mallError);
 
   // Group by station
   const stationResultsMap = new Map<string, StationSearchResult>();
 
-  listings.forEach((listing: { id: string; station_id: string | null; name: string }) => {
+  // Add curated listings
+  (listings || []).forEach((listing: { id: string; station_id: string | null; name: string }) => {
     if (!listing.station_id) return;
 
     if (!stationResultsMap.has(listing.station_id)) {
@@ -421,6 +470,28 @@ export async function getSupperSpotsByStation(): Promise<StationSearchResult[]> 
     });
   });
 
+  // Add mall outlets
+  (mallOutlets || []).forEach((outlet: { id: string; name: string; mall_id: string; category: string | null; malls: { id: string; name: string; station_id: string } }) => {
+    const stationId = outlet.malls?.station_id;
+    if (!stationId) return;
+
+    if (!stationResultsMap.has(stationId)) {
+      stationResultsMap.set(stationId, {
+        stationId: stationId,
+        matches: [],
+      });
+    }
+
+    stationResultsMap.get(stationId)!.matches.push({
+      id: outlet.id,
+      name: outlet.name || 'Unknown',
+      type: 'mall',
+      matchType: 'restaurant',
+      mallName: outlet.malls?.name,
+      mallId: outlet.mall_id,
+    });
+  });
+
   // Convert to array and sort by number of matches
   const results = Array.from(stationResultsMap.values());
   results.sort((a, b) => b.matches.length - a.matches.length);
@@ -428,25 +499,33 @@ export async function getSupperSpotsByStation(): Promise<StationSearchResult[]> 
   return results;
 }
 
-// Get dessert spots (listings with "Dessert" tag) grouped by station for the search panel
+// Get dessert spots (listings with "Dessert" tag + mall outlets with dessert category) grouped by station
 export async function getDessertSpotsByStation(): Promise<StationSearchResult[]> {
   // Fetch listings that have "Dessert" tag
-  const { data: listings, error } = await supabase
+  const { data: listings, error: listingsError } = await supabase
     .from('food_listings')
     .select('id, station_id, name')
     .eq('is_active', true)
     .not('station_id', 'is', null)
     .contains('tags', ['Dessert']);
 
-  if (error || !listings) {
-    if (error) console.error('Error fetching dessert listings:', error);
-    return [];
-  }
+  // Fetch mall outlets with dessert-related categories (case-insensitive search)
+  const { data: mallOutlets, error: mallError } = await supabase
+    .from('mall_outlets')
+    .select(`
+      id, name, mall_id, category,
+      malls!inner (id, name, station_id)
+    `)
+    .or('category.ilike.%dessert%,category.ilike.%ice cream%,category.ilike.%cafe%,category.ilike.%bakery%,category.ilike.%bubble tea%,category.ilike.%bbt%');
+
+  if (listingsError) console.error('Error fetching dessert listings:', listingsError);
+  if (mallError) console.error('Error fetching dessert mall outlets:', mallError);
 
   // Group by station
   const stationResultsMap = new Map<string, StationSearchResult>();
 
-  listings.forEach((listing: { id: string; station_id: string | null; name: string }) => {
+  // Add curated listings
+  (listings || []).forEach((listing: { id: string; station_id: string | null; name: string }) => {
     if (!listing.station_id) return;
 
     if (!stationResultsMap.has(listing.station_id)) {
@@ -461,6 +540,28 @@ export async function getDessertSpotsByStation(): Promise<StationSearchResult[]>
       name: listing.name || 'Unknown',
       type: 'curated',
       matchType: 'restaurant',
+    });
+  });
+
+  // Add mall outlets
+  (mallOutlets || []).forEach((outlet: { id: string; name: string; mall_id: string; category: string | null; malls: { id: string; name: string; station_id: string } }) => {
+    const stationId = outlet.malls?.station_id;
+    if (!stationId) return;
+
+    if (!stationResultsMap.has(stationId)) {
+      stationResultsMap.set(stationId, {
+        stationId: stationId,
+        matches: [],
+      });
+    }
+
+    stationResultsMap.get(stationId)!.matches.push({
+      id: outlet.id,
+      name: outlet.name || 'Unknown',
+      type: 'mall',
+      matchType: 'restaurant',
+      mallName: outlet.malls?.name,
+      mallId: outlet.mall_id,
     });
   });
 
@@ -535,4 +636,128 @@ export async function getChainOutletsByStation(
   result.sort((a, b) => a.brand.name.localeCompare(b.brand.name));
 
   return result;
+}
+
+// ============================================
+// MALLS & OUTLETS
+// ============================================
+
+// Get malls by station with outlet count
+export async function getMallsByStation(
+  stationId: string
+): Promise<MallWithOutletCount[]> {
+  // Get malls for this station
+  const { data: malls, error: mallsError } = await supabase
+    .from('malls')
+    .select('*')
+    .eq('station_id', stationId)
+    .order('name');
+
+  if (mallsError || !malls || malls.length === 0) {
+    if (mallsError) console.error('Error fetching malls:', mallsError);
+    return [];
+  }
+
+  // Get outlet counts for each mall
+  const mallIds = malls.map((m: Mall) => m.id);
+  const { data: outletCounts, error: countsError } = await supabase
+    .from('mall_outlets')
+    .select('mall_id')
+    .in('mall_id', mallIds);
+
+  if (countsError) {
+    console.error('Error fetching outlet counts:', countsError);
+  }
+
+  // Count outlets per mall
+  const countMap = new Map<string, number>();
+  (outletCounts || []).forEach((o: { mall_id: string }) => {
+    countMap.set(o.mall_id, (countMap.get(o.mall_id) || 0) + 1);
+  });
+
+  // Combine malls with outlet counts and sort by outlet count (most food options first)
+  const result = malls.map((mall: Mall) => ({
+    ...mall,
+    outlet_count: countMap.get(mall.id) || 0,
+  }));
+
+  // Sort by outlet count descending (most food options first)
+  result.sort((a, b) => b.outlet_count - a.outlet_count);
+
+  return result;
+}
+
+// Get mall by ID
+export async function getMall(mallId: string): Promise<Mall | null> {
+  const { data, error } = await supabase
+    .from('malls')
+    .select('*')
+    .eq('id', mallId)
+    .single();
+
+  if (error) {
+    if (error.code !== 'PGRST116') {
+      console.error('Error fetching mall:', mallId, error);
+    }
+    return null;
+  }
+
+  return data;
+}
+
+// Get outlets by mall
+export async function getOutletsByMall(mallId: string): Promise<MallOutlet[]> {
+  const { data, error } = await supabase
+    .from('mall_outlets')
+    .select('*')
+    .eq('mall_id', mallId)
+    .order('name');
+
+  if (error) {
+    console.error('Error fetching mall outlets:', error);
+    return [];
+  }
+
+  return data || [];
+}
+
+// ============================================
+// STATION CONTENT CHECK
+// ============================================
+
+// Get list of station IDs that have NO content (no listings and no malls)
+export async function getStationsWithNoContent(): Promise<string[]> {
+  // Get all stations with listings
+  const { data: listingsStations } = await supabase
+    .from('food_listings')
+    .select('station_id')
+    .eq('is_active', true)
+    .not('station_id', 'is', null);
+
+  // Get all stations with malls
+  const { data: mallStations } = await supabase
+    .from('malls')
+    .select('station_id')
+    .not('station_id', 'is', null);
+
+  // Get all unique station IDs from all tables
+  const { data: allStations } = await supabase
+    .from('stations')
+    .select('id');
+
+  if (!allStations) return [];
+
+  // Create set of stations with content
+  const stationsWithContent = new Set<string>();
+  (listingsStations || []).forEach((s: { station_id: string | null }) => {
+    if (s.station_id) stationsWithContent.add(s.station_id);
+  });
+  (mallStations || []).forEach((m: { station_id: string | null }) => {
+    if (m.station_id) stationsWithContent.add(m.station_id);
+  });
+
+  // Return stations that have NO content
+  return allStations
+    .map((s: { id: string }) => s.id)
+    .filter(id => !stationsWithContent.has(id));
 }

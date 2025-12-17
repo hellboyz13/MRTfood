@@ -1,0 +1,334 @@
+/* HowToUseCard.css */
+
+@keyframes htuc-fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes htuc-fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes htuc-dropBounce {
+  0% {
+    transform: translateY(-100vh) rotate(0deg);
+  }
+  35% {
+    transform: translateY(30px) rotate(2deg);
+  }
+  50% {
+    transform: translateY(-100px) rotate(-1.5deg);
+  }
+  65% {
+    transform: translateY(15px) rotate(1deg);
+  }
+  78% {
+    transform: translateY(-45px) rotate(-0.5deg);
+  }
+  88% {
+    transform: translateY(5px) rotate(0.2deg);
+  }
+  94% {
+    transform: translateY(-15px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+}
+
+@keyframes htuc-retractUp {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-120vh); }
+}
+
+@keyframes htuc-ropeExtend {
+  0% { height: 0; }
+  35% { height: 110px; }
+  50% { height: 50px; }
+  65% { height: 100px; }
+  78% { height: 60px; }
+  88% { height: 85px; }
+  94% { height: 72px; }
+  100% { height: 80px; }
+}
+
+@keyframes htuc-ropeRetract {
+  0% { height: 80px; }
+  100% { height: 0; }
+}
+
+@keyframes htuc-hookSwing {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(3deg); }
+  50% { transform: rotate(-2deg); }
+  75% { transform: rotate(1deg); }
+}
+
+/* Backdrop - starts invisible */
+.htuc-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 9998;
+  opacity: 0;
+}
+
+.htuc-backdrop.htuc-animate-in {
+  animation: htuc-fadeIn 0.4s ease forwards;
+}
+
+.htuc-backdrop.htuc-animate-out {
+  animation: htuc-fadeOut 0.5s ease forwards;
+}
+
+/* Container - starts off-screen */
+.htuc-container {
+  position: fixed;
+  top: 100px;
+  left: 50%;
+  margin-left: -200px;
+  width: 400px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform-origin: top center;
+  transform: translateY(-100vh);
+}
+
+@media (max-width: 480px) {
+  .htuc-container {
+    width: 90%;
+    left: 5%;
+    margin-left: 0;
+  }
+}
+
+.htuc-container.htuc-animate-in {
+  animation: htuc-dropBounce 1.4s cubic-bezier(0.22, 0, 0.36, 1) forwards;
+}
+
+.htuc-container.htuc-animate-out {
+  animation: htuc-retractUp 0.4s cubic-bezier(0.55, 0, 1, 0.45) forwards;
+}
+
+/* Rope container */
+.htuc-rope-container {
+  position: absolute;
+  top: -110px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1;
+}
+
+/* Rope - starts with 0 height */
+.htuc-rope {
+  width: 5px;
+  height: 0;
+  background: repeating-linear-gradient(180deg, #8B7355 0px, #A0896C 3px, #8B7355 6px, #6B5344 9px, #8B7355 12px);
+  border-radius: 2px;
+  box-shadow: 2px 0 3px rgba(0,0,0,0.3), -1px 0 2px rgba(0,0,0,0.2);
+}
+
+.htuc-rope.htuc-animate-in {
+  animation: htuc-ropeExtend 1.4s cubic-bezier(0.22, 0, 0.36, 1) forwards;
+}
+
+.htuc-rope.htuc-animate-out {
+  animation: htuc-ropeRetract 0.4s cubic-bezier(0.55, 0, 1, 0.45) forwards;
+}
+
+/* Ceiling hook */
+.htuc-ceiling-hook {
+  width: 30px;
+  height: 24px;
+  margin-bottom: -4px;
+}
+
+.htuc-animate-in .htuc-ceiling-hook {
+  animation: htuc-hookSwing 1.4s ease-out forwards;
+}
+
+/* Card hook attachment */
+.htuc-card-hook {
+  width: 44px;
+  height: 22px;
+  background: linear-gradient(180deg, #D4A020 0%, #8B7355 50%, #6B5344 100%);
+  border-radius: 8px 8px 0 0;
+  margin-bottom: -4px;
+  position: relative;
+  box-shadow: 0 -2px 4px rgba(0,0,0,0.3), inset 0 2px 4px rgba(255,255,255,0.2);
+  z-index: 2;
+}
+
+.htuc-card-hook::before {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 14px;
+  background: radial-gradient(circle at 30% 30%, #3a3a3a, #1a1a1a);
+  border-radius: 50%;
+  border: 2px solid #8B7355;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
+}
+
+/* Card */
+.htuc-card {
+  background-color: #E8B931;
+  border-radius: 24px;
+  padding: 28px 24px 24px;
+  font-family: 'Fredoka', sans-serif;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3), 0 8px 20px rgba(0,0,0,0.2);
+  border: 4px solid #1a1a1a;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.htuc-circle-1 {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #F5D251;
+  opacity: 0.6;
+}
+
+.htuc-circle-2 {
+  position: absolute;
+  bottom: -30px;
+  left: -30px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #D4A020;
+  opacity: 0.4;
+}
+
+.htuc-header {
+  text-align: center;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.htuc-header h2 {
+  font-size: 26px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.htuc-header p {
+  font-size: 14px;
+  color: #4a4a4a;
+  margin: 6px 0 0;
+  font-weight: 500;
+}
+
+.htuc-instructions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+}
+
+.htuc-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: rgba(255,255,255,0.5);
+  padding: 12px 14px;
+  border-radius: 12px;
+}
+
+.htuc-icon {
+  flex-shrink: 0;
+  color: #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.htuc-text {
+  font-size: 14px;
+  font-weight: 500;
+  color: #1a1a1a;
+  line-height: 1.4;
+}
+
+.htuc-sources {
+  background-color: #1a1a1a;
+  border-radius: 12px;
+  padding: 12px 16px;
+  margin-top: 4px;
+}
+
+.htuc-sources-title {
+  font-size: 12px;
+  color: #E8B931;
+  margin: 0 0 8px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.htuc-sources-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.htuc-tag {
+  background-color: #E8B931;
+  color: #1a1a1a;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.htuc-more {
+  color: #888;
+  padding: 4px 6px;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.htuc-button {
+  width: 100%;
+  margin-top: 20px;
+  padding: 14px 24px;
+  background-color: #1a1a1a;
+  color: #E8B931;
+  border: none;
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: 'Fredoka', sans-serif;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.htuc-button:hover {
+  transform: scale(1.02);
+  background-color: #2a2a2a;
+}
+
+.htuc-footer {
+  text-align: center;
+  font-size: 10px;
+  color: #6a6a6a;
+  margin: 16px 0 0;
+  font-weight: 500;
+}

@@ -7,7 +7,7 @@ import SearchBar from '@/components/SearchBar';
 import SearchResultsPanel from '@/components/SearchResultsPanel';
 import Footer from '@/components/Footer';
 import Onboarding, { OnboardingRef } from '@/components/Onboarding';
-import { searchStationsByFoodWithCounts, StationSearchResult, getStations, getSupperSpotsByStation, getDessertSpotsByStation } from '@/lib/api';
+import { searchStationsByFoodWithCounts, StationSearchResult, getStations, getSupperSpotsByStation, getDessertSpotsByStation, getStationsWithNoContent } from '@/lib/api';
 
 export default function Home() {
   const [selectedStation, setSelectedStation] = useState<string | null>(null);
@@ -18,10 +18,11 @@ export default function Home() {
   const [stationNames, setStationNames] = useState<{ [key: string]: string }>({});
   const [is24hActive, setIs24hActive] = useState(false);
   const [isDessertActive, setIsDessertActive] = useState(false);
+  const [emptyStations, setEmptyStations] = useState<string[]>([]);
   const mapZoomHandlerRef = useRef<((stationId: string) => void) | null>(null);
   const onboardingRef = useRef<OnboardingRef>(null);
 
-  // Load station names
+  // Load station names and empty stations
   useEffect(() => {
     getStations().then(stations => {
       const namesMap: { [key: string]: string } = {};
@@ -29,6 +30,10 @@ export default function Home() {
         namesMap[station.id] = station.name;
       });
       setStationNames(namesMap);
+    });
+
+    getStationsWithNoContent().then(stations => {
+      setEmptyStations(stations);
     });
   }, []);
 
@@ -173,6 +178,7 @@ export default function Home() {
             onStationClick={handleStationClick}
             searchResults={searchResults}
             onZoomHandlerReady={(handler) => { mapZoomHandlerRef.current = handler; }}
+            emptyStations={emptyStations}
           />
         </div>
 
@@ -182,6 +188,7 @@ export default function Home() {
             <FoodPanelV2
               stationId={selectedStation}
               onClose={handleClosePanel}
+              onNavigateToStation={handleStationClick}
               isMobile={false}
               searchQuery={searchQuery}
               searchMatches={getSearchMatches()}
@@ -194,6 +201,7 @@ export default function Home() {
           <FoodPanelV2
             stationId={selectedStation}
             onClose={handleClosePanel}
+            onNavigateToStation={handleStationClick}
             isMobile={true}
             searchQuery={searchQuery}
             searchMatches={getSearchMatches()}

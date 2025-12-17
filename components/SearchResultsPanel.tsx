@@ -35,10 +35,19 @@ export default function SearchResultsPanel({
   onStationZoom,
 }: SearchResultsPanelProps) {
   const [isCollapsed, setIsCollapsed] = useState(false);
+  const [page, setPage] = useState(1);
   const mobilePanelRef = useRef<HTMLDivElement>(null);
   const desktopPanelRef = useRef<HTMLDivElement>(null);
 
+  const ITEMS_PER_PAGE = 20;
   const hasResults = results && results.length > 0;
+  const paginatedResults = results.slice(0, page * ITEMS_PER_PAGE);
+  const hasMore = results.length > page * ITEMS_PER_PAGE;
+
+  // Reset pagination when search query changes
+  useEffect(() => {
+    setPage(1);
+  }, [searchQuery]);
 
   const handleToggle = () => {
     const newCollapsed = !isCollapsed;
@@ -101,7 +110,7 @@ export default function SearchResultsPanel({
       >
         {/* Panel content */}
         <div
-          className="w-[140px] max-h-[calc(4*44px+44px)] bg-white/95 backdrop-blur-sm rounded-r-xl shadow-xl border-2 border-[#FF6B4A] border-l-0 overflow-hidden flex flex-col"
+          className="w-[200px] max-h-[calc(4*60px+44px)] bg-white/95 backdrop-blur-sm rounded-r-xl shadow-xl border-2 border-[#FF6B4A] border-l-0 overflow-hidden flex flex-col"
         >
             {/* Close button */}
             <button
@@ -114,9 +123,10 @@ export default function SearchResultsPanel({
 
             {/* Results list or no results message */}
             {hasResults ? (
-              <div className="flex-1 overflow-y-auto overflow-x-hidden" style={{ WebkitOverflowScrolling: 'touch', maxHeight: 'calc(4 * 44px)' }}>
-                {results.map((result) => {
+              <div className="flex-1 overflow-y-auto overflow-x-hidden" style={{ WebkitOverflowScrolling: 'touch', maxHeight: 'calc(4 * 60px)' }}>
+                {paginatedResults.map((result) => {
                   const stationName = stationNames[result.stationId] || result.stationId;
+                  const firstMatch = result.matches[0];
 
                   return (
                     <button
@@ -127,15 +137,42 @@ export default function SearchResultsPanel({
                         }
                         onStationClick(result.stationId);
                       }}
-                      className="w-full py-2.5 px-2 border-b border-[#E0DCD7] hover:bg-[#FFF0ED] active:bg-[#FFF0ED] transition-colors group cursor-pointer flex items-center justify-start min-h-[44px]"
+                      className="w-full py-2 px-2.5 border-b border-[#E0DCD7] hover:bg-[#FFF0ED] active:bg-[#FFF0ED] transition-colors group cursor-pointer text-left min-h-[60px]"
                     >
-                      {/* Station Name - full width */}
-                      <div className="text-xs font-semibold text-[#2D2D2D] group-hover:text-[#FF6B4A] transition-colors leading-tight text-left truncate w-full">
+                      {/* Station Name */}
+                      <div className="text-xs font-semibold text-[#2D2D2D] group-hover:text-[#FF6B4A] transition-colors leading-tight truncate">
                         {stationName}
                       </div>
+                      {/* First match with badge */}
+                      {firstMatch && (
+                        <div className="flex items-center gap-1 mt-1">
+                          <span className="text-[10px] text-[#757575] truncate flex-1">{firstMatch.name}</span>
+                          {firstMatch.type === 'mall' && firstMatch.mallName ? (
+                            <span className="text-[8px] px-1 py-0.5 bg-purple-100 text-purple-700 rounded whitespace-nowrap flex-shrink-0">
+                              {firstMatch.mallName}
+                            </span>
+                          ) : firstMatch.type === 'curated' ? (
+                            <span className="text-[8px] px-1 py-0.5 bg-orange-100 text-orange-700 rounded whitespace-nowrap flex-shrink-0">
+                              Curated
+                            </span>
+                          ) : null}
+                        </div>
+                      )}
+                      {result.matches.length > 1 && (
+                        <div className="text-[9px] text-[#999] mt-0.5">+{result.matches.length - 1} more</div>
+                      )}
                     </button>
                   );
                 })}
+                {/* Load More button */}
+                {hasMore && (
+                  <button
+                    onClick={() => setPage(p => p + 1)}
+                    className="w-full py-2 px-2.5 border-t border-[#E0DCD7] bg-[#FFF0ED] hover:bg-[#FFE0D8] text-[#FF6B4A] text-xs font-semibold transition-colors"
+                  >
+                    Load More ({results.length - paginatedResults.length} more)
+                  </button>
+                )}
               </div>
             ) : (
               <NoResultsMessage />
@@ -192,14 +229,16 @@ export default function SearchResultsPanel({
             {/* Results count */}
             <div className="px-4 py-2 bg-[#FFF0ED] border-b border-[#E0DCD7] flex-shrink-0">
               <p className="text-sm text-[#2D2D2D] font-medium">
-                {hasResults ? `${results.length} ${results.length === 1 ? 'station' : 'stations'}` : 'No results'}
+                {hasResults
+                  ? `Showing ${Math.min(paginatedResults.length, results.length)} of ${results.length} ${results.length === 1 ? 'station' : 'stations'}`
+                  : 'No results'}
               </p>
             </div>
 
             {/* Results list or no results message */}
             {hasResults ? (
               <div className="flex-1 overflow-y-auto" style={{ maxHeight: 'calc(4 * 90px)' }}>
-                {results.map((result) => {
+                {paginatedResults.map((result) => {
                   const stationName = stationNames[result.stationId] || result.stationId;
 
                   return (
@@ -222,14 +261,28 @@ export default function SearchResultsPanel({
                       </div>
 
                       {/* Matching restaurants preview */}
-                      <div className="text-xs text-[#757575] ml-7 mt-2 space-y-0.5">
+                      <div className="text-xs text-[#757575] ml-7 mt-2 space-y-1">
                         {result.matches.slice(0, 3).map((match, idx) => (
-                          <p key={idx} className="truncate">
-                            <span className="font-medium text-[#2D2D2D]">{match.name}</span>
+                          <div key={idx} className="flex items-center gap-1.5">
+                            <span className="font-medium text-[#2D2D2D] truncate flex-1">{match.name}</span>
+                            {/* Source badge */}
+                            {match.type === 'mall' && match.mallName ? (
+                              <span className="text-[10px] px-1.5 py-0.5 bg-purple-100 text-purple-700 rounded-full whitespace-nowrap flex-shrink-0">
+                                {match.mallName}
+                              </span>
+                            ) : match.type === 'curated' ? (
+                              <span className="text-[10px] px-1.5 py-0.5 bg-orange-100 text-orange-700 rounded-full whitespace-nowrap flex-shrink-0">
+                                Curated
+                              </span>
+                            ) : match.type === 'chain' ? (
+                              <span className="text-[10px] px-1.5 py-0.5 bg-blue-100 text-blue-700 rounded-full whitespace-nowrap flex-shrink-0">
+                                Chain
+                              </span>
+                            ) : null}
                             {match.matchedTags && match.matchedTags.length > 0 && (
-                              <span className="text-[#FF6B4A] ml-1">• {match.matchedTags[0]}</span>
+                              <span className="text-[#FF6B4A]">• {match.matchedTags[0]}</span>
                             )}
-                          </p>
+                          </div>
                         ))}
                         {result.matches.length > 3 && (
                           <p className="text-[#757575] italic text-xs">
@@ -240,6 +293,15 @@ export default function SearchResultsPanel({
                     </button>
                   );
                 })}
+                {/* Load More button */}
+                {hasMore && (
+                  <button
+                    onClick={() => setPage(p => p + 1)}
+                    className="w-full px-4 py-3 border-t border-[#E0DCD7] bg-[#FFF0ED] hover:bg-[#FFE0D8] text-[#FF6B4A] text-sm font-semibold transition-colors"
+                  >
+                    Load More ({results.length - paginatedResults.length} more stations)
+                  </button>
+                )}
               </div>
             ) : (
               <div className="p-6 text-center bg-[#FFF0ED]">

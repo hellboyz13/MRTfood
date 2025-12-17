@@ -40,7 +40,13 @@
       "Bash(timeout /t 30 /nobreak)",
       "Bash(netstat:*)",
       "Bash(timeout:*)",
-      "Bash(npm uninstall:*)"
+      "Bash(npm uninstall:*)",
+      "Bash(echo:*)",
+      "Bash(find:*)",
+      "Bash(curl:*)",
+      "Bash(dir:*)",
+      "Bash(npx supabase:*)",
+      "Bash(tasklist:*)"
     ],
     "deny": [],
     "ask": []

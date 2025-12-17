@@ -14,6 +14,9 @@ interface SearchBarProps {
   isDessertActive?: boolean;
 }
 
+const SEARCH_DEBOUNCE_MS = 300;
+const MIN_SEARCH_CHARS = 2;
+
 // Rotating placeholder examples
 const PLACEHOLDER_EXAMPLES = [
   'Chinese, Indian, Malay',
@@ -36,6 +39,7 @@ export default function SearchBar({ onSearch, onClear, isSearching, noResults, o
   const noResultsRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const startPos = useRef({ x: 0, y: 0 });
+  const debounceTimerRef = useRef<NodeJS.Timeout | null>(null);
 
   // Close filter menu when clicking outside
   useEffect(() => {
@@ -121,27 +125,36 @@ export default function SearchBar({ onSearch, onClear, isSearching, noResults, o
     };
   }, []);
 
-  // Rotate placeholder text every 2 seconds with downward morph effect
+  // Rotate placeholder text: display for 1s, then animate with downward morph effect
   useEffect(() => {
     const interval = setInterval(() => {
-      setIsAnimating(true);
+      // Wait 1 second before starting animation
       setTimeout(() => {
-        setPlaceholderIndex((prev) => (prev + 1) % PLACEHOLDER_EXAMPLES.length);
-        setIsAnimating(false);
-      }, 300); // Match CSS transition duration
-    }, 2000);
+        setIsAnimating(true);
+        setTimeout(() => {
+          setPlaceholderIndex((prev) => (prev + 1) % PLACEHOLDER_EXAMPLES.length);
+          setIsAnimating(false);
+        }, 300); // Match CSS transition duration
+      }, 1000); // 1 second delay before animation
+    }, 2300); // Total cycle: 1s display + 300ms animation + 1s buffer
     return () => clearInterval(interval);
   }, []);
 
+  // Search only triggers on button click or Enter - no auto-search
+
   const handleSubmit = useCallback((e: React.FormEvent) => {
     e.preventDefault();
-    if (query.trim()) {
+    // Search on submit (button click or Enter)
+    if (query.trim() && query.trim().length >= MIN_SEARCH_CHARS) {
       onSearch(query.trim());
     }
   }, [query, onSearch]);
 
   const handleClear = useCallback(() => {
     setQuery('');
+    if (debounceTimerRef.current) {
+      clearTimeout(debounceTimerRef.current);
+    }
     onClear();
   }, [onClear]);
 
@@ -293,6 +306,12 @@ export default function SearchBar({ onSearch, onClear, isSearching, noResults, o
                 </span>
               </div>
             )}
+            {/* Minimum character hint */}
+            {query && query.trim().length < MIN_SEARCH_CHARS && query.trim().length > 0 && (
+              <div className="absolute left-4 right-12 top-full mt-1 text-xs text-[#FF6B4A] bg-white px-2 py-1 rounded shadow-sm whitespace-nowrap">
+                Type at least {MIN_SEARCH_CHARS} characters
+              </div>
+            )}
             {/* Clear button */}
             {query && (
               <button
@@ -306,7 +325,7 @@ export default function SearchBar({ onSearch, onClear, isSearching, noResults, o
             {/* Search button - Coral Theme */}
             <button
               type="submit"
-              disabled={!query.trim() || isSearching}
+              disabled={!query.trim() || query.trim().length < MIN_SEARCH_CHARS || isSearching}
               className="bg-[#FF6B4A] hover:bg-[#E55A3A] active:bg-[#d4503a] disabled:bg-[#FF6B4A]/60
                          text-white transition-all duration-200 w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 mr-0.5"
             >

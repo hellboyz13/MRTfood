@@ -18,6 +18,7 @@ interface MRTMapProps {
   onStationClick: (stationId: string) => void;
   searchResults?: StationSearchResult[];
   onZoomHandlerReady?: (handler: (stationId: string) => void) => void;
+  emptyStations?: string[];
 }
 
 // Station coordinates for centering and location finding
@@ -381,7 +382,7 @@ const stationGeoCoordinates: { [key: string]: { lat: number, lng: number } } = {
   'bayshore': { lat: 1.3193, lng: 103.9378 },
 };
 
-export default function MRTMap({ selectedStation, onStationClick, searchResults = [], onZoomHandlerReady }: MRTMapProps) {
+export default function MRTMap({ selectedStation, onStationClick, searchResults = [], onZoomHandlerReady, emptyStations = [] }: MRTMapProps) {
   const svgContainerRef = useRef<HTMLDivElement>(null);
   const transformRef = useRef<ReactZoomPanPinchRef>(null);
   const previousSelectedStationRef = useRef<string | null>(null);
@@ -822,10 +823,14 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
         }
 
         // Create larger transparent hit area circle (44px minimum tap target)
+        // Reduce hit area for stations that are very close together
+        const closeStations = ['clarke-quay', 'fort-canning', 'bras-basah', 'bencoolen'];
+        const hitRadius = closeStations.includes(matchedStation) ? '12' : '22';
+
         const hitArea = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
         hitArea.setAttribute('cx', String(cx));
         hitArea.setAttribute('cy', String(cy));
-        hitArea.setAttribute('r', '22'); // 44px diameter for minimum tap target
+        hitArea.setAttribute('r', hitRadius); // Reduced for close stations
         hitArea.setAttribute('fill', 'transparent');
         hitArea.setAttribute('stroke', 'none');
         hitArea.style.cursor = 'pointer';
@@ -873,6 +878,31 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
             circle.setAttribute('fill', '#ffffff');
           }
         });
+
+        // Add slash indicator for empty stations (no content)
+        if (emptyStations.includes(matchedStation)) {
+          const radius = parseFloat(circle.getAttribute('r') || '3');
+          const offset = radius * 0.7; // Diagonal offset for slash
+
+          const slashLine = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+          slashLine.setAttribute('x1', String(cx - offset));
+          slashLine.setAttribute('y1', String(cy - offset));
+          slashLine.setAttribute('x2', String(cx + offset));
+          slashLine.setAttribute('y2', String(cy + offset));
+          slashLine.setAttribute('stroke', '#dc2626');
+          slashLine.setAttribute('stroke-width', '1.5');
+          slashLine.setAttribute('stroke-linecap', 'round');
+          slashLine.setAttribute('data-empty-indicator', matchedStation);
+          slashLine.style.pointerEvents = 'none';
+
+          // Insert slash line after the circle
+          circle.parentNode?.insertBefore(slashLine, circle.nextSibling);
+
+          // Mark circle as empty for styling
+          circle.setAttribute('data-empty-station', 'true');
+          circle.style.cursor = 'not-allowed';
+          hitArea.style.cursor = 'not-allowed';
+        }
       } else {
         // Remove circles that don't match any station coordinates (orphans)
         circle.remove();

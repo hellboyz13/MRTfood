@@ -213,15 +213,47 @@ export async function searchStationsByFood(query: string): Promise<StationSearch
     return [];
   }
 
-  // ===== FETCH ALL LISTINGS =====
-  const { data: listings, error: listingsError } = await supabase
+  // ===== EXPAND QUERY WITH SYNONYMS FIRST =====
+  const expandedTerms = expandQuery(searchQuery);
+  console.log(`📚 Expanded terms:`, expandedTerms.slice(0, 5));
+
+  // ===== SERVER-SIDE FILTERED SEARCH =====
+  // Build OR conditions for name and tags
+  const searchPattern = `%${queryLower}%`;
+
+  // Query 1: Search by name (ilike)
+  const { data: nameMatches, error: nameError } = await supabase
     .from('food_listings')
     .select('id, station_id, name, description, tags')
     .eq('is_active', true)
-    .not('station_id', 'is', null);
+    .not('station_id', 'is', null)
+    .ilike('name', searchPattern)
+    .limit(50);
 
-  if (listingsError || !listings) {
-    console.error('Error fetching listings:', listingsError);
+  // Query 2: Search by tags (contains any expanded term)
+  const { data: tagMatches, error: tagError } = await supabase
+    .from('food_listings')
+    .select('id, station_id, name, description, tags')
+    .eq('is_active', true)
+    .not('station_id', 'is', null)
+    .overlaps('tags', expandedTerms)
+    .limit(50);
+
+  if (nameError) console.error('Name search error:', nameError);
+  if (tagError) console.error('Tag search error:', tagError);
+
+  // Merge and dedupe results
+  const listingsMap = new Map<string, SearchableListing>();
+  const allMatches = [...(nameMatches || []), ...(tagMatches || [])] as SearchableListing[];
+  allMatches.forEach(listing => {
+    listingsMap.set(listing.id, listing);
+  });
+  const listings = Array.from(listingsMap.values());
+
+  console.log(`📊 Server returned ${listings.length} listings (name: ${nameMatches?.length || 0}, tags: ${tagMatches?.length || 0})`);
+
+  if (listings.length === 0) {
+    console.log('No listings matched');
     return [];
   }
 
@@ -318,19 +350,13 @@ export async function searchStationsByFood(query: string): Promise<StationSearch
   }
 
   // ============================================
-  // STEP 2: FOOD TERM / TAG SEARCH (existing logic)
+  // STEP 2: RELEVANCE-BASED SCORING
+  // Priority: 1=exact (0.01), 2=starts with (0.10), 3=contains (0.20), 4=tag only (0.30)
   // ============================================
   const searchType = detectSearchType(searchQuery);
   console.log(`📋 Search type: ${searchType}`);
 
   const stationResultsMap = new Map<string, StationSearchResult>();
-
-  // ===== EXPAND QUERY WITH SYNONYMS =====
-  const expandedTerms = expandQuery(searchQuery);
-  console.log(`📚 Expanded terms:`, expandedTerms.slice(0, 10)); // Log first 10
-
-  // ===== SEARCH LOGIC =====
-  const fuse = createFuseInstance(listings as SearchableListing[]);
 
   listings.forEach((listing: SearchableListing) => {
     if (!listing.station_id) return;
@@ -340,56 +366,41 @@ export async function searchStationsByFood(query: string): Promise<StationSearch
     let matchedTags: string[] = [];
     let matchScore = 1; // Lower is better
 
-    if (searchType === 'restaurant') {
-      // Restaurant search: fuzzy match on name
-      const fuseResults = fuse.search(searchQuery);
-      const listingResult = fuseResults.find(r => r.item.id === listing.id);
-      if (listingResult && listingResult.score !== undefined && listingResult.score < 0.35) {
+    const nameLower = (listing.name || '').toLowerCase();
+
+    // Priority 1: Exact name match
+    if (nameLower === queryLower) {
+      matched = true;
+      matchScore = 0.01;
+    }
+    // Priority 2: Name starts with query
+    else if (nameLower.startsWith(queryLower)) {
+      matched = true;
+      matchScore = 0.10;
+    }
+    // Priority 3: Name contains query
+    else if (nameLower.includes(queryLower)) {
+      matched = true;
+      matchScore = 0.20;
+    }
+
+    // Priority 4: Tag match (if no name match)
+    if (!matched && listing.tags && Array.isArray(listing.tags)) {
+      const tagMatch = matchesTags(expandedTerms, listing.tags);
+      if (tagMatch.matches) {
         matched = true;
-        matchScore = listingResult.score;
-        matchType = 'restaurant';
+        matchedTags = tagMatch.matchedTags;
+        matchScore = 0.30;
       }
-    } else {
-      // Food search: check tags with expanded terms (whole-word)
-      if (listing.tags && Array.isArray(listing.tags)) {
-        const tagMatch = matchesTags(expandedTerms, listing.tags);
-        if (tagMatch.matches) {
+    }
+
+    // Priority 5: Description match (lowest)
+    if (!matched && listing.description) {
+      for (const term of expandedTerms) {
+        if (wholeWordMatch(term, listing.description)) {
           matched = true;
-          matchedTags = tagMatch.matchedTags;
-          matchScore = 0.1; // High confidence for tag matches
-        }
-      }
-
-      // Also check name for dish terms OR longer queries
-      if (!matched && (DISH_TERMS.has(queryLower) || searchQuery.length >= 4)) {
-        // Use expanded terms for name matching too
-        for (const term of expandedTerms) {
-          if (wholeWordMatch(term, listing.name || '')) {
-            matched = true;
-            matchScore = 0.2;
-            break;
-          }
-        }
-
-        // Fuzzy fallback for typos (only if query >= 4 chars)
-        if (!matched && searchQuery.length >= 4) {
-          const fuseResults = fuse.search(searchQuery);
-          const listingResult = fuseResults.find(r => r.item.id === listing.id);
-          if (listingResult && listingResult.score !== undefined && listingResult.score < 0.3) {
-            matched = true;
-            matchScore = listingResult.score;
-          }
-        }
-      }
-
-      // Check description as last resort
-      if (!matched && listing.description) {
-        for (const term of expandedTerms) {
-          if (wholeWordMatch(term, listing.description)) {
-            matched = true;
-            matchScore = 0.5; // Lower confidence
-            break;
-          }
+          matchScore = 0.50;
+          break;
         }
       }
     }
@@ -415,6 +426,9 @@ export async function searchStationsByFood(query: string): Promise<StationSearch
 
   // ===== SEARCH CHAIN OUTLETS =====
   await searchChainOutlets(searchQuery, expandedTerms, searchType, stationResultsMap);
+
+  // ===== SEARCH MALL OUTLETS =====
+  await searchMallOutlets(searchQuery, expandedTerms, searchType, stationResultsMap);
 
   // ===== SORT RESULTS =====
   const results = Array.from(stationResultsMap.values());
@@ -449,6 +463,7 @@ async function searchChainOutlets(
   searchType: 'food' | 'restaurant',
   stationResultsMap: Map<string, StationSearchResult>
 ) {
+  // Server-side filter for chain outlets
   const { data: chainOutlets, error } = await supabase
     .from('chain_outlets')
     .select(`
@@ -464,7 +479,9 @@ async function searchChainOutlets(
       )
     `)
     .eq('is_active', true)
-    .not('nearest_station_id', 'is', null);
+    .not('nearest_station_id', 'is', null)
+    .or(`name.ilike.%${query}%,food_tags.cs.{${expandedTerms[0]}}`)
+    .limit(30);
 
   if (error || !chainOutlets) {
     console.error('Error fetching chain outlets:', error);
@@ -483,22 +500,27 @@ async function searchChainOutlets(
 
     const outletTags = outlet.food_tags || [];
     const brandName = outlet.chain_brands?.name || outlet.name || '';
+    const nameLower = (outlet.name || brandName).toLowerCase();
 
-    if (searchType === 'restaurant') {
-      // Match brand or outlet name
-      if (brandName.toLowerCase().includes(queryLower) ||
-          outlet.name?.toLowerCase().includes(queryLower)) {
-        matched = true;
-        matchScore = 0.1;
-        matchType = 'restaurant';
-      }
-    } else {
-      // Food search: check outlet food_tags
+    // Relevance scoring for chains
+    if (nameLower === queryLower) {
+      matched = true;
+      matchScore = 0.01;
+    } else if (nameLower.startsWith(queryLower)) {
+      matched = true;
+      matchScore = 0.10;
+    } else if (nameLower.includes(queryLower)) {
+      matched = true;
+      matchScore = 0.20;
+    }
+
+    // Tag match if no name match
+    if (!matched) {
       const tagMatch = matchesTags(expandedTerms, outletTags);
       if (tagMatch.matches) {
         matched = true;
         matchedTags = tagMatch.matchedTags;
-        matchScore = 0.15;
+        matchScore = 0.30;
       }
     }
 
@@ -517,6 +539,96 @@ async function searchChainOutlets(
         matchType,
         matchedTags: matchedTags.length > 0 ? matchedTags : undefined,
         score: matchScore,
+      });
+    }
+  });
+}
+
+// ============================================
+// MALL OUTLETS SEARCH
+// ============================================
+async function searchMallOutlets(
+  query: string,
+  expandedTerms: string[],
+  searchType: 'food' | 'restaurant',
+  stationResultsMap: Map<string, StationSearchResult>
+) {
+  // Server-side filter for mall outlets
+  const { data: mallOutlets, error } = await supabase
+    .from('mall_outlets')
+    .select(`
+      id,
+      name,
+      mall_id,
+      category,
+      malls!inner (
+        id,
+        name,
+        station_id
+      )
+    `)
+    .or(`name.ilike.%${query}%,category.ilike.%${query}%`)
+    .limit(50);
+
+  if (error || !mallOutlets) {
+    console.error('Error fetching mall outlets:', error);
+    return;
+  }
+
+  const queryLower = query.toLowerCase();
+
+  mallOutlets.forEach((outlet: any) => {
+    const stationId = outlet.malls?.station_id;
+    if (!stationId) return;
+
+    let matched = false;
+    let matchType: 'food' | 'restaurant' = searchType;
+    let matchedTags: string[] = [];
+    let matchScore = 1;
+
+    const outletName = outlet.name || '';
+    const outletNameLower = outletName.toLowerCase();
+    const outletCategory = outlet.category || '';
+
+    // Relevance scoring for mall outlets
+    if (outletNameLower === queryLower) {
+      matched = true;
+      matchScore = 0.01;
+    } else if (outletNameLower.startsWith(queryLower)) {
+      matched = true;
+      matchScore = 0.10;
+    } else if (outletNameLower.includes(queryLower)) {
+      matched = true;
+      matchScore = 0.20;
+    }
+
+    // Category match if no name match
+    if (!matched && outletCategory) {
+      const catLower = outletCategory.toLowerCase();
+      if (catLower.includes(queryLower) || expandedTerms.some(t => catLower.includes(t.toLowerCase()))) {
+        matched = true;
+        matchedTags = [outletCategory];
+        matchScore = 0.30;
+      }
+    }
+
+    if (matched) {
+      if (!stationResultsMap.has(stationId)) {
+        stationResultsMap.set(stationId, {
+          stationId: stationId,
+          matches: [],
+        });
+      }
+
+      stationResultsMap.get(stationId)!.matches.push({
+        id: outlet.id,
+        name: outletName,
+        type: 'mall',
+        matchType,
+        matchedTags: matchedTags.length > 0 ? matchedTags : undefined,
+        score: matchScore,
+        mallName: outlet.malls?.name,
+        mallId: outlet.mall_id,
       });
     }
   });

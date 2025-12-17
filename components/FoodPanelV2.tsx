@@ -4,17 +4,22 @@ import { useRef, useState, useCallback, useEffect } from 'react';
 import { SponsoredListing as DbSponsoredListing, FoodListingWithSources } from '@/types/database';
 import { stationNames } from '@/data/mock-data';
 import { useStationFood } from '@/hooks/useStationFood';
+import { useMallsByStation, useMallOutlets } from '@/hooks/useMalls';
 import { SearchMatch } from '@/lib/api';
 import FoodListingCardV2 from './FoodListingCardV2';
 import RestaurantGridCard from './RestaurantGridCard';
 import SlotMachine from './SlotMachine';
 import MenuPreview from './MenuPreview';
-import ModeToggle from './ModeToggle';
+import ModeToggle, { PanelMode } from './ModeToggle';
+import MallList from './MallList';
+import OutletList from './OutletList';
+import EmptyStationRedirect from './EmptyStationRedirect';
 import { IconClose } from './Icons';
 
 interface FoodPanelV2Props {
   stationId: string | null;
   onClose: () => void;
+  onNavigateToStation?: (stationId: string) => void;
   isMobile?: boolean;
   searchQuery?: string;
   searchMatches?: SearchMatch[];
@@ -94,17 +99,40 @@ const isSupabaseConfigured = () => {
   );
 };
 
-export default function FoodPanelV2({ stationId, onClose, isMobile = false, searchQuery = '', searchMatches = [] }: FoodPanelV2Props) {
+export default function FoodPanelV2({ stationId, onClose, onNavigateToStation, isMobile = false, searchQuery = '', searchMatches = [] }: FoodPanelV2Props) {
   const [selectedMenuListing, setSelectedMenuListing] = useState<FoodListingWithSources | null>(null);
-  const [mode, setMode] = useState<'curated' | 'popular'>('popular');
+  const [mode, setMode] = useState<PanelMode>('popular');
+  const [selectedMallId, setSelectedMallId] = useState<string | null>(null);
+  const [autoSwitchedForQuery, setAutoSwitchedForQuery] = useState<string | null>(null);
+  const [listingsPage, setListingsPage] = useState(1);
+  const [sortBy, setSortBy] = useState<'distance' | 'rating'>('distance');
 
-  // Reset selected menu listing when station changes
+  const LISTINGS_PER_PAGE = 20;
+
+  // Reset selected menu listing, mall, and pagination when station changes
   useEffect(() => {
     setSelectedMenuListing(null);
+    setSelectedMallId(null);
+    setListingsPage(1);
   }, [stationId]);
+
+  // Reset pagination when mode or sort changes
+  useEffect(() => {
+    setListingsPage(1);
+  }, [mode, sortBy]);
 
   const { data, separatedListings, loading, error } = useStationFood(
     isSupabaseConfigured() ? stationId : null
+  );
+
+  // Fetch malls for current station
+  const { malls, loading: mallsLoading } = useMallsByStation(
+    isSupabaseConfigured() ? stationId : null
+  );
+
+  // Fetch outlets for selected mall
+  const { mall: selectedMall, outlets, loading: outletsLoading } = useMallOutlets(
+    selectedMallId
   );
 
   if (!stationId) return null;
@@ -114,6 +142,7 @@ export default function FoodPanelV2({ stationId, onClose, isMobile = false, sear
   const stationName = useSupabase && data?.station
     ? data.station.name
     : stationNames[stationId] || stationId.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+
 
   // Helper function to check if listing matches search query
   // Check if a listing/outlet matches the current search
@@ -132,6 +161,47 @@ export default function FoodPanelV2({ stationId, onClose, isMobile = false, sear
 
     return false;
   };
+
+  // Get mall outlet matches for this station
+  const mallOutletMatches = searchMatches.filter(m => m.type === 'mall');
+  const isSearchActive = searchQuery && searchMatches.length > 0;
+  const hasMallMatches = mallOutletMatches.length > 0;
+
+  // Determine which modes have content
+  const hasCuratedContent = separatedListings.recommended.length > 0 || separatedListings.foodKingOnly.length > 0;
+  const hasPopularContent = separatedListings.popular.length > 0 || separatedListings.other.length > 0;
+  const hasMallsContent = malls.length > 0;
+
+  // Build array of available modes
+  const availableModes: PanelMode[] = [];
+  if (hasPopularContent) availableModes.push('popular');
+  if (hasCuratedContent) availableModes.push('curated');
+  if (hasMallsContent) availableModes.push('malls');
+
+  // Auto-switch to appropriate tab based on available content and search
+  useEffect(() => {
+    // Auto-switch to malls tab when search has mall matches (only once per search query)
+    if (hasMallMatches && searchQuery && autoSwitchedForQuery !== searchQuery && availableModes.includes('malls')) {
+      setMode('malls');
+      setAutoSwitchedForQuery(searchQuery);
+      // Auto-select the mall if there's only one mall with matches
+      const matchingMallIds = [...new Set(mallOutletMatches.map(m => m.mallId).filter(Boolean))];
+      if (matchingMallIds.length === 1 && matchingMallIds[0]) {
+        setSelectedMallId(matchingMallIds[0]);
+      }
+    }
+    // Reset the flag when search is cleared
+    if (!searchQuery && autoSwitchedForQuery) {
+      setAutoSwitchedForQuery(null);
+    }
+  }, [hasMallMatches, searchQuery, autoSwitchedForQuery, mallOutletMatches, availableModes]);
+
+  // Auto-switch mode if current mode is not available
+  useEffect(() => {
+    if (availableModes.length > 0 && !availableModes.includes(mode)) {
+      setMode(availableModes[0]);
+    }
+  }, [availableModes, mode]);
 
   const renderListings = () => {
     if (loading) {
@@ -156,20 +226,34 @@ export default function FoodPanelV2({ stationId, onClose, isMobile = false, sear
     }
 
     // Filter listings based on search matches (if search is active)
-    const isSearchActive = searchQuery && searchMatches.length > 0;
     const filteredListings = isSearchActive
       ? modeListings.filter(listing => matchesSearch(listing))
       : modeListings;
 
-    // Sort filtered listings by distance (closest first)
+    // Sort filtered listings based on selected sort option
     const sortedListings = [...filteredListings].sort((a, b) => {
+      if (sortBy === 'rating') {
+        // Sort by rating (highest first), then by distance as tiebreaker
+        const ratingA = a.rating ?? 0;
+        const ratingB = b.rating ?? 0;
+        if (ratingB !== ratingA) return ratingB - ratingA;
+        // Tiebreaker: distance
+        const distA = a.distance_to_station ?? a.walking_time ?? Infinity;
+        const distB = b.distance_to_station ?? b.walking_time ?? Infinity;
+        return distA - distB;
+      }
+      // Default: sort by distance (closest first)
       const distA = a.distance_to_station ?? a.walking_time ?? Infinity;
       const distB = b.distance_to_station ?? b.walking_time ?? Infinity;
       return distA - distB;
     });
 
+    // Apply pagination
+    const paginatedListings = sortedListings.slice(0, listingsPage * LISTINGS_PER_PAGE);
+    const hasMoreListings = sortedListings.length > listingsPage * LISTINGS_PER_PAGE;
+
     // If search is active but no matches at this station, show empty state
-    if (isSearchActive && sortedListings.length === 0) {
+    if (isSearchActive && paginatedListings.length === 0) {
       return (
         <div className="text-center py-8 bg-[#F5F3F0] rounded-lg mx-2 border border-[#E0DCD7]">
           <div className="text-4xl mb-3">🔍</div>
@@ -184,7 +268,7 @@ export default function FoodPanelV2({ stationId, onClose, isMobile = false, sear
     }
 
     // If no listings in this mode
-    if (sortedListings.length === 0) {
+    if (paginatedListings.length === 0) {
       return (
         <div className="text-center py-8 bg-[#F5F3F0] rounded-lg border border-[#E0DCD7]">
           <div className="text-4xl mb-3">{mode === 'popular' ? '🧭' : '⭐'}</div>
@@ -220,16 +304,40 @@ export default function FoodPanelV2({ stationId, onClose, isMobile = false, sear
               <span>Showing "{searchQuery}" ({sortedListings.length})</span>
             </div>
           )}
-          {/* Sort indicator - only when no search filter */}
+          {/* Sort controls - only when no search filter */}
           {!isSearchActive && (
-            <div className="flex items-center gap-2 text-sm font-medium text-[#2D2D2D] bg-[#F5F3F0] rounded-lg px-3 py-2 mb-3">
-              <span className="text-base">🚶</span>
-              <span>Sorted by walking distance</span>
+            <div className="flex items-center justify-between bg-[#F5F3F0] rounded-lg px-3 py-2 mb-3">
+              <span className="text-xs text-[#757575]">
+                {paginatedListings.length} of {sortedListings.length}
+              </span>
+              <div className="flex items-center gap-1">
+                <span className="text-xs text-[#757575] mr-1">Sort:</span>
+                <button
+                  onClick={() => setSortBy('distance')}
+                  className={`px-2 py-1 text-xs rounded-md transition-colors ${
+                    sortBy === 'distance'
+                      ? 'bg-[#FF6B4A] text-white font-medium'
+                      : 'bg-white text-[#757575] hover:bg-gray-100'
+                  }`}
+                >
+                  🚶 Nearest
+                </button>
+                <button
+                  onClick={() => setSortBy('rating')}
+                  className={`px-2 py-1 text-xs rounded-md transition-colors ${
+                    sortBy === 'rating'
+                      ? 'bg-[#FF6B4A] text-white font-medium'
+                      : 'bg-white text-[#757575] hover:bg-gray-100'
+                  }`}
+                >
+                  ⭐ Rating
+                </button>
+              </div>
             </div>
           )}
           {/* Single column list */}
           <div className="space-y-2">
-            {sortedListings.map((listing) => (
+            {paginatedListings.map((listing) => (
               <FoodListingCardV2
                 key={listing.id}
                 listing={listing}
@@ -238,20 +346,129 @@ export default function FoodPanelV2({ stationId, onClose, isMobile = false, sear
               />
             ))}
           </div>
+          {/* Load More button */}
+          {hasMoreListings && (
+            <button
+              onClick={() => setListingsPage(p => p + 1)}
+              className="w-full mt-3 py-3 px-4 bg-[#FF6B4A] hover:bg-[#E55A3A] text-white text-sm font-semibold rounded-lg transition-colors"
+            >
+              Load More ({sortedListings.length - paginatedListings.length} more)
+            </button>
+          )}
         </div>
       </>
     );
   };
 
+  const renderMallsContent = () => {
+    console.log('🏬 renderMallsContent:', { selectedMallId, selectedMall, outlets: outlets.length, outletsLoading });
+
+    // If a mall is selected, show the outlet list
+    if (selectedMallId) {
+      // Filter outlets if search is active
+      const filteredOutlets = isSearchActive && hasMallMatches
+        ? outlets.filter(outlet => mallOutletMatches.some(m => m.id === outlet.id))
+        : outlets;
+
+      return (
+        <>
+          {/* Search filter indicator for malls */}
+          {isSearchActive && hasMallMatches && (
+            <div className="flex items-center gap-2 text-sm font-medium text-[#2D2D2D] bg-[#FFF0ED] rounded-lg px-3 py-2 mb-3 border border-[#FF6B4A]">
+              <span className="text-base">🔍</span>
+              <span>Showing "{searchQuery}" ({filteredOutlets.length})</span>
+            </div>
+          )}
+          <OutletList
+            mall={selectedMall}
+            outlets={filteredOutlets}
+            loading={outletsLoading}
+            onBack={() => setSelectedMallId(null)}
+          />
+        </>
+      );
+    }
+
+    // Otherwise show the mall list
+    // Filter to only show malls that have matching outlets
+    const filteredMalls = isSearchActive && hasMallMatches
+      ? malls.filter(mall => mallOutletMatches.some(m => m.mallId === mall.id))
+      : malls;
+
+    return (
+      <>
+        {/* Search filter indicator for malls */}
+        {isSearchActive && hasMallMatches && (
+          <div className="flex items-center gap-2 text-sm font-medium text-[#2D2D2D] bg-[#FFF0ED] rounded-lg px-3 py-2 mb-3 border border-[#FF6B4A]">
+            <span className="text-base">🔍</span>
+            <span>Showing malls with "{searchQuery}"</span>
+          </div>
+        )}
+        <MallList
+          malls={filteredMalls}
+          loading={mallsLoading}
+          onSelectMall={setSelectedMallId}
+        />
+      </>
+    );
+  };
+
   const renderContent = () => {
+    console.log('📄 renderContent:', { loading, mallsLoading, mode, availableModes, hasMallsContent });
+
+    // Show loading state while data is being fetched
+    if (loading || mallsLoading) {
+      return <LoadingState />;
+    }
+
+    // If nearbyRedirect is present, show redirect card
+    if (data?.nearbyRedirect) {
+      return (
+        <EmptyStationRedirect
+          currentStationName={stationName}
+          redirect={data.nearbyRedirect}
+          onNavigate={(nearbyStationId) => {
+            if (onNavigateToStation) {
+              onNavigateToStation(nearbyStationId);
+            }
+          }}
+        />
+      );
+    }
+
+    // If no content at all, show empty state
+    if (availableModes.length === 0) {
+      return (
+        <div className="text-center py-8">
+          <div className="text-4xl mb-3">🚫</div>
+          <p className="text-gray-500 text-sm">
+            No food places or malls at this station yet.
+          </p>
+          <p className="text-gray-400 text-xs mt-1">
+            Check back soon!
+          </p>
+        </div>
+      );
+    }
+
     return (
       <>
         {/* Mode Toggle */}
-        <ModeToggle mode={mode} onModeChange={setMode} />
+        <ModeToggle
+          mode={mode}
+          onModeChange={(newMode) => {
+            setMode(newMode);
+            // Reset mall selection when switching modes
+            if (newMode !== 'malls') {
+              setSelectedMallId(null);
+            }
+          }}
+          availableModes={availableModes}
+        />
 
-        {/* Listings */}
+        {/* Content based on mode */}
         <div className="mt-3">
-          {renderListings()}
+          {mode === 'malls' ? renderMallsContent() : renderListings()}
         </div>
       </>
     );
@@ -481,6 +698,9 @@ function MobileDrawer({
                 padding: 'clamp(12px, 4vw, 20px)',
                 WebkitOverflowScrolling: 'touch',
               }}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
             >
               {children}
             </div>

@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { createClient } from '@supabase/supabase-js';
 import { FoodListingWithSources } from '@/types/database';
+import ImageLightbox from './ImageLightbox';
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -20,19 +21,13 @@ interface MenuImage {
   display_order: number;
 }
 
-interface PlaceDetails {
-  review_count: number | null;
-  phone: string | null;
-  website: string | null;
-  opening_hours: {
-    open_now?: boolean;
-    periods?: Array<{
-      open: { day: number; time: string };
-      close?: { day: number; time: string };
-    }>;
-    weekday_text?: string[];
-  } | null;
-  rating: number | null;
+interface OpeningHours {
+  open_now?: boolean;
+  periods?: Array<{
+    open: { day: number; time: string };
+    close?: { day: number; time: string };
+  }>;
+  weekday_text?: string[];
 }
 
 // Camera icon component for placeholder photos
@@ -54,14 +49,14 @@ function CameraIcon({ className }: { className?: string }) {
 // Photo placeholder component
 function PhotoPlaceholder() {
   return (
-    <div className="w-full h-full bg-gray-200 flex items-center justify-center rounded-lg">
+    <div className="w-full h-full bg-gray-200 animate-pulse flex items-center justify-center rounded-lg">
       <CameraIcon className="w-8 h-8 text-gray-400" />
     </div>
   );
 }
 
-// Photo component with loading state
-function PhotoItem({ src }: { src?: string }) {
+// Photo component with loading state - now clickable
+function PhotoItem({ src, onClick }: { src?: string; onClick?: () => void }) {
   const [loaded, setLoaded] = useState(false);
   const [error, setError] = useState(false);
 
@@ -70,7 +65,10 @@ function PhotoItem({ src }: { src?: string }) {
   }
 
   return (
-    <div className="w-full h-full relative">
+    <div
+      className="w-full h-full relative cursor-pointer hover:opacity-90 transition-opacity"
+      onClick={onClick}
+    >
       {!loaded && <PhotoPlaceholder />}
       <img
         src={src}
@@ -92,51 +90,52 @@ function formatTime(timeStr: string): string {
   return min > 0 ? `${hour12}:${min.toString().padStart(2, '0')}${period}` : `${hour12}${period}`;
 }
 
-// Helper to get today's opening hours
-function getTodayHours(openingHours: PlaceDetails['opening_hours']): string | null {
-  if (!openingHours) return null;
+// Helper to format weekday hours for display (compact version)
+function formatWeeklyHours(openingHours: OpeningHours | null): { day: string; hours: string; isToday: boolean }[] | null {
+  if (!openingHours?.weekday_text || openingHours.weekday_text.length === 0) {
+    return null;
+  }
 
   const now = new Date();
   const currentDay = now.getDay(); // 0 = Sunday
 
-  // Try to get from weekday_text first (more readable)
-  if (openingHours.weekday_text && openingHours.weekday_text.length > 0) {
-    // weekday_text is usually in order Mon-Sun, but currentDay is 0=Sun
-    // So we need to map: Sun=0 -> index 6, Mon=1 -> index 0, etc.
-    const dayIndex = currentDay === 0 ? 6 : currentDay - 1;
-    const todayText = openingHours.weekday_text[dayIndex];
-    if (todayText) {
-      // Extract just the hours part (after the colon)
-      const match = todayText.match(/:\s*(.+)$/);
-      if (match) {
-        const hours = match[1].trim();
-        // Don't show if it just says "Closed"
-        if (hours.toLowerCase() === 'closed') {
-          return null;
-        }
-        return hours;
-      }
-    }
-  }
+  // Single letter day abbreviations matching weekday_text order (Mon-Sun)
+  const dayAbbrevs = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
 
-  // Fallback to periods
-  if (openingHours.periods && openingHours.periods.length > 0) {
-    const todayPeriod = openingHours.periods.find(p => p.open.day === currentDay);
-    if (todayPeriod) {
-      const openTime = formatTime(todayPeriod.open.time);
-      const closeTime = todayPeriod.close ? formatTime(todayPeriod.close.time) : 'Late';
-      return `${openTime} - ${closeTime}`;
-    }
-  }
+  return openingHours.weekday_text.map((text, index) => {
+    // Extract hours part (after "Day: ")
+    const match = text.match(/:\s*(.+)$/);
+    let hours = match ? match[1].trim() : text;
 
-  return null;
+    // Shorten common phrases
+    hours = hours
+      .replace('Closed', '✕')
+      .replace('Open 24 hours', '24h')
+      .replace(/\s*[–-]\s*/g, '-') // Normalize dashes
+      .replace(/(\d{1,2}):00/g, '$1') // Remove :00
+      .replace(/\s*(AM|PM)/gi, (_, p) => p.toLowerCase()); // Lowercase am/pm
+
+    // Map index to actual day (weekday_text is Mon=0 to Sun=6)
+    // currentDay is Sun=0 to Sat=6
+    const dayNumber = index === 6 ? 0 : index + 1;
+
+    return {
+      day: dayAbbrevs[index],
+      hours: hours,
+      isToday: dayNumber === currentDay
+    };
+  });
 }
 
 export default function MenuPreview({ listing, onBack }: MenuPreviewProps) {
   const [photos, setPhotos] = useState<MenuImage[]>([]);
   const [loading, setLoading] = useState(true);
-  const [placeDetails, setPlaceDetails] = useState<PlaceDetails | null>(null);
-  const [detailsLoading, setDetailsLoading] = useState(true);
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+
+  // Get opening hours, phone, website directly from listing
+  const openingHours = listing.opening_hours as OpeningHours | null;
+  const phone = (listing as { phone?: string | null }).phone;
+  const website = (listing as { website?: string | null }).website;
 
   // Fetch photos from menu_images table
   useEffect(() => {
@@ -157,26 +156,6 @@ export default function MenuPreview({ listing, onBack }: MenuPreviewProps) {
     fetchPhotos();
   }, [listing.id]);
 
-  // Fetch place details (opening hours, phone, website)
-  useEffect(() => {
-    async function fetchPlaceDetails() {
-      try {
-        const response = await fetch(`/api/fetch-place-details?listingId=${listing.id}`);
-        const data = await response.json();
-
-        if (data.success && data.data) {
-          setPlaceDetails(data.data);
-        }
-      } catch (error) {
-        console.error('Error fetching place details:', error);
-      } finally {
-        setDetailsLoading(false);
-      }
-    }
-
-    fetchPlaceDetails();
-  }, [listing.id]);
-
   // Generate Google Maps directions URL
   const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(`${listing.name} ${listing.address || ''} Singapore`)}`;
 
@@ -186,8 +165,8 @@ export default function MenuPreview({ listing, onBack }: MenuPreviewProps) {
   // Get photo URL by index (0-4)
   const getPhoto = (index: number) => photos[index]?.image_url;
 
-  // Get today's opening hours
-  const todayHours = placeDetails?.opening_hours ? getTodayHours(placeDetails.opening_hours) : null;
+  // Get weekly hours
+  const weeklyHours = openingHours ? formatWeeklyHours(openingHours) : null;
 
   return (
     <div className="restaurant-detail-page">
@@ -229,33 +208,35 @@ export default function MenuPreview({ listing, onBack }: MenuPreviewProps) {
         </div>
       </a>
 
-      {/* 3. Opening hours - today only */}
-      {(todayHours || detailsLoading) && (
-        <div className="detail-info-row detail-info-static">
-          <div className="detail-info-icon">
-            <span>🕐</span>
+      {/* 3. Opening hours - full week */}
+      {weeklyHours && (
+        <div className="detail-hours-section">
+          <div className="detail-hours-header">
+            <span className="detail-hours-icon">🕐</span>
+            <span className="detail-hours-title">Opening Hours</span>
           </div>
-          <div className="detail-info-content">
-            {detailsLoading ? (
-              <p className="detail-info-text text-gray-400">Loading hours...</p>
-            ) : todayHours ? (
-              <p className="detail-info-text">{todayHours}</p>
-            ) : null}
+          <div className="detail-hours-grid">
+            {weeklyHours.map(({ day, hours, isToday }) => (
+              <div key={day} className={`detail-hours-row ${isToday ? 'detail-hours-today' : ''}`}>
+                <span className="detail-hours-day">{day}</span>
+                <span className="detail-hours-time">{hours}</span>
+              </div>
+            ))}
           </div>
         </div>
       )}
 
       {/* 4. Phone number - tappable to call */}
-      {placeDetails?.phone && (
+      {phone && (
         <a
-          href={`tel:${placeDetails.phone}`}
+          href={`tel:${phone}`}
           className="detail-info-row"
         >
           <div className="detail-info-icon">
             <span>📞</span>
           </div>
           <div className="detail-info-content">
-            <p className="detail-info-text">{placeDetails.phone}</p>
+            <p className="detail-info-text">{phone}</p>
             <p className="detail-info-hint">Tap to call</p>
           </div>
           <div className="detail-info-arrow">
@@ -267,9 +248,9 @@ export default function MenuPreview({ listing, onBack }: MenuPreviewProps) {
       )}
 
       {/* 5. Website - tappable to open */}
-      {placeDetails?.website && (
+      {website && (
         <a
-          href={placeDetails.website}
+          href={website}
           target="_blank"
           rel="noopener noreferrer"
           className="detail-info-row"
@@ -279,7 +260,7 @@ export default function MenuPreview({ listing, onBack }: MenuPreviewProps) {
           </div>
           <div className="detail-info-content">
             <p className="detail-info-text detail-info-truncate">
-              {placeDetails.website.replace(/^https?:\/\//, '').replace(/\/$/, '')}
+              {website.replace(/^https?:\/\//, '').replace(/\/$/, '')}
             </p>
             <p className="detail-info-hint">Tap to visit website</p>
           </div>
@@ -308,21 +289,21 @@ export default function MenuPreview({ listing, onBack }: MenuPreviewProps) {
       <div className="detail-photo-grid">
         <div className="detail-photo-row-3">
           <div className="detail-photo-item">
-            <PhotoItem src={getPhoto(0)} />
+            <PhotoItem src={getPhoto(0)} onClick={() => getPhoto(0) && setLightboxIndex(0)} />
           </div>
           <div className="detail-photo-item">
-            <PhotoItem src={getPhoto(1)} />
+            <PhotoItem src={getPhoto(1)} onClick={() => getPhoto(1) && setLightboxIndex(1)} />
           </div>
           <div className="detail-photo-item">
-            <PhotoItem src={getPhoto(2)} />
+            <PhotoItem src={getPhoto(2)} onClick={() => getPhoto(2) && setLightboxIndex(2)} />
           </div>
         </div>
         <div className="detail-photo-row-2">
           <div className="detail-photo-item">
-            <PhotoItem src={getPhoto(3)} />
+            <PhotoItem src={getPhoto(3)} onClick={() => getPhoto(3) && setLightboxIndex(3)} />
           </div>
           <div className="detail-photo-item">
-            <PhotoItem src={getPhoto(4)} />
+            <PhotoItem src={getPhoto(4)} onClick={() => getPhoto(4) && setLightboxIndex(4)} />
           </div>
         </div>
       </div>
@@ -330,6 +311,16 @@ export default function MenuPreview({ listing, onBack }: MenuPreviewProps) {
       {/* Photo hint - only show if no photos */}
       {!loading && photos.length === 0 && (
         <p className="detail-photo-hint">Photos coming soon!</p>
+      )}
+
+      {/* Image Lightbox with carousel */}
+      {lightboxIndex !== null && photos.length > 0 && (
+        <ImageLightbox
+          images={photos.map(p => p.image_url)}
+          initialIndex={lightboxIndex}
+          alt={`${listing.name} photo`}
+          onClose={() => setLightboxIndex(null)}
+        />
       )}
     </div>
   );
