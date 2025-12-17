@@ -239,18 +239,19 @@ export async function getFoodListingsByStation(
 export async function getStationFoodData(
   stationId: string
 ): Promise<StationFoodData | null> {
-  const [station, sponsored, listings] = await Promise.all([
+  const [station, sponsored, listings, currentMalls] = await Promise.all([
     getStation(stationId),
     getSponsoredListing(stationId),
     getFoodListingsByStation(stationId),
+    getMallsByStation(stationId),
   ]);
 
   if (!station) {
     return null;
   }
 
-  // If station has no listings and has adjacent stations, check for nearby redirect
-  if (listings.length === 0 && adjacentStations[stationId]) {
+  // If station has no listings AND no malls, check for nearby redirect
+  if (listings.length === 0 && currentMalls.length === 0 && adjacentStations[stationId]) {
     const nearbyStationIds = adjacentStations[stationId];
 
     // Try each adjacent station in order until we find one with content
