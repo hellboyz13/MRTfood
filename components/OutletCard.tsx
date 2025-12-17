@@ -65,19 +65,13 @@ export default function OutletCard({ outlet, onClick }: OutletCardProps) {
               </p>
             )}
 
-            {/* Price and Level */}
-            <div className="flex items-center gap-2 mt-1.5 text-xs text-gray-500">
-              {outlet.price_range && (
-                <span className="text-green-600 font-medium">{outlet.price_range}</span>
-              )}
-              {outlet.price_range && outlet.level && <span>·</span>}
-              {outlet.level && (
-                <span className="flex items-center gap-1">
-                  <span>📍</span>
-                  <span>{outlet.level}</span>
-                </span>
-              )}
-            </div>
+            {/* Level */}
+            {outlet.level && (
+              <div className="flex items-center gap-1 mt-1.5 text-xs text-gray-500">
+                <span>📍</span>
+                <span>{outlet.level}</span>
+              </div>
+            )}
           </div>
         </div>
       </button>

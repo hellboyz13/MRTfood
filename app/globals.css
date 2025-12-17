@@ -727,6 +727,28 @@ svg circle.station-highlighted {
   font-weight: 500;
 }
 
+/* Compact opening hours - single row */
+.detail-hours-compact {
+  cursor: default;
+}
+
+.detail-hours-status {
+  font-weight: 600;
+}
+
+.detail-hours-status.open {
+  color: #16a34a;
+}
+
+.detail-hours-status.closed {
+  color: #dc2626;
+}
+
+.detail-hours-compact .detail-hours-time {
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
 /* View more on Google Maps link */
 .detail-maps-link {
   display: inline-flex;
