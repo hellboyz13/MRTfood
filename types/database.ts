@@ -402,7 +402,22 @@ export interface Database {
       [_ in never]: never;
     };
     Functions: {
-      [_ in never]: never;
+      search_food: {
+        Args: {
+          search_query: string;
+          result_limit?: number;
+          include_listings?: boolean;
+          include_outlets?: boolean;
+        };
+        Returns: {
+          id: string;
+          name: string;
+          source_type: 'listing' | 'outlet';
+          source_name: string;
+          rating: number | null;
+          relevance_score: number;
+        }[];
+      };
     };
     Enums: {
       [_ in never]: never;
