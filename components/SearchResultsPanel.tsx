@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import { StationSearchResult } from '@/lib/api';
 import { IconClose, IconChevronLeft, IconChevronDown } from './Icons';
 
@@ -11,6 +11,9 @@ interface SearchResultsPanelProps {
   onClose: () => void;
   stationNames: { [key: string]: string };
   onStationZoom?: (stationId: string) => void;
+  hasMore?: boolean;
+  onLoadMore?: () => void;
+  isLoadingMore?: boolean;
 }
 
 // Extract station code from station ID (e.g., "ns1-jurong-east" -> "NS1")
@@ -33,21 +36,15 @@ export default function SearchResultsPanel({
   onClose,
   stationNames,
   onStationZoom,
+  hasMore: hasMoreFromServer = false,
+  onLoadMore,
+  isLoadingMore = false,
 }: SearchResultsPanelProps) {
   const [isCollapsed, setIsCollapsed] = useState(false);
-  const [page, setPage] = useState(1);
   const mobilePanelRef = useRef<HTMLDivElement>(null);
   const desktopPanelRef = useRef<HTMLDivElement>(null);
 
-  const ITEMS_PER_PAGE = 20;
   const hasResults = results && results.length > 0;
-  const paginatedResults = results.slice(0, page * ITEMS_PER_PAGE);
-  const hasMore = results.length > page * ITEMS_PER_PAGE;
-
-  // Reset pagination when search query changes
-  useEffect(() => {
-    setPage(1);
-  }, [searchQuery]);
 
   const handleToggle = () => {
     const newCollapsed = !isCollapsed;
@@ -124,7 +121,7 @@ export default function SearchResultsPanel({
             {/* Results list or no results message */}
             {hasResults ? (
               <div className="flex-1 overflow-y-auto overflow-x-hidden" style={{ WebkitOverflowScrolling: 'touch', maxHeight: 'calc(4 * 60px)' }}>
-                {paginatedResults.map((result) => {
+                {results.map((result) => {
                   const stationName = stationNames[result.stationId] || result.stationId;
                   const firstMatch = result.matches[0];
 
@@ -165,12 +162,13 @@ export default function SearchResultsPanel({
                   );
                 })}
                 {/* Load More button */}
-                {hasMore && (
+                {hasMoreFromServer && onLoadMore && (
                   <button
-                    onClick={() => setPage(p => p + 1)}
-                    className="w-full py-2 px-2.5 border-t border-[#E0DCD7] bg-[#FFF0ED] hover:bg-[#FFE0D8] text-[#FF6B4A] text-xs font-semibold transition-colors"
+                    onClick={onLoadMore}
+                    disabled={isLoadingMore}
+                    className="w-full py-2 px-2.5 border-t border-[#E0DCD7] bg-[#FFF0ED] hover:bg-[#FFE0D8] text-[#FF6B4A] text-xs font-semibold transition-colors disabled:opacity-50"
                   >
-                    Load More ({results.length - paginatedResults.length} more)
+                    {isLoadingMore ? 'Loading...' : 'Load More'}
                   </button>
                 )}
               </div>
@@ -230,7 +228,7 @@ export default function SearchResultsPanel({
             <div className="px-4 py-2 bg-[#FFF0ED] border-b border-[#E0DCD7] flex-shrink-0">
               <p className="text-sm text-[#2D2D2D] font-medium">
                 {hasResults
-                  ? `Showing ${Math.min(paginatedResults.length, results.length)} of ${results.length} ${results.length === 1 ? 'station' : 'stations'}`
+                  ? `${results.length} ${results.length === 1 ? 'station' : 'stations'}${hasMoreFromServer ? '+' : ''}`
                   : 'No results'}
               </p>
             </div>
@@ -238,7 +236,7 @@ export default function SearchResultsPanel({
             {/* Results list or no results message */}
             {hasResults ? (
               <div className="flex-1 overflow-y-auto" style={{ maxHeight: 'calc(4 * 90px)' }}>
-                {paginatedResults.map((result) => {
+                {results.map((result) => {
                   const stationName = stationNames[result.stationId] || result.stationId;
 
                   return (
@@ -294,12 +292,13 @@ export default function SearchResultsPanel({
                   );
                 })}
                 {/* Load More button */}
-                {hasMore && (
+                {hasMoreFromServer && onLoadMore && (
                   <button
-                    onClick={() => setPage(p => p + 1)}
-                    className="w-full px-4 py-3 border-t border-[#E0DCD7] bg-[#FFF0ED] hover:bg-[#FFE0D8] text-[#FF6B4A] text-sm font-semibold transition-colors"
+                    onClick={onLoadMore}
+                    disabled={isLoadingMore}
+                    className="w-full px-4 py-3 border-t border-[#E0DCD7] bg-[#FFF0ED] hover:bg-[#FFE0D8] text-[#FF6B4A] text-sm font-semibold transition-colors disabled:opacity-50"
                   >
-                    Load More ({results.length - paginatedResults.length} more stations)
+                    {isLoadingMore ? 'Loading...' : 'Load More'}
                   </button>
                 )}
               </div>

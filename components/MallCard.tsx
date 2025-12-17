@@ -58,13 +58,9 @@ export default function MallCard({ mall, onClick }: MallCardProps) {
           {mall.address && (
             <button
               onClick={handleAddressClick}
-              className="text-xs text-[#FF6B4A] hover:text-[#E55A3A] mt-1 flex items-center gap-1 hover:underline"
+              className="text-xs text-[#FF6B4A] hover:text-[#E55A3A] mt-1 hover:underline text-left line-clamp-2"
             >
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                <circle cx="12" cy="10" r="3" />
-              </svg>
-              <span className="truncate">{mall.address}</span>
+              {mall.address}
             </button>
           )}
         </div>

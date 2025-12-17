@@ -1,202 +1,181 @@
 /**
- * Fetch mall thumbnails using Google Places API
- * Uses Vision API to detect building/exterior photos (not food photos)
+ * Fetch mall thumbnails and save to Supabase Storage
+ *
+ * Run with: node scripts/fetch-mall-thumbnails.js [--save] [--batch=5]
  */
 
-require('dotenv').config({ path: '.env.local' });
 const { createClient } = require('@supabase/supabase-js');
+const https = require('https');
+require('dotenv').config({ path: '.env.local' });
 
-const GOOGLE_API_KEY = process.env.GOOGLE_PLACES_API_KEY;
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL,
-  process.env.SUPABASE_SERVICE_ROLE_KEY
-);
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+const googleApiKey = process.env.GOOGLE_PLACES_API_KEY;
 
-// Rate limiting
+const supabase = createClient(supabaseUrl, supabaseKey);
+
+const BUCKET_NAME = 'restaurant-photos';
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
-// Search for a place and get its place_id
-async function searchPlace(mallName, address) {
-  const query = `${mallName} ${address} Singapore`;
-  const url = `https://places.googleapis.com/v1/places:searchText`;
+// Download image from URL
+async function downloadImage(url) {
+  return new Promise((resolve, reject) => {
+    const request = https.get(url, { timeout: 30000 }, (response) => {
+      if (response.statusCode >= 300 && response.statusCode < 400 && response.headers.location) {
+        downloadImage(response.headers.location).then(resolve).catch(reject);
+        return;
+      }
+      if (response.statusCode !== 200) {
+        reject(new Error(`HTTP ${response.statusCode}`));
+        return;
+      }
+      const chunks = [];
+      response.on('data', chunk => chunks.push(chunk));
+      response.on('end', () => resolve(Buffer.concat(chunks)));
+      response.on('error', reject);
+    });
+    request.on('error', reject);
+    request.on('timeout', () => { request.destroy(); reject(new Error('Timeout')); });
+  });
+}
 
-  const response = await fetch(url, {
+// Upload to Supabase Storage
+async function uploadToSupabase(buffer, path) {
+  const { error } = await supabase.storage
+    .from(BUCKET_NAME)
+    .upload(path, buffer, { contentType: 'image/jpeg', upsert: true });
+
+  if (error) throw new Error(error.message);
+
+  const { data: urlData } = supabase.storage.from(BUCKET_NAME).getPublicUrl(path);
+  return urlData.publicUrl;
+}
+
+// Search for mall and get photo
+async function fetchMallPhoto(mallName, mallAddress) {
+  const searchQuery = `${mallName} ${mallAddress || ''} Singapore`;
+
+  const response = await fetch('https://places.googleapis.com/v1/places:searchText', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'X-Goog-Api-Key': GOOGLE_API_KEY,
+      'X-Goog-Api-Key': googleApiKey,
       'X-Goog-FieldMask': 'places.id,places.displayName,places.photos'
     },
-    body: JSON.stringify({
-      textQuery: query,
-      locationBias: {
-        circle: {
-          center: { latitude: 1.3521, longitude: 103.8198 },
-          radius: 50000
-        }
-      },
-      maxResultCount: 1
-    })
+    body: JSON.stringify({ textQuery: searchQuery, maxResultCount: 1 })
   });
 
-  if (!response.ok) {
-    const error = await response.text();
-    throw new Error(`Search failed: ${error}`);
-  }
-
   const data = await response.json();
-  return data.places?.[0] || null;
-}
 
-// Use Vision API to check if image is a building/exterior (not food)
-async function isBuilidingPhoto(imageUrl) {
-  const url = `https://vision.googleapis.com/v1/images:annotate?key=${GOOGLE_API_KEY}`;
-
-  const response = await fetch(url, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      requests: [{
-        image: { source: { imageUri: imageUrl } },
-        features: [
-          { type: 'LABEL_DETECTION', maxResults: 10 }
-        ]
-      }]
-    })
-  });
-
-  if (!response.ok) {
-    console.log('  Vision API failed, using photo anyway');
-    return true; // Default to true if Vision fails
+  if (!data.places || data.places.length === 0) {
+    return null;
   }
 
-  const data = await response.json();
-  const labels = data.responses?.[0]?.labelAnnotations || [];
-  const labelDescriptions = labels.map(l => l.description.toLowerCase());
-
-  // Check for building-related labels
-  const buildingKeywords = ['building', 'architecture', 'mall', 'shopping', 'facade', 'exterior', 'commercial', 'tower', 'structure', 'urban', 'city', 'plaza', 'complex'];
-  const foodKeywords = ['food', 'dish', 'meal', 'cuisine', 'restaurant', 'plate', 'eating', 'drink', 'beverage', 'menu'];
-
-  const hasBuilding = buildingKeywords.some(kw => labelDescriptions.some(l => l.includes(kw)));
-  const hasFood = foodKeywords.some(kw => labelDescriptions.some(l => l.includes(kw)));
-
-  console.log(`  Labels: ${labelDescriptions.slice(0, 5).join(', ')}`);
-
-  // Prefer building photos, reject food photos
-  if (hasFood && !hasBuilding) {
-    return false;
-  }
-  return true;
-}
-
-// Get photo URL from photo reference
-function getPhotoUrl(photoName, maxWidth = 400) {
-  return `https://places.googleapis.com/v1/${photoName}/media?maxWidthPx=${maxWidth}&key=${GOOGLE_API_KEY}`;
-}
-
-// Find best building photo from a list of photos
-async function findBuildingPhoto(photos) {
-  if (!photos || photos.length === 0) return null;
-
-  // Try first 5 photos to find a building photo
-  for (let i = 0; i < Math.min(5, photos.length); i++) {
-    const photo = photos[i];
-    const photoUrl = getPhotoUrl(photo.name, 400);
-
-    console.log(`  Checking photo ${i + 1}...`);
-    const isBuilding = await isBuilidingPhoto(photoUrl);
-
-    if (isBuilding) {
-      console.log(`  Found building photo at index ${i}`);
-      return photoUrl;
-    }
-
-    await delay(500); // Rate limit Vision API
+  const place = data.places[0];
+  if (!place.photos || place.photos.length === 0) {
+    return null;
   }
 
-  // If no building photo found, use first photo
-  console.log('  No building photo found, using first photo');
-  return getPhotoUrl(photos[0].name, 400);
+  // Get first photo URL
+  const photoName = place.photos[0].name;
+  const photoUrl = `https://places.googleapis.com/v1/${photoName}/media?maxWidthPx=800&key=${googleApiKey}`;
+
+  return photoUrl;
 }
 
-async function fetchMallThumbnails() {
-  console.log('Fetching mall thumbnails...\n');
+async function main() {
+  const args = process.argv.slice(2);
+  const saveMode = args.includes('--save');
+  const batchArg = args.find(a => a.startsWith('--batch='));
+  const batchSize = batchArg ? parseInt(batchArg.split('=')[1]) : 5;
 
-  // Get all malls without thumbnails
-  const { data: malls, error } = await supabase
+  console.log('========================================');
+  console.log('Fetch Mall Thumbnails');
+  console.log('========================================');
+  console.log(`Mode: ${saveMode ? 'SAVE' : 'DRY RUN'}`);
+  console.log(`Batch size: ${batchSize}\n`);
+
+  // Get malls without thumbnails
+  const { data: malls } = await supabase
     .from('malls')
     .select('id, name, address, thumbnail_url')
-    .is('thumbnail_url', null)
-    .order('name');
-
-  if (error) {
-    console.error('Error fetching malls:', error.message);
-    return;
-  }
+    .is('thumbnail_url', null);
 
   console.log(`Found ${malls.length} malls without thumbnails\n`);
 
+  if (malls.length === 0) {
+    console.log('All malls have thumbnails!');
+    return;
+  }
+
+  // Process in batches
+  const batch = malls.slice(0, batchSize);
   let success = 0;
   let failed = 0;
 
-  for (const mall of malls) {
-    console.log(`Processing: ${mall.name}`);
+  for (let i = 0; i < batch.length; i++) {
+    const mall = batch[i];
+    console.log(`[${i + 1}/${batch.length}] ${mall.name}`);
+
+    if (!saveMode) {
+      console.log('  [DRY RUN] Would fetch thumbnail');
+      continue;
+    }
 
     try {
-      // Search for the mall
-      const place = await searchPlace(mall.name, mall.address || '');
+      // Fetch photo URL from Google
+      console.log('  Searching Google Places...');
+      const photoUrl = await fetchMallPhoto(mall.name, mall.address);
 
-      if (!place) {
-        console.log('  No place found\n');
+      if (!photoUrl) {
+        console.log('  ✗ No photo found');
         failed++;
         continue;
       }
 
-      if (!place.photos || place.photos.length === 0) {
-        console.log('  No photos available\n');
-        failed++;
-        continue;
-      }
+      // Download image
+      console.log('  Downloading image...');
+      const imageBuffer = await downloadImage(photoUrl);
+      console.log(`  Downloaded: ${(imageBuffer.length / 1024).toFixed(1)} KB`);
 
-      console.log(`  Found ${place.photos.length} photos`);
+      // Upload to Supabase
+      const storagePath = `malls/${mall.id}/thumbnail.jpg`;
+      console.log('  Uploading to Supabase...');
+      const newUrl = await uploadToSupabase(imageBuffer, storagePath);
 
-      // Find a building photo using Vision API
-      const thumbnailUrl = await findBuildingPhoto(place.photos);
+      // Update database
+      console.log('  Updating database...');
+      const { error } = await supabase
+        .from('malls')
+        .update({ thumbnail_url: newUrl })
+        .eq('id', mall.id);
 
-      if (thumbnailUrl) {
-        // Update the mall with thumbnail
-        const { error: updateError } = await supabase
-          .from('malls')
-          .update({ thumbnail_url: thumbnailUrl })
-          .eq('id', mall.id);
+      if (error) throw new Error(error.message);
 
-        if (updateError) {
-          console.log(`  Update failed: ${updateError.message}\n`);
-          failed++;
-        } else {
-          console.log('  Saved thumbnail\n');
-          success++;
-        }
-      } else {
-        console.log('  Could not get photo URL\n');
-        failed++;
-      }
-
-      // Rate limit
-      await delay(1000);
-
+      console.log('  ✓ Done');
+      success++;
     } catch (err) {
-      console.log(`  Error: ${err.message}\n`);
+      console.log(`  ✗ Error: ${err.message}`);
       failed++;
     }
+
+    await delay(200);
   }
 
-  console.log('\n--- Summary ---');
+  // Summary
+  console.log('\n========================================');
+  console.log('SUMMARY');
+  console.log('========================================');
+  console.log(`Processed: ${batch.length}`);
   console.log(`Success: ${success}`);
   console.log(`Failed: ${failed}`);
-  console.log(`Total: ${malls.length}`);
+  console.log(`Remaining: ${malls.length - batch.length}`);
+
+  if (!saveMode) {
+    console.log('\n[DRY RUN] Run with --save to fetch thumbnails');
+  } else if (malls.length > batchSize) {
+    console.log(`\nRun again to process next ${Math.min(batchSize, malls.length - batchSize)} malls`);
+  }
 }
 
-// Run the script
-fetchMallThumbnails().catch(console.error);
+main().catch(console.error);

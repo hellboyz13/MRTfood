@@ -19,8 +19,9 @@ import {
   MallWithOutletCount,
 } from '@/types/database';
 
-// Re-export the new food search function
-export { searchStationsByFoodWithCounts } from './food-search';
+// Re-export the new food search function and types
+export { searchStationsByFoodWithCounts, DEFAULT_PAGE_SIZE } from './food-search';
+export type { SearchOptions, SearchResponse, RawSearchResponse } from './food-search';
 
 // Re-export types used by other modules
 export type { StationSearchResult, SearchMatch } from '@/types/database';

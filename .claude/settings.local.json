@@ -46,7 +46,10 @@
       "Bash(curl:*)",
       "Bash(dir:*)",
       "Bash(npx supabase:*)",
-      "Bash(tasklist:*)"
+      "Bash(tasklist:*)",
+      "Bash(npx vercel whoami:*)",
+      "Bash(claude auth logout:*)",
+      "Bash(DOTENV_CONFIG_PATH=.env.local npx tsx:*)"
     ],
     "deny": [],
     "ask": []

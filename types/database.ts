@@ -406,6 +406,7 @@ export interface Database {
         Args: {
           search_query: string;
           result_limit?: number;
+          result_offset?: number;
           include_listings?: boolean;
           include_outlets?: boolean;
         };

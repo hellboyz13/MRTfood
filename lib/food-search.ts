@@ -21,7 +21,25 @@ export interface SearchOptions {
   includeListings?: boolean;
   includeOutlets?: boolean;
   limit?: number;
+  offset?: number;
 }
+
+// ============================================
+// SEARCH RESPONSE WITH PAGINATION
+// ============================================
+export interface SearchResponse {
+  results: StationSearchResult[];
+  hasMore: boolean;
+  totalReturned: number;
+}
+
+export interface RawSearchResponse {
+  results: SearchFoodResult[];
+  hasMore: boolean;
+  totalReturned: number;
+}
+
+export const DEFAULT_PAGE_SIZE = 20;
 
 // ============================================
 // MAIN SEARCH FUNCTION - Uses search_food() RPC
@@ -29,8 +47,10 @@ export interface SearchOptions {
 export async function searchStationsByFood(
   query: string,
   options: SearchOptions = {}
-): Promise<StationSearchResult[]> {
-  if (!query || query.trim().length < 2) return [];
+): Promise<SearchResponse> {
+  const emptyResponse: SearchResponse = { results: [], hasMore: false, totalReturned: 0 };
+
+  if (!query || query.trim().length < 2) return emptyResponse;
 
   const searchQuery = query.trim();
   const queryLower = searchQuery.toLowerCase();
@@ -40,38 +60,48 @@ export async function searchStationsByFood(
   // Validate short queries
   if (searchQuery.length < 3 && !VALID_SHORT_QUERIES.has(queryLower)) {
     console.log('⚠️ Query too short, skipping');
-    return [];
+    return emptyResponse;
   }
 
   const {
     includeListings = true,
     includeOutlets = true,
-    limit = 100,
+    limit = DEFAULT_PAGE_SIZE,
+    offset = 0,
   } = options;
+
+  // Request one extra to check if there are more results
+  const requestLimit = limit + 1;
 
   // Call the search_food() RPC function
   const { data, error } = await (supabase.rpc as any)('search_food', {
     search_query: searchQuery,
-    result_limit: limit,
+    result_limit: requestLimit,
+    result_offset: offset,
     include_listings: includeListings,
     include_outlets: includeOutlets,
   });
 
   if (error) {
     console.error('Search RPC error:', error);
-    return [];
+    return emptyResponse;
   }
 
   if (!data || data.length === 0) {
     console.log('No results found');
-    return [];
+    return emptyResponse;
   }
 
-  console.log(`📊 RPC returned ${data.length} results`);
+  // Check if there are more results
+  const hasMore = data.length > limit;
+  // Only use the requested limit, not the extra one
+  const limitedData = hasMore ? data.slice(0, limit) : data;
 
-  const searchResults = data as SearchFoodResult[];
+  console.log(`📊 RPC returned ${limitedData.length} results (hasMore: ${hasMore})`);
 
-  // For outlets, we need to look up station_id from mall name
+  const searchResults = limitedData as SearchFoodResult[];
+
+  // For outlets, we need to look up station_id and mall_id from mall name
   // Get unique mall names from outlet results
   const mallNames = [...new Set(
     searchResults
@@ -79,17 +109,19 @@ export async function searchStationsByFood(
       .map(r => r.source_name)
   )];
 
-  // Fetch mall -> station mappings if we have outlet results
+  // Fetch mall -> station and mall -> id mappings if we have outlet results
   let mallStationMap = new Map<string, string>();
+  let mallIdMap = new Map<string, string>();
   if (mallNames.length > 0) {
     const { data: malls } = await supabase
       .from('malls')
-      .select('name, station_id')
+      .select('id, name, station_id')
       .in('name', mallNames);
 
     if (malls) {
-      malls.forEach((mall: { name: string; station_id: string }) => {
+      malls.forEach((mall: { id: string; name: string; station_id: string }) => {
         mallStationMap.set(mall.name, mall.station_id);
+        mallIdMap.set(mall.name, mall.id);
       });
     }
   }
@@ -129,6 +161,7 @@ export async function searchStationsByFood(
     // Add mall info for outlet results
     if (result.source_type === 'outlet') {
       match.mallName = result.source_name;
+      match.mallId = mallIdMap.get(result.source_name);
     }
 
     stationResultsMap.get(stationId)!.matches.push(match);
@@ -155,7 +188,11 @@ export async function searchStationsByFood(
   });
 
   console.log(`✅ Found ${results.length} stations with matches`);
-  return results;
+  return {
+    results,
+    hasMore,
+    totalReturned: searchResults.length,
+  };
 }
 
 // ============================================
@@ -164,36 +201,55 @@ export async function searchStationsByFood(
 export async function searchFoodRaw(
   query: string,
   options: SearchOptions = {}
-): Promise<SearchFoodResult[]> {
-  if (!query || query.trim().length < 2) return [];
+): Promise<RawSearchResponse> {
+  const emptyResponse: RawSearchResponse = { results: [], hasMore: false, totalReturned: 0 };
+
+  if (!query || query.trim().length < 2) return emptyResponse;
 
   const searchQuery = query.trim();
   const queryLower = searchQuery.toLowerCase();
 
   // Validate short queries
   if (searchQuery.length < 3 && !VALID_SHORT_QUERIES.has(queryLower)) {
-    return [];
+    return emptyResponse;
   }
 
   const {
     includeListings = true,
     includeOutlets = true,
-    limit = 100,
+    limit = DEFAULT_PAGE_SIZE,
+    offset = 0,
   } = options;
+
+  // Request one extra to check if there are more results
+  const requestLimit = limit + 1;
 
   const { data, error } = await (supabase.rpc as any)('search_food', {
     search_query: searchQuery,
-    result_limit: limit,
+    result_limit: requestLimit,
+    result_offset: offset,
     include_listings: includeListings,
     include_outlets: includeOutlets,
   });
 
   if (error) {
     console.error('Search RPC error:', error);
-    return [];
+    return emptyResponse;
   }
 
-  return (data as SearchFoodResult[]) || [];
+  if (!data || data.length === 0) {
+    return emptyResponse;
+  }
+
+  // Check if there are more results
+  const hasMore = data.length > limit;
+  const limitedData = hasMore ? data.slice(0, limit) : data;
+
+  return {
+    results: limitedData as SearchFoodResult[],
+    hasMore,
+    totalReturned: limitedData.length,
+  };
 }
 
 // ============================================

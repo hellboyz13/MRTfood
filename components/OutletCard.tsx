@@ -67,10 +67,9 @@ export default function OutletCard({ outlet, onClick }: OutletCardProps) {
 
             {/* Level */}
             {outlet.level && (
-              <div className="flex items-center gap-1 mt-1.5 text-xs text-gray-500">
-                <span>📍</span>
-                <span>{outlet.level}</span>
-              </div>
+              <p className="text-xs text-gray-500 mt-1.5">
+                {outlet.level}
+              </p>
             )}
           </div>
         </div>

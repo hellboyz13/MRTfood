@@ -7,13 +7,16 @@ import SearchBar from '@/components/SearchBar';
 import SearchResultsPanel from '@/components/SearchResultsPanel';
 import Footer from '@/components/Footer';
 import Onboarding, { OnboardingRef } from '@/components/Onboarding';
-import { searchStationsByFoodWithCounts, StationSearchResult, getStations, getSupperSpotsByStation, getDessertSpotsByStation, getStationsWithNoContent } from '@/lib/api';
+import { searchStationsByFoodWithCounts, StationSearchResult, getStations, getSupperSpotsByStation, getDessertSpotsByStation, getStationsWithNoContent, DEFAULT_PAGE_SIZE } from '@/lib/api';
 
 export default function Home() {
   const [selectedStation, setSelectedStation] = useState<string | null>(null);
   const [isMobile, setIsMobile] = useState(false);
   const [searchResults, setSearchResults] = useState<StationSearchResult[]>([]);
+  const [hasMoreSearchResults, setHasMoreSearchResults] = useState(false);
+  const [searchPage, setSearchPage] = useState(0);
   const [isSearching, setIsSearching] = useState(false);
+  const [isLoadingMore, setIsLoadingMore] = useState(false);
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [stationNames, setStationNames] = useState<{ [key: string]: string }>({});
   const [is24hActive, setIs24hActive] = useState(false);
@@ -66,22 +69,72 @@ export default function Home() {
   const handleSearch = async (query: string) => {
     setIsSearching(true);
     setSearchQuery(query);
+    setSearchPage(0);
     setIs24hActive(false); // Turn off 24h filter when doing regular search
     setIsDessertActive(false); // Turn off dessert filter when doing regular search
     try {
-      const results = await searchStationsByFoodWithCounts(query);
+      const { results, hasMore } = await searchStationsByFoodWithCounts(query, {
+        limit: DEFAULT_PAGE_SIZE,
+        offset: 0,
+      });
       setSearchResults(results);
+      setHasMoreSearchResults(hasMore);
+      // Close station panel if no results found
+      if (results.length === 0) {
+        setSelectedStation(null);
+      }
     } catch (error) {
       console.error('Search error:', error);
       setSearchResults([]);
+      setHasMoreSearchResults(false);
+      setSelectedStation(null); // Close panel on error too
     } finally {
       setIsSearching(false);
+    }
+  };
+
+  const handleLoadMoreSearch = async () => {
+    if (!searchQuery || isLoadingMore) return;
+
+    setIsLoadingMore(true);
+    const nextPage = searchPage + 1;
+    try {
+      const { results, hasMore } = await searchStationsByFoodWithCounts(searchQuery, {
+        limit: DEFAULT_PAGE_SIZE,
+        offset: nextPage * DEFAULT_PAGE_SIZE,
+      });
+      // Merge results - append new stations, merge matches for existing stations
+      setSearchResults(prev => {
+        const merged = [...prev];
+        results.forEach(newResult => {
+          const existing = merged.find(r => r.stationId === newResult.stationId);
+          if (existing) {
+            // Merge matches, avoiding duplicates
+            newResult.matches.forEach(match => {
+              if (!existing.matches.some(m => m.id === match.id)) {
+                existing.matches.push(match);
+              }
+            });
+          } else {
+            merged.push(newResult);
+          }
+        });
+        return merged;
+      });
+      setHasMoreSearchResults(hasMore);
+      setSearchPage(nextPage);
+    } catch (error) {
+      console.error('Load more error:', error);
+    } finally {
+      setIsLoadingMore(false);
     }
   };
 
   const handleClearSearch = () => {
     setSearchResults([]);
     setSearchQuery('');
+    setSearchPage(0);
+    setHasMoreSearchResults(false);
     setIs24hActive(false);
     setIsDessertActive(false);
   };
@@ -101,9 +154,13 @@ export default function Home() {
       try {
         const results = await getSupperSpotsByStation();
         setSearchResults(results);
+        if (results.length === 0) {
+          setSelectedStation(null);
+        }
       } catch (error) {
         console.error('Supper search error:', error);
         setSearchResults([]);
+        setSelectedStation(null);
       } finally {
         setIsSearching(false);
       }
@@ -125,9 +182,13 @@ export default function Home() {
       try {
         const results = await getDessertSpotsByStation();
         setSearchResults(results);
+        if (results.length === 0) {
+          setSelectedStation(null);
+        }
       } catch (error) {
         console.error('Dessert search error:', error);
         setSearchResults([]);
+        setSelectedStation(null);
       } finally {
         setIsSearching(false);
       }
@@ -166,6 +227,9 @@ export default function Home() {
           onClose={handleClearSearch}
           stationNames={stationNames}
           onStationZoom={handleStationZoom}
+          hasMore={hasMoreSearchResults}
+          onLoadMore={handleLoadMoreSearch}
+          isLoadingMore={isLoadingMore}
         />
       )}
 

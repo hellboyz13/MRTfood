@@ -226,7 +226,7 @@ export default function SearchBar({ onSearch, onClear, isSearching, noResults, o
                   className={`px-4 py-2.5 rounded-full shadow-lg transition-all duration-200 flex items-center justify-center font-bold text-sm active:scale-95 whitespace-nowrap ${
                     isDessertActive
                       ? 'bg-pink-500 text-white shadow-pink-300'
-                      : 'bg-[#E8E4E0] text-[#2D2D2D] hover:bg-pink-50 hover:text-pink-600'
+                      : 'bg-white text-[#2D2D2D] hover:bg-pink-50 hover:text-pink-600'
                   }`}
                   title="Find dessert spots"
                 >
@@ -246,7 +246,7 @@ export default function SearchBar({ onSearch, onClear, isSearching, noResults, o
                   className={`px-4 py-2.5 rounded-full shadow-lg transition-all duration-200 flex items-center justify-center font-bold text-sm active:scale-95 whitespace-nowrap ${
                     is24hActive
                       ? 'bg-purple-600 text-white shadow-purple-300'
-                      : 'bg-[#E8E4E0] text-[#2D2D2D] hover:bg-purple-50 hover:text-purple-600'
+                      : 'bg-white text-[#2D2D2D] hover:bg-purple-50 hover:text-purple-600'
                   }`}
                   title="Find supper spots"
                 >
