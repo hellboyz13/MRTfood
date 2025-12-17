@@ -81,17 +81,58 @@ function PhotoItem({ src, onClick }: { src?: string; onClick?: () => void }) {
   );
 }
 
-// Helper to format time from HHMM string to readable format
-function formatTime(timeStr: string): string {
-  const hour = Math.floor(parseInt(timeStr) / 100);
-  const min = parseInt(timeStr) % 100;
-  const period = hour >= 12 ? 'pm' : 'am';
-  const hour12 = hour > 12 ? hour - 12 : hour === 0 ? 12 : hour;
-  return min > 0 ? `${hour12}:${min.toString().padStart(2, '0')}${period}` : `${hour12}${period}`;
+// Calculate if currently open from periods data (real-time)
+function calculateIsOpen(openingHours: OpeningHours | null): boolean | null {
+  if (!openingHours?.periods || openingHours.periods.length === 0) {
+    return null;
+  }
+
+  const now = new Date();
+  const currentDay = now.getDay(); // 0 = Sunday
+  const currentTime = now.getHours() * 100 + now.getMinutes(); // HHMM format
+
+  // Check if any period covers current time
+  for (const period of openingHours.periods) {
+    const openDay = period.open.day;
+    const openTime = parseInt(period.open.time);
+    const closeDay = period.close?.day ?? openDay;
+    const closeTime = period.close ? parseInt(period.close.time) : 2359;
+
+    // Handle 24h case (close time 2359 on previous day means 24h)
+    if (openTime === 0 && closeTime === 2359 && closeDay !== openDay) {
+      return true; // Open 24 hours
+    }
+
+    // Same day operation
+    if (openDay === closeDay && currentDay === openDay) {
+      if (currentTime >= openTime && currentTime < closeTime) {
+        return true;
+      }
+    }
+    // Spans midnight
+    else if (closeDay !== openDay) {
+      // Check if we're on the opening day after open time
+      if (currentDay === openDay && currentTime >= openTime) {
+        return true;
+      }
+      // Check if we're on the closing day before close time
+      if (currentDay === closeDay && currentTime < closeTime) {
+        return true;
+      }
+    }
+    // Normal case: current day matches open day
+    else if (currentDay === openDay) {
+      if (currentTime >= openTime && currentTime < closeTime) {
+        return true;
+      }
+    }
+  }
+
+  return false;
 }
 
-// Helper to format weekday hours for display (compact version)
-function formatWeeklyHours(openingHours: OpeningHours | null): { day: string; hours: string; isToday: boolean }[] | null {
+// Helper to format today's hours for compact display
+function formatTodayHours(openingHours: OpeningHours | null): { todayHours: string; isOpen: boolean | null } | null {
   if (!openingHours?.weekday_text || openingHours.weekday_text.length === 0) {
     return null;
   }
@@ -99,32 +140,32 @@ function formatWeeklyHours(openingHours: OpeningHours | null): { day: string; ho
   const now = new Date();
   const currentDay = now.getDay(); // 0 = Sunday
 
-  // Single letter day abbreviations matching weekday_text order (Mon-Sun)
-  const dayAbbrevs = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
+  // Map Sunday=0 to index 6, Mon=1 to index 0, etc.
+  const todayIndex = currentDay === 0 ? 6 : currentDay - 1;
+  const todayText = openingHours.weekday_text[todayIndex];
 
-  return openingHours.weekday_text.map((text, index) => {
-    // Extract hours part (after "Day: ")
-    const match = text.match(/:\s*(.+)$/);
-    let hours = match ? match[1].trim() : text;
+  // Extract hours part (after "Day: ")
+  const match = todayText.match(/:\s*(.+)$/);
+  let hours = match ? match[1].trim() : todayText;
 
-    // Shorten common phrases
-    hours = hours
-      .replace('Closed', '✕')
-      .replace('Open 24 hours', '24h')
-      .replace(/\s*[–-]\s*/g, '-') // Normalize dashes
-      .replace(/(\d{1,2}):00/g, '$1') // Remove :00
-      .replace(/\s*(AM|PM)/gi, (_, p) => p.toLowerCase()); // Lowercase am/pm
+  // Check if closed today (from weekday_text)
+  const isClosed = hours.toLowerCase() === 'closed';
 
-    // Map index to actual day (weekday_text is Mon=0 to Sun=6)
-    // currentDay is Sun=0 to Sat=6
-    const dayNumber = index === 6 ? 0 : index + 1;
+  // Shorten common phrases
+  hours = hours
+    .replace(/Closed/i, 'Closed')
+    .replace('Open 24 hours', '24h')
+    .replace(/\s*[–-]\s*/g, ' - ')
+    .replace(/(\d{1,2}):00/g, '$1')
+    .replace(/\s*(AM|PM)/gi, (_, p) => p.toLowerCase());
 
-    return {
-      day: dayAbbrevs[index],
-      hours: hours,
-      isToday: dayNumber === currentDay
-    };
-  });
+  // Calculate real-time open status from periods
+  const isOpen = isClosed ? false : calculateIsOpen(openingHours);
+
+  return {
+    todayHours: hours,
+    isOpen
+  };
 }
 
 export default function MenuPreview({ listing, onBack }: MenuPreviewProps) {
@@ -165,8 +206,8 @@ export default function MenuPreview({ listing, onBack }: MenuPreviewProps) {
   // Get photo URL by index (0-4)
   const getPhoto = (index: number) => photos[index]?.image_url;
 
-  // Get weekly hours
-  const weeklyHours = openingHours ? formatWeeklyHours(openingHours) : null;
+  // Get today's hours (compact display)
+  const todayInfo = openingHours ? formatTodayHours(openingHours) : null;
 
   return (
     <div className="restaurant-detail-page">
@@ -208,20 +249,21 @@ export default function MenuPreview({ listing, onBack }: MenuPreviewProps) {
         </div>
       </a>
 
-      {/* 3. Opening hours - full week */}
-      {weeklyHours && (
-        <div className="detail-hours-section">
-          <div className="detail-hours-header">
-            <span className="detail-hours-icon">🕐</span>
-            <span className="detail-hours-title">Opening Hours</span>
+      {/* 3. Opening hours - compact single row */}
+      {todayInfo && (
+        <div className="detail-info-row detail-hours-compact">
+          <div className="detail-info-icon">
+            <span>🕐</span>
           </div>
-          <div className="detail-hours-grid">
-            {weeklyHours.map(({ day, hours, isToday }) => (
-              <div key={day} className={`detail-hours-row ${isToday ? 'detail-hours-today' : ''}`}>
-                <span className="detail-hours-day">{day}</span>
-                <span className="detail-hours-time">{hours}</span>
-              </div>
-            ))}
+          <div className="detail-info-content">
+            <p className="detail-info-text">
+              <span className={`detail-hours-status ${todayInfo.isOpen === true ? 'open' : todayInfo.isOpen === false ? 'closed' : ''}`}>
+                {todayInfo.isOpen === true ? 'Open' : todayInfo.isOpen === false ? 'Closed' : 'Today'}
+              </span>
+              {todayInfo.todayHours !== 'Closed' && (
+                <span className="detail-hours-time"> · {todayInfo.todayHours}</span>
+              )}
+            </p>
           </div>
         </div>
       )}

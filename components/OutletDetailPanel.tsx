@@ -17,6 +17,56 @@ interface OpeningHours {
   weekday_text?: string[];
 }
 
+// Calculate if currently open from periods data (real-time)
+function calculateIsOpen(openingHours: OpeningHours | null): boolean | null {
+  if (!openingHours?.periods || openingHours.periods.length === 0) {
+    return null;
+  }
+
+  const now = new Date();
+  const currentDay = now.getDay(); // 0 = Sunday
+  const currentTime = now.getHours() * 100 + now.getMinutes(); // HHMM format
+
+  // Check if any period covers current time
+  for (const period of openingHours.periods) {
+    const openDay = period.open.day;
+    const openTime = parseInt(period.open.time);
+    const closeDay = period.close?.day ?? openDay;
+    const closeTime = period.close ? parseInt(period.close.time) : 2359;
+
+    // Handle 24h case (close time 2359 on previous day means 24h)
+    if (openTime === 0 && closeTime === 2359 && closeDay !== openDay) {
+      return true; // Open 24 hours
+    }
+
+    // Same day operation
+    if (openDay === closeDay && currentDay === openDay) {
+      if (currentTime >= openTime && currentTime < closeTime) {
+        return true;
+      }
+    }
+    // Spans midnight
+    else if (closeDay !== openDay) {
+      // Check if we're on the opening day after open time
+      if (currentDay === openDay && currentTime >= openTime) {
+        return true;
+      }
+      // Check if we're on the closing day before close time
+      if (currentDay === closeDay && currentTime < closeTime) {
+        return true;
+      }
+    }
+    // Normal case: current day matches open day
+    else if (currentDay === openDay) {
+      if (currentTime >= openTime && currentTime < closeTime) {
+        return true;
+      }
+    }
+  }
+
+  return false;
+}
+
 // Helper to format today's hours for compact display
 function formatTodayHours(openingHours: OpeningHours | null): { todayHours: string; isOpen: boolean | null } | null {
   if (!openingHours?.weekday_text || openingHours.weekday_text.length === 0) {
@@ -34,7 +84,7 @@ function formatTodayHours(openingHours: OpeningHours | null): { todayHours: stri
   const match = todayText.match(/:\s*(.+)$/);
   let hours = match ? match[1].trim() : todayText;
 
-  // Check if closed
+  // Check if closed today (from weekday_text)
   const isClosed = hours.toLowerCase() === 'closed';
 
   // Shorten common phrases
@@ -45,9 +95,12 @@ function formatTodayHours(openingHours: OpeningHours | null): { todayHours: stri
     .replace(/(\d{1,2}):00/g, '$1')
     .replace(/\s*(AM|PM)/gi, (_, p) => p.toLowerCase());
 
+  // Calculate real-time open status from periods
+  const isOpen = isClosed ? false : calculateIsOpen(openingHours);
+
   return {
     todayHours: hours,
-    isOpen: isClosed ? false : openingHours.open_now ?? null
+    isOpen
   };
 }
 
