@@ -6,7 +6,7 @@ config({ path: '.env.local', override: true });
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL,
-  process.env.SUPABASE_SERVICE_ROLE_KEY
+  process.env.SUPABASE_SERVICE_KEY
 );
 
 const MALL_ID = 'singpost-centre';
@@ -16,13 +16,14 @@ function getCategory(name) {
 
   if (nameLower.includes('coffee') || nameLower.includes('cafe') || nameLower.includes('café') ||
       nameLower.includes('starbucks') || nameLower.includes('toast') || nameLower.includes('ya kun') ||
-      nameLower.includes('luckin') || nameLower.includes('kaffe')) {
+      nameLower.includes('luckin') || nameLower.includes('kaffe') || nameLower.includes('fun toast') ||
+      nameLower.includes('pang pang') || nameLower.includes('tea leaf') || nameLower.includes('mr teh')) {
     return 'cafe, food';
   }
   if (nameLower.includes('bakery') || nameLower.includes('bread') || nameLower.includes('cake') ||
       nameLower.includes('donut') || nameLower.includes('croissant') || nameLower.includes('beard papa') ||
       nameLower.includes('déli') || nameLower.includes('prima') || nameLower.includes('swee heng') ||
-      nameLower.includes('châteraisé') || nameLower.includes('tarts')) {
+      nameLower.includes('châteraisé') || nameLower.includes('tarts') || nameLower.includes('kopi &')) {
     return 'bakery, food';
   }
   if (nameLower.includes('mcdonald') || nameLower.includes('kfc') || nameLower.includes('burger') ||
@@ -41,14 +42,15 @@ function getCategory(name) {
   }
   if (nameLower.includes('chinese') || nameLower.includes('dim sum') || nameLower.includes('hotpot') ||
       nameLower.includes('claypot') || nameLower.includes('putien') || nameLower.includes('pu tien') ||
-      nameLower.includes('malatang')) {
+      nameLower.includes('malatang') || nameLower.includes('lau wang') || nameLower.includes('thunder tea')) {
     return 'chinese, food';
   }
   if (nameLower.includes('thai') || nameLower.includes('chatramue')) {
     return 'thai, food';
   }
   if (nameLower.includes('malay') || nameLower.includes('nasi') || nameLower.includes('maimunah') ||
-      nameLower.includes('encik tan') || nameLower.includes('bebek') || nameLower.includes('goreng')) {
+      nameLower.includes('encik tan') || nameLower.includes('bebek') || nameLower.includes('goreng') ||
+      nameLower.includes('malaysia chiak')) {
     return 'malay, food';
   }
   if (nameLower.includes('bar') || nameLower.includes('pub') || nameLower.includes('beer') ||
@@ -87,56 +89,53 @@ async function scrapeSingpost() {
       timeout: 60000
     });
 
-    await page.waitForTimeout(8000);
+    await page.waitForTimeout(5000);
 
-    // Scroll to load all
-    console.log('Scrolling to load all stores...');
-    for (let i = 0; i < 20; i++) {
-      await page.evaluate(() => window.scrollBy(0, 500));
-      await page.waitForTimeout(200);
+    // Scroll and click Load More to load all stores
+    console.log('Loading all stores...');
+    for (let round = 0; round < 15; round++) {
+      // Scroll down
+      for (let i = 0; i < 5; i++) {
+        await page.evaluate(() => window.scrollBy(0, 500));
+        await page.waitForTimeout(200);
+      }
+
+      // Try clicking Load More
+      try {
+        const loadMore = await page.$('button:has-text("Load More"), .load-more, [class*="load-more"], a:has-text("Load More")');
+        if (loadMore) {
+          await loadMore.click();
+          console.log(`  Clicked Load More (${round + 1})`);
+          await page.waitForTimeout(2000);
+        } else {
+          break;
+        }
+      } catch (e) {
+        break;
+      }
     }
-    await page.waitForTimeout(3000);
+    await page.waitForTimeout(2000);
 
-    // Extract stores from DOM
+    // Extract stores from DOM - SingPost uses Bootstrap cards
     const stores = await page.evaluate(() => {
       const results = [];
 
-      // Try various selectors for store cards
-      const selectors = [
-        '.store-card',
-        '.store-item',
-        '.col',
-        '[class*="store"]',
-        'article',
-        '.card'
-      ];
+      // SingPost structure: .stores-section .row > .col > .card
+      const cards = document.querySelectorAll('.stores-section .col .card');
 
-      for (const selector of selectors) {
-        document.querySelectorAll(selector).forEach(el => {
-          const nameEl = el.querySelector('h2, h3, h4, .title, [class*="title"], [class*="name"], a');
-          const name = nameEl?.textContent?.trim();
+      cards.forEach(card => {
+        // Get name from .card-title
+        const titleEl = card.querySelector('.card-title');
+        const name = titleEl?.textContent?.trim();
 
-          const levelEl = el.querySelector('[class*="level"], [class*="location"], [class*="unit"]');
-          const level = levelEl?.textContent?.trim() || '';
+        // Get image
+        const img = card.querySelector('img.card-img-top, img.wp-post-image');
+        let imgUrl = img?.src || img?.getAttribute('data-src');
 
-          const img = el.querySelector('img');
-          const imgUrl = img?.src || img?.getAttribute('data-src');
-
-          if (name && name.length > 2 && name.length < 100) {
-            results.push({ name, level, imageUrl: imgUrl || null });
-          }
-        });
-      }
-
-      // Also try finding store links
-      document.querySelectorAll('a[href*="/stores/"]').forEach(link => {
-        const name = link.textContent?.trim();
-        if (name && name.length > 2 && name.length < 80) {
-          const img = link.querySelector('img') || link.closest('.col, .card, article')?.querySelector('img');
+        if (name && name.length > 2 && name.length < 100) {
           results.push({
             name,
-            level: '',
-            imageUrl: img?.src || null
+            imageUrl: imgUrl || null
           });
         }
       });
@@ -152,10 +151,7 @@ async function scrapeSingpost() {
     const junkNames = [
       'stores', 'home', 'about', 'contact', 'view all', 'load more',
       'food & beverage', 'cafes, restaurants & food court', 'filter',
-      'all stores', 'search', 'directory', 'convenience & services',
-      'beauty & wellness', 'fashion & accessories', 'food kiosk / takeaway',
-      'digital/electronics', 'entertainment / lifestyle', 'home & furnishing',
-      'supermarket', 'enrichment'
+      'all stores', 'search', 'directory'
     ];
 
     for (const store of stores) {
@@ -163,7 +159,6 @@ async function scrapeSingpost() {
       if (!seenNames.has(key) &&
           key.length > 2 &&
           !junkNames.includes(key) &&
-          !junkNames.some(junk => key.includes(junk)) &&
           !key.startsWith('view ')) {
         seenNames.add(key);
         uniqueStores.push(store);
@@ -171,6 +166,12 @@ async function scrapeSingpost() {
     }
 
     console.log(`Unique F&B stores: ${uniqueStores.length}`);
+
+    // Print found stores
+    console.log('\nFound F&B outlets:');
+    for (const store of uniqueStores) {
+      console.log(`  - ${store.name} ${store.imageUrl ? '✓img' : ''}`);
+    }
 
     if (uniqueStores.length < 3) {
       console.log('Too few stores found, saving debug...');
@@ -204,22 +205,23 @@ async function scrapeSingpost() {
           id: generateId(store.name),
           name: store.name,
           mall_id: MALL_ID,
-          level: store.level || '',
+          level: '',
           category: getCategory(store.name),
           thumbnail_url: store.imageUrl,
+          opening_hours: null,
           tags: []
         });
 
       if (!error) {
         imported++;
-        console.log(`  Imported: ${store.name}`);
+        console.log(`  ✓ ${store.name}`);
       } else {
-        console.log(`  Error: ${store.name} - ${error.message}`);
+        console.log(`  ✗ ${store.name} - ${error.message}`);
       }
     }
 
     console.log(`\n=== COMPLETE ===`);
-    console.log(`Imported: ${imported}`);
+    console.log(`Imported: ${imported}/${uniqueStores.length}`);
 
   } catch (error) {
     console.error('Error:', error.message);
