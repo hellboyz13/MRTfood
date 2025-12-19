@@ -4,6 +4,35 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 import { FoodListingWithSources } from '@/types/database';
 import { getMapsUrl } from '@/lib/distance';
 
+// Hook to fetch thumbnail for a listing
+function useThumbnail(listingId: string | null) {
+  const [thumbnail, setThumbnail] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!listingId) {
+      setThumbnail(null);
+      return;
+    }
+
+    async function fetchThumbnail() {
+      try {
+        const response = await fetch(`/api/get-menu-images?listingId=${listingId}`);
+        const data = await response.json();
+        if (data.success && data.images.length > 0) {
+          const headerImg = data.images.find((img: any) => img.is_header);
+          setThumbnail(headerImg?.image_url || data.images[0]?.image_url);
+        }
+      } catch {
+        // Silently fail
+      }
+    }
+
+    fetchThumbnail();
+  }, [listingId]);
+
+  return thumbnail;
+}
+
 interface SlotMachineProps {
   listings: FoodListingWithSources[];
   onSelectWinner: (listing: FoodListingWithSources) => void;
@@ -34,6 +63,10 @@ export default function SlotMachine({ listings, onSelectWinner }: SlotMachinePro
   const [showCelebration, setShowCelebration] = useState(false);
   const [animationKey, setAnimationKey] = useState(0);
   const spinIntervalRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Fetch thumbnail for winner
+  const winnerThumbnail = useThumbnail(winner?.id || null);
+  const displayImage = winnerThumbnail || (winner?.image_url?.startsWith('http') ? winner.image_url : null);
 
   // Don't initialize with a random listing - keep it null for neutral placeholder
 
@@ -109,6 +142,21 @@ export default function SlotMachine({ listings, onSelectWinner }: SlotMachinePro
         </div>
 
         <div className="p-4 bg-[#FFF0ED]">
+          {/* Food thumbnail */}
+          <div className="flex justify-center mb-3">
+            <div className="w-20 h-20 bg-gray-100 rounded-lg flex items-center justify-center overflow-hidden">
+              {displayImage ? (
+                <img
+                  src={displayImage}
+                  alt={winner.name}
+                  className="w-full h-full object-cover"
+                />
+              ) : (
+                <span className="text-3xl">🍽️</span>
+              )}
+            </div>
+          </div>
+
           <div className="text-center mb-3">
             <h3 className="font-semibold text-lg text-[#2D2D2D] mb-1">{winner.name}</h3>
           </div>

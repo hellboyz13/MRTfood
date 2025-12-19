@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useState, useCallback, useEffect } from 'react';
+import { useRef, useState, useCallback, useEffect, RefObject } from 'react';
 import { SponsoredListing as DbSponsoredListing, FoodListingWithSources } from '@/types/database';
 import { stationNames } from '@/data/mock-data';
 import { useStationFood } from '@/hooks/useStationFood';
@@ -15,6 +15,52 @@ import MallList from './MallList';
 import OutletList from './OutletList';
 import EmptyStationRedirect from './EmptyStationRedirect';
 import { IconClose } from './Icons';
+
+// Scroll to top button component
+function ScrollToTopButton({
+  containerRef,
+  threshold = 300,
+  isMobile = false
+}: {
+  containerRef: RefObject<HTMLDivElement | null>;
+  threshold?: number;
+  isMobile?: boolean;
+}) {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const handleScroll = () => {
+      setIsVisible(container.scrollTop > threshold);
+    };
+
+    container.addEventListener('scroll', handleScroll, { passive: true });
+    return () => container.removeEventListener('scroll', handleScroll);
+  }, [containerRef, threshold]);
+
+  const scrollToTop = () => {
+    containerRef.current?.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  if (!isVisible) return null;
+
+  return (
+    <button
+      onClick={scrollToTop}
+      className={`w-10 h-10 bg-[#FF6B4A] hover:bg-[#E55A3A] text-white rounded-full shadow-lg flex items-center justify-center transition-all duration-200 hover:scale-110 ${
+        isMobile ? 'fixed z-40' : ''
+      }`}
+      style={isMobile ? { bottom: 'calc(env(safe-area-inset-bottom) + 16px)', right: '16px' } : {}}
+      aria-label="Scroll to top"
+    >
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+        <path d="M18 15l-6-6-6 6" />
+      </svg>
+    </button>
+  );
+}
 
 interface FoodPanelV2Props {
   stationId: string | null;
@@ -106,6 +152,7 @@ export default function FoodPanelV2({ stationId, onClose, onNavigateToStation, i
   const [autoSwitchedForQuery, setAutoSwitchedForQuery] = useState<string | null>(null);
   const [listingsPage, setListingsPage] = useState(1);
   const [sortBy, setSortBy] = useState<'distance' | 'rating'>('distance');
+  const desktopScrollRef = useRef<HTMLDivElement>(null);
 
   const LISTINGS_PER_PAGE = 20;
 
@@ -479,7 +526,7 @@ export default function FoodPanelV2({ stationId, onClose, onNavigateToStation, i
   // Desktop panel
   if (!isMobile) {
     return (
-      <div className="w-[350px] h-full bg-white border-l border-gray-200 shadow-lg panel-container">
+      <div className="w-[350px] h-full bg-white border-l border-gray-200 shadow-lg panel-container relative">
         {/* Main listing panel */}
         <div className={`panel-content ${selectedMenuListing ? 'slide-out-left' : ''} bg-white`}>
           <div className="flex flex-col h-full">
@@ -493,10 +540,15 @@ export default function FoodPanelV2({ stationId, onClose, onNavigateToStation, i
                 <IconClose className="w-5 h-5 text-[#2D2D2D]" />
               </button>
             </div>
-            <div className="flex-1 overflow-y-auto p-4 space-y-3">
+            <div ref={desktopScrollRef} className="flex-1 overflow-y-auto p-4 space-y-3 relative">
               {renderContent()}
             </div>
           </div>
+        </div>
+
+        {/* Scroll to top button - positioned within panel */}
+        <div className="absolute bottom-4 right-4 z-30">
+          <ScrollToTopButton containerRef={desktopScrollRef} />
         </div>
 
         {/* Menu preview overlay */}
@@ -708,6 +760,9 @@ function MobileDrawer({
             </div>
           </div>
         </div>
+
+        {/* Scroll to top button for mobile */}
+        <ScrollToTopButton containerRef={contentRef} isMobile={true} />
 
         {/* Menu preview overlay */}
         <div className={`menu-panel-overlay ${selectedMenuListing ? 'slide-in' : ''}`}>

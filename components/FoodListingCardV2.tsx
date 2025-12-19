@@ -1,8 +1,118 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { FoodListingWithSources, ListingSourceWithDetails } from '@/types/database';
 import { formatDistance, getWalkingTime, getMapsUrl } from '@/lib/distance';
+
+// Email client picker modal
+function EmailClientPicker({
+  subject,
+  body,
+  onClose
+}: {
+  subject: string;
+  body: string;
+  onClose: () => void;
+}) {
+  const modalRef = useRef<HTMLDivElement>(null);
+  const email = 'feedback@mrtfoodie.sg';
+  const encodedSubject = encodeURIComponent(subject);
+  const encodedBody = encodeURIComponent(body);
+
+  // Close on escape key
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+    };
+    document.addEventListener('keydown', handleEscape);
+    return () => document.removeEventListener('keydown', handleEscape);
+  }, [onClose]);
+
+  // Close on click outside
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (modalRef.current && !modalRef.current.contains(e.target as Node)) {
+        onClose();
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [onClose]);
+
+  const openEmail = (client: 'outlook' | 'gmail' | 'default') => {
+    let url: string;
+    switch (client) {
+      case 'outlook':
+        url = `https://outlook.live.com/mail/0/deeplink/compose?to=${email}&subject=${encodedSubject}&body=${encodedBody}`;
+        break;
+      case 'gmail':
+        url = `https://mail.google.com/mail/?view=cm&to=${email}&su=${encodedSubject}&body=${encodedBody}`;
+        break;
+      default:
+        url = `mailto:${email}?subject=${encodedSubject}&body=${encodedBody}`;
+    }
+    window.open(url, client === 'default' ? '_self' : '_blank');
+    onClose();
+  };
+
+  return (
+    <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/50 p-4">
+      <div
+        ref={modalRef}
+        className="bg-white rounded-xl shadow-xl max-w-[280px] w-full overflow-hidden animate-fade-in"
+      >
+        <div className="p-4 border-b border-gray-100">
+          <h3 className="font-semibold text-gray-900 text-sm">Open with email client</h3>
+          <p className="text-xs text-gray-500 mt-0.5">Choose how to send your report</p>
+        </div>
+        <div className="p-2 space-y-1">
+          <button
+            onClick={() => openEmail('gmail')}
+            className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-gray-50 transition-colors text-left"
+          >
+            <div className="w-8 h-8 flex items-center justify-center">
+              <svg width="20" height="20" viewBox="0 0 24 24">
+                <path fill="#EA4335" d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/>
+              </svg>
+            </div>
+            <span className="text-sm font-medium text-gray-700">Gmail</span>
+          </button>
+          <button
+            onClick={() => openEmail('outlook')}
+            className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-gray-50 transition-colors text-left"
+          >
+            <div className="w-8 h-8 flex items-center justify-center">
+              <svg width="20" height="20" viewBox="0 0 24 24">
+                <path fill="#0078D4" d="M24 7.387v10.478c0 .23-.08.424-.238.576-.159.152-.355.228-.588.228h-8.348v-6.18l1.066.672c.107.074.24.11.399.11.16 0 .293-.036.399-.11l6.915-4.555c.08-.052.156-.126.227-.223.071-.097.107-.215.107-.352v-.001c0-.177-.076-.332-.227-.463-.152-.131-.336-.196-.55-.196h-.001L12.826 12.66l-.91-.582V6.314h.001c0-.242-.011-.456-.032-.644-.022-.188-.062-.364-.119-.528a2.17 2.17 0 0 0-.21-.451 1.623 1.623 0 0 0-.306-.389 1.92 1.92 0 0 0-.418-.302c-.157-.087-.322-.158-.493-.211-.172-.054-.35-.092-.534-.115-.184-.022-.381-.033-.589-.033H.826C.593 3.64.397 3.716.238 3.868.08 4.02 0 4.212 0 4.442v14.115c0 .232.08.426.238.58.159.153.355.23.588.23h8.348v-7.76L.826 6.574C.563 6.418.338 6.375.151 6.447c-.187.071-.337.206-.45.405-.054.1-.08.226-.08.378l.002.157 8.203 5.222v7.76H.826c-.233 0-.429.076-.588.228-.159.152-.238.344-.238.576V22.4c0 .232.08.426.238.58.159.153.355.23.588.23h22.348c.233 0 .429-.077.588-.23.158-.154.238-.348.238-.58V7.387z"/>
+              </svg>
+            </div>
+            <span className="text-sm font-medium text-gray-700">Outlook</span>
+          </button>
+          <button
+            onClick={() => openEmail('default')}
+            className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-gray-50 transition-colors text-left"
+          >
+            <div className="w-8 h-8 flex items-center justify-center text-gray-500">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                <polyline points="22,6 12,13 2,6" />
+              </svg>
+            </div>
+            <span className="text-sm font-medium text-gray-700">Default Email App</span>
+          </button>
+        </div>
+        <div className="p-2 pt-0">
+          <button
+            onClick={onClose}
+            className="w-full py-2 text-sm text-gray-500 hover:text-gray-700 transition-colors"
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 // Image Lightbox Modal
 function ImageLightbox({
@@ -127,6 +237,7 @@ export default function FoodListingCardV2({ listing, highlighted = false, onView
   const [thumbnailImage, setThumbnailImage] = useState<string | null>(null);
   const [showLightbox, setShowLightbox] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
+  const [showEmailPicker, setShowEmailPicker] = useState(false);
 
   const displayImage = thumbnailImage || (listing.image_url?.startsWith('http') ? listing.image_url : null);
   const handleImageClick = useCallback(() => {
@@ -330,11 +441,7 @@ export default function FoodListingCardV2({ listing, highlighted = false, onView
           <span>Share</span>
         </button>
         <button
-          onClick={() => {
-            const subject = encodeURIComponent(`Issue Report: ${listing.name}`);
-            const body = encodeURIComponent(`Hi MRT Foodie team,\n\nI found an issue with the listing "${listing.name}":\n\n[Please describe the issue here]\n\n- Wrong address\n- Closed permanently\n- Wrong price\n- Other: ___\n\nThanks!`);
-            window.open(`mailto:feedback@mrtfoodie.sg?subject=${subject}&body=${body}`);
-          }}
+          onClick={() => setShowEmailPicker(true)}
           className="flex-1 flex items-center justify-center gap-1.5 py-1.5 px-2 bg-gray-100 text-gray-600 rounded-md text-xs font-medium hover:bg-gray-200 transition-colors"
         >
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -346,6 +453,15 @@ export default function FoodListingCardV2({ listing, highlighted = false, onView
           <span>Report Issue</span>
         </button>
       </div>
+
+      {/* Email Client Picker Modal */}
+      {showEmailPicker && (
+        <EmailClientPicker
+          subject={`Issue Report: ${listing.name}`}
+          body={`Hi MRT Foodie team,\n\nI found an issue with the listing "${listing.name}":\n\n[Please describe the issue here]\n\n- Wrong address\n- Closed permanently\n- Wrong price\n- Other: ___\n\nThanks!`}
+          onClose={() => setShowEmailPicker(false)}
+        />
+      )}
     </div>
   );
 }

@@ -82,6 +82,21 @@ export default function OutletSlotMachine({ outlets, onClose }: OutletSlotMachin
         </div>
 
         <div className="p-4 bg-[#FFF0ED]">
+          {/* Outlet thumbnail */}
+          <div className="flex justify-center mb-3">
+            <div className="w-20 h-20 bg-gray-100 rounded-lg flex items-center justify-center overflow-hidden">
+              {winner.thumbnail_url ? (
+                <img
+                  src={winner.thumbnail_url}
+                  alt={winner.name}
+                  className="w-full h-full object-cover"
+                />
+              ) : (
+                <span className="text-3xl">🍽️</span>
+              )}
+            </div>
+          </div>
+
           <div className="text-center mb-3">
             <h3 className="font-semibold text-lg text-[#2D2D2D] mb-1">{winner.name}</h3>
           </div>
