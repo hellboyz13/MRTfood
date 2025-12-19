@@ -173,10 +173,12 @@ export default function FoodPanelV2({ stationId, onClose, onNavigateToStation, i
   const hasMallsContent = malls.length > 0;
 
   // Build array of available modes
+  // When search is active, only show malls tab if there are mall matches
   const availableModes: PanelMode[] = [];
   if (hasPopularContent) availableModes.push('popular');
   if (hasCuratedContent) availableModes.push('curated');
-  if (hasMallsContent) availableModes.push('malls');
+  // Only show malls tab if: no search active, OR search has mall matches
+  if (hasMallsContent && (!isSearchActive || hasMallMatches)) availableModes.push('malls');
 
   // Auto-switch to appropriate tab based on available content and search
   useEffect(() => {

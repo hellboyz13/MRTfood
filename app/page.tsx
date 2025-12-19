@@ -72,6 +72,7 @@ export default function Home() {
     setSearchPage(0);
     setIs24hActive(false); // Turn off 24h filter when doing regular search
     setIsDessertActive(false); // Turn off dessert filter when doing regular search
+    setSelectedStation(null); // Close any open panels when searching
     try {
       const { results, hasMore } = await searchStationsByFoodWithCounts(query, {
         limit: DEFAULT_PAGE_SIZE,
@@ -79,15 +80,10 @@ export default function Home() {
       });
       setSearchResults(results);
       setHasMoreSearchResults(hasMore);
-      // Close station panel if no results found
-      if (results.length === 0) {
-        setSelectedStation(null);
-      }
     } catch (error) {
       console.error('Search error:', error);
       setSearchResults([]);
       setHasMoreSearchResults(false);
-      setSelectedStation(null); // Close panel on error too
     } finally {
       setIsSearching(false);
     }
