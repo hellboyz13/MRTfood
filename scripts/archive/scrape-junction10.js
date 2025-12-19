@@ -6,10 +6,10 @@ config({ path: '.env.local', override: true });
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL,
-  process.env.SUPABASE_SERVICE_KEY
+  process.env.SUPABASE_SERVICE_ROLE_KEY
 );
 
-const MALL_ID = 'square-2';
+const MALL_ID = 'junction-10';
 
 function getCategory(name, storeType) {
   const text = (name + ' ' + storeType).toLowerCase();
@@ -56,18 +56,18 @@ function generateId(name) {
   return name.toLowerCase()
     .replace(/[^a-z0-9\s]/g, '')
     .replace(/\s+/g, '-')
-    + '-square2';
+    + '-junction-10';
 }
 
-async function scrapeSquare2() {
-  console.log('=== SCRAPING SQUARE 2 ===\n');
+async function scrapeJunction10() {
+  console.log('=== SCRAPING JUNCTION 10 ===\n');
 
   const browser = await chromium.launch({ headless: true });
   const page = await browser.newPage();
 
   try {
-    console.log('Loading Square 2 shops page...');
-    await page.goto('https://www.fareastmalls.com.sg/en/square-2/shops?s=', {
+    console.log('Loading Junction 10 shops page...');
+    await page.goto('https://www.fareastmalls.com.sg/en/junction-10/shops?s=', {
       waitUntil: 'domcontentloaded',
       timeout: 60000
     });
@@ -181,7 +181,7 @@ async function scrapeSquare2() {
 
     if (uniqueStores.length === 0) {
       console.log('\nNo F&B stores found.');
-      await page.screenshot({ path: 'square2-error.png', fullPage: true });
+      await page.screenshot({ path: 'junction10-error.png', fullPage: true });
       await browser.close();
       return;
     }
@@ -228,10 +228,10 @@ async function scrapeSquare2() {
 
   } catch (error) {
     console.error('Error:', error.message);
-    await page.screenshot({ path: 'square2-error.png', fullPage: true });
+    await page.screenshot({ path: 'junction10-error.png', fullPage: true });
   } finally {
     await browser.close();
   }
 }
 
-scrapeSquare2();
+scrapeJunction10();
