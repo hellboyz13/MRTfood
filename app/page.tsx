@@ -8,6 +8,7 @@ import SearchBar from '@/components/SearchBar';
 import SearchResultsPanel from '@/components/SearchResultsPanel';
 import Footer from '@/components/Footer';
 import Onboarding, { OnboardingRef } from '@/components/Onboarding';
+import ChristmasDecorations from '@/components/ChristmasDecorations';
 import { searchStationsByFoodWithCounts, StationSearchResult, getStations, getSupperSpotsByStation, getDessertSpotsByStation, getStationsWithNoContent, getListingStation, DEFAULT_PAGE_SIZE } from '@/lib/api';
 
 // Component that handles deep link logic
@@ -310,6 +311,9 @@ export default function Home() {
 
       {/* Footer with legal links */}
       <Footer onHowToUseClick={() => onboardingRef.current?.restart()} />
+
+      {/* Christmas decorations */}
+      <ChristmasDecorations />
     </main>
   );
 }

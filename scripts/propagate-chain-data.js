@@ -8,202 +8,108 @@ const supabase = createClient(
   process.env.SUPABASE_SERVICE_ROLE_KEY
 );
 
-// Normalize name for matching (lowercase, remove special chars, trim)
+// Normalize name for matching (e.g., "McDonald's" matches "MCDONALD'S")
 function normalizeName(name) {
   return name.toLowerCase()
-    .replace(/[''`]/g, "'")
-    .replace(/\s+/g, ' ')
+    .replace(/[''`']/g, '')      // Remove apostrophes
+    .replace(/[®™©–—]/g, '')     // Remove trademark symbols and dashes
+    .replace(/[^a-z0-9\s]/g, '') // Remove other special chars
+    .replace(/\s+/g, ' ')        // Normalize spaces
     .trim();
 }
 
-// Extract chain name from outlet name (handles variations like "Ajisen Ramen", "AJISEN RAMEN", etc.)
-function getChainKey(name) {
-  return normalizeName(name)
-    .replace(/['&]/g, '')
-    .replace(/\s+/g, '-');
-}
-
-// Get alternative keys for fuzzy matching (e.g., "Starbucks Coffee" -> "starbucks")
-function getAlternativeKeys(name) {
-  const keys = [getChainKey(name)];
-  const normalized = normalizeName(name);
-
-  // Common variations to try
-  const variations = [
-    // Remove common suffixes
-    normalized.replace(/\s*(coffee|cafe|café|restaurant|kitchen|express|singapore|sg)$/i, '').trim(),
-    // Remove common prefixes
-    normalized.replace(/^(the|mr|mr\.|mrs|ms)\s+/i, '').trim(),
-    // First word only (for chains like "Starbucks Coffee" -> "Starbucks")
-    normalized.split(' ')[0],
-    // First two words
-    normalized.split(' ').slice(0, 2).join(' '),
-  ];
-
-  variations.forEach(v => {
-    if (v && v.length > 2) {
-      const key = v.replace(/['&]/g, '').replace(/\s+/g, '-');
-      if (!keys.includes(key)) keys.push(key);
-    }
-  });
-
-  return keys;
-}
-
 async function propagateChainData() {
-  console.log('=== PROPAGATE CHAIN DATA (THUMBNAILS & OPENING HOURS) ===\n');
+  console.log('=== PROPAGATING CHAIN DATA ===\n');
 
-  // Step 1: Get ALL outlets (paginate to get all records)
-  let allOutlets = [];
-  let offset = 0;
-  const pageSize = 1000;
+  // Get all outlets
+  const { data: allOutlets, error } = await supabase
+    .from('mall_outlets')
+    .select('id, name, mall_id, thumbnail_url, opening_hours');
 
-  while (true) {
-    const { data, error } = await supabase
-      .from('mall_outlets')
-      .select('id, name, mall_id, thumbnail_url, opening_hours')
-      .range(offset, offset + pageSize - 1);
-
-    if (error) {
-      console.error('Error fetching outlets:', error);
-      return;
-    }
-
-    if (!data || data.length === 0) break;
-
-    allOutlets = allOutlets.concat(data);
-    offset += pageSize;
-
-    if (data.length < pageSize) break;
+  if (error) {
+    console.error('Error fetching outlets:', error.message);
+    return;
   }
 
-  console.log(`Total outlets: ${allOutlets.length}\n`);
+  console.log(`Total outlets: ${allOutlets.length}`);
 
-  // Build maps of chain data (thumbnail_url and opening_hours)
-  // Use multiple keys per outlet for better fuzzy matching
-  const chainData = new Map();
-
-  // First pass: collect data from outlets that have it
-  allOutlets.forEach(outlet => {
-    // Register this outlet under all its alternative keys
-    const keys = getAlternativeKeys(outlet.name);
-
-    keys.forEach(key => {
-      if (!chainData.has(key)) {
-        chainData.set(key, {
-          name: outlet.name,
-          thumbnail_url: null,
-          opening_hours: null
-        });
-      }
-
-      const data = chainData.get(key);
-
-      // Keep first non-null thumbnail
-      if (!data.thumbnail_url && outlet.thumbnail_url) {
-        data.thumbnail_url = outlet.thumbnail_url;
-      }
-
-      // Keep first non-null opening hours
-      if (!data.opening_hours && outlet.opening_hours) {
-        data.opening_hours = outlet.opening_hours;
-      }
-    });
-  });
-
-  // Count chains with data
-  let chainsWithThumbnail = 0;
-  let chainsWithHours = 0;
-  chainData.forEach(data => {
-    if (data.thumbnail_url) chainsWithThumbnail++;
-    if (data.opening_hours) chainsWithHours++;
-  });
-
-  console.log(`Unique chains: ${chainData.size}`);
-  console.log(`  - with thumbnails: ${chainsWithThumbnail}`);
-  console.log(`  - with opening hours: ${chainsWithHours}\n`);
-
-  // Step 2: Find outlets that can be updated (using fuzzy matching)
-  const thumbnailUpdates = [];
-  const hoursUpdates = [];
+  // Build lookup maps for outlets WITH data (grouped by normalized name)
+  const thumbnailsByName = new Map();
+  const hoursByName = new Map();
 
   for (const outlet of allOutlets) {
-    // Try multiple keys for fuzzy matching
-    const keysToTry = getAlternativeKeys(outlet.name);
-    let matchedData = null;
+    const normalized = normalizeName(outlet.name);
 
-    for (const key of keysToTry) {
-      if (chainData.has(key)) {
-        matchedData = chainData.get(key);
-        break;
-      }
+    if (outlet.thumbnail_url && !thumbnailsByName.has(normalized)) {
+      thumbnailsByName.set(normalized, outlet.thumbnail_url);
     }
-
-    if (!matchedData) continue;
-
-    // Check if thumbnail needs updating
-    if (!outlet.thumbnail_url && matchedData.thumbnail_url) {
-      thumbnailUpdates.push({
-        id: outlet.id,
-        name: outlet.name,
-        mall_id: outlet.mall_id,
-        thumbnail_url: matchedData.thumbnail_url,
-        matched_with: matchedData.name
-      });
-    }
-
-    // Check if opening hours needs updating
-    if (!outlet.opening_hours && matchedData.opening_hours) {
-      hoursUpdates.push({
-        id: outlet.id,
-        name: outlet.name,
-        mall_id: outlet.mall_id,
-        opening_hours: matchedData.opening_hours,
-        matched_with: matchedData.name
-      });
+    if (outlet.opening_hours && !hoursByName.has(normalized)) {
+      hoursByName.set(normalized, outlet.opening_hours);
     }
   }
 
-  console.log(`Outlets needing thumbnail update: ${thumbnailUpdates.length}`);
-  console.log(`Outlets needing opening hours update: ${hoursUpdates.length}\n`);
+  console.log(`Unique names with thumbnails: ${thumbnailsByName.size}`);
+  console.log(`Unique names with hours: ${hoursByName.size}`);
 
-  // Update thumbnails
-  if (thumbnailUpdates.length > 0) {
-    console.log('=== UPDATING THUMBNAILS ===');
-    let thumbUpdated = 0;
-    for (const update of thumbnailUpdates) {
-      const { error } = await supabase
+  // Find outlets missing data and try to fill from matching names
+  let thumbnailUpdates = 0;
+  let hoursUpdates = 0;
+
+  for (const outlet of allOutlets) {
+    const normalized = normalizeName(outlet.name);
+    const updates = {};
+
+    // Check if missing thumbnail but another outlet with same name has one
+    if (!outlet.thumbnail_url && thumbnailsByName.has(normalized)) {
+      updates.thumbnail_url = thumbnailsByName.get(normalized);
+    }
+
+    // Check if missing hours but another outlet with same name has one
+    if (!outlet.opening_hours && hoursByName.has(normalized)) {
+      updates.opening_hours = hoursByName.get(normalized);
+    }
+
+    if (Object.keys(updates).length > 0) {
+      const { error: updateError } = await supabase
         .from('mall_outlets')
-        .update({ thumbnail_url: update.thumbnail_url })
-        .eq('id', update.id);
+        .update(updates)
+        .eq('id', outlet.id);
 
-      if (!error) {
-        thumbUpdated++;
-        console.log(`  ${update.name} @ ${update.mall_id} <- ${update.matched_with}`);
+      if (!updateError) {
+        if (updates.thumbnail_url) {
+          thumbnailUpdates++;
+          console.log(`  ✓ Thumbnail: ${outlet.name} (${outlet.mall_id})`);
+        }
+        if (updates.opening_hours) {
+          hoursUpdates++;
+          console.log(`  ✓ Hours: ${outlet.name} (${outlet.mall_id})`);
+        }
+      } else {
+        console.log(`  ✗ ${outlet.name}: ${updateError.message}`);
       }
     }
-    console.log(`Thumbnails updated: ${thumbUpdated}\n`);
   }
 
-  // Update opening hours
-  if (hoursUpdates.length > 0) {
-    console.log('=== UPDATING OPENING HOURS ===');
-    let hoursUpdated = 0;
-    for (const update of hoursUpdates) {
-      const { error } = await supabase
-        .from('mall_outlets')
-        .update({ opening_hours: update.opening_hours })
-        .eq('id', update.id);
+  console.log(`\n=== COMPLETE ===`);
+  console.log(`Thumbnails propagated: ${thumbnailUpdates}`);
+  console.log(`Hours propagated: ${hoursUpdates}`);
 
-      if (!error) {
-        hoursUpdated++;
-        console.log(`  ${update.name} @ ${update.mall_id} <- hours from ${update.matched_with}`);
-      }
-    }
-    console.log(`Opening hours updated: ${hoursUpdated}\n`);
+  // Show summary for the 3 new malls
+  const malls = ['hougang-mall', 'harbourfront-centre', 'great-world'];
+  console.log('\n=== UPDATED COVERAGE ===');
+
+  for (const mallId of malls) {
+    const { data } = await supabase
+      .from('mall_outlets')
+      .select('thumbnail_url, opening_hours')
+      .eq('mall_id', mallId);
+
+    const total = data.length;
+    const withThumb = data.filter(d => d.thumbnail_url).length;
+    const withHours = data.filter(d => d.opening_hours).length;
+
+    console.log(`${mallId}: ${withThumb}/${total} thumbnails, ${withHours}/${total} hours`);
   }
-
-  console.log('=== COMPLETE ===');
 }
 
-propagateChainData().catch(console.error);
+propagateChainData();
