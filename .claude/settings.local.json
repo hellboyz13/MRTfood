@@ -50,7 +50,11 @@
       "Bash(npx vercel whoami:*)",
       "Bash(claude auth logout:*)",
       "Bash(DOTENV_CONFIG_PATH=.env.local npx tsx:*)",
-      "Bash(npx playwright install:*)"
+      "Bash(npx playwright install:*)",
+      "Bash(git checkout:*)",
+      "Bash(for i in 1 2 3 4 5)",
+      "Bash(do echo \"=== Run $i ===\")",
+      "Bash(done)"
     ],
     "deny": [],
     "ask": []

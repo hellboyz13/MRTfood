@@ -1,0 +1,722 @@
+[
+  {
+    "id": "paradise-classic-jewel",
+    "name": "Paradise Classic",
+    "mallId": "jewel-changi-airport",
+    "level": "#04-244"
+  },
+  {
+    "id": "potato-corner-jewel",
+    "name": "Potato Corner",
+    "mallId": "jewel-changi-airport",
+    "level": "#B2-264"
+  },
+  {
+    "id": "sushiro-jewel",
+    "name": "Sushiro",
+    "mallId": "jewel-changi-airport",
+    "level": "#B2-227"
+  },
+  {
+    "id": "pscafe-jewel",
+    "name": "PS.Cafe",
+    "mallId": "jewel-changi-airport",
+    "level": "#02-244"
+  },
+  {
+    "id": "soup-restaurant-jewel",
+    "name": "Soup Restaurant",
+    "mallId": "jewel-changi-airport",
+    "level": "#03-201"
+  },
+  {
+    "id": "white-restaurant-jewel",
+    "name": "White Restaurant",
+    "mallId": "jewel-changi-airport",
+    "level": "#B1-245"
+  },
+  {
+    "id": "7caf-jewel",
+    "name": "7Café",
+    "mallId": "jewel-changi-airport",
+    "level": "#B2-221"
+  },
+  {
+    "id": "actioncity-caf-jewel",
+    "name": "ActionCity Café",
+    "mallId": "jewel-changi-airport",
+    "level": "#04-223"
+  },
+  {
+    "id": "ny-char-grill-jewel",
+    "name": "NY Char Grill",
+    "mallId": "jewel-changi-airport",
+    "level": "#03-227"
+  },
+  {
+    "id": "omega-pork-noodle-jewel",
+    "name": "OMEGA Pork Noodle",
+    "mallId": "jewel-changi-airport",
+    "level": "#B2-223"
+  },
+  {
+    "id": "paul-bakery-restaurant-jewel",
+    "name": "PAUL Bakery & Restaurant",
+    "mallId": "jewel-changi-airport",
+    "level": "#B1-225"
+  },
+  {
+    "id": "pizzamaru-jewel",
+    "name": "Pizzamaru",
+    "mallId": "jewel-changi-airport",
+    "level": "#04-222"
+  },
+  {
+    "id": "pop-play-planet-cafe-jewel",
+    "name": "Pop Play Planet Cafe",
+    "mallId": "jewel-changi-airport",
+    "level": "#04-246"
+  },
+  {
+    "id": "kiwami-ramen-gyoza-bar-jewel",
+    "name": "Kiwami Ramen & Gyoza Bar",
+    "mallId": "jewel-changi-airport",
+    "level": "#01-225"
+  },
+  {
+    "id": "koi-express-jewel",
+    "name": "KOI Express",
+    "mallId": "jewel-changi-airport",
+    "level": "#B2-263"
+  },
+  {
+    "id": "krispy-kreme-jewel",
+    "name": "Krispy Kreme",
+    "mallId": "jewel-changi-airport",
+    "level": "#B2-270"
+  },
+  {
+    "id": "lady-m-temporarily-closed-jewel",
+    "name": "Lady M (Temporarily Closed)",
+    "mallId": "jewel-changi-airport",
+    "level": "#02-253"
+  },
+  {
+    "id": "poulet-bijou-jewel",
+    "name": "Poulet Bijou",
+    "mallId": "jewel-changi-airport",
+    "level": "#01-227"
+  },
+  {
+    "id": "queic-by-olivia-jewel",
+    "name": "Queic by Olivia",
+    "mallId": "jewel-changi-airport",
+    "level": "#01-K218"
+  },
+  {
+    "id": "sampanman-kelong-changi-jewel",
+    "name": "Sampanman Kelong Changi",
+    "mallId": "jewel-changi-airport",
+    "level": "#B1-223"
+  },
+  {
+    "id": "sf-fruits-juices-jewel",
+    "name": "SF Fruits & Juices",
+    "mallId": "jewel-changi-airport",
+    "level": "#B2-260"
+  },
+  {
+    "id": "sugarbelly-jewel",
+    "name": "SugarBelly",
+    "mallId": "jewel-changi-airport",
+    "level": "#B2-256"
+  },
+  {
+    "id": "sukiya-gyudon-curry-jewel",
+    "name": "SUKIYA. Gyudon. Curry",
+    "mallId": "jewel-changi-airport",
+    "level": "#B2-200"
+  },
+  {
+    "id": "tai-er-suancai-fish-jewel",
+    "name": "Tai Er Suancai & Fish",
+    "mallId": "jewel-changi-airport",
+    "level": "#03-208"
+  },
+  {
+    "id": "talad-thai-banana-jewel",
+    "name": "Talad Thai Banana",
+    "mallId": "jewel-changi-airport",
+    "level": "#B2-257"
+  },
+  {
+    "id": "tambuah-mas-indonesian-restaurant-jewel",
+    "name": "Tambuah Mas Indonesian Restaurant",
+    "mallId": "jewel-changi-airport",
+    "level": "#03-225"
+  },
+  {
+    "id": "tempura-makino-jewel",
+    "name": "Tempura Makino",
+    "mallId": "jewel-changi-airport",
+    "level": "#01-223"
+  },
+  {
+    "id": "the-1872-clipper-tea-co-jewel",
+    "name": "The 1872 Clipper Tea Co.",
+    "mallId": "jewel-changi-airport",
+    "level": "#02-237"
+  },
+  {
+    "id": "tokyo-milk-cheese-factory-cow-cow-kitchen-jewel",
+    "name": "Tokyo Milk Cheese Factory & Cow Cow Kitchen",
+    "mallId": "jewel-changi-airport",
+    "level": "#B2-265"
+  },
+  {
+    "id": "tonito-jewel",
+    "name": "TONITO",
+    "mallId": "jewel-changi-airport",
+    "level": "#02-248"
+  },
+  {
+    "id": "tutto-by-da-paolo-jewel",
+    "name": "Tutto by Da Paolo",
+    "mallId": "jewel-changi-airport",
+    "level": "#02-246"
+  },
+  {
+    "id": "twenty-loaf-toasties-jewel",
+    "name": "Twenty Loaf Toasties",
+    "mallId": "jewel-changi-airport",
+    "level": "#B2-274"
+  },
+  {
+    "id": "waen-wagyu-yakiniku-jewel",
+    "name": "Wa-En Wagyu Yakiniku",
+    "mallId": "jewel-changi-airport",
+    "level": "#01-224"
+  },
+  {
+    "id": "wu-fang-zhai-jewel",
+    "name": "Wu Fang Zhai",
+    "mallId": "jewel-changi-airport",
+    "level": "#B2-258"
+  },
+  {
+    "id": "yes-lemon-jewel",
+    "name": "YES LEMON",
+    "mallId": "jewel-changi-airport",
+    "level": "#03-211"
+  },
+  {
+    "id": "yun-nans-jewel",
+    "name": "Yun Nans",
+    "mallId": "jewel-changi-airport",
+    "level": "#02-217"
+  },
+  {
+    "id": "dian-xiao-er-jewel",
+    "name": "Dian Xiao Er",
+    "mallId": "jewel-changi-airport",
+    "level": "#B2-229"
+  },
+  {
+    "id": "an-acai-affair-jewel",
+    "name": "An Acai Affair",
+    "mallId": "jewel-changi-airport",
+    "level": "#B2-262"
+  },
+  {
+    "id": "arteastiq-depatio-jewel",
+    "name": "Arteastiq DePatio",
+    "mallId": "jewel-changi-airport",
+    "level": "#05-200"
+  },
+  {
+    "id": "auntie-annes-jewel",
+    "name": "Auntie Anne's",
+    "mallId": "jewel-changi-airport",
+    "level": "#B2-272"
+  },
+  {
+    "id": "bazil-kitchen-indian-cuisine-jewel",
+    "name": "Bazil Kitchen [Indian Cuisine]",
+    "mallId": "jewel-changi-airport",
+    "level": "#03-229"
+  },
+  {
+    "id": "beauty-in-the-pot-jewel",
+    "name": "Beauty in the Pot",
+    "mallId": "jewel-changi-airport",
+    "level": "#B2-224"
+  },
+  {
+    "id": "birds-of-paradise-jewel",
+    "name": "Birds of Paradise",
+    "mallId": "jewel-changi-airport",
+    "level": "#01-254"
+  },
+  {
+    "id": "boost-juice-bars-jewel",
+    "name": "Boost Juice Bars",
+    "mallId": "jewel-changi-airport",
+    "level": "#B2-261"
+  },
+  {
+    "id": "butter-cream-jewel",
+    "name": "Butter & Cream",
+    "mallId": "jewel-changi-airport",
+    "level": "#B2-266"
+  },
+  {
+    "id": "caf-kitsun-jewel",
+    "name": "Café Kitsuné",
+    "mallId": "jewel-changi-airport",
+    "level": "#01-K209"
+  },
+  {
+    "id": "cha-mulan-jewel",
+    "name": "Cha Mulan",
+    "mallId": "jewel-changi-airport",
+    "level": "#B2-259"
+  },
+  {
+    "id": "chicha-san-chen-jewel",
+    "name": "CHICHA San Chen",
+    "mallId": "jewel-changi-airport",
+    "level": "#B2-213"
+  },
+  {
+    "id": "chow-zan-dessert-jewel",
+    "name": "Chow Zan Dessert",
+    "mallId": "jewel-changi-airport",
+    "level": "#B2-234"
+  },
+  {
+    "id": "coucou-hotpotbrew-tea-jewel",
+    "name": "Coucou Hotpot.Brew Tea",
+    "mallId": "jewel-changi-airport",
+    "level": "#02-208"
+  },
+  {
+    "id": "creamie-sippies-opening-soon-jewel",
+    "name": "Creamie Sippies (Opening Soon)",
+    "mallId": "jewel-changi-airport",
+    "level": "#01-K214"
+  },
+  {
+    "id": "elfuego-by-collins-jewel",
+    "name": "Elfuego by COLLIN'S®",
+    "mallId": "jewel-changi-airport",
+    "level": "#05-203"
+  },
+  {
+    "id": "gelatissimo-jewel",
+    "name": "Gelatissimo",
+    "mallId": "jewel-changi-airport",
+    "level": "#03-206"
+  },
+  {
+    "id": "greendot-plus-jewel",
+    "name": "Greendot Plus",
+    "mallId": "jewel-changi-airport",
+    "level": "#B1-297"
+  },
+  {
+    "id": "gwangjang-gaon-jewel",
+    "name": "Gwangjang GAON",
+    "mallId": "jewel-changi-airport",
+    "level": "#02-243"
+  },
+  {
+    "id": "heytea-jewel",
+    "name": "HEYTEA",
+    "mallId": "jewel-changi-airport",
+    "level": "#03-212"
+  },
+  {
+    "id": "hitoyoshi-izakaya-jewel",
+    "name": "Hitoyoshi Izakaya",
+    "mallId": "jewel-changi-airport",
+    "level": "#05-205"
+  },
+  {
+    "id": "hoshino-coffee-japanese-caf-restaurant-jewel",
+    "name": "Hoshino Coffee Japanese Café & Restaurant",
+    "mallId": "jewel-changi-airport",
+    "level": "#B1-249"
+  },
+  {
+    "id": "hot-tomato-jewel",
+    "name": "Hot Tomato",
+    "mallId": "jewel-changi-airport",
+    "level": "#04-229"
+  },
+  {
+    "id": "imperial-treasure-super-peking-duck-jewel",
+    "name": "Imperial Treasure Super Peking Duck",
+    "mallId": "jewel-changi-airport",
+    "level": "#01-219"
+  },
+  {
+    "id": "ipoh-town--jewel",
+    "name": "Ipoh Town 怡保城茶室",
+    "mallId": "jewel-changi-airport",
+    "level": "#B1-299"
+  },
+  {
+    "id": "jumbo-seafood-jewel",
+    "name": "JUMBO Seafood",
+    "mallId": "jewel-changi-airport",
+    "level": "#03-202"
+  },
+  {
+    "id": "kams-roast-jewel",
+    "name": "Kam's Roast",
+    "mallId": "jewel-changi-airport",
+    "level": "#02-210"
+  },
+  {
+    "id": "kane-mochi-jewel",
+    "name": "KANE MOCHI",
+    "mallId": "jewel-changi-airport",
+    "level": "#B2-269"
+  },
+  {
+    "id": "kantin-jewel",
+    "name": "Kantin",
+    "mallId": "jewel-changi-airport",
+    "level": "#05-206"
+  },
+  {
+    "id": "lema-dumpling-jewel",
+    "name": "LeMa Dumpling",
+    "mallId": "jewel-changi-airport",
+    "level": "#B2-232"
+  },
+  {
+    "id": "llaollao-jewel",
+    "name": "llaollao",
+    "mallId": "jewel-changi-airport",
+    "level": "#B2-271"
+  },
+  {
+    "id": "mamma-mia-trattoria-e-caff-jewel",
+    "name": "Mamma Mia Trattoria E Caffé",
+    "mallId": "jewel-changi-airport",
+    "level": "#04-200"
+  },
+  {
+    "id": "monarchs-milkweed-jewel",
+    "name": "Monarchs & Milkweed",
+    "mallId": "jewel-changi-airport",
+    "level": "#04-218"
+  },
+  {
+    "id": "nasty-cookie-jewel",
+    "name": "Nasty Cookie",
+    "mallId": "jewel-changi-airport",
+    "level": "#03-207"
+  },
+  {
+    "id": "nesuto-jewel",
+    "name": "Nesuto",
+    "mallId": "jewel-changi-airport",
+    "level": "#01-236"
+  },
+  {
+    "id": "nine-fresh-jewel",
+    "name": "Nine Fresh",
+    "mallId": "jewel-changi-airport",
+    "level": "#B2-244"
+  },
+  {
+    "id": "nong-geng-ji-jewel",
+    "name": "Nong Geng Ji",
+    "mallId": "jewel-changi-airport",
+    "level": "#B2-235"
+  },
+  {
+    "id": "the-coach-restaurant-jewel",
+    "name": "The Coach Restaurant",
+    "mallId": "jewel-changi-airport",
+    "level": "#01-207"
+  },
+  {
+    "id": "the-hainan-story-jewel",
+    "name": "The Hainan Story",
+    "mallId": "jewel-changi-airport",
+    "level": "#B2-201"
+  },
+  {
+    "id": "the-coffee-bean-tea-leaf-jewel",
+    "name": "The Coffee Bean & Tea Leaf",
+    "mallId": "jewel-changi-airport",
+    "level": "#01-200"
+  },
+  {
+    "id": "dapur-penyet-jewel",
+    "name": "Dapur Penyet",
+    "mallId": "jewel-changi-airport",
+    "level": "#B2-241"
+  },
+  {
+    "id": "din-tai-fung-jewel",
+    "name": "Din Tai Fung",
+    "mallId": "jewel-changi-airport",
+    "level": "#03-214"
+  },
+  {
+    "id": "hakka-yu-jewel",
+    "name": "Hakka Yu",
+    "mallId": "jewel-changi-airport",
+    "level": "#03-220"
+  },
+  {
+    "id": "aburien-jewel",
+    "name": "Aburi-EN",
+    "mallId": "jewel-changi-airport",
+    "level": "#B2-233"
+  },
+  {
+    "id": "monster-curry-jewel",
+    "name": "Monster Curry",
+    "mallId": "jewel-changi-airport",
+    "level": "#03-200"
+  },
+  {
+    "id": "song-fa-bak-kut-teh-jewel",
+    "name": "Song Fa Bak Kut Teh",
+    "mallId": "jewel-changi-airport",
+    "level": "#B2-278"
+  },
+  {
+    "id": "arteastiq-jewel",
+    "name": "Arteastiq",
+    "mallId": "jewel-changi-airport",
+    "level": "#05-201"
+  },
+  {
+    "id": "joshs-grill-jewel",
+    "name": "Josh's Grill",
+    "mallId": "jewel-changi-airport",
+    "level": "#B2-210"
+  },
+  {
+    "id": "mr-coconut-jewel",
+    "name": "Mr. Coconut",
+    "mallId": "jewel-changi-airport",
+    "level": "#B2-268"
+  },
+  {
+    "id": "guzman-y-gomez-jewel",
+    "name": "Guzman y Gomez",
+    "mallId": "jewel-changi-airport",
+    "level": "#B2-211"
+  },
+  {
+    "id": "old-chang-kee-jewel",
+    "name": "Old Chang Kee",
+    "mallId": "jewel-changi-airport",
+    "level": "#B2-247"
+  },
+  {
+    "id": "shihlin-taiwan-street-food-jewel",
+    "name": "Shihlin Taiwan Street Food",
+    "mallId": "jewel-changi-airport",
+    "level": "#B2-246"
+  },
+  {
+    "id": "kei-kaisendon-jewel",
+    "name": "Kei Kaisendon",
+    "mallId": "jewel-changi-airport",
+    "level": "#03-213"
+  },
+  {
+    "id": "shake-shack-jewel",
+    "name": "Shake Shack",
+    "mallId": "jewel-changi-airport",
+    "level": "#02-256"
+  },
+  {
+    "id": "starbucks-jewel",
+    "name": "Starbucks",
+    "mallId": "jewel-changi-airport",
+    "level": "#02-204"
+  },
+  {
+    "id": "so-pho-jewel",
+    "name": "So Pho",
+    "mallId": "jewel-changi-airport",
+    "level": "#B1-248"
+  },
+  {
+    "id": "sushi-tei-jewel",
+    "name": "Sushi Tei",
+    "mallId": "jewel-changi-airport",
+    "level": "#03-209"
+  },
+  {
+    "id": "tonkatsu-by-ma-maison-jewel",
+    "name": "Tonkatsu by Ma Maison",
+    "mallId": "jewel-changi-airport",
+    "level": "#02-211"
+  },
+  {
+    "id": "the-original-vadai-jewel",
+    "name": "The Original Vadai",
+    "mallId": "jewel-changi-airport",
+    "level": "#B2-267"
+  },
+  {
+    "id": "toast-box-jewel",
+    "name": "Toast Box",
+    "mallId": "jewel-changi-airport",
+    "level": "#B2-231"
+  },
+  {
+    "id": "ya-kun-kaya-toast-jewel",
+    "name": "Ya Kun Kaya Toast",
+    "mallId": "jewel-changi-airport",
+    "level": "#01-230"
+  },
+  {
+    "id": "paris-baguette-jewel",
+    "name": "Paris Baguette",
+    "mallId": "jewel-changi-airport",
+    "level": "#02-200"
+  },
+  {
+    "id": "tsuta-japanese-soba-noodles-jewel",
+    "name": "Tsuta Japanese Soba Noodles",
+    "mallId": "jewel-changi-airport",
+    "level": "#03-218"
+  },
+  {
+    "id": "-arabica-jewel",
+    "name": "% Arabica",
+    "mallId": "jewel-changi-airport",
+    "level": "#01-K208"
+  },
+  {
+    "id": "mrs-pho-jewel",
+    "name": "Mrs Pho",
+    "mallId": "jewel-changi-airport",
+    "level": "#03-216"
+  },
+  {
+    "id": "putien-jewel",
+    "name": "PUTIEN",
+    "mallId": "jewel-changi-airport",
+    "level": "#02-249"
+  },
+  {
+    "id": "lenu-jewel",
+    "name": "LeNu",
+    "mallId": "jewel-changi-airport",
+    "level": "#04-244"
+  },
+  {
+    "id": "kenangan-coffee-jewel",
+    "name": "Kenangan Coffee",
+    "mallId": "jewel-changi-airport",
+    "level": "#B2-255"
+  },
+  {
+    "id": "aw-jewel",
+    "name": "A&W",
+    "mallId": "jewel-changi-airport",
+    "level": "#B2-209"
+  },
+  {
+    "id": "jinjja-chicken-jewel",
+    "name": "Jinjja Chicken",
+    "mallId": "jewel-changi-airport",
+    "level": "#B1-247"
+  },
+  {
+    "id": "jacks-place-jewel",
+    "name": "Jack's Place",
+    "mallId": "jewel-changi-airport",
+    "level": "#05-202"
+  },
+  {
+    "id": "royal-host-jewel",
+    "name": "Royal Host",
+    "mallId": "jewel-changi-airport",
+    "level": "#03-219"
+  },
+  {
+    "id": "fish-co-jewel",
+    "name": "Fish & Co",
+    "mallId": "jewel-changi-airport",
+    "level": "#B1-300"
+  },
+  {
+    "id": "food-republic-jewel",
+    "name": "Food Republic",
+    "mallId": "jewel-changi-airport",
+    "level": "#B2-238"
+  },
+  {
+    "id": "kfc-jewel",
+    "name": "KFC",
+    "mallId": "jewel-changi-airport",
+    "level": "#B2-275"
+  },
+  {
+    "id": "munchi-pancakes-jewel",
+    "name": "Munchi Pancakes",
+    "mallId": "jewel-changi-airport",
+    "level": "#B2-273"
+  },
+  {
+    "id": "gochiso-shokudo-jewel",
+    "name": "Gochi-So Shokudo",
+    "mallId": "jewel-changi-airport",
+    "level": "#B1-289"
+  },
+  {
+    "id": "luckin-coffee-jewel",
+    "name": "Luckin Coffee",
+    "mallId": "jewel-changi-airport",
+    "level": "#04-231"
+  },
+  {
+    "id": "sanook-kitchen-jewel",
+    "name": "Sanook Kitchen",
+    "mallId": "jewel-changi-airport",
+    "level": "#03-223"
+  },
+  {
+    "id": "subway-jewel",
+    "name": "Subway",
+    "mallId": "jewel-changi-airport",
+    "level": "#B2-230"
+  },
+  {
+    "id": "tim-ho-wan-jewel",
+    "name": "Tim Ho Wan",
+    "mallId": "jewel-changi-airport",
+    "level": "#02-223"
+  },
+  {
+    "id": "tsui-wah-jewel",
+    "name": "Tsui Wah",
+    "mallId": "jewel-changi-airport",
+    "level": "#03-230"
+  },
+  {
+    "id": "tun-xiang-hokkien-delights-jewel",
+    "name": "Tun Xiang Hokkien Delights",
+    "mallId": "jewel-changi-airport",
+    "level": "#B1-290"
+  },
+  {
+    "id": "treasures-yi-dian-xin-jewel",
+    "name": "Treasures Yi Dian Xin",
+    "mallId": "jewel-changi-airport",
+    "level": "#01-221"
+  }
+]
