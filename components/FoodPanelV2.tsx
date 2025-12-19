@@ -152,6 +152,7 @@ export default function FoodPanelV2({ stationId, onClose, onNavigateToStation, i
   const [autoSwitchedForQuery, setAutoSwitchedForQuery] = useState<string | null>(null);
   const [listingsPage, setListingsPage] = useState(1);
   const [sortBy, setSortBy] = useState<'distance' | 'rating'>('distance');
+  const [showSpinWheel, setShowSpinWheel] = useState(false);
   const desktopScrollRef = useRef<HTMLDivElement>(null);
 
   const LISTINGS_PER_PAGE = 20;
@@ -333,11 +334,22 @@ export default function FoodPanelV2({ stationId, onClose, onNavigateToStation, i
 
     return (
       <>
-        {/* Slot Machine - show when there are 2+ listings and no active search filter */}
+        {/* Spin Button - show when there are 2+ listings and no active search filter */}
         {!isSearchActive && sortedListings.length > 1 && (
+          <button
+            onClick={() => setShowSpinWheel(true)}
+            className="w-full flex items-center justify-center gap-2 py-2 mb-3 bg-[#FF6B4A] text-white text-sm font-semibold rounded-lg hover:bg-[#E55A3A] transition-colors"
+          >
+            <span>🎰</span>
+            <span>Can't decide? Spin!</span>
+          </button>
+        )}
+
+        {/* Slot Machine Modal */}
+        {showSpinWheel && (
           <SlotMachine
             listings={sortedListings}
-            onSelectWinner={() => {}}
+            onClose={() => setShowSpinWheel(false)}
           />
         )}
 

@@ -152,11 +152,7 @@ export default function FoodPanel({ stationId, onClose, isMobile = false }: Food
 
   // Track slot machine winner for highlighting
   const [slotWinner, setSlotWinner] = useState<FoodListingWithSources | null>(null);
-
-  // Handle slot machine winner selection
-  const handleSlotWinner = useCallback((listing: FoodListingWithSources) => {
-    setSlotWinner(listing);
-  }, []);
+  const [showSpinWheel, setShowSpinWheel] = useState(false);
 
   if (!stationId) return null;
 
@@ -194,11 +190,22 @@ export default function FoodPanel({ stationId, onClose, isMobile = false }: Food
 
         return (
           <>
-            {/* Slot Machine - show when there are listings */}
+            {/* Spin Button - show when there are listings */}
             {allListings.length > 1 && (
+              <button
+                onClick={() => setShowSpinWheel(true)}
+                className="w-full flex items-center justify-center gap-2 py-2 mb-3 bg-[#FF6B4A] text-white text-sm font-semibold rounded-lg hover:bg-[#E55A3A] transition-colors"
+              >
+                <span>🎰</span>
+                <span>Can't decide? Spin!</span>
+              </button>
+            )}
+
+            {/* Slot Machine Modal */}
+            {showSpinWheel && (
               <SlotMachine
                 listings={allListings}
-                onSelectWinner={handleSlotWinner}
+                onClose={() => setShowSpinWheel(false)}
               />
             )}
             {supabaseData.sponsored && <SponsoredCardDb listing={supabaseData.sponsored} />}

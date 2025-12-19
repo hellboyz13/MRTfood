@@ -84,6 +84,24 @@ export async function getFoodSources(): Promise<FoodSource[]> {
 }
 
 // ============================================
+// LISTING LOOKUP
+// ============================================
+export async function getListingStation(listingId: string): Promise<string | null> {
+  const { data, error } = await supabase
+    .from('food_listings')
+    .select('station_id')
+    .eq('id', listingId)
+    .single();
+
+  if (error || !data) {
+    console.error('Error fetching listing station:', error);
+    return null;
+  }
+
+  return (data as { station_id: string }).station_id;
+}
+
+// ============================================
 // SPONSORED LISTINGS
 // ============================================
 export async function getSponsoredListing(

@@ -35,7 +35,7 @@ function useThumbnail(listingId: string | null) {
 
 interface SlotMachineProps {
   listings: FoodListingWithSources[];
-  onSelectWinner: (listing: FoodListingWithSources) => void;
+  onClose: () => void;
 }
 
 function getMichelinBadge(sourceId: string): string | null {
@@ -56,7 +56,7 @@ function formatWalkTime(meters: number | null): string {
   return `${minutes} min walk`;
 }
 
-export default function SlotMachine({ listings, onSelectWinner }: SlotMachineProps) {
+export default function SlotMachine({ listings, onClose }: SlotMachineProps) {
   const [isSpinning, setIsSpinning] = useState(false);
   const [currentListing, setCurrentListing] = useState<FoodListingWithSources | null>(null);
   const [winner, setWinner] = useState<FoodListingWithSources | null>(null);
@@ -67,8 +67,6 @@ export default function SlotMachine({ listings, onSelectWinner }: SlotMachinePro
   // Fetch thumbnail for winner
   const winnerThumbnail = useThumbnail(winner?.id || null);
   const displayImage = winnerThumbnail || (winner?.image_url?.startsWith('http') ? winner.image_url : null);
-
-  // Don't initialize with a random listing - keep it null for neutral placeholder
 
   const spin = useCallback(() => {
     if (listings.length === 0 || isSpinning) return;
@@ -101,16 +99,15 @@ export default function SlotMachine({ listings, onSelectWinner }: SlotMachinePro
         const randomWinner = listings[Math.floor(Math.random() * listings.length)];
         setCurrentListing(randomWinner);
         setWinner(randomWinner);
-        setAnimationKey(prev => prev + 1); // Increment key to trigger animation once
+        setAnimationKey(prev => prev + 1);
         setIsSpinning(false);
         setShowCelebration(true);
-        onSelectWinner(randomWinner);
 
         // Hide celebration after animation
         setTimeout(() => setShowCelebration(false), 1500);
       }
     }, currentSpeed);
-  }, [listings, isSpinning, onSelectWinner]);
+  }, [listings, isSpinning]);
 
   useEffect(() => {
     return () => {
@@ -120,7 +117,7 @@ export default function SlotMachine({ listings, onSelectWinner }: SlotMachinePro
     };
   }, []);
 
-  // Render winner card content (not as separate component to avoid remounting)
+  // Render winner card content
   const renderWinnerCard = () => {
     if (!winner) return null;
 
@@ -218,106 +215,112 @@ export default function SlotMachine({ listings, onSelectWinner }: SlotMachinePro
   };
 
   return (
-    <div className={`bg-white rounded-lg p-4 mb-4 border border-[#E0DCD7] transition-all duration-300 ${
-      isSpinning ? 'animate-shake' : ''
-    } ${showCelebration ? 'ring-2 ring-[#FF6B4A] ring-offset-2' : ''}`}>
-      <div className="text-center mb-3">
-        <h3 className="text-sm font-semibold text-[#2D2D2D] mb-0.5">
-          🎰 Surprise Me!
-        </h3>
-      </div>
-
-      {/* Slot Machine Display - only show when spinning or no winner yet */}
-      {!winner && (
-        <div className={`bg-[#FFF0ED] rounded p-3 mb-3 border border-[#FF6B4A]/30 min-h-[70px] flex items-center justify-center relative overflow-hidden ${
-          showCelebration ? 'bg-[#FFF0ED]' : ''
-        }`}>
-          <div className="text-center w-full overflow-hidden relative z-10">
-            <div
-              className={`text-lg font-medium transition-all duration-150 ${
-                isSpinning ? 'blur-sm opacity-70 text-[#2D2D2D]' : 'blur-0 opacity-100'
-              } ${showCelebration ? 'text-[#2D2D2D] animate-bounce-subtle scale-105' : 'text-[#2D2D2D]'}`}
-              style={{
-                animation: isSpinning ? 'slotSpin 0.08s ease-in-out infinite' : undefined
-              }}
-            >
-              {isSpinning && currentListing ? currentListing.name : 'Ready to spin!'}
-            </div>
-            {!isSpinning && (
-              <div className="mt-1 text-xs text-[#757575]">
-                Let fate decide your next meal!
-              </div>
-            )}
-          </div>
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 animate-fade-in">
+      <div className="bg-white rounded-2xl p-4 mx-4 max-w-[340px] w-full shadow-xl">
+        {/* Header */}
+        <div className="flex items-center justify-between mb-3">
+          <h2 className="text-sm font-semibold text-[#2D2D2D]">
+            🎰 Surprise Me!
+          </h2>
+          <button
+            onClick={onClose}
+            className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M18 6L6 18M6 6l12 12" />
+            </svg>
+          </button>
         </div>
-      )}
 
-      {!winner && (
-        <button
-          onClick={spin}
-          disabled={listings.length === 0 || isSpinning}
-          className={`w-full py-2.5 px-4 font-medium text-sm rounded transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed ${
-            isSpinning
-              ? 'bg-[#FFF0ED] text-[#FF6B4A] animate-pulse'
-              : 'bg-[#FF6B4A] hover:bg-[#E55A3A] hover:scale-[1.02] active:scale-[0.98] text-white'
-          }`}
-        >
-          {isSpinning ? '🎲 Spinning...' : '🎰 Spin'}
-        </button>
-      )}
+        {/* Slot Machine Display - only show when spinning or no winner yet */}
+        {!winner && (
+          <div className={`bg-[#FFF0ED] rounded p-3 mb-3 border border-[#FF6B4A]/30 min-h-[70px] flex items-center justify-center relative overflow-hidden ${
+            showCelebration ? 'bg-[#FFF0ED]' : ''
+          }`}>
+            <div className="text-center w-full overflow-hidden relative z-10">
+              <div
+                className={`text-lg font-medium transition-all duration-150 ${
+                  isSpinning ? 'blur-sm opacity-70 text-[#2D2D2D]' : 'blur-0 opacity-100'
+                } ${showCelebration ? 'text-[#2D2D2D] animate-bounce-subtle scale-105' : 'text-[#2D2D2D]'}`}
+                style={{
+                  animation: isSpinning ? 'slotSpin 0.08s ease-in-out infinite' : undefined
+                }}
+              >
+                {isSpinning && currentListing ? currentListing.name : 'Ready to spin!'}
+              </div>
+              {!isSpinning && (
+                <div className="mt-1 text-xs text-[#757575]">
+                  Let fate decide your next meal!
+                </div>
+              )}
+            </div>
+          </div>
+        )}
 
-      {winner && renderWinnerCard()}
+        {!winner && (
+          <button
+            onClick={spin}
+            disabled={listings.length === 0 || isSpinning}
+            className={`w-full py-2.5 px-4 font-medium text-sm rounded transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed ${
+              isSpinning
+                ? 'bg-[#FFF0ED] text-[#FF6B4A] animate-pulse'
+                : 'bg-[#FF6B4A] hover:bg-[#E55A3A] hover:scale-[1.02] active:scale-[0.98] text-white'
+            }`}
+          >
+            {isSpinning ? '🎲 Spinning...' : '🎰 Spin'}
+          </button>
+        )}
 
-      <style jsx>{`
-        @keyframes slotSpin {
-          0% {
-            transform: translateY(-100%);
-            opacity: 0;
+        {winner && renderWinnerCard()}
+
+        <style jsx>{`
+          @keyframes slotSpin {
+            0% {
+              transform: translateY(-100%);
+              opacity: 0;
+            }
+            50% {
+              opacity: 1;
+            }
+            100% {
+              transform: translateY(100%);
+              opacity: 0;
+            }
           }
-          50% {
-            opacity: 1;
+          @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-2px); }
+            20%, 40%, 60%, 80% { transform: translateX(2px); }
           }
-          100% {
-            transform: translateY(100%);
-            opacity: 0;
+          .animate-shake {
+            animation: shake 0.5s ease-in-out infinite;
           }
-        }
-        @keyframes shake {
-          0%, 100% { transform: translateX(0); }
-          10%, 30%, 50%, 70%, 90% { transform: translateX(-2px); }
-          20%, 40%, 60%, 80% { transform: translateX(2px); }
-        }
-        .animate-shake {
-          animation: shake 0.5s ease-in-out infinite;
-        }
-        .animate-bounce-subtle {
-          animation: bounceSubtle 0.5s ease-out;
-        }
-        @keyframes bounceSubtle {
-          0% { transform: scale(0.9); opacity: 0; }
-          50% { transform: scale(1.1); }
-          100% { transform: scale(1.05); opacity: 1; }
-        }
-        @keyframes winnerPop {
-          0% {
-            transform: scale(0.3);
-            opacity: 0;
+          .animate-bounce-subtle {
+            animation: bounceSubtle 0.5s ease-out;
           }
-          50% {
-            transform: scale(1.08);
-            opacity: 1;
+          @keyframes bounceSubtle {
+            0% { transform: scale(0.9); opacity: 0; }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1.05); opacity: 1; }
           }
-          70% {
-            transform: scale(0.95);
+          @keyframes winnerPop {
+            0% {
+              transform: scale(0.3);
+              opacity: 0;
+            }
+            50% {
+              transform: scale(1.08);
+              opacity: 1;
+            }
+            70% {
+              transform: scale(0.95);
+            }
+            100% {
+              transform: scale(1);
+            }
           }
-          100% {
-            transform: scale(1);
-          }
-        }
-        .animate-winner-pop {
-          animation: winnerPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-        }
-      `}</style>
+        `}</style>
+      </div>
     </div>
   );
 }

@@ -1,13 +1,44 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, Suspense } from 'react';
+import { useSearchParams } from 'next/navigation';
 import MRTMap from '@/components/MRTMap';
 import FoodPanelV2 from '@/components/FoodPanelV2';
 import SearchBar from '@/components/SearchBar';
 import SearchResultsPanel from '@/components/SearchResultsPanel';
 import Footer from '@/components/Footer';
 import Onboarding, { OnboardingRef } from '@/components/Onboarding';
-import { searchStationsByFoodWithCounts, StationSearchResult, getStations, getSupperSpotsByStation, getDessertSpotsByStation, getStationsWithNoContent, DEFAULT_PAGE_SIZE } from '@/lib/api';
+import { searchStationsByFoodWithCounts, StationSearchResult, getStations, getSupperSpotsByStation, getDessertSpotsByStation, getStationsWithNoContent, getListingStation, DEFAULT_PAGE_SIZE } from '@/lib/api';
+
+// Component that handles deep link logic
+function DeepLinkHandler({
+  onStationSelect,
+  mapZoomHandler
+}: {
+  onStationSelect: (stationId: string) => void;
+  mapZoomHandler: React.RefObject<((stationId: string) => void) | null>;
+}) {
+  const searchParams = useSearchParams();
+  const hasHandledDeepLink = useRef(false);
+
+  useEffect(() => {
+    const listingId = searchParams.get('listing');
+    if (listingId && !hasHandledDeepLink.current) {
+      hasHandledDeepLink.current = true;
+      getListingStation(listingId).then(stationId => {
+        if (stationId) {
+          onStationSelect(stationId);
+          // Also zoom to the station if map is ready
+          if (mapZoomHandler.current) {
+            mapZoomHandler.current(stationId);
+          }
+        }
+      });
+    }
+  }, [searchParams, onStationSelect, mapZoomHandler]);
+
+  return null;
+}
 
 export default function Home() {
   const [selectedStation, setSelectedStation] = useState<string | null>(null);
@@ -199,6 +230,14 @@ export default function Home() {
 
   return (
     <main className="h-screen flex flex-col overflow-hidden">
+      {/* Deep link handler - wrapped in Suspense for useSearchParams */}
+      <Suspense fallback={null}>
+        <DeepLinkHandler
+          onStationSelect={setSelectedStation}
+          mapZoomHandler={mapZoomHandlerRef}
+        />
+      </Suspense>
+
       {/* Onboarding Tour */}
       <Onboarding ref={onboardingRef} />
 
