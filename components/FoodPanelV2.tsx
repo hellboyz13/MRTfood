@@ -187,14 +187,69 @@ export default function FoodPanelV2({ stationId, onClose, onNavigateToStation, i
   );
 
   // Scroll to highlighted listing when it's set (from deep link)
+  // This effect also expands pagination if needed to show the highlighted listing
   useEffect(() => {
-    if (highlightedListingId && highlightedRef.current && !loading) {
-      // Small delay to ensure DOM is ready
+    if (!highlightedListingId || loading) return;
+
+    // Check which tab contains the highlighted listing
+    const inPopular = separatedListings.popular.some(l => l.id === highlightedListingId);
+    const inCurated = separatedListings.recommended.some(l => l.id === highlightedListingId) ||
+                      separatedListings.foodKingOnly.some(l => l.id === highlightedListingId);
+
+    // Determine which listings to check based on current mode or auto-switch
+    let targetListings: FoodListingWithSources[] = [];
+    let targetMode: PanelMode | null = null;
+
+    if (inPopular) {
+      targetListings = separatedListings.popular;
+      targetMode = 'popular';
+    } else if (inCurated) {
+      targetListings = [...separatedListings.recommended, ...separatedListings.foodKingOnly];
+      targetMode = 'curated';
+    }
+
+    // Auto-switch to the correct tab if not already there
+    if (targetMode && mode !== targetMode) {
+      setMode(targetMode);
+      return; // Re-run after mode changes
+    }
+
+    // Sort by the current sort order (same logic as renderListings)
+    const sortedListings = [...targetListings].sort((a, b) => {
+      if (sortBy === 'rating') {
+        const ratingA = a.rating ?? 0;
+        const ratingB = b.rating ?? 0;
+        if (ratingB !== ratingA) return ratingB - ratingA;
+        const distA = a.distance_to_station ?? a.walking_time ?? Infinity;
+        const distB = b.distance_to_station ?? b.walking_time ?? Infinity;
+        return distA - distB;
+      }
+      const distA = a.distance_to_station ?? a.walking_time ?? Infinity;
+      const distB = b.distance_to_station ?? b.walking_time ?? Infinity;
+      return distA - distB;
+    });
+
+    // Find the index in the sorted list
+    const highlightedIndex = sortedListings.findIndex(l => l.id === highlightedListingId);
+
+    if (highlightedIndex >= 0) {
+      // Calculate which page this listing would be on
+      const neededPage = Math.ceil((highlightedIndex + 1) / LISTINGS_PER_PAGE);
+
+      // Expand pagination if needed
+      if (neededPage > listingsPage) {
+        setListingsPage(neededPage);
+        return; // The effect will re-run after listingsPage updates
+      }
+    }
+
+    // Now scroll to the element if it exists
+    if (highlightedRef.current) {
       setTimeout(() => {
         highlightedRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }, 300);
     }
-  }, [highlightedListingId, loading]);
+  }, [highlightedListingId, loading, separatedListings, listingsPage, mode, sortBy]);
 
   if (!stationId) return null;
 
