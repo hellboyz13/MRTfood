@@ -69,6 +69,8 @@ interface FoodPanelV2Props {
   isMobile?: boolean;
   searchQuery?: string;
   searchMatches?: SearchMatch[];
+  highlightedListingId?: string | null;
+  onHighlightClear?: () => void;
 }
 
 // Sponsored listing card for Supabase data
@@ -145,7 +147,7 @@ const isSupabaseConfigured = () => {
   );
 };
 
-export default function FoodPanelV2({ stationId, onClose, onNavigateToStation, isMobile = false, searchQuery = '', searchMatches = [] }: FoodPanelV2Props) {
+export default function FoodPanelV2({ stationId, onClose, onNavigateToStation, isMobile = false, searchQuery = '', searchMatches = [], highlightedListingId, onHighlightClear }: FoodPanelV2Props) {
   const [selectedMenuListing, setSelectedMenuListing] = useState<FoodListingWithSources | null>(null);
   const [mode, setMode] = useState<PanelMode>('popular');
   const [selectedMallId, setSelectedMallId] = useState<string | null>(null);
@@ -154,6 +156,7 @@ export default function FoodPanelV2({ stationId, onClose, onNavigateToStation, i
   const [sortBy, setSortBy] = useState<'distance' | 'rating'>('distance');
   const [showSpinWheel, setShowSpinWheel] = useState(false);
   const desktopScrollRef = useRef<HTMLDivElement>(null);
+  const highlightedRef = useRef<HTMLDivElement>(null);
 
   const LISTINGS_PER_PAGE = 20;
 
@@ -182,6 +185,16 @@ export default function FoodPanelV2({ stationId, onClose, onNavigateToStation, i
   const { mall: selectedMall, outlets, loading: outletsLoading } = useMallOutlets(
     selectedMallId
   );
+
+  // Scroll to highlighted listing when it's set (from deep link)
+  useEffect(() => {
+    if (highlightedListingId && highlightedRef.current && !loading) {
+      // Small delay to ensure DOM is ready
+      setTimeout(() => {
+        highlightedRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 300);
+    }
+  }, [highlightedListingId, loading]);
 
   if (!stationId) return null;
 
@@ -215,16 +228,26 @@ export default function FoodPanelV2({ stationId, onClose, onNavigateToStation, i
   const isSearchActive = searchQuery && searchMatches.length > 0;
   const hasMallMatches = mallOutletMatches.length > 0;
 
+  // Get curated listing matches (type === 'curated' in search results)
+  const curatedMatches = searchMatches.filter(m => m.type === 'curated');
+  const hasCuratedMatches = curatedMatches.length > 0;
+
   // Determine which modes have content
+  // Note: "other" (listings without sources) are no longer shown - only categorized listings
+  // When search is active, only show tabs that have matching results
   const hasCuratedContent = separatedListings.recommended.length > 0 || separatedListings.foodKingOnly.length > 0;
-  const hasPopularContent = separatedListings.popular.length > 0 || separatedListings.other.length > 0;
+  const hasPopularContent = separatedListings.popular.length > 0;
   const hasMallsContent = malls.length > 0;
 
   // Build array of available modes
-  // When search is active, only show malls tab if there are mall matches
+  // When search is active, only show tabs that have search matches
   const availableModes: PanelMode[] = [];
-  if (hasPopularContent) availableModes.push('popular');
-  if (hasCuratedContent) availableModes.push('curated');
+  if (hasPopularContent && (!isSearchActive || separatedListings.popular.some(l => matchesSearch(l)))) {
+    availableModes.push('popular');
+  }
+  if (hasCuratedContent && (!isSearchActive || hasCuratedMatches)) {
+    availableModes.push('curated');
+  }
   // Only show malls tab if: no search active, OR search has mall matches
   if (hasMallsContent && (!isSearchActive || hasMallMatches)) availableModes.push('malls');
 
@@ -263,10 +286,11 @@ export default function FoodPanelV2({ stationId, onClose, onNavigateToStation, i
     }
 
     // Get listings based on mode
-    // Popular: popular source + other (no source)
+    // Popular: popular source only (no longer including "other" - listings without sources)
     // Curated: recommended + food king
+    // Note: Listings without sources are hidden - they should have sources assigned
     const modeListings = mode === 'popular'
-      ? [...separatedListings.popular, ...separatedListings.other]
+      ? [...separatedListings.popular]
       : [...separatedListings.recommended, ...separatedListings.foodKingOnly];
 
     const hasContent = data.sponsored || modeListings.length > 0;
@@ -398,14 +422,22 @@ export default function FoodPanelV2({ stationId, onClose, onNavigateToStation, i
           )}
           {/* Single column list */}
           <div className="space-y-2">
-            {paginatedListings.map((listing) => (
-              <FoodListingCardV2
-                key={listing.id}
-                listing={listing}
-                highlighted={false}
-                onViewMenu={setSelectedMenuListing}
-              />
-            ))}
+            {paginatedListings.map((listing) => {
+              const isHighlighted = listing.id === highlightedListingId;
+              return (
+                <div
+                  key={listing.id}
+                  ref={isHighlighted ? highlightedRef : undefined}
+                  onClick={isHighlighted ? onHighlightClear : undefined}
+                >
+                  <FoodListingCardV2
+                    listing={listing}
+                    highlighted={isHighlighted}
+                    onViewMenu={setSelectedMenuListing}
+                  />
+                </div>
+              );
+            })}
           </div>
           {/* Load More button */}
           {hasMoreListings && (

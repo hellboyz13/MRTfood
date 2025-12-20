@@ -50,11 +50,16 @@
       "Bash(npx vercel whoami:*)",
       "Bash(claude auth logout:*)",
       "Bash(DOTENV_CONFIG_PATH=.env.local npx tsx:*)",
-      "Bash(npx playwright install:*)",
-      "Bash(git checkout:*)",
-      "Bash(for i in 1 2 3 4 5)",
-      "Bash(do echo \"=== Run $i ===\")",
-      "Bash(done)"
+      "Bash(node -e:*)",
+      "Bash(node scripts/import-hillion-mall.js:*)",
+      "Bash(node scripts/import-111-somerset.js:*)",
+      "Bash(DOTENV_CONFIG_PATH=.env.local node:*)",
+      "Bash(node scripts/copy-chain-thumbnails.js:*)",
+      "Bash(del \"c:\\Users\\Admin\\Desktop\\MRTFOODIE\\scripts\\check-bp-listings.js\")",
+      "Bash(del \"c:\\\\Users\\\\Admin\\\\Desktop\\\\MRTFOODIE\\\\scripts\\\\copy-chain-thumbnails.js\")",
+      "Bash(rm:*)",
+      "Bash(npx playwright install)",
+      "Bash(grep:*)"
     ],
     "deny": [],
     "ask": []

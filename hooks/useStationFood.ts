@@ -6,7 +6,24 @@ import { getStationFoodData } from '@/lib/api';
 
 // Source IDs for categorization (only hawker and bib gourmand for Michelin)
 const MICHELIN_SOURCE_IDS = ['michelin-hawker', 'michelin-bib-gourmand'];
-const RECOMMENDED_SOURCE_IDS = [...MICHELIN_SOURCE_IDS, 'ieatishootipost', 'editors-choice', 'eatbook', 'get-fed'];
+// All guide/blog sources that should appear in the Guides tab
+const RECOMMENDED_SOURCE_IDS = [
+  ...MICHELIN_SOURCE_IDS,
+  'ieatishootipost',
+  'editors-choice',
+  'eatbook',
+  'get-fed',
+  '8days',
+  'burpple',
+  'danielfooddiary',
+  'foodadvisor',
+  'honeycombers',
+  'hungrygowhere',
+  'misstamchiak',
+  'sethlui',
+  'supper',
+  'timeout-2025',
+];
 const POPULAR_SOURCE_ID = 'popular';
 const FOOD_KING_SOURCE_ID = 'food-king';
 

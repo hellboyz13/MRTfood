@@ -13,9 +13,11 @@ import { searchStationsByFoodWithCounts, StationSearchResult, getStations, getSu
 // Component that handles deep link logic
 function DeepLinkHandler({
   onStationSelect,
+  onListingSelect,
   mapZoomHandler
 }: {
   onStationSelect: (stationId: string) => void;
+  onListingSelect: (listingId: string | null) => void;
   mapZoomHandler: React.RefObject<((stationId: string) => void) | null>;
 }) {
   const searchParams = useSearchParams();
@@ -28,6 +30,7 @@ function DeepLinkHandler({
       getListingStation(listingId).then(stationId => {
         if (stationId) {
           onStationSelect(stationId);
+          onListingSelect(listingId); // Pass listing ID to highlight
           // Also zoom to the station if map is ready
           if (mapZoomHandler.current) {
             mapZoomHandler.current(stationId);
@@ -35,13 +38,14 @@ function DeepLinkHandler({
         }
       });
     }
-  }, [searchParams, onStationSelect, mapZoomHandler]);
+  }, [searchParams, onStationSelect, onListingSelect, mapZoomHandler]);
 
   return null;
 }
 
 export default function Home() {
   const [selectedStation, setSelectedStation] = useState<string | null>(null);
+  const [highlightedListingId, setHighlightedListingId] = useState<string | null>(null);
   const [isMobile, setIsMobile] = useState(false);
   const [searchResults, setSearchResults] = useState<StationSearchResult[]>([]);
   const [hasMoreSearchResults, setHasMoreSearchResults] = useState(false);
@@ -234,6 +238,7 @@ export default function Home() {
       <Suspense fallback={null}>
         <DeepLinkHandler
           onStationSelect={setSelectedStation}
+          onListingSelect={setHighlightedListingId}
           mapZoomHandler={mapZoomHandlerRef}
         />
       </Suspense>
@@ -291,6 +296,8 @@ export default function Home() {
               isMobile={false}
               searchQuery={searchQuery}
               searchMatches={getSearchMatches()}
+              highlightedListingId={highlightedListingId}
+              onHighlightClear={() => setHighlightedListingId(null)}
             />
           </div>
         )}
@@ -304,6 +311,8 @@ export default function Home() {
             isMobile={true}
             searchQuery={searchQuery}
             searchMatches={getSearchMatches()}
+            highlightedListingId={highlightedListingId}
+            onHighlightClear={() => setHighlightedListingId(null)}
           />
         )}
       </div>

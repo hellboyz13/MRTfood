@@ -91,6 +91,7 @@ export async function getListingStation(listingId: string): Promise<string | nul
     .from('food_listings')
     .select('station_id')
     .eq('id', listingId)
+    .eq('is_active', true)
     .single();
 
   if (error || !data) {
