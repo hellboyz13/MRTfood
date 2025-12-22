@@ -1,7 +1,8 @@
 'use client';
 
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import { MallOutlet } from '@/types/database';
+import { useSpinSelection } from '@/contexts/SpinSelectionContext';
 
 interface OutletSlotMachineProps {
   outlets: MallOutlet[];
@@ -16,8 +17,15 @@ export default function OutletSlotMachine({ outlets, onClose }: OutletSlotMachin
   const [animationKey, setAnimationKey] = useState(0);
   const spinIntervalRef = useRef<NodeJS.Timeout | null>(null);
 
+  // Get selected outlets from context - spin only selected if any are selected
+  const { selectedOutletIds } = useSpinSelection();
+  const spinOutlets = useMemo(() => {
+    if (selectedOutletIds.size === 0) return outlets;
+    return outlets.filter(o => selectedOutletIds.has(o.id));
+  }, [outlets, selectedOutletIds]);
+
   const spin = useCallback(() => {
-    if (outlets.length === 0 || isSpinning) return;
+    if (spinOutlets.length === 0 || isSpinning) return;
 
     setIsSpinning(true);
     setWinner(null);
@@ -29,7 +37,7 @@ export default function OutletSlotMachine({ outlets, onClose }: OutletSlotMachin
 
     spinIntervalRef.current = setInterval(() => {
       // Change outlet rapidly
-      setCurrentOutlet(outlets[Math.floor(Math.random() * outlets.length)]);
+      setCurrentOutlet(spinOutlets[Math.floor(Math.random() * spinOutlets.length)]);
 
       spinCount++;
 
@@ -44,7 +52,7 @@ export default function OutletSlotMachine({ outlets, onClose }: OutletSlotMachin
         }
 
         // Pick final winner
-        const randomWinner = outlets[Math.floor(Math.random() * outlets.length)];
+        const randomWinner = spinOutlets[Math.floor(Math.random() * spinOutlets.length)];
         setCurrentOutlet(randomWinner);
         setWinner(randomWinner);
         setAnimationKey(prev => prev + 1);
@@ -55,7 +63,7 @@ export default function OutletSlotMachine({ outlets, onClose }: OutletSlotMachin
         setTimeout(() => setShowCelebration(false), 1500);
       }
     }, currentSpeed);
-  }, [outlets, isSpinning]);
+  }, [spinOutlets, isSpinning]);
 
   useEffect(() => {
     return () => {

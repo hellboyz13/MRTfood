@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { FoodListingWithSources, ListingSourceWithDetails } from '@/types/database';
 import { formatDistance, getWalkingTime, getMapsUrl } from '@/lib/distance';
+import { useSpinSelection } from '@/contexts/SpinSelectionContext';
 
 // Email client picker modal
 function EmailClientPicker({
@@ -238,6 +239,12 @@ export default function FoodListingCardV2({ listing, highlighted = false, onView
   const [showLightbox, setShowLightbox] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
   const [showEmailPicker, setShowEmailPicker] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  // Spin selection
+  const { selectedListingIds, toggleListing, canAddListing } = useSpinSelection();
+  const isSelectedForSpin = selectedListingIds.has(listing.id);
 
   const displayImage = thumbnailImage || (listing.image_url?.startsWith('http') ? listing.image_url : null);
   const handleImageClick = useCallback(() => {
@@ -252,8 +259,29 @@ export default function FoodListingCardV2({ listing, highlighted = false, onView
   const primarySources = listing.sources.filter(s => s.is_primary && !HIDDEN_SOURCE_IDS.includes(s.source.id));
   const secondarySources = listing.sources.filter(s => !s.is_primary && !HIDDEN_SOURCE_IDS.includes(s.source.id));
 
-  // Fetch header/thumbnail image from menu_images
+  // Intersection Observer to detect when card is visible
   useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '100px' } // Start loading 100px before visible
+    );
+
+    if (cardRef.current) {
+      observer.observe(cardRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  // Fetch header/thumbnail image from menu_images - only when visible
+  useEffect(() => {
+    if (!isVisible) return;
+
     async function fetchThumbnail() {
       try {
         const response = await fetch(`/api/get-menu-images?listingId=${listing.id}`);
@@ -270,14 +298,17 @@ export default function FoodListingCardV2({ listing, highlighted = false, onView
     }
 
     fetchThumbnail();
-  }, [listing.id]);
+  }, [listing.id, isVisible]);
 
   return (
-    <div className={`rounded-lg p-3 shadow-sm ${
-      highlighted
-        ? 'bg-[#FFF0ED] border-2 border-[#FF6B4A] ring-2 ring-[#FF6B4A]/20'
-        : 'bg-white border border-[#E0DCD7]'
-    }`}>
+    <div
+      ref={cardRef}
+      className={`rounded-lg p-3 shadow-sm ${
+        highlighted
+          ? 'bg-[#FFF0ED] border-2 border-[#FF6B4A] ring-2 ring-[#FF6B4A]/20'
+          : 'bg-white border border-[#E0DCD7]'
+      }`}
+    >
       {/* Lightbox Modal */}
       {showLightbox && displayImage && (
         <ImageLightbox
@@ -450,7 +481,36 @@ export default function FoodListingCardV2({ listing, highlighted = false, onView
             <circle cx="12" cy="21" r="1" />
             <path d="M12 17v-4" />
           </svg>
-          <span>Report Issue</span>
+          <span>Report</span>
+        </button>
+        {/* Spin Selection Toggle */}
+        <button
+          onClick={() => toggleListing(listing.id)}
+          disabled={!isSelectedForSpin && !canAddListing}
+          className={`flex-1 flex items-center justify-center gap-1.5 py-1.5 px-2 rounded-md text-xs font-medium transition-all ${
+            isSelectedForSpin
+              ? 'bg-[#FF6B4A] text-white shadow-md ring-2 ring-[#FF6B4A]/30'
+              : canAddListing
+                ? 'bg-amber-50 text-amber-700 border border-amber-200 hover:bg-amber-100 hover:border-amber-300'
+                : 'bg-gray-100 text-gray-400 cursor-not-allowed'
+          }`}
+        >
+          {isSelectedForSpin ? (
+            <>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              <span>Selected</span>
+            </>
+          ) : (
+            <>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 8v8M8 12h8" />
+              </svg>
+              <span>Add to Spin</span>
+            </>
+          )}
         </button>
       </div>
 

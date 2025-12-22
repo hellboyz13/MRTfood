@@ -1,8 +1,9 @@
 'use client';
 
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import { FoodListingWithSources } from '@/types/database';
 import { getMapsUrl } from '@/lib/distance';
+import { useSpinSelection } from '@/contexts/SpinSelectionContext';
 
 // Hook to fetch thumbnail for a listing
 function useThumbnail(listingId: string | null) {
@@ -64,12 +65,19 @@ export default function SlotMachine({ listings, onClose }: SlotMachineProps) {
   const [animationKey, setAnimationKey] = useState(0);
   const spinIntervalRef = useRef<NodeJS.Timeout | null>(null);
 
+  // Get selected listings from context - spin only selected if any are selected
+  const { selectedListingIds } = useSpinSelection();
+  const spinListings = useMemo(() => {
+    if (selectedListingIds.size === 0) return listings;
+    return listings.filter(l => selectedListingIds.has(l.id));
+  }, [listings, selectedListingIds]);
+
   // Fetch thumbnail for winner
   const winnerThumbnail = useThumbnail(winner?.id || null);
   const displayImage = winnerThumbnail || (winner?.image_url?.startsWith('http') ? winner.image_url : null);
 
   const spin = useCallback(() => {
-    if (listings.length === 0 || isSpinning) return;
+    if (spinListings.length === 0 || isSpinning) return;
 
     setIsSpinning(true);
     setWinner(null);
@@ -81,7 +89,7 @@ export default function SlotMachine({ listings, onClose }: SlotMachineProps) {
 
     spinIntervalRef.current = setInterval(() => {
       // Change listing rapidly
-      setCurrentListing(listings[Math.floor(Math.random() * listings.length)]);
+      setCurrentListing(spinListings[Math.floor(Math.random() * spinListings.length)]);
 
       spinCount++;
 
@@ -96,7 +104,7 @@ export default function SlotMachine({ listings, onClose }: SlotMachineProps) {
         }
 
         // Pick final winner
-        const randomWinner = listings[Math.floor(Math.random() * listings.length)];
+        const randomWinner = spinListings[Math.floor(Math.random() * spinListings.length)];
         setCurrentListing(randomWinner);
         setWinner(randomWinner);
         setAnimationKey(prev => prev + 1);
@@ -107,7 +115,7 @@ export default function SlotMachine({ listings, onClose }: SlotMachineProps) {
         setTimeout(() => setShowCelebration(false), 1500);
       }
     }, currentSpeed);
-  }, [listings, isSpinning]);
+  }, [spinListings, isSpinning]);
 
   useEffect(() => {
     return () => {

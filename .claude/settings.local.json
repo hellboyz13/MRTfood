@@ -59,7 +59,12 @@
       "Bash(del \"c:\\\\Users\\\\Admin\\\\Desktop\\\\MRTFOODIE\\\\scripts\\\\copy-chain-thumbnails.js\")",
       "Bash(rm:*)",
       "Bash(npx playwright install)",
-      "Bash(grep:*)"
+      "Bash(grep:*)",
+      "Bash(xargs cat:*)",
+      "Bash(grep -rn \"loading=\"\"lazy\"\"\\\\|loading=\"\"eager\"\"\\\\|decoding=\" \"c:\\\\Users\\\\JeremyNg\\\\MRTfood\\\\components\"\" --include=\"*.tsx \")",
+      "Bash(rd /s /q .next)",
+      "Bash(node scripts/check-missing-menu-images.js:*)",
+      "Bash(node scripts/fetch-menu-images-single.js:*)"
     ],
     "deny": [],
     "ask": []

@@ -5,12 +5,14 @@ import { MallOutlet, Mall } from '@/types/database';
 import OutletCard from './OutletCard';
 import OutletSlotMachine from './OutletSlotMachine';
 import OutletDetailPanel from './OutletDetailPanel';
+import { useSpinSelection } from '@/contexts/SpinSelectionContext';
 
 interface OutletListProps {
   mall: Mall | null;
   outlets: MallOutlet[];
   loading: boolean;
   onBack: () => void;
+  hideHeader?: boolean; // Hide sticky header when parent handles it
 }
 
 // Parse level from outlet.level field (unit number format)
@@ -105,9 +107,12 @@ function EmptyState() {
   );
 }
 
-export default function OutletList({ mall, outlets, loading, onBack }: OutletListProps) {
+export default function OutletList({ mall, outlets, loading, onBack, hideHeader = false }: OutletListProps) {
   const [showSpinWheel, setShowSpinWheel] = useState(false);
   const [selectedOutlet, setSelectedOutlet] = useState<MallOutlet | null>(null);
+
+  // Spin selection
+  const { outletCount, clearOutlets, MAX_ITEMS } = useSpinSelection();
 
   // Group outlets by floor level, with ungrouped outlets shown separately
   const { groupedOutlets, ungroupedOutlets } = useMemo(() => {
@@ -154,33 +159,72 @@ export default function OutletList({ mall, outlets, loading, onBack }: OutletLis
 
   return (
     <div className="min-h-0">
-      {/* Back button with mall name */}
-      <button
-        onClick={onBack}
-        className="flex items-center gap-2 text-sm font-medium text-[#2D2D2D] hover:text-[#FF6B4A] transition-colors mb-3"
-      >
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          <path d="M15 18l-6-6 6-6" />
-        </svg>
-        <span>{mall?.name || 'Back'}</span>
-      </button>
+      {/* Sticky Header - Back button + Spin controls (hidden when parent handles it) */}
+      {!hideHeader && (
+        <div
+          className="sticky top-0 z-30 bg-white pt-1 pb-1.5 border-b border-gray-100"
+          style={{
+            paddingLeft: 'clamp(12px, 4vw, 20px)',
+            paddingRight: 'clamp(12px, 4vw, 20px)',
+            boxShadow: '0 2px 4px rgba(0,0,0,0.08)',
+          }}
+        >
+          {/* Back button with mall name */}
+          <button
+            onClick={onBack}
+            className="flex items-center gap-2 text-sm font-medium text-[#2D2D2D] hover:text-[#FF6B4A] transition-colors"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M15 18l-6-6 6-6" />
+            </svg>
+            <span>{mall?.name || 'Back'}</span>
+          </button>
+
+          {/* Spin Button - with helper text */}
+          {!loading && totalOutletsCount >= 2 && (
+            <div className="mt-1 mb-1.5">
+              {/* Info text when no selection */}
+              {outletCount === 0 && (
+                <p className="text-xs text-gray-500 text-center mb-1">
+                  💡 Tap "Add to Spin" on items below, then spin!
+                </p>
+              )}
+
+              <div className="flex gap-2">
+                <button
+                  onClick={() => setShowSpinWheel(true)}
+                  className={`flex-1 flex items-center justify-center gap-1.5 py-1.5 text-sm font-semibold rounded-lg transition-all ${
+                    outletCount > 0
+                      ? 'bg-[#FF6B4A] text-white hover:bg-[#E55A3A] shadow-lg'
+                      : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                  }`}
+                >
+                  <span>🎰</span>
+                  <span>{outletCount > 0 ? `Spin (${outletCount})` : "Spin All"}</span>
+                </button>
+
+                {/* Clear button - only show when items are selected */}
+                {outletCount > 0 && (
+                  <button
+                    onClick={clearOutlets}
+                    className="px-2 py-1.5 bg-gray-100 text-gray-600 rounded-lg hover:bg-gray-200 transition-colors text-xs font-medium"
+                    aria-label="Clear selection"
+                  >
+                    Clear
+                  </button>
+                )}
+              </div>
+            </div>
+          )}
+        </div>
+      )}
 
       {loading ? (
         <LoadingState />
       ) : totalOutletsCount === 0 ? (
         <EmptyState />
       ) : (
-        <div className="space-y-6">
-          {/* Spin Button - full width */}
-          {totalOutletsCount >= 2 && (
-            <button
-              onClick={() => setShowSpinWheel(true)}
-              className="w-full flex items-center justify-center gap-2 py-2 bg-[#FF6B4A] text-white text-sm font-semibold rounded-lg hover:bg-[#E55A3A] transition-colors"
-            >
-              <span>🎰</span>
-              <span>Can't decide? Spin!</span>
-            </button>
-          )}
+        <div className="pt-2 space-y-4">
 
           {/* Grouped outlets by floor level */}
           {groupedOutlets.map((group) => (

@@ -6,9 +6,11 @@ import { stationNames } from '@/data/mock-data';
 import { useStationFood } from '@/hooks/useStationFood';
 import { useMallsByStation, useMallOutlets } from '@/hooks/useMalls';
 import { SearchMatch } from '@/lib/api';
+import { SpinSelectionProvider, useSpinSelection } from '@/contexts/SpinSelectionContext';
 import FoodListingCardV2 from './FoodListingCardV2';
 import RestaurantGridCard from './RestaurantGridCard';
 import SlotMachine from './SlotMachine';
+import OutletSlotMachine from './OutletSlotMachine';
 import MenuPreview from './MenuPreview';
 import ModeToggle, { PanelMode } from './ModeToggle';
 import MallList from './MallList';
@@ -113,6 +115,66 @@ function SponsoredCardDb({ listing }: { listing: DbSponsoredListing }) {
   );
 }
 
+// Spin button with selection counter badge
+function SpinButtonWithBadge({
+  show,
+  onClick,
+  type
+}: {
+  show: boolean;
+  onClick: () => void;
+  type: 'listing' | 'outlet';
+}) {
+  const { listingCount, outletCount, clearListings, clearOutlets, MAX_ITEMS } = useSpinSelection();
+  const count = type === 'listing' ? listingCount : outletCount;
+  const clearFn = type === 'listing' ? clearListings : clearOutlets;
+
+  if (!show) return null;
+
+  const hasSelection = count > 0;
+
+  return (
+    <div className="mb-1.5">
+      {/* Info text when no selection */}
+      {!hasSelection && (
+        <p className="text-xs text-gray-500 text-center mb-1">
+          💡 Tap "Add to Spin" on items below, then spin!
+        </p>
+      )}
+
+      <div className="flex gap-2">
+        <button
+          onClick={onClick}
+          className={`flex-1 flex items-center justify-center gap-1.5 py-1.5 text-sm font-semibold rounded-lg transition-all ${
+            hasSelection
+              ? 'bg-[#FF6B4A] text-white hover:bg-[#E55A3A] shadow-lg'
+              : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+          }`}
+        >
+          <span>🎰</span>
+          <span>
+            {hasSelection
+              ? `Spin (${count})`
+              : "Spin All"
+            }
+          </span>
+        </button>
+
+        {/* Clear button - only show when items are selected */}
+        {hasSelection && (
+          <button
+            onClick={clearFn}
+            className="px-2 py-1.5 bg-gray-100 text-gray-600 rounded-lg hover:bg-gray-200 transition-colors text-xs font-medium"
+            aria-label="Clear selection"
+          >
+            Clear
+          </button>
+        )}
+      </div>
+    </div>
+  );
+}
+
 function EmptyState() {
   return (
     <div className="text-center py-8">
@@ -155,6 +217,7 @@ export default function FoodPanelV2({ stationId, onClose, onNavigateToStation, i
   const [listingsPage, setListingsPage] = useState(1);
   const [sortBy, setSortBy] = useState<'distance' | 'rating'>('distance');
   const [showSpinWheel, setShowSpinWheel] = useState(false);
+  const [showOutletSpinWheel, setShowOutletSpinWheel] = useState(false);
   const desktopScrollRef = useRef<HTMLDivElement>(null);
   const highlightedRef = useRef<HTMLDivElement>(null);
 
@@ -413,17 +476,6 @@ export default function FoodPanelV2({ stationId, onClose, onNavigateToStation, i
 
     return (
       <>
-        {/* Spin Button - show when there are 2+ listings and no active search filter */}
-        {!isSearchActive && sortedListings.length > 1 && (
-          <button
-            onClick={() => setShowSpinWheel(true)}
-            className="w-full flex items-center justify-center gap-2 py-2 mb-3 bg-[#FF6B4A] text-white text-sm font-semibold rounded-lg hover:bg-[#E55A3A] transition-colors"
-          >
-            <span>🎰</span>
-            <span>Can't decide? Spin!</span>
-          </button>
-        )}
-
         {/* Slot Machine Modal */}
         {showSpinWheel && (
           <SlotMachine
@@ -442,37 +494,6 @@ export default function FoodPanelV2({ stationId, onClose, onNavigateToStation, i
             <div className="flex items-center gap-2 text-sm font-medium text-[#2D2D2D] bg-[#FFF0ED] rounded-lg px-3 py-2 mb-3 border border-[#FF6B4A]">
               <span className="text-base">🔍</span>
               <span>Showing "{searchQuery}" ({sortedListings.length})</span>
-            </div>
-          )}
-          {/* Sort controls - only when no search filter */}
-          {!isSearchActive && (
-            <div className="flex items-center justify-between bg-[#F5F3F0] rounded-lg px-3 py-2 mb-3">
-              <span className="text-xs text-[#757575]">
-                {paginatedListings.length} of {sortedListings.length}
-              </span>
-              <div className="flex items-center gap-1">
-                <span className="text-xs text-[#757575] mr-1">Sort:</span>
-                <button
-                  onClick={() => setSortBy('distance')}
-                  className={`px-2 py-1 text-xs rounded-md transition-colors ${
-                    sortBy === 'distance'
-                      ? 'bg-[#FF6B4A] text-white font-medium'
-                      : 'bg-white text-[#757575] hover:bg-gray-100'
-                  }`}
-                >
-                  🚶 Nearest
-                </button>
-                <button
-                  onClick={() => setSortBy('rating')}
-                  className={`px-2 py-1 text-xs rounded-md transition-colors ${
-                    sortBy === 'rating'
-                      ? 'bg-[#FF6B4A] text-white font-medium'
-                      : 'bg-white text-[#757575] hover:bg-gray-100'
-                  }`}
-                >
-                  ⭐ Rating
-                </button>
-              </div>
             </div>
           )}
           {/* Single column list */}
@@ -532,6 +553,7 @@ export default function FoodPanelV2({ stationId, onClose, onNavigateToStation, i
             outlets={filteredOutlets}
             loading={outletsLoading}
             onBack={() => setSelectedMallId(null)}
+            hideHeader={true}
           />
         </>
       );
@@ -599,25 +621,131 @@ export default function FoodPanelV2({ stationId, onClose, onNavigateToStation, i
       );
     }
 
+    // Check if we should show the spin header for food listings
+    const shouldShowSpinHeader = mode !== 'malls' && !isSearchActive && (() => {
+      const modeListings = mode === 'popular'
+        ? [...separatedListings.popular]
+        : [...separatedListings.recommended, ...separatedListings.foodKingOnly];
+      return modeListings.length > 1;
+    })();
+
+    // Check if we're viewing mall outlets (for sticky header controls)
+    const isViewingMallOutlets = mode === 'malls' && selectedMallId && outlets.length >= 2;
+
     return (
       <>
-        {/* Mode Toggle */}
-        <ModeToggle
-          mode={mode}
-          onModeChange={(newMode) => {
-            setMode(newMode);
-            // Reset mall selection when switching modes
-            if (newMode !== 'malls') {
-              setSelectedMallId(null);
-            }
+        {/* Combined Sticky Header - Mode Toggle + Spin Button + Sort */}
+        <div
+          className="sticky top-0 z-30 bg-white pt-1 pb-1.5 border-b border-gray-100"
+          style={{
+            paddingLeft: 'clamp(12px, 4vw, 20px)',
+            paddingRight: 'clamp(12px, 4vw, 20px)',
+            boxShadow: '0 2px 4px rgba(0,0,0,0.08)',
           }}
-          availableModes={availableModes}
-        />
+        >
+          {/* Mode Toggle */}
+          <ModeToggle
+            mode={mode}
+            onModeChange={(newMode) => {
+              setMode(newMode);
+              // Reset mall selection when switching modes
+              if (newMode !== 'malls') {
+                setSelectedMallId(null);
+              }
+            }}
+            availableModes={availableModes}
+          />
+
+          {/* Mall Outlets: Back button + Spin controls */}
+          {isViewingMallOutlets && (
+            <div className="mt-1">
+              {/* Back button with mall name */}
+              <button
+                onClick={() => setSelectedMallId(null)}
+                className="flex items-center gap-1 text-sm font-medium text-[#2D2D2D] hover:text-[#FF6B4A] transition-colors mb-1"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M15 18l-6-6 6-6" />
+                </svg>
+                <span>{selectedMall?.name || 'Back'}</span>
+              </button>
+
+              {/* Spin Button */}
+              <SpinButtonWithBadge
+                show={true}
+                onClick={() => setShowOutletSpinWheel(true)}
+                type="outlet"
+              />
+            </div>
+          )}
+
+          {/* Spin Button & Sort Controls (only for listings, not malls) */}
+          {shouldShowSpinHeader && (
+            <div className="mt-1">
+              {/* Spin Button */}
+              <SpinButtonWithBadge
+                show={true}
+                onClick={() => setShowSpinWheel(true)}
+                type="listing"
+              />
+
+              {/* Sort controls */}
+              <div className="flex items-center justify-between bg-[#F5F3F0] rounded-md px-2 py-1">
+                <span className="text-xs text-[#757575]">
+                  {(() => {
+                    const modeListings = mode === 'popular'
+                      ? [...separatedListings.popular]
+                      : [...separatedListings.recommended, ...separatedListings.foodKingOnly];
+                    return `${Math.min(listingsPage * LISTINGS_PER_PAGE, modeListings.length)} of ${modeListings.length}`;
+                  })()}
+                </span>
+                <div className="flex items-center gap-1">
+                  <span className="text-xs text-[#757575] mr-1">Sort:</span>
+                  <button
+                    onClick={() => setSortBy('distance')}
+                    className={`px-2 py-1 text-xs rounded-md transition-colors ${
+                      sortBy === 'distance'
+                        ? 'bg-[#FF6B4A] text-white font-medium'
+                        : 'bg-white text-[#757575] hover:bg-gray-100'
+                    }`}
+                  >
+                    🚶 Nearest
+                  </button>
+                  <button
+                    onClick={() => setSortBy('rating')}
+                    className={`px-2 py-1 text-xs rounded-md transition-colors ${
+                      sortBy === 'rating'
+                        ? 'bg-[#FF6B4A] text-white font-medium'
+                        : 'bg-white text-[#757575] hover:bg-gray-100'
+                    }`}
+                  >
+                    ⭐ Rating
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
 
         {/* Content based on mode */}
-        <div className="mt-3">
+        <div
+          className="pt-2 space-y-2"
+          style={{
+            paddingLeft: 'clamp(12px, 4vw, 20px)',
+            paddingRight: 'clamp(12px, 4vw, 20px)',
+            paddingBottom: 'clamp(12px, 4vw, 20px)',
+          }}
+        >
           {mode === 'malls' ? renderMallsContent() : renderListings()}
         </div>
+
+        {/* Outlet Slot Machine Modal */}
+        {showOutletSpinWheel && (
+          <OutletSlotMachine
+            outlets={outlets}
+            onClose={() => setShowOutletSpinWheel(false)}
+          />
+        )}
       </>
     );
   };
@@ -625,6 +753,7 @@ export default function FoodPanelV2({ stationId, onClose, onNavigateToStation, i
   // Desktop panel
   if (!isMobile) {
     return (
+      <SpinSelectionProvider>
       <div className="w-[350px] h-full bg-white border-l border-gray-200 shadow-lg panel-container relative">
         {/* Main listing panel */}
         <div className={`panel-content ${selectedMenuListing ? 'slide-out-left' : ''} bg-white`}>
@@ -639,7 +768,7 @@ export default function FoodPanelV2({ stationId, onClose, onNavigateToStation, i
                 <IconClose className="w-5 h-5 text-[#2D2D2D]" />
               </button>
             </div>
-            <div ref={desktopScrollRef} className="flex-1 overflow-y-auto p-4 space-y-3 relative">
+            <div ref={desktopScrollRef} className="flex-1 overflow-y-auto relative">
               {renderContent()}
             </div>
           </div>
@@ -660,11 +789,13 @@ export default function FoodPanelV2({ stationId, onClose, onNavigateToStation, i
           )}
         </div>
       </div>
+      </SpinSelectionProvider>
     );
   }
 
   // Mobile drawer with swipe-to-dismiss
   return (
+    <SpinSelectionProvider>
     <MobileDrawer
       stationName={stationName}
       onClose={onClose}
@@ -673,6 +804,7 @@ export default function FoodPanelV2({ stationId, onClose, onNavigateToStation, i
     >
       {renderContent()}
     </MobileDrawer>
+    </SpinSelectionProvider>
   );
 }
 
@@ -846,16 +978,20 @@ function MobileDrawer({
             {/* Content - scrollable */}
             <div
               ref={contentRef}
-              className="flex-1 overflow-y-auto overscroll-contain space-y-3"
-              style={{
-                padding: 'clamp(12px, 4vw, 20px)',
-                WebkitOverflowScrolling: 'touch',
-              }}
-              onTouchStart={handleTouchStart}
-              onTouchMove={handleTouchMove}
-              onTouchEnd={handleTouchEnd}
+              className="flex-1 overflow-hidden"
             >
-              {children}
+              {/* Inner scroll container - this is the actual scrollable area */}
+              <div
+                className="h-full overflow-y-auto overflow-x-hidden overscroll-contain"
+                style={{
+                  WebkitOverflowScrolling: 'touch',
+                }}
+                onTouchStart={handleTouchStart}
+                onTouchMove={handleTouchMove}
+                onTouchEnd={handleTouchEnd}
+              >
+                {children}
+              </div>
             </div>
           </div>
         </div>
