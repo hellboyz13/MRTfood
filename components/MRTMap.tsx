@@ -396,9 +396,15 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
 
   // One-finger zoom state
   const [isZoomMode, setIsZoomMode] = useState(false);
+  const isZoomModeRef = useRef(false);
   const touchStartRef = useRef<{ y: number; scale: number; touchX: number; touchY: number } | null>(null);
   const holdTimerRef = useRef<NodeJS.Timeout | null>(null);
   const hasMovedRef = useRef(false);
+
+  // Keep ref in sync with state
+  useEffect(() => {
+    isZoomModeRef.current = isZoomMode;
+  }, [isZoomMode]);
 
   useEffect(() => {
     const checkMobile = () => {
@@ -412,7 +418,7 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
   // Handle one-finger zoom with non-passive touch listeners
   useEffect(() => {
     const container = svgContainerRef.current;
-    if (!container) return;
+    if (!container || !svgLoaded) return;
 
     const handleTouchStart = (e: TouchEvent) => {
       if (e.touches.length === 1) {
@@ -420,12 +426,13 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
         hasMovedRef.current = false;
         touchStartRef.current = {
           y: touch.clientY,
-          scale: transformRef.current?.state?.scale ?? currentZoom,
+          scale: transformRef.current?.state?.scale ?? 1,
           touchX: touch.clientX,
           touchY: touch.clientY,
         };
         holdTimerRef.current = setTimeout(() => {
           if (!hasMovedRef.current) {
+            isZoomModeRef.current = true;
             setIsZoomMode(true);
             if (navigator.vibrate) {
               navigator.vibrate(30);
@@ -436,13 +443,15 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
         if (holdTimerRef.current) {
           clearTimeout(holdTimerRef.current);
         }
+        isZoomModeRef.current = false;
         setIsZoomMode(false);
         touchStartRef.current = null;
       }
     };
 
     const handleTouchMove = (e: TouchEvent) => {
-      if (!isZoomMode && holdTimerRef.current && e.touches.length === 1 && touchStartRef.current) {
+      // Cancel hold timer if moved before zoom mode activates
+      if (!isZoomModeRef.current && holdTimerRef.current && e.touches.length === 1 && touchStartRef.current) {
         const touch = e.touches[0];
         const deltaX = Math.abs(touch.clientX - touchStartRef.current.touchX);
         const deltaY = Math.abs(touch.clientY - touchStartRef.current.touchY);
@@ -453,13 +462,14 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
         }
       }
 
-      if (isZoomMode && e.touches.length === 1 && touchStartRef.current && transformRef.current) {
+      // Handle zoom when in zoom mode
+      if (isZoomModeRef.current && e.touches.length === 1 && touchStartRef.current && transformRef.current) {
         e.preventDefault();
         e.stopPropagation();
 
         const touch = e.touches[0];
         const deltaY = touchStartRef.current.y - touch.clientY;
-        const zoomSensitivity = 0.005;
+        const zoomSensitivity = 0.008; // Increased sensitivity
         const newScale = Math.max(
           MAP_CONSTRAINTS.minZoom,
           Math.min(MAP_CONSTRAINTS.maxZoom, touchStartRef.current.scale + deltaY * zoomSensitivity)
@@ -482,6 +492,7 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
         clearTimeout(holdTimerRef.current);
         holdTimerRef.current = null;
       }
+      isZoomModeRef.current = false;
       setIsZoomMode(false);
       touchStartRef.current = null;
       hasMovedRef.current = false;
@@ -498,7 +509,7 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
       container.removeEventListener('touchend', handleTouchEnd);
       container.removeEventListener('touchcancel', handleTouchEnd);
     };
-  }, [isZoomMode, currentZoom]);
+  }, [svgLoaded]); // Re-attach when SVG loads
 
   // Zoom handler for external components (like SearchResultsPanel)
   const zoomToStation = useCallback((stationId: string) => {
