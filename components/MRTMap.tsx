@@ -398,6 +398,7 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
   const [isZoomMode, setIsZoomMode] = useState(false);
   const touchStartRef = useRef<{ y: number; scale: number; touchX: number; touchY: number } | null>(null);
   const holdTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const hasMovedRef = useRef(false);
 
   useEffect(() => {
     const checkMobile = () => {
@@ -407,6 +408,97 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
+
+  // Handle one-finger zoom with non-passive touch listeners
+  useEffect(() => {
+    const container = svgContainerRef.current;
+    if (!container) return;
+
+    const handleTouchStart = (e: TouchEvent) => {
+      if (e.touches.length === 1) {
+        const touch = e.touches[0];
+        hasMovedRef.current = false;
+        touchStartRef.current = {
+          y: touch.clientY,
+          scale: transformRef.current?.state?.scale ?? currentZoom,
+          touchX: touch.clientX,
+          touchY: touch.clientY,
+        };
+        holdTimerRef.current = setTimeout(() => {
+          if (!hasMovedRef.current) {
+            setIsZoomMode(true);
+            if (navigator.vibrate) {
+              navigator.vibrate(30);
+            }
+          }
+        }, 300);
+      } else {
+        if (holdTimerRef.current) {
+          clearTimeout(holdTimerRef.current);
+        }
+        setIsZoomMode(false);
+        touchStartRef.current = null;
+      }
+    };
+
+    const handleTouchMove = (e: TouchEvent) => {
+      if (!isZoomMode && holdTimerRef.current && e.touches.length === 1 && touchStartRef.current) {
+        const touch = e.touches[0];
+        const deltaX = Math.abs(touch.clientX - touchStartRef.current.touchX);
+        const deltaY = Math.abs(touch.clientY - touchStartRef.current.touchY);
+        if (deltaX > 10 || deltaY > 10) {
+          hasMovedRef.current = true;
+          clearTimeout(holdTimerRef.current);
+          holdTimerRef.current = null;
+        }
+      }
+
+      if (isZoomMode && e.touches.length === 1 && touchStartRef.current && transformRef.current) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const touch = e.touches[0];
+        const deltaY = touchStartRef.current.y - touch.clientY;
+        const zoomSensitivity = 0.005;
+        const newScale = Math.max(
+          MAP_CONSTRAINTS.minZoom,
+          Math.min(MAP_CONSTRAINTS.maxZoom, touchStartRef.current.scale + deltaY * zoomSensitivity)
+        );
+
+        const { positionX, positionY } = transformRef.current.state;
+        const oldScale = transformRef.current.state.scale;
+
+        const touchXInContent = (touchStartRef.current.touchX - positionX) / oldScale;
+        const touchYInContent = (touchStartRef.current.touchY - positionY) / oldScale;
+        const newPosX = touchStartRef.current.touchX - touchXInContent * newScale;
+        const newPosY = touchStartRef.current.touchY - touchYInContent * newScale;
+
+        transformRef.current.setTransform(newPosX, newPosY, newScale, 0);
+      }
+    };
+
+    const handleTouchEnd = () => {
+      if (holdTimerRef.current) {
+        clearTimeout(holdTimerRef.current);
+        holdTimerRef.current = null;
+      }
+      setIsZoomMode(false);
+      touchStartRef.current = null;
+      hasMovedRef.current = false;
+    };
+
+    container.addEventListener('touchstart', handleTouchStart, { passive: true });
+    container.addEventListener('touchmove', handleTouchMove, { passive: false });
+    container.addEventListener('touchend', handleTouchEnd, { passive: true });
+    container.addEventListener('touchcancel', handleTouchEnd, { passive: true });
+
+    return () => {
+      container.removeEventListener('touchstart', handleTouchStart);
+      container.removeEventListener('touchmove', handleTouchMove);
+      container.removeEventListener('touchend', handleTouchEnd);
+      container.removeEventListener('touchcancel', handleTouchEnd);
+    };
+  }, [isZoomMode, currentZoom]);
 
   // Zoom handler for external components (like SearchResultsPanel)
   const zoomToStation = useCallback((stationId: string) => {
@@ -1136,91 +1228,6 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
                 ref={svgContainerRef}
                 className="w-full h-full flex items-center justify-center"
                 style={{ minWidth: '2800px', minHeight: '2000px', padding: '300px' }}
-                onTouchStart={(e) => {
-                  // Only handle single-finger touch
-                  if (e.touches.length === 1) {
-                    const touch = e.touches[0];
-                    // Save initial touch position for movement detection
-                    touchStartRef.current = {
-                      y: touch.clientY,
-                      scale: transformRef.current?.state?.scale ?? currentZoom,
-                      touchX: touch.clientX,
-                      touchY: touch.clientY,
-                    };
-                    // Start hold timer for zoom mode activation
-                    holdTimerRef.current = setTimeout(() => {
-                      setIsZoomMode(true);
-                      // Haptic feedback if available
-                      if (navigator.vibrate) {
-                        navigator.vibrate(30);
-                      }
-                    }, 300); // 300ms hold before zoom mode activates
-                  } else {
-                    // Multiple touches - cancel zoom mode
-                    if (holdTimerRef.current) {
-                      clearTimeout(holdTimerRef.current);
-                    }
-                    setIsZoomMode(false);
-                    touchStartRef.current = null;
-                  }
-                }}
-                onTouchMove={(e) => {
-                  // If user moves before zoom mode, cancel the timer
-                  if (!isZoomMode && holdTimerRef.current && e.touches.length === 1) {
-                    const touch = e.touches[0];
-                    // Check if moved more than 10px - cancel hold timer
-                    if (touchStartRef.current) {
-                      const deltaX = Math.abs(touch.clientX - touchStartRef.current.touchX);
-                      const deltaY = Math.abs(touch.clientY - touchStartRef.current.touchY);
-                      if (deltaX > 10 || deltaY > 10) {
-                        clearTimeout(holdTimerRef.current);
-                        holdTimerRef.current = null;
-                      }
-                    }
-                  }
-
-                  // Handle zoom mode
-                  if (isZoomMode && e.touches.length === 1 && touchStartRef.current && transformRef.current) {
-                    e.preventDefault();
-                    e.stopPropagation();
-
-                    const touch = e.touches[0];
-                    const deltaY = touchStartRef.current.y - touch.clientY; // Positive = moving up = zoom in
-                    const zoomSensitivity = 0.005;
-                    const newScale = Math.max(
-                      MAP_CONSTRAINTS.minZoom,
-                      Math.min(MAP_CONSTRAINTS.maxZoom, touchStartRef.current.scale + deltaY * zoomSensitivity)
-                    );
-
-                    // Apply zoom centered on the original touch point
-                    const { positionX, positionY } = transformRef.current.state;
-                    const oldScale = transformRef.current.state.scale;
-
-                    // Calculate the new position to keep the touch point stationary
-                    const touchXInContent = (touchStartRef.current.touchX - positionX) / oldScale;
-                    const touchYInContent = (touchStartRef.current.touchY - positionY) / oldScale;
-                    const newPosX = touchStartRef.current.touchX - touchXInContent * newScale;
-                    const newPosY = touchStartRef.current.touchY - touchYInContent * newScale;
-
-                    transformRef.current.setTransform(newPosX, newPosY, newScale, 0);
-                  }
-                }}
-                onTouchEnd={() => {
-                  if (holdTimerRef.current) {
-                    clearTimeout(holdTimerRef.current);
-                    holdTimerRef.current = null;
-                  }
-                  setIsZoomMode(false);
-                  touchStartRef.current = null;
-                }}
-                onTouchCancel={() => {
-                  if (holdTimerRef.current) {
-                    clearTimeout(holdTimerRef.current);
-                    holdTimerRef.current = null;
-                  }
-                  setIsZoomMode(false);
-                  touchStartRef.current = null;
-                }}
               />
             </TransformComponent>
 
