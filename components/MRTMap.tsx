@@ -392,125 +392,6 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
   const [locationLoading, setLocationLoading] = useState(false);
   const [locationError, setLocationError] = useState<string | null>(null);
 
-  const [isMobile, setIsMobile] = useState(false);
-
-  // One-finger zoom state
-  const [isZoomMode, setIsZoomMode] = useState(false);
-  const isZoomModeRef = useRef(false);
-  const touchStartRef = useRef<{ y: number; scale: number; touchX: number; touchY: number } | null>(null);
-  const holdTimerRef = useRef<NodeJS.Timeout | null>(null);
-  const hasMovedRef = useRef(false);
-
-  // Keep ref in sync with state
-  useEffect(() => {
-    isZoomModeRef.current = isZoomMode;
-  }, [isZoomMode]);
-
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
-
-  // Handle one-finger zoom with non-passive touch listeners
-  useEffect(() => {
-    const container = svgContainerRef.current;
-    if (!container || !svgLoaded) return;
-
-    const handleTouchStart = (e: TouchEvent) => {
-      if (e.touches.length === 1) {
-        const touch = e.touches[0];
-        hasMovedRef.current = false;
-        touchStartRef.current = {
-          y: touch.clientY,
-          scale: transformRef.current?.state?.scale ?? 1,
-          touchX: touch.clientX,
-          touchY: touch.clientY,
-        };
-        holdTimerRef.current = setTimeout(() => {
-          if (!hasMovedRef.current) {
-            isZoomModeRef.current = true;
-            setIsZoomMode(true);
-            if (navigator.vibrate) {
-              navigator.vibrate(30);
-            }
-          }
-        }, 300);
-      } else {
-        if (holdTimerRef.current) {
-          clearTimeout(holdTimerRef.current);
-        }
-        isZoomModeRef.current = false;
-        setIsZoomMode(false);
-        touchStartRef.current = null;
-      }
-    };
-
-    const handleTouchMove = (e: TouchEvent) => {
-      // Cancel hold timer if moved before zoom mode activates
-      if (!isZoomModeRef.current && holdTimerRef.current && e.touches.length === 1 && touchStartRef.current) {
-        const touch = e.touches[0];
-        const deltaX = Math.abs(touch.clientX - touchStartRef.current.touchX);
-        const deltaY = Math.abs(touch.clientY - touchStartRef.current.touchY);
-        if (deltaX > 10 || deltaY > 10) {
-          hasMovedRef.current = true;
-          clearTimeout(holdTimerRef.current);
-          holdTimerRef.current = null;
-        }
-      }
-
-      // Handle zoom when in zoom mode
-      if (isZoomModeRef.current && e.touches.length === 1 && touchStartRef.current && transformRef.current) {
-        e.preventDefault();
-        e.stopPropagation();
-
-        const touch = e.touches[0];
-        const deltaY = touchStartRef.current.y - touch.clientY;
-        const zoomSensitivity = 0.008; // Increased sensitivity
-        const newScale = Math.max(
-          MAP_CONSTRAINTS.minZoom,
-          Math.min(MAP_CONSTRAINTS.maxZoom, touchStartRef.current.scale + deltaY * zoomSensitivity)
-        );
-
-        const { positionX, positionY } = transformRef.current.state;
-        const oldScale = transformRef.current.state.scale;
-
-        const touchXInContent = (touchStartRef.current.touchX - positionX) / oldScale;
-        const touchYInContent = (touchStartRef.current.touchY - positionY) / oldScale;
-        const newPosX = touchStartRef.current.touchX - touchXInContent * newScale;
-        const newPosY = touchStartRef.current.touchY - touchYInContent * newScale;
-
-        transformRef.current.setTransform(newPosX, newPosY, newScale, 0);
-      }
-    };
-
-    const handleTouchEnd = () => {
-      if (holdTimerRef.current) {
-        clearTimeout(holdTimerRef.current);
-        holdTimerRef.current = null;
-      }
-      isZoomModeRef.current = false;
-      setIsZoomMode(false);
-      touchStartRef.current = null;
-      hasMovedRef.current = false;
-    };
-
-    container.addEventListener('touchstart', handleTouchStart, { passive: true });
-    container.addEventListener('touchmove', handleTouchMove, { passive: false });
-    container.addEventListener('touchend', handleTouchEnd, { passive: true });
-    container.addEventListener('touchcancel', handleTouchEnd, { passive: true });
-
-    return () => {
-      container.removeEventListener('touchstart', handleTouchStart);
-      container.removeEventListener('touchmove', handleTouchMove);
-      container.removeEventListener('touchend', handleTouchEnd);
-      container.removeEventListener('touchcancel', handleTouchEnd);
-    };
-  }, [svgLoaded]); // Re-attach when SVG loads
-
   // Zoom handler for external components (like SearchResultsPanel)
   const zoomToStation = useCallback((stationId: string) => {
     if (transformRef.current && stationCoordinates[stationId]) {
@@ -1125,8 +1006,8 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
         alignmentAnimation={{ sizeX: 0, sizeY: 0 }}
         velocityAnimation={{ sensitivity: 1, animationTime: 300 }}
         panning={{
-          disabled: isZoomMode, // Disable panning when in one-finger zoom mode
-          velocityDisabled: isZoomMode,
+          disabled: false,
+          velocityDisabled: false,
         }}
         onPanningStop={(ref) => {
           const { positionX, positionY, scale } = ref.state;
@@ -1242,12 +1123,6 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
               />
             </TransformComponent>
 
-            {/* One-finger zoom mode indicator */}
-            {isZoomMode && (
-              <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-black/60 text-white px-4 py-2 rounded-full text-sm font-medium pointer-events-none z-50 animate-pulse">
-                ↕ Drag to zoom
-              </div>
-            )}
           </>
         )}
       </TransformWrapper>
