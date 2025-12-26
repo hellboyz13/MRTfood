@@ -1,0 +1,330 @@
+{
+  "operational": [
+    {
+      "id": "089e88fa-dae0-4ded-b70e-0973e8665374",
+      "name": "Hock Lam Street Popular Beef Kway Teow",
+      "station": "Chinatown",
+      "googleResult": {
+        "found": true,
+        "status": "OPERATIONAL",
+        "name": "Hock Lam Beef",
+        "address": "13 N Canal Rd, #01-01, Singapore 048826",
+        "mapsUri": "https://maps.google.com/?cid=5123236815976597131&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
+      },
+      "finalStatus": "OPERATIONAL",
+      "statusSource": "google_places"
+    },
+    {
+      "id": "af032c4d-0a1e-4198-8345-2028cf8c7f4c",
+      "name": "Shi Le Yuan",
+      "station": "Tampines",
+      "googleResult": {
+        "found": true,
+        "status": "OPERATIONAL",
+        "name": "ZU LE YUAN HEALTHCARE MASSAGE",
+        "address": "201B Tampines St. 21, #01-1079, Singapore 522201",
+        "mapsUri": "https://maps.google.com/?cid=6479700494495624617&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
+      },
+      "finalStatus": "OPERATIONAL",
+      "statusSource": "google_places"
+    },
+    {
+      "id": "bf8da600-787c-41da-acda-a1cce498de53",
+      "name": "New Rong Liang Ge Cantonese Roast Duck",
+      "station": "Maxwell",
+      "googleResult": {
+        "found": true,
+        "status": "OPERATIONAL",
+        "name": "New Rong Liang Ge",
+        "address": "269B Queen St, Singapore 182269",
+        "mapsUri": "https://maps.google.com/?cid=2244285385742957962&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
+      },
+      "finalStatus": "OPERATIONAL",
+      "statusSource": "google_places"
+    },
+    {
+      "id": "9edf276f-830f-4a97-b7c6-cac68783c80b",
+      "name": "Alliance Seafood",
+      "station": "Toa Payoh",
+      "googleResult": {
+        "found": true,
+        "status": "OPERATIONAL",
+        "name": "Alliance Seafood",
+        "address": "500 Clemenceau Ave N, #01-27 Newton Food Centre, Singapore 229495",
+        "mapsUri": "https://maps.google.com/?cid=7183796604634888399&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
+      },
+      "finalStatus": "OPERATIONAL",
+      "statusSource": "google_places"
+    },
+    {
+      "id": "48c0d94f-47ed-45c4-ac15-d8d9ff565a33",
+      "name": "Ann Chin Popiah",
+      "station": "Toa Payoh",
+      "googleResult": {
+        "found": true,
+        "status": "OPERATIONAL",
+        "name": "Ann Chin Popiah (Toa Payoh Coffeeshop)",
+        "address": "111 Lor 1 Toa Payoh, #01-366, Singapore 310111",
+        "mapsUri": "https://maps.google.com/?cid=2147983564922001593&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
+      },
+      "finalStatus": "OPERATIONAL",
+      "statusSource": "google_places"
+    },
+    {
+      "id": "3ae31f95-1ad4-4ef1-a46d-aa95e3851157",
+      "name": "Famous Sungei Road Trishaw Laksa",
+      "station": "Jalan Besar",
+      "googleResult": {
+        "found": true,
+        "status": "OPERATIONAL",
+        "name": "Sungei Road Laksa",
+        "address": "27 Jalan Berseh, #01-100, Singapore 200027",
+        "mapsUri": "https://maps.google.com/?cid=11947692344546037997&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
+      },
+      "finalStatus": "OPERATIONAL",
+      "statusSource": "google_places"
+    },
+    {
+      "id": "d9d4e1fd-7cdd-4b53-9437-ffe240bf3fc1",
+      "name": "Beth",
+      "station": "Lentor",
+      "googleResult": {
+        "found": true,
+        "status": "OPERATIONAL",
+        "name": "The Lentor Residence Pte Ltd",
+        "address": "51 Lentor Ave, Singapore 786876",
+        "mapsUri": "https://maps.google.com/?cid=3123149905967822485&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
+      },
+      "finalStatus": "OPERATIONAL",
+      "statusSource": "google_places"
+    },
+    {
+      "id": "985a31ec-e4e0-419d-944a-79a3f0598b1f",
+      "name": "Kungfu JB Pau (Tampines)",
+      "station": "Tampines",
+      "googleResult": {
+        "found": true,
+        "status": "OPERATIONAL",
+        "name": "Kung Fu JB Pau (201 Tampines)",
+        "address": "201 Tampines St. 21, Singapore 520201",
+        "mapsUri": "https://maps.google.com/?cid=8077600567251554104&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
+      },
+      "finalStatus": "OPERATIONAL",
+      "statusSource": "google_places"
+    },
+    {
+      "id": "3eeea7b8-a064-4557-9368-c32099a429a4",
+      "name": "The Teochew Kitchenette - Keong Saik Bak Kut Teh",
+      "station": "Outram Park",
+      "googleResult": {
+        "found": true,
+        "status": "OPERATIONAL",
+        "name": "The Teochew Kitchenette - Keong Saik Bak Kut Teh",
+        "address": "26 Keong Saik Rd., Singapore 089133",
+        "mapsUri": "https://maps.google.com/?cid=9569754482251385776&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
+      },
+      "finalStatus": "OPERATIONAL",
+      "statusSource": "google_places"
+    },
+    {
+      "id": "e47a6cd1-9b14-4e02-8c2a-19d41bdb23c8",
+      "name": "开心客家酿豆腐 Hakka Yong Tau Fu",
+      "station": "Jurong East",
+      "googleResult": {
+        "found": true,
+        "status": "OPERATIONAL",
+        "name": "开心客家酿豆腐 Hakka Yong Tau Fu",
+        "address": "132 Jurong Gateway Rd, #01-271, Singapore 600132",
+        "mapsUri": "https://maps.google.com/?cid=15433314703046844644&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
+      },
+      "finalStatus": "OPERATIONAL",
+      "statusSource": "google_places"
+    },
+    {
+      "id": "cd3f7c69-ca1a-41dc-9267-2f8fd24766fd",
+      "name": "Boon Tong Kee (Whampoa)",
+      "station": "Boon Keng",
+      "googleResult": {
+        "found": true,
+        "status": "OPERATIONAL",
+        "name": "Boon Tong Kee",
+        "address": "34 Whampoa W, #01-93, Singapore 330034",
+        "mapsUri": "https://maps.google.com/?cid=14327753499199627199&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
+      },
+      "finalStatus": "OPERATIONAL",
+      "statusSource": "google_places"
+    },
+    {
+      "id": "7b4a987a-34e5-4000-ba0d-561b2c353b3c",
+      "name": "Boon Tong Kee (River Valley)",
+      "station": "Great World",
+      "googleResult": {
+        "found": true,
+        "status": "OPERATIONAL",
+        "name": "Boon Tong Kee @ River Valley",
+        "address": "425 River Valley Rd, Singapore 248324",
+        "mapsUri": "https://maps.google.com/?cid=2029278549677838649&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
+      },
+      "finalStatus": "OPERATIONAL",
+      "statusSource": "google_places"
+    },
+    {
+      "id": "ad4dd196-c898-4d4e-997f-d64ff8a922ae",
+      "name": "Boon Tong Kee (Chinatown)",
+      "station": "Maxwell",
+      "googleResult": {
+        "found": true,
+        "status": "OPERATIONAL",
+        "name": "文東記雞飯 Boon Tong Kee Chicken Rice",
+        "address": "11 Smith St, Singapore 058925",
+        "mapsUri": "https://maps.google.com/?cid=16132783801805780419&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
+      },
+      "finalStatus": "OPERATIONAL",
+      "statusSource": "google_places"
+    },
+    {
+      "id": "ec8a53eb-6963-4741-b65f-f2c3328acb22",
+      "name": "Boon Tong Kee (Ang Mo Kio)",
+      "station": "Mayflower",
+      "googleResult": {
+        "found": true,
+        "status": "OPERATIONAL",
+        "name": "Boon Tong Kee @ AMK",
+        "address": "233 Ang Mo Kio Ave 3, #01-1194, Singapore 560233",
+        "mapsUri": "https://maps.google.com/?cid=6279656074234393914&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
+      },
+      "finalStatus": "OPERATIONAL",
+      "statusSource": "google_places"
+    },
+    {
+      "id": "c2db0473-9b8b-4423-a6ad-e0819a57f570",
+      "name": "Boon Tong Kee (Bukit Timah)",
+      "station": "Beauty World",
+      "googleResult": {
+        "found": true,
+        "status": "OPERATIONAL",
+        "name": "Boon Tong Kee",
+        "address": "18 Cheong Chin Nam Rd, Singapore 599742",
+        "mapsUri": "https://maps.google.com/?cid=6068815972727255378&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
+      },
+      "finalStatus": "OPERATIONAL",
+      "statusSource": "google_places"
+    },
+    {
+      "id": "8f041f46-3d0a-4b6d-ae14-e6a8108f7d49",
+      "name": "Boon Tong Kee (one-north)",
+      "station": "Buona Vista",
+      "googleResult": {
+        "found": true,
+        "status": "OPERATIONAL",
+        "name": "Boon Tong Kee Happynest",
+        "address": "1 Vista Exchange Green, B1-07/41, Singapore 138617",
+        "mapsUri": "https://maps.google.com/?cid=13148737379709182592&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
+      },
+      "finalStatus": "OPERATIONAL",
+      "statusSource": "google_places"
+    },
+    {
+      "id": "a24d422c-08b0-44bd-ad2e-86719078d2da",
+      "name": "Boon Tong Kee (Sengkang)",
+      "station": "Sengkang",
+      "googleResult": {
+        "found": true,
+        "status": "OPERATIONAL",
+        "name": "Boon Tong Kee",
+        "address": "1 Sengkang Square, Unit #01- 34, Singapore 545078",
+        "mapsUri": "https://maps.google.com/?cid=870457964769070583&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
+      },
+      "finalStatus": "OPERATIONAL",
+      "statusSource": "google_places"
+    },
+    {
+      "id": "5eb5202c-ffea-47d7-877b-36d22dc2ca0b",
+      "name": "He Jia Huan Ban Mian (Redhill)",
+      "station": "Redhill",
+      "googleResult": {
+        "found": true,
+        "status": "OPERATIONAL",
+        "name": "合家歡板面.麵粉粿 He Jia Huan Ban Mian•Mee Hoon Kway",
+        "address": "85 Redhill Ln, #01-69, Singapore 150085",
+        "mapsUri": "https://maps.google.com/?cid=12131894238594916264&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
+      },
+      "finalStatus": "OPERATIONAL",
+      "statusSource": "google_places"
+    },
+    {
+      "id": "7ba3e838-8c96-4273-9c8b-86a1f65fd088",
+      "name": "He Jia Huan Ban Mian (Whampoa)",
+      "station": "Boon Keng",
+      "googleResult": {
+        "found": true,
+        "status": "OPERATIONAL",
+        "name": "He Jia Huan Ban Mian. Mee Hoon Kway",
+        "address": "90 Whampoa Dr, #01-66, Singapore 320090",
+        "mapsUri": "https://maps.google.com/?cid=2270630837898855930&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
+      },
+      "finalStatus": "OPERATIONAL",
+      "statusSource": "google_places"
+    },
+    {
+      "id": "bc58cf15-0d56-4256-9857-abb7da423eb7",
+      "name": "He Jia Huan Ban Mian (Jurong West)",
+      "station": "Lakeside",
+      "googleResult": {
+        "found": true,
+        "status": "OPERATIONAL",
+        "name": "He Jia Huan Ban Mian•Mee Hoon Kway",
+        "address": "496 Jurong West Street 41, #01-84, Singapore 640496",
+        "mapsUri": "https://maps.google.com/?cid=12019451142520205923&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
+      },
+      "finalStatus": "OPERATIONAL",
+      "statusSource": "google_places"
+    },
+    {
+      "id": "32b41023-7d65-4b78-b083-603d1ef4a82e",
+      "name": "Jia Li Seafood Soup (Chinatown Point)",
+      "station": "Chinatown",
+      "googleResult": {
+        "found": true,
+        "status": "OPERATIONAL",
+        "name": "Jia Li Seafood Soup (Chinatown Point)",
+        "address": "133 New Bridge Rd, B1-51/51c Chinatown Point, Singapore 059413",
+        "mapsUri": "https://maps.google.com/?cid=13714055633390018165&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
+      },
+      "finalStatus": "OPERATIONAL",
+      "statusSource": "google_places"
+    },
+    {
+      "id": "faa376a6-751c-4f8c-aec7-960b8e78d2a5",
+      "name": "Jia Li Seafood Soup (Upper Serangoon)",
+      "station": "Kovan",
+      "googleResult": {
+        "found": true,
+        "status": "OPERATIONAL",
+        "name": "Jia Li Seafood Soup (Upp Serangoon)",
+        "address": "957 Upper Serangoon Rd, Singapore 534717",
+        "mapsUri": "https://maps.google.com/?cid=1547332089144767814&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
+      },
+      "finalStatus": "OPERATIONAL",
+      "statusSource": "google_places"
+    },
+    {
+      "id": "25a24270-e42a-4809-b8d1-aaca213c30c7",
+      "name": "Tsukimi Hamburg (Hougang Mall)",
+      "station": "Hougang",
+      "googleResult": {
+        "found": true,
+        "status": "OPERATIONAL",
+        "name": "Tsukimi Hamburg (Hougang Mall)",
+        "address": "Singapore, Hougang Ave 10, 90号, Hougang Mall, #02-25 邮政编码: 538766",
+        "mapsUri": "https://maps.google.com/?cid=8194880025747351180&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
+      },
+      "finalStatus": "OPERATIONAL",
+      "statusSource": "google_places"
+    }
+  ],
+  "closedTemporarily": [],
+  "closedPermanently": [],
+  "notFound": [],
+  "errors": []
+}

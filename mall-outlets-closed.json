@@ -1,0 +1,115 @@
+{
+  "closedTemporarily": [
+    {
+      "id": "lady-m-temporarily-closed-jewel",
+      "name": "Lady M (Temporarily Closed)",
+      "mall": "Jewel Changi Airport",
+      "googleResult": {
+        "found": true,
+        "status": "CLOSED_TEMPORARILY",
+        "name": "Lady M @ Jewel Changi Airport",
+        "address": "78 Airport Blvd., #02 - 253, Singapore 819666"
+      },
+      "finalStatus": "CLOSED_TEMPORARILY"
+    }
+  ],
+  "closedPermanently": [
+    {
+      "id": "small-tables-pacific-plaza",
+      "name": "Small Tables",
+      "mall": "Pacific Plaza",
+      "googleResult": {
+        "found": true,
+        "status": "CLOSED_PERMANENTLY",
+        "name": "Small Tables",
+        "address": "9 Scotts Rd, #01-09/10/11/12 Pacific Plaza, Singapore 228210"
+      },
+      "finalStatus": "CLOSED_PERMANENTLY"
+    },
+    {
+      "id": "coffee-168-people-s-park-centre",
+      "name": "Coffee 168",
+      "mall": "People's Park Centre",
+      "googleResult": {
+        "found": true,
+        "status": "CLOSED_PERMANENTLY",
+        "name": "Coffee 168",
+        "address": "People's Park Centre B1 Foodcourt, Singapore"
+      },
+      "finalStatus": "CLOSED_PERMANENTLY"
+    },
+    {
+      "id": "cha-tra-mue-hillion-mall",
+      "name": "Cha Tra Mue",
+      "mall": "Hillion Mall",
+      "googleResult": {
+        "found": true,
+        "status": "CLOSED_PERMANENTLY",
+        "name": "ChaTraMue @ Hillion Mall",
+        "address": "17 Petir Rd, B2-52 Hillion Mall, Singapore 678278"
+      },
+      "finalStatus": "CLOSED_PERMANENTLY"
+    },
+    {
+      "id": "keitaku-mazesoba-hillion-mall",
+      "name": "Keitaku Mazesoba",
+      "mall": "Hillion Mall",
+      "googleResult": {
+        "found": true,
+        "status": "CLOSED_PERMANENTLY",
+        "name": "Keitaku Mazesoba Hillion Mall",
+        "address": "17 Petir Rd, B1-24, Singapore 678278"
+      },
+      "finalStatus": "CLOSED_PERMANENTLY"
+    },
+    {
+      "id": "nippon-bite-hillion-mall",
+      "name": "Nippon Bite",
+      "mall": "Hillion Mall",
+      "googleResult": {
+        "found": true,
+        "status": "CLOSED_PERMANENTLY",
+        "name": "Nippon Bite 一口日本 Hillion Mall #B2-36",
+        "address": "Petir Rd, B2-36 Hillion Mall, Singapore 678278"
+      },
+      "finalStatus": "CLOSED_PERMANENTLY"
+    },
+    {
+      "id": "pocha-korean-street-dining-hillion-mall",
+      "name": "POCHA! Korean Street Dining",
+      "mall": "Hillion Mall",
+      "googleResult": {
+        "found": true,
+        "status": "CLOSED_PERMANENTLY",
+        "name": "POCHA! Korean Street Dining (Hillion Mall)",
+        "address": "17 Petir Rd, B2-55/56 Hillion Mall, Singapore 678278"
+      },
+      "finalStatus": "CLOSED_PERMANENTLY"
+    },
+    {
+      "id": "souperstar-hillion-mall",
+      "name": "Souperstar",
+      "mall": "Hillion Mall",
+      "googleResult": {
+        "found": true,
+        "status": "CLOSED_PERMANENTLY",
+        "name": "Souperstar",
+        "address": "17 Petir Rd, B2-52A Hillion Mall, Singapore 678278"
+      },
+      "finalStatus": "CLOSED_PERMANENTLY"
+    }
+  ],
+  "notFound": [
+    {
+      "id": "froyo-yewtee-point",
+      "name": "Fro~Yo!",
+      "mall": "YewTee Point",
+      "googleResult": {
+        "found": false,
+        "status": "NOT_FOUND",
+        "query": "Fro~Yo! YewTee Point Singapore"
+      },
+      "finalStatus": "NOT_FOUND"
+    }
+  ]
+}
