@@ -111,12 +111,12 @@ export default function ModeToggle({ mode, onModeChange, availableModes }: ModeT
             borderRadius: 'clamp(5px, 1.5vw, 8px)',
           }}
         >
-          <span style={{ fontSize: 'clamp(12px, 3vw, 13px)' }}>🏢 Malls</span>
+          <span style={{ fontSize: 'clamp(12px, 3vw, 13px)' }}>🏢 Malls & Hawkers</span>
           <span
             className={mode === 'malls' ? 'text-[#757575]' : 'text-[#9CA3AF]'}
             style={{ fontSize: 'clamp(9px, 2.2vw, 10px)', marginTop: '2px' }}
           >
-            Nearby malls
+            Nearby venues
           </span>
         </button>
       )}

@@ -43,6 +43,28 @@ function DeepLinkHandler({
   return null;
 }
 
+// Normalize a string for station name matching (lowercase, remove spaces)
+function normalizeForMatch(str: string): string {
+  return str.toLowerCase().replace(/\s+/g, '');
+}
+
+// Find a station ID by matching the query against station names
+// Supports both "Dhoby Ghaut" and "DhobyGhaut" formats
+function findStationByName(
+  query: string,
+  stationNames: { [key: string]: string }
+): string | null {
+  const normalizedQuery = normalizeForMatch(query);
+
+  for (const [stationId, stationName] of Object.entries(stationNames)) {
+    const normalizedStationName = normalizeForMatch(stationName);
+    if (normalizedQuery === normalizedStationName) {
+      return stationId;
+    }
+  }
+  return null;
+}
+
 export default function Home() {
   const [selectedStation, setSelectedStation] = useState<string | null>(null);
   const [highlightedListingId, setHighlightedListingId] = useState<string | null>(null);
@@ -108,6 +130,23 @@ export default function Home() {
     setIs24hActive(false); // Turn off 24h filter when doing regular search
     setIsDessertActive(false); // Turn off dessert filter when doing regular search
     setSelectedStation(null); // Close any open panels when searching
+
+    // Check if query matches an MRT station name exactly (case-insensitive, space-insensitive)
+    const matchedStationId = findStationByName(query, stationNames);
+    if (matchedStationId) {
+      // Navigate directly to the matched station
+      setSearchResults([]);
+      setHasMoreSearchResults(false);
+      setSearchQuery(''); // Clear search query since we're navigating directly
+      setIsSearching(false);
+      // Zoom to station and open panel
+      if (mapZoomHandlerRef.current) {
+        mapZoomHandlerRef.current(matchedStationId);
+      }
+      setSelectedStation(matchedStationId);
+      return;
+    }
+
     try {
       const { results, hasMore } = await searchStationsByFoodWithCounts(query, {
         limit: DEFAULT_PAGE_SIZE,
