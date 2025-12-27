@@ -82,8 +82,18 @@ function PhotoItem({ src, onClick }: { src?: string; onClick?: () => void }) {
 }
 
 // Helper to get today's hours (just the time range, no open/closed status)
-function getTodayHours(openingHours: OpeningHours | null): string | null {
-  if (!openingHours?.weekday_text || openingHours.weekday_text.length === 0) {
+function getTodayHours(openingHours: OpeningHours | string | null): string | null {
+  if (!openingHours) {
+    return null;
+  }
+
+  // Handle plain text string (e.g., "Daily 10am to 8pm")
+  if (typeof openingHours === 'string') {
+    return openingHours;
+  }
+
+  // Handle structured object with weekday_text
+  if (!openingHours.weekday_text || openingHours.weekday_text.length === 0) {
     return null;
   }
 
@@ -113,8 +123,8 @@ export default function MenuPreview({ listing, onBack }: MenuPreviewProps) {
   const [loading, setLoading] = useState(true);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
-  // Get opening hours, phone, website directly from listing
-  const openingHours = listing.opening_hours as OpeningHours | null;
+  // Get opening hours, phone, website directly from listing (can be JSON object or plain string)
+  const openingHours = listing.opening_hours as OpeningHours | string | null;
   const phone = (listing as { phone?: string | null }).phone;
   const website = (listing as { website?: string | null }).website;
 
