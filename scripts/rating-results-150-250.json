@@ -1,0 +1,602 @@
+[
+  {
+    "id": "b577f0c2-c0e4-4140-865f-af949dae25fd",
+    "name": "Hong Ji Handmade Dim Sum Bao",
+    "rating": 4.5,
+    "reviewCount": null
+  },
+  {
+    "id": "99b0682f-dc72-4add-928f-cb250f1d8070",
+    "name": "Hong Kong Mongkok Dim Sum",
+    "rating": 4,
+    "reviewCount": 83
+  },
+  {
+    "id": "4559c617-92b8-4426-9623-43f22c8e3ee0",
+    "name": "Hong Kong Zhai Dim Sum",
+    "rating": 4.4,
+    "reviewCount": 547
+  },
+  {
+    "id": "f9032b1d-f5cb-47f5-83d0-f1b4b767ed14",
+    "name": "Hopscotch",
+    "rating": 4.6,
+    "reviewCount": 2330
+  },
+  {
+    "id": "c94d846f-77ea-4f0f-af47-e428c3d1a650",
+    "name": "Hot Spot Cafe & Restaurant",
+    "rating": 4,
+    "reviewCount": 309
+  },
+  {
+    "id": "14240adb-468d-46cb-8e28-d468c643284b",
+    "name": "Hougang Oyster Omelette & Fried Kway Teow",
+    "rating": 4.3,
+    "reviewCount": 931
+  },
+  {
+    "id": "6811875e-0dff-496b-be11-bd41e3fb2d68",
+    "name": "Hua Ji Bao Dang",
+    "rating": 3.8,
+    "reviewCount": 12
+  },
+  {
+    "id": "c9255240-03d4-48c7-8a3c-dace45c1cc4c",
+    "name": "Hua Kee Hougang Famous Wan Ton Mee",
+    "rating": 4.1,
+    "reviewCount": 120
+  },
+  {
+    "id": "bd84f658-21a8-4a80-8b19-1c088634faf6",
+    "name": "Hua Ting Restaurant 华厅餐厅",
+    "rating": 4.2,
+    "reviewCount": 917
+  },
+  {
+    "id": "f8adbcae-d1d4-4f6d-95d6-57b6368e2890",
+    "name": "Hua Yu Wee Seafood Restaurant",
+    "rating": 4.4,
+    "reviewCount": 2625
+  },
+  {
+    "id": "5e708070-99fb-4b3f-8715-0dcc90b37eea",
+    "name": "Huang Ah Yi Noodle (黄阿姨面店）",
+    "rating": 4.2,
+    "reviewCount": 46
+  },
+  {
+    "id": "79df876d-64dd-4381-a078-021d6258d525",
+    "name": "Huevos",
+    "rating": 4.4,
+    "reviewCount": 1509
+  },
+  {
+    "id": "0652b6c0-8cb2-4afc-9fc7-ecf0ae29d6e1",
+    "name": "Hum Jin Pang",
+    "rating": 4.7,
+    "reviewCount": 80
+  },
+  {
+    "id": "078a8006-4771-44b0-9eb1-78982a356040",
+    "name": "Humpback",
+    "rating": 4.5,
+    "reviewCount": 874
+  },
+  {
+    "id": "c83ad140-0611-4fac-9002-2e329b9ddc49",
+    "name": "Husk Nasi Lemak",
+    "rating": 4.6,
+    "reviewCount": 380
+  },
+  {
+    "id": "7cbfd100-8be5-4e6d-a81e-4cf00327a1c6",
+    "name": "Hyang Yeon Korean Restaurant",
+    "rating": 4.4,
+    "reviewCount": 943
+  },
+  {
+    "id": "c23ab986-ce14-4d66-a9ef-2ab2cd43304a",
+    "name": "Hyangyeon Korean Restaurant",
+    "rating": 4.7,
+    "reviewCount": 227
+  },
+  {
+    "id": "f57e06ef-8616-4256-a6fc-1182841d8c81",
+    "name": "I’m Kim",
+    "rating": 4.6,
+    "reviewCount": 6094
+  },
+  {
+    "id": "e28d1492-80fe-4380-ae4b-99c144d625b8",
+    "name": "Ice Cream Charlie",
+    "rating": 5,
+    "reviewCount": 41
+  },
+  {
+    "id": "65d0cc29-5883-4edb-a9a0-d0c09b630df4",
+    "name": "Ikoi Japanese Restaurant",
+    "rating": 4.1,
+    "reviewCount": 1161
+  },
+  {
+    "id": "a9456f31-0cac-411c-a079-1b268c73cdb6",
+    "name": "Imperial Treasure Cantonese Cuisine 御寶",
+    "rating": 4.2,
+    "reviewCount": 593
+  },
+  {
+    "id": "8a9d14df-59c6-494d-8f7a-d7cfbcd79f50",
+    "name": "Indocafe The White House",
+    "rating": 4.3,
+    "reviewCount": 393
+  },
+  {
+    "id": "293eb75c-9c53-4a77-bc5a-2cd137779381",
+    "name": "Ippoh Tempura Bar",
+    "rating": 4,
+    "reviewCount": 104
+  },
+  {
+    "id": "ec34e638-4dfb-4286-9f08-ea220ad9ca0e",
+    "name": "Ippudo",
+    "rating": 4.4,
+    "reviewCount": 67
+  },
+  {
+    "id": "9ba3d132-3c8f-415c-a575-f4f192e8078f",
+    "name": "Irodori Japanese Restaurant",
+    "rating": 3.8,
+    "reviewCount": 1115
+  },
+  {
+    "id": "99c54592-47d7-41d1-9e82-612f2dea02f9",
+    "name": "Ishi",
+    "rating": 4.7,
+    "reviewCount": 227
+  },
+  {
+    "id": "2a242f77-a3ad-49e0-ab07-4e080cbc4c29",
+    "name": "Itaewon Jjajang",
+    "rating": 4.4,
+    "reviewCount": 592
+  },
+  {
+    "id": "e5401d9f-d08e-4821-a04b-d153e2300181",
+    "name": "Jade 玉楼",
+    "rating": 4.4,
+    "reviewCount": 662
+  },
+  {
+    "id": "a4ef69d5-fef9-4af6-8f07-30176d31a4e7",
+    "name": "Jade’s Chicken",
+    "rating": 4,
+    "reviewCount": 85
+  },
+  {
+    "id": "748575ea-0628-46a7-9ac2-3f6206a7c824",
+    "name": "Janggut Laksa",
+    "rating": 4.1,
+    "reviewCount": 622
+  },
+  {
+    "id": "6f0420ff-beca-4017-8ca2-09f703b3a71e",
+    "name": "JB Ah Meng",
+    "rating": 4.2,
+    "reviewCount": 3287
+  },
+  {
+    "id": "0c44cf9e-273c-451a-8d61-ed1ccb39a975",
+    "name": "JB Ah Meng",
+    "rating": 4.2,
+    "reviewCount": 3287
+  },
+  {
+    "id": "578c1ceb-3560-4150-acb7-d05d07d0f7aa",
+    "name": "Jefri The Original Botak Chicken Rice",
+    "rating": 4.1,
+    "reviewCount": 41
+  },
+  {
+    "id": "5043257a-85f0-4fef-8c61-b21f85444648",
+    "name": "Ji Tuo Hong Kong Style Dim Sum",
+    "rating": 4.4,
+    "reviewCount": 318
+  },
+  {
+    "id": "bf13d166-28ea-4a3c-b4f6-292d3f80e35e",
+    "name": "Ji Tuo Hong Kong Style Tim Sum",
+    "rating": 4.4,
+    "reviewCount": 318
+  },
+  {
+    "id": "9c479f0e-d2a2-4ec8-840c-decbfeb332ae",
+    "name": "Jia He Chinese Restaurant",
+    "rating": 4.2,
+    "reviewCount": 688
+  },
+  {
+    "id": "e687a1b5-98bc-4b15-80c0-099fea4f914c",
+    "name": "Jia Xiang Economic Curry Rice",
+    "rating": 5,
+    "reviewCount": 1
+  },
+  {
+    "id": "6713dc11-a18f-4273-9c7c-bdea7b240409",
+    "name": "Jiak Modern Tzechar @ Hillv2",
+    "rating": 4,
+    "reviewCount": 698
+  },
+  {
+    "id": "8e309dc2-c336-42d3-9a6f-a42c0d3ccdd6",
+    "name": "Jian Bo Shui Kueh",
+    "rating": 3.6,
+    "reviewCount": 602
+  },
+  {
+    "id": "00e40ae6-e516-413b-8681-2ec1df0b491b",
+    "name": "Jimmy Monkey Cafe",
+    "rating": 4.1,
+    "reviewCount": 551
+  },
+  {
+    "id": "ccc4e805-762c-44da-92ae-34aff2e8488a",
+    "name": "Jin Hua Fish Soup",
+    "rating": 4.3,
+    "reviewCount": 218
+  },
+  {
+    "id": "90298072-9cd0-4eeb-94dd-a05fdabf377c",
+    "name": "Jin Xi Lai (Mui Siong) Minced Meat Noodle",
+    "rating": 4.2,
+    "reviewCount": 519
+  },
+  {
+    "id": "c85fe644-cdd0-4385-823a-dabcd8f40160",
+    "name": "Joji’s Diner",
+    "rating": 4.2,
+    "reviewCount": 2507
+  },
+  {
+    "id": "2d59b7b4-718b-429a-99d0-c7c4e7eb8b63",
+    "name": "Joji’s Sandwich Parlour",
+    "rating": 4,
+    "reviewCount": 263
+  },
+  {
+    "id": "5fb2fde7-d046-46ab-93a8-477569523d50",
+    "name": "Joo Chiat Place Fried Kway Teow",
+    "rating": 3.9,
+    "reviewCount": 411
+  },
+  {
+    "id": "3c72e5f5-bfc9-41ca-a739-06e4c4481c04",
+    "name": "JU Signatures",
+    "rating": 4.2,
+    "reviewCount": 384
+  },
+  {
+    "id": "6fe39dc5-02cc-4e84-a626-7304b53c6407",
+    "name": "Julaiha Muslim Restaurant",
+    "rating": 4.2,
+    "reviewCount": 1938
+  },
+  {
+    "id": "33075d43-1895-4ba8-823b-aa1eac97c8b5",
+    "name": "Jun Omakase",
+    "rating": 4.5,
+    "reviewCount": 402
+  },
+  {
+    "id": "ba1918c3-6d90-495a-8b55-890bf8067048",
+    "name": "Jun Yuan House Of Fish",
+    "rating": 2.7,
+    "reviewCount": 95
+  },
+  {
+    "id": "cd45bb2d-d537-4f6e-bbb0-62c333e32258",
+    "name": "Just Love Bread 就是爱面包",
+    "rating": 4.5,
+    "reviewCount": 15
+  },
+  {
+    "id": "98771e18-8577-4143-82e1-bb6c07f2d36b",
+    "name": "Jypsy One Fullerton",
+    "rating": 4.3,
+    "reviewCount": 2249
+  },
+  {
+    "id": "2651554f-a661-4f9d-a125-36f5558cb567",
+    "name": "K. Cook Korean BBQ Buffet",
+    "rating": 4,
+    "reviewCount": 773
+  },
+  {
+    "id": "6559bb53-a6c2-4b83-9d5e-9fe35db4b357",
+    "name": "Ka",
+    "rating": null,
+    "reviewCount": null
+  },
+  {
+    "id": "c35286d0-f5c0-4d91-a23a-45ab20f24b01",
+    "name": "Kaarla Restaurant & Bar",
+    "rating": 4.5,
+    "reviewCount": 410
+  },
+  {
+    "id": "0f2d5547-a873-4034-aa20-6933ebb3e6a6",
+    "name": "Kafe Utu",
+    "rating": 4.6,
+    "reviewCount": 1648
+  },
+  {
+    "id": "7a142b07-b698-4bf3-a688-109ecfe2b4c6",
+    "name": "Kai Xin Crabs",
+    "rating": 4.5,
+    "reviewCount": 147
+  },
+  {
+    "id": "15ff50c9-f914-4e2f-bd20-668289f04b58",
+    "name": "Kamal’s Restaurant",
+    "rating": 4.2,
+    "reviewCount": 247
+  },
+  {
+    "id": "d255d14f-03c0-4d65-b5b3-73d42f473724",
+    "name": "Kampung Chicken Rice",
+    "rating": 4,
+    "reviewCount": 956
+  },
+  {
+    "id": "1fd40e90-1426-432b-b77f-c14598c11331",
+    "name": "Kampung Nasi Lemak",
+    "rating": 4.2,
+    "reviewCount": 15
+  },
+  {
+    "id": "e999d223-4bc9-484e-8d60-3f23b9504075",
+    "name": "Kanaaji Katsu",
+    "rating": 4.4,
+    "reviewCount": 46
+  },
+  {
+    "id": "5dbf314e-d260-4a17-99ce-25aebaa14366",
+    "name": "Kanshoku Ramen",
+    "rating": 3.3,
+    "reviewCount": 358
+  },
+  {
+    "id": "53b40f11-8b61-4f3c-9dac-2ce860329c75",
+    "name": "Karu’s Indian Banana Leaf Restaurant",
+    "rating": 4.3,
+    "reviewCount": 2117
+  },
+  {
+    "id": "0fb0f437-3555-412a-9d3d-39344ea30373",
+    "name": "Katong Laksa (George’s)",
+    "rating": 4.6,
+    "reviewCount": 615
+  },
+  {
+    "id": "66bd13b5-5530-48de-8a1e-1f9c1d413432",
+    "name": "Katong Mei Wei Boneless Chicken Rice",
+    "rating": 4.1,
+    "reviewCount": 2031
+  },
+  {
+    "id": "568ee575-9d3d-464d-93a8-a931ca1c09e8",
+    "name": "Katong Mei Wei Express",
+    "rating": 4.8,
+    "reviewCount": 36
+  },
+  {
+    "id": "dd857b95-25f7-4a57-8c27-d606784a58bf",
+    "name": "Kay Lee Roast Meat",
+    "rating": 3.4,
+    "reviewCount": 779
+  },
+  {
+    "id": "248275bd-07d3-4dac-9f54-86f1dc8736ee",
+    "name": "Kay Lee Roast Meat Joint",
+    "rating": 3.4,
+    "reviewCount": 779
+  },
+  {
+    "id": "11c34e48-63f3-46c1-8b12-73fd04d617bf",
+    "name": "Kazu Sumiyaki",
+    "rating": 4.5,
+    "reviewCount": 288
+  },
+  {
+    "id": "964c12c1-920f-438d-b138-4ca47507d710",
+    "name": "Kazutake Ramen",
+    "rating": 4.2,
+    "reviewCount": 399
+  },
+  {
+    "id": "93675e51-b42c-4c62-a6ba-503f638e282b",
+    "name": "Keisuke Tonkotsu King",
+    "rating": 4.5,
+    "reviewCount": 442
+  },
+  {
+    "id": "e547c7b1-9746-4904-8386-6372b63abf74",
+    "name": "Kelantan Kway Chap",
+    "rating": 4,
+    "reviewCount": 125
+  },
+  {
+    "id": "301f95e4-5af8-4ff8-bda4-b4a4b978bb9b",
+    "name": "Kelim Dakdoritang",
+    "rating": 4.4,
+    "reviewCount": 458
+  },
+  {
+    "id": "de339acc-7d3a-4ac1-9b53-33525761ae48",
+    "name": "Kenangan Coffee",
+    "rating": 3.5,
+    "reviewCount": 196
+  },
+  {
+    "id": "f270cd7b-2f54-44f7-8247-f823e783d61b",
+    "name": "Keng Eng Kee",
+    "rating": 4.3,
+    "reviewCount": 5083
+  },
+  {
+    "id": "a12f88a8-e381-4a4b-aa8b-2004965e9b59",
+    "name": "Keng Eng Kee Seafood",
+    "rating": 4.3,
+    "reviewCount": 5083
+  },
+  {
+    "id": "ce502e20-839d-404a-96ae-092b0d1b3aa4",
+    "name": "Keong Saik Bakery",
+    "rating": 4.1,
+    "reviewCount": 1090
+  },
+  {
+    "id": "a1f5728d-2039-4017-98eb-7fb562fe05a6",
+    "name": "Keong Saik Bakery",
+    "rating": 4.2,
+    "reviewCount": 303
+  },
+  {
+    "id": "b54519c5-c911-48ea-8584-1d3fe8b541f4",
+    "name": "Khao Hom by Rung Mama",
+    "rating": 4.7,
+    "reviewCount": 2119
+  },
+  {
+    "id": "4df1f98a-e34a-42fe-ae87-b018f486d498",
+    "name": "Kikanbo",
+    "rating": 4.2,
+    "reviewCount": 126
+  },
+  {
+    "id": "6e9fe1ae-7e0d-414b-8561-5ca685c23a54",
+    "name": "Kim Dae Mun Korean Food",
+    "rating": 4.2,
+    "reviewCount": 1511
+  },
+  {
+    "id": "1c49666e-e6ba-4dd2-b506-a0cf6b18bf7a",
+    "name": "Kim Keat Hokkien Mee",
+    "rating": 3.9,
+    "reviewCount": 788
+  },
+  {
+    "id": "bd530ea7-cca9-43ac-af6f-ab09d7f6b6a3",
+    "name": "Kin Khao Yang",
+    "rating": 3.1,
+    "reviewCount": 35
+  },
+  {
+    "id": "0702bb4e-b9e1-4482-b06a-73a65706ecf8",
+    "name": "Kin Sen Thai Noodle",
+    "rating": 4.5,
+    "reviewCount": 206
+  },
+  {
+    "id": "438da192-4c1f-413e-a80d-4a4f4ba45320",
+    "name": "Kiseki Japanese Buffet Restaurant",
+    "rating": 4.4,
+    "reviewCount": 7852
+  },
+  {
+    "id": "39dbd652-21d6-4fc3-b15c-fda3e5b573be",
+    "name": "Kiwami Ramen & Gyoza Bar",
+    "rating": 4.4,
+    "reviewCount": 914
+  },
+  {
+    "id": "83ba0319-0cbb-4e35-9a06-002fb8f7fa28",
+    "name": "KKI Sweets",
+    "rating": 5,
+    "reviewCount": 199
+  },
+  {
+    "id": "9e05f041-ff80-4d27-ac3a-3721efbba0fd",
+    "name": "KLARRA Cafe",
+    "rating": 4.9,
+    "reviewCount": 194
+  },
+  {
+    "id": "9f988a51-96aa-4cf5-abc7-213ded3b19d7",
+    "name": "Ko Ryo Jeong Restaurant",
+    "rating": 4.1,
+    "reviewCount": 152
+  },
+  {
+    "id": "6922838e-770f-42ae-a724-7ff498140834",
+    "name": "Kok Sen Restaurant",
+    "rating": 4.1,
+    "reviewCount": 1959
+  },
+  {
+    "id": "b7f0de90-a3c6-430d-9368-b17d467ed4c5",
+    "name": "Komala Vilas",
+    "rating": 4.2,
+    "reviewCount": 6947
+  },
+  {
+    "id": "faedc218-906f-4a36-ad43-ed571d8d64b8",
+    "name": "Korat Thai Cafe",
+    "rating": 4.1,
+    "reviewCount": 831
+  },
+  {
+    "id": "637fdc09-57ed-476d-9c18-a3deb3189024",
+    "name": "Korio",
+    "rating": 4.4,
+    "reviewCount": 63
+  },
+  {
+    "id": "f3315a8a-1b6c-4fd4-b47f-5c419e2a5f5c",
+    "name": "Kotuwa",
+    "rating": null,
+    "reviewCount": null
+  },
+  {
+    "id": "1baed0ce-ea90-4214-bf59-d1106f9152f0",
+    "name": "Kouhaku Omakase",
+    "rating": 4.8,
+    "reviewCount": 280
+  },
+  {
+    "id": "c3560a52-c6eb-477e-8d00-ad610f3ed413",
+    "name": "Koung Wanton Noodle",
+    "rating": 4.3,
+    "reviewCount": 3573
+  },
+  {
+    "id": "3afb0876-f916-43d7-b516-c0b97f77d646",
+    "name": "Koung’s Wantan Mee",
+    "rating": 3.9,
+    "reviewCount": 1684
+  },
+  {
+    "id": "6dd476b9-86f5-4e7b-a342-cc3da22acb92",
+    "name": "Kream & Kensho",
+    "rating": 4.5,
+    "reviewCount": 351
+  },
+  {
+    "id": "399e4a92-86f6-47cd-af6b-c1773744be3e",
+    "name": "Kremi",
+    "rating": 4.6,
+    "reviewCount": 29
+  },
+  {
+    "id": "b58042f7-f810-4aaf-a176-aa5a769e27db",
+    "name": "Kuai San Dian Xin",
+    "rating": 3.7,
+    "reviewCount": 1006
+  },
+  {
+    "id": "cd7940a0-3e2e-46bd-b100-f40f003f3519",
+    "name": "Kuan Zhai Wan Wan Xiang",
+    "rating": 3.9,
+    "reviewCount": 89
+  }
+]

@@ -1,0 +1,686 @@
+[
+  {
+    "id": "071692d6-6519-49b2-8a6a-fa1f7e073d6b",
+    "name": "Corner Corner",
+    "rating": null,
+    "reviewCount": null
+  },
+  {
+    "id": "6559bb53-a6c2-4b83-9d5e-9fe35db4b357",
+    "name": "Ka",
+    "rating": null,
+    "reviewCount": null
+  },
+  {
+    "id": "f3315a8a-1b6c-4fd4-b47f-5c419e2a5f5c",
+    "name": "Kotuwa",
+    "rating": null,
+    "reviewCount": null
+  },
+  {
+    "id": "40daca59-ba2e-449e-9f70-d8271acda0b8",
+    "name": "Pin Wei Hong Kong Style CCF (Senja)",
+    "rating": null,
+    "reviewCount": null
+  },
+  {
+    "id": "348dce1a-6bd4-4bbb-81ef-6ac168bdef8e",
+    "name": "Pin Wei Hong Kong Style Chee Cheong Fun (BP)",
+    "rating": null,
+    "reviewCount": null
+  },
+  {
+    "id": "64e97456-0def-4f3b-a07c-64ee1441f2a6",
+    "name": "Seng Kee Mushroom Minced Meat Noodle",
+    "rating": 3.6,
+    "reviewCount": 305
+  },
+  {
+    "id": "a3f7a574-b271-49b7-8b37-ec81f94ec8cd",
+    "name": "Seorae Korean Charcoal BBQ",
+    "rating": 4.5,
+    "reviewCount": 4281
+  },
+  {
+    "id": "4de92977-96ad-4a08-bd7c-6ec607e538fe",
+    "name": "Seoul Noodle Shop",
+    "rating": 4.7,
+    "reviewCount": 1903
+  },
+  {
+    "id": "118901af-7c4c-4ea5-8b3a-0baeca479a4d",
+    "name": "Seoul Restaurant",
+    "rating": 4.7,
+    "reviewCount": 1355
+  },
+  {
+    "id": "1c4efbf3-8005-44d6-ac75-48001c05f5e5",
+    "name": "September Coffee",
+    "rating": 4.2,
+    "reviewCount": 611
+  },
+  {
+    "id": "9b9df905-6c88-4391-af2e-97d9ef044adf",
+    "name": "Shaburi And Kintan Buffet",
+    "rating": 4.2,
+    "reviewCount": 1137
+  },
+  {
+    "id": "4615bc60-8f21-417c-a6ab-976e42b2818b",
+    "name": "Shi Hui Yuan",
+    "rating": 4,
+    "reviewCount": 2447
+  },
+  {
+    "id": "af032c4d-0a1e-4198-8345-2028cf8c7f4c",
+    "name": "Shi Le Yuan",
+    "rating": 4.5,
+    "reviewCount": 89
+  },
+  {
+    "id": "470c97bf-0c1c-4e43-a1cf-1ff658eb7462",
+    "name": "Shi Nian Pig Leg Rice",
+    "rating": 3.7,
+    "reviewCount": 999
+  },
+  {
+    "id": "788ad77f-ae7c-4e9a-9e4a-9c471eb27cc4",
+    "name": "Shi Xian",
+    "rating": 4.1,
+    "reviewCount": 3667
+  },
+  {
+    "id": "825d2765-8447-415d-8c65-d08470346d8e",
+    "name": "Shin Katsu",
+    "rating": 4.9,
+    "reviewCount": 2049
+  },
+  {
+    "id": "4484c197-9353-4226-9e0a-446de1b9a419",
+    "name": "Shin Minori Japanese Restaurant",
+    "rating": 4.3,
+    "reviewCount": 2400
+  },
+  {
+    "id": "9a589bdd-ddb9-4434-949d-3e9d8224c8fe",
+    "name": "Shin Yuu Japanese Restaurant",
+    "rating": 4.3,
+    "reviewCount": 558
+  },
+  {
+    "id": "f6a503d3-f539-4b56-9767-0455854cfc25",
+    "name": "Shinji By Kanesaka",
+    "rating": 4.6,
+    "reviewCount": 357
+  },
+  {
+    "id": "d7eeaa36-e4d5-4c75-abdd-6aed0852e3d3",
+    "name": "Shinji by Kaneseka",
+    "rating": 4.6,
+    "reviewCount": 357
+  },
+  {
+    "id": "13e64295-7b35-48d2-8c06-d1262307a42c",
+    "name": "Shoukouwa",
+    "rating": 4.6,
+    "reviewCount": 196
+  },
+  {
+    "id": "7bec5ae7-5a79-4380-8df1-b29daa2b0a46",
+    "name": "Shrimp Prawn Hotpot",
+    "rating": 4.1,
+    "reviewCount": 29
+  },
+  {
+    "id": "7dbbc817-c590-4d84-93ed-391853c5504b",
+    "name": "Simon Road Hokkien Mee (Kovan)",
+    "rating": 3.7,
+    "reviewCount": 501
+  },
+  {
+    "id": "eb05835a-d360-40f8-823b-c82c0f1c91bc",
+    "name": "Simple Cafe",
+    "rating": 4.6,
+    "reviewCount": 489
+  },
+  {
+    "id": "add9c87f-496c-43e1-ba36-ec3a7272e0d5",
+    "name": "Sin Heng Kee",
+    "rating": 4.3,
+    "reviewCount": 3664
+  },
+  {
+    "id": "c956545d-839c-44ec-a128-bd1a60988de0",
+    "name": "Sin Kee Famous Cantonese Chicken Rice",
+    "rating": 4.1,
+    "reviewCount": 661
+  },
+  {
+    "id": "3d79354b-a966-41dc-be23-0391302c6774",
+    "name": "Sin Manbok Korean Restaurant",
+    "rating": 3.9,
+    "reviewCount": 576
+  },
+  {
+    "id": "2bf946c4-bfbc-49fd-aa76-625733822d5c",
+    "name": "Sin Ming Roti Prata",
+    "rating": 4.1,
+    "reviewCount": 29
+  },
+  {
+    "id": "f79a8532-c8e3-4434-b1ce-b9cc9631cc32",
+    "name": "Sin Ming Roti Prata",
+    "rating": 4.2,
+    "reviewCount": 1619
+  },
+  {
+    "id": "1af3993b-7f9c-4fbc-b03d-502c4183149d",
+    "name": "Siri House",
+    "rating": 4.4,
+    "reviewCount": 590
+  },
+  {
+    "id": "47e63c60-6676-4284-aabd-c8d6d13354b0",
+    "name": "Sixth Avenue Nasi Lemak",
+    "rating": 4.3,
+    "reviewCount": 176
+  },
+  {
+    "id": "4efede63-283a-4264-99c5-80b7863f335d",
+    "name": "Slow Bakes",
+    "rating": 4.2,
+    "reviewCount": 605
+  },
+  {
+    "id": "2974a049-5392-4d23-b109-219804bb5b7b",
+    "name": "SLUSHYAH",
+    "rating": 5,
+    "reviewCount": 4
+  },
+  {
+    "id": "389b1bb1-f645-4457-ab8a-173e81830be6",
+    "name": "So Lemak",
+    "rating": 4,
+    "reviewCount": 269
+  },
+  {
+    "id": "b4d1c273-105f-4574-be82-135d2a6c9969",
+    "name": "Social Place",
+    "rating": 4.3,
+    "reviewCount": 1088
+  },
+  {
+    "id": "77678c0c-8910-43aa-9e8f-d335be80e400",
+    "name": "SODENG Korean Restaurant",
+    "rating": 4.9,
+    "reviewCount": 948
+  },
+  {
+    "id": "b71dd9fd-1ce2-4cd0-968d-c29dd9d41d51",
+    "name": "Soft Spot",
+    "rating": 4.8,
+    "reviewCount": 201
+  },
+  {
+    "id": "a79aa406-edca-44c1-9328-f391706120d4",
+    "name": "Soi Aroy",
+    "rating": 4.8,
+    "reviewCount": 1631
+  },
+  {
+    "id": "16a83ccc-7814-4590-8a7f-56e44669c192",
+    "name": "Soi Candy",
+    "rating": 4.7,
+    "reviewCount": 199
+  },
+  {
+    "id": "dfd8a0f0-2fb1-43be-ae78-c73b2b8ce552",
+    "name": "Solo Ristorante",
+    "rating": 4.6,
+    "reviewCount": 667
+  },
+  {
+    "id": "bd602ad8-5332-491e-a8c0-99c7551267ff",
+    "name": "Song Fa Bak Kut Teh",
+    "rating": 3.7,
+    "reviewCount": 3
+  },
+  {
+    "id": "2a976781-497f-40a0-b117-6df8852952dc",
+    "name": "Song Gye Ok",
+    "rating": 4.7,
+    "reviewCount": 1743
+  },
+  {
+    "id": "f1d8a8db-0c7c-4c8f-87a8-b340ff9ca4c3",
+    "name": "SOT Korean Restaurant",
+    "rating": 4.6,
+    "reviewCount": 330
+  },
+  {
+    "id": "60cb594f-322e-4341-aaed-3b38972b4014",
+    "name": "Soulfood Catering",
+    "rating": 4.7,
+    "reviewCount": 181
+  },
+  {
+    "id": "09021b4c-fb79-426b-9cdd-8e135134cc88",
+    "name": "Sourbombe Bakery",
+    "rating": 3.9,
+    "reviewCount": 86
+  },
+  {
+    "id": "0fc87c6d-4869-4e99-9302-c222cd0cb1df",
+    "name": "Special Shanghai Tim Sum",
+    "rating": 4.4,
+    "reviewCount": 146
+  },
+  {
+    "id": "08ede094-c7dd-43a5-9c7d-a6bf8ea82a3e",
+    "name": "Spicy Wife",
+    "rating": 4.7,
+    "reviewCount": 331
+  },
+  {
+    "id": "00563110-c98a-4fcc-b59a-041f955fe446",
+    "name": "Spring Court 詠春園",
+    "rating": 4.5,
+    "reviewCount": 3871
+  },
+  {
+    "id": "b2496484-237d-439a-b0b4-ee05f83afac5",
+    "name": "SSAK3",
+    "rating": 4.2,
+    "reviewCount": 411
+  },
+  {
+    "id": "0d0cdce4-cd51-4696-91c2-2b14215099cd",
+    "name": "SSAK3",
+    "rating": 4.2,
+    "reviewCount": 411
+  },
+  {
+    "id": "c6f18552-0022-478e-b908-5491c20c1211",
+    "name": "Steeped Tea Bar",
+    "rating": 4.7,
+    "reviewCount": 109
+  },
+  {
+    "id": "92f3e2de-6a92-46bf-acc3-107313cefb0b",
+    "name": "Straits Club",
+    "rating": 4.6,
+    "reviewCount": 176
+  },
+  {
+    "id": "3ab0292a-edcd-4475-8ea3-ca95ac69156e",
+    "name": "Su Shi Piao Xiang Vegetarian Food",
+    "rating": 4.3,
+    "reviewCount": 144
+  },
+  {
+    "id": "611f00fd-9222-4463-8d7e-2d3829725b96",
+    "name": "SuiTok",
+    "rating": 4.8,
+    "reviewCount": 444
+  },
+  {
+    "id": "434d2a57-dace-491a-bb02-5810036eaee8",
+    "name": "Sum Dim Sum",
+    "rating": 4.2,
+    "reviewCount": 1439
+  },
+  {
+    "id": "c71fdca8-39e5-4d3c-af60-32847fca3905",
+    "name": "Summer Palace 夏宫",
+    "rating": 4.5,
+    "reviewCount": 576
+  },
+  {
+    "id": "dacf22c3-430c-4e6b-8880-f4497fedd9fa",
+    "name": "Wan Wan Thai Cafe",
+    "rating": 4,
+    "reviewCount": 353
+  },
+  {
+    "id": "10f7f6c9-2156-4566-8303-dd361fbc589e",
+    "name": "Wang Dae Bak",
+    "rating": 4.5,
+    "reviewCount": null
+  },
+  {
+    "id": "c91b1de3-3b6c-48de-bf4e-51cd76d9485c",
+    "name": "Wang Dae Bak Korean BBQ",
+    "rating": 4.6,
+    "reviewCount": 648
+  },
+  {
+    "id": "bee257e1-3771-489f-b83d-7cda79562f0b",
+    "name": "Wang Dae Bak Korean BBQ",
+    "rating": 4.5,
+    "reviewCount": 1589
+  },
+  {
+    "id": "46214278-6399-41e0-a8a4-67ec7f3fc9e3",
+    "name": "Wanton Fu",
+    "rating": 4.4,
+    "reviewCount": 500
+  },
+  {
+    "id": "3f9cdabc-5b5c-4f35-9f54-ea50ba77464e",
+    "name": "Warung Dim Sum",
+    "rating": null,
+    "reviewCount": null
+  },
+  {
+    "id": "267f6064-8fd5-4f05-95c4-eedbd79be558",
+    "name": "Wawa Lala Bee Hoon",
+    "rating": 4.5,
+    "reviewCount": 810
+  },
+  {
+    "id": "63642d5b-abcb-49ee-8013-ba983e46baf7",
+    "name": "Wee Nam Kee",
+    "rating": 4.4,
+    "reviewCount": 90
+  },
+  {
+    "id": "ba6c85fe-9f0f-493b-9f32-03349169b8d6",
+    "name": "Wee Nam Kee",
+    "rating": 4.1,
+    "reviewCount": 1876
+  },
+  {
+    "id": "a80caf3c-87ce-4361-aab5-fb52ea9a5560",
+    "name": "Well Collective",
+    "rating": 3.9,
+    "reviewCount": 414
+  },
+  {
+    "id": "48be13af-af45-4b87-a66b-82d7f3310d57",
+    "name": "WellSmoocht",
+    "rating": 4.5,
+    "reviewCount": 436
+  },
+  {
+    "id": "2c8069f6-91a3-4eb8-a6b1-0deebf3d2c22",
+    "name": "Western Mahua Noodles",
+    "rating": 4.2,
+    "reviewCount": 652
+  },
+  {
+    "id": "5f5bf76c-e7e0-4175-9084-4678f895261e",
+    "name": "Whisk & Paddle",
+    "rating": 4.1,
+    "reviewCount": 3480
+  },
+  {
+    "id": "899c469c-3932-4d41-bceb-b37c75637ed6",
+    "name": "Wild Coco",
+    "rating": 4.2,
+    "reviewCount": 821
+  },
+  {
+    "id": "06fa162e-1408-4d3c-8c48-fd62bc51fd6d",
+    "name": "Wo Wo Dian",
+    "rating": 4.7,
+    "reviewCount": 791
+  },
+  {
+    "id": "d3365562-21d0-41c9-b04e-b3f58aa45ede",
+    "name": "Wooloomooloo Steakhouse",
+    "rating": 4.4,
+    "reviewCount": 1946
+  },
+  {
+    "id": "2778c476-11d5-448c-9f10-8a1adbea005a",
+    "name": "Wursthans Switzerland",
+    "rating": 4.1,
+    "reviewCount": 615
+  },
+  {
+    "id": "7965d337-d15e-4f17-bfdd-f987073d3e3b",
+    "name": "Xian De Lai",
+    "rating": 4.6,
+    "reviewCount": 1945
+  },
+  {
+    "id": "1fcab487-ab69-476a-9170-5b87fbaf1cab",
+    "name": "Xiao Chen Handmade Bao Dian",
+    "rating": 4.1,
+    "reviewCount": 31
+  },
+  {
+    "id": "d6bd155c-9f17-4d9a-b1b8-c545b21c7535",
+    "name": "Xiao Di Charcoal Roasted Delights",
+    "rating": 4.4,
+    "reviewCount": 120
+  },
+  {
+    "id": "6875906c-a34e-4aee-9094-916e33241889",
+    "name": "Xiao Di Fried Prawn Noodle",
+    "rating": null,
+    "reviewCount": null
+  },
+  {
+    "id": "79c64445-9379-418b-8186-b43ccfacae77",
+    "name": "Xin Ban Mian",
+    "rating": 3.4,
+    "reviewCount": 5
+  },
+  {
+    "id": "42b2dfe9-d9be-42a9-beae-c69f92ff0904",
+    "name": "Xin Cuisine Chinese Restaurant",
+    "rating": 4.5,
+    "reviewCount": 820
+  },
+  {
+    "id": "bfd37237-b7b5-44b0-8276-bbc307789bd4",
+    "name": "Xing Xing Ondeh",
+    "rating": 4.5,
+    "reviewCount": 130
+  },
+  {
+    "id": "c47519dd-15dd-453f-b8db-b019545b8e8f",
+    "name": "Xue Hua Fei Cold & Hot Drinks",
+    "rating": 4.4,
+    "reviewCount": 53
+  },
+  {
+    "id": "36bb158c-66f1-4f6e-bc06-3110fca166b7",
+    "name": "Y.R.A Rasool Fatimah",
+    "rating": 4.3,
+    "reviewCount": 24
+  },
+  {
+    "id": "89dca4e3-2b1a-4ed8-a1ba-dcaef21e0ae6",
+    "name": "Ya Kat Yan",
+    "rating": 4.6,
+    "reviewCount": 1639
+  },
+  {
+    "id": "53476d05-6d98-4cca-8d83-0846ad1b3143",
+    "name": "Yakiniku",
+    "rating": 3.5,
+    "reviewCount": 417
+  },
+  {
+    "id": "fad990e3-0a51-450c-a87f-15d27ccf0d49",
+    "name": "Yakiniku Gyubei",
+    "rating": 4.7,
+    "reviewCount": 171
+  },
+  {
+    "id": "d548c1df-21d2-4f23-812b-8ba29d330190",
+    "name": "Yan Ting Restaurant 宴庭",
+    "rating": 4.2,
+    "reviewCount": 585
+  },
+  {
+    "id": "cccf48c3-74cb-4b10-b6b0-791e27f9a973",
+    "name": "Yanxi Palace Steamboat",
+    "rating": 3.9,
+    "reviewCount": 1203
+  },
+  {
+    "id": "fa868e48-e0d0-48e0-9c12-26d66deebbae",
+    "name": "Ye Lai Xiang Tasty Barbecue",
+    "rating": 3.8,
+    "reviewCount": 158
+  },
+  {
+    "id": "f7aa71d8-d14c-4bbb-80d7-b6173de86676",
+    "name": "Yee Cheong Yuen Noodle Restaurant",
+    "rating": 3.7,
+    "reviewCount": 172
+  },
+  {
+    "id": "533818f2-a87a-4f06-9ad5-aec6caa83d0f",
+    "name": "Yi Dian Xin Hong Kong Dim Sum 一点心",
+    "rating": 3.4,
+    "reviewCount": 410
+  },
+  {
+    "id": "f2384080-2b39-41b5-937a-55b412836c8d",
+    "name": "Yi Dian Xing Hong Kong Dum Sum",
+    "rating": 3.4,
+    "reviewCount": 410
+  },
+  {
+    "id": "918bc2b9-32cc-4dc1-b96b-ffddb444ca74",
+    "name": "Yi Ji Fried Hokkien Prawn Mee",
+    "rating": 3.3,
+    "reviewCount": 97
+  },
+  {
+    "id": "4c394d1c-93fa-4241-ae01-02ce9683cfb0",
+    "name": "Yi Liu Xiang Nasi Lemak",
+    "rating": 3.9,
+    "reviewCount": 75
+  },
+  {
+    "id": "f4ed9fbf-d4f6-4916-aeb0-1e12b983a3ce",
+    "name": "Yi Xuan Handmade Banmian Eating House",
+    "rating": 4.3,
+    "reviewCount": 202
+  },
+  {
+    "id": "7a8a5e90-1ebc-422e-921a-0efd0994d0cf",
+    "name": "Yi Xuan Handmade Banmian Eating House",
+    "rating": 4.3,
+    "reviewCount": 202
+  },
+  {
+    "id": "d49c774f-438a-4165-bd43-d155e3d794c6",
+    "name": "Yi Zi Wei",
+    "rating": 4,
+    "reviewCount": 301
+  },
+  {
+    "id": "eccdf88a-a250-4c0c-9166-bb1feba8c5e5",
+    "name": "Yi Zi Wei",
+    "rating": 4,
+    "reviewCount": 301
+  },
+  {
+    "id": "c39c61e2-e58a-4e36-a019-bfcfbfeb37d2",
+    "name": "YinJi",
+    "rating": 4.2,
+    "reviewCount": 889
+  },
+  {
+    "id": "f092a61d-3b1c-4e76-b22e-235416ee32d3",
+    "name": "Yishun 925 Chicken Rice",
+    "rating": 4.1,
+    "reviewCount": 1592
+  },
+  {
+    "id": "91a035fc-2436-45b3-9ebe-67ee4abd2042",
+    "name": "Yo-Chi Singapore",
+    "rating": 4.7,
+    "reviewCount": 946
+  },
+  {
+    "id": "1caceb0c-d036-4272-8d43-6b3199c07b42",
+    "name": "Yoajung Cafe",
+    "rating": 4.8,
+    "reviewCount": 158
+  },
+  {
+    "id": "a18b972e-fd61-4d13-8bd8-bc3501f90f8d",
+    "name": "Yuen Kee Dumpling",
+    "rating": 3.7,
+    "reviewCount": 473
+  },
+  {
+    "id": "80b1bdc8-12a8-4f61-94e8-4a6360a6e862",
+    "name": "Yuen Yueng",
+    "rating": 4.4,
+    "reviewCount": 917
+  },
+  {
+    "id": "c440ee31-f738-491b-9590-940341d6a96c",
+    "name": "Yuiitsu",
+    "rating": 4.4,
+    "reviewCount": 381
+  },
+  {
+    "id": "1a9dee76-d56a-4227-b086-affbc0884324",
+    "name": "Yum Cha Restaurant 飲茶酒樓",
+    "rating": 4.3,
+    "reviewCount": 4592
+  },
+  {
+    "id": "cb374078-a841-4c61-a7ec-e6c3c14f770d",
+    "name": "YUN NANS Stonepot Fish",
+    "rating": 4.5,
+    "reviewCount": 1128
+  },
+  {
+    "id": "98b41aea-41a7-4e1e-a820-1134bfbf009e",
+    "name": "Yusoff Haji Jalal aka Satay Club",
+    "rating": 4.3,
+    "reviewCount": 45
+  },
+  {
+    "id": "4615f47d-e57a-4ce5-8190-6f5b3a415ade",
+    "name": "Zaffron Kitchen",
+    "rating": 4.4,
+    "reviewCount": 2184
+  },
+  {
+    "id": "8a54bc34-a166-40ef-a6d4-2eb7b79da918",
+    "name": "Zheng Wei 正味 Duck Rice",
+    "rating": 4,
+    "reviewCount": 89
+  },
+  {
+    "id": "4e76b350-624e-4c9b-bb2a-46dac984d91b",
+    "name": "Zheng Xing Fried Kway Teow Mee",
+    "rating": 3.7,
+    "reviewCount": 56
+  },
+  {
+    "id": "f7b94396-4a69-45f0-9b6c-f32e0f4d75aa",
+    "name": "Zhenyi Veggie Place",
+    "rating": 4.2,
+    "reviewCount": 719
+  },
+  {
+    "id": "04319eb9-a249-4121-8d72-bcbd8ec58e7d",
+    "name": "Zhup Zhup by One Prawn & Co",
+    "rating": 4.2,
+    "reviewCount": 1963
+  },
+  {
+    "id": "e066555a-4784-46a1-aeae-7d00ec011182",
+    "name": "Zi Yean Bistro",
+    "rating": 3.9,
+    "reviewCount": 813
+  },
+  {
+    "id": "993fda81-772d-4cc0-ada7-38759e1e5063",
+    "name": "一家潮州鱼粥鱼汤 Yi Jia Chao Zhou Yu Zhou Yu Tang",
+    "rating": 4.6,
+    "reviewCount": 86
+  }
+]

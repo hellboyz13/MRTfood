@@ -753,7 +753,7 @@ export default function FoodPanelV2({ stationId, onClose, onNavigateToStation, i
   // Desktop panel
   if (!isMobile) {
     return (
-      <SpinSelectionProvider>
+      <SpinSelectionProvider key={stationId} stationId={stationId || 'unknown'}>
       <div className="w-[350px] h-full bg-white border-l border-gray-200 shadow-lg panel-container relative">
         {/* Main listing panel */}
         <div className={`panel-content ${selectedMenuListing ? 'slide-out-left' : ''} bg-white`}>
@@ -795,7 +795,7 @@ export default function FoodPanelV2({ stationId, onClose, onNavigateToStation, i
 
   // Mobile drawer with swipe-to-dismiss
   return (
-    <SpinSelectionProvider>
+    <SpinSelectionProvider key={stationId} stationId={stationId || 'unknown'}>
     <MobileDrawer
       stationName={stationName}
       onClose={onClose}

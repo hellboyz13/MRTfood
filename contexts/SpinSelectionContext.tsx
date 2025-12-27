@@ -3,8 +3,7 @@
 import { createContext, useContext, useState, useCallback, useEffect, ReactNode } from 'react';
 
 const MAX_ITEMS = 5;
-const STORAGE_KEY_LISTINGS = 'spin-selected-listings';
-const STORAGE_KEY_OUTLETS = 'spin-selected-outlets';
+const STORAGE_KEY_PREFIX = 'spin-selection-';
 
 interface SpinSelectionContextType {
   selectedListingIds: Set<string>;
@@ -23,58 +22,68 @@ interface SpinSelectionContextType {
 
 const SpinSelectionContext = createContext<SpinSelectionContextType | null>(null);
 
-// Helper to load from localStorage
-function loadFromStorage(key: string): Set<string> {
-  if (typeof window === 'undefined') return new Set();
+interface StationSelections {
+  listings: string[];
+  outlets: string[];
+}
+
+// Helper to load from localStorage for a specific station
+function loadFromStorage(stationId: string): StationSelections {
+  if (typeof window === 'undefined') return { listings: [], outlets: [] };
   try {
-    const stored = localStorage.getItem(key);
+    const stored = localStorage.getItem(STORAGE_KEY_PREFIX + stationId);
     if (stored) {
       const parsed = JSON.parse(stored);
-      if (Array.isArray(parsed)) {
-        return new Set(parsed);
-      }
+      return {
+        listings: Array.isArray(parsed.listings) ? parsed.listings : [],
+        outlets: Array.isArray(parsed.outlets) ? parsed.outlets : []
+      };
     }
   } catch {
     // Ignore errors
   }
-  return new Set();
+  return { listings: [], outlets: [] };
 }
 
-// Helper to save to localStorage
-function saveToStorage(key: string, ids: Set<string>): void {
+// Helper to save to localStorage for a specific station
+function saveToStorage(stationId: string, listings: Set<string>, outlets: Set<string>): void {
   if (typeof window === 'undefined') return;
   try {
-    localStorage.setItem(key, JSON.stringify(Array.from(ids)));
+    const data: StationSelections = {
+      listings: Array.from(listings),
+      outlets: Array.from(outlets)
+    };
+    localStorage.setItem(STORAGE_KEY_PREFIX + stationId, JSON.stringify(data));
   } catch {
     // Ignore errors (e.g., storage full)
   }
 }
 
-export function SpinSelectionProvider({ children }: { children: ReactNode }) {
-  // Initialize from localStorage
-  const [selectedListingIds, setSelectedListingIds] = useState<Set<string>>(() => loadFromStorage(STORAGE_KEY_LISTINGS));
-  const [selectedOutletIds, setSelectedOutletIds] = useState<Set<string>>(() => loadFromStorage(STORAGE_KEY_OUTLETS));
+interface SpinSelectionProviderProps {
+  children: ReactNode;
+  stationId: string;
+}
+
+export function SpinSelectionProvider({ children, stationId }: SpinSelectionProviderProps) {
+  // Initialize empty - will hydrate from localStorage
+  const [selectedListingIds, setSelectedListingIds] = useState<Set<string>>(new Set());
+  const [selectedOutletIds, setSelectedOutletIds] = useState<Set<string>>(new Set());
   const [isHydrated, setIsHydrated] = useState(false);
 
-  // Hydrate from localStorage on mount (for SSR compatibility)
+  // Hydrate from localStorage on mount or when stationId changes
   useEffect(() => {
-    setSelectedListingIds(loadFromStorage(STORAGE_KEY_LISTINGS));
-    setSelectedOutletIds(loadFromStorage(STORAGE_KEY_OUTLETS));
+    const stored = loadFromStorage(stationId);
+    setSelectedListingIds(new Set(stored.listings));
+    setSelectedOutletIds(new Set(stored.outlets));
     setIsHydrated(true);
-  }, []);
+  }, [stationId]);
 
   // Persist to localStorage whenever selections change
   useEffect(() => {
     if (isHydrated) {
-      saveToStorage(STORAGE_KEY_LISTINGS, selectedListingIds);
+      saveToStorage(stationId, selectedListingIds, selectedOutletIds);
     }
-  }, [selectedListingIds, isHydrated]);
-
-  useEffect(() => {
-    if (isHydrated) {
-      saveToStorage(STORAGE_KEY_OUTLETS, selectedOutletIds);
-    }
-  }, [selectedOutletIds, isHydrated]);
+  }, [selectedListingIds, selectedOutletIds, isHydrated, stationId]);
 
   const toggleListing = useCallback((id: string): boolean => {
     let success = false;

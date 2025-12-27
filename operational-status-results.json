@@ -1,330 +1,695 @@
 {
   "operational": [
     {
-      "id": "089e88fa-dae0-4ded-b70e-0973e8665374",
-      "name": "Hock Lam Street Popular Beef Kway Teow",
+      "id": "8cb4e4a4-db9b-4418-a700-2bb75b5696d3",
+      "name": "Beo Crescent Curry Rice",
+      "station": "Tiong Bahru",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Beo Crescent Curry Rice Tiong Bahru Singapore restaurant"
+    },
+    {
+      "id": "d21971c4-9d66-464f-81ed-e0f88f00dd55",
+      "name": "Deen Tiga Rasa",
+      "station": "Nicoll Highway",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Deen Tiga Rasa Nicoll Highway Singapore restaurant"
+    },
+    {
+      "id": "25a0e934-f61d-4a15-ac83-c591130c1d86",
+      "name": "Sumo Bar Happy",
+      "station": "Tanjong Pagar",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Sumo Bar Happy Tanjong Pagar Singapore restaurant"
+    },
+    {
+      "id": "38c8ac76-3fac-4878-b38b-409aa804deec",
+      "name": "Princess Terrace",
+      "station": "Havelock",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Princess Terrace Havelock Singapore restaurant"
+    },
+    {
+      "id": "e7263f39-526b-4775-933a-deeb78e78aee",
+      "name": "RAKU Rice Bowls & Donburis",
+      "station": "Marine Parade",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "RAKU Rice Bowls & Donburis Marine Parade Singapore restaurant"
+    },
+    {
+      "id": "2b45a919-36f0-4d88-a78d-f7def13eded6",
+      "name": "Tom's Palette",
+      "station": "Bugis",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Tom's Palette Bugis Singapore restaurant"
+    },
+    {
+      "id": "0ee73d8e-7c5c-4347-b9f1-90cfc50a1aee",
+      "name": "Sourbombe Artisanal Bakery (Park Mall)",
+      "station": "Bencoolen",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Sourbombe Artisanal Bakery (Park Mall) Bencoolen Singapore restaurant"
+    },
+    {
+      "id": "b469e4ee-0c4c-49ed-9b7b-bfd224ece09f",
+      "name": "Keming Bing Sat",
+      "station": "City Hall",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Keming Bing Sat City Hall Singapore restaurant"
+    },
+    {
+      "id": "b693f8dc-51c4-468c-b6d4-d4d900b13cae",
+      "name": "Koung's Wan Tan Mee",
+      "station": "Clementi",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Koung's Wan Tan Mee Clementi Singapore restaurant"
+    },
+    {
+      "id": "b26e3a53-8f8b-47e6-95f9-1c8c793cf9e6",
+      "name": "Third Place",
+      "station": "Tuas Crescent",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Third Place Tuas Crescent Singapore restaurant"
+    },
+    {
+      "id": "e6cf7fba-63de-4e63-9e1b-cddf1f9f0b0c",
+      "name": "I. Mohamed Ismail Food Stall",
+      "station": "Boon Lay",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "I. Mohamed Ismail Food Stall Boon Lay Singapore restaurant"
+    },
+    {
+      "id": "22130e39-d796-4f59-a179-b9a8972957f4",
+      "name": "Maruhachi Donburi & Curry",
+      "station": "Lakeside",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Maruhachi Donburi & Curry Lakeside Singapore restaurant"
+    },
+    {
+      "id": "7de48018-55b2-4119-b720-ecb93c66eeea",
+      "name": "I. Mohamed Ismail",
+      "station": "Boon Lay",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "I. Mohamed Ismail Boon Lay Singapore restaurant"
+    },
+    {
+      "id": "e2c86c03-9daf-4f54-9d14-471036ea3a9d",
+      "name": "Food Garden Asia Square",
+      "station": "Downtown",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Food Garden Asia Square Downtown Singapore restaurant"
+    },
+    {
+      "id": "2af74ffa-b405-4ae5-9138-b61266e98afa",
+      "name": "British Hainan",
+      "station": "Esplanade",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "British Hainan Esplanade Singapore restaurant"
+    },
+    {
+      "id": "392ca5cc-5cd1-4ce1-880a-cbd6b9515d83",
+      "name": "Long Black Cafe",
+      "station": "Buona Vista",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Long Black Cafe Buona Vista Singapore restaurant"
+    },
+    {
+      "id": "a8e5922e-5f3b-4249-9269-3515f8987c61",
+      "name": "Tian Tian Hainanese Curry Rice",
+      "station": "Telok Blangah",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Tian Tian Hainanese Curry Rice Telok Blangah Singapore restaurant"
+    },
+    {
+      "id": "3018a167-54e3-44f9-afc8-b9d59ec63c4e",
+      "name": "Shi Mei Roasted",
+      "station": "Marsiling",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Shi Mei Roasted Marsiling Singapore restaurant"
+    },
+    {
+      "id": "a3dbc30e-d66e-40f5-9bd8-7c4c08d1d465",
+      "name": "Cafe Bakeaholic",
+      "station": "Springleaf",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Cafe Bakeaholic Springleaf Singapore restaurant"
+    },
+    {
+      "id": "f400cb31-c7ca-4f61-ab12-f6a0fbe0f4b8",
+      "name": "The Oyster Bank",
+      "station": "Great World",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "The Oyster Bank Great World Singapore restaurant"
+    },
+    {
+      "id": "22c0ab00-392c-4748-b30f-52a00f628b3b",
+      "name": "Ka-Soh Restaurant",
+      "station": "Outram Park",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Ka-Soh Restaurant Outram Park Singapore restaurant"
+    },
+    {
+      "id": "77e48d2a-3e38-49fc-8447-c70247115b84",
+      "name": "Stranger's Reunion",
+      "station": "Outram Park",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Stranger's Reunion Outram Park Singapore restaurant"
+    },
+    {
+      "id": "b102fcaa-75b7-48ba-ac8b-758b761acde6",
+      "name": "Creamier East Coast",
+      "station": "Siglap",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Creamier East Coast Siglap Singapore restaurant"
+    },
+    {
+      "id": "eeff4619-abc7-4633-87e1-64e6010a026e",
+      "name": "The Social Outcast",
+      "station": "Marine Terrace",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "The Social Outcast Marine Terrace Singapore restaurant"
+    },
+    {
+      "id": "46c183ed-6503-43b7-9a1f-6f5c3b5083e6",
+      "name": "Lau Pa Sat",
+      "station": "Telok Ayer",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Lau Pa Sat Telok Ayer Singapore restaurant"
+    },
+    {
+      "id": "d6eccf03-092d-4e7a-97b2-3a2c7f97623a",
+      "name": "Adam Road Food Centre",
+      "station": "Botanic Gardens",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Adam Road Food Centre Botanic Gardens Singapore restaurant"
+    },
+    {
+      "id": "ff426fa4-5bc3-4b38-a544-d854d2e8a4e6",
+      "name": "Newton Food Centre",
+      "station": "Newton",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Newton Food Centre Newton Singapore restaurant"
+    },
+    {
+      "id": "95e808ae-5c2a-4567-b46e-24fc2655ddb5",
+      "name": "Bateel",
+      "station": "Orchard",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Bateel Orchard Singapore restaurant"
+    },
+    {
+      "id": "9e7a9321-709a-449c-890f-6da631cb611e",
+      "name": "Pierre Herme Singapore",
+      "station": "HarbourFront",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Pierre Herme Singapore HarbourFront Singapore restaurant"
+    },
+    {
+      "id": "bab99245-b5a8-45d8-9928-e51d80ffe628",
+      "name": "Bar-Roque Grill",
+      "station": "Tanjong Pagar",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Bar-Roque Grill Tanjong Pagar Singapore restaurant"
+    },
+    {
+      "id": "dfd8a0f0-2fb1-43be-ae78-c73b2b8ce552",
+      "name": "Solo Ristorante",
+      "station": "Telok Ayer",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Solo Ristorante Telok Ayer Singapore restaurant"
+    },
+    {
+      "id": "00563110-c98a-4fcc-b59a-041f955fe446",
+      "name": "Spring Court 詠春園",
       "station": "Chinatown",
-      "googleResult": {
-        "found": true,
-        "status": "OPERATIONAL",
-        "name": "Hock Lam Beef",
-        "address": "13 N Canal Rd, #01-01, Singapore 048826",
-        "mapsUri": "https://maps.google.com/?cid=5123236815976597131&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
-      },
-      "finalStatus": "OPERATIONAL",
-      "statusSource": "google_places"
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Spring Court 詠春園 Chinatown Singapore restaurant"
+    },
+    {
+      "id": "3022ebd8-f5b3-48d3-b52b-501a6e5e2f11",
+      "name": "Chin Chin Restaurant",
+      "station": "Bugis",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Chin Chin Restaurant Bugis Singapore restaurant"
+    },
+    {
+      "id": "3bcf80c0-3de9-4598-82d1-cf9e368f7ba2",
+      "name": "Uptown Nasi Lemak",
+      "station": "Telok Ayer",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Uptown Nasi Lemak Telok Ayer Singapore restaurant"
+    },
+    {
+      "id": "5b58966c-60b2-4af8-ac63-8af6a7b83a31",
+      "name": "Blue Coco Nasi Lemak",
+      "station": "MacPherson",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Blue Coco Nasi Lemak MacPherson Singapore restaurant"
+    },
+    {
+      "id": "4e76b350-624e-4c9b-bb2a-46dac984d91b",
+      "name": "Zheng Xing Fried Kway Teow Mee",
+      "station": "Toa Payoh",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Zheng Xing Fried Kway Teow Mee Toa Payoh Singapore restaurant"
+    },
+    {
+      "id": "94e2abed-b741-4e0a-9f07-1fb0d7a812ba",
+      "name": "Heng Huat Fried Kway Teow",
+      "station": "Pasir Panjang",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Heng Huat Fried Kway Teow Pasir Panjang Singapore restaurant"
+    },
+    {
+      "id": "5b0976e7-4c47-4287-8fa8-b75eab4e5078",
+      "name": "Banh Mi Saigon",
+      "station": "Ang Mo Kio",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Banh Mi Saigon Ang Mo Kio Singapore restaurant"
+    },
+    {
+      "id": "d502a1ea-ad9c-4c05-95d4-6b86080d61ac",
+      "name": "Ah Jie Hokkien Mee",
+      "station": "Ang Mo Kio",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Ah Jie Hokkien Mee Ang Mo Kio Singapore restaurant"
+    },
+    {
+      "id": "aed1f696-1185-4a68-b8e5-8e1f7333c53c",
+      "name": "Monday Coffee Bar",
+      "station": "Ang Mo Kio",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Monday Coffee Bar Ang Mo Kio Singapore restaurant"
+    },
+    {
+      "id": "cd45bb2d-d537-4f6e-bbb0-62c333e32258",
+      "name": "Just Love Bread 就是爱面包",
+      "station": "Ang Mo Kio",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Just Love Bread 就是爱面包 Ang Mo Kio Singapore restaurant"
+    },
+    {
+      "id": "5e708070-99fb-4b3f-8715-0dcc90b37eea",
+      "name": "Huang Ah Yi Noodle (黄阿姨面店）",
+      "station": "Ang Mo Kio",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Huang Ah Yi Noodle (黄阿姨面店） Ang Mo Kio Singapore restaurant"
+    },
+    {
+      "id": "3ef0760c-5981-4dce-b512-987ae190e532",
+      "name": "Rounding",
+      "station": "Ang Mo Kio",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Rounding Ang Mo Kio Singapore restaurant"
+    },
+    {
+      "id": "cd650179-b3b9-441f-825c-3f67a44187a5",
+      "name": "Mei Ji Niang Dou Foo 梅記釀豆腐",
+      "station": "Ang Mo Kio",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Mei Ji Niang Dou Foo 梅記釀豆腐 Ang Mo Kio Singapore restaurant"
+    },
+    {
+      "id": "d1cca211-ff76-4b83-97bf-f7c2bf5c50a6",
+      "name": "Chelabela",
+      "station": "Lentor",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Chelabela Lentor Singapore restaurant"
+    },
+    {
+      "id": "488722bb-af18-473e-8b16-d8131d9735f6",
+      "name": "Magic Kitchen",
+      "station": "Ang Mo Kio",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Magic Kitchen Ang Mo Kio Singapore restaurant"
+    },
+    {
+      "id": "22a83e93-fe29-435b-90ae-ea97f7c56c17",
+      "name": "Belinda’s Pancake",
+      "station": "Ang Mo Kio",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Belinda’s Pancake Ang Mo Kio Singapore restaurant"
+    },
+    {
+      "id": "964c12c1-920f-438d-b138-4ca47507d710",
+      "name": "Kazutake Ramen",
+      "station": "Ang Mo Kio",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Kazutake Ramen Ang Mo Kio Singapore restaurant"
+    },
+    {
+      "id": "1280616b-9594-4564-9fb0-15ce6ab23add",
+      "name": "Ah Boy Chicken Rice",
+      "station": "Yew Tee",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Ah Boy Chicken Rice Yew Tee Singapore restaurant"
+    },
+    {
+      "id": "e4b76db4-01f3-427d-8562-89eee1b5e1a7",
+      "name": "302 Foodhouse Bak Chor Mee",
+      "station": "Choa Chu Kang",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "302 Foodhouse Bak Chor Mee Choa Chu Kang Singapore restaurant"
+    },
+    {
+      "id": "edde839b-8480-4d09-af31-21f1077b9eb8",
+      "name": "Mian Wang 1971",
+      "station": "Bukit Gombak",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Mian Wang 1971 Bukit Gombak Singapore restaurant"
+    },
+    {
+      "id": "53b40f11-8b61-4f3c-9dac-2ce860329c75",
+      "name": "Karu’s Indian Banana Leaf Restaurant",
+      "station": "Cashew",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Karu’s Indian Banana Leaf Restaurant Cashew Singapore restaurant"
+    },
+    {
+      "id": "4a0eb356-9115-4be7-be2e-7f0377f8c66b",
+      "name": "Meng Kee Seafood",
+      "station": "Bukit Gombak",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Meng Kee Seafood Bukit Gombak Singapore restaurant"
+    },
+    {
+      "id": "92a22b0a-a794-4181-9fd6-428bc46fc938",
+      "name": "Million Fishball Noodle",
+      "station": "Pending",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Million Fishball Noodle Pending Singapore restaurant"
+    },
+    {
+      "id": "79c64445-9379-418b-8186-b43ccfacae77",
+      "name": "Xin Ban Mian",
+      "station": "Pending",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Xin Ban Mian Pending Singapore restaurant"
+    },
+    {
+      "id": "e3d56fb8-2ce0-44ff-b2d9-dee983ccf98c",
+      "name": "Chin Choon Prawn Noodle",
+      "station": "Bukit Batok",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Chin Choon Prawn Noodle Bukit Batok Singapore restaurant"
+    },
+    {
+      "id": "74c7e419-e2ec-42c3-9937-469df9a21435",
+      "name": "Hokkien Mee",
+      "station": "Marine Terrace",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Hokkien Mee Marine Terrace Singapore restaurant"
+    },
+    {
+      "id": "591c4fc1-c8d3-43fb-9e67-b017d82ccabc",
+      "name": "An Choi",
+      "station": "Choa Chu Kang",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "An Choi Choa Chu Kang Singapore restaurant"
+    },
+    {
+      "id": "3bb2f956-4df5-4604-b868-eec8b102b425",
+      "name": "Tiong Bahru Bakery",
+      "station": "Holland Village",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Tiong Bahru Bakery Holland Village Singapore restaurant"
+    },
+    {
+      "id": "80152175-2288-4a8c-af8e-65a109eee12d",
+      "name": "Ah Tai Hainanese Chicken Rice",
+      "station": "Raffles Place",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Ah Tai Hainanese Chicken Rice Raffles Place Singapore restaurant"
+    },
+    {
+      "id": "e22b2331-d9a6-4afb-8588-39516f1c3b1e",
+      "name": "The Roti Prata House",
+      "station": "Lorong Chuan",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "The Roti Prata House Lorong Chuan Singapore restaurant"
+    },
+    {
+      "id": "b1ddfda4-1ef6-402a-8cb1-5fd61b77310e",
+      "name": "No 18 Zion Road Fried Kway Teow",
+      "station": "Orchard Boulevard",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "No 18 Zion Road Fried Kway Teow Orchard Boulevard Singapore restaurant"
+    },
+    {
+      "id": "dd632c21-2871-4812-b573-54b0d4774cac",
+      "name": "Ah Kow Mushroom Minced Pork Mee",
+      "station": "Kovan",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Ah Kow Mushroom Minced Pork Mee Kovan Singapore restaurant"
+    },
+    {
+      "id": "b6e2b31d-210c-4e90-9293-71910d94f94d",
+      "name": "Come Daily Fried Hokkien Prawn Mee",
+      "station": "Havelock",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Come Daily Fried Hokkien Prawn Mee Havelock Singapore restaurant"
+    },
+    {
+      "id": "05a017a4-e2e8-4da9-8f9a-6525e6bd7158",
+      "name": "Swee Guan Hokkien Mee",
+      "station": "Farrer Park",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Swee Guan Hokkien Mee Farrer Park Singapore restaurant"
+    },
+    {
+      "id": "6f0420ff-beca-4017-8ca2-09f703b3a71e",
+      "name": "JB Ah Meng",
+      "station": "Havelock",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "JB Ah Meng Havelock Singapore restaurant"
+    },
+    {
+      "id": "6922838e-770f-42ae-a724-7ff498140834",
+      "name": "Kok Sen Restaurant",
+      "station": "Maxwell",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Kok Sen Restaurant Maxwell Singapore restaurant"
+    },
+    {
+      "id": "59ca4c37-8fd8-4cf9-9a45-1557ba61d6f8",
+      "name": "Lian He Ben Ji Claypot Rice",
+      "station": "Maxwell",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Lian He Ben Ji Claypot Rice Maxwell Singapore restaurant"
+    },
+    {
+      "id": "93675e51-b42c-4c62-a6ba-503f638e282b",
+      "name": "Keisuke Tonkotsu King",
+      "station": "Raffles Place",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Keisuke Tonkotsu King Raffles Place Singapore restaurant"
+    },
+    {
+      "id": "21fbb72e-44f0-41d3-93fb-b42ce7aef07b",
+      "name": "Marutama Ramen",
+      "station": "Orchard",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Marutama Ramen Orchard Singapore restaurant"
+    },
+    {
+      "id": "a1c9f053-e3f6-4664-ae5b-30053354a536",
+      "name": "Tim Ho Wan",
+      "station": "Orchard",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Tim Ho Wan Orchard Singapore restaurant"
+    },
+    {
+      "id": "8c12d807-1d6a-40aa-ae08-7f175337da59",
+      "name": "Liao Fan Hong Kong Soya Sauce Chicken Rice",
+      "station": "Maxwell",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Liao Fan Hong Kong Soya Sauce Chicken Rice Maxwell Singapore restaurant"
+    },
+    {
+      "id": "ba9f931e-7c4c-46df-8652-89da59740b0f",
+      "name": "Common Man Coffee Roasters",
+      "station": "Raffles Place",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Common Man Coffee Roasters Raffles Place Singapore restaurant"
+    },
+    {
+      "id": "5431615f-d62d-4c39-9cf8-6344aa16465d",
+      "name": "Chye Seng Huat Hardware",
+      "station": "Aljunied",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Chye Seng Huat Hardware Aljunied Singapore restaurant"
+    },
+    {
+      "id": "5b2b4b92-d937-43a8-b3ce-91085966e512",
+      "name": "The Populus",
+      "station": "Rochor",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "The Populus Rochor Singapore restaurant"
+    },
+    {
+      "id": "fd0bb793-4809-48a6-bace-a95f3cdea522",
+      "name": "Nakhon Kitchen",
+      "station": "Pasir Ris",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Nakhon Kitchen Pasir Ris Singapore restaurant"
+    },
+    {
+      "id": "d3365562-21d0-41c9-b04e-b3f58aa45ede",
+      "name": "Wooloomooloo Steakhouse",
+      "station": "Raffles Place",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Wooloomooloo Steakhouse Raffles Place Singapore restaurant"
+    },
+    {
+      "id": "ed0f9778-776f-4638-89d6-4689776061af",
+      "name": "Bedrock Bar & Grill",
+      "station": "Orchard",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Bedrock Bar & Grill Orchard Singapore restaurant"
+    },
+    {
+      "id": "1c49666e-e6ba-4dd2-b506-a0cf6b18bf7a",
+      "name": "Kim Keat Hokkien Mee",
+      "station": "Toa Payoh",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Kim Keat Hokkien Mee Toa Payoh Singapore restaurant"
+    },
+    {
+      "id": "a3f7a574-b271-49b7-8b37-ec81f94ec8cd",
+      "name": "Seorae Korean Charcoal BBQ",
+      "station": "Raffles Place",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Seorae Korean Charcoal BBQ Raffles Place Singapore restaurant"
+    },
+    {
+      "id": "c6b5e820-21f9-4ca5-8d3b-da6c692a918a",
+      "name": "Best Satay",
+      "station": "Toa Payoh",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Best Satay Toa Payoh Singapore restaurant"
+    },
+    {
+      "id": "8e309dc2-c336-42d3-9a6f-a42c0d3ccdd6",
+      "name": "Jian Bo Shui Kueh",
+      "station": "Tiong Bahru",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Jian Bo Shui Kueh Tiong Bahru Singapore restaurant"
+    },
+    {
+      "id": "3c7677ba-5d34-4a8d-960a-c91fc45c5d10",
+      "name": "Samy's Curry",
+      "station": "Napier",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Samy's Curry Napier Singapore restaurant"
+    },
+    {
+      "id": "3eba3376-beff-4cd2-99e4-77254c05d323",
+      "name": "Genki Sushi",
+      "station": "Orchard",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Genki Sushi Orchard Singapore restaurant"
+    },
+    {
+      "id": "e28d1492-80fe-4380-ae4b-99c144d625b8",
+      "name": "Ice Cream Charlie",
+      "station": "Maxwell",
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Ice Cream Charlie Maxwell Singapore restaurant"
     },
     {
       "id": "af032c4d-0a1e-4198-8345-2028cf8c7f4c",
       "name": "Shi Le Yuan",
       "station": "Tampines",
-      "googleResult": {
-        "found": true,
-        "status": "OPERATIONAL",
-        "name": "ZU LE YUAN HEALTHCARE MASSAGE",
-        "address": "201B Tampines St. 21, #01-1079, Singapore 522201",
-        "mapsUri": "https://maps.google.com/?cid=6479700494495624617&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
-      },
-      "finalStatus": "OPERATIONAL",
-      "statusSource": "google_places"
-    },
-    {
-      "id": "bf8da600-787c-41da-acda-a1cce498de53",
-      "name": "New Rong Liang Ge Cantonese Roast Duck",
-      "station": "Maxwell",
-      "googleResult": {
-        "found": true,
-        "status": "OPERATIONAL",
-        "name": "New Rong Liang Ge",
-        "address": "269B Queen St, Singapore 182269",
-        "mapsUri": "https://maps.google.com/?cid=2244285385742957962&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
-      },
-      "finalStatus": "OPERATIONAL",
-      "statusSource": "google_places"
-    },
-    {
-      "id": "9edf276f-830f-4a97-b7c6-cac68783c80b",
-      "name": "Alliance Seafood",
-      "station": "Toa Payoh",
-      "googleResult": {
-        "found": true,
-        "status": "OPERATIONAL",
-        "name": "Alliance Seafood",
-        "address": "500 Clemenceau Ave N, #01-27 Newton Food Centre, Singapore 229495",
-        "mapsUri": "https://maps.google.com/?cid=7183796604634888399&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
-      },
-      "finalStatus": "OPERATIONAL",
-      "statusSource": "google_places"
-    },
-    {
-      "id": "48c0d94f-47ed-45c4-ac15-d8d9ff565a33",
-      "name": "Ann Chin Popiah",
-      "station": "Toa Payoh",
-      "googleResult": {
-        "found": true,
-        "status": "OPERATIONAL",
-        "name": "Ann Chin Popiah (Toa Payoh Coffeeshop)",
-        "address": "111 Lor 1 Toa Payoh, #01-366, Singapore 310111",
-        "mapsUri": "https://maps.google.com/?cid=2147983564922001593&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
-      },
-      "finalStatus": "OPERATIONAL",
-      "statusSource": "google_places"
-    },
-    {
-      "id": "3ae31f95-1ad4-4ef1-a46d-aa95e3851157",
-      "name": "Famous Sungei Road Trishaw Laksa",
-      "station": "Jalan Besar",
-      "googleResult": {
-        "found": true,
-        "status": "OPERATIONAL",
-        "name": "Sungei Road Laksa",
-        "address": "27 Jalan Berseh, #01-100, Singapore 200027",
-        "mapsUri": "https://maps.google.com/?cid=11947692344546037997&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
-      },
-      "finalStatus": "OPERATIONAL",
-      "statusSource": "google_places"
-    },
-    {
-      "id": "d9d4e1fd-7cdd-4b53-9437-ffe240bf3fc1",
-      "name": "Beth",
-      "station": "Lentor",
-      "googleResult": {
-        "found": true,
-        "status": "OPERATIONAL",
-        "name": "The Lentor Residence Pte Ltd",
-        "address": "51 Lentor Ave, Singapore 786876",
-        "mapsUri": "https://maps.google.com/?cid=3123149905967822485&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
-      },
-      "finalStatus": "OPERATIONAL",
-      "statusSource": "google_places"
-    },
-    {
-      "id": "985a31ec-e4e0-419d-944a-79a3f0598b1f",
-      "name": "Kungfu JB Pau (Tampines)",
-      "station": "Tampines",
-      "googleResult": {
-        "found": true,
-        "status": "OPERATIONAL",
-        "name": "Kung Fu JB Pau (201 Tampines)",
-        "address": "201 Tampines St. 21, Singapore 520201",
-        "mapsUri": "https://maps.google.com/?cid=8077600567251554104&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
-      },
-      "finalStatus": "OPERATIONAL",
-      "statusSource": "google_places"
-    },
-    {
-      "id": "3eeea7b8-a064-4557-9368-c32099a429a4",
-      "name": "The Teochew Kitchenette - Keong Saik Bak Kut Teh",
-      "station": "Outram Park",
-      "googleResult": {
-        "found": true,
-        "status": "OPERATIONAL",
-        "name": "The Teochew Kitchenette - Keong Saik Bak Kut Teh",
-        "address": "26 Keong Saik Rd., Singapore 089133",
-        "mapsUri": "https://maps.google.com/?cid=9569754482251385776&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
-      },
-      "finalStatus": "OPERATIONAL",
-      "statusSource": "google_places"
-    },
-    {
-      "id": "e47a6cd1-9b14-4e02-8c2a-19d41bdb23c8",
-      "name": "开心客家酿豆腐 Hakka Yong Tau Fu",
-      "station": "Jurong East",
-      "googleResult": {
-        "found": true,
-        "status": "OPERATIONAL",
-        "name": "开心客家酿豆腐 Hakka Yong Tau Fu",
-        "address": "132 Jurong Gateway Rd, #01-271, Singapore 600132",
-        "mapsUri": "https://maps.google.com/?cid=15433314703046844644&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
-      },
-      "finalStatus": "OPERATIONAL",
-      "statusSource": "google_places"
-    },
-    {
-      "id": "cd3f7c69-ca1a-41dc-9267-2f8fd24766fd",
-      "name": "Boon Tong Kee (Whampoa)",
-      "station": "Boon Keng",
-      "googleResult": {
-        "found": true,
-        "status": "OPERATIONAL",
-        "name": "Boon Tong Kee",
-        "address": "34 Whampoa W, #01-93, Singapore 330034",
-        "mapsUri": "https://maps.google.com/?cid=14327753499199627199&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
-      },
-      "finalStatus": "OPERATIONAL",
-      "statusSource": "google_places"
-    },
-    {
-      "id": "7b4a987a-34e5-4000-ba0d-561b2c353b3c",
-      "name": "Boon Tong Kee (River Valley)",
-      "station": "Great World",
-      "googleResult": {
-        "found": true,
-        "status": "OPERATIONAL",
-        "name": "Boon Tong Kee @ River Valley",
-        "address": "425 River Valley Rd, Singapore 248324",
-        "mapsUri": "https://maps.google.com/?cid=2029278549677838649&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
-      },
-      "finalStatus": "OPERATIONAL",
-      "statusSource": "google_places"
-    },
-    {
-      "id": "ad4dd196-c898-4d4e-997f-d64ff8a922ae",
-      "name": "Boon Tong Kee (Chinatown)",
-      "station": "Maxwell",
-      "googleResult": {
-        "found": true,
-        "status": "OPERATIONAL",
-        "name": "文東記雞飯 Boon Tong Kee Chicken Rice",
-        "address": "11 Smith St, Singapore 058925",
-        "mapsUri": "https://maps.google.com/?cid=16132783801805780419&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
-      },
-      "finalStatus": "OPERATIONAL",
-      "statusSource": "google_places"
-    },
-    {
-      "id": "ec8a53eb-6963-4741-b65f-f2c3328acb22",
-      "name": "Boon Tong Kee (Ang Mo Kio)",
-      "station": "Mayflower",
-      "googleResult": {
-        "found": true,
-        "status": "OPERATIONAL",
-        "name": "Boon Tong Kee @ AMK",
-        "address": "233 Ang Mo Kio Ave 3, #01-1194, Singapore 560233",
-        "mapsUri": "https://maps.google.com/?cid=6279656074234393914&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
-      },
-      "finalStatus": "OPERATIONAL",
-      "statusSource": "google_places"
-    },
-    {
-      "id": "c2db0473-9b8b-4423-a6ad-e0819a57f570",
-      "name": "Boon Tong Kee (Bukit Timah)",
-      "station": "Beauty World",
-      "googleResult": {
-        "found": true,
-        "status": "OPERATIONAL",
-        "name": "Boon Tong Kee",
-        "address": "18 Cheong Chin Nam Rd, Singapore 599742",
-        "mapsUri": "https://maps.google.com/?cid=6068815972727255378&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
-      },
-      "finalStatus": "OPERATIONAL",
-      "statusSource": "google_places"
-    },
-    {
-      "id": "8f041f46-3d0a-4b6d-ae14-e6a8108f7d49",
-      "name": "Boon Tong Kee (one-north)",
-      "station": "Buona Vista",
-      "googleResult": {
-        "found": true,
-        "status": "OPERATIONAL",
-        "name": "Boon Tong Kee Happynest",
-        "address": "1 Vista Exchange Green, B1-07/41, Singapore 138617",
-        "mapsUri": "https://maps.google.com/?cid=13148737379709182592&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
-      },
-      "finalStatus": "OPERATIONAL",
-      "statusSource": "google_places"
-    },
-    {
-      "id": "a24d422c-08b0-44bd-ad2e-86719078d2da",
-      "name": "Boon Tong Kee (Sengkang)",
-      "station": "Sengkang",
-      "googleResult": {
-        "found": true,
-        "status": "OPERATIONAL",
-        "name": "Boon Tong Kee",
-        "address": "1 Sengkang Square, Unit #01- 34, Singapore 545078",
-        "mapsUri": "https://maps.google.com/?cid=870457964769070583&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
-      },
-      "finalStatus": "OPERATIONAL",
-      "statusSource": "google_places"
-    },
-    {
-      "id": "5eb5202c-ffea-47d7-877b-36d22dc2ca0b",
-      "name": "He Jia Huan Ban Mian (Redhill)",
-      "station": "Redhill",
-      "googleResult": {
-        "found": true,
-        "status": "OPERATIONAL",
-        "name": "合家歡板面.麵粉粿 He Jia Huan Ban Mian•Mee Hoon Kway",
-        "address": "85 Redhill Ln, #01-69, Singapore 150085",
-        "mapsUri": "https://maps.google.com/?cid=12131894238594916264&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
-      },
-      "finalStatus": "OPERATIONAL",
-      "statusSource": "google_places"
-    },
-    {
-      "id": "7ba3e838-8c96-4273-9c8b-86a1f65fd088",
-      "name": "He Jia Huan Ban Mian (Whampoa)",
-      "station": "Boon Keng",
-      "googleResult": {
-        "found": true,
-        "status": "OPERATIONAL",
-        "name": "He Jia Huan Ban Mian. Mee Hoon Kway",
-        "address": "90 Whampoa Dr, #01-66, Singapore 320090",
-        "mapsUri": "https://maps.google.com/?cid=2270630837898855930&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
-      },
-      "finalStatus": "OPERATIONAL",
-      "statusSource": "google_places"
-    },
-    {
-      "id": "bc58cf15-0d56-4256-9857-abb7da423eb7",
-      "name": "He Jia Huan Ban Mian (Jurong West)",
-      "station": "Lakeside",
-      "googleResult": {
-        "found": true,
-        "status": "OPERATIONAL",
-        "name": "He Jia Huan Ban Mian•Mee Hoon Kway",
-        "address": "496 Jurong West Street 41, #01-84, Singapore 640496",
-        "mapsUri": "https://maps.google.com/?cid=12019451142520205923&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
-      },
-      "finalStatus": "OPERATIONAL",
-      "statusSource": "google_places"
-    },
-    {
-      "id": "32b41023-7d65-4b78-b083-603d1ef4a82e",
-      "name": "Jia Li Seafood Soup (Chinatown Point)",
-      "station": "Chinatown",
-      "googleResult": {
-        "found": true,
-        "status": "OPERATIONAL",
-        "name": "Jia Li Seafood Soup (Chinatown Point)",
-        "address": "133 New Bridge Rd, B1-51/51c Chinatown Point, Singapore 059413",
-        "mapsUri": "https://maps.google.com/?cid=13714055633390018165&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
-      },
-      "finalStatus": "OPERATIONAL",
-      "statusSource": "google_places"
-    },
-    {
-      "id": "faa376a6-751c-4f8c-aec7-960b8e78d2a5",
-      "name": "Jia Li Seafood Soup (Upper Serangoon)",
-      "station": "Kovan",
-      "googleResult": {
-        "found": true,
-        "status": "OPERATIONAL",
-        "name": "Jia Li Seafood Soup (Upp Serangoon)",
-        "address": "957 Upper Serangoon Rd, Singapore 534717",
-        "mapsUri": "https://maps.google.com/?cid=1547332089144767814&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
-      },
-      "finalStatus": "OPERATIONAL",
-      "statusSource": "google_places"
-    },
-    {
-      "id": "25a24270-e42a-4809-b8d1-aaca213c30c7",
-      "name": "Tsukimi Hamburg (Hougang Mall)",
-      "station": "Hougang",
-      "googleResult": {
-        "found": true,
-        "status": "OPERATIONAL",
-        "name": "Tsukimi Hamburg (Hougang Mall)",
-        "address": "Singapore, Hougang Ave 10, 90号, Hougang Mall, #02-25 邮政编码: 538766",
-        "mapsUri": "https://maps.google.com/?cid=8194880025747351180&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
-      },
-      "finalStatus": "OPERATIONAL",
-      "statusSource": "google_places"
+      "status": "OPERATIONAL",
+      "evidence": null,
+      "searchQuery": "Shi Le Yuan Tampines Singapore restaurant"
     }
   ],
   "closedTemporarily": [],
   "closedPermanently": [],
-  "notFound": [],
   "errors": []
 }

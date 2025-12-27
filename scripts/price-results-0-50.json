@@ -1,0 +1,352 @@
+[
+  {
+    "id": "445e0267-f3f6-4c5a-9292-9a7c947b2463",
+    "name": "Alice Boulangerie",
+    "priceMin": null,
+    "priceMax": null,
+    "menuItems": 0
+  },
+  {
+    "id": "ff9abe24-acd6-44a5-925d-2014e007e9dc",
+    "name": "Amò",
+    "priceMin": null,
+    "priceMax": null,
+    "menuItems": 0
+  },
+  {
+    "id": "f05cae82-f914-430f-8a33-d0ba4e076851",
+    "name": "Apartment Coffee",
+    "priceMin": null,
+    "priceMax": null,
+    "menuItems": 0
+  },
+  {
+    "id": "5ad87033-d353-4a17-93c2-ffc950aaec90",
+    "name": "Artichoke",
+    "priceMin": null,
+    "priceMax": null,
+    "menuItems": 0
+  },
+  {
+    "id": "4a24b2c8-0443-4758-9201-dd0b52607e0d",
+    "name": "Asia Grand Restaurant 亚洲金阁海鲜酒家",
+    "priceMin": null,
+    "priceMax": null,
+    "menuItems": 0
+  },
+  {
+    "id": "b1f0141f-658c-436e-849f-cf10222c040c",
+    "name": "Bacha Coffee",
+    "priceMin": null,
+    "priceMax": null,
+    "menuItems": 0
+  },
+  {
+    "id": "8891c1d6-dae8-4f8a-9164-4969528b2293",
+    "name": "Bakalaki Greek Taverna",
+    "priceMin": null,
+    "priceMax": null,
+    "menuItems": 0
+  },
+  {
+    "id": "4070ac21-9e3d-4cfd-8ff2-9d55b5ac5987",
+    "name": "Beans & Cream",
+    "priceMin": null,
+    "priceMax": null,
+    "menuItems": 0
+  },
+  {
+    "id": "b4450b98-13af-4e08-a5b1-f18f2cdebff0",
+    "name": "Beppu Menkan",
+    "priceMin": null,
+    "priceMax": null,
+    "menuItems": 0
+  },
+  {
+    "id": "b870d14d-68d7-455d-b29d-7e949020e636",
+    "name": "Birds Of A Feather",
+    "priceMin": null,
+    "priceMax": null,
+    "menuItems": 0
+  },
+  {
+    "id": "5afe92bb-c383-470d-a123-cc6506320379",
+    "name": "Birds Of Paradise Gelato Boutique",
+    "priceMin": null,
+    "priceMax": null,
+    "menuItems": 0
+  },
+  {
+    "id": "afbbc674-ef71-4214-a444-5492152cd4ef",
+    "name": "Bloom Artisan",
+    "priceMin": null,
+    "priceMax": null,
+    "menuItems": 0
+  },
+  {
+    "id": "805a7107-24b5-42f8-bde5-dcce475aff57",
+    "name": "British Indian Curry Hut",
+    "priceMin": null,
+    "priceMax": null,
+    "menuItems": 0
+  },
+  {
+    "id": "98183bc0-744d-4d5f-a57f-ff87a2e9eac6",
+    "name": "Caffe Cicheti",
+    "priceMin": null,
+    "priceMax": null,
+    "menuItems": 0
+  },
+  {
+    "id": "67851625-3085-4aa2-8250-0c9b05bd0005",
+    "name": "Cenzo",
+    "priceMin": null,
+    "priceMax": null,
+    "menuItems": 0
+  },
+  {
+    "id": "7b6a32a6-6ff0-49c9-a95e-effe2fdd30fc",
+    "name": "Chagee",
+    "priceMin": null,
+    "priceMax": null,
+    "menuItems": 0
+  },
+  {
+    "id": "cedc1910-5c69-49f2-9b7a-350a99a5f884",
+    "name": "Charim Korean BBQ",
+    "priceMin": null,
+    "priceMax": null,
+    "menuItems": 0
+  },
+  {
+    "id": "8f220c7b-f8d1-43c7-a434-711598d5b5f7",
+    "name": "ChaTraMue",
+    "priceMin": null,
+    "priceMax": null,
+    "menuItems": 0
+  },
+  {
+    "id": "03903e27-a967-4501-b49e-d5a2c54bb9b0",
+    "name": "CheongDamChae",
+    "priceMin": null,
+    "priceMax": null,
+    "menuItems": 0
+  },
+  {
+    "id": "4a0b390c-45e8-46f1-a994-daa415a4a13b",
+    "name": "Cheval Chi Bao",
+    "priceMin": null,
+    "priceMax": null,
+    "menuItems": 0
+  },
+  {
+    "id": "7928fa94-da7b-4516-be83-7f33941ed18f",
+    "name": "CHICHA San Chen",
+    "priceMin": null,
+    "priceMax": null,
+    "menuItems": 0
+  },
+  {
+    "id": "9b9894b5-e1ce-4287-9ba3-1212cbb17e1c",
+    "name": "Chuan Kee Seafood",
+    "priceMin": null,
+    "priceMax": null,
+    "menuItems": 0
+  },
+  {
+    "id": "3dc5c42b-cdd4-43c3-b7bb-a37bff443cf4",
+    "name": "Cicheti",
+    "priceMin": null,
+    "priceMax": null,
+    "menuItems": 0
+  },
+  {
+    "id": "585e0d95-4290-481f-92df-c380e47c4e73",
+    "name": "DDSD",
+    "priceMin": null,
+    "priceMax": null,
+    "menuItems": 0
+  },
+  {
+    "id": "3520e823-4088-4db0-994f-7e2b636c8549",
+    "name": "Denzy Gelato",
+    "priceMin": null,
+    "priceMax": null,
+    "menuItems": 0
+  },
+  {
+    "id": "3522c1e7-c817-47f0-a17d-1aeb6920f338",
+    "name": "Dian Din Leluk",
+    "priceMin": null,
+    "priceMax": null,
+    "menuItems": 0
+  },
+  {
+    "id": "5f84da5c-0839-4863-a4ca-68f647b1c591",
+    "name": "Dolc Patisserie",
+    "priceMin": 38,
+    "priceMax": 118,
+    "menuItems": 0
+  },
+  {
+    "id": "f306e380-b4ba-4ea2-b942-b93c7fe69cbd",
+    "name": "Eee Mo BBQ",
+    "priceMin": null,
+    "priceMax": null,
+    "menuItems": 0
+  },
+  {
+    "id": "d4bfe578-94d5-4e0c-af76-20e28a7f7fd5",
+    "name": "En Sushi",
+    "priceMin": null,
+    "priceMax": null,
+    "menuItems": 0
+  },
+  {
+    "id": "d83c4e41-a933-428a-9d88-a871aaf0452b",
+    "name": "FairPrice Finest",
+    "priceMin": null,
+    "priceMax": null,
+    "menuItems": 0
+  },
+  {
+    "id": "1221d2b3-72fa-4d7d-b3ef-7a6f14607690",
+    "name": "Fu Lin Bar & Kitchen",
+    "priceMin": null,
+    "priceMax": null,
+    "menuItems": 0
+  },
+  {
+    "id": "b250caa1-9e40-464f-847f-995ef859adbc",
+    "name": "Gamtan SG",
+    "priceMin": null,
+    "priceMax": null,
+    "menuItems": 0
+  },
+  {
+    "id": "3295fc94-03af-42fe-b10b-024103bc5903",
+    "name": "Gelato Messina",
+    "priceMin": null,
+    "priceMax": null,
+    "menuItems": 0
+  },
+  {
+    "id": "442234f3-88d1-4b03-bdf4-bba64ca43e67",
+    "name": "George Town Tze Char and Craft Beer",
+    "priceMin": null,
+    "priceMax": null,
+    "menuItems": 0
+  },
+  {
+    "id": "993b37e4-efbc-448c-9183-0cca936f28b8",
+    "name": "Go Ba",
+    "priceMin": null,
+    "priceMax": null,
+    "menuItems": 0
+  },
+  {
+    "id": "5f39b424-27f3-4275-a9f3-9b3da42c5262",
+    "name": "Guiga Korean BBQ Restaurant",
+    "priceMin": null,
+    "priceMax": null,
+    "menuItems": 0
+  },
+  {
+    "id": "65d75efb-cb23-480f-9f78-06aae541fa3d",
+    "name": "Guilt",
+    "priceMin": null,
+    "priceMax": null,
+    "menuItems": 0
+  },
+  {
+    "id": "cd447492-4a02-4130-ae9d-569cc2d7d17a",
+    "name": "Gwangjang Gaon",
+    "priceMin": null,
+    "priceMax": null,
+    "menuItems": 0
+  },
+  {
+    "id": "def65e7e-3c6b-476f-a84b-b32e6976a23b",
+    "name": "Harry's Eurasian Pies",
+    "priceMin": null,
+    "priceMax": null,
+    "menuItems": 0
+  },
+  {
+    "id": "1a5907f6-caee-4c35-8654-8dc7f2e1bcf5",
+    "name": "Heng",
+    "priceMin": null,
+    "priceMax": null,
+    "menuItems": 0
+  },
+  {
+    "id": "281c67d7-47eb-4626-b819-62ce0bf8b2a2",
+    "name": "Hollin",
+    "priceMin": null,
+    "priceMax": null,
+    "menuItems": 0
+  },
+  {
+    "id": "5bd49786-6175-4099-b71a-3ef92a197e88",
+    "name": "Homm Dessert",
+    "priceMin": null,
+    "priceMax": null,
+    "menuItems": 0
+  },
+  {
+    "id": "f9032b1d-f5cb-47f5-83d0-f1b4b767ed14",
+    "name": "Hopscotch",
+    "priceMin": null,
+    "priceMax": null,
+    "menuItems": 0
+  },
+  {
+    "id": "f8adbcae-d1d4-4f6d-95d6-57b6368e2890",
+    "name": "Hua Yu Wee Seafood Restaurant",
+    "priceMin": null,
+    "priceMax": null,
+    "menuItems": 0
+  },
+  {
+    "id": "8a9d14df-59c6-494d-8f7a-d7cfbcd79f50",
+    "name": "Indocafe The White House",
+    "priceMin": null,
+    "priceMax": null,
+    "menuItems": 0
+  },
+  {
+    "id": "9c479f0e-d2a2-4ec8-840c-decbfeb332ae",
+    "name": "Jia He Chinese Restaurant",
+    "priceMin": null,
+    "priceMax": null,
+    "menuItems": 0
+  },
+  {
+    "id": "e687a1b5-98bc-4b15-80c0-099fea4f914c",
+    "name": "Jia Xiang Economic Curry Rice",
+    "priceMin": null,
+    "priceMax": null,
+    "menuItems": 0
+  },
+  {
+    "id": "98771e18-8577-4143-82e1-bb6c07f2d36b",
+    "name": "Jypsy One Fullerton",
+    "priceMin": null,
+    "priceMax": null,
+    "menuItems": 0
+  },
+  {
+    "id": "0f2d5547-a873-4034-aa20-6933ebb3e6a6",
+    "name": "Kafe Utu",
+    "priceMin": null,
+    "priceMax": null,
+    "menuItems": 0
+  },
+  {
+    "id": "7a142b07-b698-4bf3-a688-109ecfe2b4c6",
+    "name": "Kai Xin Crabs",
+    "priceMin": null,
+    "priceMax": null,
+    "menuItems": 0
+  }
+]

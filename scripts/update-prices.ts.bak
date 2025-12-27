@@ -1,0 +1,106 @@
+/**
+ * Update restaurants with price ranges from CSV
+ */
+
+import { config } from 'dotenv';
+import { createClient } from '@supabase/supabase-js';
+import * as fs from 'fs';
+import * as path from 'path';
+import { parse } from 'csv-parse/sync';
+
+config({ path: '.env.local', override: true });
+
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.SUPABASE_SERVICE_KEY!
+);
+
+interface CsvRestaurant {
+  name: string;
+  price_low: string;
+  price_high: string;
+}
+
+// Convert price range to display format
+function formatPriceRange(low: number, high: number): string {
+  if (low === high) {
+    return `$${low}`;
+  }
+  return `$${low}-$${high}`;
+}
+
+async function main() {
+  console.log('🚀 Updating restaurant prices...\n');
+
+  // Read CSV file
+  const csvPath = path.join('c:\\Users\\Admin\\Downloads', 'curated_restaurants_with_prices.csv');
+
+  if (!fs.existsSync(csvPath)) {
+    console.error(`❌ CSV file not found: ${csvPath}`);
+    return;
+  }
+
+  const csvContent = fs.readFileSync(csvPath, 'utf-8');
+  const restaurants: CsvRestaurant[] = parse(csvContent, {
+    columns: true,
+    skip_empty_lines: true,
+    trim: true,
+  });
+
+  console.log(`📋 Found ${restaurants.length} restaurants in CSV\n`);
+
+  let updated = 0;
+  let notFound = 0;
+  let skipped = 0;
+
+  for (const r of restaurants) {
+    const name = r.name?.trim();
+    if (!name) continue;
+
+    const priceLow = parseFloat(r.price_low);
+    const priceHigh = parseFloat(r.price_high);
+
+    if (isNaN(priceLow) || isNaN(priceHigh)) {
+      console.log(`⏭️ Skip (no price): ${name}`);
+      skipped++;
+      continue;
+    }
+
+    const priceRange = formatPriceRange(priceLow, priceHigh);
+
+    // Find restaurant by name (case insensitive)
+    const { data: existing, error: findError } = await supabase
+      .from('food_listings')
+      .select('id, name, price_range')
+      .ilike('name', name)
+      .single();
+
+    if (findError || !existing) {
+      console.log(`❓ Not found: ${name}`);
+      notFound++;
+      continue;
+    }
+
+    // Update price range
+    const { error: updateError } = await supabase
+      .from('food_listings')
+      .update({ price_range: priceRange })
+      .eq('id', existing.id);
+
+    if (updateError) {
+      console.log(`❌ Update failed: ${name} - ${updateError.message}`);
+    } else {
+      console.log(`✅ ${name}: ${priceRange}`);
+      updated++;
+    }
+  }
+
+  console.log('\n' + '='.repeat(50));
+  console.log(`📊 Update Summary:`);
+  console.log(`   ✅ Updated: ${updated}`);
+  console.log(`   ❓ Not found: ${notFound}`);
+  console.log(`   ⏭️ Skipped: ${skipped}`);
+  console.log('='.repeat(50));
+}
+
+main().catch(console.error);

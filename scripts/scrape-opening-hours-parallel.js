@@ -31,9 +31,11 @@ function parseHoursText(text) {
   return weekdayDescriptions.length > 0 ? weekdayDescriptions : null;
 }
 
-async function scrapeOpeningHours(page, name, mallName, stationName) {
-  // Use mall name instead of station for better accuracy
-  const query = mallName ? `${name} ${mallName} Singapore` : `${name} ${stationName} Singapore`;
+async function scrapeOpeningHours(page, name, mallName, stationName, placeId) {
+  // Search by name + mall + "opening hours" for better results
+  const query = mallName
+    ? `${name} ${mallName} Singapore opening hours`
+    : `${name} ${stationName} Singapore opening hours`;
   const url = `https://www.google.com/maps/search/${encodeURIComponent(query)}`;
 
   try {
@@ -152,7 +154,7 @@ async function processWorker(workerId, listings, results) {
       continue;
     }
 
-    const hours = await scrapeOpeningHours(page, listing.name, mallName, stationName);
+    const hours = await scrapeOpeningHours(page, listing.name, mallName, stationName, listing.google_place_id);
 
     if (!hours) {
       console.log(`[W${workerId}] ✗ ${listing.name}`);
@@ -174,7 +176,7 @@ async function processWorker(workerId, listings, results) {
     }
 
     // Minimal delay between requests
-    await delay(300);
+    await delay(100);
   }
 
   await browser.close();
@@ -191,27 +193,32 @@ async function main() {
   // Fetch mall outlets missing opening hours
   const { data: listings, error } = await supabase
     .from('mall_outlets')
-    .select('id, name, malls(name, station_id, stations:station_id(name))')
-    .is('opening_hours', null)
+    .select('id, name, google_place_id, opening_hours, malls(name, station_id, stations:station_id(name))')
     .range(offset, offset + limit - 1);
+
+  // Filter to only those with null or empty opening_hours
+  const toProcess = listings ? listings.filter(l => {
+    const h = l.opening_hours;
+    return h === null || h === undefined || Object.keys(h).length === 0;
+  }) : [];
 
   if (error) {
     console.error('Error fetching outlets:', error);
     return;
   }
 
-  console.log(`Found ${listings.length} outlets to process\n`);
+  console.log(`Found ${toProcess.length} outlets to process (from ${listings?.length || 0} with place_id)\n`);
 
-  if (listings.length === 0) {
+  if (toProcess.length === 0) {
     console.log('Nothing to process!');
     return;
   }
 
   // Split listings among workers
-  const chunkSize = Math.ceil(listings.length / workers);
+  const chunkSize = Math.ceil(toProcess.length / workers);
   const chunks = [];
   for (let i = 0; i < workers; i++) {
-    chunks.push(listings.slice(i * chunkSize, (i + 1) * chunkSize));
+    chunks.push(toProcess.slice(i * chunkSize, (i + 1) * chunkSize));
   }
 
   const results = { updated: 0, failed: 0, notFound: 0 };
@@ -227,7 +234,7 @@ async function main() {
   console.log(`Updated: ${results.updated}`);
   console.log(`Failed: ${results.failed}`);
   console.log(`Not found: ${results.notFound}`);
-  console.log(`Time: ${elapsed}s (${(listings.length / elapsed * 60).toFixed(0)} items/min)`);
+  console.log(`Time: ${elapsed}s (${(toProcess.length / elapsed * 60).toFixed(0)} items/min)`);
 }
 
 main().catch(console.error);

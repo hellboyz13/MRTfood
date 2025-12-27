@@ -1,0 +1,32 @@
+[
+  {
+    "id": "48b69e40-7b75-4e24-9b57-b5c310dc5bf9",
+    "name": "5dot7",
+    "rating": 3.9,
+    "reviewCount": null
+  },
+  {
+    "id": "b7585684-1dd8-4f70-aaa2-8b7d748c72e5",
+    "name": "682 Min Jiang Kueh",
+    "rating": 3.6,
+    "reviewCount": 9
+  },
+  {
+    "id": "c8ea58f7-953b-4bae-aee4-bb0048d13936",
+    "name": "8ASH",
+    "rating": 4.5,
+    "reviewCount": 87
+  },
+  {
+    "id": "d9d3ae18-c04e-4485-a9ae-28a7e40d6587",
+    "name": "928 Yishun Laksa",
+    "rating": 4.4,
+    "reviewCount": 1938
+  },
+  {
+    "id": "b92f4dd8-192f-4b51-a966-107f0631dc7c",
+    "name": "A9 Noodle Dumpling",
+    "rating": 4.4,
+    "reviewCount": 497
+  }
+]

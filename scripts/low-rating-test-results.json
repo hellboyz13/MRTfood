@@ -1,0 +1,98 @@
+{
+  "toDelete": [
+    {
+      "id": "408d6060-990b-4a70-85af-f1bdc260b4de",
+      "name": "Face Ban Mian",
+      "rating": 2,
+      "address": "Multiple outlets",
+      "googleRating": 2.8,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "5210c0e3-f5e3-4516-9c65-0f4237e842b0",
+      "name": "Geylang Lorong 29 Charcoal Fried Hokkien Mee",
+      "rating": 2.4,
+      "address": "936 East Coast Road, 936 Food Village Siglap, Singapore 459129",
+      "googleRating": 2.4,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "ba1918c3-6d90-495a-8b55-890bf8067048",
+      "name": "Jun Yuan House Of Fish",
+      "rating": 2.7,
+      "address": "Old Airport Road #01-69",
+      "googleRating": 3,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "1e071622-8a0d-437e-baf1-d35dea223624",
+      "name": "You Fu Ban Mian & Pao Fan",
+      "rating": 3,
+      "address": "84 Punggol Way, Punggol Coast Hawker Centre, Singapore 829911",
+      "googleRating": 2.5,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    }
+  ],
+  "notVerified": [
+    {
+      "id": "08c09839-5a8e-4bb8-9a5d-987f90702ce3",
+      "name": "Eng Kee Chicken Wings",
+      "rating": 3,
+      "address": "469 Bukit Batok West Ave 9",
+      "googleRating": 4.3,
+      "isNumeric": true,
+      "ratingConfirmed": false
+    }
+  ],
+  "all": [
+    {
+      "id": "408d6060-990b-4a70-85af-f1bdc260b4de",
+      "name": "Face Ban Mian",
+      "rating": 2,
+      "address": "Multiple outlets",
+      "googleRating": 2.8,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "5210c0e3-f5e3-4516-9c65-0f4237e842b0",
+      "name": "Geylang Lorong 29 Charcoal Fried Hokkien Mee",
+      "rating": 2.4,
+      "address": "936 East Coast Road, 936 Food Village Siglap, Singapore 459129",
+      "googleRating": 2.4,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "ba1918c3-6d90-495a-8b55-890bf8067048",
+      "name": "Jun Yuan House Of Fish",
+      "rating": 2.7,
+      "address": "Old Airport Road #01-69",
+      "googleRating": 3,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "08c09839-5a8e-4bb8-9a5d-987f90702ce3",
+      "name": "Eng Kee Chicken Wings",
+      "rating": 3,
+      "address": "469 Bukit Batok West Ave 9",
+      "googleRating": 4.3,
+      "isNumeric": true,
+      "ratingConfirmed": false
+    },
+    {
+      "id": "1e071622-8a0d-437e-baf1-d35dea223624",
+      "name": "You Fu Ban Mian & Pao Fan",
+      "rating": 3,
+      "address": "84 Punggol Way, Punggol Coast Hawker Centre, Singapore 829911",
+      "googleRating": 2.5,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    }
+  ]
+}
