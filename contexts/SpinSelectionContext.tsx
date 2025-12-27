@@ -1,8 +1,10 @@
 'use client';
 
-import { createContext, useContext, useState, useCallback, ReactNode } from 'react';
+import { createContext, useContext, useState, useCallback, useEffect, ReactNode } from 'react';
 
 const MAX_ITEMS = 5;
+const STORAGE_KEY_LISTINGS = 'spin-selected-listings';
+const STORAGE_KEY_OUTLETS = 'spin-selected-outlets';
 
 interface SpinSelectionContextType {
   selectedListingIds: Set<string>;
@@ -21,9 +23,58 @@ interface SpinSelectionContextType {
 
 const SpinSelectionContext = createContext<SpinSelectionContextType | null>(null);
 
+// Helper to load from localStorage
+function loadFromStorage(key: string): Set<string> {
+  if (typeof window === 'undefined') return new Set();
+  try {
+    const stored = localStorage.getItem(key);
+    if (stored) {
+      const parsed = JSON.parse(stored);
+      if (Array.isArray(parsed)) {
+        return new Set(parsed);
+      }
+    }
+  } catch {
+    // Ignore errors
+  }
+  return new Set();
+}
+
+// Helper to save to localStorage
+function saveToStorage(key: string, ids: Set<string>): void {
+  if (typeof window === 'undefined') return;
+  try {
+    localStorage.setItem(key, JSON.stringify(Array.from(ids)));
+  } catch {
+    // Ignore errors (e.g., storage full)
+  }
+}
+
 export function SpinSelectionProvider({ children }: { children: ReactNode }) {
-  const [selectedListingIds, setSelectedListingIds] = useState<Set<string>>(new Set());
-  const [selectedOutletIds, setSelectedOutletIds] = useState<Set<string>>(new Set());
+  // Initialize from localStorage
+  const [selectedListingIds, setSelectedListingIds] = useState<Set<string>>(() => loadFromStorage(STORAGE_KEY_LISTINGS));
+  const [selectedOutletIds, setSelectedOutletIds] = useState<Set<string>>(() => loadFromStorage(STORAGE_KEY_OUTLETS));
+  const [isHydrated, setIsHydrated] = useState(false);
+
+  // Hydrate from localStorage on mount (for SSR compatibility)
+  useEffect(() => {
+    setSelectedListingIds(loadFromStorage(STORAGE_KEY_LISTINGS));
+    setSelectedOutletIds(loadFromStorage(STORAGE_KEY_OUTLETS));
+    setIsHydrated(true);
+  }, []);
+
+  // Persist to localStorage whenever selections change
+  useEffect(() => {
+    if (isHydrated) {
+      saveToStorage(STORAGE_KEY_LISTINGS, selectedListingIds);
+    }
+  }, [selectedListingIds, isHydrated]);
+
+  useEffect(() => {
+    if (isHydrated) {
+      saveToStorage(STORAGE_KEY_OUTLETS, selectedOutletIds);
+    }
+  }, [selectedOutletIds, isHydrated]);
 
   const toggleListing = useCallback((id: string): boolean => {
     let success = false;
