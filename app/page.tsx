@@ -8,7 +8,20 @@ import SearchBar from '@/components/SearchBar';
 import SearchResultsPanel from '@/components/SearchResultsPanel';
 import Footer from '@/components/Footer';
 import Onboarding, { OnboardingRef } from '@/components/Onboarding';
-import { searchStationsByFoodWithCounts, StationSearchResult, getStations, getSupperSpotsByStation, getDessertSpotsByStation, getStationsWithNoContent, getListingStation, DEFAULT_PAGE_SIZE } from '@/lib/api';
+import { searchStationsByFoodWithCounts, StationSearchResult, getStations, getStationsWithNoContent, getListingStation, DEFAULT_PAGE_SIZE, FilterResponse } from '@/lib/api';
+
+// Cached API endpoints for filters (fallback: set DISABLE_FILTER_CACHE=true)
+async function fetchSupperSpots(offset: number, currentHour: number): Promise<FilterResponse> {
+  const res = await fetch(`/api/filters/supper?offset=${offset}&hour=${currentHour}`);
+  if (!res.ok) throw new Error('Failed to fetch supper spots');
+  return res.json();
+}
+
+async function fetchDessertSpots(offset: number): Promise<FilterResponse> {
+  const res = await fetch(`/api/filters/dessert?offset=${offset}`);
+  if (!res.ok) throw new Error('Failed to fetch dessert spots');
+  return res.json();
+}
 
 // Component that handles deep link logic
 function DeepLinkHandler({
@@ -215,21 +228,27 @@ export default function Home() {
       setIs24hActive(false);
       setSearchResults([]);
       setSearchQuery('');
+      setSearchPage(0);
+      setHasMoreSearchResults(false);
     } else {
-      // Toggle on - fetch supper spots
+      // Toggle on - fetch supper spots sorted by current time (cached via API)
       setIsSearching(true);
       setIs24hActive(true);
       setIsDessertActive(false); // Turn off dessert filter
       setSearchQuery('Supper Spots');
+      setSearchPage(0);
       try {
-        const results = await getSupperSpotsByStation();
+        const currentHour = new Date().getHours();
+        const { results, hasMore } = await fetchSupperSpots(0, currentHour);
         setSearchResults(results);
+        setHasMoreSearchResults(hasMore);
         if (results.length === 0) {
           setSelectedStation(null);
         }
       } catch (error) {
         console.error('Supper search error:', error);
         setSearchResults([]);
+        setHasMoreSearchResults(false);
         setSelectedStation(null);
       } finally {
         setIsSearching(false);
@@ -243,25 +262,59 @@ export default function Home() {
       setIsDessertActive(false);
       setSearchResults([]);
       setSearchQuery('');
+      setSearchPage(0);
+      setHasMoreSearchResults(false);
     } else {
-      // Toggle on - fetch dessert spots
+      // Toggle on - fetch dessert spots (cafes/desserts first, bakeries last) (cached via API)
       setIsSearching(true);
       setIsDessertActive(true);
       setIs24hActive(false); // Turn off supper filter
       setSearchQuery('Dessert Spots');
+      setSearchPage(0);
       try {
-        const results = await getDessertSpotsByStation();
+        const { results, hasMore } = await fetchDessertSpots(0);
         setSearchResults(results);
+        setHasMoreSearchResults(hasMore);
         if (results.length === 0) {
           setSelectedStation(null);
         }
       } catch (error) {
         console.error('Dessert search error:', error);
         setSearchResults([]);
+        setHasMoreSearchResults(false);
         setSelectedStation(null);
       } finally {
         setIsSearching(false);
       }
+    }
+  };
+
+  const handleLoadMoreFilter = async () => {
+    if (isLoadingMore) return;
+
+    setIsLoadingMore(true);
+    const nextPage = searchPage + 1;
+    const FILTER_PAGE_SIZE = 10;
+    const offset = nextPage * FILTER_PAGE_SIZE;
+
+    try {
+      let response;
+      if (is24hActive) {
+        const currentHour = new Date().getHours();
+        response = await fetchSupperSpots(offset, currentHour);
+      } else if (isDessertActive) {
+        response = await fetchDessertSpots(offset);
+      } else {
+        return;
+      }
+
+      setSearchResults(prev => [...prev, ...response.results]);
+      setHasMoreSearchResults(response.hasMore);
+      setSearchPage(nextPage);
+    } catch (error) {
+      console.error('Load more filter error:', error);
+    } finally {
+      setIsLoadingMore(false);
     }
   };
 
@@ -307,7 +360,7 @@ export default function Home() {
           stationNames={stationNames}
           onStationZoom={handleStationZoom}
           hasMore={hasMoreSearchResults}
-          onLoadMore={handleLoadMoreSearch}
+          onLoadMore={is24hActive || isDessertActive ? handleLoadMoreFilter : handleLoadMoreSearch}
           isLoadingMore={isLoadingMore}
         />
       )}
