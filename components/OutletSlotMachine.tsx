@@ -35,22 +35,19 @@ export default function OutletSlotMachine({ outlets, onClose }: OutletSlotMachin
     const maxSpins = 30;
     let currentSpeed = 50;
 
-    spinIntervalRef.current = setInterval(() => {
+    // Use recursive setTimeout instead of setInterval so speed changes take effect
+    const doSpin = () => {
       // Change outlet rapidly
       setCurrentOutlet(spinOutlets[Math.floor(Math.random() * spinOutlets.length)]);
 
       spinCount++;
 
-      // Gradually slow down
+      // Gradually slow down after 20 spins
       if (spinCount > 20) {
         currentSpeed += 20;
       }
 
       if (spinCount >= maxSpins) {
-        if (spinIntervalRef.current) {
-          clearInterval(spinIntervalRef.current);
-        }
-
         // Pick final winner
         const randomWinner = spinOutlets[Math.floor(Math.random() * spinOutlets.length)];
         setCurrentOutlet(randomWinner);
@@ -61,14 +58,20 @@ export default function OutletSlotMachine({ outlets, onClose }: OutletSlotMachin
 
         // Hide celebration after animation
         setTimeout(() => setShowCelebration(false), 1500);
+      } else {
+        // Schedule next spin with updated speed
+        spinIntervalRef.current = setTimeout(doSpin, currentSpeed);
       }
-    }, currentSpeed);
+    };
+
+    // Start spinning
+    spinIntervalRef.current = setTimeout(doSpin, currentSpeed);
   }, [spinOutlets, isSpinning]);
 
   useEffect(() => {
     return () => {
       if (spinIntervalRef.current) {
-        clearInterval(spinIntervalRef.current);
+        clearTimeout(spinIntervalRef.current);
       }
     };
   }, []);

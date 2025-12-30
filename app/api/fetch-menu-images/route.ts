@@ -1,11 +1,21 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
-const googlePlacesApiKey = process.env.GOOGLE_PLACES_API_KEY!;
+function getEnvVars() {
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+  const googlePlacesApiKey = process.env.GOOGLE_PLACES_API_KEY;
 
-const supabase = createClient(supabaseUrl, supabaseKey);
+  if (!supabaseUrl || !supabaseKey) {
+    throw new Error('Missing Supabase environment variables');
+  }
+
+  if (!googlePlacesApiKey) {
+    throw new Error('Missing GOOGLE_PLACES_API_KEY environment variable');
+  }
+
+  return { supabaseUrl, supabaseKey, googlePlacesApiKey };
+}
 
 interface PlacePhoto {
   photo_reference: string;
@@ -23,6 +33,9 @@ interface PlaceDetailsResponse {
 
 export async function POST(request: NextRequest) {
   try {
+    const { supabaseUrl, supabaseKey, googlePlacesApiKey } = getEnvVars();
+    const supabase = createClient(supabaseUrl, supabaseKey);
+
     const { listingId, outletId, placeName, address } = await request.json();
 
     if (!listingId && !outletId) {
@@ -58,6 +71,10 @@ export async function POST(request: NextRequest) {
     const searchUrl = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${encodeURIComponent(searchQuery)}&key=${googlePlacesApiKey}`;
 
     const searchResponse = await fetch(searchUrl);
+    if (!searchResponse.ok) {
+      console.error('Places API search failed:', searchResponse.status);
+      return NextResponse.json({ error: 'Places API search failed' }, { status: 502 });
+    }
     const searchData = await searchResponse.json();
 
     if (searchData.status !== 'OK' || !searchData.results || searchData.results.length === 0) {
@@ -74,6 +91,10 @@ export async function POST(request: NextRequest) {
     const detailsUrl = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=photos,name&key=${googlePlacesApiKey}`;
 
     const detailsResponse = await fetch(detailsUrl);
+    if (!detailsResponse.ok) {
+      console.error('Places API details failed:', detailsResponse.status);
+      return NextResponse.json({ error: 'Places API details failed' }, { status: 502 });
+    }
     const detailsData: PlaceDetailsResponse = await detailsResponse.json();
 
     if (detailsData.status !== 'OK' || !detailsData.result?.photos) {
