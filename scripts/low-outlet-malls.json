@@ -1,0 +1,133 @@
+{
+  "mustafa-centre": {
+    "name": "Mustafa Centre",
+    "stalls": [
+      {"name": "Mustafa Cafe", "unit": "Ground Floor", "openingHours": "24 hours"},
+      {"name": "Food & Groceries", "unit": "Level 2", "openingHours": null}
+    ]
+  },
+  "katong-v": {
+    "name": "Katong V",
+    "stalls": [
+      {"name": "Yun Ga Traditional Korean Restaurant", "unit": "#03-09", "openingHours": null},
+      {"name": "Burrata Joy & Gustavo Lapasta", "unit": "#01-12/13", "openingHours": "Daily 11:30am to 3pm, 5pm to 10pm"},
+      {"name": "Yugoslavia Bakery & Café", "unit": "Ground Floor", "openingHours": null},
+      {"name": "Wine Mansion", "unit": "#01-01", "openingHours": null},
+      {"name": "Tomi Sushi", "unit": null, "openingHours": null},
+      {"name": "Bread & Hearth", "unit": null, "openingHours": null},
+      {"name": "East Manhattan", "unit": null, "openingHours": null},
+      {"name": "Group Therapy", "unit": null, "openingHours": null}
+    ]
+  },
+  "scotts-square": {
+    "name": "Scotts Square",
+    "stalls": [
+      {"name": "La Savoir", "unit": "#02-01", "openingHours": "Daily 11:30am to 10pm"},
+      {"name": "Eggslut", "unit": "Level 1", "openingHours": null},
+      {"name": "Wild Honey", "unit": null, "openingHours": null},
+      {"name": "Paradise Teochew Restaurant", "unit": "#03-05", "openingHours": null},
+      {"name": "Chamoon", "unit": "#03-01/02", "openingHours": "Daily 11am to 10pm"},
+      {"name": "London Fat Duck", "unit": null, "openingHours": null},
+      {"name": "PizzaExpress", "unit": null, "openingHours": null},
+      {"name": "Maison Kayser", "unit": null, "openingHours": null},
+      {"name": "Lady M", "unit": null, "openingHours": null}
+    ]
+  },
+  "vista-point": {
+    "name": "Vista Point",
+    "stalls": [
+      {"name": "Kopitiam", "unit": "#01-21", "openingHours": "24 hours"},
+      {"name": "Toast & Beverages", "unit": null, "openingHours": null},
+      {"name": "Thye Guan Fragrant Hot Pot", "unit": null, "openingHours": null},
+      {"name": "Ji Ling Vegetarian", "unit": null, "openingHours": null},
+      {"name": "Traditional Yong Tau Foo", "unit": null, "openingHours": null},
+      {"name": "Lao Huo Tang", "unit": null, "openingHours": null},
+      {"name": "McDonald's", "unit": "#01-20", "openingHours": null},
+      {"name": "Subway", "unit": "#01-23", "openingHours": null},
+      {"name": "Swee Heng Bakery", "unit": "#01-19", "openingHours": null},
+      {"name": "Don Donburi", "unit": null, "openingHours": null},
+      {"name": "Monster Chili Mala Hotpot", "unit": null, "openingHours": null},
+      {"name": "Telur Thai", "unit": null, "openingHours": null},
+      {"name": "Texas Lone Star", "unit": null, "openingHours": null},
+      {"name": "Hotpan Sizzler", "unit": null, "openingHours": "Daily 10am to 9:30pm"}
+    ]
+  },
+  "greenwich-v": {
+    "name": "Greenwich V",
+    "stalls": [
+      {"name": "Cedele", "unit": null, "openingHours": null},
+      {"name": "Old Shifu Charcoal Porridge", "unit": "#01-19", "openingHours": "Sun-Thurs 11am to 8pm, Fri-Sat 10am to 9pm"},
+      {"name": "Mr Ramen", "unit": "#01-19", "openingHours": null},
+      {"name": "Bakery Cuisine Express", "unit": "#01-19", "openingHours": "Daily 8am to 9pm"},
+      {"name": "Awfully Chocolate", "unit": "Level 2", "openingHours": null}
+    ]
+  },
+  "adam-road-food-centre": {
+    "name": "Adam Road Food Centre",
+    "stalls": [
+      {"name": "Selera Rasa Nasi Lemak", "unit": null, "openingHours": null},
+      {"name": "Adam Road Noo Cheng Big Prawn Noodle", "unit": null, "openingHours": null},
+      {"name": "Warong Pak Sapari", "unit": null, "openingHours": null},
+      {"name": "Bahrakath Mutton Soup", "unit": null, "openingHours": null},
+      {"name": "Adam Fishball Noodle", "unit": null, "openingHours": null},
+      {"name": "Adam's Indian Rojak", "unit": null, "openingHours": null},
+      {"name": "Cheng Ji", "unit": "Stall 24", "openingHours": null}
+    ]
+  },
+  "heartbeat-bedok": {
+    "name": "Heartbeat @ Bedok",
+    "stalls": [
+      {"name": "Burger King", "unit": "#01-33", "openingHours": null},
+      {"name": "Buddy Hoagies", "unit": null, "openingHours": null},
+      {"name": "Subway", "unit": "#01-16", "openingHours": null},
+      {"name": "Sushi Express", "unit": null, "openingHours": null},
+      {"name": "Kaki Makan", "unit": "#01-13", "openingHours": null},
+      {"name": "Tasty Wok", "unit": null, "openingHours": null},
+      {"name": "The Little Nyonya by 1doc Bistro", "unit": "#01-11", "openingHours": "Daily 11am to 9pm"},
+      {"name": "One Two Eat Food Court", "unit": "#01-28/29", "openingHours": null},
+      {"name": "Chicky Fun", "unit": null, "openingHours": "Daily 7am to 10pm"},
+      {"name": "Pizza Hut", "unit": null, "openingHours": null},
+      {"name": "Swee Heng Bakery", "unit": "#01-21", "openingHours": null},
+      {"name": "My Kampung", "unit": null, "openingHours": null},
+      {"name": "Heavenly Wang", "unit": null, "openingHours": null}
+    ]
+  },
+  "capitol-singapore": {
+    "name": "Capitol Singapore",
+    "stalls": [
+      {"name": "15 Stamford", "unit": null, "openingHours": null},
+      {"name": "Capitol Bistro Bar Patisserie", "unit": null, "openingHours": null},
+      {"name": "HolyCrab", "unit": "#01-85", "openingHours": null},
+      {"name": "Hopscotch", "unit": null, "openingHours": null},
+      {"name": "Chao Yue Xuan Dim Sum", "unit": null, "openingHours": null},
+      {"name": "Ba Bai Wan (800 Bowls)", "unit": null, "openingHours": null},
+      {"name": "Coffee Hive", "unit": null, "openingHours": null},
+      {"name": "Café Kitsuné", "unit": null, "openingHours": null},
+      {"name": "Kei Kaisendon", "unit": "B1-32", "openingHours": null},
+      {"name": "Stirling Steaks", "unit": "B2-53", "openingHours": null},
+      {"name": "Choon Hoy Parlor", "unit": "01-84A", "openingHours": null},
+      {"name": "Supergreen", "unit": "B2-26", "openingHours": null},
+      {"name": "Muyuu", "unit": "B2-27/28", "openingHours": null},
+      {"name": "Two Cranes", "unit": "B2-33/34", "openingHours": null},
+      {"name": "The Masses", "unit": "01-84", "openingHours": null},
+      {"name": "Bold Thai", "unit": null, "openingHours": null}
+    ]
+  },
+  "limbang-shopping-centre": {
+    "name": "Limbang Shopping Centre",
+    "stalls": [
+      {"name": "I Love Sukhothai", "unit": null, "openingHours": null},
+      {"name": "Napolizz Pizza", "unit": null, "openingHours": null},
+      {"name": "Wingstop", "unit": "#01-17", "openingHours": null},
+      {"name": "McDonald's", "unit": null, "openingHours": null},
+      {"name": "Yi Jia Food Centre", "unit": null, "openingHours": null},
+      {"name": "Canadian Pizza", "unit": null, "openingHours": null},
+      {"name": "Golden Rice HK Roasted Delights", "unit": null, "openingHours": null},
+      {"name": "Yuan Ji Seafood", "unit": null, "openingHours": null},
+      {"name": "Koi The", "unit": null, "openingHours": null},
+      {"name": "Mrs Hen", "unit": null, "openingHours": null},
+      {"name": "Tenderbest", "unit": "#02-03", "openingHours": null},
+      {"name": "FBG", "unit": null, "openingHours": null}
+    ]
+  }
+}
