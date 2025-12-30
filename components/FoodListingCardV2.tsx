@@ -383,11 +383,10 @@ export default function FoodListingCardV2({ listing, highlighted = false, onView
             </div>
           )}
 
-          {/* Secondary sources - "Also on" */}
+          {/* Secondary sources - limit total to 3 */}
           {secondarySources.length > 0 && (
             <div className="flex flex-wrap items-center gap-1 mt-1">
-              <span className="text-xs text-gray-500">Also on:</span>
-              {secondarySources.map((s) => (
+              {secondarySources.slice(0, Math.max(0, 3 - primarySources.length)).map((s) => (
                 <SourceBadge
                   key={s.source.id}
                   sourceDetail={s}
