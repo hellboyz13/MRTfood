@@ -926,7 +926,6 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
       }
     }
 
-    console.log(`Nearest station: ${nearestStation} (${minDistance.toFixed(2)}km away)`);
     return nearestStation;
   }, []);
 

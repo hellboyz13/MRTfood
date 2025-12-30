@@ -530,7 +530,6 @@ export default function FoodPanelV2({ stationId, onClose, onNavigateToStation, i
   };
 
   const renderMallsContent = () => {
-    console.log('🏬 renderMallsContent:', { selectedMallId, selectedMall, outlets: outlets.length, outletsLoading });
 
     // If a mall is selected, show the outlet list
     if (selectedMallId) {
@@ -584,7 +583,6 @@ export default function FoodPanelV2({ stationId, onClose, onNavigateToStation, i
   };
 
   const renderContent = () => {
-    console.log('📄 renderContent:', { loading, mallsLoading, mode, availableModes, hasMallsContent });
 
     // Show loading state while data is being fetched
     if (loading || mallsLoading) {
