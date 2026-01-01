@@ -105,9 +105,9 @@ export default function SearchResultsPanel({
         className="md:hidden fixed top-20 z-40 flex"
         style={{ left: 0 }}
       >
-        {/* Panel content */}
+        {/* Panel content - hidden when collapsed */}
         <div
-          className="w-[200px] max-h-[calc(4*60px+44px)] bg-white/95 backdrop-blur-sm rounded-r-xl shadow-xl border-2 border-[#FF6B4A] border-l-0 overflow-hidden flex flex-col"
+          className={`w-[200px] max-h-[calc(4*60px+44px)] bg-white/95 backdrop-blur-sm rounded-r-xl shadow-xl border-2 border-[#FF6B4A] border-l-0 overflow-hidden flex flex-col transition-opacity duration-300 ${isCollapsed ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
         >
             {/* Close button */}
             <button
@@ -202,9 +202,9 @@ export default function SearchResultsPanel({
         className="hidden md:flex fixed top-20 z-40"
         style={{ left: '16px' }}
       >
-        {/* Panel content */}
+        {/* Panel content - hidden when collapsed */}
         <div
-          className="w-96 max-h-[calc(100vh-160px)] bg-white rounded-xl shadow-2xl border-2 border-[#FF6B4A] overflow-hidden flex flex-col"
+          className={`w-96 max-h-[calc(100vh-160px)] bg-white rounded-xl shadow-2xl border-2 border-[#FF6B4A] overflow-hidden flex flex-col transition-opacity duration-300 ${isCollapsed ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
         >
             {/* Header */}
             <div className="bg-[#FF6B4A] px-4 py-3 flex items-center justify-between flex-shrink-0">
