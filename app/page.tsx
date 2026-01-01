@@ -92,6 +92,7 @@ export default function Home() {
   const [is24hActive, setIs24hActive] = useState(false);
   const [isDessertActive, setIsDessertActive] = useState(false);
   const [emptyStations, setEmptyStations] = useState<string[]>([]);
+  const [filterStationIds, setFilterStationIds] = useState<string[]>([]); // All matching stations for map pins
   const mapZoomHandlerRef = useRef<((stationId: string) => void) | null>(null);
   const onboardingRef = useRef<OnboardingRef>(null);
 
@@ -220,6 +221,7 @@ export default function Home() {
     setHasMoreSearchResults(false);
     setIs24hActive(false);
     setIsDessertActive(false);
+    setFilterStationIds([]); // Clear map pins
   };
 
   const handleSupperClick = async () => {
@@ -230,6 +232,7 @@ export default function Home() {
       setSearchQuery('');
       setSearchPage(0);
       setHasMoreSearchResults(false);
+      setFilterStationIds([]); // Clear map pins
     } else {
       // Toggle on - fetch supper spots sorted by current time (cached via API)
       setIsSearching(true);
@@ -239,9 +242,10 @@ export default function Home() {
       setSearchPage(0);
       try {
         const currentHour = new Date().getHours();
-        const { results, hasMore } = await fetchSupperSpots(0, currentHour);
+        const { results, hasMore, allStationIds } = await fetchSupperSpots(0, currentHour);
         setSearchResults(results);
         setHasMoreSearchResults(hasMore);
+        setFilterStationIds(allStationIds || []); // Set all station IDs for map pins
         if (results.length === 0) {
           setSelectedStation(null);
         }
@@ -249,6 +253,7 @@ export default function Home() {
         console.error('Supper search error:', error);
         setSearchResults([]);
         setHasMoreSearchResults(false);
+        setFilterStationIds([]);
         setSelectedStation(null);
       } finally {
         setIsSearching(false);
@@ -264,6 +269,7 @@ export default function Home() {
       setSearchQuery('');
       setSearchPage(0);
       setHasMoreSearchResults(false);
+      setFilterStationIds([]); // Clear map pins
     } else {
       // Toggle on - fetch dessert spots (cafes/desserts first, bakeries last) (cached via API)
       setIsSearching(true);
@@ -272,9 +278,10 @@ export default function Home() {
       setSearchQuery('Dessert Spots');
       setSearchPage(0);
       try {
-        const { results, hasMore } = await fetchDessertSpots(0);
+        const { results, hasMore, allStationIds } = await fetchDessertSpots(0);
         setSearchResults(results);
         setHasMoreSearchResults(hasMore);
+        setFilterStationIds(allStationIds || []); // Set all station IDs for map pins
         if (results.length === 0) {
           setSelectedStation(null);
         }
@@ -282,6 +289,7 @@ export default function Home() {
         console.error('Dessert search error:', error);
         setSearchResults([]);
         setHasMoreSearchResults(false);
+        setFilterStationIds([]);
         setSelectedStation(null);
       } finally {
         setIsSearching(false);
@@ -373,6 +381,7 @@ export default function Home() {
             selectedStation={selectedStation}
             onStationClick={handleStationClick}
             searchResults={searchResults}
+            filterStationIds={filterStationIds}
             onZoomHandlerReady={(handler) => { mapZoomHandlerRef.current = handler; }}
             emptyStations={emptyStations}
           />
