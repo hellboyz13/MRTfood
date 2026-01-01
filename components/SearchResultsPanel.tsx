@@ -47,46 +47,7 @@ export default function SearchResultsPanel({
   const hasResults = results && results.length > 0;
 
   const handleToggle = () => {
-    const newCollapsed = !isCollapsed;
-
-    // Animate mobile panel
-    if (mobilePanelRef.current) {
-      mobilePanelRef.current.animate(
-        newCollapsed
-          ? [
-              { transform: 'translateX(0) scale(1)', opacity: 1 },
-              { transform: 'translateX(-50px) scale(0.95)', opacity: 0.7, offset: 0.3 },
-              { transform: 'translateX(-220px) scale(0.9)', opacity: 0.3 },
-            ]
-          : [
-              { transform: 'translateX(-220px) scale(0.9)', opacity: 0.3 },
-              { transform: 'translateX(-50px) scale(0.95)', opacity: 0.7, offset: 0.7 },
-              { transform: 'translateX(0) scale(1)', opacity: 1 },
-            ],
-        { duration: 350, easing: 'cubic-bezier(0.4, 0, 0.2, 1)', fill: 'forwards' }
-      );
-    }
-
-    // Animate desktop panel
-    if (desktopPanelRef.current) {
-      const desktopOffset = '-420px'; // Move panel completely off-screen (w-96 = 384px + padding)
-      desktopPanelRef.current.animate(
-        newCollapsed
-          ? [
-              { transform: 'translateX(0) scale(1)', opacity: 1 },
-              { transform: `translateX(-100px) scale(0.98)`, opacity: 0.7, offset: 0.3 },
-              { transform: `translateX(${desktopOffset}) scale(0.95)`, opacity: 0.3 },
-            ]
-          : [
-              { transform: `translateX(${desktopOffset}) scale(0.95)`, opacity: 0.3 },
-              { transform: `translateX(-100px) scale(0.98)`, opacity: 0.7, offset: 0.7 },
-              { transform: 'translateX(0) scale(1)', opacity: 1 },
-            ],
-        { duration: 400, easing: 'cubic-bezier(0.4, 0, 0.2, 1)', fill: 'forwards' }
-      );
-    }
-
-    setIsCollapsed(newCollapsed);
+    setIsCollapsed(!isCollapsed);
   };
 
   // No results message component - Coral theme
@@ -100,14 +61,13 @@ export default function SearchResultsPanel({
   return (
     <>
       {/* Mobile: Slide-able Panel - White background theme */}
-      <div
-        ref={mobilePanelRef}
-        className="md:hidden fixed top-20 z-40 flex"
-        style={{ left: 0 }}
-      >
+      <div className="md:hidden fixed top-20 left-0 z-40 flex items-start">
         {/* Panel content */}
         <div
-          className={`w-[200px] max-h-[calc(4*60px+44px)] bg-white/95 backdrop-blur-sm rounded-r-xl shadow-xl border-2 border-[#FF6B4A] border-l-0 overflow-hidden flex flex-col ${isCollapsed ? 'pointer-events-none' : ''}`}
+          ref={mobilePanelRef}
+          className={`w-[200px] max-h-[calc(4*60px+44px)] bg-white/95 backdrop-blur-sm rounded-r-xl shadow-xl border-2 border-[#FF6B4A] border-l-0 overflow-hidden flex flex-col transition-all duration-350 ease-out ${
+            isCollapsed ? 'opacity-0 -translate-x-[200px] pointer-events-none' : 'opacity-100 translate-x-0'
+          }`}
         >
             {/* Close button */}
             <button
@@ -185,26 +145,25 @@ export default function SearchResultsPanel({
             )}
           </div>
 
-          {/* Toggle button - always visible */}
-          <button
-            onClick={handleToggle}
-            className="self-start mt-4 w-6 h-12 bg-[#FF6B4A] hover:bg-[#E55A3A] text-white rounded-r-lg shadow-lg flex items-center justify-center transition-colors"
-            aria-label={isCollapsed ? "Show search results" : "Hide search results"}
-          >
-            <IconChevronLeft className={`w-4 h-4 transition-transform duration-300 ${isCollapsed ? 'rotate-180' : ''}`} />
-          </button>
+        {/* Toggle button - always visible at left edge */}
+        <button
+          onClick={handleToggle}
+          className="mt-4 ml-0 w-6 h-12 bg-[#FF6B4A] hover:bg-[#E55A3A] text-white rounded-r-lg shadow-lg flex items-center justify-center transition-colors flex-shrink-0"
+          aria-label={isCollapsed ? "Show search results" : "Hide search results"}
+        >
+          <IconChevronLeft className={`w-4 h-4 transition-transform duration-300 ${isCollapsed ? 'rotate-180' : ''}`} />
+        </button>
       </div>
 
 
       {/* Desktop: Slide-able Full Panel - White background theme */}
-      <div
-        ref={desktopPanelRef}
-        className="hidden md:flex fixed top-20 z-40"
-        style={{ left: '16px' }}
-      >
+      <div className="hidden md:flex fixed top-20 left-4 z-40 items-start">
         {/* Panel content */}
         <div
-          className={`w-96 max-h-[calc(100vh-160px)] bg-white rounded-xl shadow-2xl border-2 border-[#FF6B4A] overflow-hidden flex flex-col ${isCollapsed ? 'pointer-events-none' : ''}`}
+          ref={desktopPanelRef}
+          className={`w-96 max-h-[calc(100vh-160px)] bg-white rounded-xl shadow-2xl border-2 border-[#FF6B4A] overflow-hidden flex flex-col transition-all duration-400 ease-out ${
+            isCollapsed ? 'opacity-0 -translate-x-[400px] pointer-events-none' : 'opacity-100 translate-x-0'
+          }`}
         >
             {/* Header */}
             <div className="bg-[#FF6B4A] px-4 py-3 flex items-center justify-between flex-shrink-0">
@@ -318,10 +277,10 @@ export default function SearchResultsPanel({
             )}
           </div>
 
-        {/* Toggle button - always visible */}
+        {/* Toggle button - always visible at left edge */}
         <button
           onClick={handleToggle}
-          className="self-start mt-4 ml-2 w-8 h-16 bg-[#FF6B4A] hover:bg-[#E55A3A] text-white rounded-r-lg shadow-lg flex items-center justify-center transition-colors"
+          className="mt-4 ml-2 w-8 h-16 bg-[#FF6B4A] hover:bg-[#E55A3A] text-white rounded-r-lg shadow-lg flex items-center justify-center transition-colors flex-shrink-0"
           aria-label={isCollapsed ? "Show search results" : "Hide search results"}
         >
           <IconChevronLeft className={`w-5 h-5 transition-transform duration-300 ${isCollapsed ? 'rotate-180' : ''}`} />
