@@ -55,12 +55,12 @@ export default function SearchResultsPanel({
         newCollapsed
           ? [
               { transform: 'translateX(0) scale(1)', opacity: 1 },
-              { transform: 'translateX(-20px) scale(0.95)', opacity: 0.8, offset: 0.3 },
-              { transform: 'translateX(-140px) scale(0.9)', opacity: 0.6 },
+              { transform: 'translateX(-50px) scale(0.95)', opacity: 0.7, offset: 0.3 },
+              { transform: 'translateX(-220px) scale(0.9)', opacity: 0.3 },
             ]
           : [
-              { transform: 'translateX(-140px) scale(0.9)', opacity: 0.6 },
-              { transform: 'translateX(-20px) scale(0.95)', opacity: 0.8, offset: 0.7 },
+              { transform: 'translateX(-220px) scale(0.9)', opacity: 0.3 },
+              { transform: 'translateX(-50px) scale(0.95)', opacity: 0.7, offset: 0.7 },
               { transform: 'translateX(0) scale(1)', opacity: 1 },
             ],
         { duration: 350, easing: 'cubic-bezier(0.4, 0, 0.2, 1)', fill: 'forwards' }
@@ -69,17 +69,17 @@ export default function SearchResultsPanel({
 
     // Animate desktop panel
     if (desktopPanelRef.current) {
-      const desktopOffset = 'calc(-24rem - 16px)';
+      const desktopOffset = '-420px'; // Move panel completely off-screen (w-96 = 384px + padding)
       desktopPanelRef.current.animate(
         newCollapsed
           ? [
               { transform: 'translateX(0) scale(1)', opacity: 1 },
-              { transform: `translateX(-50px) scale(0.98)`, opacity: 0.9, offset: 0.3 },
-              { transform: `translateX(${desktopOffset}) scale(0.95)`, opacity: 0.7 },
+              { transform: `translateX(-100px) scale(0.98)`, opacity: 0.7, offset: 0.3 },
+              { transform: `translateX(${desktopOffset}) scale(0.95)`, opacity: 0.3 },
             ]
           : [
-              { transform: `translateX(${desktopOffset}) scale(0.95)`, opacity: 0.7 },
-              { transform: `translateX(-50px) scale(0.98)`, opacity: 0.9, offset: 0.7 },
+              { transform: `translateX(${desktopOffset}) scale(0.95)`, opacity: 0.3 },
+              { transform: `translateX(-100px) scale(0.98)`, opacity: 0.7, offset: 0.7 },
               { transform: 'translateX(0) scale(1)', opacity: 1 },
             ],
         { duration: 400, easing: 'cubic-bezier(0.4, 0, 0.2, 1)', fill: 'forwards' }
@@ -105,9 +105,9 @@ export default function SearchResultsPanel({
         className="md:hidden fixed top-20 z-40 flex"
         style={{ left: 0 }}
       >
-        {/* Panel content - hidden when collapsed */}
+        {/* Panel content */}
         <div
-          className={`w-[200px] max-h-[calc(4*60px+44px)] bg-white/95 backdrop-blur-sm rounded-r-xl shadow-xl border-2 border-[#FF6B4A] border-l-0 overflow-hidden flex flex-col transition-opacity duration-300 ${isCollapsed ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
+          className={`w-[200px] max-h-[calc(4*60px+44px)] bg-white/95 backdrop-blur-sm rounded-r-xl shadow-xl border-2 border-[#FF6B4A] border-l-0 overflow-hidden flex flex-col ${isCollapsed ? 'pointer-events-none' : ''}`}
         >
             {/* Close button */}
             <button
@@ -202,9 +202,9 @@ export default function SearchResultsPanel({
         className="hidden md:flex fixed top-20 z-40"
         style={{ left: '16px' }}
       >
-        {/* Panel content - hidden when collapsed */}
+        {/* Panel content */}
         <div
-          className={`w-96 max-h-[calc(100vh-160px)] bg-white rounded-xl shadow-2xl border-2 border-[#FF6B4A] overflow-hidden flex flex-col transition-opacity duration-300 ${isCollapsed ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
+          className={`w-96 max-h-[calc(100vh-160px)] bg-white rounded-xl shadow-2xl border-2 border-[#FF6B4A] overflow-hidden flex flex-col ${isCollapsed ? 'pointer-events-none' : ''}`}
         >
             {/* Header */}
             <div className="bg-[#FF6B4A] px-4 py-3 flex items-center justify-between flex-shrink-0">
