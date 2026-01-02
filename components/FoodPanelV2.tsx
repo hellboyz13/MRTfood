@@ -844,11 +844,7 @@ function MobileDrawer({
 }) {
   const drawerRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
-  const [dragY, setDragY] = useState(0);
-  const [isDragging, setIsDragging] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
-  const startY = useRef(0);
-  const currentY = useRef(0);
 
   // Handle close with animation
   const handleClose = useCallback(() => {
@@ -858,53 +854,6 @@ function MobileDrawer({
       onClose();
     }, 250); // Match the animation duration
   }, [onClose]);
-
-  const handleTouchStart = useCallback((e: React.TouchEvent) => {
-    if (isClosing) return;
-    // Only allow drag from header area or when content is scrolled to top
-    const touch = e.touches[0];
-    const target = e.target as HTMLElement;
-    const isHeader = target.closest('[data-drag-handle]');
-    const contentScrollTop = contentRef.current?.scrollTop || 0;
-
-    if (isHeader || contentScrollTop === 0) {
-      startY.current = touch.clientY;
-      currentY.current = touch.clientY;
-      setIsDragging(true);
-    }
-  }, [isClosing]);
-
-  const handleTouchMove = useCallback((e: React.TouchEvent) => {
-    if (!isDragging || isClosing) return;
-
-    const touch = e.touches[0];
-    const deltaY = touch.clientY - startY.current;
-
-    // Only allow dragging down (positive deltaY)
-    if (deltaY > 0) {
-      // Prevent browser pull-to-refresh
-      e.preventDefault();
-      currentY.current = touch.clientY;
-      setDragY(deltaY);
-    }
-  }, [isDragging, isClosing]);
-
-  const handleTouchEnd = useCallback(() => {
-    if (!isDragging || isClosing) return;
-
-    const deltaY = currentY.current - startY.current;
-
-    // If dragged more than 100px down, close the drawer with animation
-    if (deltaY > 100) {
-      handleClose();
-    }
-
-    // Reset state
-    setDragY(0);
-    setIsDragging(false);
-    startY.current = 0;
-    currentY.current = 0;
-  }, [isDragging, isClosing, handleClose]);
 
   // Prevent body scroll when drawer is open
   useEffect(() => {
@@ -931,25 +880,19 @@ function MobileDrawer({
         style={{
           height: 'min(80dvh, 80vh)',
           paddingBottom: 'max(env(safe-area-inset-bottom), 0px)',
-          transform: isClosing ? undefined : `translateY(${dragY}px)`,
-          transition: isDragging ? 'none' : 'transform 0.2s ease-out',
           WebkitOverflowScrolling: 'touch',
         }}
       >
         {/* Main listing panel */}
         <div className={`panel-content ${selectedMenuListing ? 'slide-out-left' : ''}`}>
           <div className="flex flex-col h-full">
-            {/* Drag handle */}
+            {/* Visual indicator bar */}
             <div
-              data-drag-handle
-              className="flex justify-center cursor-grab active:cursor-grabbing flex-shrink-0"
+              className="flex justify-center flex-shrink-0"
               style={{
                 paddingTop: 'clamp(8px, 2vw, 12px)',
                 paddingBottom: 'clamp(8px, 2vw, 12px)',
               }}
-              onTouchStart={handleTouchStart}
-              onTouchMove={handleTouchMove}
-              onTouchEnd={handleTouchEnd}
             >
               <div
                 className="bg-gray-300 rounded-full"
@@ -962,7 +905,6 @@ function MobileDrawer({
 
             {/* Header */}
             <div
-              data-drag-handle
               className="flex items-center justify-between border-b border-[#E0DCD7] bg-[#FFFBF7] flex-shrink-0"
               style={{
                 paddingLeft: 'clamp(12px, 4vw, 20px)',
@@ -970,9 +912,6 @@ function MobileDrawer({
                 paddingTop: 'clamp(8px, 2vw, 12px)',
                 paddingBottom: 'clamp(8px, 2vw, 12px)',
               }}
-              onTouchStart={handleTouchStart}
-              onTouchMove={handleTouchMove}
-              onTouchEnd={handleTouchEnd}
             >
               <h2
                 className="font-bold text-[#2D2D2D]"
@@ -1006,9 +945,6 @@ function MobileDrawer({
                 style={{
                   WebkitOverflowScrolling: 'touch',
                 }}
-                onTouchStart={handleTouchStart}
-                onTouchMove={handleTouchMove}
-                onTouchEnd={handleTouchEnd}
               >
                 {children}
               </div>
