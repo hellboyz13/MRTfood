@@ -45,9 +45,9 @@ function isOpenLate(openingHours) {
   if (hours.includes('"0000"') && hours.includes('Open 24')) return true;
   if (hours.includes('24 hours')) return true;
 
-  // Check for late closing times (after 10pm / 22:00)
+  // Check for late closing times (11pm / 23:00 or later)
   const lateClosingTimes = [
-    '"2200"', '"2230"', '"2300"', '"2330"',
+    '"2300"', '"2330"',
     '"0000"', '"0030"', '"0100"', '"0130"',
     '"0200"', '"0230"', '"0300"', '"0330"',
     '"0400"', '"0430"', '"0500"'
