@@ -128,8 +128,18 @@ export default function Home() {
 
   // Get search matches for the currently selected station
   const getSearchMatches = () => {
-    if (!selectedStation || searchResults.length === 0) return [];
+    if (!selectedStation || searchResults.length === 0) {
+      console.log('getSearchMatches: No selected station or empty results', { selectedStation, searchResultsCount: searchResults.length });
+      return [];
+    }
     const result = searchResults.find(r => r.stationId === selectedStation);
+    console.log('getSearchMatches:', {
+      selectedStation,
+      searchResultsCount: searchResults.length,
+      searchResultStationIds: searchResults.map(r => r.stationId),
+      foundResult: !!result,
+      matchesCount: result?.matches?.length || 0
+    });
     return result?.matches || [];
   };
 
@@ -243,6 +253,11 @@ export default function Home() {
       try {
         const currentHour = new Date().getHours();
         const { results, hasMore, allStationIds } = await fetchSupperSpots(0, currentHour);
+        console.log('Supper filter results:', {
+          resultsCount: results.length,
+          firstResult: results[0],
+          allStationIdsCount: allStationIds?.length || 0
+        });
         setSearchResults(results);
         setHasMoreSearchResults(hasMore);
         setFilterStationIds(allStationIds || []); // Set all station IDs for map pins
@@ -279,6 +294,11 @@ export default function Home() {
       setSearchPage(0);
       try {
         const { results, hasMore, allStationIds } = await fetchDessertSpots(0);
+        console.log('Dessert filter results:', {
+          resultsCount: results.length,
+          firstResult: results[0],
+          allStationIdsCount: allStationIds?.length || 0
+        });
         setSearchResults(results);
         setHasMoreSearchResults(hasMore);
         setFilterStationIds(allStationIds || []); // Set all station IDs for map pins
