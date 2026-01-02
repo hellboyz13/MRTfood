@@ -83,6 +83,7 @@ export default function Home() {
   const [highlightedListingId, setHighlightedListingId] = useState<string | null>(null);
   const [isMobile, setIsMobile] = useState(false);
   const [searchResults, setSearchResults] = useState<StationSearchResult[]>([]);
+  const [allSearchResults, setAllSearchResults] = useState<StationSearchResult[]>([]); // All results for filtering (not paginated)
   const [hasMoreSearchResults, setHasMoreSearchResults] = useState(false);
   const [searchPage, setSearchPage] = useState(0);
   const [isSearching, setIsSearching] = useState(false);
@@ -128,15 +129,23 @@ export default function Home() {
 
   // Get search matches for the currently selected station
   const getSearchMatches = () => {
-    if (!selectedStation || searchResults.length === 0) {
-      console.log('getSearchMatches: No selected station or empty results', { selectedStation, searchResultsCount: searchResults.length });
+    // Use allSearchResults for filtering (contains all stations), fallback to searchResults for regular search
+    const resultsToUse = allSearchResults.length > 0 ? allSearchResults : searchResults;
+
+    if (!selectedStation || resultsToUse.length === 0) {
+      console.log('getSearchMatches: No selected station or empty results', {
+        selectedStation,
+        searchResultsCount: searchResults.length,
+        allSearchResultsCount: allSearchResults.length
+      });
       return [];
     }
-    const result = searchResults.find(r => r.stationId === selectedStation);
+    const result = resultsToUse.find(r => r.stationId === selectedStation);
     console.log('getSearchMatches:', {
       selectedStation,
       searchResultsCount: searchResults.length,
-      searchResultStationIds: searchResults.map(r => r.stationId),
+      allSearchResultsCount: allSearchResults.length,
+      usingAllResults: allSearchResults.length > 0,
       foundResult: !!result,
       matchesCount: result?.matches?.length || 0
     });
@@ -151,6 +160,7 @@ export default function Home() {
     setIsSearching(true);
     setSearchQuery(query);
     setSearchPage(0);
+    setAllSearchResults([]); // Clear allResults for regular search (not used)
     setIs24hActive(false); // Turn off 24h filter when doing regular search
     setIsDessertActive(false); // Turn off dessert filter when doing regular search
     setSelectedStation(null); // Close any open panels when searching
@@ -226,6 +236,7 @@ export default function Home() {
 
   const handleClearSearch = () => {
     setSearchResults([]);
+    setAllSearchResults([]); // Clear all results
     setSearchQuery('');
     setSearchPage(0);
     setHasMoreSearchResults(false);
@@ -239,6 +250,7 @@ export default function Home() {
       // Toggle off
       setIs24hActive(false);
       setSearchResults([]);
+      setAllSearchResults([]);
       setSearchQuery('');
       setSearchPage(0);
       setHasMoreSearchResults(false);
@@ -252,13 +264,15 @@ export default function Home() {
       setSearchPage(0);
       try {
         const currentHour = new Date().getHours();
-        const { results, hasMore, allStationIds } = await fetchSupperSpots(0, currentHour);
+        const { results, hasMore, allStationIds, allResults } = await fetchSupperSpots(0, currentHour);
         console.log('Supper filter results:', {
           resultsCount: results.length,
+          allResultsCount: allResults?.length || 0,
           firstResult: results[0],
           allStationIdsCount: allStationIds?.length || 0
         });
         setSearchResults(results);
+        setAllSearchResults(allResults || []); // Store all results for filtering
         setHasMoreSearchResults(hasMore);
         setFilterStationIds(allStationIds || []); // Set all station IDs for map pins
         if (results.length === 0) {
@@ -267,6 +281,7 @@ export default function Home() {
       } catch (error) {
         console.error('Supper search error:', error);
         setSearchResults([]);
+        setAllSearchResults([]);
         setHasMoreSearchResults(false);
         setFilterStationIds([]);
         setSelectedStation(null);
@@ -281,6 +296,7 @@ export default function Home() {
       // Toggle off
       setIsDessertActive(false);
       setSearchResults([]);
+      setAllSearchResults([]);
       setSearchQuery('');
       setSearchPage(0);
       setHasMoreSearchResults(false);
@@ -293,13 +309,15 @@ export default function Home() {
       setSearchQuery('Dessert Spots');
       setSearchPage(0);
       try {
-        const { results, hasMore, allStationIds } = await fetchDessertSpots(0);
+        const { results, hasMore, allStationIds, allResults } = await fetchDessertSpots(0);
         console.log('Dessert filter results:', {
           resultsCount: results.length,
+          allResultsCount: allResults?.length || 0,
           firstResult: results[0],
           allStationIdsCount: allStationIds?.length || 0
         });
         setSearchResults(results);
+        setAllSearchResults(allResults || []); // Store all results for filtering
         setHasMoreSearchResults(hasMore);
         setFilterStationIds(allStationIds || []); // Set all station IDs for map pins
         if (results.length === 0) {
@@ -308,6 +326,7 @@ export default function Home() {
       } catch (error) {
         console.error('Dessert search error:', error);
         setSearchResults([]);
+        setAllSearchResults([]);
         setHasMoreSearchResults(false);
         setFilterStationIds([]);
         setSelectedStation(null);

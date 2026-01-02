@@ -451,9 +451,10 @@ export async function getStationsWith24h(): Promise<string[]> {
 
 // Filter response type with pagination
 export interface FilterResponse {
-  results: StationSearchResult[];
+  results: StationSearchResult[]; // Paginated results for display
   hasMore: boolean;
   allStationIds?: string[]; // All matching station IDs for map pins (only on first page)
+  allResults?: StationSearchResult[]; // All results with matches for filtering (only on first page)
 }
 
 const FILTER_PAGE_SIZE = 10;
@@ -671,10 +672,11 @@ export async function getSupperSpotsByStation(options?: { limit?: number; offset
   const paginatedResults = results.slice(offset, offset + limit);
   const hasMore = offset + limit < results.length;
 
-  // Include all station IDs on first page for map pins
+  // Include all station IDs and all results on first page (for map pins and filtering)
   const allStationIds = offset === 0 ? results.map(r => r.stationId) : undefined;
+  const completeResults = offset === 0 ? results : undefined;
 
-  return { results: paginatedResults, hasMore, allStationIds };
+  return { results: paginatedResults, hasMore, allStationIds, allResults: completeResults };
 }
 
 // Helper: Get dessert priority score (higher = better dessert, lower = bakery/bread)
@@ -805,10 +807,11 @@ export async function getDessertSpotsByStation(options?: { limit?: number; offse
   const paginatedResults = results.slice(offset, offset + limit);
   const hasMore = offset + limit < results.length;
 
-  // Include all station IDs on first page for map pins
+  // Include all station IDs and all results on first page (for map pins and filtering)
   const allStationIds = offset === 0 ? results.map(r => r.stationId) : undefined;
+  const completeResults = offset === 0 ? results : undefined;
 
-  return { results: paginatedResults, hasMore, allStationIds };
+  return { results: paginatedResults, hasMore, allStationIds, allResults: completeResults };
 }
 
 // ============================================
