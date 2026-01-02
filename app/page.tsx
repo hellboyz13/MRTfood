@@ -8,7 +8,20 @@ import SearchBar from '@/components/SearchBar';
 import SearchResultsPanel from '@/components/SearchResultsPanel';
 import Footer from '@/components/Footer';
 import Onboarding, { OnboardingRef } from '@/components/Onboarding';
-import { searchStationsByFoodWithCounts, StationSearchResult, getStations, getSupperSpotsByStation, getDessertSpotsByStation, getStationsWithNoContent, getListingStation, DEFAULT_PAGE_SIZE } from '@/lib/api';
+import { searchStationsByFoodWithCounts, StationSearchResult, getStations, getStationsWithNoContent, getListingStation, DEFAULT_PAGE_SIZE, FilterResponse } from '@/lib/api';
+
+// Cached API endpoints for filters (fallback: set DISABLE_FILTER_CACHE=true)
+async function fetchSupperSpots(offset: number, currentHour: number): Promise<FilterResponse> {
+  const res = await fetch(`/api/filters/supper?offset=${offset}&hour=${currentHour}`);
+  if (!res.ok) throw new Error('Failed to fetch supper spots');
+  return res.json();
+}
+
+async function fetchDessertSpots(offset: number): Promise<FilterResponse> {
+  const res = await fetch(`/api/filters/dessert?offset=${offset}`);
+  if (!res.ok) throw new Error('Failed to fetch dessert spots');
+  return res.json();
+}
 
 // Component that handles deep link logic
 function DeepLinkHandler({
@@ -43,6 +56,28 @@ function DeepLinkHandler({
   return null;
 }
 
+// Normalize a string for station name matching (lowercase, remove spaces)
+function normalizeForMatch(str: string): string {
+  return str.toLowerCase().replace(/\s+/g, '');
+}
+
+// Find a station ID by matching the query against station names
+// Supports both "Dhoby Ghaut" and "DhobyGhaut" formats
+function findStationByName(
+  query: string,
+  stationNames: { [key: string]: string }
+): string | null {
+  const normalizedQuery = normalizeForMatch(query);
+
+  for (const [stationId, stationName] of Object.entries(stationNames)) {
+    const normalizedStationName = normalizeForMatch(stationName);
+    if (normalizedQuery === normalizedStationName) {
+      return stationId;
+    }
+  }
+  return null;
+}
+
 export default function Home() {
   const [selectedStation, setSelectedStation] = useState<string | null>(null);
   const [highlightedListingId, setHighlightedListingId] = useState<string | null>(null);
@@ -57,6 +92,7 @@ export default function Home() {
   const [is24hActive, setIs24hActive] = useState(false);
   const [isDessertActive, setIsDessertActive] = useState(false);
   const [emptyStations, setEmptyStations] = useState<string[]>([]);
+  const [filterStationIds, setFilterStationIds] = useState<string[]>([]); // All matching stations for map pins
   const mapZoomHandlerRef = useRef<((stationId: string) => void) | null>(null);
   const onboardingRef = useRef<OnboardingRef>(null);
 
@@ -108,6 +144,23 @@ export default function Home() {
     setIs24hActive(false); // Turn off 24h filter when doing regular search
     setIsDessertActive(false); // Turn off dessert filter when doing regular search
     setSelectedStation(null); // Close any open panels when searching
+
+    // Check if query matches an MRT station name exactly (case-insensitive, space-insensitive)
+    const matchedStationId = findStationByName(query, stationNames);
+    if (matchedStationId) {
+      // Navigate directly to the matched station
+      setSearchResults([]);
+      setHasMoreSearchResults(false);
+      setSearchQuery(''); // Clear search query since we're navigating directly
+      setIsSearching(false);
+      // Zoom to station and open panel
+      if (mapZoomHandlerRef.current) {
+        mapZoomHandlerRef.current(matchedStationId);
+      }
+      setSelectedStation(matchedStationId);
+      return;
+    }
+
     try {
       const { results, hasMore } = await searchStationsByFoodWithCounts(query, {
         limit: DEFAULT_PAGE_SIZE,
@@ -168,6 +221,7 @@ export default function Home() {
     setHasMoreSearchResults(false);
     setIs24hActive(false);
     setIsDessertActive(false);
+    setFilterStationIds([]); // Clear map pins
   };
 
   const handleSupperClick = async () => {
@@ -176,21 +230,30 @@ export default function Home() {
       setIs24hActive(false);
       setSearchResults([]);
       setSearchQuery('');
+      setSearchPage(0);
+      setHasMoreSearchResults(false);
+      setFilterStationIds([]); // Clear map pins
     } else {
-      // Toggle on - fetch supper spots
+      // Toggle on - fetch supper spots sorted by current time (cached via API)
       setIsSearching(true);
       setIs24hActive(true);
       setIsDessertActive(false); // Turn off dessert filter
       setSearchQuery('Supper Spots');
+      setSearchPage(0);
       try {
-        const results = await getSupperSpotsByStation();
+        const currentHour = new Date().getHours();
+        const { results, hasMore, allStationIds } = await fetchSupperSpots(0, currentHour);
         setSearchResults(results);
+        setHasMoreSearchResults(hasMore);
+        setFilterStationIds(allStationIds || []); // Set all station IDs for map pins
         if (results.length === 0) {
           setSelectedStation(null);
         }
       } catch (error) {
         console.error('Supper search error:', error);
         setSearchResults([]);
+        setHasMoreSearchResults(false);
+        setFilterStationIds([]);
         setSelectedStation(null);
       } finally {
         setIsSearching(false);
@@ -204,25 +267,64 @@ export default function Home() {
       setIsDessertActive(false);
       setSearchResults([]);
       setSearchQuery('');
+      setSearchPage(0);
+      setHasMoreSearchResults(false);
+      setFilterStationIds([]); // Clear map pins
     } else {
-      // Toggle on - fetch dessert spots
+      // Toggle on - fetch dessert spots (cafes/desserts first, bakeries last) (cached via API)
       setIsSearching(true);
       setIsDessertActive(true);
       setIs24hActive(false); // Turn off supper filter
       setSearchQuery('Dessert Spots');
+      setSearchPage(0);
       try {
-        const results = await getDessertSpotsByStation();
+        const { results, hasMore, allStationIds } = await fetchDessertSpots(0);
+        console.log('Dessert API response:', { resultsCount: results.length, hasMore, allStationIdsCount: allStationIds?.length });
         setSearchResults(results);
+        setHasMoreSearchResults(hasMore);
+        setFilterStationIds(allStationIds || []); // Set all station IDs for map pins
+        console.log('Set filterStationIds:', allStationIds?.length || 0);
         if (results.length === 0) {
           setSelectedStation(null);
         }
       } catch (error) {
         console.error('Dessert search error:', error);
         setSearchResults([]);
+        setHasMoreSearchResults(false);
+        setFilterStationIds([]);
         setSelectedStation(null);
       } finally {
         setIsSearching(false);
       }
+    }
+  };
+
+  const handleLoadMoreFilter = async () => {
+    if (isLoadingMore) return;
+
+    setIsLoadingMore(true);
+    const nextPage = searchPage + 1;
+    const FILTER_PAGE_SIZE = 10;
+    const offset = nextPage * FILTER_PAGE_SIZE;
+
+    try {
+      let response;
+      if (is24hActive) {
+        const currentHour = new Date().getHours();
+        response = await fetchSupperSpots(offset, currentHour);
+      } else if (isDessertActive) {
+        response = await fetchDessertSpots(offset);
+      } else {
+        return;
+      }
+
+      setSearchResults(prev => [...prev, ...response.results]);
+      setHasMoreSearchResults(response.hasMore);
+      setSearchPage(nextPage);
+    } catch (error) {
+      console.error('Load more filter error:', error);
+    } finally {
+      setIsLoadingMore(false);
     }
   };
 
@@ -268,7 +370,7 @@ export default function Home() {
           stationNames={stationNames}
           onStationZoom={handleStationZoom}
           hasMore={hasMoreSearchResults}
-          onLoadMore={handleLoadMoreSearch}
+          onLoadMore={is24hActive || isDessertActive ? handleLoadMoreFilter : handleLoadMoreSearch}
           isLoadingMore={isLoadingMore}
         />
       )}
@@ -281,6 +383,7 @@ export default function Home() {
             selectedStation={selectedStation}
             onStationClick={handleStationClick}
             searchResults={searchResults}
+            filterStationIds={filterStationIds}
             onZoomHandlerReady={(handler) => { mapZoomHandlerRef.current = handler; }}
             emptyStations={emptyStations}
           />

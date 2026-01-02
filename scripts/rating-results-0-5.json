@@ -1,0 +1,32 @@
+[
+  {
+    "id": "9b9af569-024d-48b5-84c0-51733b6ba87b",
+    "name": "126 Dim Sum Wen Dao Shi",
+    "rating": 3.9,
+    "reviewCount": 3233361
+  },
+  {
+    "id": "23448a48-d571-4263-98c3-c9df0f2bc331",
+    "name": "133 Mian Fen Guo",
+    "rating": 3.2,
+    "reviewCount": 3233361
+  },
+  {
+    "id": "e218ad77-f811-4c88-93ee-c314182a969e",
+    "name": "169 May Fish Soup",
+    "rating": 3.9,
+    "reviewCount": 3233361
+  },
+  {
+    "id": "71f740ac-3a98-45ea-86b5-684c30bf7e85",
+    "name": "195 Pearl Hill Cafe",
+    "rating": 4.5,
+    "reviewCount": 3233361
+  },
+  {
+    "id": "48501450-64d4-4fc1-aa4d-6174f22c36ba",
+    "name": "233 Banh Mi",
+    "rating": 4.5,
+    "reviewCount": 3233361
+  }
+]

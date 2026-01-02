@@ -1,0 +1,106 @@
+[
+  {
+    "name": "928 Yishun Laksa",
+    "cuisine": "Local",
+    "address": "928 Yishun Central 1, #01-155, Singapore 760928",
+    "unit": "#01-155",
+    "openingHours": "8:30am-6pm (Mon-Sat), Closed (Sun)",
+    "youtubeUrl": "https://youtu.be/YH5gL8G_GaA",
+    "mallId": null,
+    "thumbnailUrl": "https://bkzfrgrxfnqounyeqvvn.supabase.co/storage/v1/object/public/restaurant-photos/outlets/928-yishun-laksa/thumbnail.jpg",
+    "menuUrls": [
+      "https://bkzfrgrxfnqounyeqvvn.supabase.co/storage/v1/object/public/restaurant-photos/outlets/928-yishun-laksa/menu-1.jpg",
+      "https://bkzfrgrxfnqounyeqvvn.supabase.co/storage/v1/object/public/restaurant-photos/outlets/928-yishun-laksa/menu-2.jpg",
+      "https://bkzfrgrxfnqounyeqvvn.supabase.co/storage/v1/object/public/restaurant-photos/outlets/928-yishun-laksa/menu-3.jpg",
+      "https://bkzfrgrxfnqounyeqvvn.supabase.co/storage/v1/object/public/restaurant-photos/outlets/928-yishun-laksa/menu-4.jpg",
+      "https://bkzfrgrxfnqounyeqvvn.supabase.co/storage/v1/object/public/restaurant-photos/outlets/928-yishun-laksa/menu-5.jpg"
+    ],
+    "googlePlaceId": "ChIJ215A4G4U2jER41dtgThHwgo"
+  },
+  {
+    "name": "Lu Jia Fish Soup",
+    "cuisine": "Local",
+    "address": "1 Yishun Industrial Street 1, #01-12, Singapore 768160",
+    "unit": "#01-12",
+    "openingHours": "10:30am-7:30pm (Mon-Fri), 10am-2pm (Sat), Closed (Sun)",
+    "mallId": null,
+    "thumbnailUrl": "https://bkzfrgrxfnqounyeqvvn.supabase.co/storage/v1/object/public/restaurant-photos/outlets/lu-jia-fish-soup/thumbnail.jpg",
+    "menuUrls": [
+      "https://bkzfrgrxfnqounyeqvvn.supabase.co/storage/v1/object/public/restaurant-photos/outlets/lu-jia-fish-soup/menu-1.jpg",
+      "https://bkzfrgrxfnqounyeqvvn.supabase.co/storage/v1/object/public/restaurant-photos/outlets/lu-jia-fish-soup/menu-2.jpg",
+      "https://bkzfrgrxfnqounyeqvvn.supabase.co/storage/v1/object/public/restaurant-photos/outlets/lu-jia-fish-soup/menu-3.jpg",
+      "https://bkzfrgrxfnqounyeqvvn.supabase.co/storage/v1/object/public/restaurant-photos/outlets/lu-jia-fish-soup/menu-4.jpg",
+      "https://bkzfrgrxfnqounyeqvvn.supabase.co/storage/v1/object/public/restaurant-photos/outlets/lu-jia-fish-soup/menu-5.jpg"
+    ],
+    "googlePlaceId": "ChIJN_exs2EU2jERMMCxVMR8cck"
+  },
+  {
+    "name": "Jo Ju Bang",
+    "cuisine": "Korean",
+    "address": "1 Tanjong Pagar Plz, #01-15, Singapore 082001",
+    "unit": "#01-15",
+    "openingHours": "10am-7pm (Daily)",
+    "mallId": null,
+    "thumbnailUrl": "https://bkzfrgrxfnqounyeqvvn.supabase.co/storage/v1/object/public/restaurant-photos/outlets/jo-ju-bang/thumbnail.jpg",
+    "menuUrls": [
+      "https://bkzfrgrxfnqounyeqvvn.supabase.co/storage/v1/object/public/restaurant-photos/outlets/jo-ju-bang/menu-1.jpg",
+      "https://bkzfrgrxfnqounyeqvvn.supabase.co/storage/v1/object/public/restaurant-photos/outlets/jo-ju-bang/menu-2.jpg",
+      "https://bkzfrgrxfnqounyeqvvn.supabase.co/storage/v1/object/public/restaurant-photos/outlets/jo-ju-bang/menu-3.jpg",
+      "https://bkzfrgrxfnqounyeqvvn.supabase.co/storage/v1/object/public/restaurant-photos/outlets/jo-ju-bang/menu-4.jpg",
+      "https://bkzfrgrxfnqounyeqvvn.supabase.co/storage/v1/object/public/restaurant-photos/outlets/jo-ju-bang/menu-5.jpg"
+    ],
+    "googlePlaceId": "ChIJ3bZLbvYZ2jERIyOwHxuHX7U"
+  },
+  {
+    "name": "Meijing Sabah Sandakan Fried Pork Noodle",
+    "cuisine": "Local",
+    "address": "531A Upper Cross St, #02-33, Singapore 051531",
+    "unit": "#02-33",
+    "openingHours": "7:30am-2:30pm (Mon-Fri), 7:30am-1:30pm (Sat), Closed (Sun)",
+    "youtubeUrl": "https://youtu.be/OAFB7sKF6VY",
+    "mallId": "hong-lim-market-and-food-centre",
+    "thumbnailUrl": "https://bkzfrgrxfnqounyeqvvn.supabase.co/storage/v1/object/public/restaurant-photos/outlets/meijing-sabah-sandakan-fried-pork-noodle/thumbnail.jpg",
+    "menuUrls": [
+      "https://bkzfrgrxfnqounyeqvvn.supabase.co/storage/v1/object/public/restaurant-photos/outlets/meijing-sabah-sandakan-fried-pork-noodle/menu-1.jpg",
+      "https://bkzfrgrxfnqounyeqvvn.supabase.co/storage/v1/object/public/restaurant-photos/outlets/meijing-sabah-sandakan-fried-pork-noodle/menu-2.jpg",
+      "https://bkzfrgrxfnqounyeqvvn.supabase.co/storage/v1/object/public/restaurant-photos/outlets/meijing-sabah-sandakan-fried-pork-noodle/menu-3.jpg",
+      "https://bkzfrgrxfnqounyeqvvn.supabase.co/storage/v1/object/public/restaurant-photos/outlets/meijing-sabah-sandakan-fried-pork-noodle/menu-4.jpg",
+      "https://bkzfrgrxfnqounyeqvvn.supabase.co/storage/v1/object/public/restaurant-photos/outlets/meijing-sabah-sandakan-fried-pork-noodle/menu-5.jpg"
+    ],
+    "googlePlaceId": "ChIJP5ov2LoZ2jERSbFhD5RAvhE"
+  },
+  {
+    "name": "Bee Kia Seafood Restaurant",
+    "cuisine": "Local",
+    "address": "1 Thomson Rd, #01-326, Singapore 300001",
+    "unit": "#01-326",
+    "openingHours": "12pm-10:30pm (Mon-Sat), Closed (Sun)",
+    "mallId": null,
+    "thumbnailUrl": "https://bkzfrgrxfnqounyeqvvn.supabase.co/storage/v1/object/public/restaurant-photos/outlets/bee-kia-seafood-restaurant/thumbnail.jpg",
+    "menuUrls": [
+      "https://bkzfrgrxfnqounyeqvvn.supabase.co/storage/v1/object/public/restaurant-photos/outlets/bee-kia-seafood-restaurant/menu-1.jpg",
+      "https://bkzfrgrxfnqounyeqvvn.supabase.co/storage/v1/object/public/restaurant-photos/outlets/bee-kia-seafood-restaurant/menu-2.jpg",
+      "https://bkzfrgrxfnqounyeqvvn.supabase.co/storage/v1/object/public/restaurant-photos/outlets/bee-kia-seafood-restaurant/menu-3.jpg",
+      "https://bkzfrgrxfnqounyeqvvn.supabase.co/storage/v1/object/public/restaurant-photos/outlets/bee-kia-seafood-restaurant/menu-4.jpg",
+      "https://bkzfrgrxfnqounyeqvvn.supabase.co/storage/v1/object/public/restaurant-photos/outlets/bee-kia-seafood-restaurant/menu-5.jpg"
+    ],
+    "googlePlaceId": "ChIJy7_2POAZ2jERc3Htd0hpCOY"
+  },
+  {
+    "name": "Ma Cuisinette",
+    "cuisine": "French",
+    "address": "1 Seletar Rd, #01-09/10, Singapore 807011",
+    "unit": "#01-09/10",
+    "openingHours": "11am-9pm (Daily)",
+    "mallId": null,
+    "thumbnailUrl": "https://bkzfrgrxfnqounyeqvvn.supabase.co/storage/v1/object/public/restaurant-photos/outlets/ma-cuisinette/thumbnail.jpg",
+    "menuUrls": [
+      "https://bkzfrgrxfnqounyeqvvn.supabase.co/storage/v1/object/public/restaurant-photos/outlets/ma-cuisinette/menu-1.jpg",
+      "https://bkzfrgrxfnqounyeqvvn.supabase.co/storage/v1/object/public/restaurant-photos/outlets/ma-cuisinette/menu-2.jpg",
+      "https://bkzfrgrxfnqounyeqvvn.supabase.co/storage/v1/object/public/restaurant-photos/outlets/ma-cuisinette/menu-3.jpg",
+      "https://bkzfrgrxfnqounyeqvvn.supabase.co/storage/v1/object/public/restaurant-photos/outlets/ma-cuisinette/menu-4.jpg",
+      "https://bkzfrgrxfnqounyeqvvn.supabase.co/storage/v1/object/public/restaurant-photos/outlets/ma-cuisinette/menu-5.jpg"
+    ],
+    "googlePlaceId": "ChIJz0F9QvYX2jERHDm0Pl4scDs"
+  }
+]

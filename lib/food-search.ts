@@ -55,11 +55,8 @@ export async function searchStationsByFood(
   const searchQuery = query.trim();
   const queryLower = searchQuery.toLowerCase();
 
-  console.log(`🔍 Search: "${searchQuery}"`);
-
   // Validate short queries
   if (searchQuery.length < 3 && !VALID_SHORT_QUERIES.has(queryLower)) {
-    console.log('⚠️ Query too short, skipping');
     return emptyResponse;
   }
 
@@ -88,7 +85,6 @@ export async function searchStationsByFood(
   }
 
   if (!data || data.length === 0) {
-    console.log('No results found');
     return emptyResponse;
   }
 
@@ -97,7 +93,6 @@ export async function searchStationsByFood(
   // Only use the requested limit, not the extra one
   const limitedData = hasMore ? data.slice(0, limit) : data;
 
-  console.log(`📊 RPC returned ${limitedData.length} results (hasMore: ${hasMore})`);
 
   const searchResults = limitedData as SearchFoodResult[];
 
@@ -187,7 +182,6 @@ export async function searchStationsByFood(
     r.matches.sort((a, b) => (a.score || 1) - (b.score || 1));
   });
 
-  console.log(`✅ Found ${results.length} stations with matches`);
   return {
     results,
     hasMore,

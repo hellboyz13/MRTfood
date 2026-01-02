@@ -1,0 +1,302 @@
+[
+  {
+    "id": "b008d453-f1c8-4978-a799-5a0d29e26534",
+    "name": "Brothers Ramen",
+    "rating": 4.5,
+    "reviewCount": null
+  },
+  {
+    "id": "48789781-638e-4ddc-a82b-9fc3d60fae44",
+    "name": "Bugis Xin Yuan Ji",
+    "rating": 3,
+    "reviewCount": 51
+  },
+  {
+    "id": "b83d8e0a-b105-4b74-9e8e-b30f77b96176",
+    "name": "Burnt Ends",
+    "rating": 4.5,
+    "reviewCount": 2476
+  },
+  {
+    "id": "f4828fd4-ee67-4eee-8034-b16e07b11bd5",
+    "name": "Butter Town",
+    "rating": 3.7,
+    "reviewCount": 185
+  },
+  {
+    "id": "59cba232-6e71-409b-9fe5-56361e883bbe",
+    "name": "Cafe & Meal Muji",
+    "rating": 4.1,
+    "reviewCount": 925
+  },
+  {
+    "id": "98183bc0-744d-4d5f-a57f-ff87a2e9eac6",
+    "name": "Caffe Cicheti",
+    "rating": 4.4,
+    "reviewCount": 1348
+  },
+  {
+    "id": "33ab3a45-f064-429e-aa9a-54ca3cfbd1cf",
+    "name": "Candlenut",
+    "rating": 4.4,
+    "reviewCount": 1941
+  },
+  {
+    "id": "a828d9f4-1da2-435b-91c5-9d54c304eb71",
+    "name": "Carmen's Best",
+    "rating": 4.3,
+    "reviewCount": 33
+  },
+  {
+    "id": "930021e9-b9ad-41f1-940d-03b96e9bd719",
+    "name": "Casuarina Curry",
+    "rating": 3.8,
+    "reviewCount": 4057
+  },
+  {
+    "id": "7a2c6a5d-06ea-4115-8828-fd1005c0701b",
+    "name": "Casuarina Curry Restaurant",
+    "rating": 4.6,
+    "reviewCount": 60
+  },
+  {
+    "id": "5f992391-11e4-4335-a725-c4677eb1de84",
+    "name": "Cat In The Hat Bakery",
+    "rating": 4.4,
+    "reviewCount": 258
+  },
+  {
+    "id": "67851625-3085-4aa2-8250-0c9b05bd0005",
+    "name": "Cenzo",
+    "rating": 4.6,
+    "reviewCount": 601
+  },
+  {
+    "id": "fa9b6204-ac6d-49f1-96ab-3a40dbe64332",
+    "name": "Cha Cha Cha",
+    "rating": 4.5,
+    "reviewCount": 2229
+  },
+  {
+    "id": "7b6a32a6-6ff0-49c9-a95e-effe2fdd30fc",
+    "name": "Chagee",
+    "rating": 4.5,
+    "reviewCount": 957
+  },
+  {
+    "id": "80342aea-f2b2-423e-9bb2-a0adc8c0daea",
+    "name": "Chang Korean BBQ Restaurant",
+    "rating": 4.3,
+    "reviewCount": 741
+  },
+  {
+    "id": "ae7afcf3-2d37-45e9-88bb-ce04c22ebec3",
+    "name": "Chao Yue Xuan",
+    "rating": 4.5,
+    "reviewCount": 1920
+  },
+  {
+    "id": "39c55509-6216-45c3-80ab-5bc487d81d5d",
+    "name": "Char Siew Lang",
+    "rating": 4.3,
+    "reviewCount": 19
+  },
+  {
+    "id": "ef0711d3-0e50-4c70-9a01-9a27d6f0a3f8",
+    "name": "Char Siu Lang",
+    "rating": 4.5,
+    "reviewCount": 326
+  },
+  {
+    "id": "cedc1910-5c69-49f2-9b7a-350a99a5f884",
+    "name": "Charim Korean BBQ",
+    "rating": 4.7,
+    "reviewCount": 545
+  },
+  {
+    "id": "8f220c7b-f8d1-43c7-a434-711598d5b5f7",
+    "name": "ChaTraMue",
+    "rating": 3.6,
+    "reviewCount": 228
+  },
+  {
+    "id": "6d2e0ab0-083c-40b7-a0b0-c4a889f28f53",
+    "name": "Cheeky Signature's",
+    "rating": 4.5,
+    "reviewCount": 8
+  },
+  {
+    "id": "8e9d3ef0-a1e7-4e87-9ade-17f0f8e9e27c",
+    "name": "Chef Kang’s Noodle House",
+    "rating": 4.4,
+    "reviewCount": 1088
+  },
+  {
+    "id": "d1cca211-ff76-4b83-97bf-f7c2bf5c50a6",
+    "name": "Chelabela",
+    "rating": 4.4,
+    "reviewCount": 296
+  },
+  {
+    "id": "3d7a865a-1396-429d-859c-69113134047c",
+    "name": "Chen's Mapo Tofu",
+    "rating": 4.2,
+    "reviewCount": 535
+  },
+  {
+    "id": "03903e27-a967-4501-b49e-d5a2c54bb9b0",
+    "name": "CheongDamChae",
+    "rating": 4.7,
+    "reviewCount": 208
+  },
+  {
+    "id": "de1138e2-1494-4578-bf9e-c9f658d3b66b",
+    "name": "Cherry Garden",
+    "rating": 4.4,
+    "reviewCount": 488
+  },
+  {
+    "id": "4a0b390c-45e8-46f1-a994-daa415a4a13b",
+    "name": "Cheval Chi Bao",
+    "rating": 4.3,
+    "reviewCount": 200
+  },
+  {
+    "id": "f62bcc3b-5f16-4a0b-bd8e-bfd0953917ad",
+    "name": "Chi Le Mah",
+    "rating": 4.5,
+    "reviewCount": 36
+  },
+  {
+    "id": "4efdb407-e2eb-44d0-b197-8608b3f28cd2",
+    "name": "Chicco Pasta Bar",
+    "rating": 4.5,
+    "reviewCount": 611
+  },
+  {
+    "id": "7928fa94-da7b-4516-be83-7f33941ed18f",
+    "name": "CHICHA San Chen",
+    "rating": 4.6,
+    "reviewCount": 537
+  },
+  {
+    "id": "1cde4c30-46dc-462a-9af9-396f326676d0",
+    "name": "Chicken Run",
+    "rating": 4.1,
+    "reviewCount": 283
+  },
+  {
+    "id": "84bc8c6b-2590-4632-af05-70266e52d261",
+    "name": "ChilChil Thai Street Kitchen",
+    "rating": 4.8,
+    "reviewCount": 1648
+  },
+  {
+    "id": "5db72867-5dfd-426e-8839-11f0583840d0",
+    "name": "Chin Chin Eating House",
+    "rating": 4.1,
+    "reviewCount": 2022
+  },
+  {
+    "id": "3022ebd8-f5b3-48d3-b52b-501a6e5e2f11",
+    "name": "Chin Chin Restaurant",
+    "rating": 4.1,
+    "reviewCount": 2022
+  },
+  {
+    "id": "e3d56fb8-2ce0-44ff-b2d9-dee983ccf98c",
+    "name": "Chin Choon Prawn Noodle",
+    "rating": 4,
+    "reviewCount": 286
+  },
+  {
+    "id": "94dc5da1-5815-4cff-82aa-e564681b9c22",
+    "name": "China Street Rickshaw Noodles",
+    "rating": 4.4,
+    "reviewCount": 22096
+  },
+  {
+    "id": "4ffa55fc-d8c2-4aa4-841b-65dc7e8b0744",
+    "name": "China Whampoa Homemade Noodles",
+    "rating": 4.2,
+    "reviewCount": 201
+  },
+  {
+    "id": "90b61aca-490d-4055-a2ac-8b27467de20c",
+    "name": "Chinatown Complex",
+    "rating": 4.2,
+    "reviewCount": 8485
+  },
+  {
+    "id": "e48b9552-e018-47ac-afe0-e590e8104ec4",
+    "name": "Cho Kee Noodle",
+    "rating": 4.1,
+    "reviewCount": 120
+  },
+  {
+    "id": "04430bf9-1413-4420-a9b5-9e7e0ca35f78",
+    "name": "Cho Omakase",
+    "rating": 4.5,
+    "reviewCount": 99
+  },
+  {
+    "id": "3d4152ef-a727-4cd1-869f-5654390397fa",
+    "name": "Chopsuey Cafe",
+    "rating": 4.5,
+    "reviewCount": 1728
+  },
+  {
+    "id": "9827b6f0-e89d-4d01-ba32-5dd6a5557726",
+    "name": "Chu and Co",
+    "rating": 4.5,
+    "reviewCount": 361
+  },
+  {
+    "id": "2118d6b2-76ce-4820-bd27-81d12125efec",
+    "name": "Chuan Hung",
+    "rating": 4.5,
+    "reviewCount": 530
+  },
+  {
+    "id": "4dcf1546-655c-4189-83b1-4cadf6226b59",
+    "name": "Chuan Kee Fried Kway Teow",
+    "rating": 4.3,
+    "reviewCount": 98
+  },
+  {
+    "id": "9b9894b5-e1ce-4287-9ba3-1212cbb17e1c",
+    "name": "Chuan Kee Seafood",
+    "rating": 4.2,
+    "reviewCount": 329
+  },
+  {
+    "id": "8e418653-7bf8-4a40-b57e-e7493838ebbd",
+    "name": "Chui Xiang Kitchen",
+    "rating": 4.2,
+    "reviewCount": 361
+  },
+  {
+    "id": "a42471c3-5101-4c34-acbe-088692d6fba7",
+    "name": "Chye Seng Huat Hardware",
+    "rating": 4.3,
+    "reviewCount": 2783
+  },
+  {
+    "id": "5431615f-d62d-4c39-9cf8-6344aa16465d",
+    "name": "Chye Seng Huat Hardware",
+    "rating": 4.3,
+    "reviewCount": 2783
+  },
+  {
+    "id": "3dc5c42b-cdd4-43c3-b7bb-a37bff443cf4",
+    "name": "Cicheti",
+    "rating": 4.4,
+    "reviewCount": 1348
+  },
+  {
+    "id": "bb448b94-fdb0-48e6-97c7-6db36d20ec3d",
+    "name": "Cinnabon",
+    "rating": 3.8,
+    "reviewCount": 247
+  }
+]

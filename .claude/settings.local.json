@@ -60,11 +60,11 @@
       "Bash(rm:*)",
       "Bash(npx playwright install)",
       "Bash(grep:*)",
-      "Bash(xargs cat:*)",
-      "Bash(grep -rn \"loading=\"\"lazy\"\"\\\\|loading=\"\"eager\"\"\\\\|decoding=\" \"c:\\\\Users\\\\JeremyNg\\\\MRTfood\\\\components\"\" --include=\"*.tsx \")",
-      "Bash(rd /s /q .next)",
-      "Bash(node scripts/check-missing-menu-images.js:*)",
-      "Bash(node scripts/fetch-menu-images-single.js:*)"
+      "Bash(ls:*)",
+      "Bash(for i in 700 800 900 1000)",
+      "Bash(do echo \"Starting batch offset $i\")",
+      "Bash(done)",
+      "Bash(npx depcheck:*)"
     ],
     "deny": [],
     "ask": []

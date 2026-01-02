@@ -1,0 +1,302 @@
+[
+  {
+    "id": "408d6060-990b-4a70-85af-f1bdc260b4de",
+    "name": "Face Ban Mian",
+    "rating": 2,
+    "reviewCount": null
+  },
+  {
+    "id": "d83c4e41-a933-428a-9d88-a871aaf0452b",
+    "name": "FairPrice Finest",
+    "rating": 3.6,
+    "reviewCount": 168
+  },
+  {
+    "id": "f4500efb-2729-4eff-9c09-87ad23e2366d",
+    "name": "Famous Eunos Bak Chor Mee",
+    "rating": 4.1,
+    "reviewCount": 513
+  },
+  {
+    "id": "4f040a56-b3ae-45a2-8284-889ffe55f37f",
+    "name": "Famous Sungei Road Trishaw Laksa",
+    "rating": 4.2,
+    "reviewCount": 403
+  },
+  {
+    "id": "3ae31f95-1ad4-4ef1-a46d-aa95e3851157",
+    "name": "Famous Sungei Road Trishaw Laksa",
+    "rating": 4.2,
+    "reviewCount": 2810
+  },
+  {
+    "id": "9f8e45fa-694a-4c25-b22f-1a6241060fa9",
+    "name": "Fatty Cheong",
+    "rating": 4.1,
+    "reviewCount": 316
+  },
+  {
+    "id": "f39f2b6f-ab9c-4b87-a82c-f8beeff2f955",
+    "name": "Fatty Weng 肥仔荣食摊",
+    "rating": 3.1,
+    "reviewCount": 7
+  },
+  {
+    "id": "f7d1cfe1-4ad4-49d1-a899-19da186b32f7",
+    "name": "Firangi Superstar",
+    "rating": 4.4,
+    "reviewCount": 911
+  },
+  {
+    "id": "dc2afaea-e57a-4538-83f6-47d249d8aaa6",
+    "name": "Five Oars Coffee Roasters",
+    "rating": 4.2,
+    "reviewCount": 2013
+  },
+  {
+    "id": "d22360cf-33c6-4eb6-abb5-62574da2d0be",
+    "name": "Five Star Hainanese Chicken Rice",
+    "rating": 4,
+    "reviewCount": 1149
+  },
+  {
+    "id": "2c727180-867d-4885-b3de-e8624e6e81c5",
+    "name": "Five Star Hong Kong Style Handmade Dim Sum",
+    "rating": 3.4,
+    "reviewCount": 739
+  },
+  {
+    "id": "49d0b37c-e8f0-4de3-b19b-03f7c03fd8eb",
+    "name": "Five Star Kampung Chicken Rice",
+    "rating": 4,
+    "reviewCount": 1149
+  },
+  {
+    "id": "991f3717-8a9b-4738-844b-0199435061af",
+    "name": "Fiz",
+    "rating": 4.9,
+    "reviewCount": 295
+  },
+  {
+    "id": "46b87ade-019c-4eef-acbd-9b6edd224297",
+    "name": "Folk Yard",
+    "rating": 4.4,
+    "reviewCount": 559
+  },
+  {
+    "id": "59f11e48-cbed-4fe7-bdaf-523ee8955b17",
+    "name": "Fong Seng Nasi Lemak",
+    "rating": 4.1,
+    "reviewCount": 1281
+  },
+  {
+    "id": "ec883e06-5782-44ec-b5c2-88a0df9a42c0",
+    "name": "Fong Sheng Hao",
+    "rating": 3.6,
+    "reviewCount": 678
+  },
+  {
+    "id": "a47cb8c2-8808-4fc9-bc78-e082d7cdbb48",
+    "name": "Food Capital",
+    "rating": 4,
+    "reviewCount": 672
+  },
+  {
+    "id": "50bad0d8-651a-4ea4-8d6c-698c8f9221d1",
+    "name": "Fool",
+    "rating": 4.3,
+    "reviewCount": 140
+  },
+  {
+    "id": "54b6dd01-a673-4c30-a843-88d95bbc2561",
+    "name": "Foong Kee Coffee Shop",
+    "rating": 4.2,
+    "reviewCount": 73
+  },
+  {
+    "id": "e54eb8b8-e385-4468-8275-f9152d20a741",
+    "name": "For The People",
+    "rating": 3.5,
+    "reviewCount": 191
+  },
+  {
+    "id": "617ab12e-c15e-4d6e-b65a-d52ea363a57d",
+    "name": "Forma",
+    "rating": 4.1,
+    "reviewCount": 619
+  },
+  {
+    "id": "4fb5f07d-41f2-45e5-a1e9-adc21da9004d",
+    "name": "Founder Bak Kut Teh",
+    "rating": 4.1,
+    "reviewCount": 1097
+  },
+  {
+    "id": "9058bd1c-2147-47b4-83bc-aba549fd1e89",
+    "name": "FPC Seafood",
+    "rating": 4.6,
+    "reviewCount": 336
+  },
+  {
+    "id": "12d77891-c8e2-4b2d-aca5-67a2606bae7a",
+    "name": "French Fold",
+    "rating": 4.8,
+    "reviewCount": 2022
+  },
+  {
+    "id": "fc50ea82-24dc-423e-86bd-f706d4a552cc",
+    "name": "French Fold",
+    "rating": 4.7,
+    "reviewCount": 3361
+  },
+  {
+    "id": "dfe514bd-bab0-4e20-9aa7-abb99c4ec608",
+    "name": "Fresh Taste Big Prawn Noodle",
+    "rating": 4.2,
+    "reviewCount": 424
+  },
+  {
+    "id": "1221d2b3-72fa-4d7d-b3ef-7a6f14607690",
+    "name": "Fu Lin Bar & Kitchen",
+    "rating": 4.3,
+    "reviewCount": 725
+  },
+  {
+    "id": "291c4da0-43e7-495d-bbd7-41e2053fd554",
+    "name": "Fu Shun Shao La Mian Jia",
+    "rating": 4.5,
+    "reviewCount": 212
+  },
+  {
+    "id": "ff459c40-9875-48a8-bbcf-7ed3eab855c1",
+    "name": "Fu Zhou Ban Mian",
+    "rating": 4.6,
+    "reviewCount": 115
+  },
+  {
+    "id": "1025e2b9-eb42-4dc3-98bd-b4a5c773a0d6",
+    "name": "Fun Toast",
+    "rating": 3.8,
+    "reviewCount": 77
+  },
+  {
+    "id": "e60f9eb8-14f2-45fb-a4cd-a1367e530db2",
+    "name": "FYP Cafe",
+    "rating": 4.7,
+    "reviewCount": 709
+  },
+  {
+    "id": "844f15c3-a936-4c36-8f40-79b75abad32d",
+    "name": "Ga",
+    "rating": 3.9,
+    "reviewCount": 1514
+  },
+  {
+    "id": "b250caa1-9e40-464f-847f-995ef859adbc",
+    "name": "Gamtan SG",
+    "rating": 4.9,
+    "reviewCount": 841
+  },
+  {
+    "id": "1011b22e-8cb8-4757-b087-3193af903fe7",
+    "name": "Gangnam Story",
+    "rating": 3.9,
+    "reviewCount": 679
+  },
+  {
+    "id": "3295fc94-03af-42fe-b10b-024103bc5903",
+    "name": "Gelato Messina",
+    "rating": 4.4,
+    "reviewCount": 540
+  },
+  {
+    "id": "06f438c1-c832-4090-afb5-1e5dba59cabf",
+    "name": "Generation Coffee Roasters",
+    "rating": 4.5,
+    "reviewCount": 157
+  },
+  {
+    "id": "3eba3376-beff-4cd2-99e4-77254c05d323",
+    "name": "Genki Sushi",
+    "rating": 4.8,
+    "reviewCount": 2068
+  },
+  {
+    "id": "442234f3-88d1-4b03-bdf4-bba64ca43e67",
+    "name": "George Town Tze Char and Craft Beer",
+    "rating": 4.8,
+    "reviewCount": 1471
+  },
+  {
+    "id": "77f01a9c-30a3-47c5-b8de-03c23a12b729",
+    "name": "Geylang Lor 29 Hokkien Mee",
+    "rating": 3.5,
+    "reviewCount": 1085
+  },
+  {
+    "id": "5210c0e3-f5e3-4516-9c65-0f4237e842b0",
+    "name": "Geylang Lorong 29 Charcoal Fried Hokkien Mee",
+    "rating": 2.4,
+    "reviewCount": 10
+  },
+  {
+    "id": "069555e1-4dab-40fa-8cbe-97c28001efc5",
+    "name": "Ghim Moh Market & Food Centre",
+    "rating": 4.3,
+    "reviewCount": 2970
+  },
+  {
+    "id": "70de660e-68ff-4b61-a398-84fed2c6bf7c",
+    "name": "Ginza Sushi Ichi",
+    "rating": 4.6,
+    "reviewCount": 160
+  },
+  {
+    "id": "993b37e4-efbc-448c-9183-0cca936f28b8",
+    "name": "Go Ba",
+    "rating": 4.7,
+    "reviewCount": 89
+  },
+  {
+    "id": "ed920bd5-bdbb-40ea-9346-0b8f61fe0495",
+    "name": "GO Noodle House",
+    "rating": 4.1,
+    "reviewCount": 558
+  },
+  {
+    "id": "fcb38b5d-e4f5-4f93-87c8-70df944cd42e",
+    "name": "Gogi Buffet Korean BBQ",
+    "rating": 4.9,
+    "reviewCount": 179
+  },
+  {
+    "id": "ee3e082b-7f8b-463f-8338-ac310b1998c4",
+    "name": "Golden Nur",
+    "rating": 4,
+    "reviewCount": 92
+  },
+  {
+    "id": "e7a3c674-134b-444c-ac28-fddc5ac5f036",
+    "name": "Goldhill Family Restaurant",
+    "rating": 4.5,
+    "reviewCount": 706
+  },
+  {
+    "id": "71a795cc-13b3-4d7c-b75f-158815a1c8ac",
+    "name": "Good Combo Hotpot & BBQ Chinatown",
+    "rating": 4.8,
+    "reviewCount": 2131
+  },
+  {
+    "id": "157f75bb-56c2-422f-9d83-21419177d2f7",
+    "name": "Gorilla Curry",
+    "rating": 3.5,
+    "reviewCount": 36
+  },
+  {
+    "id": "6f8952ff-c1b6-49c2-af23-6d2002f786d4",
+    "name": "Great Nanyang Heritage Cafe",
+    "rating": 4.3,
+    "reviewCount": 1243
+  }
+]

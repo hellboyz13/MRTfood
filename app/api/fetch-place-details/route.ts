@@ -1,11 +1,21 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
-const googlePlacesApiKey = process.env.GOOGLE_PLACES_API_KEY!;
+function getEnvVars() {
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+  const googlePlacesApiKey = process.env.GOOGLE_PLACES_API_KEY;
 
-const supabase = createClient(supabaseUrl, supabaseKey);
+  if (!supabaseUrl || !supabaseKey) {
+    throw new Error('Missing Supabase environment variables');
+  }
+
+  if (!googlePlacesApiKey) {
+    throw new Error('Missing GOOGLE_PLACES_API_KEY environment variable');
+  }
+
+  return { supabaseUrl, supabaseKey, googlePlacesApiKey };
+}
 
 // New Places API (v1) response types
 interface PlacesSearchResponse {
@@ -31,6 +41,9 @@ interface PlacesSearchResponse {
 
 export async function POST(request: NextRequest) {
   try {
+    const { supabaseUrl, supabaseKey, googlePlacesApiKey } = getEnvVars();
+    const supabase = createClient(supabaseUrl, supabaseKey);
+
     const { listingId, placeName, address, forceRefresh } = await request.json();
 
     if (!listingId) {
@@ -79,6 +92,11 @@ export async function POST(request: NextRequest) {
         maxResultCount: 1
       })
     });
+
+    if (!searchResponse.ok) {
+      console.error('Places API failed:', searchResponse.status);
+      return NextResponse.json({ error: 'Places API request failed' }, { status: 502 });
+    }
 
     const searchData: PlacesSearchResponse = await searchResponse.json();
 
@@ -152,6 +170,9 @@ export async function POST(request: NextRequest) {
 // GET endpoint to fetch details for a listing (reads from DB, fetches from Google if not cached)
 export async function GET(request: NextRequest) {
   try {
+    const { supabaseUrl, supabaseKey, googlePlacesApiKey } = getEnvVars();
+    const supabase = createClient(supabaseUrl, supabaseKey);
+
     const { searchParams } = new URL(request.url);
     const listingId = searchParams.get('listingId');
 
@@ -210,6 +231,11 @@ export async function GET(request: NextRequest) {
         maxResultCount: 1
       })
     });
+
+    if (!searchResponse.ok) {
+      console.error('Places API failed:', searchResponse.status);
+      return NextResponse.json({ error: 'Places API request failed' }, { status: 502 });
+    }
 
     const searchData: PlacesSearchResponse = await searchResponse.json();
 

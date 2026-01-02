@@ -1,0 +1,1034 @@
+{
+  "toDelete": [
+    {
+      "id": "408d6060-990b-4a70-85af-f1bdc260b4de",
+      "name": "Face Ban Mian",
+      "rating": 2,
+      "address": "Multiple outlets",
+      "googleRating": 2,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "5210c0e3-f5e3-4516-9c65-0f4237e842b0",
+      "name": "Geylang Lorong 29 Charcoal Fried Hokkien Mee",
+      "rating": 2.4,
+      "address": "936 East Coast Road, 936 Food Village Siglap, Singapore 459129",
+      "googleRating": 2.4,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "ba1918c3-6d90-495a-8b55-890bf8067048",
+      "name": "Jun Yuan House Of Fish",
+      "rating": 2.7,
+      "address": "Old Airport Road #01-69",
+      "googleRating": 3,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "48c0d94f-47ed-45c4-ac15-d8d9ff565a33",
+      "name": "Ann Chin Popiah",
+      "rating": 3,
+      "address": "44 LORONG 5 TOA PAYOH, EAST PAYOH SPRING, Singapore 310044",
+      "googleRating": 3.4,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "fff5c069-1144-4df1-a9d7-e64a0967f577",
+      "name": "Ah Heng Char Kway Teow",
+      "rating": 3,
+      "address": "21 Canberra Link, Bukit Canberra HC, S756973",
+      "googleRating": 3,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "c6fdeb55-bb95-4107-99b1-d26afe25f846",
+      "name": "China Whampoa Home Made Noodle (Senja)",
+      "rating": 3,
+      "address": "2 Senja Close, Senja Hawker Centre, Singapore 677632",
+      "googleRating": 2.9,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "1e071622-8a0d-437e-baf1-d35dea223624",
+      "name": "You Fu Ban Mian & Pao Fan",
+      "rating": 3,
+      "address": "84 Punggol Way, Punggol Coast Hawker Centre, Singapore 829911",
+      "googleRating": 2.5,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "0d79d9be-fe1b-424c-8bd0-3d83fb031522",
+      "name": "Shu Xiang Kitchen",
+      "rating": 3,
+      "address": "51 Hougang Ave 9, #01-XX, Ci Yuan Hawker Centre, Singapore 538776",
+      "googleRating": 3,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "95b86260-50cd-44d7-a71a-374b056137bb",
+      "name": "Lao Fu Zi Fried Kway Teow (Old Airport)",
+      "rating": 3.1,
+      "address": "51 Old Airport Road #01-12, Singapore 390051",
+      "googleRating": 3.1,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "872b3861-936d-4d94-bfed-d4a8ebaedd1f",
+      "name": "Hai Nan Zai",
+      "rating": 3.1,
+      "address": "105 Yishun Ring Rd, #01-129 Chong Pang Market and Food Centre",
+      "googleRating": 3.1,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "430b0df0-b600-4206-8c75-28e733cf4b89",
+      "name": "No.1 Adam's Nasi Lemak",
+      "rating": 3.1,
+      "address": "Adam Road Food Centre #01-01",
+      "googleRating": 3.1,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "1b693f0a-0827-4aab-b9de-ba2efacc0d1e",
+      "name": "Uncle Penyet",
+      "rating": 3.1,
+      "address": "1 Punggol Drive, #02-01, One Punggol Hawker Centre, Singapore 828629",
+      "googleRating": 2.7,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "1d5dfbef-622f-47fe-b124-c1aeeba26a49",
+      "name": "XO Fish Head Bee Hoon",
+      "rating": 3.1,
+      "address": "19A Dover Crescent",
+      "googleRating": 3.1,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "bd530ea7-cca9-43ac-af6f-ab09d7f6b6a3",
+      "name": "Kin Khao Yang",
+      "rating": 3.1,
+      "address": "Bedok Interchange Hawker Centre, 208B New Upper Changi Road, Singapore 462208",
+      "googleRating": 3.1,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "f39f2b6f-ab9c-4b87-a82c-f8beeff2f955",
+      "name": "Fatty Weng 肥仔荣食摊",
+      "rating": 3.1,
+      "address": "155 Bukit Batok Street 11, #01-324, Singapore 650155",
+      "googleRating": 3.1,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "d78e74da-a439-4d13-8185-86c29a9ae7fd",
+      "name": "Ji De Lai Hainanese Chicken Rice",
+      "rating": 3.1,
+      "address": "105 Yishun Ring Rd, #01-152 Chong Pang Market & Food Centre",
+      "googleRating": 3,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "9ad68056-ed49-4487-808b-a80ebdba72fd",
+      "name": "Pondok Selera by Nurul Hidayah",
+      "rating": 3.2,
+      "address": "888 Woodlands Drive 50, #01-755, Singapore 730888",
+      "googleRating": 3.2,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "23448a48-d571-4263-98c3-c9df0f2bc331",
+      "name": "133 Mian Fen Guo",
+      "rating": 3.2,
+      "address": "216 Bedok North Street 1, #01-68",
+      "googleRating": 3.2,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "4fb841b0-7c8a-46ae-84a6-3bb5023a593c",
+      "name": "Nam Sing Hokkien Fried Mee",
+      "rating": 3.3,
+      "address": "51 Old Airport Rd, #01-32",
+      "googleRating": 3.3,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "e951c08e-c050-4150-8c34-54896c082a08",
+      "name": "Nam Sing Hokkien Mee (Old Airport)",
+      "rating": 3.3,
+      "address": "51 Old Airport Road #01-32, Singapore 390051",
+      "googleRating": 3.3,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "bf739a68-a10c-40cb-ae3e-01883379aedd",
+      "name": "Fei Fei Wonton Noodle",
+      "rating": 3.3,
+      "address": "45 Joo Chiat Pl, Singapore 427769",
+      "googleRating": 3.3,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "9795b0c7-72d3-4bc3-955b-a41cf0ec57d2",
+      "name": "Hock Hai (Hong Lim) Curry Chicken",
+      "rating": 3.3,
+      "address": "84 Punggol Way, Punggol Coast Hawker Centre",
+      "googleRating": 3.4,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "01420d49-4b25-49d4-a4ba-7e5ed21e7a36",
+      "name": "Ci Yuan HK Wanton Noodle",
+      "rating": 3.3,
+      "address": "51 Hougang Ave 9, #01-XX, Ci Yuan Hawker Centre, Singapore 538776",
+      "googleRating": 3.3,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "86dedcee-bf11-4c9b-8bef-6f184562a0a7",
+      "name": "Joo Seng Teochew Porridge",
+      "rating": 3.3,
+      "address": "14 Cheong Chin Nam Rd, Singapore 599738",
+      "googleRating": 3.3,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "bddb526a-525d-4e5d-98fc-23aa6e7eaee4",
+      "name": "Thohirah Restaurant",
+      "rating": 3.3,
+      "address": "258 Jalan Kayu, Singapore 799487",
+      "googleRating": 3.3,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "29ea56d8-81f0-40ba-bf6a-16e2026685ba",
+      "name": "Food Street Fried Kway Teow Mee",
+      "rating": 3.3,
+      "address": "335 Smith Street, Chinatown Complex Level 2",
+      "googleRating": 3.3,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "207f6878-8f64-4ed0-8fad-1ace198b60d5",
+      "name": "Hock Hai Curry Chicken Noodle",
+      "rating": 3.3,
+      "address": "84 Punggol Way, Punggol Coast Hawker Centre, Singapore 829911",
+      "googleRating": 3.4,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "83c9b644-9c95-4766-b97b-dfb8c0abe5be",
+      "name": "Fiie's Cafe",
+      "rating": 3.4,
+      "address": "304 Orchard Rd #06-52 Lucky Plaza",
+      "googleRating": 3.4,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "5d85478b-162c-4c3a-b6fc-35e60a48716f",
+      "name": "Tiong Bahru Lien Fa Shui Jing Pau",
+      "rating": 3.4,
+      "address": "120 Bukit Merah Lane 1, #01-10, Singapore 151120",
+      "googleRating": 3.4,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "327c35a1-7b5a-437b-a5ee-b98da9381d58",
+      "name": "Ah Hock Fried Hokkien Noodles",
+      "rating": 3.4,
+      "address": "57 Garden Way, Stall 27, Chomp Chomp Food Centre, Singapore 557269",
+      "googleRating": 3.4,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "248275bd-07d3-4dac-9f54-86f1dc8736ee",
+      "name": "Kay Lee Roast Meat Joint",
+      "rating": 3.4,
+      "address": "125 Upper Paya Lebar Road, Singapore 534838",
+      "googleRating": 3.4,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "00f6c57f-6ca6-45ab-a042-b0e64b01d4f1",
+      "name": "Kueh Garden",
+      "rating": 3.4,
+      "address": "348 Jurong East Avenue 1",
+      "googleRating": 3.4,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "dd857b95-25f7-4a57-8c27-d606784a58bf",
+      "name": "Kay Lee Roast Meat",
+      "rating": 3.4,
+      "address": "48 DUXTON ROAD, TANJONG PAGAR CONSERVATION AREA, Singapore 089512",
+      "googleRating": 3.4,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "cfee95b7-0eb8-48ab-a25e-1cab3e76905d",
+      "name": "Hock Hai (Hong Lim) Curry Chicken Noodle (Fernvale)",
+      "rating": 3.4,
+      "address": "21 Sengkang West Avenue, Fernvale Hawker Centre, Singapore 797650",
+      "googleRating": 3.4,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "2c727180-867d-4885-b3de-e8624e6e81c5",
+      "name": "Five Star Hong Kong Style Handmade Dim Sum",
+      "rating": 3.4,
+      "address": "705 Sims Drive, Shun Li Industrial Complex, #07-01, Singapore 387384",
+      "googleRating": 3.4,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "3e7af9d3-15b1-41fa-a4b9-9a3615b45fce",
+      "name": "Ho Huat Hokkien Mee",
+      "rating": 3.4,
+      "address": "Boon Lay Place Food Village",
+      "googleRating": 3.4,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "1cb24edc-9476-4d41-a1ff-00ab90cd4498",
+      "name": "Hainan Fried Hokkien Prawn Mee",
+      "rating": 3.4,
+      "address": "505 Beach Rd, #B1-34 Golden Mile Food Centre, Singapore 199583",
+      "googleRating": 3.4,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "5d7f3b8f-4d78-4914-9638-ee9a447ea6bf",
+      "name": "Feng Xiang Bak Kut Teh",
+      "rating": 3.4,
+      "address": "21 Sengkang West Avenue, Fernvale Hawker Centre, Singapore 797650",
+      "googleRating": 3.4,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "8c9ed90d-fc83-4905-b13d-c7d68b125ac2",
+      "name": "Fiie's Cafe (Mister Grumpy)",
+      "rating": 3.4,
+      "address": "304 Orchard Rd, #06-22, Lucky Plaza, S238863",
+      "googleRating": 3.4,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "8a0ac627-0164-418c-9d6d-72e3f1b1a61d",
+      "name": "Adam Rd Noo Cheng Big Prawn Noodle",
+      "rating": 3.4,
+      "address": "2 Adam Rd, #01 27",
+      "googleRating": 3.4,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "a8ddecc8-e4af-4704-8303-0c7d69110116",
+      "name": "Heng Huat Fried Kway Tiao",
+      "rating": 3.4,
+      "address": "121 Pasir Panjang Rd, #01-36, Singapore 118543",
+      "googleRating": 3.4,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "24f836ee-9d83-4eae-89ef-3169eee38990",
+      "name": "Kallang Airport Wanton Mee",
+      "rating": 3.4,
+      "address": "Clarke Quay Block E, #01-08, SG Hawker",
+      "googleRating": 3.4,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    }
+  ],
+  "notVerified": [
+    {
+      "id": "48789781-638e-4ddc-a82b-9fc3d60fae44",
+      "name": "Bugis Xin Yuan Ji",
+      "rating": 3,
+      "address": "#B1-K39, The Woodleigh Mall, 11 Bidadari Park Drive, Singapore 367803",
+      "googleRating": 4.1,
+      "isNumeric": true,
+      "ratingConfirmed": false
+    },
+    {
+      "id": "08c09839-5a8e-4bb8-9a5d-987f90702ce3",
+      "name": "Eng Kee Chicken Wings",
+      "rating": 3,
+      "address": "469 Bukit Batok West Ave 9",
+      "googleRating": 4.3,
+      "isNumeric": true,
+      "ratingConfirmed": false
+    },
+    {
+      "id": "a60fbd53-6dc8-465e-9dc8-30b9d6f1736f",
+      "name": "TK Satay",
+      "rating": 3,
+      "address": "Newton Food Centre",
+      "googleRating": 4.4,
+      "isNumeric": true,
+      "ratingConfirmed": false
+    },
+    {
+      "id": "05a94eda-2b39-49b9-bb05-e905116714e1",
+      "name": "Shi Nian Braised Pork Trotter",
+      "rating": 3.1,
+      "address": "2 Senja Close, #02-11, Senja Hawker Centre, Singapore 677632",
+      "googleRating": 3.8,
+      "isNumeric": true,
+      "ratingConfirmed": false
+    },
+    {
+      "id": "9fc50436-9c77-48a5-bd03-a3f3ae493c65",
+      "name": "Mister Donut",
+      "rating": 3.1,
+      "address": "10 Tampines Central 1, #B1-K6, Tampines 1, Singapore 529536",
+      "googleRating": 3.8,
+      "isNumeric": true,
+      "ratingConfirmed": false
+    },
+    {
+      "id": "95ad2ecf-0ac5-4c2c-bbc7-8742f7b6d29c",
+      "name": "Thow Yen Seafood",
+      "rating": 3.1,
+      "address": "936 East Coast Road, Singapore 459108",
+      "googleRating": 4.7,
+      "isNumeric": true,
+      "ratingConfirmed": false
+    },
+    {
+      "id": "8365bd8c-9e3c-46b8-95fd-3f3be7093eb1",
+      "name": "Al Falah Restaurant",
+      "rating": 3.2,
+      "address": "302 Woodlands Street 31, Singapore 730302",
+      "googleRating": 4.3,
+      "isNumeric": true,
+      "ratingConfirmed": false
+    },
+    {
+      "id": "48f7f146-835c-48e2-a181-aa829fd66ecd",
+      "name": "Hee Hee Steamed Fish & Seafood",
+      "rating": 3.3,
+      "address": "84 Punggol Way, Punggol Coast Hawker Centre",
+      "googleRating": 4.5,
+      "isNumeric": true,
+      "ratingConfirmed": false
+    },
+    {
+      "id": "5dbf314e-d260-4a17-99ce-25aebaa14366",
+      "name": "Kanshoku Ramen",
+      "rating": 3.3,
+      "address": "391 ORCHARD ROAD, NGEE ANN CITY, Singapore 238872",
+      "googleRating": 3.5,
+      "isNumeric": true,
+      "ratingConfirmed": false
+    },
+    {
+      "id": "c9b84490-745c-4d42-9760-8c5825d15f46",
+      "name": "Thaksin Beef Noodle",
+      "rating": 3.4,
+      "address": "2 Seah Im Road, Seah Im Food Centre, Singapore 099114",
+      "googleRating": 3.5,
+      "isNumeric": true,
+      "ratingConfirmed": false
+    },
+    {
+      "id": "b26e3a53-8f8b-47e6-95f9-1c8c793cf9e6",
+      "name": "Third Place",
+      "rating": 3.4,
+      "address": "18 Tuas Avenue 7, Singapore",
+      "googleRating": 5,
+      "isNumeric": true,
+      "ratingConfirmed": false
+    },
+    {
+      "id": "4f290762-1a06-4b50-a008-63340e2787cd",
+      "name": "Tenderfresh Classic",
+      "rating": 3.4,
+      "address": "300 Joo Chiat Road, Tin Yeung Restaurant, Singapore 429356",
+      "googleRating": 4.1,
+      "isNumeric": true,
+      "ratingConfirmed": false
+    },
+    {
+      "id": "3db35a4f-6abd-43f6-80c5-5c4abfb5a873",
+      "name": "Tian Wai Tian Fish Head Steamboat",
+      "rating": 3.4,
+      "address": "203 Hougang St 21, #01-89, Singapore 530203",
+      "googleRating": 3.9,
+      "isNumeric": true,
+      "ratingConfirmed": false
+    },
+    {
+      "id": "930bcca3-ae81-4c31-bce1-db3c8fd5f7ba",
+      "name": "Chey Sua Carrot Cake",
+      "rating": 3.4,
+      "address": "Blk 127 Lor 1 Toa Payoh, #02-30",
+      "googleRating": 3.5,
+      "isNumeric": true,
+      "ratingConfirmed": false
+    },
+    {
+      "id": "700e235d-20e7-4e6c-9cca-838c7e1ddecf",
+      "name": "King of Fried Rice (Sengkang)",
+      "rating": 3.4,
+      "address": "10 Sengkang Square, #01-48, Kopitiam Square, Singapore 544829",
+      "googleRating": 4.7,
+      "isNumeric": true,
+      "ratingConfirmed": false
+    }
+  ],
+  "all": [
+    {
+      "id": "408d6060-990b-4a70-85af-f1bdc260b4de",
+      "name": "Face Ban Mian",
+      "rating": 2,
+      "address": "Multiple outlets",
+      "googleRating": 2,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "5210c0e3-f5e3-4516-9c65-0f4237e842b0",
+      "name": "Geylang Lorong 29 Charcoal Fried Hokkien Mee",
+      "rating": 2.4,
+      "address": "936 East Coast Road, 936 Food Village Siglap, Singapore 459129",
+      "googleRating": 2.4,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "ba1918c3-6d90-495a-8b55-890bf8067048",
+      "name": "Jun Yuan House Of Fish",
+      "rating": 2.7,
+      "address": "Old Airport Road #01-69",
+      "googleRating": 3,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "48c0d94f-47ed-45c4-ac15-d8d9ff565a33",
+      "name": "Ann Chin Popiah",
+      "rating": 3,
+      "address": "44 LORONG 5 TOA PAYOH, EAST PAYOH SPRING, Singapore 310044",
+      "googleRating": 3.4,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "48789781-638e-4ddc-a82b-9fc3d60fae44",
+      "name": "Bugis Xin Yuan Ji",
+      "rating": 3,
+      "address": "#B1-K39, The Woodleigh Mall, 11 Bidadari Park Drive, Singapore 367803",
+      "googleRating": 4.1,
+      "isNumeric": true,
+      "ratingConfirmed": false
+    },
+    {
+      "id": "08c09839-5a8e-4bb8-9a5d-987f90702ce3",
+      "name": "Eng Kee Chicken Wings",
+      "rating": 3,
+      "address": "469 Bukit Batok West Ave 9",
+      "googleRating": 4.3,
+      "isNumeric": true,
+      "ratingConfirmed": false
+    },
+    {
+      "id": "fff5c069-1144-4df1-a9d7-e64a0967f577",
+      "name": "Ah Heng Char Kway Teow",
+      "rating": 3,
+      "address": "21 Canberra Link, Bukit Canberra HC, S756973",
+      "googleRating": 3,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "c6fdeb55-bb95-4107-99b1-d26afe25f846",
+      "name": "China Whampoa Home Made Noodle (Senja)",
+      "rating": 3,
+      "address": "2 Senja Close, Senja Hawker Centre, Singapore 677632",
+      "googleRating": 2.9,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "1e071622-8a0d-437e-baf1-d35dea223624",
+      "name": "You Fu Ban Mian & Pao Fan",
+      "rating": 3,
+      "address": "84 Punggol Way, Punggol Coast Hawker Centre, Singapore 829911",
+      "googleRating": 2.5,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "0d79d9be-fe1b-424c-8bd0-3d83fb031522",
+      "name": "Shu Xiang Kitchen",
+      "rating": 3,
+      "address": "51 Hougang Ave 9, #01-XX, Ci Yuan Hawker Centre, Singapore 538776",
+      "googleRating": 3,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "a60fbd53-6dc8-465e-9dc8-30b9d6f1736f",
+      "name": "TK Satay",
+      "rating": 3,
+      "address": "Newton Food Centre",
+      "googleRating": 4.4,
+      "isNumeric": true,
+      "ratingConfirmed": false
+    },
+    {
+      "id": "05a94eda-2b39-49b9-bb05-e905116714e1",
+      "name": "Shi Nian Braised Pork Trotter",
+      "rating": 3.1,
+      "address": "2 Senja Close, #02-11, Senja Hawker Centre, Singapore 677632",
+      "googleRating": 3.8,
+      "isNumeric": true,
+      "ratingConfirmed": false
+    },
+    {
+      "id": "95b86260-50cd-44d7-a71a-374b056137bb",
+      "name": "Lao Fu Zi Fried Kway Teow (Old Airport)",
+      "rating": 3.1,
+      "address": "51 Old Airport Road #01-12, Singapore 390051",
+      "googleRating": 3.1,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "872b3861-936d-4d94-bfed-d4a8ebaedd1f",
+      "name": "Hai Nan Zai",
+      "rating": 3.1,
+      "address": "105 Yishun Ring Rd, #01-129 Chong Pang Market and Food Centre",
+      "googleRating": 3.1,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "9fc50436-9c77-48a5-bd03-a3f3ae493c65",
+      "name": "Mister Donut",
+      "rating": 3.1,
+      "address": "10 Tampines Central 1, #B1-K6, Tampines 1, Singapore 529536",
+      "googleRating": 3.8,
+      "isNumeric": true,
+      "ratingConfirmed": false
+    },
+    {
+      "id": "430b0df0-b600-4206-8c75-28e733cf4b89",
+      "name": "No.1 Adam's Nasi Lemak",
+      "rating": 3.1,
+      "address": "Adam Road Food Centre #01-01",
+      "googleRating": 3.1,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "95ad2ecf-0ac5-4c2c-bbc7-8742f7b6d29c",
+      "name": "Thow Yen Seafood",
+      "rating": 3.1,
+      "address": "936 East Coast Road, Singapore 459108",
+      "googleRating": 4.7,
+      "isNumeric": true,
+      "ratingConfirmed": false
+    },
+    {
+      "id": "1b693f0a-0827-4aab-b9de-ba2efacc0d1e",
+      "name": "Uncle Penyet",
+      "rating": 3.1,
+      "address": "1 Punggol Drive, #02-01, One Punggol Hawker Centre, Singapore 828629",
+      "googleRating": 2.7,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "1d5dfbef-622f-47fe-b124-c1aeeba26a49",
+      "name": "XO Fish Head Bee Hoon",
+      "rating": 3.1,
+      "address": "19A Dover Crescent",
+      "googleRating": 3.1,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "bd530ea7-cca9-43ac-af6f-ab09d7f6b6a3",
+      "name": "Kin Khao Yang",
+      "rating": 3.1,
+      "address": "Bedok Interchange Hawker Centre, 208B New Upper Changi Road, Singapore 462208",
+      "googleRating": 3.1,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "f39f2b6f-ab9c-4b87-a82c-f8beeff2f955",
+      "name": "Fatty Weng 肥仔荣食摊",
+      "rating": 3.1,
+      "address": "155 Bukit Batok Street 11, #01-324, Singapore 650155",
+      "googleRating": 3.1,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "d78e74da-a439-4d13-8185-86c29a9ae7fd",
+      "name": "Ji De Lai Hainanese Chicken Rice",
+      "rating": 3.1,
+      "address": "105 Yishun Ring Rd, #01-152 Chong Pang Market & Food Centre",
+      "googleRating": 3,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "9ad68056-ed49-4487-808b-a80ebdba72fd",
+      "name": "Pondok Selera by Nurul Hidayah",
+      "rating": 3.2,
+      "address": "888 Woodlands Drive 50, #01-755, Singapore 730888",
+      "googleRating": 3.2,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "23448a48-d571-4263-98c3-c9df0f2bc331",
+      "name": "133 Mian Fen Guo",
+      "rating": 3.2,
+      "address": "216 Bedok North Street 1, #01-68",
+      "googleRating": 3.2,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "8365bd8c-9e3c-46b8-95fd-3f3be7093eb1",
+      "name": "Al Falah Restaurant",
+      "rating": 3.2,
+      "address": "302 Woodlands Street 31, Singapore 730302",
+      "googleRating": 4.3,
+      "isNumeric": true,
+      "ratingConfirmed": false
+    },
+    {
+      "id": "4fb841b0-7c8a-46ae-84a6-3bb5023a593c",
+      "name": "Nam Sing Hokkien Fried Mee",
+      "rating": 3.3,
+      "address": "51 Old Airport Rd, #01-32",
+      "googleRating": 3.3,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "48f7f146-835c-48e2-a181-aa829fd66ecd",
+      "name": "Hee Hee Steamed Fish & Seafood",
+      "rating": 3.3,
+      "address": "84 Punggol Way, Punggol Coast Hawker Centre",
+      "googleRating": 4.5,
+      "isNumeric": true,
+      "ratingConfirmed": false
+    },
+    {
+      "id": "e951c08e-c050-4150-8c34-54896c082a08",
+      "name": "Nam Sing Hokkien Mee (Old Airport)",
+      "rating": 3.3,
+      "address": "51 Old Airport Road #01-32, Singapore 390051",
+      "googleRating": 3.3,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "bf739a68-a10c-40cb-ae3e-01883379aedd",
+      "name": "Fei Fei Wonton Noodle",
+      "rating": 3.3,
+      "address": "45 Joo Chiat Pl, Singapore 427769",
+      "googleRating": 3.3,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "9795b0c7-72d3-4bc3-955b-a41cf0ec57d2",
+      "name": "Hock Hai (Hong Lim) Curry Chicken",
+      "rating": 3.3,
+      "address": "84 Punggol Way, Punggol Coast Hawker Centre",
+      "googleRating": 3.4,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "5dbf314e-d260-4a17-99ce-25aebaa14366",
+      "name": "Kanshoku Ramen",
+      "rating": 3.3,
+      "address": "391 ORCHARD ROAD, NGEE ANN CITY, Singapore 238872",
+      "googleRating": 3.5,
+      "isNumeric": true,
+      "ratingConfirmed": false
+    },
+    {
+      "id": "01420d49-4b25-49d4-a4ba-7e5ed21e7a36",
+      "name": "Ci Yuan HK Wanton Noodle",
+      "rating": 3.3,
+      "address": "51 Hougang Ave 9, #01-XX, Ci Yuan Hawker Centre, Singapore 538776",
+      "googleRating": 3.3,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "86dedcee-bf11-4c9b-8bef-6f184562a0a7",
+      "name": "Joo Seng Teochew Porridge",
+      "rating": 3.3,
+      "address": "14 Cheong Chin Nam Rd, Singapore 599738",
+      "googleRating": 3.3,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "bddb526a-525d-4e5d-98fc-23aa6e7eaee4",
+      "name": "Thohirah Restaurant",
+      "rating": 3.3,
+      "address": "258 Jalan Kayu, Singapore 799487",
+      "googleRating": 3.3,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "29ea56d8-81f0-40ba-bf6a-16e2026685ba",
+      "name": "Food Street Fried Kway Teow Mee",
+      "rating": 3.3,
+      "address": "335 Smith Street, Chinatown Complex Level 2",
+      "googleRating": 3.3,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "207f6878-8f64-4ed0-8fad-1ace198b60d5",
+      "name": "Hock Hai Curry Chicken Noodle",
+      "rating": 3.3,
+      "address": "84 Punggol Way, Punggol Coast Hawker Centre, Singapore 829911",
+      "googleRating": 3.4,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "c9b84490-745c-4d42-9760-8c5825d15f46",
+      "name": "Thaksin Beef Noodle",
+      "rating": 3.4,
+      "address": "2 Seah Im Road, Seah Im Food Centre, Singapore 099114",
+      "googleRating": 3.5,
+      "isNumeric": true,
+      "ratingConfirmed": false
+    },
+    {
+      "id": "83c9b644-9c95-4766-b97b-dfb8c0abe5be",
+      "name": "Fiie's Cafe",
+      "rating": 3.4,
+      "address": "304 Orchard Rd #06-52 Lucky Plaza",
+      "googleRating": 3.4,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "5d85478b-162c-4c3a-b6fc-35e60a48716f",
+      "name": "Tiong Bahru Lien Fa Shui Jing Pau",
+      "rating": 3.4,
+      "address": "120 Bukit Merah Lane 1, #01-10, Singapore 151120",
+      "googleRating": 3.4,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "327c35a1-7b5a-437b-a5ee-b98da9381d58",
+      "name": "Ah Hock Fried Hokkien Noodles",
+      "rating": 3.4,
+      "address": "57 Garden Way, Stall 27, Chomp Chomp Food Centre, Singapore 557269",
+      "googleRating": 3.4,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "248275bd-07d3-4dac-9f54-86f1dc8736ee",
+      "name": "Kay Lee Roast Meat Joint",
+      "rating": 3.4,
+      "address": "125 Upper Paya Lebar Road, Singapore 534838",
+      "googleRating": 3.4,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "00f6c57f-6ca6-45ab-a042-b0e64b01d4f1",
+      "name": "Kueh Garden",
+      "rating": 3.4,
+      "address": "348 Jurong East Avenue 1",
+      "googleRating": 3.4,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "dd857b95-25f7-4a57-8c27-d606784a58bf",
+      "name": "Kay Lee Roast Meat",
+      "rating": 3.4,
+      "address": "48 DUXTON ROAD, TANJONG PAGAR CONSERVATION AREA, Singapore 089512",
+      "googleRating": 3.4,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "cfee95b7-0eb8-48ab-a25e-1cab3e76905d",
+      "name": "Hock Hai (Hong Lim) Curry Chicken Noodle (Fernvale)",
+      "rating": 3.4,
+      "address": "21 Sengkang West Avenue, Fernvale Hawker Centre, Singapore 797650",
+      "googleRating": 3.4,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "2c727180-867d-4885-b3de-e8624e6e81c5",
+      "name": "Five Star Hong Kong Style Handmade Dim Sum",
+      "rating": 3.4,
+      "address": "705 Sims Drive, Shun Li Industrial Complex, #07-01, Singapore 387384",
+      "googleRating": 3.4,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "3e7af9d3-15b1-41fa-a4b9-9a3615b45fce",
+      "name": "Ho Huat Hokkien Mee",
+      "rating": 3.4,
+      "address": "Boon Lay Place Food Village",
+      "googleRating": 3.4,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "b26e3a53-8f8b-47e6-95f9-1c8c793cf9e6",
+      "name": "Third Place",
+      "rating": 3.4,
+      "address": "18 Tuas Avenue 7, Singapore",
+      "googleRating": 5,
+      "isNumeric": true,
+      "ratingConfirmed": false
+    },
+    {
+      "id": "4f290762-1a06-4b50-a008-63340e2787cd",
+      "name": "Tenderfresh Classic",
+      "rating": 3.4,
+      "address": "300 Joo Chiat Road, Tin Yeung Restaurant, Singapore 429356",
+      "googleRating": 4.1,
+      "isNumeric": true,
+      "ratingConfirmed": false
+    },
+    {
+      "id": "1cb24edc-9476-4d41-a1ff-00ab90cd4498",
+      "name": "Hainan Fried Hokkien Prawn Mee",
+      "rating": 3.4,
+      "address": "505 Beach Rd, #B1-34 Golden Mile Food Centre, Singapore 199583",
+      "googleRating": 3.4,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "3db35a4f-6abd-43f6-80c5-5c4abfb5a873",
+      "name": "Tian Wai Tian Fish Head Steamboat",
+      "rating": 3.4,
+      "address": "203 Hougang St 21, #01-89, Singapore 530203",
+      "googleRating": 3.9,
+      "isNumeric": true,
+      "ratingConfirmed": false
+    },
+    {
+      "id": "5d7f3b8f-4d78-4914-9638-ee9a447ea6bf",
+      "name": "Feng Xiang Bak Kut Teh",
+      "rating": 3.4,
+      "address": "21 Sengkang West Avenue, Fernvale Hawker Centre, Singapore 797650",
+      "googleRating": 3.4,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "8c9ed90d-fc83-4905-b13d-c7d68b125ac2",
+      "name": "Fiie's Cafe (Mister Grumpy)",
+      "rating": 3.4,
+      "address": "304 Orchard Rd, #06-22, Lucky Plaza, S238863",
+      "googleRating": 3.4,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "8a0ac627-0164-418c-9d6d-72e3f1b1a61d",
+      "name": "Adam Rd Noo Cheng Big Prawn Noodle",
+      "rating": 3.4,
+      "address": "2 Adam Rd, #01 27",
+      "googleRating": 3.4,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "930bcca3-ae81-4c31-bce1-db3c8fd5f7ba",
+      "name": "Chey Sua Carrot Cake",
+      "rating": 3.4,
+      "address": "Blk 127 Lor 1 Toa Payoh, #02-30",
+      "googleRating": 3.5,
+      "isNumeric": true,
+      "ratingConfirmed": false
+    },
+    {
+      "id": "a8ddecc8-e4af-4704-8303-0c7d69110116",
+      "name": "Heng Huat Fried Kway Tiao",
+      "rating": 3.4,
+      "address": "121 Pasir Panjang Rd, #01-36, Singapore 118543",
+      "googleRating": 3.4,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "24f836ee-9d83-4eae-89ef-3169eee38990",
+      "name": "Kallang Airport Wanton Mee",
+      "rating": 3.4,
+      "address": "Clarke Quay Block E, #01-08, SG Hawker",
+      "googleRating": 3.4,
+      "isNumeric": true,
+      "ratingConfirmed": true
+    },
+    {
+      "id": "700e235d-20e7-4e6c-9cca-838c7e1ddecf",
+      "name": "King of Fried Rice (Sengkang)",
+      "rating": 3.4,
+      "address": "10 Sengkang Square, #01-48, Kopitiam Square, Singapore 544829",
+      "googleRating": 4.7,
+      "isNumeric": true,
+      "ratingConfirmed": false
+    }
+  ]
+}

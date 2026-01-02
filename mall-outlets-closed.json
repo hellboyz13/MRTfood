@@ -99,17 +99,5 @@
       "finalStatus": "CLOSED_PERMANENTLY"
     }
   ],
-  "notFound": [
-    {
-      "id": "froyo-yewtee-point",
-      "name": "Fro~Yo!",
-      "mall": "YewTee Point",
-      "googleResult": {
-        "found": false,
-        "status": "NOT_FOUND",
-        "query": "Fro~Yo! YewTee Point Singapore"
-      },
-      "finalStatus": "NOT_FOUND"
-    }
-  ]
+  "errors": []
 }

@@ -1,0 +1,565 @@
+{
+  "east-coast-lagoon-food-village": {
+    "name": "East Coast Lagoon Food Village",
+    "stalls": [
+      {
+        "name": "Lagoon Famous Carrot Cake",
+        "unit": null,
+        "openingHours": null
+      },
+      {
+        "name": "Stingray Forever BBQ Seafood",
+        "unit": null,
+        "openingHours": null
+      },
+      {
+        "name": "Haron Satay 55",
+        "unit": null,
+        "openingHours": null
+      },
+      {
+        "name": "Zuo Ji Duck Rice",
+        "unit": null,
+        "openingHours": null
+      },
+      {
+        "name": "Choon Hiang",
+        "unit": null,
+        "openingHours": null
+      },
+      {
+        "name": "Ah Hwee BBQ Chicken",
+        "unit": null,
+        "openingHours": null
+      },
+      {
+        "name": "Han Jia Bak Kut Teh Pork Leg",
+        "unit": null,
+        "openingHours": null
+      },
+      {
+        "name": "Song Kee Fried Oyster",
+        "unit": null,
+        "openingHours": null
+      },
+      {
+        "name": "Hwa Kee BBQ Pork Noodle",
+        "unit": null,
+        "openingHours": null
+      },
+      {
+        "name": "Lagoon Leng Kee Beef Kway Teow",
+        "unit": null,
+        "openingHours": null
+      },
+      {
+        "name": "Ahmad Spring",
+        "unit": null,
+        "openingHours": null
+      },
+      {
+        "name": "BBQ Seafood Kitchen",
+        "unit": null,
+        "openingHours": null
+      },
+      {
+        "name": "Geylang 29 Charcoal Fried Hokkien Mee",
+        "unit": null,
+        "openingHours": null
+      },
+      {
+        "name": "Oleh Oleh Bandung",
+        "unit": null,
+        "openingHours": null
+      }
+    ]
+  },
+  "lau-pa-sat": {
+    "name": "Lau Pa Sat",
+    "stalls": [
+      {
+        "name": "Feng Xiang Bak Kut Teh",
+        "unit": null,
+        "openingHours": null,
+        "thumbnail": "https://eatbook.sg/wp-content/uploads/2024/05/feng-xiang-bak-kut-teh-iberico-pork-fried-porridge-establishment-1.jpg"
+      },
+      {
+        "name": "Lao Fu Zi Fried Kway Teow",
+        "unit": null,
+        "openingHours": null
+      },
+      {
+        "name": "Thunder Tea Rice",
+        "unit": null,
+        "openingHours": "Daily 8am to 8pm",
+        "thumbnail": "https://eatbook.sg/wp-content/uploads/2023/09/pangs-hakka-ytf-yishun-flatlay.jpg"
+      },
+      {
+        "name": "LiXin Teochew Fishball Noodles",
+        "unit": null,
+        "openingHours": null
+      },
+      {
+        "name": "Nasi Lemak Ayam Taliwang",
+        "unit": null,
+        "openingHours": null
+      },
+      {
+        "name": "Mr Rice Pao Fan & Fried Rice",
+        "unit": null,
+        "openingHours": null
+      },
+      {
+        "name": "Seng Kee Local Delights",
+        "unit": null,
+        "openingHours": null
+      },
+      {
+        "name": "Qiu Lian Ban Mian",
+        "unit": null,
+        "openingHours": null
+      },
+      {
+        "name": "Rokusu",
+        "unit": null,
+        "openingHours": null
+      },
+      {
+        "name": "iEat Kitchen",
+        "unit": null,
+        "openingHours": null
+      },
+      {
+        "name": "Kallang Airport Wanton Noodle",
+        "unit": null,
+        "openingHours": null
+      },
+      {
+        "name": "Ri Ri Hong Mala Hot Pot",
+        "unit": null,
+        "openingHours": null
+      },
+      {
+        "name": "Swatow Bai Le Braised Duck",
+        "unit": null,
+        "openingHours": null
+      },
+      {
+        "name": "Mayas Veggie Delight",
+        "unit": null,
+        "openingHours": null
+      },
+      {
+        "name": "Munchi Pancakes",
+        "unit": null,
+        "openingHours": "TBD",
+        "thumbnail": "https://eatbook.sg/wp-content/uploads/2024/09/woodleigh-village-hawker-centre-ambience.jpg"
+      },
+      {
+        "name": "Butter & Cream Bakery",
+        "unit": null,
+        "openingHours": "Mon-Thurs 10am to 9pm, Fri 10am to 10pm, Sat 10:30am to 10pm, Sun 10:30am to 9pm",
+        "thumbnail": "https://eatbook.sg/wp-content/uploads/2023/04/Butter-and-cream-bakery-flatlay.jpg"
+      }
+    ]
+  },
+  "hougang-hainanese-village-centre": {
+    "name": "Hougang Hainanese Village Centre",
+    "stalls": [
+      {
+        "name": "Lorong Ah Soo Lor Mee",
+        "unit": null,
+        "openingHours": null
+      },
+      {
+        "name": "Ming Fa Duck Rice",
+        "unit": null,
+        "openingHours": "Tue-Sat 7am to 12pm (or sold out)",
+        "thumbnail": "https://eatbook.sg/wp-content/uploads/2022/10/ming-fa-duck-rice-flatlay.jpg"
+      },
+      {
+        "name": "Punggol Noodles",
+        "unit": null,
+        "openingHours": null
+      },
+      {
+        "name": "Apollo Western Food",
+        "unit": null,
+        "openingHours": null
+      },
+      {
+        "name": "Yi Liu Xiang Nasi Lemak",
+        "unit": null,
+        "openingHours": null
+      },
+      {
+        "name": "Blue Star Fried Hokkien Mee",
+        "unit": null,
+        "openingHours": null
+      },
+      {
+        "name": "Yong Seng Teochew Fishball Noodle",
+        "unit": null,
+        "openingHours": null
+      },
+      {
+        "name": "Chai Chee Nasi Lemak",
+        "unit": null,
+        "openingHours": null
+      },
+      {
+        "name": "Moh Seng Teochew Porridge and Mixed Rice",
+        "unit": null,
+        "openingHours": null
+      },
+      {
+        "name": "Wang Jiao Shu Shi",
+        "unit": null,
+        "openingHours": null
+      }
+    ]
+  },
+  "marine-terrace-market": {
+    "name": "Marine Terrace Market (Blk 50)",
+    "stalls": [
+      {
+        "name": "Seng Hoe Fish Ball Minced Meat Noodle",
+        "unit": null,
+        "openingHours": null
+      },
+      {
+        "name": "Shan Yuan Teochew Kway Teow Mee",
+        "unit": null,
+        "openingHours": null
+      },
+      {
+        "name": "132 Traditional Teochew Noodles",
+        "unit": null,
+        "openingHours": null
+      },
+      {
+        "name": "Yong Huat Delight",
+        "unit": null,
+        "openingHours": "Tue-Sun 5am to 2pm",
+        "thumbnail": "https://eatbook.sg/wp-content/uploads/2023/04/yong-huat-delight-storefront.jpg"
+      },
+      {
+        "name": "Hui Huang Roasted Delight",
+        "unit": null,
+        "openingHours": null
+      },
+      {
+        "name": "Meng Kee Wanton Noodle",
+        "unit": null,
+        "openingHours": null
+      },
+      {
+        "name": "Sin Hoe Huat Cafe",
+        "unit": "#01-291",
+        "openingHours": null
+      },
+      {
+        "name": "Indian Muslim Food Store",
+        "unit": null,
+        "openingHours": null
+      },
+      {
+        "name": "Ipoh Style San Lou Hor Fun",
+        "unit": null,
+        "openingHours": null
+      },
+      {
+        "name": "Delisnacks",
+        "unit": null,
+        "openingHours": null
+      }
+    ]
+  },
+  "bedok-corner-food-centre": {
+    "name": "Bedok Corner Food Centre",
+    "stalls": [
+      {
+        "name": "Bedok Corner Hokkien Fried Squid Prawn Mee",
+        "unit": null,
+        "openingHours": null
+      },
+      {
+        "name": "Suka Ramai Mama Power",
+        "unit": null,
+        "openingHours": null
+      },
+      {
+        "name": "Green Sky Fried Kway Teow",
+        "unit": null,
+        "openingHours": null
+      }
+    ]
+  },
+  "makansutra-gluttons-bay": {
+    "name": "Makansutra Gluttons Bay",
+    "stalls": [
+      {
+        "name": "Gluttons Bar",
+        "unit": null,
+        "openingHours": null
+      },
+      {
+        "name": "Sweet Spot",
+        "unit": null,
+        "openingHours": null
+      },
+      {
+        "name": "Syifa' Satay",
+        "unit": null,
+        "openingHours": null
+      },
+      {
+        "name": "Old Satay Club Mee Goreng",
+        "unit": null,
+        "openingHours": null
+      },
+      {
+        "name": "Huat Huat BBQ Chicken Wing & Carrot Cake",
+        "unit": null,
+        "openingHours": null
+      },
+      {
+        "name": "Hong Kong Street Old Chun Kee",
+        "unit": null,
+        "openingHours": null
+      },
+      {
+        "name": "Kebabchi Charcoal BBQ",
+        "unit": null,
+        "openingHours": null
+      },
+      {
+        "name": "BBKia Stingray",
+        "unit": null,
+        "openingHours": null
+      },
+      {
+        "name": "Big Bern's American Grills",
+        "unit": null,
+        "openingHours": null
+      },
+      {
+        "name": "Do Rae Mee",
+        "unit": null,
+        "openingHours": null
+      }
+    ]
+  },
+  "kopitiam-plaza-singapura": {
+    "name": "Kopitiam Plaza Singapura",
+    "stalls": [
+      {
+        "name": "Go-Ang Pratunam Chicken Rice",
+        "unit": "#03-24",
+        "openingHours": "Daily 11am to 10pm",
+        "thumbnail": "https://eatbook.sg/wp-content/uploads/2018/10/Bangkok-Chicken-Rice-Flatlay-1024x683.jpg"
+      },
+      {
+        "name": "Tamoya Udon & Tempura",
+        "unit": "#06-11",
+        "openingHours": null
+      },
+      {
+        "name": "Yeah Gelato",
+        "unit": null,
+        "openingHours": "Daily, 11am to 10pm",
+        "thumbnail": "https://eatbook.sg/wp-content/uploads/2025/07/Yeah-Gelato-Flatlay.jpg"
+      },
+      {
+        "name": "Pawa Bakery",
+        "unit": "#B2-32",
+        "openingHours": "TBD",
+        "thumbnail": "https://eatbook.sg/wp-content/uploads/2025/07/pawa-storefront-cbd.jpg"
+      },
+      {
+        "name": "Five Guys",
+        "unit": null,
+        "openingHours": "Daily 11am to 10pm",
+        "thumbnail": "https://eatbook.sg/wp-content/uploads/2021/08/Five-Guys-Singapore-Flatlay.jpg"
+      },
+      {
+        "name": "Haidilao",
+        "unit": "#04-01/20",
+        "openingHours": "Mon-Fri 11am to 5am, Sat-Sun 10:30am to 5am",
+        "thumbnail": "https://eatbook.sg/wp-content/uploads/2025/04/haidilao-meat-buffet-flatlay.jpg"
+      },
+      {
+        "name": "Co Chung",
+        "unit": null,
+        "openingHours": "Daily 11am to 9pm",
+        "thumbnail": "https://eatbook.sg/wp-content/uploads/2020/08/Co-Chung-flatlay-of-food.jpg"
+      },
+      {
+        "name": "Bizen Wagyu & Salad Bar",
+        "unit": null,
+        "openingHours": null
+      },
+      {
+        "name": "Typhoon Cafe",
+        "unit": null,
+        "openingHours": "Mon-Sun 11:30am to 10pm",
+        "thumbnail": "https://eatbook.sg/wp-content/uploads/2023/08/typhoon-cafe-flatlay.jpg"
+      },
+      {
+        "name": "Muji Cafe",
+        "unit": null,
+        "openingHours": "Daily 10am to 10pm",
+        "thumbnail": "https://eatbook.sg/wp-content/uploads/2023/11/muji-cafe-plaza-singapura-storefront.jpg"
+      },
+      {
+        "name": "Eat Pizza",
+        "unit": null,
+        "openingHours": "TBD",
+        "thumbnail": "https://eatbook.sg/wp-content/uploads/2024/11/eat-pizza-jb.jpg"
+      },
+      {
+        "name": "Cajun On Wheels",
+        "unit": null,
+        "openingHours": null
+      },
+      {
+        "name": "CHAGEE",
+        "unit": null,
+        "openingHours": null,
+        "thumbnail": "https://eatbook.sg/wp-content/uploads/2025/12/hello-kitty-chagee-merch-group-1-1024x683.jpg"
+      },
+      {
+        "name": "CoCo ICHIBANYA",
+        "unit": null,
+        "openingHours": "10am to 10pm",
+        "thumbnail": "https://eatbook.sg/wp-content/uploads/2019/02/Uni-Noodles-Intro-Shot.jpg"
+      },
+      {
+        "name": "Mamma Mia Trattoria E Caffe",
+        "unit": null,
+        "openingHours": null
+      }
+    ]
+  },
+  "timbre-plus-eastside": {
+    "name": "Timbre+ Eastside",
+    "stalls": [
+      {
+        "name": "Boon Lay Power Nasi Lemak",
+        "unit": null,
+        "openingHours": "Tue-Sun 10am to 9pm",
+        "thumbnail": "https://eatbook.sg/wp-content/uploads/2021/11/timbre-eastside.jpg"
+      },
+      {
+        "name": "Huat Huat",
+        "unit": null,
+        "openingHours": null
+      },
+      {
+        "name": "Wolf Burger",
+        "unit": null,
+        "openingHours": null,
+        "thumbnail": "https://eatbook.sg/wp-content/uploads/2020/05/Gong-Cha-Delivery-Pic-1.jpg"
+      },
+      {
+        "name": "Ajiya Okonomiyaki",
+        "unit": null,
+        "openingHours": "Tue-Sun 12pm to 2:30pm, 5:30pm to 9:30pm",
+        "thumbnail": "https://eatbook.sg/wp-content/uploads/2018/03/Ajiya-Okonomiyaki-flatlay.jpg"
+      },
+      {
+        "name": "Kopifellas & Noodlefellas",
+        "unit": null,
+        "openingHours": null
+      },
+      {
+        "name": "Kebabs Faktory",
+        "unit": null,
+        "openingHours": null
+      },
+      {
+        "name": "Streets of Bangkok",
+        "unit": null,
+        "openingHours": null
+      },
+      {
+        "name": "Zi Jia Yong Tao Foo",
+        "unit": null,
+        "openingHours": null
+      },
+      {
+        "name": "Lao Niang De Dian",
+        "unit": null,
+        "openingHours": null
+      },
+      {
+        "name": "Devils Hood",
+        "unit": null,
+        "openingHours": null
+      },
+      {
+        "name": "Gopizza",
+        "unit": null,
+        "openingHours": "Mon-Fri 8am to 9pm, Sat-Sun & PH 10am to 9pm",
+        "thumbnail": "https://eatbook.sg/wp-content/uploads/2022/06/Samsun-Lamb-Pide.jpg"
+      }
+    ]
+  },
+  "kopitiam-tampines-mall": {
+    "name": "Kopitiam Tampines Mall",
+    "stalls": [
+      {
+        "name": "Koo Kee Yong Tow Foo Mee",
+        "unit": null,
+        "openingHours": null
+      },
+      {
+        "name": "HJH Maimunah Mini",
+        "unit": null,
+        "openingHours": null
+      },
+      {
+        "name": "Riverside Indonesia BBQ",
+        "unit": null,
+        "openingHours": null
+      },
+      {
+        "name": "Heng Hwa Hometown Cuisine",
+        "unit": "Stall 9",
+        "openingHours": null
+      },
+      {
+        "name": "Hawker Chan",
+        "unit": null,
+        "openingHours": "Mon-Fri 11am to 9:30pm, Sat-Sun 10:30am to 10pm",
+        "thumbnail": "https://eatbook.sg/wp-content/uploads/2022/07/nomstar-ambience.jpg"
+      },
+      {
+        "name": "Shi Hui Yuan",
+        "unit": null,
+        "openingHours": "Daily 7am to 11pm",
+        "thumbnail": "https://eatbook.sg/wp-content/uploads/2020/02/Shi-Hui-Yuan-Flatlay.jpg"
+      }
+    ]
+  },
+  "pacific-plaza": {
+    "name": "Pacific Plaza",
+    "stalls": [
+      {
+        "name": "Small Tables",
+        "unit": null,
+        "openingHours": null
+      },
+      {
+        "name": "Kam's Roast",
+        "unit": null,
+        "openingHours": null,
+        "thumbnail": "https://eatbook.sg/wp-content/uploads/2016/11/KAMS-ROAST-COVER-1080x565.jpg"
+      }
+    ]
+  },
+  "bedok-reservoir-food-centre": {
+    "name": "Bedok Reservoir Food Centre",
+    "stalls": []
+  }
+}

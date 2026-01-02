@@ -1,0 +1,1004 @@
+{
+  "processed": 351,
+  "found": 102,
+  "updated": 102,
+  "failed": [
+    {
+      "id": "9e46e933-07e8-4f8d-a786-f24e1f9ef3d1",
+      "name": "Bao Makers"
+    },
+    {
+      "id": "80342aea-f2b2-423e-9bb2-a0adc8c0daea",
+      "name": "Chang Korean BBQ Restaurant"
+    },
+    {
+      "id": "ad4dd196-c898-4d4e-997f-d64ff8a922ae",
+      "name": "Boon Tong Kee (Chinatown)"
+    },
+    {
+      "id": "cedc1910-5c69-49f2-9b7a-350a99a5f884",
+      "name": "Charim Korean BBQ"
+    },
+    {
+      "id": "33a6b0ac-1822-41a8-8d37-81992b8d75a9",
+      "name": "Abseil"
+    },
+    {
+      "id": "8f220c7b-f8d1-43c7-a434-711598d5b5f7",
+      "name": "ChaTraMue"
+    },
+    {
+      "id": "4070ac21-9e3d-4cfd-8ff2-9d55b5ac5987",
+      "name": "Beans & Cream"
+    },
+    {
+      "id": "445e0267-f3f6-4c5a-9292-9a7c947b2463",
+      "name": "Alice Boulangerie"
+    },
+    {
+      "id": "03903e27-a967-4501-b49e-d5a2c54bb9b0",
+      "name": "CheongDamChae"
+    },
+    {
+      "id": "b4450b98-13af-4e08-a5b1-f18f2cdebff0",
+      "name": "Beppu Menkan"
+    },
+    {
+      "id": "4a0b390c-45e8-46f1-a994-daa415a4a13b",
+      "name": "Cheval Chi Bao"
+    },
+    {
+      "id": "805a7107-24b5-42f8-bde5-dcce475aff57",
+      "name": "British Indian Curry Hut"
+    },
+    {
+      "id": "ff9abe24-acd6-44a5-925d-2014e007e9dc",
+      "name": "Amò"
+    },
+    {
+      "id": "7928fa94-da7b-4516-be83-7f33941ed18f",
+      "name": "CHICHA San Chen"
+    },
+    {
+      "id": "591c4fc1-c8d3-43fb-9e67-b017d82ccabc",
+      "name": "An Choi"
+    },
+    {
+      "id": "b870d14d-68d7-455d-b29d-7e949020e636",
+      "name": "Birds Of A Feather"
+    },
+    {
+      "id": "f05cae82-f914-430f-8a33-d0ba4e076851",
+      "name": "Apartment Coffee"
+    },
+    {
+      "id": "9b9894b5-e1ce-4287-9ba3-1212cbb17e1c",
+      "name": "Chuan Kee Seafood"
+    },
+    {
+      "id": "5afe92bb-c383-470d-a123-cc6506320379",
+      "name": "Birds Of Paradise Gelato Boutique"
+    },
+    {
+      "id": "5ad87033-d353-4a17-93c2-ffc950aaec90",
+      "name": "Artichoke"
+    },
+    {
+      "id": "4a24b2c8-0443-4758-9201-dd0b52607e0d",
+      "name": "Asia Grand Restaurant 亚洲金阁海鲜酒家"
+    },
+    {
+      "id": "3dc5c42b-cdd4-43c3-b7bb-a37bff443cf4",
+      "name": "Cicheti"
+    },
+    {
+      "id": "98183bc0-744d-4d5f-a57f-ff87a2e9eac6",
+      "name": "Caffe Cicheti"
+    },
+    {
+      "id": "b1f0141f-658c-436e-849f-cf10222c040c",
+      "name": "Bacha Coffee"
+    },
+    {
+      "id": "afbbc674-ef71-4214-a444-5492152cd4ef",
+      "name": "Bloom Artisan"
+    },
+    {
+      "id": "8891c1d6-dae8-4f8a-9164-4969528b2293",
+      "name": "Bakalaki Greek Taverna"
+    },
+    {
+      "id": "67851625-3085-4aa2-8250-0c9b05bd0005",
+      "name": "Cenzo"
+    },
+    {
+      "id": "7b6a32a6-6ff0-49c9-a95e-effe2fdd30fc",
+      "name": "Chagee"
+    },
+    {
+      "id": "993b37e4-efbc-448c-9183-0cca936f28b8",
+      "name": "Go Ba"
+    },
+    {
+      "id": "faa376a6-751c-4f8c-aec7-960b8e78d2a5",
+      "name": "Jia Li Seafood Soup (Upper Serangoon)"
+    },
+    {
+      "id": "5f39b424-27f3-4275-a9f3-9b3da42c5262",
+      "name": "Guiga Korean BBQ Restaurant"
+    },
+    {
+      "id": "e687a1b5-98bc-4b15-80c0-099fea4f914c",
+      "name": "Jia Xiang Economic Curry Rice"
+    },
+    {
+      "id": "b3a7a458-8350-436f-8cb0-842b7de5b42a",
+      "name": "PUJIM BBQ"
+    },
+    {
+      "id": "65d75efb-cb23-480f-9f78-06aae541fa3d",
+      "name": "Guilt"
+    },
+    {
+      "id": "a0289349-7ae7-4d58-a430-1da5f28baae3",
+      "name": "Mitsuba"
+    },
+    {
+      "id": "c37b61a8-9330-495b-9325-ded293551102",
+      "name": "MoVida"
+    },
+    {
+      "id": "98771e18-8577-4143-82e1-bb6c07f2d36b",
+      "name": "Jypsy One Fullerton"
+    },
+    {
+      "id": "cd447492-4a02-4130-ae9d-569cc2d7d17a",
+      "name": "Gwangjang Gaon"
+    },
+    {
+      "id": "0f2d5547-a873-4034-aa20-6933ebb3e6a6",
+      "name": "Kafe Utu"
+    },
+    {
+      "id": "0b61525c-9fa8-4633-98cc-9f67bc594d6e",
+      "name": "Mr. Sun Tea"
+    },
+    {
+      "id": "7a142b07-b698-4bf3-a688-109ecfe2b4c6",
+      "name": "Kai Xin Crabs"
+    },
+    {
+      "id": "140e2a23-3177-4a81-b461-526435124125",
+      "name": "Rappu"
+    },
+    {
+      "id": "5914f167-ebd5-472c-b6b5-0617372148d6",
+      "name": "Hana Japanese Restaurant"
+    },
+    {
+      "id": "11a3ed22-9edc-4c7f-8a60-40b7b09eeed2",
+      "name": "Rasa Istimewa Waterfront Restaurant"
+    },
+    {
+      "id": "84b517f4-1ade-4908-988d-ed3cdb7078c6",
+      "name": "Naga House"
+    },
+    {
+      "id": "def65e7e-3c6b-476f-a84b-b32e6976a23b",
+      "name": "Harry's Eurasian Pies"
+    },
+    {
+      "id": "f270cd7b-2f54-44f7-8247-f823e783d61b",
+      "name": "Keng Eng Kee"
+    },
+    {
+      "id": "d2cdd7c6-8e75-4a78-8e32-a1bc905ce1af",
+      "name": "Raw Kitchen Bar"
+    },
+    {
+      "id": "0253ccf5-2494-4850-b199-6df1185c1154",
+      "name": "Rempapa"
+    },
+    {
+      "id": "65d6df89-8d08-4334-b29f-df6e33c7a870",
+      "name": "No Horse Run"
+    },
+    {
+      "id": "9f0c07a4-7e39-4124-8660-524c9f2dc25d",
+      "name": "Oatla"
+    },
+    {
+      "id": "a4bd3e37-f27c-497f-879f-d1ccfef4f574",
+      "name": "Ru Fa Bao Dian"
+    },
+    {
+      "id": "2227c578-26a1-426c-a817-db343a99a0e9",
+      "name": "Omma Korean Charcoal BBQ"
+    },
+    {
+      "id": "f3315a8a-1b6c-4fd4-b47f-5c419e2a5f5c",
+      "name": "Kotuwa"
+    },
+    {
+      "id": "239ac3e8-e270-4bbd-95a3-1ba6e811eb91",
+      "name": "Sakedokoro Eizaburo"
+    },
+    {
+      "id": "1a5907f6-caee-4c35-8654-8dc7f2e1bcf5",
+      "name": "Heng"
+    },
+    {
+      "id": "af4195d1-d87a-4b5e-8eab-9369047decdf",
+      "name": "Open Farm Community"
+    },
+    {
+      "id": "399e4a92-86f6-47cd-af6b-c1773744be3e",
+      "name": "Kremi"
+    },
+    {
+      "id": "77a35114-eb3e-4fe7-8994-ea3a4ff6c5ff",
+      "name": "Partage Patisserie"
+    },
+    {
+      "id": "063eea49-1712-48fe-9d38-26c194c7471a",
+      "name": "Kulto"
+    },
+    {
+      "id": "985a31ec-e4e0-419d-944a-79a3f0598b1f",
+      "name": "Kungfu JB Pau (Tampines)"
+    },
+    {
+      "id": "281c67d7-47eb-4626-b819-62ce0bf8b2a2",
+      "name": "Hollin"
+    },
+    {
+      "id": "69f4f4fe-e640-4df5-9112-8502d83ea197",
+      "name": "Sen"
+    },
+    {
+      "id": "a46e837f-384b-4b20-b633-f5888f690ca5",
+      "name": "Peony Jade"
+    },
+    {
+      "id": "37d0b387-4db5-4204-9a7e-e49cec975041",
+      "name": "L’antica Pizzeria da Michele"
+    },
+    {
+      "id": "5bd49786-6175-4099-b71a-3ef92a197e88",
+      "name": "Homm Dessert"
+    },
+    {
+      "id": "21d82965-de7f-4490-9cab-98e9912aabc5",
+      "name": "Picanhas’"
+    },
+    {
+      "id": "f9032b1d-f5cb-47f5-83d0-f1b4b767ed14",
+      "name": "Hopscotch"
+    },
+    {
+      "id": "de33ba9c-138a-4cad-b5f2-d05cf207fd33",
+      "name": "Lagnaa Barefoot Dining"
+    },
+    {
+      "id": "9e7a9321-709a-449c-890f-6da631cb611e",
+      "name": "Pierre Herme Singapore"
+    },
+    {
+      "id": "f8adbcae-d1d4-4f6d-95d6-57b6368e2890",
+      "name": "Hua Yu Wee Seafood Restaurant"
+    },
+    {
+      "id": "b7f93b08-7306-4500-b2d6-266191da4abe",
+      "name": "Lao Dong Bei Shi Kao"
+    },
+    {
+      "id": "9b9df905-6c88-4391-af2e-97d9ef044adf",
+      "name": "Shaburi And Kintan Buffet"
+    },
+    {
+      "id": "cc1425a8-c79f-4729-a7ab-de748e5d1d91",
+      "name": "Pizza Studio Tamaki (PST)"
+    },
+    {
+      "id": "a9456f31-0cac-411c-a079-1b268c73cdb6",
+      "name": "Imperial Treasure Cantonese Cuisine 御寶"
+    },
+    {
+      "id": "4484c197-9353-4226-9e0a-446de1b9a419",
+      "name": "Shin Minori Japanese Restaurant"
+    },
+    {
+      "id": "6a54c132-6821-41f9-ab12-a067b620b070",
+      "name": "Little Farms Katong Point Bistro"
+    },
+    {
+      "id": "8a9d14df-59c6-494d-8f7a-d7cfbcd79f50",
+      "name": "Indocafe The White House"
+    },
+    {
+      "id": "70e5ed1a-6807-4a01-9e72-ef8573a71c48",
+      "name": "Ponggol Nasi Lemak"
+    },
+    {
+      "id": "9a589bdd-ddb9-4434-949d-3e9d8224c8fe",
+      "name": "Shin Yuu Japanese Restaurant"
+    },
+    {
+      "id": "6e9b8a96-534d-4380-a225-13d5bc3c90c8",
+      "name": "Popo & Nana’s Delights"
+    },
+    {
+      "id": "1af3993b-7f9c-4fbc-b03d-502c4183149d",
+      "name": "Siri House"
+    },
+    {
+      "id": "4d895583-85fb-4a43-a93a-1674eeb05347",
+      "name": "Little Italy"
+    },
+    {
+      "id": "2974a049-5392-4d23-b109-219804bb5b7b",
+      "name": "SLUSHYAH"
+    },
+    {
+      "id": "5cbb30fb-49ab-4e1b-aac3-5c020907f3be",
+      "name": "Por Kee Eating House 1996"
+    },
+    {
+      "id": "b4d1c273-105f-4574-be82-135d2a6c9969",
+      "name": "Social Place"
+    },
+    {
+      "id": "1e1b3b25-ba39-4777-a71e-c522caef4fcb",
+      "name": "PS. Cafe Katong"
+    },
+    {
+      "id": "77678c0c-8910-43aa-9e8f-d335be80e400",
+      "name": "SODENG Korean Restaurant"
+    },
+    {
+      "id": "3e23adfb-502e-4bdc-ba0a-9ca3890cb70d",
+      "name": "Maison Sucree"
+    },
+    {
+      "id": "9c479f0e-d2a2-4ec8-840c-decbfeb332ae",
+      "name": "Jia He Chinese Restaurant"
+    },
+    {
+      "id": "9fc9936f-6e2c-4b81-9c14-6cbdcd00bca2",
+      "name": "Masizzim"
+    },
+    {
+      "id": "5f84da5c-0839-4863-a4ca-68f647b1c591",
+      "name": "Dolc Patisserie"
+    },
+    {
+      "id": "445e0267-f3f6-4c5a-9292-9a7c947b2463",
+      "name": "Alice Boulangerie"
+    },
+    {
+      "id": "f306e380-b4ba-4ea2-b942-b93c7fe69cbd",
+      "name": "Eee Mo BBQ"
+    },
+    {
+      "id": "6a54c132-6821-41f9-ab12-a067b620b070",
+      "name": "Little Farms Katong Point Bistro"
+    },
+    {
+      "id": "ff9abe24-acd6-44a5-925d-2014e007e9dc",
+      "name": "Amò"
+    },
+    {
+      "id": "d4bfe578-94d5-4e0c-af76-20e28a7f7fd5",
+      "name": "En Sushi"
+    },
+    {
+      "id": "d83c4e41-a933-428a-9d88-a871aaf0452b",
+      "name": "FairPrice Finest"
+    },
+    {
+      "id": "f1d8a8db-0c7c-4c8f-87a8-b340ff9ca4c3",
+      "name": "SOT Korean Restaurant"
+    },
+    {
+      "id": "f05cae82-f914-430f-8a33-d0ba4e076851",
+      "name": "Apartment Coffee"
+    },
+    {
+      "id": "3e23adfb-502e-4bdc-ba0a-9ca3890cb70d",
+      "name": "Maison Sucree"
+    },
+    {
+      "id": "60cb594f-322e-4341-aaed-3b38972b4014",
+      "name": "Soulfood Catering"
+    },
+    {
+      "id": "9fc9936f-6e2c-4b81-9c14-6cbdcd00bca2",
+      "name": "Masizzim"
+    },
+    {
+      "id": "5ad87033-d353-4a17-93c2-ffc950aaec90",
+      "name": "Artichoke"
+    },
+    {
+      "id": "00563110-c98a-4fcc-b59a-041f955fe446",
+      "name": "Spring Court 詠春園"
+    },
+    {
+      "id": "1221d2b3-72fa-4d7d-b3ef-7a6f14607690",
+      "name": "Fu Lin Bar & Kitchen"
+    },
+    {
+      "id": "a0289349-7ae7-4d58-a430-1da5f28baae3",
+      "name": "Mitsuba"
+    },
+    {
+      "id": "4a24b2c8-0443-4758-9201-dd0b52607e0d",
+      "name": "Asia Grand Restaurant 亚洲金阁海鲜酒家"
+    },
+    {
+      "id": "c37b61a8-9330-495b-9325-ded293551102",
+      "name": "MoVida"
+    },
+    {
+      "id": "b1f0141f-658c-436e-849f-cf10222c040c",
+      "name": "Bacha Coffee"
+    },
+    {
+      "id": "0b61525c-9fa8-4633-98cc-9f67bc594d6e",
+      "name": "Mr. Sun Tea"
+    },
+    {
+      "id": "8891c1d6-dae8-4f8a-9164-4969528b2293",
+      "name": "Bakalaki Greek Taverna"
+    },
+    {
+      "id": "84b517f4-1ade-4908-988d-ed3cdb7078c6",
+      "name": "Naga House"
+    },
+    {
+      "id": "b250caa1-9e40-464f-847f-995ef859adbc",
+      "name": "Gamtan SG"
+    },
+    {
+      "id": "65d6df89-8d08-4334-b29f-df6e33c7a870",
+      "name": "No Horse Run"
+    },
+    {
+      "id": "3295fc94-03af-42fe-b10b-024103bc5903",
+      "name": "Gelato Messina"
+    },
+    {
+      "id": "4070ac21-9e3d-4cfd-8ff2-9d55b5ac5987",
+      "name": "Beans & Cream"
+    },
+    {
+      "id": "0b8cd60e-c7f5-4e1b-afb5-fb7e00af16b4",
+      "name": "Super Star K"
+    },
+    {
+      "id": "442234f3-88d1-4b03-bdf4-bba64ca43e67",
+      "name": "George Town Tze Char and Craft Beer"
+    },
+    {
+      "id": "9f0c07a4-7e39-4124-8660-524c9f2dc25d",
+      "name": "Oatla"
+    },
+    {
+      "id": "b4450b98-13af-4e08-a5b1-f18f2cdebff0",
+      "name": "Beppu Menkan"
+    },
+    {
+      "id": "c0ab1d7f-d20c-44db-a933-80e45e8fb911",
+      "name": "Supulae Korean BBQ"
+    },
+    {
+      "id": "993b37e4-efbc-448c-9183-0cca936f28b8",
+      "name": "Go Ba"
+    },
+    {
+      "id": "b870d14d-68d7-455d-b29d-7e949020e636",
+      "name": "Birds Of A Feather"
+    },
+    {
+      "id": "2227c578-26a1-426c-a817-db343a99a0e9",
+      "name": "Omma Korean Charcoal BBQ"
+    },
+    {
+      "id": "92d518ca-2548-43d8-84a2-72209e3b5bfc",
+      "name": "Surrey Hills Grocer"
+    },
+    {
+      "id": "5f39b424-27f3-4275-a9f3-9b3da42c5262",
+      "name": "Guiga Korean BBQ Restaurant"
+    },
+    {
+      "id": "af4195d1-d87a-4b5e-8eab-9369047decdf",
+      "name": "Open Farm Community"
+    },
+    {
+      "id": "5afe92bb-c383-470d-a123-cc6506320379",
+      "name": "Birds Of Paradise Gelato Boutique"
+    },
+    {
+      "id": "1cc4c68d-f8dd-4426-a218-cb536632fc60",
+      "name": "Surrey Hills Grocer"
+    },
+    {
+      "id": "77a35114-eb3e-4fe7-8994-ea3a4ff6c5ff",
+      "name": "Partage Patisserie"
+    },
+    {
+      "id": "65d75efb-cb23-480f-9f78-06aae541fa3d",
+      "name": "Guilt"
+    },
+    {
+      "id": "afbbc674-ef71-4214-a444-5492152cd4ef",
+      "name": "Bloom Artisan"
+    },
+    {
+      "id": "a46e837f-384b-4b20-b633-f5888f690ca5",
+      "name": "Peony Jade"
+    },
+    {
+      "id": "cd447492-4a02-4130-ae9d-569cc2d7d17a",
+      "name": "Gwangjang Gaon"
+    },
+    {
+      "id": "21d82965-de7f-4490-9cab-98e9912aabc5",
+      "name": "Picanhas’"
+    },
+    {
+      "id": "805a7107-24b5-42f8-bde5-dcce475aff57",
+      "name": "British Indian Curry Hut"
+    },
+    {
+      "id": "9e7a9321-709a-449c-890f-6da631cb611e",
+      "name": "Pierre Herme Singapore"
+    },
+    {
+      "id": "def65e7e-3c6b-476f-a84b-b32e6976a23b",
+      "name": "Harry's Eurasian Pies"
+    },
+    {
+      "id": "cc1425a8-c79f-4729-a7ab-de748e5d1d91",
+      "name": "Pizza Studio Tamaki (PST)"
+    },
+    {
+      "id": "98183bc0-744d-4d5f-a57f-ff87a2e9eac6",
+      "name": "Caffe Cicheti"
+    },
+    {
+      "id": "1a5907f6-caee-4c35-8654-8dc7f2e1bcf5",
+      "name": "Heng"
+    },
+    {
+      "id": "70e5ed1a-6807-4a01-9e72-ef8573a71c48",
+      "name": "Ponggol Nasi Lemak"
+    },
+    {
+      "id": "67851625-3085-4aa2-8250-0c9b05bd0005",
+      "name": "Cenzo"
+    },
+    {
+      "id": "01c76a3f-2ac9-494a-9daa-7b832768e08d",
+      "name": "Thai Express"
+    },
+    {
+      "id": "281c67d7-47eb-4626-b819-62ce0bf8b2a2",
+      "name": "Hollin"
+    },
+    {
+      "id": "6e9b8a96-534d-4380-a225-13d5bc3c90c8",
+      "name": "Popo & Nana’s Delights"
+    },
+    {
+      "id": "7b6a32a6-6ff0-49c9-a95e-effe2fdd30fc",
+      "name": "Chagee"
+    },
+    {
+      "id": "40913331-f5f5-458f-9330-d9746b608da3",
+      "name": "The Blue Ginger"
+    },
+    {
+      "id": "5bd49786-6175-4099-b71a-3ef92a197e88",
+      "name": "Homm Dessert"
+    },
+    {
+      "id": "5cbb30fb-49ab-4e1b-aac3-5c020907f3be",
+      "name": "Por Kee Eating House 1996"
+    },
+    {
+      "id": "b2c4f6b7-7867-4189-a536-b9d36d85ac94",
+      "name": "The Coastal Settlement"
+    },
+    {
+      "id": "f9032b1d-f5cb-47f5-83d0-f1b4b767ed14",
+      "name": "Hopscotch"
+    },
+    {
+      "id": "1e1b3b25-ba39-4777-a71e-c522caef4fcb",
+      "name": "PS. Cafe Katong"
+    },
+    {
+      "id": "cd08c022-8283-4908-b3dd-1b2e785529ed",
+      "name": "The Masses"
+    },
+    {
+      "id": "cedc1910-5c69-49f2-9b7a-350a99a5f884",
+      "name": "Charim Korean BBQ"
+    },
+    {
+      "id": "f8adbcae-d1d4-4f6d-95d6-57b6368e2890",
+      "name": "Hua Yu Wee Seafood Restaurant"
+    },
+    {
+      "id": "b3a7a458-8350-436f-8cb0-842b7de5b42a",
+      "name": "PUJIM BBQ"
+    },
+    {
+      "id": "8f220c7b-f8d1-43c7-a434-711598d5b5f7",
+      "name": "ChaTraMue"
+    },
+    {
+      "id": "140e2a23-3177-4a81-b461-526435124125",
+      "name": "Rappu"
+    },
+    {
+      "id": "03903e27-a967-4501-b49e-d5a2c54bb9b0",
+      "name": "CheongDamChae"
+    },
+    {
+      "id": "8a9d14df-59c6-494d-8f7a-d7cfbcd79f50",
+      "name": "Indocafe The White House"
+    },
+    {
+      "id": "8dd5933b-3132-4c12-8b51-d8c8040215c5",
+      "name": "The Providore"
+    },
+    {
+      "id": "11a3ed22-9edc-4c7f-8a60-40b7b09eeed2",
+      "name": "Rasa Istimewa Waterfront Restaurant"
+    },
+    {
+      "id": "9c479f0e-d2a2-4ec8-840c-decbfeb332ae",
+      "name": "Jia He Chinese Restaurant"
+    },
+    {
+      "id": "4a0b390c-45e8-46f1-a994-daa415a4a13b",
+      "name": "Cheval Chi Bao"
+    },
+    {
+      "id": "d2cdd7c6-8e75-4a78-8e32-a1bc905ce1af",
+      "name": "Raw Kitchen Bar"
+    },
+    {
+      "id": "0253ccf5-2494-4850-b199-6df1185c1154",
+      "name": "Rempapa"
+    },
+    {
+      "id": "7928fa94-da7b-4516-be83-7f33941ed18f",
+      "name": "CHICHA San Chen"
+    },
+    {
+      "id": "e687a1b5-98bc-4b15-80c0-099fea4f914c",
+      "name": "Jia Xiang Economic Curry Rice"
+    },
+    {
+      "id": "9b9894b5-e1ce-4287-9ba3-1212cbb17e1c",
+      "name": "Chuan Kee Seafood"
+    },
+    {
+      "id": "98771e18-8577-4143-82e1-bb6c07f2d36b",
+      "name": "Jypsy One Fullerton"
+    },
+    {
+      "id": "0dc1211d-8d39-437f-b9be-2153b5378082",
+      "name": "The Summerhouse"
+    },
+    {
+      "id": "239ac3e8-e270-4bbd-95a3-1ba6e811eb91",
+      "name": "Sakedokoro Eizaburo"
+    },
+    {
+      "id": "3dc5c42b-cdd4-43c3-b7bb-a37bff443cf4",
+      "name": "Cicheti"
+    },
+    {
+      "id": "69f4f4fe-e640-4df5-9112-8502d83ea197",
+      "name": "Sen"
+    },
+    {
+      "id": "0f2d5547-a873-4034-aa20-6933ebb3e6a6",
+      "name": "Kafe Utu"
+    },
+    {
+      "id": "9b9df905-6c88-4391-af2e-97d9ef044adf",
+      "name": "Shaburi And Kintan Buffet"
+    },
+    {
+      "id": "7a142b07-b698-4bf3-a688-109ecfe2b4c6",
+      "name": "Kai Xin Crabs"
+    },
+    {
+      "id": "4484c197-9353-4226-9e0a-446de1b9a419",
+      "name": "Shin Minori Japanese Restaurant"
+    },
+    {
+      "id": "477f985b-30b9-45b3-b305-4275101dff74",
+      "name": "Tipsy Bird Gastrobar"
+    },
+    {
+      "id": "f270cd7b-2f54-44f7-8247-f823e783d61b",
+      "name": "Keng Eng Kee"
+    },
+    {
+      "id": "9a589bdd-ddb9-4434-949d-3e9d8224c8fe",
+      "name": "Shin Yuu Japanese Restaurant"
+    },
+    {
+      "id": "f3315a8a-1b6c-4fd4-b47f-5c419e2a5f5c",
+      "name": "Kotuwa"
+    },
+    {
+      "id": "a3c681cc-561c-4a7d-8880-59001856d982",
+      "name": "Todamgol Restaurant"
+    },
+    {
+      "id": "1af3993b-7f9c-4fbc-b03d-502c4183149d",
+      "name": "Siri House"
+    },
+    {
+      "id": "21a4ab24-ab32-466f-8053-cdb66d768d78",
+      "name": "Toku Nori"
+    },
+    {
+      "id": "399e4a92-86f6-47cd-af6b-c1773744be3e",
+      "name": "Kremi"
+    },
+    {
+      "id": "2974a049-5392-4d23-b109-219804bb5b7b",
+      "name": "SLUSHYAH"
+    },
+    {
+      "id": "063eea49-1712-48fe-9d38-26c194c7471a",
+      "name": "Kulto"
+    },
+    {
+      "id": "30631335-586a-4ce7-abcd-35fcdc8b6d56",
+      "name": "Torasho Ramen And Charcoal Bar"
+    },
+    {
+      "id": "b4d1c273-105f-4574-be82-135d2a6c9969",
+      "name": "Social Place"
+    },
+    {
+      "id": "985a31ec-e4e0-419d-944a-79a3f0598b1f",
+      "name": "Kungfu JB Pau (Tampines)"
+    },
+    {
+      "id": "77678c0c-8910-43aa-9e8f-d335be80e400",
+      "name": "SODENG Korean Restaurant"
+    },
+    {
+      "id": "585e0d95-4290-481f-92df-c380e47c4e73",
+      "name": "DDSD"
+    },
+    {
+      "id": "37d0b387-4db5-4204-9a7e-e49cec975041",
+      "name": "L’antica Pizzeria da Michele"
+    },
+    {
+      "id": "b71dd9fd-1ce2-4cd0-968d-c29dd9d41d51",
+      "name": "Soft Spot"
+    },
+    {
+      "id": "de33ba9c-138a-4cad-b5f2-d05cf207fd33",
+      "name": "Lagnaa Barefoot Dining"
+    },
+    {
+      "id": "3520e823-4088-4db0-994f-7e2b636c8549",
+      "name": "Denzy Gelato"
+    },
+    {
+      "id": "3522c1e7-c817-47f0-a17d-1aeb6920f338",
+      "name": "Dian Din Leluk"
+    },
+    {
+      "id": "445e0267-f3f6-4c5a-9292-9a7c947b2463",
+      "name": "Alice Boulangerie"
+    },
+    {
+      "id": "1a5907f6-caee-4c35-8654-8dc7f2e1bcf5",
+      "name": "Heng"
+    },
+    {
+      "id": "98183bc0-744d-4d5f-a57f-ff87a2e9eac6",
+      "name": "Caffe Cicheti"
+    },
+    {
+      "id": "ff9abe24-acd6-44a5-925d-2014e007e9dc",
+      "name": "Amò"
+    },
+    {
+      "id": "281c67d7-47eb-4626-b819-62ce0bf8b2a2",
+      "name": "Hollin"
+    },
+    {
+      "id": "67851625-3085-4aa2-8250-0c9b05bd0005",
+      "name": "Cenzo"
+    },
+    {
+      "id": "f306e380-b4ba-4ea2-b942-b93c7fe69cbd",
+      "name": "Eee Mo BBQ"
+    },
+    {
+      "id": "f05cae82-f914-430f-8a33-d0ba4e076851",
+      "name": "Apartment Coffee"
+    },
+    {
+      "id": "5bd49786-6175-4099-b71a-3ef92a197e88",
+      "name": "Homm Dessert"
+    },
+    {
+      "id": "d4bfe578-94d5-4e0c-af76-20e28a7f7fd5",
+      "name": "En Sushi"
+    },
+    {
+      "id": "7b6a32a6-6ff0-49c9-a95e-effe2fdd30fc",
+      "name": "Chagee"
+    },
+    {
+      "id": "5ad87033-d353-4a17-93c2-ffc950aaec90",
+      "name": "Artichoke"
+    },
+    {
+      "id": "f9032b1d-f5cb-47f5-83d0-f1b4b767ed14",
+      "name": "Hopscotch"
+    },
+    {
+      "id": "d83c4e41-a933-428a-9d88-a871aaf0452b",
+      "name": "FairPrice Finest"
+    },
+    {
+      "id": "cedc1910-5c69-49f2-9b7a-350a99a5f884",
+      "name": "Charim Korean BBQ"
+    },
+    {
+      "id": "f8adbcae-d1d4-4f6d-95d6-57b6368e2890",
+      "name": "Hua Yu Wee Seafood Restaurant"
+    },
+    {
+      "id": "4a24b2c8-0443-4758-9201-dd0b52607e0d",
+      "name": "Asia Grand Restaurant 亚洲金阁海鲜酒家"
+    },
+    {
+      "id": "1221d2b3-72fa-4d7d-b3ef-7a6f14607690",
+      "name": "Fu Lin Bar & Kitchen"
+    },
+    {
+      "id": "8f220c7b-f8d1-43c7-a434-711598d5b5f7",
+      "name": "ChaTraMue"
+    },
+    {
+      "id": "8a9d14df-59c6-494d-8f7a-d7cfbcd79f50",
+      "name": "Indocafe The White House"
+    },
+    {
+      "id": "b1f0141f-658c-436e-849f-cf10222c040c",
+      "name": "Bacha Coffee"
+    },
+    {
+      "id": "b250caa1-9e40-464f-847f-995ef859adbc",
+      "name": "Gamtan SG"
+    },
+    {
+      "id": "03903e27-a967-4501-b49e-d5a2c54bb9b0",
+      "name": "CheongDamChae"
+    },
+    {
+      "id": "9c479f0e-d2a2-4ec8-840c-decbfeb332ae",
+      "name": "Jia He Chinese Restaurant"
+    },
+    {
+      "id": "8891c1d6-dae8-4f8a-9164-4969528b2293",
+      "name": "Bakalaki Greek Taverna"
+    },
+    {
+      "id": "3295fc94-03af-42fe-b10b-024103bc5903",
+      "name": "Gelato Messina"
+    },
+    {
+      "id": "e687a1b5-98bc-4b15-80c0-099fea4f914c",
+      "name": "Jia Xiang Economic Curry Rice"
+    },
+    {
+      "id": "4a0b390c-45e8-46f1-a994-daa415a4a13b",
+      "name": "Cheval Chi Bao"
+    },
+    {
+      "id": "4070ac21-9e3d-4cfd-8ff2-9d55b5ac5987",
+      "name": "Beans & Cream"
+    },
+    {
+      "id": "442234f3-88d1-4b03-bdf4-bba64ca43e67",
+      "name": "George Town Tze Char and Craft Beer"
+    },
+    {
+      "id": "98771e18-8577-4143-82e1-bb6c07f2d36b",
+      "name": "Jypsy One Fullerton"
+    },
+    {
+      "id": "b4450b98-13af-4e08-a5b1-f18f2cdebff0",
+      "name": "Beppu Menkan"
+    },
+    {
+      "id": "993b37e4-efbc-448c-9183-0cca936f28b8",
+      "name": "Go Ba"
+    },
+    {
+      "id": "7928fa94-da7b-4516-be83-7f33941ed18f",
+      "name": "CHICHA San Chen"
+    },
+    {
+      "id": "0f2d5547-a873-4034-aa20-6933ebb3e6a6",
+      "name": "Kafe Utu"
+    },
+    {
+      "id": "b870d14d-68d7-455d-b29d-7e949020e636",
+      "name": "Birds Of A Feather"
+    },
+    {
+      "id": "9b9894b5-e1ce-4287-9ba3-1212cbb17e1c",
+      "name": "Chuan Kee Seafood"
+    },
+    {
+      "id": "5f39b424-27f3-4275-a9f3-9b3da42c5262",
+      "name": "Guiga Korean BBQ Restaurant"
+    },
+    {
+      "id": "7a142b07-b698-4bf3-a688-109ecfe2b4c6",
+      "name": "Kai Xin Crabs"
+    },
+    {
+      "id": "5afe92bb-c383-470d-a123-cc6506320379",
+      "name": "Birds Of Paradise Gelato Boutique"
+    },
+    {
+      "id": "3dc5c42b-cdd4-43c3-b7bb-a37bff443cf4",
+      "name": "Cicheti"
+    },
+    {
+      "id": "65d75efb-cb23-480f-9f78-06aae541fa3d",
+      "name": "Guilt"
+    },
+    {
+      "id": "afbbc674-ef71-4214-a444-5492152cd4ef",
+      "name": "Bloom Artisan"
+    },
+    {
+      "id": "585e0d95-4290-481f-92df-c380e47c4e73",
+      "name": "DDSD"
+    },
+    {
+      "id": "cd447492-4a02-4130-ae9d-569cc2d7d17a",
+      "name": "Gwangjang Gaon"
+    },
+    {
+      "id": "805a7107-24b5-42f8-bde5-dcce475aff57",
+      "name": "British Indian Curry Hut"
+    },
+    {
+      "id": "3520e823-4088-4db0-994f-7e2b636c8549",
+      "name": "Denzy Gelato"
+    },
+    {
+      "id": "3522c1e7-c817-47f0-a17d-1aeb6920f338",
+      "name": "Dian Din Leluk"
+    },
+    {
+      "id": "def65e7e-3c6b-476f-a84b-b32e6976a23b",
+      "name": "Harry's Eurasian Pies"
+    }
+  ],
+  "lastRun": "2025-12-26T17:58:16.065Z"
+}

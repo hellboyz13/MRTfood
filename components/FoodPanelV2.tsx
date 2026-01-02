@@ -530,7 +530,6 @@ export default function FoodPanelV2({ stationId, onClose, onNavigateToStation, i
   };
 
   const renderMallsContent = () => {
-    console.log('🏬 renderMallsContent:', { selectedMallId, selectedMall, outlets: outlets.length, outletsLoading });
 
     // If a mall is selected, show the outlet list
     if (selectedMallId) {
@@ -584,7 +583,6 @@ export default function FoodPanelV2({ stationId, onClose, onNavigateToStation, i
   };
 
   const renderContent = () => {
-    console.log('📄 renderContent:', { loading, mallsLoading, mode, availableModes, hasMallsContent });
 
     // Show loading state while data is being fetched
     if (loading || mallsLoading) {
@@ -753,7 +751,7 @@ export default function FoodPanelV2({ stationId, onClose, onNavigateToStation, i
   // Desktop panel
   if (!isMobile) {
     return (
-      <SpinSelectionProvider>
+      <SpinSelectionProvider key={stationId} stationId={stationId || 'unknown'}>
       <div className="w-[350px] h-full bg-white border-l border-gray-200 shadow-lg panel-container relative">
         {/* Main listing panel */}
         <div className={`panel-content ${selectedMenuListing ? 'slide-out-left' : ''} bg-white`}>
@@ -795,7 +793,7 @@ export default function FoodPanelV2({ stationId, onClose, onNavigateToStation, i
 
   // Mobile drawer with swipe-to-dismiss
   return (
-    <SpinSelectionProvider>
+    <SpinSelectionProvider key={stationId} stationId={stationId || 'unknown'}>
     <MobileDrawer
       stationName={stationName}
       onClose={onClose}

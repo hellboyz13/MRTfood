@@ -18,8 +18,18 @@ interface OpeningHours {
 }
 
 // Helper to get today's hours (just the time range, no open/closed status)
-function getTodayHours(openingHours: OpeningHours | null): string | null {
-  if (!openingHours?.weekday_text || openingHours.weekday_text.length === 0) {
+function getTodayHours(openingHours: OpeningHours | string | null): string | null {
+  if (!openingHours) {
+    return null;
+  }
+
+  // Handle plain text string (e.g., "Daily 10am to 8pm")
+  if (typeof openingHours === 'string') {
+    return openingHours;
+  }
+
+  // Handle structured object with weekday_text
+  if (!openingHours.weekday_text || openingHours.weekday_text.length === 0) {
     return null;
   }
 
@@ -45,8 +55,8 @@ function getTodayHours(openingHours: OpeningHours | null): string | null {
 }
 
 export default function OutletDetailPanel({ outlet, mallName, onBack }: OutletDetailPanelProps) {
-  // Get opening hours directly from outlet
-  const openingHours = outlet.opening_hours as OpeningHours | null;
+  // Get opening hours directly from outlet (can be JSON object or plain string)
+  const openingHours = outlet.opening_hours as OpeningHours | string | null;
 
   // Get today's hours (just time range)
   const todayHours = getTodayHours(openingHours);

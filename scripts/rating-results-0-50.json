@@ -1,0 +1,302 @@
+[
+  {
+    "id": "39425449-b64d-4151-89de-96f5a7dd9a5a",
+    "name": "2am: dessertbar",
+    "rating": 4.6,
+    "reviewCount": null
+  },
+  {
+    "id": "e4b76db4-01f3-427d-8562-89eee1b5e1a7",
+    "name": "302 Foodhouse Bak Chor Mee",
+    "rating": 4.1,
+    "reviewCount": 2128
+  },
+  {
+    "id": "1274d79a-ac39-42a5-bed6-92006287922e",
+    "name": "328 Katong Laksa",
+    "rating": 3.9,
+    "reviewCount": 3713
+  },
+  {
+    "id": "e664deb0-a67b-49bd-8829-f480ed1999c3",
+    "name": "335 Hong Kong Roasted Meat",
+    "rating": 4.3,
+    "reviewCount": 68
+  },
+  {
+    "id": "cbf6deea-3977-41b9-92b5-e7b256ecf669",
+    "name": "5 Star Corner Western Food",
+    "rating": 3.8,
+    "reviewCount": 766
+  },
+  {
+    "id": "33a6b0ac-1822-41a8-8d37-81992b8d75a9",
+    "name": "Abseil",
+    "rating": 4.7,
+    "reviewCount": 194
+  },
+  {
+    "id": "af656bd7-809b-4745-97d3-c24377c40bba",
+    "name": "Abundance",
+    "rating": 4.7,
+    "reviewCount": 2537
+  },
+  {
+    "id": "d6eccf03-092d-4e7a-97b2-3a2c7f97623a",
+    "name": "Adam Road Food Centre",
+    "rating": 4.1,
+    "reviewCount": 8038
+  },
+  {
+    "id": "47353ff2-8a33-4485-bdbe-450f7469aaa5",
+    "name": "Adam Road Nasi Lemak",
+    "rating": 4.1,
+    "reviewCount": 8038
+  },
+  {
+    "id": "1280616b-9594-4564-9fb0-15ce6ab23add",
+    "name": "Ah Boy Chicken Rice",
+    "rating": 4.1,
+    "reviewCount": 341
+  },
+  {
+    "id": "4b91ead1-02cf-49ad-9047-1720365ac11f",
+    "name": "Ah Cai",
+    "rating": 4.9,
+    "reviewCount": 20
+  },
+  {
+    "id": "6971bffc-77bf-4eea-b1db-c36df5983720",
+    "name": "Ah Er Soup",
+    "rating": 4.6,
+    "reviewCount": 36
+  },
+  {
+    "id": "327c35a1-7b5a-437b-a5ee-b98da9381d58",
+    "name": "Ah Hock Fried Hokkien Noodles",
+    "rating": 3.4,
+    "reviewCount": 164
+  },
+  {
+    "id": "d502a1ea-ad9c-4c05-95d4-6b86080d61ac",
+    "name": "Ah Jie Hokkien Mee",
+    "rating": 4.4,
+    "reviewCount": 426
+  },
+  {
+    "id": "dd632c21-2871-4812-b573-54b0d4774cac",
+    "name": "Ah Kow Mushroom Minced Pork Mee",
+    "rating": 4.1,
+    "reviewCount": 15
+  },
+  {
+    "id": "ed5c6b6e-65ba-43b2-8bce-d80522a56366",
+    "name": "Ah Kow Mushroom Minced Pork Mee",
+    "rating": 4.3,
+    "reviewCount": 16
+  },
+  {
+    "id": "44c755e1-9488-42d3-a938-4bb67e4924e1",
+    "name": "Ah Tai Chicken Rice",
+    "rating": 4.4,
+    "reviewCount": 518
+  },
+  {
+    "id": "80152175-2288-4a8c-af8e-65a109eee12d",
+    "name": "Ah Tai Hainanese Chicken Rice",
+    "rating": 4.4,
+    "reviewCount": 518
+  },
+  {
+    "id": "bc309ca1-f8c2-49cb-a097-03159021c0d2",
+    "name": "Air",
+    "rating": 4.1,
+    "reviewCount": 498
+  },
+  {
+    "id": "0103b88b-e7cf-45d3-acc6-17ae9414ad40",
+    "name": "Ajiya Okonomiyaki Restaurant",
+    "rating": 4.4,
+    "reviewCount": 719
+  },
+  {
+    "id": "680851b4-fa80-4621-a024-d367874678c8",
+    "name": "Al Falah Restaurant",
+    "rating": 4.3,
+    "reviewCount": 2442
+  },
+  {
+    "id": "d9ff58f5-cec6-4404-a89e-d9670b0bab9f",
+    "name": "Alchemist The Heeren",
+    "rating": 4.2,
+    "reviewCount": 717
+  },
+  {
+    "id": "445e0267-f3f6-4c5a-9292-9a7c947b2463",
+    "name": "Alice Boulangerie",
+    "rating": 4.5,
+    "reviewCount": 1187
+  },
+  {
+    "id": "5d9d0754-e4e4-444d-8fd5-2f05a535d5a2",
+    "name": "Aliff Nasi Lemak",
+    "rating": 4.1,
+    "reviewCount": 152
+  },
+  {
+    "id": "84cc1456-1495-4625-b930-09afb5148565",
+    "name": "Allauddin's Briyani",
+    "rating": 3.7,
+    "reviewCount": 536
+  },
+  {
+    "id": "9edf276f-830f-4a97-b7c6-cac68783c80b",
+    "name": "Alliance Seafood",
+    "rating": 3.6,
+    "reviewCount": 192
+  },
+  {
+    "id": "40d67b87-bd0c-4ec8-801f-054eb4447a8a",
+    "name": "Alt. Pizza",
+    "rating": 4.2,
+    "reviewCount": 209
+  },
+  {
+    "id": "ff9abe24-acd6-44a5-925d-2014e007e9dc",
+    "name": "Amò",
+    "rating": 4.3,
+    "reviewCount": 1452
+  },
+  {
+    "id": "591c4fc1-c8d3-43fb-9e67-b017d82ccabc",
+    "name": "An Choi",
+    "rating": 5,
+    "reviewCount": 1
+  },
+  {
+    "id": "597b6cd7-38c7-4e3e-a63c-f7c9ef11c80d",
+    "name": "AN Omakase",
+    "rating": 4.7,
+    "reviewCount": 524
+  },
+  {
+    "id": "54036534-e966-4aa0-b553-c98109995220",
+    "name": "Ananda Bhavan",
+    "rating": 3.8,
+    "reviewCount": 186
+  },
+  {
+    "id": "0bd2515b-01d5-4d10-98f2-1728df4196ee",
+    "name": "Ang Mo Kio Fried Kway Teow",
+    "rating": 4.2,
+    "reviewCount": 261
+  },
+  {
+    "id": "0b245d9e-9713-4a16-a0ac-8046e6f972fe",
+    "name": "Ang Moh Noodle House",
+    "rating": 3.9,
+    "reviewCount": 488
+  },
+  {
+    "id": "48c0d94f-47ed-45c4-ac15-d8d9ff565a33",
+    "name": "Ann Chin Popiah",
+    "rating": 3,
+    "reviewCount": 7
+  },
+  {
+    "id": "822c5fae-b54d-46c6-8a58-c664f29eb3b3",
+    "name": "Anna’s Sourdough",
+    "rating": 4.4,
+    "reviewCount": 1523
+  },
+  {
+    "id": "bbc6822e-845e-487c-a122-954132461916",
+    "name": "Anshun Fish Soup",
+    "rating": 4.5,
+    "reviewCount": 496
+  },
+  {
+    "id": "f05cae82-f914-430f-8a33-d0ba4e076851",
+    "name": "Apartment Coffee",
+    "rating": 4.7,
+    "reviewCount": 1297
+  },
+  {
+    "id": "5b2a99d3-312e-4369-912f-e311be9929f3",
+    "name": "Apollo Coffee Bar",
+    "rating": 4,
+    "reviewCount": 1006
+  },
+  {
+    "id": "b3ce46ea-06b1-47b7-b592-abd6b80a5562",
+    "name": "Apricus Coffee & Food Co.",
+    "rating": 4.1,
+    "reviewCount": 611
+  },
+  {
+    "id": "5ad87033-d353-4a17-93c2-ffc950aaec90",
+    "name": "Artichoke",
+    "rating": 4.3,
+    "reviewCount": 1750
+  },
+  {
+    "id": "4a24b2c8-0443-4758-9201-dd0b52607e0d",
+    "name": "Asia Grand Restaurant 亚洲金阁海鲜酒家",
+    "rating": 4.4,
+    "reviewCount": 1316
+  },
+  {
+    "id": "7b85edfd-2556-4e7d-9113-1a102bd0bfcf",
+    "name": "Astons Specialties",
+    "rating": 4.6,
+    "reviewCount": 1616
+  },
+  {
+    "id": "5bb46f38-b2b2-43d4-a19f-6ba42232cc71",
+    "name": "Average Service",
+    "rating": 4.7,
+    "reviewCount": 2332
+  },
+  {
+    "id": "6ee8c648-4a88-4478-8677-7399e325f540",
+    "name": "Ba Buong Banh Mi",
+    "rating": 4.7,
+    "reviewCount": 538
+  },
+  {
+    "id": "4d917a82-8dd8-4904-83aa-186a1512de7d",
+    "name": "Bac Viet",
+    "rating": 4.8,
+    "reviewCount": 190
+  },
+  {
+    "id": "b1f0141f-658c-436e-849f-cf10222c040c",
+    "name": "Bacha Coffee",
+    "rating": 3.5,
+    "reviewCount": 69
+  },
+  {
+    "id": "5c353c9f-1835-49ea-93fa-61f15ae8bab1",
+    "name": "Bak Chor Mee",
+    "rating": 3.9,
+    "reviewCount": 3950
+  },
+  {
+    "id": "8891c1d6-dae8-4f8a-9164-4969528b2293",
+    "name": "Bakalaki Greek Taverna",
+    "rating": 4.5,
+    "reviewCount": 4179
+  },
+  {
+    "id": "000dedd5-4a8e-4e7c-b839-68170cccaf73",
+    "name": "Balestier Road Hoover Rojak",
+    "rating": 4.1,
+    "reviewCount": 187
+  },
+  {
+    "id": "49365fb1-50ce-428f-b926-b4b11e94d1c0",
+    "name": "Bali Nasi Lemak",
+    "rating": 4.2,
+    "reviewCount": 202
+  }
+]

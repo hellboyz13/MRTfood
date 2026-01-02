@@ -6,6 +6,11 @@ import { getMapsUrl } from '@/lib/distance';
 import { useSpinSelection } from '@/contexts/SpinSelectionContext';
 
 // Hook to fetch thumbnail for a listing
+interface MenuImage {
+  image_url: string;
+  is_header?: boolean;
+}
+
 function useThumbnail(listingId: string | null) {
   const [thumbnail, setThumbnail] = useState<string | null>(null);
 
@@ -15,20 +20,30 @@ function useThumbnail(listingId: string | null) {
       return;
     }
 
+    let cancelled = false;
+
     async function fetchThumbnail() {
       try {
         const response = await fetch(`/api/get-menu-images?listingId=${listingId}`);
+        if (cancelled) return;
+
         const data = await response.json();
+        if (cancelled) return;
+
         if (data.success && data.images.length > 0) {
-          const headerImg = data.images.find((img: any) => img.is_header);
+          const headerImg = data.images.find((img: MenuImage) => img.is_header);
           setThumbnail(headerImg?.image_url || data.images[0]?.image_url);
         }
       } catch {
-        // Silently fail
+        // Silently fail - thumbnail is optional
       }
     }
 
     fetchThumbnail();
+
+    return () => {
+      cancelled = true;
+    };
   }, [listingId]);
 
   return thumbnail;
@@ -87,22 +102,19 @@ export default function SlotMachine({ listings, onClose }: SlotMachineProps) {
     const maxSpins = 30;
     let currentSpeed = 50;
 
-    spinIntervalRef.current = setInterval(() => {
+    // Use recursive setTimeout instead of setInterval so speed changes take effect
+    const doSpin = () => {
       // Change listing rapidly
       setCurrentListing(spinListings[Math.floor(Math.random() * spinListings.length)]);
 
       spinCount++;
 
-      // Gradually slow down
+      // Gradually slow down after 20 spins
       if (spinCount > 20) {
         currentSpeed += 20;
       }
 
       if (spinCount >= maxSpins) {
-        if (spinIntervalRef.current) {
-          clearInterval(spinIntervalRef.current);
-        }
-
         // Pick final winner
         const randomWinner = spinListings[Math.floor(Math.random() * spinListings.length)];
         setCurrentListing(randomWinner);
@@ -113,14 +125,20 @@ export default function SlotMachine({ listings, onClose }: SlotMachineProps) {
 
         // Hide celebration after animation
         setTimeout(() => setShowCelebration(false), 1500);
+      } else {
+        // Schedule next spin with updated speed
+        spinIntervalRef.current = setTimeout(doSpin, currentSpeed);
       }
-    }, currentSpeed);
+    };
+
+    // Start spinning
+    spinIntervalRef.current = setTimeout(doSpin, currentSpeed);
   }, [spinListings, isSpinning]);
 
   useEffect(() => {
     return () => {
       if (spinIntervalRef.current) {
-        clearInterval(spinIntervalRef.current);
+        clearTimeout(spinIntervalRef.current);
       }
     };
   }, []);

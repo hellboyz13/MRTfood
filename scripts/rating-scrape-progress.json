@@ -1,0 +1,76 @@
+{
+  "processed": 874,
+  "found": 857,
+  "updated": 857,
+  "failed": [
+    {
+      "id": "6559bb53-a6c2-4b83-9d5e-9fe35db4b357",
+      "name": "Ka"
+    },
+    {
+      "id": "f3315a8a-1b6c-4fd4-b47f-5c419e2a5f5c",
+      "name": "Kotuwa"
+    },
+    {
+      "id": "40daca59-ba2e-449e-9f70-d8271acda0b8",
+      "name": "Pin Wei Hong Kong Style CCF (Senja)"
+    },
+    {
+      "id": "348dce1a-6bd4-4bbb-81ef-6ac168bdef8e",
+      "name": "Pin Wei Hong Kong Style Chee Cheong Fun (BP)"
+    },
+    {
+      "id": "071692d6-6519-49b2-8a6a-fa1f7e073d6b",
+      "name": "Corner Corner"
+    },
+    {
+      "id": "071692d6-6519-49b2-8a6a-fa1f7e073d6b",
+      "name": "Corner Corner"
+    },
+    {
+      "id": "6559bb53-a6c2-4b83-9d5e-9fe35db4b357",
+      "name": "Ka"
+    },
+    {
+      "id": "40daca59-ba2e-449e-9f70-d8271acda0b8",
+      "name": "Pin Wei Hong Kong Style CCF (Senja)"
+    },
+    {
+      "id": "f3315a8a-1b6c-4fd4-b47f-5c419e2a5f5c",
+      "name": "Kotuwa"
+    },
+    {
+      "id": "348dce1a-6bd4-4bbb-81ef-6ac168bdef8e",
+      "name": "Pin Wei Hong Kong Style Chee Cheong Fun (BP)"
+    },
+    {
+      "id": "071692d6-6519-49b2-8a6a-fa1f7e073d6b",
+      "name": "Corner Corner"
+    },
+    {
+      "id": "6559bb53-a6c2-4b83-9d5e-9fe35db4b357",
+      "name": "Ka"
+    },
+    {
+      "id": "f3315a8a-1b6c-4fd4-b47f-5c419e2a5f5c",
+      "name": "Kotuwa"
+    },
+    {
+      "id": "40daca59-ba2e-449e-9f70-d8271acda0b8",
+      "name": "Pin Wei Hong Kong Style CCF (Senja)"
+    },
+    {
+      "id": "3f9cdabc-5b5c-4f35-9f54-ea50ba77464e",
+      "name": "Warung Dim Sum"
+    },
+    {
+      "id": "348dce1a-6bd4-4bbb-81ef-6ac168bdef8e",
+      "name": "Pin Wei Hong Kong Style Chee Cheong Fun (BP)"
+    },
+    {
+      "id": "6875906c-a34e-4aee-9094-916e33241889",
+      "name": "Xiao Di Fried Prawn Noodle"
+    }
+  ],
+  "lastRun": "2025-12-26T17:04:26.947Z"
+}

@@ -255,9 +255,11 @@ export default function FoodListingCardV2({ listing, highlighted = false, onView
   const walkingTime = getWalkingTime(listing.walking_time, distance);
   const formattedDistance = formatDistance(distance);
 
-  // Get primary and secondary sources, filtering out hidden sources (Popular, Michelin 1-3 stars)
-  const primarySources = listing.sources.filter(s => s.is_primary && !HIDDEN_SOURCE_IDS.includes(s.source.id));
-  const secondarySources = listing.sources.filter(s => !s.is_primary && !HIDDEN_SOURCE_IDS.includes(s.source.id));
+  // Get all visible sources (filter out hidden ones like Popular, Michelin 1-3 stars)
+  const allVisibleSources = listing.sources.filter(s => !HIDDEN_SOURCE_IDS.includes(s.source.id));
+  // First source shows as main badge, rest show as "Also on:"
+  const primarySources = allVisibleSources.slice(0, 1);
+  const secondarySources = allVisibleSources.slice(1);
 
   // Intersection Observer to detect when card is visible
   useEffect(() => {
@@ -383,11 +385,11 @@ export default function FoodListingCardV2({ listing, highlighted = false, onView
             </div>
           )}
 
-          {/* Secondary sources - "Also on" */}
+          {/* Secondary sources - limit total to 3 */}
           {secondarySources.length > 0 && (
             <div className="flex flex-wrap items-center gap-1 mt-1">
               <span className="text-xs text-gray-500">Also on:</span>
-              {secondarySources.map((s) => (
+              {secondarySources.slice(0, Math.max(0, 3 - primarySources.length)).map((s) => (
                 <SourceBadge
                   key={s.source.id}
                   sourceDetail={s}

@@ -13,14 +13,16 @@ import {
   ChainOutlet,
   GroupedChainOutlets,
   StationSearchResult,
+  SearchMatch,
   ListingPrice,
   Mall,
   MallOutlet,
   MallWithOutletCount,
 } from '@/types/database';
 
-// Re-export the new food search function and types
-export { searchStationsByFoodWithCounts, DEFAULT_PAGE_SIZE } from './food-search';
+// Import and re-export the new food search function and types
+import { searchStationsByFoodWithCounts, DEFAULT_PAGE_SIZE } from './food-search';
+export { searchStationsByFoodWithCounts, DEFAULT_PAGE_SIZE };
 export type { SearchOptions, SearchResponse, RawSearchResponse } from './food-search';
 
 // Re-export types used by other modules
@@ -447,21 +449,132 @@ export async function getStationsWith24h(): Promise<string[]> {
 // UNIFIED SEARCH - Food & Restaurant
 // ============================================
 
-// Get supper spots (listings with "Supper" tag + mall outlets with supper category) grouped by station
-export async function getSupperSpotsByStation(): Promise<StationSearchResult[]> {
+// Filter response type with pagination
+export interface FilterResponse {
+  results: StationSearchResult[];
+  hasMore: boolean;
+  allStationIds?: string[]; // All matching station IDs for map pins (only on first page)
+}
+
+const FILTER_PAGE_SIZE = 10;
+
+// Helper: Parse opening hours and check if open at given time
+interface OpeningHours {
+  periods?: Array<{ open: { day: number; time: string }; close: { day: number; time: string } }>;
+  weekdayDescriptions?: string[];
+}
+
+function isOpenAtTime(openingHours: OpeningHours | string | null, currentHour: number): boolean | null {
+  if (!openingHours) return null; // Unknown
+
+  // Handle periods format (Google-style)
+  if (typeof openingHours === 'object' && openingHours.periods) {
+    const now = new Date();
+    const dayOfWeek = now.getDay(); // 0 = Sunday
+
+    for (const period of openingHours.periods) {
+      if (period.open.day === dayOfWeek) {
+        const openTime = parseInt(period.open.time.substring(0, 2));
+        const closeTime = parseInt(period.close.time.substring(0, 2));
+
+        // Handle overnight hours (e.g., 22:00 - 02:00)
+        if (closeTime < openTime) {
+          // Open if current hour >= open time OR current hour < close time
+          if (currentHour >= openTime || currentHour < closeTime) return true;
+        } else {
+          if (currentHour >= openTime && currentHour < closeTime) return true;
+        }
+      }
+    }
+    return false;
+  }
+
+  // Handle weekdayDescriptions format
+  if (typeof openingHours === 'object' && openingHours.weekdayDescriptions) {
+    const desc = openingHours.weekdayDescriptions[0]?.toLowerCase() || '';
+
+    // Check for 24h
+    if (desc.includes('24') || desc.includes('open 24')) return true;
+
+    // Parse patterns like "8am to 2am" or "10pm to 3am"
+    const timePattern = /(\d{1,2})\s*(am|pm)\s*to\s*(\d{1,2})\s*(am|pm)/i;
+    const match = desc.match(timePattern);
+    if (match) {
+      let openHour = parseInt(match[1]);
+      const openPeriod = match[2].toLowerCase();
+      let closeHour = parseInt(match[3]);
+      const closePeriod = match[4].toLowerCase();
+
+      // Convert to 24h
+      if (openPeriod === 'pm' && openHour !== 12) openHour += 12;
+      if (openPeriod === 'am' && openHour === 12) openHour = 0;
+      if (closePeriod === 'pm' && closeHour !== 12) closeHour += 12;
+      if (closePeriod === 'am' && closeHour === 12) closeHour = 0;
+
+      // Handle overnight hours
+      if (closeHour < openHour) {
+        if (currentHour >= openHour || currentHour < closeHour) return true;
+      } else {
+        if (currentHour >= openHour && currentHour < closeHour) return true;
+      }
+      return false;
+    }
+  }
+
+  // Handle string format (newline-separated days)
+  if (typeof openingHours === 'string') {
+    const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+    const today = days[new Date().getDay()];
+    const lines = openingHours.toLowerCase().split('\n');
+
+    for (const line of lines) {
+      if (line.includes(today)) {
+        const timePattern = /(\d{1,2}):(\d{2})\s*(am|pm)\s*[–-]\s*(\d{1,2}):(\d{2})\s*(am|pm)/i;
+        const match = line.match(timePattern);
+        if (match) {
+          let openHour = parseInt(match[1]);
+          const openPeriod = match[3].toLowerCase();
+          let closeHour = parseInt(match[4]);
+          const closePeriod = match[6].toLowerCase();
+
+          if (openPeriod === 'pm' && openHour !== 12) openHour += 12;
+          if (openPeriod === 'am' && openHour === 12) openHour = 0;
+          if (closePeriod === 'pm' && closeHour !== 12) closeHour += 12;
+          if (closePeriod === 'am' && closeHour === 12) closeHour = 0;
+
+          if (closeHour < openHour) {
+            if (currentHour >= openHour || currentHour < closeHour) return true;
+          } else {
+            if (currentHour >= openHour && currentHour < closeHour) return true;
+          }
+          return false;
+        }
+      }
+    }
+  }
+
+  return null; // Unknown
+}
+
+// Get supper spots sorted by what's open at current time
+export async function getSupperSpotsByStation(options?: { limit?: number; offset?: number; currentHour?: number }): Promise<FilterResponse> {
+  const limit = options?.limit ?? FILTER_PAGE_SIZE;
+  const offset = options?.offset ?? 0;
+  const currentHour = options?.currentHour ?? new Date().getHours();
+
   // Fetch listings that have "Supper" tag
   const { data: listings, error: listingsError } = await supabase
     .from('food_listings')
-    .select('id, station_id, name')
+    .select('id, station_id, name, opening_hours')
     .eq('is_active', true)
     .not('station_id', 'is', null)
     .contains('tags', ['Supper']);
 
-  // Fetch mall outlets with supper-related categories (case-insensitive search)
+  // Fetch mall outlets open late (common late-night chains, 24h, etc.)
   const { data: mallOutlets, error: mallError } = await supabase
     .from('mall_outlets')
     .select(`
-      id, name, mall_id, category,
+      id, name, mall_id, category, opening_hours,
       malls!inner (id, name, station_id)
     `)
     .or('category.ilike.%supper%,category.ilike.%24%,category.ilike.%late%night%');
@@ -469,59 +582,127 @@ export async function getSupperSpotsByStation(): Promise<StationSearchResult[]> 
   if (listingsError) console.error('Error fetching supper listings:', listingsError);
   if (mallError) console.error('Error fetching supper mall outlets:', mallError);
 
-  // Group by station
-  const stationResultsMap = new Map<string, StationSearchResult>();
+  // Track open status separately for sorting
+  type MatchWithMeta = SearchMatch & { _isOpen?: boolean | null };
+
+  // Group by station with open status
+  const stationResultsMap = new Map<string, { stationId: string; matches: MatchWithMeta[]; openCount: number }>();
 
   // Add curated listings
-  (listings || []).forEach((listing: { id: string; station_id: string | null; name: string }) => {
+  (listings || []).forEach((listing: { id: string; station_id: string | null; name: string; opening_hours?: OpeningHours | string | null }) => {
     if (!listing.station_id) return;
+
+    const isOpen = isOpenAtTime(listing.opening_hours || null, currentHour);
 
     if (!stationResultsMap.has(listing.station_id)) {
       stationResultsMap.set(listing.station_id, {
         stationId: listing.station_id,
         matches: [],
+        openCount: 0,
       });
     }
 
-    stationResultsMap.get(listing.station_id)!.matches.push({
+    const station = stationResultsMap.get(listing.station_id)!;
+    station.matches.push({
       id: listing.id,
       name: listing.name || 'Unknown',
       type: 'curated',
       matchType: 'restaurant',
+      _isOpen: isOpen,
     });
+    if (isOpen === true) station.openCount++;
   });
 
   // Add mall outlets
-  (mallOutlets || []).forEach((outlet: { id: string; name: string; mall_id: string; category: string | null; malls: { id: string; name: string; station_id: string } }) => {
+  (mallOutlets || []).forEach((outlet: { id: string; name: string; mall_id: string; category: string | null; opening_hours?: OpeningHours | string | null; malls: { id: string; name: string; station_id: string } }) => {
     const stationId = outlet.malls?.station_id;
     if (!stationId) return;
+
+    const isOpen = isOpenAtTime(outlet.opening_hours || null, currentHour);
 
     if (!stationResultsMap.has(stationId)) {
       stationResultsMap.set(stationId, {
         stationId: stationId,
         matches: [],
+        openCount: 0,
       });
     }
 
-    stationResultsMap.get(stationId)!.matches.push({
+    const station = stationResultsMap.get(stationId)!;
+    station.matches.push({
       id: outlet.id,
       name: outlet.name || 'Unknown',
       type: 'mall',
       matchType: 'restaurant',
       mallName: outlet.malls?.name,
       mallId: outlet.mall_id,
+      _isOpen: isOpen,
+    });
+    if (isOpen === true) station.openCount++;
+  });
+
+  // Convert to array
+  const allResults = Array.from(stationResultsMap.values());
+
+  // Sort stations: more open places first, then by total matches
+  allResults.sort((a, b) => {
+    if (b.openCount !== a.openCount) return b.openCount - a.openCount;
+    return b.matches.length - a.matches.length;
+  });
+
+  // Sort matches within each station: open first, then closed, then unknown
+  allResults.forEach(station => {
+    station.matches.sort((a, b) => {
+      if (a._isOpen === true && b._isOpen !== true) return -1;
+      if (b._isOpen === true && a._isOpen !== true) return 1;
+      if (a._isOpen === false && b._isOpen === null) return -1;
+      if (b._isOpen === false && a._isOpen === null) return 1;
+      return 0;
     });
   });
 
-  // Convert to array and sort by number of matches
-  const results = Array.from(stationResultsMap.values());
-  results.sort((a, b) => b.matches.length - a.matches.length);
+  // Convert to StationSearchResult format (strip internal metadata)
+  const results: StationSearchResult[] = allResults.map(s => ({
+    stationId: s.stationId,
+    matches: s.matches.map(({ _isOpen, ...match }) => match),
+  }));
 
-  return results;
+  // Apply pagination
+  const paginatedResults = results.slice(offset, offset + limit);
+  const hasMore = offset + limit < results.length;
+
+  // Include all station IDs on first page for map pins
+  const allStationIds = offset === 0 ? results.map(r => r.stationId) : undefined;
+
+  return { results: paginatedResults, hasMore, allStationIds };
 }
 
-// Get dessert spots (listings with "Dessert" tag + mall outlets with dessert category) grouped by station
-export async function getDessertSpotsByStation(): Promise<StationSearchResult[]> {
+// Helper: Get dessert priority score (higher = better dessert, lower = bakery/bread)
+function getDessertPriority(category: string | null): number {
+  if (!category) return 0;
+  const cat = category.toLowerCase();
+
+  // Priority 1: Actual dessert places (ice cream, desserts, bubble tea)
+  if (cat.includes('dessert') || cat.includes('ice cream')) return 4;
+  if (cat.includes('bubble tea') || cat.includes('bbt')) return 3;
+
+  // Priority 2: Cafes (often serve desserts, waffles, cakes)
+  if (cat.includes('cafe') && !cat.includes('bakery')) return 2;
+
+  // Priority 3: Bakery-cafes (mix of both)
+  if (cat.includes('cafe') && cat.includes('bakery')) return 1;
+
+  // Priority 4: Pure bakeries (mostly bread)
+  if (cat.includes('bakery')) return 0;
+
+  return 0;
+}
+
+// Get dessert spots - prioritize desserts/ice cream/cafes over bakeries
+export async function getDessertSpotsByStation(options?: { limit?: number; offset?: number }): Promise<FilterResponse> {
+  const limit = options?.limit ?? FILTER_PAGE_SIZE;
+  const offset = options?.offset ?? 0;
+
   // Fetch listings that have "Dessert" tag
   const { data: listings, error: listingsError } = await supabase
     .from('food_listings')
@@ -542,10 +723,13 @@ export async function getDessertSpotsByStation(): Promise<StationSearchResult[]>
   if (listingsError) console.error('Error fetching dessert listings:', listingsError);
   if (mallError) console.error('Error fetching dessert mall outlets:', mallError);
 
-  // Group by station
-  const stationResultsMap = new Map<string, StationSearchResult>();
+  // Track priority separately for sorting
+  type MatchWithMeta = SearchMatch & { _priority?: number };
 
-  // Add curated listings
+  // Group by station with priority scores
+  const stationResultsMap = new Map<string, { stationId: string; matches: MatchWithMeta[]; totalPriority: number }>();
+
+  // Add curated listings (high priority - they're curated desserts)
   (listings || []).forEach((listing: { id: string; station_id: string | null; name: string }) => {
     if (!listing.station_id) return;
 
@@ -553,44 +737,80 @@ export async function getDessertSpotsByStation(): Promise<StationSearchResult[]>
       stationResultsMap.set(listing.station_id, {
         stationId: listing.station_id,
         matches: [],
+        totalPriority: 0,
       });
     }
 
-    stationResultsMap.get(listing.station_id)!.matches.push({
+    const station = stationResultsMap.get(listing.station_id)!;
+    const priority = 5; // Curated desserts get highest priority
+    station.matches.push({
       id: listing.id,
       name: listing.name || 'Unknown',
       type: 'curated',
       matchType: 'restaurant',
+      _priority: priority,
     });
+    station.totalPriority += priority;
   });
 
-  // Add mall outlets
+  // Add mall outlets with category-based priority
   (mallOutlets || []).forEach((outlet: { id: string; name: string; mall_id: string; category: string | null; malls: { id: string; name: string; station_id: string } }) => {
     const stationId = outlet.malls?.station_id;
     if (!stationId) return;
+
+    const priority = getDessertPriority(outlet.category);
 
     if (!stationResultsMap.has(stationId)) {
       stationResultsMap.set(stationId, {
         stationId: stationId,
         matches: [],
+        totalPriority: 0,
       });
     }
 
-    stationResultsMap.get(stationId)!.matches.push({
+    const station = stationResultsMap.get(stationId)!;
+    station.matches.push({
       id: outlet.id,
       name: outlet.name || 'Unknown',
       type: 'mall',
       matchType: 'restaurant',
       mallName: outlet.malls?.name,
       mallId: outlet.mall_id,
+      _priority: priority,
     });
+    station.totalPriority += priority;
   });
 
-  // Convert to array and sort by number of matches
-  const results = Array.from(stationResultsMap.values());
-  results.sort((a, b) => b.matches.length - a.matches.length);
+  // Convert to array
+  const allResults = Array.from(stationResultsMap.values());
 
-  return results;
+  // Sort stations by weighted priority (not just count)
+  allResults.sort((a, b) => {
+    // Primary: higher total priority
+    if (b.totalPriority !== a.totalPriority) return b.totalPriority - a.totalPriority;
+    // Secondary: more matches
+    return b.matches.length - a.matches.length;
+  });
+
+  // Sort matches within each station by priority (desserts first, bakeries last)
+  allResults.forEach(station => {
+    station.matches.sort((a, b) => (b._priority || 0) - (a._priority || 0));
+  });
+
+  // Convert to StationSearchResult format (strip internal metadata)
+  const results: StationSearchResult[] = allResults.map(s => ({
+    stationId: s.stationId,
+    matches: s.matches.map(({ _priority, ...match }) => match),
+  }));
+
+  // Apply pagination
+  const paginatedResults = results.slice(offset, offset + limit);
+  const hasMore = offset + limit < results.length;
+
+  // Include all station IDs on first page for map pins
+  const allStationIds = offset === 0 ? results.map(r => r.stationId) : undefined;
+
+  return { results: paginatedResults, hasMore, allStationIds };
 }
 
 // ============================================

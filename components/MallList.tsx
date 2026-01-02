@@ -32,7 +32,7 @@ function EmptyState() {
     <div className="text-center py-8 bg-[#F5F3F0] rounded-lg border border-[#E0DCD7]">
       <div className="text-4xl mb-3">🏬</div>
       <p className="text-[#2D2D2D] text-sm font-medium">
-        No malls found at this station.
+        No malls or hawkers found at this station.
       </p>
       <p className="text-[#757575] text-xs mt-1">
         Check back soon!
@@ -55,7 +55,7 @@ export default function MallList({ malls, loading, onSelectMall }: MallListProps
       <div className="bg-[#F5F3F0] rounded-lg px-3 py-2 mb-3">
         <div className="flex items-center gap-2 text-sm font-medium text-[#2D2D2D]">
           <span className="text-base">🏬</span>
-          <span>Malls near this station</span>
+          <span>Malls & Hawkers</span>
         </div>
         <p className="text-xs text-[#999999] mt-1 italic">Sorted by most food options</p>
       </div>

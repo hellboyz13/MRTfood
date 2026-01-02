@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, useCallback } from 'react';
 import { StationFoodData, FoodListingWithSources } from '@/types/database';
 import { getStationFoodData } from '@/lib/api';
 
@@ -23,6 +23,7 @@ const RECOMMENDED_SOURCE_IDS = [
   'sethlui',
   'supper',
   'timeout-2025',
+  'straits-times',
 ];
 const POPULAR_SOURCE_ID = 'popular';
 const FOOD_KING_SOURCE_ID = 'food-king';
@@ -68,37 +69,60 @@ export function useStationFood(stationId: string | null): UseStationFoodResult {
   const [data, setData] = useState<StationFoodData | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<Error | null>(null);
+  const [refetchTrigger, setRefetchTrigger] = useState(0);
 
-  const fetchData = async () => {
-    if (!stationId) {
-      setData(null);
-      return;
-    }
-
-    console.log('🎣 useStationFood: Fetching data for station:', stationId);
-    setLoading(true);
-    setError(null);
-
-    try {
-      const result = await getStationFoodData(stationId);
-      console.log('✅ useStationFood: Got result:', {
-        hasStation: !!result?.station,
-        hasSponsored: !!result?.sponsored,
-        listingsCount: result?.listings?.length || 0
-      });
-      setData(result);
-    } catch (err) {
-      console.error('❌ useStationFood: Error:', err);
-      setError(err instanceof Error ? err : new Error('Failed to fetch data'));
-      setData(null);
-    } finally {
-      setLoading(false);
-    }
-  };
+  // Refetch function that triggers a new fetch
+  const refetch = useCallback(() => {
+    setRefetchTrigger(prev => prev + 1);
+  }, []);
 
   useEffect(() => {
+    // Cancellation flag to prevent stale data from overwriting fresh data
+    let cancelled = false;
+
+    const fetchData = async () => {
+      if (!stationId) {
+        setData(null);
+        setLoading(false);
+        return;
+      }
+
+      console.log('🎣 useStationFood: Fetching data for station:', stationId);
+      setLoading(true);
+      setError(null);
+
+      try {
+        const result = await getStationFoodData(stationId);
+
+        // Only update state if this request wasn't cancelled
+        if (!cancelled) {
+          console.log('✅ useStationFood: Got result:', {
+            hasStation: !!result?.station,
+            hasSponsored: !!result?.sponsored,
+            listingsCount: result?.listings?.length || 0
+          });
+          setData(result);
+        }
+      } catch (err) {
+        if (!cancelled) {
+          console.error('❌ useStationFood: Error:', err);
+          setError(err instanceof Error ? err : new Error('Failed to fetch data'));
+          setData(null);
+        }
+      } finally {
+        if (!cancelled) {
+          setLoading(false);
+        }
+      }
+    };
+
     fetchData();
-  }, [stationId]);
+
+    // Cleanup: cancel this request if stationId changes or component unmounts
+    return () => {
+      cancelled = true;
+    };
+  }, [stationId, refetchTrigger]);
 
   // Separate listings into recommended, popular, food-king-only, and other sections
   // Sort each category by distance (closest first)
@@ -134,6 +158,6 @@ export function useStationFood(stationId: string | null): UseStationFoodResult {
     separatedListings,
     loading,
     error,
-    refetch: fetchData,
+    refetch,
   };
 }

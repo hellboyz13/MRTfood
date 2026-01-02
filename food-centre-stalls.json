@@ -1,0 +1,924 @@
+{
+  "east-coast-lagoon-food-village": [
+    {
+      "name": "Lagoon Famous Carrot Cake",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Stingray Forever BBQ Seafood",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Haron Satay 55",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Zuo Ji Duck Rice",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Choon Hiang",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Ah Hwee BBQ Chicken",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Han Jia Bak Kut Teh Pork Leg",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Song Kee Fried Oyster",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Hwa Kee BBQ Pork Noodle",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Lagoon Leng Kee Beef Kway Teow",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Ahmad Spring",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "BBQ Seafood Kitchen",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Geylang 29 Charcoal Fried Hokkien Mee",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Porridge",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Oleh Oleh Bandung",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "East Coast Lagoon Food Village stalls",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Lagoon",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Famous",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Carrot Cake",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Black & White Carrot Cake from",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Braised Duck Rice",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Braised Duck Porridge",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "450",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Braised Pork Trotters",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "690",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Wanton Noodle from",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Tripe",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Beef Liver",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "090 each",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Porridge from 5",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Mee Rebus",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Mee Hoon Soto",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Nasi Lema",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Nasi Ayam",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "4 each",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "GadoGado 5",
+      "unit": null,
+      "openingHours": null
+    }
+  ],
+  "lau-pa-sat": [
+    {
+      "name": "Feng Xiang Bak Kut Teh",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Lao Fu Zi Fried Kway Teow",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Thunder Tea Rice",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "LiXin Teochew Fishball Noodles",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Nasi Lemak Ayam Taliwang",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Mr Rice Pao Fan & Fried Rice",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Seng Kee Local Delights",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Qiu Lian Ban Mian",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Rokus agb",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "iEat Kitchen",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Kallang Airport Wanton Noodle",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Ri Ri Hong Mala Hot Pot",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Swatow Bai Le Braised Duck",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Mayas Veggie Delight",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Munchi Pancakes",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Butter & Cream Bakery",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "best food stalls at Lau Pa Sat",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "750",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Laksa 750",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Boiled Cockles from 10",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Nasi Lemak Ayam Taliwang 850",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Chicken Fillet Curry Rice 690",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Seafood with Poached Crispy Rice 990",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Fried Kway Teow 6",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Laksa 680",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Hokkien Mee 680",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "590",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Tom Yum Ban Mian 640",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Dry Noodles",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Rokus agbs",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "menu",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Signature Wanton Noodle 580",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Fried Wantons 450650",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Fried Chicken Wing 680 for four pieces",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "130",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Ri Ri Mala Hot Pot",
+      "unit": null,
+      "openingHours": null
+    }
+  ],
+  "hougang-hainanese-village-centre": [
+    {
+      "name": "Lorong Ah Soo Lor Mee",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Ming Fa Duck Rice",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Punggol Noodles",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Apollo Western Food",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Yi Liu Xiang Nasi Lemak",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Blue Star Fried Hokkien Mee",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Yong Seng Teochew Fishball Noodle",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Chai Chee Nasi Lemak",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Moh Seng Teochew Porridge and Mixed Rice",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Wang Jiao Shu Shi",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Hainanese Village Food Centre",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "best Hainanese Village Food Centre Stalls",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Signature Noodles 4",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Meatball Soup 450",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Chicken Chop 650",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Fish & Chips 6",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Grilled NZ Sirloin Steak 13",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Ribeye Steak 13",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Hokkien Mee",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Mee Pok Dry",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Laksa",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Nasi Lemak Set A",
+      "unit": null,
+      "openingHours": null
+    }
+  ],
+  "marine-terrace-market": [
+    {
+      "name": "18August2024",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "eat",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Seng Hoe Fish Ball Minced Meat Noodle",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Shan Yuan Teochew Kway Teow Mee",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Ipoh Style San Lou Hor Fun",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Delisnacks",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Singapore Food Guide Over 2000 Reviews & Ratings",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "4 Reviews 50A Marine Terrace Market Singapore",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Guide",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "50A Marine Terrace Market",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "What To Eat",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Directory",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Location",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "About",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "singapore",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Featuring 93 Hawker Centres in Singapore",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Book Your Trip",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Travel eSIM",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Tags",
+      "unit": null,
+      "openingHours": null
+    }
+  ],
+  "bedok-corner-food-centre": [],
+  "makansutra-gluttons-bay": [],
+  "kopitiam-plaza-singapura": [
+    {
+      "name": "Yeah Gelato",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Pawa Bakery",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Co Chung",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Bizen Wagyu & Salad Bar",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Five Guys",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Typhoon Cafe",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Muji Cafe",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Eat Pizza",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Haidilao",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Cajun On Wheels",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "CHAGEE",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Tamoya Udon",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "CoCo ICHIBANYA",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Mamma Mia Trattoria E Caff",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Pistachio 980",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Premium Rice 980",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Chuck 3790",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Tenderloin 5790",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Taiwanese Oyster Mee Sua 1290",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Signature Souffle Stackers 1680",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "BBT Souffle Stackers 1680",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "deli sets",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "1680",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "3 Deli Set 2080",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "SoySansho French Fries 790",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Pork Cutlet & Cheese Curry 1650",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Fried Salmon Curry 16",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Shrimp Cutlet Curry 14",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Tortiglioni Spicy Pink Sauce 890",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Spaghetti with Turkey Strip & Chicken Carbonara 1390",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Spicy Chicken Katsu & Japanese Curry Sauce 1490",
+      "unit": null,
+      "openingHours": null
+    }
+  ],
+  "timbre-plus-eastside": [
+    {
+      "name": "Boon Lay Power Nasi Lemak",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Huat Huat",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Wolf Burger",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Ajiya Okonomiyaki",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Kopifellas & Noodlefellas",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Kebabs Faktory",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Streets of Bangkok",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Zi Jia Yong Tao Foo",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Lao Niang De Dian",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Devils Hood",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Nasi Sambal Goreng Beef Lotong",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Mee Siam",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Nasi Pandan with BBQ Boneless Chicken Thigh 780",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Black",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "White Carrot Cake from 5",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Premium Toast Set 580",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Matcha",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Earl Grey Milk",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Smoked Duck Lor Mee 7",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "060",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "420",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Curry Onsen Egg Rice with Achar",
+      "unit": null,
+      "openingHours": null
+    }
+  ],
+  "kopitiam-tampines-mall": [],
+  "pacific-plaza": [
+    {
+      "name": "About Us",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Discover",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Lease With Us",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Shopfareast Rewards",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Shops",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "All F&B",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Cafes Desserts",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Restaurants",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Happenings",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Deals",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Getting There",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "Contact Us",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "PDPA",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "COOKIE POLICY",
+      "unit": null,
+      "openingHours": null
+    },
+    {
+      "name": "TERMS & CONDITIONS",
+      "unit": null,
+      "openingHours": null
+    }
+  ]
+}

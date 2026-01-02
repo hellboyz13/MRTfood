@@ -1,0 +1,933 @@
+[
+  {
+    "id": "445e0267-f3f6-4c5a-9292-9a7c947b2463",
+    "name": "Alice Boulangerie",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "ff9abe24-acd6-44a5-925d-2014e007e9dc",
+    "name": "Amò",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "f05cae82-f914-430f-8a33-d0ba4e076851",
+    "name": "Apartment Coffee",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "5ad87033-d353-4a17-93c2-ffc950aaec90",
+    "name": "Artichoke",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "4a24b2c8-0443-4758-9201-dd0b52607e0d",
+    "name": "Asia Grand Restaurant 亚洲金阁海鲜酒家",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "b1f0141f-658c-436e-849f-cf10222c040c",
+    "name": "Bacha Coffee",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "8891c1d6-dae8-4f8a-9164-4969528b2293",
+    "name": "Bakalaki Greek Taverna",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "4070ac21-9e3d-4cfd-8ff2-9d55b5ac5987",
+    "name": "Beans & Cream",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "b4450b98-13af-4e08-a5b1-f18f2cdebff0",
+    "name": "Beppu Menkan",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "b870d14d-68d7-455d-b29d-7e949020e636",
+    "name": "Birds Of A Feather",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "5afe92bb-c383-470d-a123-cc6506320379",
+    "name": "Birds Of Paradise Gelato Boutique",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "afbbc674-ef71-4214-a444-5492152cd4ef",
+    "name": "Bloom Artisan",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "805a7107-24b5-42f8-bde5-dcce475aff57",
+    "name": "British Indian Curry Hut",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "98183bc0-744d-4d5f-a57f-ff87a2e9eac6",
+    "name": "Caffe Cicheti",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "67851625-3085-4aa2-8250-0c9b05bd0005",
+    "name": "Cenzo",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "7b6a32a6-6ff0-49c9-a95e-effe2fdd30fc",
+    "name": "Chagee",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "cedc1910-5c69-49f2-9b7a-350a99a5f884",
+    "name": "Charim Korean BBQ",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "8f220c7b-f8d1-43c7-a434-711598d5b5f7",
+    "name": "ChaTraMue",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "03903e27-a967-4501-b49e-d5a2c54bb9b0",
+    "name": "CheongDamChae",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "4a0b390c-45e8-46f1-a994-daa415a4a13b",
+    "name": "Cheval Chi Bao",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "7928fa94-da7b-4516-be83-7f33941ed18f",
+    "name": "CHICHA San Chen",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "9b9894b5-e1ce-4287-9ba3-1212cbb17e1c",
+    "name": "Chuan Kee Seafood",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "3dc5c42b-cdd4-43c3-b7bb-a37bff443cf4",
+    "name": "Cicheti",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "585e0d95-4290-481f-92df-c380e47c4e73",
+    "name": "DDSD",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "3520e823-4088-4db0-994f-7e2b636c8549",
+    "name": "Denzy Gelato",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "3522c1e7-c817-47f0-a17d-1aeb6920f338",
+    "name": "Dian Din Leluk",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "f306e380-b4ba-4ea2-b942-b93c7fe69cbd",
+    "name": "Eee Mo BBQ",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "d4bfe578-94d5-4e0c-af76-20e28a7f7fd5",
+    "name": "En Sushi",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "d83c4e41-a933-428a-9d88-a871aaf0452b",
+    "name": "FairPrice Finest",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "1221d2b3-72fa-4d7d-b3ef-7a6f14607690",
+    "name": "Fu Lin Bar & Kitchen",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "b250caa1-9e40-464f-847f-995ef859adbc",
+    "name": "Gamtan SG",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "3295fc94-03af-42fe-b10b-024103bc5903",
+    "name": "Gelato Messina",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "442234f3-88d1-4b03-bdf4-bba64ca43e67",
+    "name": "George Town Tze Char and Craft Beer",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "993b37e4-efbc-448c-9183-0cca936f28b8",
+    "name": "Go Ba",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "5f39b424-27f3-4275-a9f3-9b3da42c5262",
+    "name": "Guiga Korean BBQ Restaurant",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "65d75efb-cb23-480f-9f78-06aae541fa3d",
+    "name": "Guilt",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "cd447492-4a02-4130-ae9d-569cc2d7d17a",
+    "name": "Gwangjang Gaon",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "def65e7e-3c6b-476f-a84b-b32e6976a23b",
+    "name": "Harry's Eurasian Pies",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "1a5907f6-caee-4c35-8654-8dc7f2e1bcf5",
+    "name": "Heng",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "281c67d7-47eb-4626-b819-62ce0bf8b2a2",
+    "name": "Hollin",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "5bd49786-6175-4099-b71a-3ef92a197e88",
+    "name": "Homm Dessert",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "f9032b1d-f5cb-47f5-83d0-f1b4b767ed14",
+    "name": "Hopscotch",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "f8adbcae-d1d4-4f6d-95d6-57b6368e2890",
+    "name": "Hua Yu Wee Seafood Restaurant",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "8a9d14df-59c6-494d-8f7a-d7cfbcd79f50",
+    "name": "Indocafe The White House",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "9c479f0e-d2a2-4ec8-840c-decbfeb332ae",
+    "name": "Jia He Chinese Restaurant",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "e687a1b5-98bc-4b15-80c0-099fea4f914c",
+    "name": "Jia Xiang Economic Curry Rice",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "98771e18-8577-4143-82e1-bb6c07f2d36b",
+    "name": "Jypsy One Fullerton",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "0f2d5547-a873-4034-aa20-6933ebb3e6a6",
+    "name": "Kafe Utu",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "7a142b07-b698-4bf3-a688-109ecfe2b4c6",
+    "name": "Kai Xin Crabs",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "f270cd7b-2f54-44f7-8247-f823e783d61b",
+    "name": "Keng Eng Kee",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "f3315a8a-1b6c-4fd4-b47f-5c419e2a5f5c",
+    "name": "Kotuwa",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "399e4a92-86f6-47cd-af6b-c1773744be3e",
+    "name": "Kremi",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "063eea49-1712-48fe-9d38-26c194c7471a",
+    "name": "Kulto",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "985a31ec-e4e0-419d-944a-79a3f0598b1f",
+    "name": "Kungfu JB Pau (Tampines)",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "37d0b387-4db5-4204-9a7e-e49cec975041",
+    "name": "L’antica Pizzeria da Michele",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "de33ba9c-138a-4cad-b5f2-d05cf207fd33",
+    "name": "Lagnaa Barefoot Dining",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "6a54c132-6821-41f9-ab12-a067b620b070",
+    "name": "Little Farms Katong Point Bistro",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "3e23adfb-502e-4bdc-ba0a-9ca3890cb70d",
+    "name": "Maison Sucree",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "9fc9936f-6e2c-4b81-9c14-6cbdcd00bca2",
+    "name": "Masizzim",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "a0289349-7ae7-4d58-a430-1da5f28baae3",
+    "name": "Mitsuba",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "c37b61a8-9330-495b-9325-ded293551102",
+    "name": "MoVida",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "0b61525c-9fa8-4633-98cc-9f67bc594d6e",
+    "name": "Mr. Sun Tea",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "84b517f4-1ade-4908-988d-ed3cdb7078c6",
+    "name": "Naga House",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "65d6df89-8d08-4334-b29f-df6e33c7a870",
+    "name": "No Horse Run",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "9f0c07a4-7e39-4124-8660-524c9f2dc25d",
+    "name": "Oatla",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "2227c578-26a1-426c-a817-db343a99a0e9",
+    "name": "Omma Korean Charcoal BBQ",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "af4195d1-d87a-4b5e-8eab-9369047decdf",
+    "name": "Open Farm Community",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "77a35114-eb3e-4fe7-8994-ea3a4ff6c5ff",
+    "name": "Partage Patisserie",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "a46e837f-384b-4b20-b633-f5888f690ca5",
+    "name": "Peony Jade",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "21d82965-de7f-4490-9cab-98e9912aabc5",
+    "name": "Picanhas’",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "9e7a9321-709a-449c-890f-6da631cb611e",
+    "name": "Pierre Herme Singapore",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "cc1425a8-c79f-4729-a7ab-de748e5d1d91",
+    "name": "Pizza Studio Tamaki (PST)",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "70e5ed1a-6807-4a01-9e72-ef8573a71c48",
+    "name": "Ponggol Nasi Lemak",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "6e9b8a96-534d-4380-a225-13d5bc3c90c8",
+    "name": "Popo & Nana’s Delights",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "5cbb30fb-49ab-4e1b-aac3-5c020907f3be",
+    "name": "Por Kee Eating House 1996",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "1e1b3b25-ba39-4777-a71e-c522caef4fcb",
+    "name": "PS. Cafe Katong",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "b3a7a458-8350-436f-8cb0-842b7de5b42a",
+    "name": "PUJIM BBQ",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "140e2a23-3177-4a81-b461-526435124125",
+    "name": "Rappu",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "11a3ed22-9edc-4c7f-8a60-40b7b09eeed2",
+    "name": "Rasa Istimewa Waterfront Restaurant",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "d2cdd7c6-8e75-4a78-8e32-a1bc905ce1af",
+    "name": "Raw Kitchen Bar",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "0253ccf5-2494-4850-b199-6df1185c1154",
+    "name": "Rempapa",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "239ac3e8-e270-4bbd-95a3-1ba6e811eb91",
+    "name": "Sakedokoro Eizaburo",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "69f4f4fe-e640-4df5-9112-8502d83ea197",
+    "name": "Sen",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "9b9df905-6c88-4391-af2e-97d9ef044adf",
+    "name": "Shaburi And Kintan Buffet",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "4484c197-9353-4226-9e0a-446de1b9a419",
+    "name": "Shin Minori Japanese Restaurant",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "9a589bdd-ddb9-4434-949d-3e9d8224c8fe",
+    "name": "Shin Yuu Japanese Restaurant",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "1af3993b-7f9c-4fbc-b03d-502c4183149d",
+    "name": "Siri House",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "2974a049-5392-4d23-b109-219804bb5b7b",
+    "name": "SLUSHYAH",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "b4d1c273-105f-4574-be82-135d2a6c9969",
+    "name": "Social Place",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "77678c0c-8910-43aa-9e8f-d335be80e400",
+    "name": "SODENG Korean Restaurant",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "b71dd9fd-1ce2-4cd0-968d-c29dd9d41d51",
+    "name": "Soft Spot",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "f1d8a8db-0c7c-4c8f-87a8-b340ff9ca4c3",
+    "name": "SOT Korean Restaurant",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "60cb594f-322e-4341-aaed-3b38972b4014",
+    "name": "Soulfood Catering",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "00563110-c98a-4fcc-b59a-041f955fe446",
+    "name": "Spring Court 詠春園",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "0b8cd60e-c7f5-4e1b-afb5-fb7e00af16b4",
+    "name": "Super Star K",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "c0ab1d7f-d20c-44db-a933-80e45e8fb911",
+    "name": "Supulae Korean BBQ",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "92d518ca-2548-43d8-84a2-72209e3b5bfc",
+    "name": "Surrey Hills Grocer",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "1cc4c68d-f8dd-4426-a218-cb536632fc60",
+    "name": "Surrey Hills Grocer",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "01c76a3f-2ac9-494a-9daa-7b832768e08d",
+    "name": "Thai Express",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "40913331-f5f5-458f-9330-d9746b608da3",
+    "name": "The Blue Ginger",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "b2c4f6b7-7867-4189-a536-b9d36d85ac94",
+    "name": "The Coastal Settlement",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "cd08c022-8283-4908-b3dd-1b2e785529ed",
+    "name": "The Masses",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "8dd5933b-3132-4c12-8b51-d8c8040215c5",
+    "name": "The Providore",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "0dc1211d-8d39-437f-b9be-2153b5378082",
+    "name": "The Summerhouse",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "477f985b-30b9-45b3-b305-4275101dff74",
+    "name": "Tipsy Bird Gastrobar",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "a3c681cc-561c-4a7d-8880-59001856d982",
+    "name": "Todamgol Restaurant",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "21a4ab24-ab32-466f-8053-cdb66d768d78",
+    "name": "Toku Nori",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "30631335-586a-4ce7-abcd-35fcdc8b6d56",
+    "name": "Torasho Ramen And Charcoal Bar",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "0605a155-1d59-4917-bb86-1281b0d5a88c",
+    "name": "Um Yong Baek",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "aaa1092b-4fd4-40d5-b1bc-d373c8a283a4",
+    "name": "Ume San 100",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "e8c2950e-046f-4293-9ebe-576c4c81f078",
+    "name": "Un-Yang Kor-Dai",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "e8bb5177-7e6b-4ee7-ab3d-b1fde82837f9",
+    "name": "Venchi",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "9ad29b18-e2d5-4731-ba60-10926d9c8008",
+    "name": "Violet Oon Singapore",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "2fa6e912-1f0c-4d44-81a3-b91a2d63160a",
+    "name": "Wah Lok Cantonese Restaurant 华乐酒楼",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "8b72a3ac-3a36-48c9-8acc-cb9acdc3978c",
+    "name": "Wala Wala Cafe",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "10f7f6c9-2156-4566-8303-dd361fbc589e",
+    "name": "Wang Dae Bak",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "bee257e1-3771-489f-b83d-7cda79562f0b",
+    "name": "Wang Dae Bak Korean BBQ",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "c91b1de3-3b6c-48de-bf4e-51cd76d9485c",
+    "name": "Wang Dae Bak Korean BBQ",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "63642d5b-abcb-49ee-8013-ba983e46baf7",
+    "name": "Wee Nam Kee",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "06fa162e-1408-4d3c-8c48-fd62bc51fd6d",
+    "name": "Wo Wo Dian",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "79c64445-9379-418b-8186-b43ccfacae77",
+    "name": "Xin Ban Mian",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "42b2dfe9-d9be-42a9-beae-c69f92ff0904",
+    "name": "Xin Cuisine Chinese Restaurant",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "36bb158c-66f1-4f6e-bc06-3110fca166b7",
+    "name": "Y.R.A Rasool Fatimah",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "89dca4e3-2b1a-4ed8-a1ba-dcaef21e0ae6",
+    "name": "Ya Kat Yan",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "53476d05-6d98-4cca-8d83-0846ad1b3143",
+    "name": "Yakiniku",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "fad990e3-0a51-450c-a87f-15d27ccf0d49",
+    "name": "Yakiniku Gyubei",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "cccf48c3-74cb-4b10-b6b0-791e27f9a973",
+    "name": "Yanxi Palace Steamboat",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "91a035fc-2436-45b3-9ebe-67ee4abd2042",
+    "name": "Yo-Chi Singapore",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "1caceb0c-d036-4272-8d43-6b3199c07b42",
+    "name": "Yoajung Cafe",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "80b1bdc8-12a8-4f61-94e8-4a6360a6e862",
+    "name": "Yuen Yueng",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "cb374078-a841-4c61-a7ec-e6c3c14f770d",
+    "name": "YUN NANS Stonepot Fish",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "98b41aea-41a7-4e1e-a820-1134bfbf009e",
+    "name": "Yusoff Haji Jalal aka Satay Club",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  },
+  {
+    "id": "e066555a-4784-46a1-aeae-7d00ec011182",
+    "name": "Zi Yean Bistro",
+    "priceMin": null,
+    "priceMax": null,
+    "source": null
+  }
+]

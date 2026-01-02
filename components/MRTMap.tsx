@@ -17,6 +17,7 @@ interface MRTMapProps {
   selectedStation: string | null;
   onStationClick: (stationId: string) => void;
   searchResults?: StationSearchResult[];
+  filterStationIds?: string[]; // All matching stations for filter pins (separate from paginated results)
   onZoomHandlerReady?: (handler: (stationId: string) => void) => void;
   emptyStations?: string[];
 }
@@ -382,7 +383,7 @@ const stationGeoCoordinates: { [key: string]: { lat: number, lng: number } } = {
   'bayshore': { lat: 1.3193, lng: 103.9378 },
 };
 
-export default function MRTMap({ selectedStation, onStationClick, searchResults = [], onZoomHandlerReady, emptyStations = [] }: MRTMapProps) {
+export default function MRTMap({ selectedStation, onStationClick, searchResults = [], filterStationIds = [], onZoomHandlerReady, emptyStations = [] }: MRTMapProps) {
   const svgContainerRef = useRef<HTMLDivElement>(null);
   const transformRef = useRef<ReactZoomPanPinchRef>(null);
   const previousSelectedStationRef = useRef<string | null>(null);
@@ -467,21 +468,29 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
     });
 
     // Apply search result styling
-    if (searchResults && searchResults.length > 0) {
-      const searchResultIds = new Set(searchResults.map(r => r.stationId));
+    // Use filterStationIds for pins if available (for filters like dessert/supper)
+    // Otherwise fall back to searchResults (for normal search)
+    console.log('MRTMap pins:', { filterStationIds: filterStationIds.length, searchResults: searchResults.length });
+    const stationIdsForPins = filterStationIds.length > 0
+      ? filterStationIds
+      : searchResults.map(r => r.stationId);
+    console.log('Using stationIdsForPins:', stationIdsForPins.length);
+
+    if (stationIdsForPins.length > 0) {
+      const highlightedIds = new Set(stationIdsForPins);
 
       // Dim non-matching stations
       circles.forEach(circle => {
         const stationId = circle.getAttribute('data-station-id');
-        if (stationId && !searchResultIds.has(stationId)) {
+        if (stationId && !highlightedIds.has(stationId)) {
           circle.classList.add('station-dimmed');
         }
       });
 
       // Highlight matching stations with pin markers directly on the circle
       // Use querySelectorAll to handle interchange stations with multiple circles
-      searchResults.forEach(result => {
-        const circles = svg.querySelectorAll(`circle[data-station-id="${result.stationId}"]`);
+      stationIdsForPins.forEach(stationId => {
+        const circles = svg.querySelectorAll(`circle[data-station-id="${stationId}"]`);
         if (circles.length > 0) {
           // Add highlighted class to all circles at this station
           circles.forEach(circle => {
@@ -496,7 +505,7 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
           // Create pin marker group
           const pinGroup = document.createElementNS('http://www.w3.org/2000/svg', 'g');
           pinGroup.classList.add('station-pin-marker');
-          pinGroup.setAttribute('data-station-pin', result.stationId);
+          pinGroup.setAttribute('data-station-pin', stationId);
 
           // Pin icon - centered directly on the station circle
           const pin = document.createElementNS('http://www.w3.org/2000/svg', 'text');
@@ -601,7 +610,7 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
     } else {
       previousSelectedStationRef.current = null;
     }
-  }, [selectedStation, svgLoaded, searchResults]);
+  }, [selectedStation, svgLoaded, searchResults, filterStationIds]);
 
   const cleanupSvg = (svg: SVGSVGElement) => {
     // 1. Remove the legend area
@@ -926,7 +935,6 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
       }
     }
 
-    console.log(`Nearest station: ${nearestStation} (${minDistance.toFixed(2)}km away)`);
     return nearestStation;
   }, []);
 

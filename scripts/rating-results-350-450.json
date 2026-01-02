@@ -1,0 +1,602 @@
+[
+  {
+    "id": "7c5f127b-db61-490a-adfd-01dd04fbacb2",
+    "name": "Summer Pavilion",
+    "rating": 4.6,
+    "reviewCount": null
+  },
+  {
+    "id": "dfbf9ff8-4d03-4a67-a8d3-bd44c1f82658",
+    "name": "Sungei Road Laksa",
+    "rating": 4.2,
+    "reviewCount": 2810
+  },
+  {
+    "id": "55991878-1709-4657-a51a-360e5cb90218",
+    "name": "Super Loco Customs House",
+    "rating": 4.4,
+    "reviewCount": 2197
+  },
+  {
+    "id": "7d2f434a-d4ab-4bb8-82f0-152d8a6fd4b9",
+    "name": "Super Ngon",
+    "rating": 4.4,
+    "reviewCount": 567
+  },
+  {
+    "id": "0b8cd60e-c7f5-4e1b-afb5-fb7e00af16b4",
+    "name": "Super Star K",
+    "rating": 4.5,
+    "reviewCount": 1277
+  },
+  {
+    "id": "5be1690e-cf8f-4b43-ab42-2909cb922e4a",
+    "name": "Super Sub",
+    "rating": 4,
+    "reviewCount": 69
+  },
+  {
+    "id": "c0ab1d7f-d20c-44db-a933-80e45e8fb911",
+    "name": "Supulae Korean BBQ",
+    "rating": 4.3,
+    "reviewCount": 524
+  },
+  {
+    "id": "1cc4c68d-f8dd-4426-a218-cb536632fc60",
+    "name": "Surrey Hills Grocer",
+    "rating": 4.5,
+    "reviewCount": 956
+  },
+  {
+    "id": "92d518ca-2548-43d8-84a2-72209e3b5bfc",
+    "name": "Surrey Hills Grocer",
+    "rating": 4.3,
+    "reviewCount": 1247
+  },
+  {
+    "id": "d850e00d-3bd5-43a1-87e5-8adeffb77245",
+    "name": "Sushi Ashino",
+    "rating": 4.6,
+    "reviewCount": 135
+  },
+  {
+    "id": "0ce3f4ea-f8f7-43f8-a380-52e02f77259e",
+    "name": "Sushi Masaaki",
+    "rating": 4.7,
+    "reviewCount": 201
+  },
+  {
+    "id": "219b573b-0590-4e24-98e1-627734dd1ea7",
+    "name": "Sushi Seizan",
+    "rating": 4.8,
+    "reviewCount": 246
+  },
+  {
+    "id": "fc92be23-5f3d-41be-9059-5f2965b39ce9",
+    "name": "Sushi to Sumi",
+    "rating": 4.6,
+    "reviewCount": 175
+  },
+  {
+    "id": "d4b2ddd7-17a0-474e-b990-287c24b1fe54",
+    "name": "Sushi Yujo",
+    "rating": 4.8,
+    "reviewCount": 526
+  },
+  {
+    "id": "1cc3b75d-e414-4021-939b-4178dcc89b89",
+    "name": "Sushiro",
+    "rating": 3.7,
+    "reviewCount": 254
+  },
+  {
+    "id": "94a89b0f-b422-43ba-9a91-0cafbef66160",
+    "name": "Swee Choon Tim Sum Restaurant",
+    "rating": 4.3,
+    "reviewCount": 11376
+  },
+  {
+    "id": "bf0dfba2-0cda-4150-b2d6-d0b575df3f3f",
+    "name": "Swee Guan Hokkien Mee",
+    "rating": 3.5,
+    "reviewCount": 1085
+  },
+  {
+    "id": "05a017a4-e2e8-4da9-8f9a-6525e6bd7158",
+    "name": "Swee Guan Hokkien Mee",
+    "rating": 4.4,
+    "reviewCount": 65
+  },
+  {
+    "id": "c15d4c96-b45f-47b9-a558-8a3c6418274d",
+    "name": "Sweedy Patisserie",
+    "rating": 4.5,
+    "reviewCount": 231
+  },
+  {
+    "id": "d40736a1-f50c-42e7-8c58-35893a314054",
+    "name": "SYIP",
+    "rating": 4.2,
+    "reviewCount": 500
+  },
+  {
+    "id": "68d6d9e7-6e4d-4df5-bffe-b459fb3e34d8",
+    "name": "Tai Cheong Bakery",
+    "rating": 4.1,
+    "reviewCount": 880
+  },
+  {
+    "id": "bdafdf40-f9da-4ced-8059-e21de3a58d0d",
+    "name": "Tai Er",
+    "rating": 4.6,
+    "reviewCount": 337
+  },
+  {
+    "id": "4312d106-e35a-4317-a65b-de8f84f99735",
+    "name": "Tai Wah Pork Noodle",
+    "rating": 3.5,
+    "reviewCount": 462
+  },
+  {
+    "id": "9f0fb4c1-36b6-431d-8b25-2e733d6a6a6b",
+    "name": "Tamarind Hill",
+    "rating": 4.8,
+    "reviewCount": 57
+  },
+  {
+    "id": "d7e8a150-460f-4f09-a103-5044ee2dd98f",
+    "name": "Tan Beng Otah Delights",
+    "rating": 4.5,
+    "reviewCount": 34
+  },
+  {
+    "id": "a790e5d6-6fb4-4b2b-a78b-9b229baa5449",
+    "name": "Tang Kay Kee Fish Head Bee Hoon",
+    "rating": 4,
+    "reviewCount": 164
+  },
+  {
+    "id": "d786f080-a090-4530-9039-3be8230b3c3a",
+    "name": "Tang Lung",
+    "rating": 3.5,
+    "reviewCount": 50
+  },
+  {
+    "id": "ac1bbefb-ee2b-46e1-bb5f-7d42afd0253f",
+    "name": "Tanglin Halt Roti Prata",
+    "rating": 4,
+    "reviewCount": 14
+  },
+  {
+    "id": "58966eea-6c6d-41e5-a7ca-ecaa777add3c",
+    "name": "Tanjong Rhu Pau & Confectionery",
+    "rating": 3.7,
+    "reviewCount": 322
+  },
+  {
+    "id": "2b3f2418-5ee3-46cb-8209-ce418a362947",
+    "name": "Taste Paradise",
+    "rating": 4.3,
+    "reviewCount": 735
+  },
+  {
+    "id": "03d9236a-1ea3-48fe-ba58-ca34c40dfde2",
+    "name": "Tee Kitchen",
+    "rating": 4.8,
+    "reviewCount": 121
+  },
+  {
+    "id": "a4fbb45d-4e18-484b-84a0-78a8b38126e7",
+    "name": "Teng Sheng Korean BBQ",
+    "rating": 4.1,
+    "reviewCount": 514
+  },
+  {
+    "id": "306076c1-798d-4e5b-b1d2-46413fbeea9d",
+    "name": "Tenkaichi",
+    "rating": 4,
+    "reviewCount": 824
+  },
+  {
+    "id": "0f66075e-d24d-472b-a3ef-66ff6065792a",
+    "name": "Tentsuru",
+    "rating": 4.8,
+    "reviewCount": 106
+  },
+  {
+    "id": "d2a8965f-1b64-47c5-9377-46f49626e1ca",
+    "name": "Teppei Japanese Restaurant",
+    "rating": 4.5,
+    "reviewCount": 886
+  },
+  {
+    "id": "927f24ec-504f-4acb-97f9-6c6f899f09e4",
+    "name": "Terry Katong Laksa",
+    "rating": 4.1,
+    "reviewCount": 85
+  },
+  {
+    "id": "b16795ea-d611-4930-a3a9-81123ca7f27e",
+    "name": "Terry Katong Laksa",
+    "rating": 4.1,
+    "reviewCount": 85
+  },
+  {
+    "id": "07a6449e-d5ea-48c2-840d-80e563e04560",
+    "name": "Tha Chang Noodle Bar",
+    "rating": 4,
+    "reviewCount": 621
+  },
+  {
+    "id": "081264dc-6efa-459c-b6e2-96bceb02a59b",
+    "name": "Thachang",
+    "rating": 4,
+    "reviewCount": 621
+  },
+  {
+    "id": "b387be92-28bf-4103-8a88-4643268f29ea",
+    "name": "Thai Baang",
+    "rating": 4.2,
+    "reviewCount": 90
+  },
+  {
+    "id": "01c76a3f-2ac9-494a-9daa-7b832768e08d",
+    "name": "Thai Express",
+    "rating": 4.5,
+    "reviewCount": 67
+  },
+  {
+    "id": "2e783401-305c-4302-beca-16f75b1fcd44",
+    "name": "Thai Tantric Authentic Thai Cuisine",
+    "rating": 4.4,
+    "reviewCount": 419
+  },
+  {
+    "id": "40913331-f5f5-458f-9330-d9746b608da3",
+    "name": "The Blue Ginger",
+    "rating": 4.2,
+    "reviewCount": 1127
+  },
+  {
+    "id": "28413999-9675-407e-8f1b-e72f4db2ec8f",
+    "name": "The Brewing Ground",
+    "rating": 4.5,
+    "reviewCount": 944
+  },
+  {
+    "id": "29eccc88-a050-4701-a442-ff4b17a6f9b0",
+    "name": "The Cafe & Bar",
+    "rating": 4.3,
+    "reviewCount": 204
+  },
+  {
+    "id": "b2c4f6b7-7867-4189-a536-b9d36d85ac94",
+    "name": "The Coastal Settlement",
+    "rating": 4.2,
+    "reviewCount": 2500
+  },
+  {
+    "id": "7b0bc148-ab80-44aa-8eff-b18228c74f60",
+    "name": "The Fat Kid Bakery",
+    "rating": 4.7,
+    "reviewCount": 327
+  },
+  {
+    "id": "9e613944-590d-4939-b11e-e1bace5f2916",
+    "name": "The Glasshouse",
+    "rating": 4.3,
+    "reviewCount": 1260
+  },
+  {
+    "id": "cd08c022-8283-4908-b3dd-1b2e785529ed",
+    "name": "The Masses",
+    "rating": 4.3,
+    "reviewCount": 1285
+  },
+  {
+    "id": "dce1a635-c04d-4e98-8bf9-9e408c9b3ff1",
+    "name": "The Patio (Fro Roll)",
+    "rating": 4.2,
+    "reviewCount": 808
+  },
+  {
+    "id": "5b2b4b92-d937-43a8-b3ce-91085966e512",
+    "name": "The Populus",
+    "rating": 4.1,
+    "reviewCount": null
+  },
+  {
+    "id": "e03c6ba1-6ac4-4600-b3d1-06ee16d5b734",
+    "name": "The Prince (formerly Fat Prince)",
+    "rating": 4.3,
+    "reviewCount": 1367
+  },
+  {
+    "id": "8dd5933b-3132-4c12-8b51-d8c8040215c5",
+    "name": "The Providore",
+    "rating": 4.1,
+    "reviewCount": 1057
+  },
+  {
+    "id": "77c6176a-1b3c-4694-8fe2-c45c35992137",
+    "name": "The Public Izakaya",
+    "rating": 4.1,
+    "reviewCount": 1241
+  },
+  {
+    "id": "a22004f8-556a-4834-a976-9e19600d18d9",
+    "name": "The Ramen Stall",
+    "rating": 4.7,
+    "reviewCount": 8279
+  },
+  {
+    "id": "e22b2331-d9a6-4afb-8588-39516f1c3b1e",
+    "name": "The Roti Prata House",
+    "rating": 4.8,
+    "reviewCount": 24
+  },
+  {
+    "id": "0dc1211d-8d39-437f-b9be-2153b5378082",
+    "name": "The Summerhouse",
+    "rating": 4.3,
+    "reviewCount": 1649
+  },
+  {
+    "id": "fa2ccce6-2d3e-43f7-b8f4-6b0f90a2db24",
+    "name": "The Wildseed Cafe",
+    "rating": 4.3,
+    "reviewCount": 3990
+  },
+  {
+    "id": "aabaa37c-34f6-4357-8561-3baffa3392cf",
+    "name": "Thevar",
+    "rating": 4.6,
+    "reviewCount": 469
+  },
+  {
+    "id": "6b116032-8dc7-49c8-9f8f-4caf8a1e844a",
+    "name": "Tian Tian Hainanese Chicken Rice",
+    "rating": 3.9,
+    "reviewCount": 5996
+  },
+  {
+    "id": "a1c9f053-e3f6-4664-ae5b-30053354a536",
+    "name": "Tim Ho Wan",
+    "rating": 4.4,
+    "reviewCount": 1171
+  },
+  {
+    "id": "3bb2f956-4df5-4604-b868-eec8b102b425",
+    "name": "Tiong Bahru Bakery",
+    "rating": 4.3,
+    "reviewCount": 860
+  },
+  {
+    "id": "efbb40cb-1602-40d9-92e9-1e55d6eaad51",
+    "name": "Tiong Bahru Food Centre",
+    "rating": 4.3,
+    "reviewCount": 10687
+  },
+  {
+    "id": "a3aacfed-08c2-41ab-a901-9f06f41570a4",
+    "name": "Tiong Bahru Market",
+    "rating": 4.3,
+    "reviewCount": 10687
+  },
+  {
+    "id": "fb794a40-3cca-49d1-a9e9-a48de29c9eb8",
+    "name": "Tiong Bahru Yi Sheng Fried Hokkien Prawn Mee",
+    "rating": 2.9,
+    "reviewCount": 308
+  },
+  {
+    "id": "a73087a9-1a04-4bf5-889f-cc75edbe0ed7",
+    "name": "Tipo",
+    "rating": 4.4,
+    "reviewCount": 5564
+  },
+  {
+    "id": "477f985b-30b9-45b3-b305-4275101dff74",
+    "name": "Tipsy Bird Gastrobar",
+    "rating": 4.4,
+    "reviewCount": 1550
+  },
+  {
+    "id": "a3c681cc-561c-4a7d-8880-59001856d982",
+    "name": "Todamgol Restaurant",
+    "rating": 4,
+    "reviewCount": 670
+  },
+  {
+    "id": "21a4ab24-ab32-466f-8053-cdb66d768d78",
+    "name": "Toku Nori",
+    "rating": 4.9,
+    "reviewCount": 3023
+  },
+  {
+    "id": "bb18efa9-5744-485e-9f6b-46ea27786cf4",
+    "name": "Tolido’s Espresso Nook",
+    "rating": 4.4,
+    "reviewCount": 2502
+  },
+  {
+    "id": "e1ce8ff4-6b1c-49ce-b6d3-5ebb8cec2b91",
+    "name": "Tonkatsu by Ma Maison",
+    "rating": 4.4,
+    "reviewCount": 878
+  },
+  {
+    "id": "2f053d5c-eaa2-4b34-896d-f52461eef9e2",
+    "name": "TONSHOU",
+    "rating": 4.3,
+    "reviewCount": 1001
+  },
+  {
+    "id": "efb8f27e-2085-4760-88ae-73d52cd59c6b",
+    "name": "Top 1 Home Made Noodles",
+    "rating": 3.9,
+    "reviewCount": 388
+  },
+  {
+    "id": "690ffd13-8e93-4b39-a1cd-55f8d156d0b5",
+    "name": "TopTable",
+    "rating": 5,
+    "reviewCount": 63
+  },
+  {
+    "id": "30631335-586a-4ce7-abcd-35fcdc8b6d56",
+    "name": "Torasho Ramen And Charcoal Bar",
+    "rating": 4.3,
+    "reviewCount": 813
+  },
+  {
+    "id": "2a89503e-1106-45b2-8907-2e1b69ba601e",
+    "name": "TORCHED",
+    "rating": 4,
+    "reviewCount": 232
+  },
+  {
+    "id": "04620cf1-7c37-4271-a226-0a740de54658",
+    "name": "Tori San",
+    "rating": 4.8,
+    "reviewCount": 161
+  },
+  {
+    "id": "b391fecc-2329-4c33-b3e3-598ca45f8c4b",
+    "name": "Tori Sanwa",
+    "rating": 3.4,
+    "reviewCount": 239
+  },
+  {
+    "id": "b025ccec-48e1-4b61-a62f-f5f1338df6fb",
+    "name": "Tracy Juice Culture",
+    "rating": 4.5,
+    "reviewCount": 326
+  },
+  {
+    "id": "c9d07a53-21b2-4fb7-98e4-d88955d8d6fa",
+    "name": "Traditional Haig Road Putu Piring",
+    "rating": 4.2,
+    "reviewCount": 43
+  },
+  {
+    "id": "6e4d44a1-29fa-448b-be24-284f63c755a0",
+    "name": "Tsuta",
+    "rating": 4.7,
+    "reviewCount": 240
+  },
+  {
+    "id": "90ced206-15a2-4456-a63b-92875863a437",
+    "name": "Two Chefs Eating Place",
+    "rating": 4.1,
+    "reviewCount": 1711
+  },
+  {
+    "id": "09628f0a-8113-41be-aab8-4062d304cc18",
+    "name": "Udon Shin",
+    "rating": 3.3,
+    "reviewCount": 291
+  },
+  {
+    "id": "0605a155-1d59-4917-bb86-1281b0d5a88c",
+    "name": "Um Yong Baek",
+    "rating": 4.4,
+    "reviewCount": 1195
+  },
+  {
+    "id": "aaa1092b-4fd4-40d5-b1bc-d373c8a283a4",
+    "name": "Ume San 100",
+    "rating": 4.6,
+    "reviewCount": 1016
+  },
+  {
+    "id": "e8c2950e-046f-4293-9ebe-576c4c81f078",
+    "name": "Un-Yang Kor-Dai",
+    "rating": 4.5,
+    "reviewCount": 1299
+  },
+  {
+    "id": "516154e3-6d0d-4319-990f-636375f4ac89",
+    "name": "Una Una",
+    "rating": 4.2,
+    "reviewCount": 607
+  },
+  {
+    "id": "093aebca-2a6d-4076-9ae0-23de4586ee59",
+    "name": "Unagi Tei",
+    "rating": 4.4,
+    "reviewCount": 3253
+  },
+  {
+    "id": "dbaeadba-bd2d-431a-8af2-9d0513ac3867",
+    "name": "Unagi Yondaime Kikukawa",
+    "rating": 4.7,
+    "reviewCount": 291
+  },
+  {
+    "id": "f67eca7d-84eb-4e42-b50f-5393664aab33",
+    "name": "Unatoto",
+    "rating": 4.8,
+    "reviewCount": 5521
+  },
+  {
+    "id": "f55ce222-2f62-4d59-b64e-0401c777a368",
+    "name": "Uncle Kun’s Delicacies (根叔美食世家)",
+    "rating": 4.1,
+    "reviewCount": 22
+  },
+  {
+    "id": "3bcf80c0-3de9-4598-82d1-cf9e368f7ba2",
+    "name": "Uptown Nasi Lemak",
+    "rating": 4.3,
+    "reviewCount": 355
+  },
+  {
+    "id": "07726392-c9b1-40ba-8ab2-263050ced8d0",
+    "name": "Ushidoki Wagyu Kaiseki",
+    "rating": 4.8,
+    "reviewCount": 172
+  },
+  {
+    "id": "e8bb5177-7e6b-4ee7-ab3d-b1fde82837f9",
+    "name": "Venchi",
+    "rating": 4.8,
+    "reviewCount": 915
+  },
+  {
+    "id": "e485d03a-b1ee-440b-95a0-7e5dac11c9fb",
+    "name": "Victor’s Kitchen",
+    "rating": 4.1,
+    "reviewCount": 1311
+  },
+  {
+    "id": "cf2e0264-f62f-4a8b-a188-736d09af27bb",
+    "name": "Victor’s Kitchen",
+    "rating": 4.1,
+    "reviewCount": 1311
+  },
+  {
+    "id": "9ad29b18-e2d5-4731-ba60-10926d9c8008",
+    "name": "Violet Oon Singapore",
+    "rating": 4.4,
+    "reviewCount": 1631
+  },
+  {
+    "id": "52cd58b7-b68a-4314-9bfb-01d2f03f8731",
+    "name": "Wagyu Jin",
+    "rating": 4.5,
+    "reviewCount": 66
+  },
+  {
+    "id": "2fa6e912-1f0c-4d44-81a3-b91a2d63160a",
+    "name": "Wah Lok Cantonese Restaurant 华乐酒楼",
+    "rating": 4.3,
+    "reviewCount": 1132
+  },
+  {
+    "id": "8b72a3ac-3a36-48c9-8acc-cb9acdc3978c",
+    "name": "Wala Wala Cafe",
+    "rating": 4.3,
+    "reviewCount": 1055
+  }
+]
