@@ -1,0 +1,482 @@
+[
+  {
+    "name": "4FINGERS Crispy Chicken",
+    "level": "#01-105",
+    "thumbnail_url": "https://www.tiongbahruplaza.com.sg/content/dam/frasersexperience/tbp/store-logos/TBP_4Fingers_Logo.png",
+    "opening_hours": "Sunday to Thursday and Public Holiday; 11am to 10pm; Friday, Saturday and Eve of Public Holiday; 11am to 11pm",
+    "category": "dinner",
+    "mall_id": "tiong-bahru-plaza"
+  },
+  {
+    "name": "7-Eleven",
+    "level": "#01-152",
+    "thumbnail_url": "https://www.tiongbahruplaza.com.sg/content/dam/frasersexperience/tbp/store-logos/TBP_7Eleven_Logo.png",
+    "opening_hours": "Monday to Sunday; 24 Hours",
+    "category": "food",
+    "mall_id": "tiong-bahru-plaza"
+  },
+  {
+    "name": "A-One Signature",
+    "level": "#02-134",
+    "thumbnail_url": "https://www.tiongbahruplaza.com.sg/content/dam/frasersexperience/tbp/store-logos/TBP_Aone_Logo.png",
+    "opening_hours": "Monday to Sunday; 10.30am to 10pm",
+    "category": "food",
+    "mall_id": "tiong-bahru-plaza"
+  },
+  {
+    "name": "Ajisen",
+    "level": "#02-133",
+    "thumbnail_url": "https://www.tiongbahruplaza.com.sg/content/dam/frasersexperience/tbp/store-logos/TBP_Ajisen_Logo.png",
+    "opening_hours": "Monday to Thursday; 11.30am to 10pm; Friday to Sunday & PH; 11am to 10pm; Last order 9.45pm",
+    "category": "dinner",
+    "mall_id": "tiong-bahru-plaza"
+  },
+  {
+    "name": "Anytime Fitness",
+    "level": "#01-128/129",
+    "thumbnail_url": "https://www.tiongbahruplaza.com.sg/content/dam/frasersexperience/tbp/store-logos/TBP_AnytimeFitness_Logo.png",
+    "opening_hours": "Monday to Sunday; 24 hours",
+    "category": "lifestyle",
+    "mall_id": "tiong-bahru-plaza"
+  },
+  {
+    "name": "Banana Story",
+    "level": "Level 3",
+    "thumbnail_url": "https://www.tiongbahruplaza.com.sg/content/dam/frasersexperience/tbp/store-logos/TBP_BananaStory_Logo.png",
+    "opening_hours": "Monday to Sunday; 11am to 9.30pm",
+    "category": "gifts",
+    "mall_id": "tiong-bahru-plaza"
+  },
+  {
+    "name": "Bank Of China",
+    "level": "#01-127",
+    "thumbnail_url": "https://www.tiongbahruplaza.com.sg/content/dam/frasersexperience/tbp/store-logos/TBP_BankofChina_Logo.png",
+    "opening_hours": "Banking Services; Monday to Friday; 10.30am to 6pm; Saturday; 10.30am to 4pm; Investment and Sales Related Enquiries; Monday to Friday; 10.30am to 7pm; Closed on Sun and PH.",
+    "category": "bank",
+    "mall_id": "tiong-bahru-plaza"
+  },
+  {
+    "name": "Bata",
+    "level": "#02-130",
+    "thumbnail_url": "https://www.tiongbahruplaza.com.sg/content/dam/frasersexperience/tbp/store-logos/TBP_Bata_Logo.png",
+    "opening_hours": "Monday to Sunday; 10am to 10pm",
+    "category": "bags",
+    "mall_id": "tiong-bahru-plaza"
+  },
+  {
+    "name": "Beauty Language",
+    "level": "#B1-115",
+    "thumbnail_url": "https://www.tiongbahruplaza.com.sg/content/dam/frasersexperience/tbp/store-logos/TBP_BeautyLanguage_Logo.png",
+    "opening_hours": "Monday to Sunday; 11am to 9.30pm",
+    "category": "hair",
+    "mall_id": "tiong-bahru-plaza"
+  },
+  {
+    "name": "Bee Cheng Hiang",
+    "level": "#B1-120",
+    "thumbnail_url": "https://www.tiongbahruplaza.com.sg/content/dam/frasersexperience/tbp/store-logos/TBP_BeeChengHiang_Logo.png",
+    "opening_hours": "Monday to Sunday; 10am to 10pm",
+    "category": "snacks",
+    "mall_id": "tiong-bahru-plaza"
+  },
+  {
+    "name": "Hoe Nam Vintage",
+    "level": "#02-105/106",
+    "thumbnail_url": "https://www.tiongbahruplaza.com.sg/content/dam/frasersexperience/tbp/store-logos/Hoe Nam Logo.jpg",
+    "opening_hours": "Monday to Thursday; 10.30am to 3pm; 5pm to 9.30pm; Last order 9pm; Friday to Sunday and Public Holiday; 10.30am to 9.30pm; Last order 9pm",
+    "category": "dinner",
+    "mall_id": "tiong-bahru-plaza"
+  },
+  {
+    "name": "Koo Kee",
+    "level": "#B1-136",
+    "thumbnail_url": "https://www.tiongbahruplaza.com.sg/content/dam/frasersexperience/tbp/store-logos/TBP_Koo Kee YTF (4).png",
+    "opening_hours": "TBC",
+    "category": "dinner",
+    "mall_id": "tiong-bahru-plaza"
+  },
+  {
+    "name": "Bengawan Solo",
+    "level": "#B1-118",
+    "thumbnail_url": "https://www.tiongbahruplaza.com.sg/content/dam/frasersexperience/tbp/store-logos/TBP_Bengawan_Solo_Logo.png",
+    "opening_hours": "Monday to Sunday; 10am to 10pm",
+    "category": "snacks",
+    "mall_id": "tiong-bahru-plaza"
+  },
+  {
+    "name": "Beutea",
+    "level": "#01-158",
+    "thumbnail_url": "https://www.tiongbahruplaza.com.sg/content/dam/frasersexperience/tbp/store-logos/TBP_Beutea_Logo_1.png",
+    "opening_hours": "Monday to Sunday; 10.30am to 9.30pm; Last order 9pm",
+    "category": "drinks",
+    "mall_id": "tiong-bahru-plaza"
+  },
+  {
+    "name": "Blue Ribbon Florist & Gifts",
+    "level": "#B1-106",
+    "thumbnail_url": "https://www.tiongbahruplaza.com.sg/content/dam/frasersexperience/tbp/store-logos/TBP_BlueRibbonFlorist_Logo.png",
+    "opening_hours": "Monday to Sunday; 10am to 9.30pm",
+    "category": "florist",
+    "mall_id": "tiong-bahru-plaza"
+  },
+  {
+    "name": "BreadTalk/Toast Box",
+    "level": "#01-110",
+    "thumbnail_url": "https://www.tiongbahruplaza.com.sg/content/dam/frasersexperience/tbp/store-logos/TBP_BreadTalkToastBox_Logo.png",
+    "opening_hours": "BreadTalk:; Monday to Friday; 7.30am to 10.30pm; Saturday, Sunday & PH; 8am to 10.30pm; Toast Box:; Monday to Sunday; 8am to 9.30pm",
+    "category": "quick-bites",
+    "mall_id": "tiong-bahru-plaza"
+  },
+  {
+    "name": "Brow Art Asia",
+    "level": "#03-113",
+    "thumbnail_url": "https://www.tiongbahruplaza.com.sg/content/dam/frasersexperience/tbp/store-logos/TBP_BrowArtAsia_Logo.png",
+    "opening_hours": "Monday to Sunday; 10am to 9.30pm",
+    "category": "hair",
+    "mall_id": "tiong-bahru-plaza"
+  },
+  {
+    "name": "Burger King",
+    "level": "#01-106",
+    "thumbnail_url": "https://www.tiongbahruplaza.com.sg/content/dam/frasersexperience/tbp/store-logos/TBP_BurgerKing_Logo.png",
+    "opening_hours": "Monday to Sunday; 8am to 10pm",
+    "category": "dinner",
+    "mall_id": "tiong-bahru-plaza"
+  },
+  {
+    "name": "Challenger",
+    "level": "#03-114",
+    "thumbnail_url": "https://www.tiongbahruplaza.com.sg/content/dam/frasersexperience/tbp/store-logos/TBP_Challenger_Logo.png",
+    "opening_hours": "Monday to Sunday; 11am to 9.30pm",
+    "category": "mobile",
+    "mall_id": "tiong-bahru-plaza"
+  },
+  {
+    "name": "Chateraise",
+    "level": "#B1-127",
+    "thumbnail_url": "https://www.tiongbahruplaza.com.sg/content/dam/frasersexperience/tbp/store-logos/TBP_Chateraise_Logo.png",
+    "opening_hours": "Monday to Sunday; 10am to 10pm",
+    "category": "snacks",
+    "mall_id": "tiong-bahru-plaza"
+  },
+  {
+    "name": "Cheryl W",
+    "level": "#02-125",
+    "thumbnail_url": "https://www.tiongbahruplaza.com.sg/content/dam/frasersexperience/tbp/store-logos/TBP_CherylW_Logo.png",
+    "opening_hours": "Monday to Friday; 11am to 9pm; Saturday; 11am to 8pm; Sunday & PH; 11am to 7pm",
+    "category": "spa",
+    "mall_id": "tiong-bahru-plaza"
+  },
+  {
+    "name": "Chinese Medical Centre",
+    "level": "#04-101",
+    "thumbnail_url": "https://www.tiongbahruplaza.com.sg/content/dam/frasersexperience/tbp/store-logos/TBP_ChineseMedicalCentre_Logo.png",
+    "opening_hours": "Monday to Sunday; 10am to 8.30pm",
+    "category": "tcm",
+    "mall_id": "tiong-bahru-plaza"
+  },
+  {
+    "name": "Chip Lee Jewellery",
+    "level": "#01-138",
+    "thumbnail_url": "https://www.tiongbahruplaza.com.sg/content/dam/frasersexperience/tbp/store-logos/TBP_ChipLee_Logo.png",
+    "opening_hours": "Monday to Friday; 11:15am to 9pm; Saturday, Sunday and Public Holidays; 11am to 9:30pm",
+    "category": "Food & Beverages",
+    "mall_id": "tiong-bahru-plaza"
+  },
+  {
+    "name": "COCORO",
+    "level": "#02-126",
+    "thumbnail_url": "https://www.tiongbahruplaza.com.sg/content/dam/frasersexperience/tbp/store-logos/TBP_Cocoro_Logo.png",
+    "opening_hours": "Monday to Sunday; 11am to 9pm",
+    "category": "bags",
+    "mall_id": "tiong-bahru-plaza"
+  },
+  {
+    "name": "Crave",
+    "level": "Basement 1",
+    "thumbnail_url": "https://www.tiongbahruplaza.com.sg/content/dam/frasersexperience/tbp/store-logos/TBP_Crave_Logo.png",
+    "opening_hours": "Monday to Sunday; 10am to 9pm",
+    "category": "dinner",
+    "mall_id": "tiong-bahru-plaza"
+  },
+  {
+    "name": "Customer Service Counter (Tiong Bahru Plaza)",
+    "level": "Level 2",
+    "thumbnail_url": "https://www.tiongbahruplaza.com.sg/content/dam/frasersexperience/tbp/store-logos/FPR_CustomerService_Logo.png",
+    "opening_hours": "Monday to Sunday; 10am to 10pm",
+    "category": "service",
+    "mall_id": "tiong-bahru-plaza"
+  },
+  {
+    "name": "D'Penyetz",
+    "level": "#B1-111",
+    "thumbnail_url": "https://www.tiongbahruplaza.com.sg/content/dam/frasersexperience/tbp/store-logos/TBP_DPenyetz_Logo.png",
+    "opening_hours": "Monday to Sunday; 11am to 8.30pm",
+    "category": "food",
+    "mall_id": "tiong-bahru-plaza"
+  },
+  {
+    "name": "Dabba Street",
+    "level": "Basement 1",
+    "thumbnail_url": "https://www.tiongbahruplaza.com.sg/content/dam/frasersexperience/tbp/store-logos/TBP_Dabba_Street_Logo.png",
+    "opening_hours": "Monday to Sunday; 10am to 10pm",
+    "category": "Food & Beverages",
+    "mall_id": "tiong-bahru-plaza"
+  },
+  {
+    "name": "Dapur Penyet",
+    "level": "#02-137",
+    "thumbnail_url": "https://www.tiongbahruplaza.com.sg/content/dam/frasersexperience/tbp/store-logos/TBP_DapurPenyet_Logo.png",
+    "opening_hours": "Monday to Sunday; 11am to 9pm",
+    "category": "food",
+    "mall_id": "tiong-bahru-plaza"
+  },
+  {
+    "name": "Decathlon",
+    "level": "#01-108",
+    "thumbnail_url": "https://www.tiongbahruplaza.com.sg/content/dam/frasersexperience/tbp/store-logos/TBP_Decathlon_Logo.png",
+    "opening_hours": "Monday to Sunday; 10am to 10pm",
+    "category": "sports",
+    "mall_id": "tiong-bahru-plaza"
+  },
+  {
+    "name": "DON DON DONKI",
+    "level": "#03-115",
+    "thumbnail_url": "https://www.tiongbahruplaza.com.sg/content/dam/frasersexperience/tbp/store-logos/TBP_DonDonDonki_Logo.png",
+    "opening_hours": "Monday to Sunday; 10am to 11pm",
+    "category": "supermaket",
+    "mall_id": "tiong-bahru-plaza"
+  },
+  {
+    "name": "Dorra Slimming",
+    "level": "#03-112",
+    "thumbnail_url": "https://www.tiongbahruplaza.com.sg/content/dam/frasersexperience/tbp/store-logos/TBP_DorraSlimming_Logo.png",
+    "opening_hours": "Monday to Friday; 11am to 9pm; Saturday; 10.30am to 8pm; Sunday; 10.30am to 7pm; PH Weekday; 11am to 7pm; PH Weekend; 10.30am to 7pm",
+    "category": "spa",
+    "mall_id": "tiong-bahru-plaza"
+  },
+  {
+    "name": "Du Du Dumplings",
+    "level": "#02-111",
+    "thumbnail_url": "https://www.tiongbahruplaza.com.sg/content/dam/frasersexperience/tbp/store-logos/TBP_DuDuDumpling_Logo_1.png",
+    "opening_hours": "Monday to Sunday; 10am to 10pm",
+    "category": "dinner",
+    "mall_id": "tiong-bahru-plaza"
+  },
+  {
+    "name": "EAT.",
+    "level": "#B1-140",
+    "thumbnail_url": "https://www.tiongbahruplaza.com.sg/content/dam/frasersexperience/tbp/store-logos/TBP_EAT_Logo.png",
+    "opening_hours": "Monday to Sunday; 9am to 9pm",
+    "category": "dinner",
+    "mall_id": "tiong-bahru-plaza"
+  },
+  {
+    "name": "Eu Yan Sang",
+    "level": "#B1-126",
+    "thumbnail_url": "https://www.tiongbahruplaza.com.sg/content/dam/frasersexperience/tbp/store-logos/TBP_EuYanSang_Logo.png",
+    "opening_hours": "Monday to Sunday; 10am to 10pm",
+    "category": "tcm",
+    "mall_id": "tiong-bahru-plaza"
+  },
+  {
+    "name": "Eu Yan Sang TCM Clinic",
+    "level": "#02-142",
+    "thumbnail_url": "https://www.tiongbahruplaza.com.sg/content/dam/frasersexperience/tbp/store-logos/TBP_EuYanSangClinic_Logo.png",
+    "opening_hours": "Monday to Sunday; 9am to 9pm; Closed between 12.30pm to 1pm & 5.30pm to 6pm; Closed on PH.",
+    "category": "tcm",
+    "mall_id": "tiong-bahru-plaza"
+  },
+  {
+    "name": "Ex Beauty",
+    "level": "#03-107",
+    "thumbnail_url": "https://www.tiongbahruplaza.com.sg/content/dam/frasersexperience/tbp/store-logos/TBP_ExBeauty_Logo.png",
+    "opening_hours": "Monday to Friday; 11am to 9pm; Saturday & Sunday; 10am to 7pm; PH; 10am to 6pm",
+    "category": "spa",
+    "mall_id": "tiong-bahru-plaza"
+  },
+  {
+    "name": "FairPrice Finest",
+    "level": "#B1-122",
+    "thumbnail_url": "https://www.tiongbahruplaza.com.sg/content/dam/frasersexperience/tbp/store-logos/TBP_FairPriceFinest_Logo.png",
+    "opening_hours": "Monday to Sunday; 8am to 11pm",
+    "category": "dessert",
+    "mall_id": "tiong-bahru-plaza"
+  },
+  {
+    "name": "Fore Coffee",
+    "level": "#01-111",
+    "thumbnail_url": "https://www.tiongbahruplaza.com.sg/content/dam/frasersexperience/tbp/store-logos/TBP_Fore Coffee_Logo.png",
+    "opening_hours": "7.30am to 10pm",
+    "category": "brunch",
+    "mall_id": "tiong-bahru-plaza"
+  },
+  {
+    "name": "Four Leaves",
+    "level": "#B1-130",
+    "thumbnail_url": "https://www.tiongbahruplaza.com.sg/content/dam/frasersexperience/tbp/store-logos/TBP_FourLeaves_Logo.png",
+    "opening_hours": "Monday to Sunday; 10am to 10pm",
+    "category": "quick-bites",
+    "mall_id": "tiong-bahru-plaza"
+  },
+  {
+    "name": "Fruit Box",
+    "level": "#B1-112",
+    "thumbnail_url": "https://www.tiongbahruplaza.com.sg/content/dam/frasersexperience/tbp/store-logos/TBP_FruitBox_Logo.png",
+    "opening_hours": "Monday to Sunday; 10.30am to 9.30pm",
+    "category": "kid-friendly",
+    "mall_id": "tiong-bahru-plaza"
+  },
+  {
+    "name": "Fun Toast",
+    "level": "#01-161",
+    "thumbnail_url": "https://www.tiongbahruplaza.com.sg/content/dam/frasersexperience/tbp/store-logos/TBP_FunToast_Logo.png",
+    "opening_hours": "Monday to Friday; 7.30am to 9.30pm; Saturday, Sunday & PH; 7.30am to 8.30pm",
+    "category": "brunch",
+    "mall_id": "tiong-bahru-plaza"
+  },
+  {
+    "name": "Giordano",
+    "level": "#02-129",
+    "thumbnail_url": "https://www.tiongbahruplaza.com.sg/content/dam/frasersexperience/tbp/store-logos/TBP_Giordano_Logo.png",
+    "opening_hours": "Monday to Sunday; 10.30am to 9.30pm",
+    "category": "accessories",
+    "mall_id": "tiong-bahru-plaza"
+  },
+  {
+    "name": "Glassesgateway",
+    "level": "#01-134",
+    "thumbnail_url": "https://www.tiongbahruplaza.com.sg/content/dam/frasersexperience/tbp/store-logos/Glassesgateway_Logo_760px x 550px.png",
+    "opening_hours": "10.30am to 9.30pm",
+    "category": "eyeglasses",
+    "mall_id": "tiong-bahru-plaza"
+  },
+  {
+    "name": "Golden Village",
+    "level": "#04-105",
+    "thumbnail_url": "https://www.tiongbahruplaza.com.sg/content/dam/frasersexperience/tbp/store-logos/TBP_GoldenVillage_Logo.png",
+    "opening_hours": "Monday to Friday; 3pm to 10.30pm; Saturday, Sunday & PH; 9am to 1am",
+    "category": "leisure",
+    "mall_id": "tiong-bahru-plaza"
+  },
+  {
+    "name": "Gong Yuan Ma La Tang",
+    "level": "#02-113",
+    "thumbnail_url": "https://www.tiongbahruplaza.com.sg/content/dam/frasersexperience/tbp/store-logos/TBP_GongYuanMaLaTang_Logo.png",
+    "opening_hours": "Monday to Sunday; 11am to 9.30pm",
+    "category": "dinner",
+    "mall_id": "tiong-bahru-plaza"
+  },
+  {
+    "name": "Guardian",
+    "level": "#B1-125",
+    "thumbnail_url": "https://www.tiongbahruplaza.com.sg/content/dam/frasersexperience/tbp/store-logos/TBP_Guardian_Logo.png",
+    "opening_hours": "Monday to Sunday; 10am to 10pm (including Pharmacist)",
+    "category": "prescription",
+    "mall_id": "tiong-bahru-plaza"
+  },
+  {
+    "name": "Heart Springs Spa",
+    "level": "#04-102",
+    "thumbnail_url": "https://www.tiongbahruplaza.com.sg/content/dam/frasersexperience/tbp/store-logos/TBP_HeartSpringsSpa_Logo.png",
+    "opening_hours": "Monday to Sunday; 10am to 9.30pm",
+    "category": "spa",
+    "mall_id": "tiong-bahru-plaza"
+  },
+  {
+    "name": "HiArt",
+    "level": "#04-104",
+    "thumbnail_url": "https://www.tiongbahruplaza.com.sg/content/dam/frasersexperience/tbp/store-logos/TBP_HiArt_Logo.png",
+    "opening_hours": "Tuesday; 3pm to 9pm; Wednesday to Friday; 9am to 6pm; Saturday & Sunday; 1pm to 9pm; Closed on Monday & PH",
+    "category": "leisure",
+    "mall_id": "tiong-bahru-plaza"
+  },
+  {
+    "name": "HockHua Tonic",
+    "level": "#B1-129",
+    "thumbnail_url": "https://www.tiongbahruplaza.com.sg/content/dam/frasersexperience/tbp/store-logos/TBP_HockHua_Logo.png",
+    "opening_hours": "Monday to Sunday; 10am to 9.30pm",
+    "category": "healthcare",
+    "mall_id": "tiong-bahru-plaza"
+  },
+  {
+    "name": "Honor Experience Store",
+    "level": "#01-133",
+    "thumbnail_url": "https://www.tiongbahruplaza.com.sg/content/dam/frasersexperience/tbp/store-logos/TBP Honor Logo_760x550.png",
+    "opening_hours": "11am to 9.30pm",
+    "category": "mobile",
+    "mall_id": "tiong-bahru-plaza"
+  },
+  {
+    "name": "Iliyas Trading Money Changer",
+    "level": "Level 2",
+    "thumbnail_url": "https://www.tiongbahruplaza.com.sg/content/dam/frasersexperience/tbp/store-logos/TBP_IliyasTrading_Logo.png",
+    "opening_hours": "Monday to Sunday; 10am to 9.30pm",
+    "category": "money-changer",
+    "mall_id": "tiong-bahru-plaza"
+  },
+  {
+    "name": "Japan Home",
+    "level": "#B1-101/102",
+    "thumbnail_url": "https://www.tiongbahruplaza.com.sg/content/dam/frasersexperience/tbp/store-logos/TBP_JapanHome_Logo.png",
+    "opening_hours": "Monday to Sunday; 10am to 10pm",
+    "category": "home-decor",
+    "mall_id": "tiong-bahru-plaza"
+  },
+  {
+    "name": "Jean Yip Group",
+    "level": "#03-104",
+    "thumbnail_url": "https://www.tiongbahruplaza.com.sg/content/dam/frasersexperience/tbp/store-logos/TBP_JeanYip_Logo.png",
+    "opening_hours": "Monday to Friday; 11am to 9pm; Saturday; 10.30am to 7.30pm; Sunday & PH; 10.30am to 6.30pm",
+    "category": "hair",
+    "mall_id": "tiong-bahru-plaza"
+  },
+  {
+    "name": "Jia Li Seafood Soup",
+    "level": "#B1-135",
+    "thumbnail_url": "https://www.tiongbahruplaza.com.sg/content/dam/frasersexperience/tbp/store-logos/TBP_JiaLiSeafoodSoup_Logo.png",
+    "opening_hours": "Monday to Sunday; 10am to 9pm",
+    "category": "food",
+    "mall_id": "tiong-bahru-plaza"
+  },
+  {
+    "name": "kcuts",
+    "level": "#B1-105",
+    "thumbnail_url": "https://www.tiongbahruplaza.com.sg/content/dam/frasersexperience/tbp/store-logos/TBP_kcuts_Logo.png",
+    "opening_hours": "Monday to Sunday; 10am to 9.30pm",
+    "category": "hair",
+    "mall_id": "tiong-bahru-plaza"
+  },
+  {
+    "name": "Kent Ridge Education Hub",
+    "level": "#02-145",
+    "thumbnail_url": "https://www.tiongbahruplaza.com.sg/content/dam/frasersexperience/tbp/store-logos/TBP_KRTC_Logo.png",
+    "opening_hours": "Monday to Friday; 9am to 9.30pm; Saturday & Sunday; 9am to 7pm",
+    "category": "school",
+    "mall_id": "tiong-bahru-plaza"
+  },
+  {
+    "name": "KFC",
+    "level": "#B1-133/134",
+    "thumbnail_url": "https://www.tiongbahruplaza.com.sg/content/dam/frasersexperience/tbp/store-logos/TBP_KFC_Logo.png",
+    "opening_hours": "Monday to Sunday; 7am to 10pm",
+    "category": "dinner",
+    "mall_id": "tiong-bahru-plaza"
+  },
+  {
+    "name": "Kimage",
+    "level": "#03-109",
+    "thumbnail_url": "https://www.tiongbahruplaza.com.sg/content/dam/frasersexperience/tbp/store-logos/TBP_Kimage_Logo.png",
+    "opening_hours": "Monday to Sunday; 11am to 9pm",
+    "category": "hair",
+    "mall_id": "tiong-bahru-plaza"
+  },
+  {
+    "name": "KKV",
+    "level": "#02-116",
+    "thumbnail_url": "https://www.tiongbahruplaza.com.sg/content/dam/frasersexperience/tbp/store-logos/TBP_KKV_Logo.png",
+    "opening_hours": "10am to 10pm",
+    "category": "earrings",
+    "mall_id": "tiong-bahru-plaza"
+  }
+]

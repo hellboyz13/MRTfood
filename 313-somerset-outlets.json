@@ -1,0 +1,542 @@
+[
+  {
+    "name": "% Arabica",
+    "level": "#01-14/15",
+    "thumbnail_url": "https://www.313somerset.com.sg/siteassets/313-somerset/tenant-logo-and-banner-images/arabica-logo.jpg?width=400&upscale=false&format=webp&mode=max&quality=80",
+    "opening_hours": "Open until 9pm today",
+    "category": "Food & Beverages",
+    "subcategory": "",
+    "mall_id": "313-somerset"
+  },
+  {
+    "name": "5:59",
+    "level": "#01-28",
+    "thumbnail_url": "https://www.313somerset.com.sg/contentassets/572c9f1099404249b2d93bde87c5fe50/559-logo---2500x2500-px.jpg?width=400&upscale=false&format=webp&mode=max&quality=80",
+    "opening_hours": "Open until 11:30pm today",
+    "category": "Food & Beverages",
+    "subcategory": "",
+    "mall_id": "313-somerset"
+  },
+  {
+    "name": "An Acai Affair",
+    "level": "#B3-48",
+    "thumbnail_url": "https://www.313somerset.com.sg/siteassets/313-somerset/tenant-logo-and-banner-images/an-acai-affair-logo.jpg?width=400&upscale=false&format=webp&mode=max&quality=80",
+    "opening_hours": "Open until 9pm today",
+    "category": "Food & Beverages",
+    "subcategory": "",
+    "mall_id": "313-somerset"
+  },
+  {
+    "name": "An Nyeong",
+    "level": "#B3-11",
+    "thumbnail_url": "https://www.313somerset.com.sg/contentassets/50d2b70679e4482bbe0dc8bf6e15b0e9/website-brand-logo.jpg?width=400&upscale=false&format=webp&mode=max&quality=80",
+    "opening_hours": "Open until 10:30pm today",
+    "category": "Food & Beverages",
+    "subcategory": "",
+    "mall_id": "313-somerset"
+  },
+  {
+    "name": "At Tea",
+    "level": "#B2-46",
+    "thumbnail_url": "https://www.313somerset.com.sg/contentassets/64e485d1a5a04a04b12be56b71026fde/images/at-tea-logo.jpg?width=400&upscale=false&format=webp&mode=max&quality=80",
+    "opening_hours": "Open until 10pm today",
+    "category": "Food & Beverages",
+    "subcategory": "",
+    "mall_id": "313-somerset"
+  },
+  {
+    "name": "Boost Juice Bars",
+    "level": "#B3-52",
+    "thumbnail_url": "https://www.313somerset.com.sg/siteassets/313-somerset/tenant-logo-and-banner-images/boost-logo.jpg?width=400&upscale=false&format=webp&mode=max&quality=80",
+    "opening_hours": "Open until 10pm today",
+    "category": "Food & Beverages",
+    "subcategory": "",
+    "mall_id": "313-somerset"
+  },
+  {
+    "name": "BreadTalk®",
+    "level": "#B2-33",
+    "thumbnail_url": "https://www.313somerset.com.sg/siteassets/313-somerset/tenant-logo-and-banner-images/breadtalk-logo.jpg?width=400&upscale=false&format=webp&mode=max&quality=80",
+    "opening_hours": "Open until 8pm today",
+    "category": "Food & Beverages",
+    "subcategory": "",
+    "mall_id": "313-somerset"
+  },
+  {
+    "name": "Café de Paris",
+    "level": "#B1-37",
+    "thumbnail_url": "https://www.313somerset.com.sg/siteassets/313-somerset/tenant-logo-and-banner-images/cafe-de-paris-logo.jpg?width=400&upscale=false&format=webp&mode=max&quality=80",
+    "opening_hours": "Open until 11pm today",
+    "category": "Food & Beverages",
+    "subcategory": "",
+    "mall_id": "313-somerset"
+  },
+  {
+    "name": "Candy Empire",
+    "level": "#B2-20 to 23",
+    "thumbnail_url": "https://www.313somerset.com.sg/siteassets/313-somerset/tenant-logo-and-banner-images/candy-empire-logo.jpg?width=400&upscale=false&format=webp&mode=max&quality=80",
+    "opening_hours": "Open until 9:45pm today",
+    "category": "Food & Beverages",
+    "subcategory": "",
+    "mall_id": "313-somerset"
+  },
+  {
+    "name": "CHICHA San Chen",
+    "level": "#03-41",
+    "thumbnail_url": "https://www.313somerset.com.sg/siteassets/313-somerset/tenant-logo-and-banner-images/chicha-3000-logo.jpg?width=400&upscale=false&format=webp&mode=max&quality=80",
+    "opening_hours": "Open until 10pm today",
+    "category": "Food & Beverages",
+    "subcategory": "",
+    "mall_id": "313-somerset"
+  },
+  {
+    "name": "Chimi's",
+    "level": "#01-25",
+    "thumbnail_url": "https://www.313somerset.com.sg/contentassets/c10a1183b69f43d28c5c5b45fa48c76e/images/chimis-logo.jpg?width=400&upscale=false&format=webp&mode=max&quality=80",
+    "opening_hours": "Open until 12am today",
+    "category": "Food & Beverages",
+    "subcategory": "",
+    "mall_id": "313-somerset"
+  },
+  {
+    "name": "EATPIZZA",
+    "level": "#B3-48",
+    "thumbnail_url": "https://www.313somerset.com.sg/contentassets/162b8ba167514a9083cefb725af976ed/ep-313-brandlogowebsite-2500x2500px.jpg?width=400&upscale=false&format=webp&mode=max&quality=80",
+    "opening_hours": "Open until 10pm today",
+    "category": "Food & Beverages",
+    "subcategory": "",
+    "mall_id": "313-somerset"
+  },
+  {
+    "name": "Food Republic",
+    "level": "#05-01 to 03",
+    "thumbnail_url": "https://www.313somerset.com.sg/siteassets/313-somerset/tenant-logo-and-banner-images/food-republic-logo.jpg?width=400&upscale=false&format=webp&mode=max&quality=80",
+    "opening_hours": "Open until 10pm today",
+    "category": "Food & Beverages",
+    "subcategory": "",
+    "mall_id": "313-somerset"
+  },
+  {
+    "name": "Garrett Popcorn Shops®",
+    "level": "#01-38",
+    "thumbnail_url": "https://www.313somerset.com.sg/contentassets/bc24f34b69f7492d9ab077b54d085465/garrett-logo_emblem_main_white---copy.png?width=400&upscale=false&format=webp&mode=max&quality=80",
+    "opening_hours": "Open until 10pm today",
+    "category": "Food & Beverages",
+    "subcategory": "",
+    "mall_id": "313-somerset"
+  },
+  {
+    "name": "Genki Sushi",
+    "level": "#B2-01 to 03",
+    "thumbnail_url": "https://www.313somerset.com.sg/contentassets/47a470f1f9e247c285a0bc5a16e0ef7d/logo---2500x2500.jpg?width=400&upscale=false&format=webp&mode=max&quality=80",
+    "opening_hours": "Open until 10pm today",
+    "category": "Food & Beverages",
+    "subcategory": "",
+    "mall_id": "313-somerset"
+  },
+  {
+    "name": "Haidilao Hot Pot",
+    "level": "#04-23/24",
+    "thumbnail_url": "https://www.313somerset.com.sg/siteassets/313-somerset/tenant-logo-and-banner-images/hai-di-lao-logo.jpg?width=400&upscale=false&format=webp&mode=max&quality=80",
+    "opening_hours": "Open until 11:45pm today",
+    "category": "Food & Beverages",
+    "subcategory": "",
+    "mall_id": "313-somerset"
+  },
+  {
+    "name": "Hi Noodle",
+    "level": "#B3-19/20",
+    "thumbnail_url": "https://www.313somerset.com.sg/siteassets/313-somerset/tenant-logo-and-banner-images/hi-noodle-text.png?width=400&upscale=false&format=webp&mode=max&quality=80",
+    "opening_hours": "Open until 11pm today",
+    "category": "Food & Beverages",
+    "subcategory": "",
+    "mall_id": "313-somerset"
+  },
+  {
+    "name": "Ichikokudo Hokkaido Ramen",
+    "level": "#B3-35/36",
+    "thumbnail_url": "https://www.313somerset.com.sg/siteassets/313-somerset/tenant-logo-and-banner-images/ichikokudo-logo.jpg?width=400&upscale=false&format=webp&mode=max&quality=80",
+    "opening_hours": "Open until 10:30pm today",
+    "category": "Food & Beverages",
+    "subcategory": "",
+    "mall_id": "313-somerset"
+  },
+  {
+    "name": "JiBiru Japanese Craft Beer Bar",
+    "level": "#01-26",
+    "thumbnail_url": "https://www.313somerset.com.sg/siteassets/313-somerset/tenant-logo-and-banner-images/ji-bi-ru-logo.jpg?width=400&upscale=false&format=webp&mode=max&quality=80",
+    "opening_hours": "Open until 11:30pm today",
+    "category": "Food & Beverages",
+    "subcategory": "",
+    "mall_id": "313-somerset"
+  },
+  {
+    "name": "Josh's Grill",
+    "level": "#B2-15 to 19",
+    "thumbnail_url": "https://www.313somerset.com.sg/siteassets/313-somerset/tenant-logo-and-banner-images/joshs-grill-logo.jpg?width=400&upscale=false&format=webp&mode=max&quality=80",
+    "opening_hours": "Open until 10pm today",
+    "category": "Food & Beverages",
+    "subcategory": "",
+    "mall_id": "313-somerset"
+  },
+  {
+    "name": "Kang Ji Sugar Coated Fruits",
+    "level": "#B3-42",
+    "thumbnail_url": "https://www.313somerset.com.sg/contentassets/58be23402e9a4d54b5d44f3ea81ccd41/kang-ji-sugar-coated-fruits.jpg?width=400&upscale=false&format=webp&mode=max&quality=80",
+    "opening_hours": "Open until 10pm today",
+    "category": "Food & Beverages",
+    "subcategory": "",
+    "mall_id": "313-somerset"
+  },
+  {
+    "name": "KOI Express",
+    "level": "#B3-51",
+    "thumbnail_url": "https://www.313somerset.com.sg/siteassets/313-somerset/tenant-logo-and-banner-images/koi-express-logo.jpg?width=400&upscale=false&format=webp&mode=max&quality=80",
+    "opening_hours": "Open until 10:30pm today",
+    "category": "Food & Beverages",
+    "subcategory": "",
+    "mall_id": "313-somerset"
+  },
+  {
+    "name": "Kooks Creamery",
+    "level": "#B3-43",
+    "thumbnail_url": "https://www.313somerset.com.sg/siteassets/313-somerset/tenant-logo-and-banner-images/kooks-creamery-logo.jpg?width=400&upscale=false&format=webp&mode=max&quality=80",
+    "opening_hours": "Open until 10:30pm today",
+    "category": "Food & Beverages",
+    "subcategory": "",
+    "mall_id": "313-somerset"
+  },
+  {
+    "name": "LiHO TEA",
+    "level": "#B3-55",
+    "thumbnail_url": "https://www.313somerset.com.sg/contentassets/39bf78b313af4c25acfb05e243b2b4d7/2500-x-2500.jpg?width=400&upscale=false&format=webp&mode=max&quality=80",
+    "opening_hours": "Open until 10:30pm today",
+    "category": "Food & Beverages",
+    "subcategory": "",
+    "mall_id": "313-somerset"
+  },
+  {
+    "name": "luckin coffee",
+    "level": "#B3-50",
+    "thumbnail_url": "https://www.313somerset.com.sg/contentassets/c4bbab86036c4baaa6e2bd9a03432a58/luckincoffeelogo-2500x2500.png?width=400&upscale=false&format=webp&mode=max&quality=80",
+    "opening_hours": "Open until 11pm today",
+    "category": "Food & Beverages",
+    "subcategory": "",
+    "mall_id": "313-somerset"
+  },
+  {
+    "name": "Marché",
+    "level": "#01-40",
+    "thumbnail_url": "https://www.313somerset.com.sg/contentassets/8091a18492674309918983947d4a9ec3/marche-white-1125x1125.jpg?width=400&upscale=false&format=webp&mode=max&quality=80",
+    "opening_hours": "Open until 11pm today",
+    "category": "Food & Beverages",
+    "subcategory": "",
+    "mall_id": "313-somerset"
+  },
+  {
+    "name": "Mister Donut",
+    "level": "#B3-46",
+    "thumbnail_url": "https://www.313somerset.com.sg/contentassets/f5d0472671c24bcab185cba393fe6ec3/mister-donut-logo-2500x2500.jpg?width=400&upscale=false&format=webp&mode=max&quality=80",
+    "opening_hours": "Open until 9pm today",
+    "category": "Food & Beverages",
+    "subcategory": "",
+    "mall_id": "313-somerset"
+  },
+  {
+    "name": "Mrs Pho",
+    "level": "#01-16/17",
+    "thumbnail_url": "https://www.313somerset.com.sg/contentassets/332ef731577345dbb125fcd3577ca7ff/images/313_mrs-pho.jpg?width=400&upscale=false&format=webp&mode=max&quality=80",
+    "opening_hours": "Open until 11pm today",
+    "category": "Food & Beverages",
+    "subcategory": "",
+    "mall_id": "313-somerset"
+  },
+  {
+    "name": "Noodle Villa",
+    "level": "#B3-10",
+    "thumbnail_url": "https://www.313somerset.com.sg/siteassets/313-somerset/tenant-logo-and-banner-images/noodle-villa-logo-2500px.jpg?width=400&upscale=false&format=webp&mode=max&quality=80",
+    "opening_hours": "Open until 9:30pm today",
+    "category": "Food & Beverages",
+    "subcategory": "",
+    "mall_id": "313-somerset"
+  },
+  {
+    "name": "Old Chang Kee",
+    "level": "#B3-24",
+    "thumbnail_url": "https://www.313somerset.com.sg/siteassets/313-somerset/tenant-logo-and-banner-images/old-chang-kee-logo.jpg?width=400&upscale=false&format=webp&mode=max&quality=80",
+    "opening_hours": "Open until 10pm today",
+    "category": "Food & Beverages",
+    "subcategory": "",
+    "mall_id": "313-somerset"
+  },
+  {
+    "name": "O'ma Spoon",
+    "level": "#04-20",
+    "thumbnail_url": "https://www.313somerset.com.sg/siteassets/313-somerset/tenant-logo-and-banner-images/oma-spoon-logo.jpg?width=400&upscale=false&format=webp&mode=max&quality=80",
+    "opening_hours": "Open until 11:30pm today",
+    "category": "Food & Beverages",
+    "subcategory": "",
+    "mall_id": "313-somerset"
+  },
+  {
+    "name": "One Fermented Rice",
+    "level": "#B3-41",
+    "thumbnail_url": "https://www.313somerset.com.sg/contentassets/a640ad40707b4607bc2e7e7534386d2c/logo---1080x1080-px.png?width=400&upscale=false&format=webp&mode=max&quality=80",
+    "opening_hours": "Open until 10:30pm today",
+    "category": "Food & Beverages",
+    "subcategory": "",
+    "mall_id": "313-somerset"
+  },
+  {
+    "name": "Ottie Pancakes",
+    "level": "#B3-10",
+    "thumbnail_url": "https://www.313somerset.com.sg/contentassets/e7d82939b8b74c81b6217784611f0653/logo-2500px.jpg?width=400&upscale=false&format=webp&mode=max&quality=80",
+    "opening_hours": "Open until 9:30pm today",
+    "category": "Food & Beverages",
+    "subcategory": "",
+    "mall_id": "313-somerset"
+  },
+  {
+    "name": "Papa Ayam",
+    "level": "#B3-49",
+    "thumbnail_url": "https://www.313somerset.com.sg/siteassets/313-somerset/tenant-logo-and-banner-images/papa-ayam.png?width=400&upscale=false&format=webp&mode=max&quality=80",
+    "opening_hours": "Open until 9:30pm today",
+    "category": "Food & Beverages",
+    "subcategory": "",
+    "mall_id": "313-somerset"
+  },
+  {
+    "name": "PlayMade",
+    "level": "#B3-08",
+    "thumbnail_url": "https://www.313somerset.com.sg/contentassets/52d086518fa644dc89362bf83f27eba9/playmade-brand-logo_mall_icon_2500x2500.jpg?width=400&upscale=false&format=webp&mode=max&quality=80",
+    "opening_hours": "Open until 10pm today",
+    "category": "Food & Beverages",
+    "subcategory": "",
+    "mall_id": "313-somerset"
+  },
+  {
+    "name": "Potato Corner",
+    "level": "#B3-45",
+    "thumbnail_url": "https://www.313somerset.com.sg/siteassets/313-somerset/tenant-logo-and-banner-images/potato-corner-logo.jpg?width=400&upscale=false&format=webp&mode=max&quality=80",
+    "opening_hours": "Open until 11pm today",
+    "category": "Food & Beverages",
+    "subcategory": "",
+    "mall_id": "313-somerset"
+  },
+  {
+    "name": "Riverside Indonesian BBQ",
+    "level": "#B3-44",
+    "thumbnail_url": "https://www.313somerset.com.sg/siteassets/313-somerset/tenant-logo-and-banner-images/riverside-indonesian-bbq-logo.jpg?width=400&upscale=false&format=webp&mode=max&quality=80",
+    "opening_hours": "Open until 10pm today",
+    "category": "Food & Beverages",
+    "subcategory": "",
+    "mall_id": "313-somerset"
+  },
+  {
+    "name": "Sake +",
+    "level": "#01-27",
+    "thumbnail_url": "https://www.313somerset.com.sg/contentassets/ff783690b1c54a08970254d228a7a51c/horizontal-2500x2500.jpg?width=400&upscale=false&format=webp&mode=max&quality=80",
+    "opening_hours": "Open until 11pm today",
+    "category": "Food & Beverages",
+    "subcategory": "",
+    "mall_id": "313-somerset"
+  },
+  {
+    "name": "San.wich by Swee Heng",
+    "level": "#B3-23",
+    "thumbnail_url": "https://www.313somerset.com.sg/contentassets/770e2408a741456381d281148522f78f/san.wich---2500px-x-2500px.jpg?width=400&upscale=false&format=webp&mode=max&quality=80",
+    "opening_hours": "Open until 10pm today",
+    "category": "Food & Beverages",
+    "subcategory": "",
+    "mall_id": "313-somerset"
+  },
+  {
+    "name": "Shihlin Taiwan Street Snacks",
+    "level": "#B3-50",
+    "thumbnail_url": "https://www.313somerset.com.sg/siteassets/313-somerset/tenant-logo-and-banner-images/shihlin-logo.jpg?width=400&upscale=false&format=webp&mode=max&quality=80",
+    "opening_hours": "Open until 9:30pm today",
+    "category": "Food & Beverages",
+    "subcategory": "",
+    "mall_id": "313-somerset"
+  },
+  {
+    "name": "SNACK BOX",
+    "level": "#01-37",
+    "thumbnail_url": "https://www.313somerset.com.sg/contentassets/9fc65c634fb94a8e9e9199f9fc993dde/snack-box-logo---2500-x-2500-px.jpg?width=400&upscale=false&format=webp&mode=max&quality=80",
+    "opening_hours": "Open until 11pm today",
+    "category": "Food & Beverages",
+    "subcategory": "",
+    "mall_id": "313-somerset"
+  },
+  {
+    "name": "STARBUCKS®",
+    "level": "#02-38/39",
+    "thumbnail_url": "https://www.313somerset.com.sg/siteassets/313-somerset/tenant-logo-and-banner-images/starbucks-logo.jpg?width=400&upscale=false&format=webp&mode=max&quality=80",
+    "opening_hours": "Open until 11:30pm today",
+    "category": "Food & Beverages",
+    "subcategory": "",
+    "mall_id": "313-somerset"
+  },
+  {
+    "name": "Stuff'd",
+    "level": "#B3-47",
+    "thumbnail_url": "https://www.313somerset.com.sg/contentassets/34899c81ce1d4a86adbe1b1282b7e2b7/stuffd-brand-logo---2500x2500px.jpg?width=400&upscale=false&format=webp&mode=max&quality=80",
+    "opening_hours": "Open until 9:45pm today",
+    "category": "Food & Beverages",
+    "subcategory": "",
+    "mall_id": "313-somerset"
+  },
+  {
+    "name": "Subway",
+    "level": "#B3-01",
+    "thumbnail_url": "https://www.313somerset.com.sg/siteassets/313-somerset/tenant-logo-and-banner-images/subway-logo.jpg?width=400&upscale=false&format=webp&mode=max&quality=80",
+    "opening_hours": "Open until 10pm today",
+    "category": "Food & Beverages",
+    "subcategory": "",
+    "mall_id": "313-somerset"
+  },
+  {
+    "name": "SUKIYA",
+    "level": "#B3-33/34",
+    "thumbnail_url": "https://www.313somerset.com.sg/contentassets/3c1882da20de45f1a0037c41fd3a6b08/sukiya-logo.jpg?width=400&upscale=false&format=webp&mode=max&quality=80",
+    "opening_hours": "Open until 11pm today",
+    "category": "Food & Beverages",
+    "subcategory": "",
+    "mall_id": "313-somerset"
+  },
+  {
+    "name": "Sushi Plus",
+    "level": "#B3-28/29",
+    "thumbnail_url": "https://www.313somerset.com.sg/contentassets/818219ba02c444f8977df61a03ddecd7/sushi-plus-logo_2500x2500.jpg?width=400&upscale=false&format=webp&mode=max&quality=80",
+    "opening_hours": "Open until 9:30pm today",
+    "category": "Food & Beverages",
+    "subcategory": "",
+    "mall_id": "313-somerset"
+  },
+  {
+    "name": "Swee Heng 1989 Signature",
+    "level": "#B3-23",
+    "thumbnail_url": "https://www.313somerset.com.sg/contentassets/ccb7ed35b75344caa792841ddbc255bd/1989signature---2500px-x-2500px.jpg?width=400&upscale=false&format=webp&mode=max&quality=80",
+    "opening_hours": "Open until 10pm today",
+    "category": "Food & Beverages",
+    "subcategory": "",
+    "mall_id": "313-somerset"
+  },
+  {
+    "name": "T2",
+    "level": "#01-20",
+    "thumbnail_url": "https://www.313somerset.com.sg/siteassets/313-somerset/tenant-logo-and-banner-images/t2-logo.jpg?width=400&upscale=false&format=webp&mode=max&quality=80",
+    "opening_hours": "Open until 10pm today",
+    "category": "Food & Beverages",
+    "subcategory": "",
+    "mall_id": "313-somerset"
+  },
+  {
+    "name": "TAI ER",
+    "level": "#B3-39/40",
+    "thumbnail_url": "https://www.313somerset.com.sg/contentassets/10d64d932d2341f297ec095bdeddf757/2500px-w-by-2500px-h.jpg?width=400&upscale=false&format=webp&mode=max&quality=80",
+    "opening_hours": "Open until 9pm today",
+    "category": "Food & Beverages",
+    "subcategory": "",
+    "mall_id": "313-somerset"
+  },
+  {
+    "name": "Tan Yu",
+    "level": "#B3-30 to 32",
+    "thumbnail_url": "https://www.313somerset.com.sg/contentassets/203372cfc2724ad78de061ad6df5d68a/tanyu-2500px-x-2500px.jpg?width=400&upscale=false&format=webp&mode=max&quality=80",
+    "opening_hours": "Open until 10pm today",
+    "category": "Food & Beverages",
+    "subcategory": "",
+    "mall_id": "313-somerset"
+  },
+  {
+    "name": "Tim Hortons",
+    "level": "#01-29",
+    "thumbnail_url": "https://www.313somerset.com.sg/contentassets/ef416b939a0d4f898f7c6f7c0343e293/tim-hortons-brand-logo-2500x2500px.jpg?width=400&upscale=false&format=webp&mode=max&quality=80",
+    "opening_hours": "Open until 10pm today",
+    "category": "Food & Beverages",
+    "subcategory": "",
+    "mall_id": "313-somerset"
+  },
+  {
+    "name": "Toast Box",
+    "level": "#B2-31 to 33",
+    "thumbnail_url": "https://www.313somerset.com.sg/siteassets/313-somerset/tenant-logo-and-banner-images/toast-box-logo.jpg?width=400&upscale=false&format=webp&mode=max&quality=80",
+    "opening_hours": "Open until 9:30pm today",
+    "category": "Food & Beverages",
+    "subcategory": "",
+    "mall_id": "313-somerset"
+  },
+  {
+    "name": "Tonkatsu ENbiton",
+    "level": "#B3-25 to 27",
+    "thumbnail_url": "https://www.313somerset.com.sg/contentassets/61e69ee4676e471792f735678ece32c1/tonkatsu-enbiton_logo_variation-01_2500px.jpg?width=400&upscale=false&format=webp&mode=max&quality=80",
+    "opening_hours": "Open until 10pm today",
+    "category": "Food & Beverages",
+    "subcategory": "",
+    "mall_id": "313-somerset"
+  },
+  {
+    "name": "Tsuta",
+    "level": "#01-16/17",
+    "thumbnail_url": "https://www.313somerset.com.sg/siteassets/313-somerset/tenant-logo-and-banner-images/tsuta-logo.jpg?width=400&upscale=false&format=webp&mode=max&quality=80",
+    "opening_hours": "Open until 11pm today",
+    "category": "Food & Beverages",
+    "subcategory": "",
+    "mall_id": "313-somerset"
+  },
+  {
+    "name": "Vanda Botanical Desserts",
+    "level": "#01-16/17",
+    "thumbnail_url": "https://www.313somerset.com.sg/contentassets/9cefb2fca53648a08b0016f7cef7ad2a/images/313-vanda-botanical-desserts.jpg?width=400&upscale=false&format=webp&mode=max&quality=80",
+    "opening_hours": "Open until 11pm today",
+    "category": "Food & Beverages",
+    "subcategory": "",
+    "mall_id": "313-somerset"
+  },
+  {
+    "name": "Wokker by A-Roy Thai Restaurant",
+    "level": "#B3-43",
+    "thumbnail_url": "https://www.313somerset.com.sg/siteassets/313-somerset/tenant-logo-and-banner-images/wokker-logo.jpg?width=400&upscale=false&format=webp&mode=max&quality=80",
+    "opening_hours": "Open until 10pm today",
+    "category": "Food & Beverages",
+    "subcategory": "",
+    "mall_id": "313-somerset"
+  },
+  {
+    "name": "Xiang Xiang Hunan Cuisine",
+    "level": "#B3-02 to 06",
+    "thumbnail_url": "https://www.313somerset.com.sg/contentassets/c38752f13e18413eb94c1480c1bbcff0/2500x2500logo_2500x2500.jpg?width=400&upscale=false&format=webp&mode=max&quality=80",
+    "opening_hours": "Open until 10pm today",
+    "category": "Food & Beverages",
+    "subcategory": "",
+    "mall_id": "313-somerset"
+  },
+  {
+    "name": "Xiao Noodles",
+    "level": "#B3-37/38",
+    "thumbnail_url": "https://www.313somerset.com.sg/contentassets/3af8440d4dfd455cb7cb0e4664f50bdb/brand-logo-2500px-w-by-2500px-h-jpg.jpg?width=400&upscale=false&format=webp&mode=max&quality=80",
+    "opening_hours": "Open until 10pm today",
+    "category": "Food & Beverages",
+    "subcategory": "",
+    "mall_id": "313-somerset"
+  },
+  {
+    "name": "Ya Kun Kaya Toast",
+    "level": "#01-32 to 34",
+    "thumbnail_url": "https://www.313somerset.com.sg/contentassets/81602708ffe84f64bff45baeafb215b4/website_ya-kun-logo_2500x2500px.jpg?width=400&upscale=false&format=webp&mode=max&quality=80",
+    "opening_hours": "Open until 10pm today",
+    "category": "Food & Beverages",
+    "subcategory": "",
+    "mall_id": "313-somerset"
+  },
+  {
+    "name": "Yakiniku Like",
+    "level": "#B2-01 to 03",
+    "thumbnail_url": "https://www.313somerset.com.sg/contentassets/eb7702538efd4833bc2001366cb6f25b/250x250hr.jpg?width=400&upscale=false&format=webp&mode=max&quality=80",
+    "opening_hours": "Open until 10pm today",
+    "category": "Food & Beverages",
+    "subcategory": "",
+    "mall_id": "313-somerset"
+  }
+]
