@@ -570,14 +570,14 @@ export async function getSupperSpotsByStation(options?: { limit?: number; offset
     .not('station_id', 'is', null)
     .contains('tags', ['Supper']);
 
-  // Fetch mall outlets open late (common late-night chains, 24h, etc.)
+  // Fetch mall outlets with Supper tag or late-night categories
   const { data: mallOutlets, error: mallError } = await supabase
     .from('mall_outlets')
     .select(`
-      id, name, mall_id, category, opening_hours,
+      id, name, mall_id, category, opening_hours, tags,
       malls!inner (id, name, station_id)
     `)
-    .or('category.ilike.%supper%,category.ilike.%24%,category.ilike.%late%night%');
+    .or('tags.cs.{Supper},category.ilike.%supper%,category.ilike.%24%,category.ilike.%late%night%');
 
   if (listingsError) console.error('Error fetching supper listings:', listingsError);
   if (mallError) console.error('Error fetching supper mall outlets:', mallError);
@@ -708,15 +708,15 @@ export async function getDessertSpotsByStation(options?: { limit?: number; offse
     .not('station_id', 'is', null)
     .contains('tags', ['Dessert']);
 
-  // Fetch mall outlets with dessert-related categories (case-insensitive search)
+  // Fetch mall outlets with Dessert tag or dessert-related categories
   // Note: Excluding plain "cafe" to avoid coffee shops - only specific dessert/bakery categories
   const { data: mallOutlets, error: mallError } = await supabase
     .from('mall_outlets')
     .select(`
-      id, name, mall_id, category,
+      id, name, mall_id, category, tags,
       malls!inner (id, name, station_id)
     `)
-    .or('category.ilike.%dessert%,category.ilike.%ice cream%,category.ilike.%gelato%,category.ilike.%bakery%,category.ilike.%bubble tea%,category.ilike.%bbt%,category.ilike.%patisserie%,category.ilike.%pastry%');
+    .or('tags.cs.{Dessert},category.ilike.%dessert%,category.ilike.%ice cream%,category.ilike.%gelato%,category.ilike.%bakery%,category.ilike.%bubble tea%,category.ilike.%bbt%,category.ilike.%patisserie%,category.ilike.%pastry%');
 
   if (listingsError) console.error('Error fetching dessert listings:', listingsError);
   if (mallError) console.error('Error fetching dessert mall outlets:', mallError);
