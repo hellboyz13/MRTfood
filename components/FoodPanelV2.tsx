@@ -223,6 +223,16 @@ export default function FoodPanelV2({ stationId, onClose, onNavigateToStation, i
 
   const LISTINGS_PER_PAGE = 20;
 
+  // Debug: Log props on mount and when they change
+  useEffect(() => {
+    console.log('FoodPanel props:', {
+      stationId,
+      searchQuery,
+      searchMatchesCount: searchMatches.length,
+      searchMatchIds: searchMatches.map(m => ({ id: m.id, name: m.name, type: m.type })),
+    });
+  }, [stationId, searchQuery, searchMatches]);
+
   // Reset selected menu listing, mall, and pagination when station changes
   useEffect(() => {
     setSelectedMenuListing(null);
@@ -330,7 +340,11 @@ export default function FoodPanelV2({ stationId, onClose, onNavigateToStation, i
 
     // Check if this item's ID is in the search matches
     if (item.id) {
-      return searchMatches.some(match => match.id === item.id);
+      const matches = searchMatches.some(match => match.id === item.id);
+      if (matches) {
+        console.log('Match found:', item.name, 'ID:', item.id);
+      }
+      return matches;
     }
 
     // Fallback: check by name (for items without ID)
@@ -418,7 +432,13 @@ export default function FoodPanelV2({ stationId, onClose, onNavigateToStation, i
     }
 
     // Filter listings based on search matches (if search is active)
-    console.log('FoodPanel filter:', { isSearchActive, searchQuery, searchMatchesCount: searchMatches.length, modeListingsCount: modeListings.length });
+    console.log('FoodPanel filter:', {
+      isSearchActive,
+      searchQuery,
+      searchMatchesCount: searchMatches.length,
+      modeListingsCount: modeListings.length,
+      modeListingsIds: modeListings.slice(0, 5).map(l => ({ id: l.id, name: l.name }))
+    });
     const filteredListings = isSearchActive
       ? modeListings.filter(listing => matchesSearch(listing))
       : modeListings;
