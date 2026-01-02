@@ -9,7 +9,7 @@ require('dotenv').config({ path: '.env.local' });
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL,
-  process.env.SUPABASE_SERVICE_KEY
+  process.env.SUPABASE_SERVICE_KEY || process.env.SUPABASE_SERVICE_ROLE_KEY
 );
 
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
@@ -17,18 +17,32 @@ const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 // Find food listings without menu images
 async function findListingsWithoutImages(limit) {
   // Get listing IDs that already have images
-  const { data: existingImages } = await supabase
+  const { data: existingImages, error: imgError } = await supabase
     .from('menu_images')
     .select('listing_id')
     .not('listing_id', 'is', null);
 
+  if (imgError) {
+    console.log('Error fetching existing images:', imgError);
+  }
+
   const listingIdsWithImages = new Set((existingImages || []).map(i => i.listing_id));
 
   // Get food listings
-  const { data: listings } = await supabase
+  const { data: listings, error: listError } = await supabase
     .from('food_listings')
-    .select('id, name, address, place_id')
+    .select('id, name, address')
     .limit(500);
+
+  if (listError) {
+    console.log('Error fetching listings:', listError);
+    return [];
+  }
+
+  if (!listings || listings.length === 0) {
+    console.log('No listings found');
+    return [];
+  }
 
   const withoutImages = listings.filter(l => !listingIdsWithImages.has(l.id));
   console.log(`Found ${withoutImages.length} listings without images`);

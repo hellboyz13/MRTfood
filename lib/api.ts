@@ -557,7 +557,7 @@ function isOpenAtTime(openingHours: OpeningHours | string | null, currentHour: n
   return null; // Unknown
 }
 
-// Get supper spots sorted by what's open at current time
+// Get supper spots - ONLY show places currently open at user's local time
 export async function getSupperSpotsByStation(options?: { limit?: number; offset?: number; currentHour?: number }): Promise<FilterResponse> {
   const limit = options?.limit ?? FILTER_PAGE_SIZE;
   const offset = options?.offset ?? 0;
@@ -586,20 +586,23 @@ export async function getSupperSpotsByStation(options?: { limit?: number; offset
   // Track open status separately for sorting
   type MatchWithMeta = SearchMatch & { _isOpen?: boolean | null };
 
-  // Group by station with open status
-  const stationResultsMap = new Map<string, { stationId: string; matches: MatchWithMeta[]; openCount: number }>();
+  // Group by station - ONLY include places that are currently open
+  const stationResultsMap = new Map<string, { stationId: string; matches: MatchWithMeta[] }>();
 
-  // Add curated listings
+  // Add curated listings - ONLY if currently open
   (listings || []).forEach((listing: { id: string; station_id: string | null; name: string; opening_hours?: OpeningHours | string | null }) => {
     if (!listing.station_id) return;
 
     const isOpen = isOpenAtTime(listing.opening_hours || null, currentHour);
 
+    // Skip places that are definitely closed
+    // Include: open (true) or unknown hours (null) - give benefit of doubt
+    if (isOpen === false) return;
+
     if (!stationResultsMap.has(listing.station_id)) {
       stationResultsMap.set(listing.station_id, {
         stationId: listing.station_id,
         matches: [],
-        openCount: 0,
       });
     }
 
@@ -611,21 +614,22 @@ export async function getSupperSpotsByStation(options?: { limit?: number; offset
       matchType: 'restaurant',
       _isOpen: isOpen,
     });
-    if (isOpen === true) station.openCount++;
   });
 
-  // Add mall outlets
+  // Add mall outlets - ONLY if currently open
   (mallOutlets || []).forEach((outlet: { id: string; name: string; mall_id: string; category: string | null; opening_hours?: OpeningHours | string | null; malls: { id: string; name: string; station_id: string } }) => {
     const stationId = outlet.malls?.station_id;
     if (!stationId) return;
 
     const isOpen = isOpenAtTime(outlet.opening_hours || null, currentHour);
 
+    // Skip places that are definitely closed
+    if (isOpen === false) return;
+
     if (!stationResultsMap.has(stationId)) {
       stationResultsMap.set(stationId, {
         stationId: stationId,
         matches: [],
-        openCount: 0,
       });
     }
 
@@ -639,25 +643,20 @@ export async function getSupperSpotsByStation(options?: { limit?: number; offset
       mallId: outlet.mall_id,
       _isOpen: isOpen,
     });
-    if (isOpen === true) station.openCount++;
   });
 
-  // Convert to array
-  const allResults = Array.from(stationResultsMap.values());
+  // Convert to array and filter out stations with no open matches
+  const allResults = Array.from(stationResultsMap.values())
+    .filter(station => station.matches.length > 0);
 
-  // Sort stations: more open places first, then by total matches
-  allResults.sort((a, b) => {
-    if (b.openCount !== a.openCount) return b.openCount - a.openCount;
-    return b.matches.length - a.matches.length;
-  });
+  // Sort stations by number of open places
+  allResults.sort((a, b) => b.matches.length - a.matches.length);
 
-  // Sort matches within each station: open first, then closed, then unknown
+  // Sort matches within each station: confirmed open first, then unknown
   allResults.forEach(station => {
     station.matches.sort((a, b) => {
       if (a._isOpen === true && b._isOpen !== true) return -1;
       if (b._isOpen === true && a._isOpen !== true) return 1;
-      if (a._isOpen === false && b._isOpen === null) return -1;
-      if (b._isOpen === false && a._isOpen === null) return 1;
       return 0;
     });
   });
