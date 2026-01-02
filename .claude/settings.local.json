@@ -65,7 +65,8 @@
       "Bash(do echo \"Starting batch offset $i\")",
       "Bash(done)",
       "Bash(npx depcheck:*)",
-      "Bash(npx vercel:*)"
+      "Bash(npx vercel:*)",
+      "Bash(git log:*)"
     ],
     "deny": [],
     "ask": []

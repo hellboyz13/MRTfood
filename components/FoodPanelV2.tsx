@@ -418,9 +418,11 @@ export default function FoodPanelV2({ stationId, onClose, onNavigateToStation, i
     }
 
     // Filter listings based on search matches (if search is active)
+    console.log('FoodPanel filter:', { isSearchActive, searchQuery, searchMatchesCount: searchMatches.length, modeListingsCount: modeListings.length });
     const filteredListings = isSearchActive
       ? modeListings.filter(listing => matchesSearch(listing))
       : modeListings;
+    console.log('Filtered to:', filteredListings.length, 'listings');
 
     // Sort filtered listings based on selected sort option
     const sortedListings = [...filteredListings].sort((a, b) => {
