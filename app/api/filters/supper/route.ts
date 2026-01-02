@@ -16,8 +16,7 @@ const CACHE_DURATION = 3600;
 const STALE_WHILE_REVALIDATE = 300;
 
 // Disable caching via env var if needed
-// Temporarily disabled to ensure allStationIds is returned
-const CACHE_ENABLED = false; // process.env.DISABLE_FILTER_CACHE !== 'true';
+const CACHE_ENABLED = process.env.DISABLE_FILTER_CACHE !== 'true';
 
 export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams;

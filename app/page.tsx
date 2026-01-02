@@ -279,11 +279,9 @@ export default function Home() {
       setSearchPage(0);
       try {
         const { results, hasMore, allStationIds } = await fetchDessertSpots(0);
-        console.log('Dessert API response:', { resultsCount: results.length, hasMore, allStationIdsCount: allStationIds?.length });
         setSearchResults(results);
         setHasMoreSearchResults(hasMore);
         setFilterStationIds(allStationIds || []); // Set all station IDs for map pins
-        console.log('Set filterStationIds:', allStationIds?.length || 0);
         if (results.length === 0) {
           setSelectedStation(null);
         }

@@ -470,11 +470,9 @@ export default function MRTMap({ selectedStation, onStationClick, searchResults 
     // Apply search result styling
     // Use filterStationIds for pins if available (for filters like dessert/supper)
     // Otherwise fall back to searchResults (for normal search)
-    console.log('MRTMap pins:', { filterStationIds: filterStationIds.length, searchResults: searchResults.length });
     const stationIdsForPins = filterStationIds.length > 0
       ? filterStationIds
       : searchResults.map(r => r.stationId);
-    console.log('Using stationIdsForPins:', stationIdsForPins.length);
 
     if (stationIdsForPins.length > 0) {
       const highlightedIds = new Set(stationIdsForPins);

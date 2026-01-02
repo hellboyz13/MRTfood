@@ -1,0 +1,3573 @@
+[
+  {
+    "station": "Great World",
+    "stationId": "great-world",
+    "listing1": {
+      "id": "f77f8df2-fadb-4742-9d03-21acadc86e5d",
+      "name": "No. 18 Zion Road Fried Kway Teow",
+      "address": "70 Zion Road, #01-17, Zion Riverside Food Centre, Singapore 247792",
+      "source": "eatbook"
+    },
+    "listing2": {
+      "id": "f1cb65e0-7087-48b8-b484-9b40b4549d6f",
+      "name": "No.18 Zion Road Fried Kway Teow",
+      "address": "70 Zion Rd, #01-17 Zion Riverside Food Centre",
+      "source": "michelin-hawker"
+    },
+    "sharedWords": [
+      "no",
+      "18",
+      "zion",
+      "road",
+      "fried",
+      "kway",
+      "teow"
+    ],
+    "sharedCount": 7
+  },
+  {
+    "station": "Bukit Batok",
+    "stationId": "bukit-batok",
+    "listing1": {
+      "id": "5043257a-85f0-4fef-8c61-b21f85444648",
+      "name": "Ji Tuo Hong Kong Style Dim Sum",
+      "address": "2 Bukit Batok Street 24, #09-18, Singapore 659480",
+      "source": null
+    },
+    "listing2": {
+      "id": "bf13d166-28ea-4a3c-b4f6-292d3f80e35e",
+      "name": "Ji Tuo Hong Kong Style Tim Sum",
+      "address": "2 Bukit Batok St 24, SkyTech, #09-18, Singapore 659480",
+      "source": "sethlui"
+    },
+    "sharedWords": [
+      "ji",
+      "tuo",
+      "hong",
+      "kong",
+      "style",
+      "sum"
+    ],
+    "sharedCount": 6
+  },
+  {
+    "station": "Mattar",
+    "stationId": "mattar",
+    "listing1": {
+      "id": "7a8a5e90-1ebc-422e-921a-0efd0994d0cf",
+      "name": "Yi Xuan Handmade Banmian Eating House",
+      "address": "35 Circuit Road, Block 35, Singapore 370035",
+      "source": null
+    },
+    "listing2": {
+      "id": "f4ed9fbf-d4f6-4916-aeb0-1e12b983a3ce",
+      "name": "Yi Xuan Handmade Banmian Eating House",
+      "address": "35 Circuit Rd, Block 35, Singapore 370035",
+      "source": "eatbook"
+    },
+    "sharedWords": [
+      "yi",
+      "xuan",
+      "handmade",
+      "banmian",
+      "eating",
+      "house"
+    ],
+    "sharedCount": 6
+  },
+  {
+    "station": "Maxwell",
+    "stationId": "maxwell",
+    "listing1": {
+      "id": "291c4da0-43e7-495d-bbd7-41e2053fd554",
+      "name": "Fu Shun Shao La Mian Jia",
+      "address": "1 Kadayanallur Street, #01-71, Maxwell Food Centre, Singapore 069184",
+      "source": null
+    },
+    "listing2": {
+      "id": "2c2f4c53-01ec-48c9-9d17-b7b2f3424c56",
+      "name": "Fu Shun Jin Ji Shao La Mian Jia",
+      "address": "1 Kadayanallur Street, Maxwell Food Centre, Singapore 069184",
+      "source": "sethlui"
+    },
+    "sharedWords": [
+      "fu",
+      "shun",
+      "shao",
+      "la",
+      "mian",
+      "jia"
+    ],
+    "sharedCount": 6
+  },
+  {
+    "station": "Ang Mo Kio",
+    "stationId": "ang-mo-kio",
+    "listing1": {
+      "id": "0bd2515b-01d5-4d10-98f2-1728df4196ee",
+      "name": "Ang Mo Kio Fried Kway Teow",
+      "address": "724 Ang Mo Kio Avenue 6, #01-22, Ang Mo Kio Central Market & Food Centre, Singapore 560724",
+      "source": "eatbook"
+    },
+    "listing2": {
+      "id": "adc6131c-1d0d-45a5-9d12-074727153fa5",
+      "name": "Ang Mo Kio Char Kway Teow",
+      "address": "724 Ang Mo Kio Ave 6, #01-28, S560724",
+      "source": "sethlui"
+    },
+    "sharedWords": [
+      "ang",
+      "mo",
+      "kio",
+      "kway",
+      "teow"
+    ],
+    "sharedCount": 5
+  },
+  {
+    "station": "Kovan",
+    "stationId": "kovan",
+    "listing1": {
+      "id": "f2384080-2b39-41b5-937a-55b412836c8d",
+      "name": "Yi Dian Xing Hong Kong Dum Sum",
+      "address": "1012 Upper Serangoon Road, Singapore 534750",
+      "source": "eatbook"
+    },
+    "listing2": {
+      "id": "533818f2-a87a-4f06-9ad5-aec6caa83d0f",
+      "name": "Yi Dian Xin Hong Kong Dim Sum 一点心",
+      "address": "973 Upper Serangoon Road, Singapore 534752",
+      "source": "sethlui"
+    },
+    "sharedWords": [
+      "yi",
+      "dian",
+      "hong",
+      "kong",
+      "sum"
+    ],
+    "sharedCount": 5
+  },
+  {
+    "station": "Lakeside",
+    "stationId": "lakeside",
+    "listing1": {
+      "id": "d034377c-946a-4146-a8b1-94c5669b567c",
+      "name": "Boon Lay Power Nasi Lemak",
+      "address": "221A Boon Lay Place, #01-106, Singapore 641221",
+      "source": null
+    },
+    "listing2": {
+      "id": "d567d3f2-7ab5-48f6-9e55-3a79e99103ab",
+      "name": "Boon Lay Power Nasi Lemak",
+      "address": "221B Boon Lay Place, #01-106, Boon Lay Place Food Village",
+      "source": "sethlui"
+    },
+    "sharedWords": [
+      "boon",
+      "lay",
+      "power",
+      "nasi",
+      "lemak"
+    ],
+    "sharedCount": 5
+  },
+  {
+    "station": "Braddell",
+    "stationId": "braddell",
+    "listing1": {
+      "id": "8235b711-02f3-4d88-9a33-372272aeb29d",
+      "name": "Come Daily Fried Hokkien Prawn Mee",
+      "address": "127 Lorong 1 Toa Payoh, #02-27, 127 Toa Payoh West Market & Food Centre, Singapore 310127",
+      "source": "eatbook"
+    },
+    "listing2": {
+      "id": "1b8c662c-5300-4e2a-8415-4ea92ac8ced9",
+      "name": "Come Daily Hokkien Mee",
+      "address": "127 Lorong 1 Toa Payoh, Toa Payoh West Mkt, S310127",
+      "source": "sethlui"
+    },
+    "sharedWords": [
+      "come",
+      "daily",
+      "hokkien",
+      "mee"
+    ],
+    "sharedCount": 4
+  },
+  {
+    "station": "Buona Vista",
+    "stationId": "buona-vista",
+    "listing1": {
+      "id": "c956545d-839c-44ec-a128-bd1a60988de0",
+      "name": "Sin Kee Famous Cantonese Chicken Rice",
+      "address": "40 Holland Drive",
+      "source": "michelin-hawker"
+    },
+    "listing2": {
+      "id": "1f9e2681-ca6f-4a6e-972e-50f8382d77e5",
+      "name": "Margaret Drive Sin Kee Chicken Rice",
+      "address": "40 Holland Drive, #01-39 Stall, #5",
+      "source": "michelin-hawker"
+    },
+    "sharedWords": [
+      "sin",
+      "kee",
+      "chicken",
+      "rice"
+    ],
+    "sharedCount": 4
+  },
+  {
+    "station": "Buona Vista",
+    "stationId": "buona-vista",
+    "listing1": {
+      "id": "fa3a95f1-e815-47c6-91dd-51caa846dd9b",
+      "name": "New Lucky Claypot Rice",
+      "address": "44 Holland Dr, #02-19, Holland Drive Market & Food Center, 44 Holland Dr",
+      "source": "michelin-hawker"
+    },
+    "listing2": {
+      "id": "4863fdf6-c0cc-4a75-927b-4d9d1de43616",
+      "name": "New Lucky Claypot Rice (Holland)",
+      "address": "44 Holland Drive #02-19, Holland Drive Market, Singapore 270044",
+      "source": "eatbook"
+    },
+    "sharedWords": [
+      "new",
+      "lucky",
+      "claypot",
+      "rice"
+    ],
+    "sharedCount": 4
+  },
+  {
+    "station": "Chinatown",
+    "stationId": "chinatown",
+    "listing1": {
+      "id": "3cf70874-3ecd-4ec4-a0f1-f62c13380ea7",
+      "name": "Old Amoy Chendol (Chinatown Complex)",
+      "address": "335 Smith Street, #02-156, Chinatown Complex",
+      "source": "editors-choice"
+    },
+    "listing2": {
+      "id": "ee21867e-ac72-40d6-9076-f346dd7b85f6",
+      "name": "Old Amoy Chendol (Chinatown)",
+      "address": "335 Smith Street #02-008 Chinatown Complex, Singapore 050335",
+      "source": "eatbook"
+    },
+    "sharedWords": [
+      "old",
+      "amoy",
+      "chendol",
+      "chinatown"
+    ],
+    "sharedCount": 4
+  },
+  {
+    "station": "Chinese Garden",
+    "stationId": "chinese-garden",
+    "listing1": {
+      "id": "80b5b0ff-ac12-4d3e-a450-3af4a65f0ede",
+      "name": "Joo Siah Bak Koot Teh",
+      "address": "349 Jurong East Ave 1, #01-1215",
+      "source": "michelin-hawker"
+    },
+    "listing2": {
+      "id": "e19f6b18-7981-4ae5-bd95-1d2f965334a6",
+      "name": "Joo Siah Bak Kut Teh",
+      "address": "349 JURONG EAST AVENUE 1, #01-1215 600349",
+      "source": "get-fed"
+    },
+    "sharedWords": [
+      "joo",
+      "siah",
+      "bak",
+      "teh"
+    ],
+    "sharedCount": 4
+  },
+  {
+    "station": "Chinese Garden",
+    "stationId": "chinese-garden",
+    "listing1": {
+      "id": "01e44d0c-7556-439b-9fe3-a1408f0de240",
+      "name": "Lai Heng Handmade Teochew Kueh",
+      "address": "347 Jurong East Ave 1, #01-218",
+      "source": "michelin-hawker"
+    },
+    "listing2": {
+      "id": "9cf3713c-0865-445b-b3f3-38ec419a8769",
+      "name": "Lai Heng Teochew Kueh",
+      "address": "Yuhua Market",
+      "source": "editors-choice"
+    },
+    "sharedWords": [
+      "lai",
+      "heng",
+      "teochew",
+      "kueh"
+    ],
+    "sharedCount": 4
+  },
+  {
+    "station": "Havelock",
+    "stationId": "havelock",
+    "listing1": {
+      "id": "5e2f65bf-760b-4a2a-b110-9df89d6f5d3a",
+      "name": "Jian Bo Tiong Bahru Shui Kueh",
+      "address": "30 Seng Poh Rd, #02-05",
+      "source": "michelin-hawker"
+    },
+    "listing2": {
+      "id": "d86e9dc2-8a78-4a63-9e2a-23c748ea27b5",
+      "name": "Jian Bo Shui Kueh",
+      "address": "30 Seng Poh Road, #02-05, Tiong Bahru Market",
+      "source": "michelin-hawker"
+    },
+    "sharedWords": [
+      "jian",
+      "bo",
+      "shui",
+      "kueh"
+    ],
+    "sharedCount": 4
+  },
+  {
+    "station": "Kovan",
+    "stationId": "kovan",
+    "listing1": {
+      "id": "931fac73-63fd-4f2a-9b5f-2ea4195f4d29",
+      "name": "Original Simon Road Fried Hokkien Mee",
+      "address": "209 Hougang Street 21, #01-66, 209 Kovan Market and Food Centre, Singapore 530209",
+      "source": "eatbook"
+    },
+    "listing2": {
+      "id": "7dbbc817-c590-4d84-93ed-391853c5504b",
+      "name": "Simon Road Hokkien Mee (Kovan)",
+      "address": "209 Hougang St 21, #01-66 Hae! Mee @ Kovan, Singapore 530209",
+      "source": "timeout-2025"
+    },
+    "sharedWords": [
+      "simon",
+      "road",
+      "hokkien",
+      "mee"
+    ],
+    "sharedCount": 4
+  },
+  {
+    "station": "Newton",
+    "stationId": "newton",
+    "listing1": {
+      "id": "9780069a-a818-4c97-b64a-6c8f8099a9c4",
+      "name": "Kwang Kee Teochew Fish Porridge",
+      "address": null,
+      "source": "michelin-hawker"
+    },
+    "listing2": {
+      "id": "5992c6aa-3f6d-4b2b-a2e4-dddb1c25ed25",
+      "name": "Song Kee Teochew Fish Porridge",
+      "address": "500 Clemenceau Ave N, #01-37",
+      "source": "michelin-hawker"
+    },
+    "sharedWords": [
+      "kee",
+      "teochew",
+      "fish",
+      "porridge"
+    ],
+    "sharedCount": 4
+  },
+  {
+    "station": "Punggol Coast",
+    "stationId": "punggol-coast",
+    "listing1": {
+      "id": "48f7f146-835c-48e2-a181-aa829fd66ecd",
+      "name": "Hee Hee Steamed Fish & Seafood",
+      "address": "84 Punggol Way, Punggol Coast Hawker Centre",
+      "source": "timeout-2025"
+    },
+    "listing2": {
+      "id": "7cdcd014-9381-4315-84ed-59d3a1d7ae29",
+      "name": "Hee Hee Steamed Fish (Punggol Coast)",
+      "address": "84 Punggol Way, #02-K55, Punggol Coast Hawker Centre, Singapore 829911",
+      "source": "timeout-2025"
+    },
+    "sharedWords": [
+      "hee",
+      "hee",
+      "steamed",
+      "fish"
+    ],
+    "sharedCount": 4
+  },
+  {
+    "station": "Telok Ayer",
+    "stationId": "telok-ayer",
+    "listing1": {
+      "id": "bde0f997-c48d-486d-b4dd-5b1a8a445425",
+      "name": "Lau Pa Sat - Seng Kee",
+      "address": "18 Raffles Quay, Stall 10, S048582",
+      "source": "sethlui"
+    },
+    "listing2": {
+      "id": "a47672e0-c459-4625-8e6a-69484524ba79",
+      "name": "Lau Pa Sat - Song Kee Fishball",
+      "address": "18 Raffles Quay, Stall 19, S048582",
+      "source": "sethlui"
+    },
+    "sharedWords": [
+      "lau",
+      "pa",
+      "sat",
+      "kee"
+    ],
+    "sharedCount": 4
+  },
+  {
+    "station": "Telok Ayer",
+    "stationId": "telok-ayer",
+    "listing1": {
+      "id": "a47672e0-c459-4625-8e6a-69484524ba79",
+      "name": "Lau Pa Sat - Song Kee Fishball",
+      "address": "18 Raffles Quay, Stall 19, S048582",
+      "source": "sethlui"
+    },
+    "listing2": {
+      "id": "67ea359c-8d99-4aa8-93e9-a790b0f7b2d8",
+      "name": "LiXin Teochew Fishball Noodles (Lau Pa Sat)",
+      "address": "18 Raffles Quay, Lau Pa Sat, S048582",
+      "source": "eatbook"
+    },
+    "sharedWords": [
+      "lau",
+      "pa",
+      "sat",
+      "fishball"
+    ],
+    "sharedCount": 4
+  },
+  {
+    "station": "Beauty World",
+    "stationId": "beauty-world",
+    "listing1": {
+      "id": "efb8f27e-2085-4760-88ae-73d52cd59c6b",
+      "name": "Top 1 Home Made Noodles",
+      "address": "144 Upper Bukit Timah Road, #04-44, Beauty World",
+      "source": "eatbook"
+    },
+    "listing2": {
+      "id": "8a3a88b6-ff43-4162-a7ea-526459bbae59",
+      "name": "Top 1 Home Made Noodle",
+      "address": "Beauty World Centre #04-44",
+      "source": "hungrygowhere"
+    },
+    "sharedWords": [
+      "top",
+      "home",
+      "made"
+    ],
+    "sharedCount": 3
+  },
+  {
+    "station": "Bendemeer",
+    "stationId": "bendemeer",
+    "listing1": {
+      "id": "ce502e20-839d-404a-96ae-092b0d1b3aa4",
+      "name": "Keong Saik Bakery",
+      "address": "70 Bendemeer Rd, #01-03, Singapore 339940",
+      "source": null
+    },
+    "listing2": {
+      "id": "500cecf2-e2af-4bc0-86cc-8b5c1efb29ea",
+      "name": "Keong Saik Bakery",
+      "address": "Keong Saik Road",
+      "source": "eatbook"
+    },
+    "sharedWords": [
+      "keong",
+      "saik",
+      "bakery"
+    ],
+    "sharedCount": 3
+  },
+  {
+    "station": "Botanic Gardens",
+    "stationId": "botanic-gardens",
+    "listing1": {
+      "id": "47353ff2-8a33-4485-bdbe-450f7469aaa5",
+      "name": "Adam Road Nasi Lemak",
+      "address": "2 ADAM ROAD, ADAM FOOD CENTRE, Singapore 289876",
+      "source": null
+    },
+    "listing2": {
+      "id": "30b3d2f5-7035-473f-8bac-702fde5aed2f",
+      "name": "No. 1 Adam’s Nasi Lemak",
+      "address": "2 Adam Rd, Singapore 289876",
+      "source": null
+    },
+    "sharedWords": [
+      "adam",
+      "nasi",
+      "lemak"
+    ],
+    "sharedCount": 3
+  },
+  {
+    "station": "Botanic Gardens",
+    "stationId": "botanic-gardens",
+    "listing1": {
+      "id": "98ff04ff-5262-4c23-b486-3737966b9fcb",
+      "name": "Selamat Datang Warong Pak Sapari",
+      "address": "2 Adam Rd, #01-09",
+      "source": "michelin-hawker"
+    },
+    "listing2": {
+      "id": "d5f5ae9a-72f1-4558-863c-8cab77ed47ee",
+      "name": "Warong Pak Sapari",
+      "address": "Adam Road Food Centre #01-09",
+      "source": "michelin-hawker"
+    },
+    "sharedWords": [
+      "warong",
+      "pak",
+      "sapari"
+    ],
+    "sharedCount": 3
+  },
+  {
+    "station": "Braddell",
+    "stationId": "braddell",
+    "listing1": {
+      "id": "dac975af-323f-4471-9765-c25b6a5e24b7",
+      "name": "Pin Xiang Wanton Mee",
+      "address": "93 Lorong 4 Toa Payoh, #01-46, Toa Payoh Palm Spring Market, Singapore 310093",
+      "source": null
+    },
+    "listing2": {
+      "id": "fdb88190-20d1-4fbf-a02b-0686a919e486",
+      "name": "Ping Xiang Wanton Mee",
+      "address": "01-46, 93 Lor 4 Toa Payoh, Singapore 310093",
+      "source": "get-fed"
+    },
+    "sharedWords": [
+      "xiang",
+      "wanton",
+      "mee"
+    ],
+    "sharedCount": 3
+  },
+  {
+    "station": "Chinatown",
+    "stationId": "chinatown",
+    "listing1": {
+      "id": "77404d76-fca3-4134-ae2f-550f4b51a242",
+      "name": "Ji Ji Noodle House",
+      "address": "531A Upper Cross St, #02-48/49 Hong Lim Market & Food Centre",
+      "source": "michelin-hawker"
+    },
+    "listing2": {
+      "id": "fd8e6abd-0dc4-4272-bdcd-d8befb52d671",
+      "name": "Ji Ji Wanton Noodle Specialist",
+      "address": "531A Upper Cross St, #02-48/49, Singapore 051531",
+      "source": "get-fed"
+    },
+    "sharedWords": [
+      "ji",
+      "ji",
+      "noodle"
+    ],
+    "sharedCount": 3
+  },
+  {
+    "station": "Chinese Garden",
+    "stationId": "chinese-garden",
+    "listing1": {
+      "id": "176162ad-c9e7-429a-8001-0dd31b22c483",
+      "name": "Fei Fei Roasted Noodle",
+      "address": "254 Jurong East St 24, #01-28",
+      "source": "michelin-hawker"
+    },
+    "listing2": {
+      "id": "859397e8-a521-4d7d-8b87-0c20411418b9",
+      "name": "Fei Fei Roasted Noodles",
+      "address": "Yuhua Market",
+      "source": "sethlui"
+    },
+    "sharedWords": [
+      "fei",
+      "fei",
+      "roasted"
+    ],
+    "sharedCount": 3
+  },
+  {
+    "station": "Great World",
+    "stationId": "great-world",
+    "listing1": {
+      "id": "dfe514bd-bab0-4e20-9aa7-abb99c4ec608",
+      "name": "Fresh Taste Big Prawn Noodle",
+      "address": "Zion Riverside #01-17",
+      "source": "michelin-hawker"
+    },
+    "listing2": {
+      "id": "d35dae68-1965-43e9-9609-ad6a4eec5626",
+      "name": "Zhi Wei Xian Zion Road Big Prawn Noodle",
+      "address": "70 Zion Rd, #01-04",
+      "source": "michelin-hawker"
+    },
+    "sharedWords": [
+      "big",
+      "prawn",
+      "noodle"
+    ],
+    "sharedCount": 3
+  },
+  {
+    "station": "Havelock",
+    "stationId": "havelock",
+    "listing1": {
+      "id": "b6e2b31d-210c-4e90-9293-71910d94f94d",
+      "name": "Come Daily Fried Hokkien Prawn Mee",
+      "address": "401 HAVELOCK ROAD, HOTEL MIRAMAR SINGAPORE, Singapore 169631",
+      "source": null
+    },
+    "listing2": {
+      "id": "f7dd7b80-b915-499e-a8be-f9dfb6406c7c",
+      "name": "Hong Heng Fried Sotong Prawn Mee",
+      "address": "30 Seng Poh Rd, #02-01",
+      "source": "michelin-hawker"
+    },
+    "sharedWords": [
+      "fried",
+      "prawn",
+      "mee"
+    ],
+    "sharedCount": 3
+  },
+  {
+    "station": "Hougang",
+    "stationId": "hougang",
+    "listing1": {
+      "id": "add9c87f-496c-43e1-ba36-ec3a7272e0d5",
+      "name": "Sin Heng Kee",
+      "address": "685 Hougang Street 61, #01-150, Singapore 530685",
+      "source": "eatbook"
+    },
+    "listing2": {
+      "id": "5fe053fc-c194-4baa-835a-35e596c808a6",
+      "name": "Sin Heng Kee Porridge",
+      "address": "682 Hougang Ave 4, #01-328, Singapore 530682",
+      "source": "eatbook"
+    },
+    "sharedWords": [
+      "sin",
+      "heng",
+      "kee"
+    ],
+    "sharedCount": 3
+  },
+  {
+    "station": "Jalan Besar",
+    "stationId": "jalan-besar",
+    "listing1": {
+      "id": "dfbf9ff8-4d03-4a67-a8d3-bd44c1f82658",
+      "name": "Sungei Road Laksa",
+      "address": "27 Jalan Berseh, #01-100, Singapore 200027",
+      "source": "eatbook"
+    },
+    "listing2": {
+      "id": "3ae31f95-1ad4-4ef1-a46d-aa95e3851157",
+      "name": "Famous Sungei Road Trishaw Laksa",
+      "address": "217 JALAN BESAR, DESKER ROAD CONSERVATION AREA, Singapore 208899",
+      "source": null
+    },
+    "sharedWords": [
+      "sungei",
+      "road",
+      "laksa"
+    ],
+    "sharedCount": 3
+  },
+  {
+    "station": "Lavender",
+    "stationId": "lavender",
+    "listing1": {
+      "id": "37a46c8e-a779-4199-a187-eebe453e95cc",
+      "name": "Hill Street Tai Hwa Pork Noodle",
+      "address": "466 Crawford Ln, #01-12, Singapore 190466",
+      "source": "eatbook"
+    },
+    "listing2": {
+      "id": "b752f047-6a47-4fe2-9e7c-81060b1badb5",
+      "name": "Tai Wah Pork Noodle",
+      "address": "466 Crawford Ln, #01-12",
+      "source": "michelin-hawker"
+    },
+    "sharedWords": [
+      "tai",
+      "pork",
+      "noodle"
+    ],
+    "sharedCount": 3
+  },
+  {
+    "station": "MacPherson",
+    "stationId": "macpherson",
+    "listing1": {
+      "id": "4764c78d-5495-4850-bf45-76acd85f820f",
+      "name": "Thai Seng Fish Soup",
+      "address": "28 Taiseng Street, Hainan Food Court #01-03, Singapore 534106",
+      "source": "misstamchiak"
+    },
+    "listing2": {
+      "id": "eaf34275-a07f-4010-aad9-58ac0764fa40",
+      "name": "Tai Seng Fish Soup",
+      "address": "3026 Ubi Rd 1, #01- 146 Industrial Estate",
+      "source": "michelin-hawker"
+    },
+    "sharedWords": [
+      "seng",
+      "fish",
+      "soup"
+    ],
+    "sharedCount": 3
+  },
+  {
+    "station": "Marine Parade",
+    "stationId": "marine-parade",
+    "listing1": {
+      "id": "5fe010bc-49f4-46a0-99cc-eab9a797e6b2",
+      "name": "Mr and Mrs Mohgan’s",
+      "address": "300 Joo Chiat Road, Singapore 427551",
+      "source": null
+    },
+    "listing2": {
+      "id": "70b84213-07ac-41de-b07c-ad48b8517a8e",
+      "name": "Mr and Mrs Mohgan's Super Crispy Roti Prata",
+      "address": "300 Joo Chiat Rd, Singapore 427551",
+      "source": "timeout-2025"
+    },
+    "sharedWords": [
+      "mr",
+      "mrs",
+      "mohgan"
+    ],
+    "sharedCount": 3
+  },
+  {
+    "station": "Marine Parade",
+    "stationId": "marine-parade",
+    "listing1": {
+      "id": "bb2d58ad-e3d7-436f-8138-5551936cbe02",
+      "name": "Eng’s Char Siew Wantan Mee",
+      "address": "360 Joo Chiat Road, Singapore 427605",
+      "source": null
+    },
+    "listing2": {
+      "id": "6233c352-d580-47fe-a052-772713bcfd82",
+      "name": "Dunman Road Char Siew Wanton Mee",
+      "address": "271 Onan Road #02-19 Dunman Food Centre, Singapore 424768",
+      "source": "get-fed"
+    },
+    "sharedWords": [
+      "char",
+      "siew",
+      "mee"
+    ],
+    "sharedCount": 3
+  },
+  {
+    "station": "Marine Terrace",
+    "stationId": "marine-terrace",
+    "listing1": {
+      "id": "39bc7887-1c3d-45dc-aaa4-55cec3f30673",
+      "name": "Beach Road Prawn Mee",
+      "address": "370 East Coast Road, Singapore 428982",
+      "source": "sethlui"
+    },
+    "listing2": {
+      "id": "76a8b3f1-1e1a-4f5a-9ea1-0a527346b874",
+      "name": "Beach Road Prawn Noodle House",
+      "address": "370/372 E Coast Rd, Singapore 428981",
+      "source": "get-fed"
+    },
+    "sharedWords": [
+      "beach",
+      "road",
+      "prawn"
+    ],
+    "sharedCount": 3
+  },
+  {
+    "station": "Maxwell",
+    "stationId": "maxwell",
+    "listing1": {
+      "id": "7d49567e-7a95-417e-8ec1-3ed19388cc09",
+      "name": "Boon Tong Kee",
+      "address": "46 DUXTON ROAD, TANJONG PAGAR CONSERVATION AREA, Singapore 089510",
+      "source": null
+    },
+    "listing2": {
+      "id": "ad4dd196-c898-4d4e-997f-d64ff8a922ae",
+      "name": "Boon Tong Kee (Chinatown)",
+      "address": "11 Smith St, Singapore 058925",
+      "source": null
+    },
+    "sharedWords": [
+      "boon",
+      "tong",
+      "kee"
+    ],
+    "sharedCount": 3
+  },
+  {
+    "station": "Nicoll Highway",
+    "stationId": "nicoll-highway",
+    "listing1": {
+      "id": "6457aa1f-d8ea-4b35-a0d3-1bfde4cbfb30",
+      "name": "Blanco Court Prawn Noodles",
+      "address": "243 Beach Rd, Singapore 189754",
+      "source": "ieatishootipost"
+    },
+    "listing2": {
+      "id": "83d34a26-3981-4520-8ecf-69f63c0f5e1d",
+      "name": "Blanco Court Beef Noodles",
+      "address": "243 Beach Rd, Singapore 189754",
+      "source": "eatbook"
+    },
+    "sharedWords": [
+      "blanco",
+      "court",
+      "noodles"
+    ],
+    "sharedCount": 3
+  },
+  {
+    "station": "Novena",
+    "stationId": "novena",
+    "listing1": {
+      "id": "1144c84a-1982-4940-aadf-ae11b5c2e5cb",
+      "name": "Boon Tong Kee (Balestier)",
+      "address": "Balestier Rd, #399 401 & 403, Singapore 329801",
+      "source": "michelin-hawker"
+    },
+    "listing2": {
+      "id": "7ae5ff1d-4741-404c-9926-8fbd4997bb95",
+      "name": "Boon Tong Kee",
+      "address": "399 Balestier Road, Singapore 329801",
+      "source": null
+    },
+    "sharedWords": [
+      "boon",
+      "tong",
+      "kee"
+    ],
+    "sharedCount": 3
+  },
+  {
+    "station": "Outram Park",
+    "stationId": "outram-park",
+    "listing1": {
+      "id": "6af52957-39d7-482f-8275-669aa47df91b",
+      "name": "99 Old Trees",
+      "address": "109 Killiney Rd, Singapore 239548",
+      "source": "eatbook"
+    },
+    "listing2": {
+      "id": "42173abe-b06f-4fdd-9371-29b7e8caae93",
+      "name": "99 Old Trees Durian",
+      "address": "1 Teo Hong Road, Singapore 088321",
+      "source": "sethlui"
+    },
+    "sharedWords": [
+      "99",
+      "old",
+      "trees"
+    ],
+    "sharedCount": 3
+  },
+  {
+    "station": "Paya Lebar",
+    "stationId": "paya-lebar",
+    "listing1": {
+      "id": "3dda9c2e-1b99-4836-add7-3fe0594e4d40",
+      "name": "Poon Nah City Home Made Noodle",
+      "address": "810 Geylang Road, #05-02, City Plaza",
+      "source": "eatbook"
+    },
+    "listing2": {
+      "id": "0160cfcc-2bbf-4571-b491-c7e816cdc936",
+      "name": "Poon Nah City Banmian",
+      "address": "810 Geylang Road #01-43/44, City Plaza, Singapore 409286",
+      "source": "misstamchiak"
+    },
+    "sharedWords": [
+      "poon",
+      "nah",
+      "city"
+    ],
+    "sharedCount": 3
+  },
+  {
+    "station": "Potong Pasir",
+    "stationId": "potong-pasir",
+    "listing1": {
+      "id": "4fb5f07d-41f2-45e5-a1e9-adc21da9004d",
+      "name": "Founder Bak Kut Teh",
+      "address": "48 JALAN TAMAN, Singapore 328994",
+      "source": null
+    },
+    "listing2": {
+      "id": "02994d77-93e4-4d82-b82a-723894081b73",
+      "name": "Ng Ah Sio Bak Kut Teh",
+      "address": "48 JALAN TAMAN, Singapore 328994",
+      "source": null
+    },
+    "sharedWords": [
+      "bak",
+      "kut",
+      "teh"
+    ],
+    "sharedCount": 3
+  },
+  {
+    "station": "Raffles Place",
+    "stationId": "raffles-place",
+    "listing1": {
+      "id": "6b116032-8dc7-49c8-9f8f-4caf8a1e844a",
+      "name": "Tian Tian Hainanese Chicken Rice",
+      "address": "24 RAFFLES PLACE, CLIFFORD CENTRE, Singapore 048621",
+      "source": null
+    },
+    "listing2": {
+      "id": "80152175-2288-4a8c-af8e-65a109eee12d",
+      "name": "Ah Tai Hainanese Chicken Rice",
+      "address": "24 RAFFLES PLACE, Singapore 048621",
+      "source": null
+    },
+    "sharedWords": [
+      "hainanese",
+      "chicken",
+      "rice"
+    ],
+    "sharedCount": 3
+  },
+  {
+    "station": "Tampines",
+    "stationId": "tampines",
+    "listing1": {
+      "id": "a0b8d681-5de7-4dfc-b0f3-5ee07eb01bc4",
+      "name": "Al-Mahboob Rojak",
+      "address": "11 Tampines St 32, #02-25, Singapore 529287",
+      "source": "eatbook"
+    },
+    "listing2": {
+      "id": "0c6bc06a-f6e0-41f7-bfb5-9a64d0f5ccc6",
+      "name": "Al Mahboob Indian Rojak",
+      "address": "NTUC Income @ Tampines Junction #01-02",
+      "source": "eatbook"
+    },
+    "sharedWords": [
+      "al",
+      "mahboob",
+      "rojak"
+    ],
+    "sharedCount": 3
+  },
+  {
+    "station": "Telok Ayer",
+    "stationId": "telok-ayer",
+    "listing1": {
+      "id": "9805f228-4187-4e10-b534-e423090f1ec7",
+      "name": "Lau Pa Sat - Qiu Lian Ban Mian",
+      "address": "18 Raffles Quay, Stall 83, S048582",
+      "source": "sethlui"
+    },
+    "listing2": {
+      "id": "bde0f997-c48d-486d-b4dd-5b1a8a445425",
+      "name": "Lau Pa Sat - Seng Kee",
+      "address": "18 Raffles Quay, Stall 10, S048582",
+      "source": "sethlui"
+    },
+    "sharedWords": [
+      "lau",
+      "pa",
+      "sat"
+    ],
+    "sharedCount": 3
+  },
+  {
+    "station": "Telok Ayer",
+    "stationId": "telok-ayer",
+    "listing1": {
+      "id": "9805f228-4187-4e10-b534-e423090f1ec7",
+      "name": "Lau Pa Sat - Qiu Lian Ban Mian",
+      "address": "18 Raffles Quay, Stall 83, S048582",
+      "source": "sethlui"
+    },
+    "listing2": {
+      "id": "6d2f3914-05f2-4f10-9eae-ff35c7310927",
+      "name": "Lau Pa Sat - Sanuki Don",
+      "address": "18 Raffles Quay, Stall 45, S048582",
+      "source": "sethlui"
+    },
+    "sharedWords": [
+      "lau",
+      "pa",
+      "sat"
+    ],
+    "sharedCount": 3
+  },
+  {
+    "station": "Telok Ayer",
+    "stationId": "telok-ayer",
+    "listing1": {
+      "id": "9805f228-4187-4e10-b534-e423090f1ec7",
+      "name": "Lau Pa Sat - Qiu Lian Ban Mian",
+      "address": "18 Raffles Quay, Stall 83, S048582",
+      "source": "sethlui"
+    },
+    "listing2": {
+      "id": "a47672e0-c459-4625-8e6a-69484524ba79",
+      "name": "Lau Pa Sat - Song Kee Fishball",
+      "address": "18 Raffles Quay, Stall 19, S048582",
+      "source": "sethlui"
+    },
+    "sharedWords": [
+      "lau",
+      "pa",
+      "sat"
+    ],
+    "sharedCount": 3
+  },
+  {
+    "station": "Telok Ayer",
+    "stationId": "telok-ayer",
+    "listing1": {
+      "id": "9805f228-4187-4e10-b534-e423090f1ec7",
+      "name": "Lau Pa Sat - Qiu Lian Ban Mian",
+      "address": "18 Raffles Quay, Stall 83, S048582",
+      "source": "sethlui"
+    },
+    "listing2": {
+      "id": "67ea359c-8d99-4aa8-93e9-a790b0f7b2d8",
+      "name": "LiXin Teochew Fishball Noodles (Lau Pa Sat)",
+      "address": "18 Raffles Quay, Lau Pa Sat, S048582",
+      "source": "eatbook"
+    },
+    "sharedWords": [
+      "lau",
+      "pa",
+      "sat"
+    ],
+    "sharedCount": 3
+  },
+  {
+    "station": "Telok Ayer",
+    "stationId": "telok-ayer",
+    "listing1": {
+      "id": "bde0f997-c48d-486d-b4dd-5b1a8a445425",
+      "name": "Lau Pa Sat - Seng Kee",
+      "address": "18 Raffles Quay, Stall 10, S048582",
+      "source": "sethlui"
+    },
+    "listing2": {
+      "id": "6d2f3914-05f2-4f10-9eae-ff35c7310927",
+      "name": "Lau Pa Sat - Sanuki Don",
+      "address": "18 Raffles Quay, Stall 45, S048582",
+      "source": "sethlui"
+    },
+    "sharedWords": [
+      "lau",
+      "pa",
+      "sat"
+    ],
+    "sharedCount": 3
+  },
+  {
+    "station": "Telok Ayer",
+    "stationId": "telok-ayer",
+    "listing1": {
+      "id": "bde0f997-c48d-486d-b4dd-5b1a8a445425",
+      "name": "Lau Pa Sat - Seng Kee",
+      "address": "18 Raffles Quay, Stall 10, S048582",
+      "source": "sethlui"
+    },
+    "listing2": {
+      "id": "67ea359c-8d99-4aa8-93e9-a790b0f7b2d8",
+      "name": "LiXin Teochew Fishball Noodles (Lau Pa Sat)",
+      "address": "18 Raffles Quay, Lau Pa Sat, S048582",
+      "source": "eatbook"
+    },
+    "sharedWords": [
+      "lau",
+      "pa",
+      "sat"
+    ],
+    "sharedCount": 3
+  },
+  {
+    "station": "Telok Ayer",
+    "stationId": "telok-ayer",
+    "listing1": {
+      "id": "f0dd0a4d-36ce-446b-ba83-0e6ef310ea23",
+      "name": "Market Street HC - Golden Nur",
+      "address": "86 Market St, #03-11/12, CapitaSpring, S048947",
+      "source": "eatbook"
+    },
+    "listing2": {
+      "id": "96f61b85-375e-459a-b353-e629aa26043c",
+      "name": "Market Street HC - Nasi Lemak",
+      "address": "86 Market St, CapitaSpring, S048947",
+      "source": "timeout-2025"
+    },
+    "sharedWords": [
+      "market",
+      "street",
+      "hc"
+    ],
+    "sharedCount": 3
+  },
+  {
+    "station": "Telok Ayer",
+    "stationId": "telok-ayer",
+    "listing1": {
+      "id": "6d2f3914-05f2-4f10-9eae-ff35c7310927",
+      "name": "Lau Pa Sat - Sanuki Don",
+      "address": "18 Raffles Quay, Stall 45, S048582",
+      "source": "sethlui"
+    },
+    "listing2": {
+      "id": "a47672e0-c459-4625-8e6a-69484524ba79",
+      "name": "Lau Pa Sat - Song Kee Fishball",
+      "address": "18 Raffles Quay, Stall 19, S048582",
+      "source": "sethlui"
+    },
+    "sharedWords": [
+      "lau",
+      "pa",
+      "sat"
+    ],
+    "sharedCount": 3
+  },
+  {
+    "station": "Telok Ayer",
+    "stationId": "telok-ayer",
+    "listing1": {
+      "id": "6d2f3914-05f2-4f10-9eae-ff35c7310927",
+      "name": "Lau Pa Sat - Sanuki Don",
+      "address": "18 Raffles Quay, Stall 45, S048582",
+      "source": "sethlui"
+    },
+    "listing2": {
+      "id": "67ea359c-8d99-4aa8-93e9-a790b0f7b2d8",
+      "name": "LiXin Teochew Fishball Noodles (Lau Pa Sat)",
+      "address": "18 Raffles Quay, Lau Pa Sat, S048582",
+      "source": "eatbook"
+    },
+    "sharedWords": [
+      "lau",
+      "pa",
+      "sat"
+    ],
+    "sharedCount": 3
+  },
+  {
+    "station": "Toa Payoh",
+    "stationId": "toa-payoh",
+    "listing1": {
+      "id": "e84d00cf-c537-4de0-856a-04bbf4b90148",
+      "name": "Da Ji Hainanese Chicken Rice",
+      "address": "75 Lor. 5 Toa Payoh, #01-31, Singapore 310075",
+      "source": "get-fed"
+    },
+    "listing2": {
+      "id": "0177ee8b-9397-4545-a3d3-8d0b038c85e6",
+      "name": "Xiang Ji Chicken Rice",
+      "address": "73 Lor 4 Toa Payoh, Singapore 310073",
+      "source": "get-fed"
+    },
+    "sharedWords": [
+      "ji",
+      "chicken",
+      "rice"
+    ],
+    "sharedCount": 3
+  },
+  {
+    "station": "Toa Payoh",
+    "stationId": "toa-payoh",
+    "listing1": {
+      "id": "6763b37f-4d9a-4995-8f7d-5add2dc6c134",
+      "name": "Founder Bak Kut Teh",
+      "address": "347 Balestier Rd",
+      "source": "sethlui"
+    },
+    "listing2": {
+      "id": "ec5416e5-7941-48f1-9239-bdad2b7d7084",
+      "name": "Hock Kee (Lor 8) Bak Kut Teh",
+      "address": "210 Lorong 8 Toa Payoh, #01-64, 310210",
+      "source": "get-fed"
+    },
+    "sharedWords": [
+      "bak",
+      "kut",
+      "teh"
+    ],
+    "sharedCount": 3
+  },
+  {
+    "station": "Aljunied",
+    "stationId": "aljunied",
+    "listing1": {
+      "id": "bf0dfba2-0cda-4150-b2d6-d0b575df3f3f",
+      "name": "Swee Guan Hokkien Mee",
+      "address": "5 Lorong 29 Geylang, Singapore 388060",
+      "source": "eatbook"
+    },
+    "listing2": {
+      "id": "77f01a9c-30a3-47c5-b8de-03c23a12b729",
+      "name": "Geylang Lor 29 Hokkien Mee",
+      "address": "4 LORONG 25 GEYLANG, Singapore 388288",
+      "source": null
+    },
+    "sharedWords": [
+      "hokkien",
+      "mee"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Aljunied",
+    "stationId": "aljunied",
+    "listing1": {
+      "id": "0c44cf9e-273c-451a-8d61-ed1ccb39a975",
+      "name": "JB Ah Meng",
+      "address": "534 Geylang Rd, Singapore 389490",
+      "source": "timeout-2025"
+    },
+    "listing2": {
+      "id": "f15491f9-7134-4b17-ad49-3eae53adedf3",
+      "name": "J.B. Ah Meng Restaurant",
+      "address": "534 Geylang Rd, Singapore 389490",
+      "source": "get-fed"
+    },
+    "sharedWords": [
+      "ah",
+      "meng"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Ang Mo Kio",
+    "stationId": "ang-mo-kio",
+    "listing1": {
+      "id": "ef0711d3-0e50-4c70-9a01-9a27d6f0a3f8",
+      "name": "Char Siu Lang",
+      "address": "340 Ang Mo Kio Avenue 1, #01-1697, Singapore 560340",
+      "source": null
+    },
+    "listing2": {
+      "id": "39c55509-6216-45c3-80ab-5bc487d81d5d",
+      "name": "Char Siew Lang",
+      "address": "340 Ang Mo Kio Avenue 1, #01-1697, Maxim Stars Coffee Shop, Singapore 560340",
+      "source": null
+    },
+    "sharedWords": [
+      "char",
+      "lang"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Ang Mo Kio",
+    "stationId": "ang-mo-kio",
+    "listing1": {
+      "id": "58d02f2c-874e-476a-916c-912a3772b51b",
+      "name": "Song Kee Eating House",
+      "address": "415 Yio Chu Kang Rd, Singapore 787093",
+      "source": "eatbook"
+    },
+    "listing2": {
+      "id": "a57b88d9-c19d-4b5b-b9fb-27625056fd27",
+      "name": "Long House Soon Kee Boneless Braised Duck",
+      "address": "531 Ang Mo Kio Avenue 10, #01-2429, Singapore 560531",
+      "source": "get-fed"
+    },
+    "sharedWords": [
+      "kee",
+      "house"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Bedok",
+    "stationId": "bedok",
+    "listing1": {
+      "id": "6a27d6fd-720a-431e-88ef-8f9c8aa5a762",
+      "name": "Pin Xiang Hainanese Chicken Rice",
+      "address": "Bedok Interchange Hawker Centre, 208B New Upper Changi Road, Singapore 462208",
+      "source": "eatbook"
+    },
+    "listing2": {
+      "id": "578c1ceb-3560-4150-acb7-d05d07d0f7aa",
+      "name": "Jefri The Original Botak Chicken Rice",
+      "address": "Bedok Interchange Hawker Centre, 208B New Upper Changi Road, Singapore 462208",
+      "source": "eatbook"
+    },
+    "sharedWords": [
+      "chicken",
+      "rice"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Bedok",
+    "stationId": "bedok",
+    "listing1": {
+      "id": "3a78d462-5aeb-47da-8b09-867067f49e6e",
+      "name": "Mei Xiang Lor Mee",
+      "address": "Bedok Interchange Hawker Centre, 208B New Upper Changi Road, Singapore 462208",
+      "source": "eatbook"
+    },
+    "listing2": {
+      "id": "f91f814a-14af-4e98-aa58-7727513799ee",
+      "name": "Old Airport Road Lor Mee",
+      "address": "Block 216 Bedok",
+      "source": "sethlui"
+    },
+    "sharedWords": [
+      "lor",
+      "mee"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Bedok",
+    "stationId": "bedok",
+    "listing1": {
+      "id": "8b89a6b4-981e-4b15-949d-09422cccb298",
+      "name": "Xing Ji Rou Cuo Mian",
+      "address": "Bedok North area, Singapore",
+      "source": "editors-choice"
+    },
+    "listing2": {
+      "id": "a09224ac-03e5-41a7-88b4-808f7d5c85b1",
+      "name": "Zhong Xing Ban Mian",
+      "address": "Bedok Interchange Hawker Centre",
+      "source": "editors-choice"
+    },
+    "sharedWords": [
+      "xing",
+      "mian"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Bedok Reservoir",
+    "stationId": "bedok-reservoir",
+    "listing1": {
+      "id": "9249ca97-8c10-469f-96de-84bacc558ec9",
+      "name": "ONE.85 Big Prawn Mee",
+      "address": "85 Bedok North Street 4, #01-20, Singapore 460085",
+      "source": "get-fed"
+    },
+    "listing2": {
+      "id": "cc174a74-a9bd-4cf3-827b-4da19df515fa",
+      "name": "Bedok 85 Fengshan Bak Chor Mee",
+      "address": "85 BEDOK NORTH STREET 4, FENGSHAN CENTRE, Singapore 460085",
+      "source": null
+    },
+    "sharedWords": [
+      "85",
+      "mee"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Bencoolen",
+    "stationId": "bencoolen",
+    "listing1": {
+      "id": "1281c296-bbd6-4b8b-9060-e70a20fc59dd",
+      "name": "Cookie & Coffee Cafe Bar",
+      "address": "Fortune Centre, 190 Middle Road, Singapore 188979",
+      "source": "eatbook"
+    },
+    "listing2": {
+      "id": "4f5bc840-9e44-4a8a-b836-d6b96f7308ac",
+      "name": "Artichoke Cafe & Bar",
+      "address": "161 Middle Road, Singapore 188978",
+      "source": "eatbook"
+    },
+    "sharedWords": [
+      "cafe",
+      "bar"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Bendemeer",
+    "stationId": "bendemeer",
+    "listing1": {
+      "id": "695e2c4a-3c48-4d12-8cd5-cc7296d5aac1",
+      "name": "Kitchenman Nasi Lemak",
+      "address": "2 Kallang Ave, #01-08/13 CT Hub",
+      "source": "michelin-hawker"
+    },
+    "listing2": {
+      "id": "93379333-d22e-4097-9f0c-ef1ed3879010",
+      "name": "Ponggol Nasi Lemak",
+      "address": "371 Jalan Besar, #01-01, Singapore 208998",
+      "source": null
+    },
+    "sharedWords": [
+      "nasi",
+      "lemak"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Botanic Gardens",
+    "stationId": "botanic-gardens",
+    "listing1": {
+      "id": "47353ff2-8a33-4485-bdbe-450f7469aaa5",
+      "name": "Adam Road Nasi Lemak",
+      "address": "2 ADAM ROAD, ADAM FOOD CENTRE, Singapore 289876",
+      "source": null
+    },
+    "listing2": {
+      "id": "632fc794-4e8e-410a-a2e7-1c00f0180b70",
+      "name": "Selera Rasa Nasi Lemak",
+      "address": "Adam Road Food Centre #01-02",
+      "source": "michelin-hawker"
+    },
+    "sharedWords": [
+      "nasi",
+      "lemak"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Botanic Gardens",
+    "stationId": "botanic-gardens",
+    "listing1": {
+      "id": "30b3d2f5-7035-473f-8bac-702fde5aed2f",
+      "name": "No. 1 Adam’s Nasi Lemak",
+      "address": "2 Adam Rd, Singapore 289876",
+      "source": null
+    },
+    "listing2": {
+      "id": "632fc794-4e8e-410a-a2e7-1c00f0180b70",
+      "name": "Selera Rasa Nasi Lemak",
+      "address": "Adam Road Food Centre #01-02",
+      "source": "michelin-hawker"
+    },
+    "sharedWords": [
+      "nasi",
+      "lemak"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Braddell",
+    "stationId": "braddell",
+    "listing1": {
+      "id": "8235b711-02f3-4d88-9a33-372272aeb29d",
+      "name": "Come Daily Fried Hokkien Prawn Mee",
+      "address": "127 Lorong 1 Toa Payoh, #02-27, 127 Toa Payoh West Market & Food Centre, Singapore 310127",
+      "source": "eatbook"
+    },
+    "listing2": {
+      "id": "8f6dadf4-681f-4882-89a8-ab39170aac6d",
+      "name": "Kim Keat Hokkien Mee",
+      "address": "Blk 127 Lorong 1 Toa Payoh, #02-19, Singapore 310127",
+      "source": "eatbook"
+    },
+    "sharedWords": [
+      "hokkien",
+      "mee"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Braddell",
+    "stationId": "braddell",
+    "listing1": {
+      "id": "e68c0724-ff89-41c4-a981-1aeab7211347",
+      "name": "Hiang Ji Roasted Meat & Noodle House Toa Payoh",
+      "address": "190 Lorong 6 Toa Payoh, #01-512, Toa Payoh Mall, Singapore 310190",
+      "source": null
+    },
+    "listing2": {
+      "id": "b203a857-3e86-49dc-9d05-f5d749f79166",
+      "name": "Chef Kang's Noodle House",
+      "address": "69 Geylang Bahru, #01-35 Market & Food Centre",
+      "source": "michelin-hawker"
+    },
+    "sharedWords": [
+      "noodle",
+      "house"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Braddell",
+    "stationId": "braddell",
+    "listing1": {
+      "id": "1b8c662c-5300-4e2a-8415-4ea92ac8ced9",
+      "name": "Come Daily Hokkien Mee",
+      "address": "127 Lorong 1 Toa Payoh, Toa Payoh West Mkt, S310127",
+      "source": "sethlui"
+    },
+    "listing2": {
+      "id": "8f6dadf4-681f-4882-89a8-ab39170aac6d",
+      "name": "Kim Keat Hokkien Mee",
+      "address": "Blk 127 Lorong 1 Toa Payoh, #02-19, Singapore 310127",
+      "source": "eatbook"
+    },
+    "sharedWords": [
+      "hokkien",
+      "mee"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Bugis",
+    "stationId": "bugis",
+    "listing1": {
+      "id": "4c547cb9-5ed1-4539-b3a0-b18859add594",
+      "name": "Bugis Street Food",
+      "address": "Bugis Street",
+      "source": "eatbook"
+    },
+    "listing2": {
+      "id": "b3073ee7-7603-4bb6-8ca5-1b2d975acaae",
+      "name": "Food Republic (Bugis Junction)",
+      "address": "Bugis Junction",
+      "source": "editors-choice"
+    },
+    "sharedWords": [
+      "bugis",
+      "food"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Chinatown",
+    "stationId": "chinatown",
+    "listing1": {
+      "id": "a790e5d6-6fb4-4b2b-a78b-9b229baa5449",
+      "name": "Tang Kay Kee Fish Head Bee Hoon",
+      "address": "Hong Lim Food Centre #01-70",
+      "source": "timeout-2025"
+    },
+    "listing2": {
+      "id": "2017da36-69a9-4931-a548-04ddaa7a0c2c",
+      "name": "Ah Heng Curry Chicken Bee Hoon Mee",
+      "address": "531A Upper Cross Street, #02-58/59, Singapore 051531",
+      "source": "get-fed"
+    },
+    "sharedWords": [
+      "bee",
+      "hoon"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Chinatown",
+    "stationId": "chinatown",
+    "listing1": {
+      "id": "00181b83-1e06-406a-bc6e-6f72fc85d142",
+      "name": "Danji Korean BBQ",
+      "address": "133 New Bridge Road, #02-35 Chinatown Point, Singapore 059413",
+      "source": null
+    },
+    "listing2": {
+      "id": "bee257e1-3771-489f-b83d-7cda79562f0b",
+      "name": "Wang Dae Bak Korean BBQ",
+      "address": "22 Cross Street, #01-64, Singapore 048421",
+      "source": null
+    },
+    "sharedWords": [
+      "korean",
+      "bbq"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Chinatown",
+    "stationId": "chinatown",
+    "listing1": {
+      "id": "39cbe561-ff35-4432-937a-56647a45e6e8",
+      "name": "Outram Park Char Kway Teow",
+      "address": "531A Upper Cross Street, #02-17, Hong Lim Market, Singapore 051531",
+      "source": "eatbook"
+    },
+    "listing2": {
+      "id": "089e88fa-dae0-4ded-b70e-0973e8665374",
+      "name": "Hock Lam Street Popular Beef Kway Teow",
+      "address": "531 UPPER CROSS STREET, HONG LIM COMPLEX, Singapore 050531",
+      "source": null
+    },
+    "sharedWords": [
+      "kway",
+      "teow"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Chinatown",
+    "stationId": "chinatown",
+    "listing1": {
+      "id": "9d39ddf5-20ec-4b8a-ad77-13296dfc0c5c",
+      "name": "Noodle Memories",
+      "address": "Upper Cross St, #02-28",
+      "source": "timeout-2025"
+    },
+    "listing2": {
+      "id": "e6d54a41-7a94-4b61-a5e9-9f08b9a5933b",
+      "name": "The Noodle Memories",
+      "address": "Upper Cross St, #02-27 Singapore 051531",
+      "source": "get-fed"
+    },
+    "sharedWords": [
+      "noodle",
+      "memories"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Chinatown",
+    "stationId": "chinatown",
+    "listing1": {
+      "id": "77404d76-fca3-4134-ae2f-550f4b51a242",
+      "name": "Ji Ji Noodle House",
+      "address": "531A Upper Cross St, #02-48/49 Hong Lim Market & Food Centre",
+      "source": "michelin-hawker"
+    },
+    "listing2": {
+      "id": "706de735-f767-447f-855a-15e78bd99776",
+      "name": "Lian He Ben Ji Claypot Rice",
+      "address": "335 Smith St, #02-198/199",
+      "source": "michelin-hawker"
+    },
+    "sharedWords": [
+      "ji",
+      "ji"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Chinatown",
+    "stationId": "chinatown",
+    "listing1": {
+      "id": "fd8e6abd-0dc4-4272-bdcd-d8befb52d671",
+      "name": "Ji Ji Wanton Noodle Specialist",
+      "address": "531A Upper Cross St, #02-48/49, Singapore 051531",
+      "source": "get-fed"
+    },
+    "listing2": {
+      "id": "706de735-f767-447f-855a-15e78bd99776",
+      "name": "Lian He Ben Ji Claypot Rice",
+      "address": "335 Smith St, #02-198/199",
+      "source": "michelin-hawker"
+    },
+    "sharedWords": [
+      "ji",
+      "ji"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Chinese Garden",
+    "stationId": "chinese-garden",
+    "listing1": {
+      "id": "8b320dfd-d6e7-4c0d-8219-cff196b37b84",
+      "name": "Xing Yun Chicken Rice",
+      "address": "Yuhua Market",
+      "source": "danielfooddiary"
+    },
+    "listing2": {
+      "id": "76af5eb2-826e-41fb-b2d8-15b33e705fc6",
+      "name": "139 Hainan Chicken Rice",
+      "address": "254 Jurong East St 24, #01-39, Singapore 600254",
+      "source": "get-fed"
+    },
+    "sharedWords": [
+      "chicken",
+      "rice"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Eunos",
+    "stationId": "eunos",
+    "listing1": {
+      "id": "5fb2fde7-d046-46ab-93a8-477569523d50",
+      "name": "Joo Chiat Place Fried Kway Teow",
+      "address": "59 Joo Chiat Place, Dong Cheng Eatery, Singapore 427783",
+      "source": "eatbook"
+    },
+    "listing2": {
+      "id": "3e5028a9-4be6-46f2-9cdd-2c835058bb5f",
+      "name": "Hello Arigato (Joo Chiat)",
+      "address": "314 Joo Chiat Road, Singapore 427565",
+      "source": "burpple"
+    },
+    "sharedWords": [
+      "joo",
+      "chiat"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Eunos",
+    "stationId": "eunos",
+    "listing1": {
+      "id": "0fb0f437-3555-412a-9d3d-39344ea30373",
+      "name": "Katong Laksa (George’s)",
+      "address": "307 Changi Road, Singapore 419785",
+      "source": "eatbook"
+    },
+    "listing2": {
+      "id": "1274d79a-ac39-42a5-bed6-92006287922e",
+      "name": "328 Katong Laksa",
+      "address": "264 JOO CHIAT PLACE, PARC BLEU, Singapore 427946",
+      "source": null
+    },
+    "sharedWords": [
+      "katong",
+      "laksa"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Fort Canning",
+    "stationId": "fort-canning",
+    "listing1": {
+      "id": "4484c197-9353-4226-9e0a-446de1b9a419",
+      "name": "Shin Minori Japanese Restaurant",
+      "address": "81 Clemenceau Avenue, #03-15/16, UE Square, Singapore 239917",
+      "source": null
+    },
+    "listing2": {
+      "id": "596088bf-3d7b-48be-95e6-7c51525c985d",
+      "name": "Goku Japanese Restaurant",
+      "address": "33 Mohamed Sultan Rd, #01-02, Singapore 238977",
+      "source": "get-fed"
+    },
+    "sharedWords": [
+      "japanese",
+      "restaurant"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Great World",
+    "stationId": "great-world",
+    "listing1": {
+      "id": "f77f8df2-fadb-4742-9d03-21acadc86e5d",
+      "name": "No. 18 Zion Road Fried Kway Teow",
+      "address": "70 Zion Road, #01-17, Zion Riverside Food Centre, Singapore 247792",
+      "source": "eatbook"
+    },
+    "listing2": {
+      "id": "d35dae68-1965-43e9-9609-ad6a4eec5626",
+      "name": "Zhi Wei Xian Zion Road Big Prawn Noodle",
+      "address": "70 Zion Rd, #01-04",
+      "source": "michelin-hawker"
+    },
+    "sharedWords": [
+      "zion",
+      "road"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Great World",
+    "stationId": "great-world",
+    "listing1": {
+      "id": "d35dae68-1965-43e9-9609-ad6a4eec5626",
+      "name": "Zhi Wei Xian Zion Road Big Prawn Noodle",
+      "address": "70 Zion Rd, #01-04",
+      "source": "michelin-hawker"
+    },
+    "listing2": {
+      "id": "f1cb65e0-7087-48b8-b484-9b40b4549d6f",
+      "name": "No.18 Zion Road Fried Kway Teow",
+      "address": "70 Zion Rd, #01-17 Zion Riverside Food Centre",
+      "source": "michelin-hawker"
+    },
+    "sharedWords": [
+      "zion",
+      "road"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Havelock",
+    "stationId": "havelock",
+    "listing1": {
+      "id": "9ba3d132-3c8f-415c-a575-f4f192e8078f",
+      "name": "Irodori Japanese Restaurant",
+      "address": "382 Havelock Road, #03-00, Four Points by Sheraton Singapore, Singapore 169629",
+      "source": null
+    },
+    "listing2": {
+      "id": "65d0cc29-5883-4edb-a9a0-d0c09b630df4",
+      "name": "Ikoi Japanese Restaurant",
+      "address": "401 Havelock Road, #01-01, Hotel Miramar, Singapore 169631",
+      "source": null
+    },
+    "sharedWords": [
+      "japanese",
+      "restaurant"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Havelock",
+    "stationId": "havelock",
+    "listing1": {
+      "id": "deaaf0d1-2ade-4a9b-81e7-062e8bf70119",
+      "name": "Plain Vanilla Bakery",
+      "address": "79 CHAY YAN STREET, TIONG BAHRU ESTATE, Singapore 160079",
+      "source": null
+    },
+    "listing2": {
+      "id": "a8f63d77-f0c9-4077-847d-ae9f1feaff6d",
+      "name": "Plain Vanilla (Tiong Bahru)",
+      "address": "1D Yong Siak Street, Singapore 168641",
+      "source": "burpple"
+    },
+    "sharedWords": [
+      "plain",
+      "vanilla"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Havelock",
+    "stationId": "havelock",
+    "listing1": {
+      "id": "5e2f65bf-760b-4a2a-b110-9df89d6f5d3a",
+      "name": "Jian Bo Tiong Bahru Shui Kueh",
+      "address": "30 Seng Poh Rd, #02-05",
+      "source": "michelin-hawker"
+    },
+    "listing2": {
+      "id": "865043f6-a01f-4f40-a6d3-4432a01b53f6",
+      "name": "Tiong Bahru Bakery",
+      "address": null,
+      "source": "honeycombers"
+    },
+    "sharedWords": [
+      "tiong",
+      "bahru"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Havelock",
+    "stationId": "havelock",
+    "listing1": {
+      "id": "5e2f65bf-760b-4a2a-b110-9df89d6f5d3a",
+      "name": "Jian Bo Tiong Bahru Shui Kueh",
+      "address": "30 Seng Poh Rd, #02-05",
+      "source": "michelin-hawker"
+    },
+    "listing2": {
+      "id": "c601675c-4add-4df7-b639-11cb15c4a865",
+      "name": "Tiong Bahru Hainanese Boneless Chicken Rice",
+      "address": "30 Seng Poh Rd, #02-82 Market",
+      "source": "michelin-hawker"
+    },
+    "sharedWords": [
+      "tiong",
+      "bahru"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Havelock",
+    "stationId": "havelock",
+    "listing1": {
+      "id": "5e2f65bf-760b-4a2a-b110-9df89d6f5d3a",
+      "name": "Jian Bo Tiong Bahru Shui Kueh",
+      "address": "30 Seng Poh Rd, #02-05",
+      "source": "michelin-hawker"
+    },
+    "listing2": {
+      "id": "a8f63d77-f0c9-4077-847d-ae9f1feaff6d",
+      "name": "Plain Vanilla (Tiong Bahru)",
+      "address": "1D Yong Siak Street, Singapore 168641",
+      "source": "burpple"
+    },
+    "sharedWords": [
+      "tiong",
+      "bahru"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Havelock",
+    "stationId": "havelock",
+    "listing1": {
+      "id": "15b48b14-743c-4c81-a59b-7cfb4241748c",
+      "name": "Loo's Hainanese Curry Rice",
+      "address": "30 Seng Poh Rd, #02-67/68, Singapore 168898",
+      "source": "get-fed"
+    },
+    "listing2": {
+      "id": "c601675c-4add-4df7-b639-11cb15c4a865",
+      "name": "Tiong Bahru Hainanese Boneless Chicken Rice",
+      "address": "30 Seng Poh Rd, #02-82 Market",
+      "source": "michelin-hawker"
+    },
+    "sharedWords": [
+      "hainanese",
+      "rice"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Havelock",
+    "stationId": "havelock",
+    "listing1": {
+      "id": "865043f6-a01f-4f40-a6d3-4432a01b53f6",
+      "name": "Tiong Bahru Bakery",
+      "address": null,
+      "source": "honeycombers"
+    },
+    "listing2": {
+      "id": "c601675c-4add-4df7-b639-11cb15c4a865",
+      "name": "Tiong Bahru Hainanese Boneless Chicken Rice",
+      "address": "30 Seng Poh Rd, #02-82 Market",
+      "source": "michelin-hawker"
+    },
+    "sharedWords": [
+      "tiong",
+      "bahru"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Havelock",
+    "stationId": "havelock",
+    "listing1": {
+      "id": "865043f6-a01f-4f40-a6d3-4432a01b53f6",
+      "name": "Tiong Bahru Bakery",
+      "address": null,
+      "source": "honeycombers"
+    },
+    "listing2": {
+      "id": "a8f63d77-f0c9-4077-847d-ae9f1feaff6d",
+      "name": "Plain Vanilla (Tiong Bahru)",
+      "address": "1D Yong Siak Street, Singapore 168641",
+      "source": "burpple"
+    },
+    "sharedWords": [
+      "tiong",
+      "bahru"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Havelock",
+    "stationId": "havelock",
+    "listing1": {
+      "id": "c601675c-4add-4df7-b639-11cb15c4a865",
+      "name": "Tiong Bahru Hainanese Boneless Chicken Rice",
+      "address": "30 Seng Poh Rd, #02-82 Market",
+      "source": "michelin-hawker"
+    },
+    "listing2": {
+      "id": "a8f63d77-f0c9-4077-847d-ae9f1feaff6d",
+      "name": "Plain Vanilla (Tiong Bahru)",
+      "address": "1D Yong Siak Street, Singapore 168641",
+      "source": "burpple"
+    },
+    "sharedWords": [
+      "tiong",
+      "bahru"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Holland Village",
+    "stationId": "holland-village",
+    "listing1": {
+      "id": "09021b4c-fb79-426b-9cdd-8e135134cc88",
+      "name": "Sourbombe Bakery",
+      "address": "7 Holland Village Way, #01-27, One Holland Village, Singapore 275748",
+      "source": "eatbook"
+    },
+    "listing2": {
+      "id": "cddbbfa3-e464-421d-96b7-481db3cc205d",
+      "name": "Sourbombe Artisinal Bakery",
+      "address": "7 Holland Vlg Wy, #01-27, Singapore 275748",
+      "source": "get-fed"
+    },
+    "sharedWords": [
+      "sourbombe",
+      "bakery"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Hougang",
+    "stationId": "hougang",
+    "listing1": {
+      "id": "3520e823-4088-4db0-994f-7e2b636c8549",
+      "name": "Denzy Gelato",
+      "address": "684 Hougang Ave 8, #01-953, Singapore 530684",
+      "source": null
+    },
+    "listing2": {
+      "id": "5d9291b8-e529-4016-8bed-653ab67e0d30",
+      "name": "Denzy Gelato",
+      "address": "506 Bishan St 11, #01-404, S570506",
+      "source": "hungrygowhere"
+    },
+    "sharedWords": [
+      "denzy",
+      "gelato"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Jalan Besar",
+    "stationId": "jalan-besar",
+    "listing1": {
+      "id": "4152fe57-e9cf-410a-8ab3-4ed6d043d08e",
+      "name": "Dim Sum Haus",
+      "address": "57 Jalan Besar, Singapore 208809",
+      "source": "sethlui"
+    },
+    "listing2": {
+      "id": "434d2a57-dace-491a-bb02-5810036eaee8",
+      "name": "Sum Dim Sum",
+      "address": "57 Jalan Besar, Singapore 208809",
+      "source": "eatbook"
+    },
+    "sharedWords": [
+      "dim",
+      "sum"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Kovan",
+    "stationId": "kovan",
+    "listing1": {
+      "id": "dd632c21-2871-4812-b573-54b0d4774cac",
+      "name": "Ah Kow Mushroom Minced Pork Mee",
+      "address": "628 HOUGANG AVENUE 8, Singapore 530628",
+      "source": null
+    },
+    "listing2": {
+      "id": "cf0494fa-9ea1-48f0-8c1e-2211aad7c782",
+      "name": "Lorong Ah Soo Lor Mee",
+      "address": "105 Hougang Ave 1, #02-51, Hainanese Village Centre",
+      "source": "sethlui"
+    },
+    "sharedWords": [
+      "ah",
+      "mee"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Kovan",
+    "stationId": "kovan",
+    "listing1": {
+      "id": "4c394d1c-93fa-4241-ae01-02ce9683cfb0",
+      "name": "Yi Liu Xiang Nasi Lemak",
+      "address": "105 Hougang Ave 1, #02-30, Singapore 530105",
+      "source": null
+    },
+    "listing2": {
+      "id": "b49e51fd-4da9-40be-89ee-d8f6c0ea2ae8",
+      "name": "Ponggol Nasi Lemak",
+      "address": "965 Upper Serangoon Rd, Singapore 534721",
+      "source": "supper"
+    },
+    "sharedWords": [
+      "nasi",
+      "lemak"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Lakeside",
+    "stationId": "lakeside",
+    "listing1": {
+      "id": "0df85bf5-844e-4dd0-8559-92f5a1393837",
+      "name": "Boon Lay Satay",
+      "address": "221B Boon Lay Place, #01-150, Boon Lay Place Food Village",
+      "source": "editors-choice"
+    },
+    "listing2": {
+      "id": "d034377c-946a-4146-a8b1-94c5669b567c",
+      "name": "Boon Lay Power Nasi Lemak",
+      "address": "221A Boon Lay Place, #01-106, Singapore 641221",
+      "source": null
+    },
+    "sharedWords": [
+      "boon",
+      "lay"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Lakeside",
+    "stationId": "lakeside",
+    "listing1": {
+      "id": "0df85bf5-844e-4dd0-8559-92f5a1393837",
+      "name": "Boon Lay Satay",
+      "address": "221B Boon Lay Place, #01-150, Boon Lay Place Food Village",
+      "source": "editors-choice"
+    },
+    "listing2": {
+      "id": "d567d3f2-7ab5-48f6-9e55-3a79e99103ab",
+      "name": "Boon Lay Power Nasi Lemak",
+      "address": "221B Boon Lay Place, #01-106, Boon Lay Place Food Village",
+      "source": "sethlui"
+    },
+    "sharedWords": [
+      "boon",
+      "lay"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Little India",
+    "stationId": "little-india",
+    "listing1": {
+      "id": "84cc1456-1495-4625-b930-09afb5148565",
+      "name": "Allauddin's Briyani",
+      "address": "6665 Buffalo Rd, #01-232 & #01-229, Singapore 210665",
+      "source": "timeout-2025"
+    },
+    "listing2": {
+      "id": "5eba130e-09ed-4f1c-9827-5be7101de166",
+      "name": "Allauddin's Briyani (Tekka)",
+      "address": "665 Buffalo Road, #01-267, Tekka Centre",
+      "source": "michelin-hawker"
+    },
+    "sharedWords": [
+      "allauddin",
+      "briyani"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Little India",
+    "stationId": "little-india",
+    "listing1": {
+      "id": "84cc1456-1495-4625-b930-09afb5148565",
+      "name": "Allauddin's Briyani",
+      "address": "6665 Buffalo Rd, #01-232 & #01-229, Singapore 210665",
+      "source": "timeout-2025"
+    },
+    "listing2": {
+      "id": "bfcfdb23-9ba1-400e-96eb-55b5fc3cacce",
+      "name": "Allauddin Briyani",
+      "address": "665 Buffalo Rd, Tekka Centre, Singapore 210665",
+      "source": "8days"
+    },
+    "sharedWords": [
+      "allauddin",
+      "briyani"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Little India",
+    "stationId": "little-india",
+    "listing1": {
+      "id": "5eba130e-09ed-4f1c-9827-5be7101de166",
+      "name": "Allauddin's Briyani (Tekka)",
+      "address": "665 Buffalo Road, #01-267, Tekka Centre",
+      "source": "michelin-hawker"
+    },
+    "listing2": {
+      "id": "bfcfdb23-9ba1-400e-96eb-55b5fc3cacce",
+      "name": "Allauddin Briyani",
+      "address": "665 Buffalo Rd, Tekka Centre, Singapore 210665",
+      "source": "8days"
+    },
+    "sharedWords": [
+      "allauddin",
+      "briyani"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Marine Parade",
+    "stationId": "marine-parade",
+    "listing1": {
+      "id": "e58fe003-dabd-4d72-9d21-6db392ad19c8",
+      "name": "Joo Chiat Banh Mi Ca Phe",
+      "address": "263 Joo Chiat Rd, Singapore 427517",
+      "source": "get-fed"
+    },
+    "listing2": {
+      "id": "d74abef3-d785-46cd-9158-9f124c472754",
+      "name": "Banh Mi 90s",
+      "address": "304 Joo Chiat Road, Singapore, Singapore, 427555",
+      "source": "get-fed"
+    },
+    "sharedWords": [
+      "banh",
+      "mi"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Marine Parade",
+    "stationId": "marine-parade",
+    "listing1": {
+      "id": "66bd13b5-5530-48de-8a1e-1f9c1d413432",
+      "name": "Katong Mei Wei Boneless Chicken Rice",
+      "address": "865 Mountbatten Road, #B1-85/87, Katong Shopping Centre, Singapore 437844",
+      "source": null
+    },
+    "listing2": {
+      "id": "49d0b37c-e8f0-4de3-b19b-03f7c03fd8eb",
+      "name": "Five Star Kampung Chicken Rice",
+      "address": "191 East Coast Road, Singapore 428897",
+      "source": null
+    },
+    "sharedWords": [
+      "chicken",
+      "rice"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Marine Parade",
+    "stationId": "marine-parade",
+    "listing1": {
+      "id": "66bd13b5-5530-48de-8a1e-1f9c1d413432",
+      "name": "Katong Mei Wei Boneless Chicken Rice",
+      "address": "865 Mountbatten Road, #B1-85/87, Katong Shopping Centre, Singapore 437844",
+      "source": null
+    },
+    "listing2": {
+      "id": "b0cca4b8-c39a-4755-b611-b9f7add888d9",
+      "name": "Rong Ji Chicken Rice & Porridge",
+      "address": "271 Onan Rd, #02-13, Singapore 424768",
+      "source": "get-fed"
+    },
+    "sharedWords": [
+      "chicken",
+      "rice"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Marine Parade",
+    "stationId": "marine-parade",
+    "listing1": {
+      "id": "49d0b37c-e8f0-4de3-b19b-03f7c03fd8eb",
+      "name": "Five Star Kampung Chicken Rice",
+      "address": "191 East Coast Road, Singapore 428897",
+      "source": null
+    },
+    "listing2": {
+      "id": "b0cca4b8-c39a-4755-b611-b9f7add888d9",
+      "name": "Rong Ji Chicken Rice & Porridge",
+      "address": "271 Onan Rd, #02-13, Singapore 424768",
+      "source": "get-fed"
+    },
+    "sharedWords": [
+      "chicken",
+      "rice"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Marine Parade",
+    "stationId": "marine-parade",
+    "listing1": {
+      "id": "70b84213-07ac-41de-b07c-ad48b8517a8e",
+      "name": "Mr and Mrs Mohgan's Super Crispy Roti Prata",
+      "address": "300 Joo Chiat Rd, Singapore 427551",
+      "source": "timeout-2025"
+    },
+    "listing2": {
+      "id": "57227742-e61c-4524-b149-7300658d746e",
+      "name": "Roti Prata",
+      "address": "300 Joo Chiat Road, Singapore 427551",
+      "source": null
+    },
+    "sharedWords": [
+      "roti",
+      "prata"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Mattar",
+    "stationId": "mattar",
+    "listing1": {
+      "id": "04319eb9-a249-4121-8d72-bcbd8ec58e7d",
+      "name": "Zhup Zhup by One Prawn & Co",
+      "address": "458 MacPherson Rd, Singapore 368176",
+      "source": "eatbook"
+    },
+    "listing2": {
+      "id": "4f69929a-63af-4326-94ee-27f552f0411c",
+      "name": "Zhup Zhup",
+      "address": "458 MacPherson Rd",
+      "source": "michelin-hawker"
+    },
+    "sharedWords": [
+      "zhup",
+      "zhup"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Maxwell",
+    "stationId": "maxwell",
+    "listing1": {
+      "id": "c23ab986-ce14-4d66-a9ef-2ab2cd43304a",
+      "name": "Hyangyeon Korean Restaurant",
+      "address": "2 Peck Seah Street, #01-02, Singapore 079305",
+      "source": null
+    },
+    "listing2": {
+      "id": "e1a8ef14-9259-46a0-a2b9-69ec4236a403",
+      "name": "MIMI Korean BBQ Restaurant",
+      "address": "2 Peck Seah Street, #01-01, Air View Building, Singapore 079305",
+      "source": null
+    },
+    "sharedWords": [
+      "korean",
+      "restaurant"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Maxwell",
+    "stationId": "maxwell",
+    "listing1": {
+      "id": "c0ab1d7f-d20c-44db-a933-80e45e8fb911",
+      "name": "Supulae Korean BBQ",
+      "address": "80 Tanjong Pagar Road, Singapore 088501",
+      "source": null
+    },
+    "listing2": {
+      "id": "fcb38b5d-e4f5-4f93-87c8-70df944cd42e",
+      "name": "Gogi Buffet Korean BBQ",
+      "address": "22 Tanjong Pagar Road, Singapore 088445",
+      "source": null
+    },
+    "sharedWords": [
+      "korean",
+      "bbq"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Maxwell",
+    "stationId": "maxwell",
+    "listing1": {
+      "id": "c0ab1d7f-d20c-44db-a933-80e45e8fb911",
+      "name": "Supulae Korean BBQ",
+      "address": "80 Tanjong Pagar Road, Singapore 088501",
+      "source": null
+    },
+    "listing2": {
+      "id": "cedc1910-5c69-49f2-9b7a-350a99a5f884",
+      "name": "Charim Korean BBQ",
+      "address": "65 Tanjong Pagar Road, Singapore 088486",
+      "source": null
+    },
+    "sharedWords": [
+      "korean",
+      "bbq"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Maxwell",
+    "stationId": "maxwell",
+    "listing1": {
+      "id": "c0ab1d7f-d20c-44db-a933-80e45e8fb911",
+      "name": "Supulae Korean BBQ",
+      "address": "80 Tanjong Pagar Road, Singapore 088501",
+      "source": null
+    },
+    "listing2": {
+      "id": "e1a8ef14-9259-46a0-a2b9-69ec4236a403",
+      "name": "MIMI Korean BBQ Restaurant",
+      "address": "2 Peck Seah Street, #01-01, Air View Building, Singapore 079305",
+      "source": null
+    },
+    "sharedWords": [
+      "korean",
+      "bbq"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Maxwell",
+    "stationId": "maxwell",
+    "listing1": {
+      "id": "44c755e1-9488-42d3-a938-4bb67e4924e1",
+      "name": "Ah Tai Chicken Rice",
+      "address": "1 Kadayanallur Street, #01-07, Maxwell Food Centre, Singapore 069184",
+      "source": null
+    },
+    "listing2": {
+      "id": "8c12d807-1d6a-40aa-ae08-7f175337da59",
+      "name": "Liao Fan Hong Kong Soya Sauce Chicken Rice",
+      "address": "335 SMITH STREET, CHINATOWN COMPLEX, Singapore 050335",
+      "source": null
+    },
+    "sharedWords": [
+      "chicken",
+      "rice"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Maxwell",
+    "stationId": "maxwell",
+    "listing1": {
+      "id": "44c755e1-9488-42d3-a938-4bb67e4924e1",
+      "name": "Ah Tai Chicken Rice",
+      "address": "1 Kadayanallur Street, #01-07, Maxwell Food Centre, Singapore 069184",
+      "source": null
+    },
+    "listing2": {
+      "id": "6d6a7da4-75fd-42e8-a5d8-db4ebe79c278",
+      "name": "Loy Kee Chicken Rice",
+      "address": "30 SAGO STREET, KRETA AYER CONSERVATION AREA, Singapore 059024",
+      "source": null
+    },
+    "sharedWords": [
+      "chicken",
+      "rice"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Maxwell",
+    "stationId": "maxwell",
+    "listing1": {
+      "id": "44c755e1-9488-42d3-a938-4bb67e4924e1",
+      "name": "Ah Tai Chicken Rice",
+      "address": "1 Kadayanallur Street, #01-07, Maxwell Food Centre, Singapore 069184",
+      "source": null
+    },
+    "listing2": {
+      "id": "f5f3ee4b-42d5-47a3-8eab-72b7afad893e",
+      "name": "Tian Tian Hainanese Chicken Rice",
+      "address": "1 Kadayanallur St, #01-10/11 Maxwell Food Centre",
+      "source": "michelin-hawker"
+    },
+    "sharedWords": [
+      "chicken",
+      "rice"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Maxwell",
+    "stationId": "maxwell",
+    "listing1": {
+      "id": "e664deb0-a67b-49bd-8829-f480ed1999c3",
+      "name": "335 Hong Kong Roasted Meat",
+      "address": "335 Smith Street, #02-181, Chinatown Complex Market and Food Centre, Singapore 050335",
+      "source": null
+    },
+    "listing2": {
+      "id": "8c12d807-1d6a-40aa-ae08-7f175337da59",
+      "name": "Liao Fan Hong Kong Soya Sauce Chicken Rice",
+      "address": "335 SMITH STREET, CHINATOWN COMPLEX, Singapore 050335",
+      "source": null
+    },
+    "sharedWords": [
+      "hong",
+      "kong"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Maxwell",
+    "stationId": "maxwell",
+    "listing1": {
+      "id": "e664deb0-a67b-49bd-8829-f480ed1999c3",
+      "name": "335 Hong Kong Roasted Meat",
+      "address": "335 Smith Street, #02-181, Chinatown Complex Market and Food Centre, Singapore 050335",
+      "source": null
+    },
+    "listing2": {
+      "id": "99b0682f-dc72-4add-928f-cb250f1d8070",
+      "name": "Hong Kong Mongkok Dim Sum",
+      "address": "335 Smith Street, #02-097, Chinatown Complex Market & Food Centre, Singapore 050335",
+      "source": null
+    },
+    "sharedWords": [
+      "hong",
+      "kong"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Maxwell",
+    "stationId": "maxwell",
+    "listing1": {
+      "id": "e2085c48-64cc-487f-9351-6336c1f7cf24",
+      "name": "Don Dae Bak",
+      "address": "35 Kreta Ayer Road, Singapore 089000",
+      "source": null
+    },
+    "listing2": {
+      "id": "10f7f6c9-2156-4566-8303-dd361fbc589e",
+      "name": "Wang Dae Bak",
+      "address": "45 NEIL ROAD, TANJONG PAGAR CONSERVATION AREA, Singapore 088826",
+      "source": null
+    },
+    "sharedWords": [
+      "dae",
+      "bak"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Maxwell",
+    "stationId": "maxwell",
+    "listing1": {
+      "id": "60f6a1d5-c808-4728-9de1-96335cca07fb",
+      "name": "Hainanese Curry Rice",
+      "address": "1 Kadayanallur Street, Maxwell Food Centre, #01-68, Singapore 069184Phone: 96168701",
+      "source": null
+    },
+    "listing2": {
+      "id": "f5f3ee4b-42d5-47a3-8eab-72b7afad893e",
+      "name": "Tian Tian Hainanese Chicken Rice",
+      "address": "1 Kadayanallur St, #01-10/11 Maxwell Food Centre",
+      "source": "michelin-hawker"
+    },
+    "sharedWords": [
+      "hainanese",
+      "rice"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Maxwell",
+    "stationId": "maxwell",
+    "listing1": {
+      "id": "fcb38b5d-e4f5-4f93-87c8-70df944cd42e",
+      "name": "Gogi Buffet Korean BBQ",
+      "address": "22 Tanjong Pagar Road, Singapore 088445",
+      "source": null
+    },
+    "listing2": {
+      "id": "cedc1910-5c69-49f2-9b7a-350a99a5f884",
+      "name": "Charim Korean BBQ",
+      "address": "65 Tanjong Pagar Road, Singapore 088486",
+      "source": null
+    },
+    "sharedWords": [
+      "korean",
+      "bbq"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Maxwell",
+    "stationId": "maxwell",
+    "listing1": {
+      "id": "fcb38b5d-e4f5-4f93-87c8-70df944cd42e",
+      "name": "Gogi Buffet Korean BBQ",
+      "address": "22 Tanjong Pagar Road, Singapore 088445",
+      "source": null
+    },
+    "listing2": {
+      "id": "e1a8ef14-9259-46a0-a2b9-69ec4236a403",
+      "name": "MIMI Korean BBQ Restaurant",
+      "address": "2 Peck Seah Street, #01-01, Air View Building, Singapore 079305",
+      "source": null
+    },
+    "sharedWords": [
+      "korean",
+      "bbq"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Maxwell",
+    "stationId": "maxwell",
+    "listing1": {
+      "id": "cedc1910-5c69-49f2-9b7a-350a99a5f884",
+      "name": "Charim Korean BBQ",
+      "address": "65 Tanjong Pagar Road, Singapore 088486",
+      "source": null
+    },
+    "listing2": {
+      "id": "e1a8ef14-9259-46a0-a2b9-69ec4236a403",
+      "name": "MIMI Korean BBQ Restaurant",
+      "address": "2 Peck Seah Street, #01-01, Air View Building, Singapore 079305",
+      "source": null
+    },
+    "sharedWords": [
+      "korean",
+      "bbq"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Maxwell",
+    "stationId": "maxwell",
+    "listing1": {
+      "id": "8c12d807-1d6a-40aa-ae08-7f175337da59",
+      "name": "Liao Fan Hong Kong Soya Sauce Chicken Rice",
+      "address": "335 SMITH STREET, CHINATOWN COMPLEX, Singapore 050335",
+      "source": null
+    },
+    "listing2": {
+      "id": "6d6a7da4-75fd-42e8-a5d8-db4ebe79c278",
+      "name": "Loy Kee Chicken Rice",
+      "address": "30 SAGO STREET, KRETA AYER CONSERVATION AREA, Singapore 059024",
+      "source": null
+    },
+    "sharedWords": [
+      "chicken",
+      "rice"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Maxwell",
+    "stationId": "maxwell",
+    "listing1": {
+      "id": "8c12d807-1d6a-40aa-ae08-7f175337da59",
+      "name": "Liao Fan Hong Kong Soya Sauce Chicken Rice",
+      "address": "335 SMITH STREET, CHINATOWN COMPLEX, Singapore 050335",
+      "source": null
+    },
+    "listing2": {
+      "id": "99b0682f-dc72-4add-928f-cb250f1d8070",
+      "name": "Hong Kong Mongkok Dim Sum",
+      "address": "335 Smith Street, #02-097, Chinatown Complex Market & Food Centre, Singapore 050335",
+      "source": null
+    },
+    "sharedWords": [
+      "hong",
+      "kong"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Maxwell",
+    "stationId": "maxwell",
+    "listing1": {
+      "id": "8c12d807-1d6a-40aa-ae08-7f175337da59",
+      "name": "Liao Fan Hong Kong Soya Sauce Chicken Rice",
+      "address": "335 SMITH STREET, CHINATOWN COMPLEX, Singapore 050335",
+      "source": null
+    },
+    "listing2": {
+      "id": "f5f3ee4b-42d5-47a3-8eab-72b7afad893e",
+      "name": "Tian Tian Hainanese Chicken Rice",
+      "address": "1 Kadayanallur St, #01-10/11 Maxwell Food Centre",
+      "source": "michelin-hawker"
+    },
+    "sharedWords": [
+      "chicken",
+      "rice"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Maxwell",
+    "stationId": "maxwell",
+    "listing1": {
+      "id": "6d6a7da4-75fd-42e8-a5d8-db4ebe79c278",
+      "name": "Loy Kee Chicken Rice",
+      "address": "30 SAGO STREET, KRETA AYER CONSERVATION AREA, Singapore 059024",
+      "source": null
+    },
+    "listing2": {
+      "id": "f5f3ee4b-42d5-47a3-8eab-72b7afad893e",
+      "name": "Tian Tian Hainanese Chicken Rice",
+      "address": "1 Kadayanallur St, #01-10/11 Maxwell Food Centre",
+      "source": "michelin-hawker"
+    },
+    "sharedWords": [
+      "chicken",
+      "rice"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Nicoll Highway",
+    "stationId": "nicoll-highway",
+    "listing1": {
+      "id": "83d34a26-3981-4520-8ecf-69f63c0f5e1d",
+      "name": "Blanco Court Beef Noodles",
+      "address": "243 Beach Rd, Singapore 189754",
+      "source": "eatbook"
+    },
+    "listing2": {
+      "id": "5d503bf7-271f-4d8f-b9db-1281a2b234ce",
+      "name": "Bugis Long House Lim Kee Beef Noodles",
+      "address": "505 Beach Rd, Golden Mile Food Centre, Singapore 199583",
+      "source": "get-fed"
+    },
+    "sharedWords": [
+      "beef",
+      "noodles"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Orchard",
+    "stationId": "orchard",
+    "listing1": {
+      "id": "2e783401-305c-4302-beca-16f75b1fcd44",
+      "name": "Thai Tantric Authentic Thai Cuisine",
+      "address": "400 Orchard Road, #03-44, Orchard Towers, Singapore 238875",
+      "source": null
+    },
+    "listing2": {
+      "id": "faedc218-906f-4a36-ad43-ed571d8d64b8",
+      "name": "Korat Thai Cafe",
+      "address": "400 Orchard Road, #03-28, Orchard Towers, Singapore 238875",
+      "source": null
+    },
+    "sharedWords": [
+      "thai",
+      "thai"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Orchard",
+    "stationId": "orchard",
+    "listing1": {
+      "id": "2e783401-305c-4302-beca-16f75b1fcd44",
+      "name": "Thai Tantric Authentic Thai Cuisine",
+      "address": "400 Orchard Road, #03-44, Orchard Towers, Singapore 238875",
+      "source": null
+    },
+    "listing2": {
+      "id": "82db9bd4-2c6c-4115-8249-e5f04372631a",
+      "name": "Thai Village Restaurant",
+      "address": "22 Scotts Rd, Goodwood Park Hotel, Singapore 228221",
+      "source": "get-fed"
+    },
+    "sharedWords": [
+      "thai",
+      "thai"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Outram Park",
+    "stationId": "outram-park",
+    "listing1": {
+      "id": "508960f5-8396-4cdf-9b6e-8a5bd911ff3e",
+      "name": "Kok Sen",
+      "address": "Keong Saik Rd., 4",
+      "source": "michelin-hawker"
+    },
+    "listing2": {
+      "id": "69c90138-47dd-4856-806b-e8c447b43382",
+      "name": "Kok Sen Restaurant",
+      "address": "30-32 Keong Saik Road, Singapore 089137",
+      "source": "editors-choice"
+    },
+    "sharedWords": [
+      "kok",
+      "sen"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Outram Park",
+    "stationId": "outram-park",
+    "listing1": {
+      "id": "6887d5d2-faaf-4c82-92ea-3b5f763af8e9",
+      "name": "GU:UM Contemporary Grill",
+      "address": "29 Keong Saik Road, Singapore 089136",
+      "source": null
+    },
+    "listing2": {
+      "id": "3f7c64f8-d459-406f-8566-8981dc7c41ec",
+      "name": "GU:UM",
+      "address": "29 Keong Saik Rd., Singapore 089136",
+      "source": "eatbook"
+    },
+    "sharedWords": [
+      "gu",
+      "um"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Outram Park",
+    "stationId": "outram-park",
+    "listing1": {
+      "id": "9234f651-c756-4fa5-8d61-ce1a94a951c2",
+      "name": "Shake Shack Outram",
+      "address": "89 Neil Road #01-01, Singapore 088849",
+      "source": "editors-choice"
+    },
+    "listing2": {
+      "id": "5da74624-6c62-4aee-9ac4-5c2ba8432ad1",
+      "name": "Shake Shack",
+      "address": "100AM Mall",
+      "source": "eatbook"
+    },
+    "sharedWords": [
+      "shake",
+      "shack"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Outram Park",
+    "stationId": "outram-park",
+    "listing1": {
+      "id": "dafc96fd-50ad-4af1-a62b-cddf48eb8042",
+      "name": "Baker's Bench Bakery",
+      "address": "6 Bukit Pasoh Road, Singapore 089820",
+      "source": "sethlui"
+    },
+    "listing2": {
+      "id": "15aa81f0-af55-4897-8fd1-be4015bb5430",
+      "name": "Baker's Bench",
+      "address": "Tanjong Pagar",
+      "source": "eatbook"
+    },
+    "sharedWords": [
+      "baker",
+      "bench"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Outram Park",
+    "stationId": "outram-park",
+    "listing1": {
+      "id": "3eeea7b8-a064-4557-9368-c32099a429a4",
+      "name": "The Teochew Kitchenette - Keong Saik Bak Kut Teh",
+      "address": "26 Keong Saik Rd., Singapore 089133",
+      "source": "editors-choice"
+    },
+    "listing2": {
+      "id": "d97bf5ef-dedf-45b7-ab71-41db6653a438",
+      "name": "Acqua e Farina Keong Saik",
+      "address": "Keong Saik Road, Singapore",
+      "source": "sethlui"
+    },
+    "sharedWords": [
+      "keong",
+      "saik"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Outram Park",
+    "stationId": "outram-park",
+    "listing1": {
+      "id": "2e709947-56dc-4d88-841f-db5199d3e492",
+      "name": "Ka-Soh",
+      "address": "Keong Saik Road",
+      "source": "eatbook"
+    },
+    "listing2": {
+      "id": "22c0ab00-392c-4748-b30f-52a00f628b3b",
+      "name": "Ka-Soh Restaurant",
+      "address": "2 College Road, Singapore 169850",
+      "source": "editors-choice"
+    },
+    "sharedWords": [
+      "ka",
+      "soh"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Punggol Coast",
+    "stationId": "punggol-coast",
+    "listing1": {
+      "id": "65f54e3b-4fba-4377-a1f5-16dab00af7f1",
+      "name": "Singapore Fried Hokkien Mee (Punggol Coast)",
+      "address": "84 Punggol Way, Punggol Coast Hawker Centre",
+      "source": "timeout-2025"
+    },
+    "listing2": {
+      "id": "7cdcd014-9381-4315-84ed-59d3a1d7ae29",
+      "name": "Hee Hee Steamed Fish (Punggol Coast)",
+      "address": "84 Punggol Way, #02-K55, Punggol Coast Hawker Centre, Singapore 829911",
+      "source": "timeout-2025"
+    },
+    "sharedWords": [
+      "punggol",
+      "coast"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Punggol Coast",
+    "stationId": "punggol-coast",
+    "listing1": {
+      "id": "65f54e3b-4fba-4377-a1f5-16dab00af7f1",
+      "name": "Singapore Fried Hokkien Mee (Punggol Coast)",
+      "address": "84 Punggol Way, Punggol Coast Hawker Centre",
+      "source": "timeout-2025"
+    },
+    "listing2": {
+      "id": "d401458e-7984-4dc8-9a79-ad0a83fbea4b",
+      "name": "Pin Wei Hong Kong Style Chee Cheong Fun (Punggol Coast)",
+      "address": "84 Punggol Way, Punggol Coast Hawker Centre, Singapore 829911",
+      "source": "timeout-2025"
+    },
+    "sharedWords": [
+      "punggol",
+      "coast"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Punggol Coast",
+    "stationId": "punggol-coast",
+    "listing1": {
+      "id": "65f54e3b-4fba-4377-a1f5-16dab00af7f1",
+      "name": "Singapore Fried Hokkien Mee (Punggol Coast)",
+      "address": "84 Punggol Way, Punggol Coast Hawker Centre",
+      "source": "timeout-2025"
+    },
+    "listing2": {
+      "id": "bac1e491-bb39-4ae1-86c9-c0225fb1e893",
+      "name": "South Buona Vista Braised Duck (Punggol Coast)",
+      "address": "84 Punggol Way, #02-K59, Punggol Coast Hawker Centre, Singapore 829911",
+      "source": "honeycombers"
+    },
+    "sharedWords": [
+      "punggol",
+      "coast"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Punggol Coast",
+    "stationId": "punggol-coast",
+    "listing1": {
+      "id": "65f54e3b-4fba-4377-a1f5-16dab00af7f1",
+      "name": "Singapore Fried Hokkien Mee (Punggol Coast)",
+      "address": "84 Punggol Way, Punggol Coast Hawker Centre",
+      "source": "timeout-2025"
+    },
+    "listing2": {
+      "id": "b7831fdc-d145-40f4-a99e-816eb53382e4",
+      "name": "What The Puff! (Punggol Coast)",
+      "address": "84 Punggol Way, Punggol Coast Hawker Centre, Singapore 829911",
+      "source": "sethlui"
+    },
+    "sharedWords": [
+      "punggol",
+      "coast"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Punggol Coast",
+    "stationId": "punggol-coast",
+    "listing1": {
+      "id": "7cdcd014-9381-4315-84ed-59d3a1d7ae29",
+      "name": "Hee Hee Steamed Fish (Punggol Coast)",
+      "address": "84 Punggol Way, #02-K55, Punggol Coast Hawker Centre, Singapore 829911",
+      "source": "timeout-2025"
+    },
+    "listing2": {
+      "id": "d401458e-7984-4dc8-9a79-ad0a83fbea4b",
+      "name": "Pin Wei Hong Kong Style Chee Cheong Fun (Punggol Coast)",
+      "address": "84 Punggol Way, Punggol Coast Hawker Centre, Singapore 829911",
+      "source": "timeout-2025"
+    },
+    "sharedWords": [
+      "punggol",
+      "coast"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Punggol Coast",
+    "stationId": "punggol-coast",
+    "listing1": {
+      "id": "7cdcd014-9381-4315-84ed-59d3a1d7ae29",
+      "name": "Hee Hee Steamed Fish (Punggol Coast)",
+      "address": "84 Punggol Way, #02-K55, Punggol Coast Hawker Centre, Singapore 829911",
+      "source": "timeout-2025"
+    },
+    "listing2": {
+      "id": "bac1e491-bb39-4ae1-86c9-c0225fb1e893",
+      "name": "South Buona Vista Braised Duck (Punggol Coast)",
+      "address": "84 Punggol Way, #02-K59, Punggol Coast Hawker Centre, Singapore 829911",
+      "source": "honeycombers"
+    },
+    "sharedWords": [
+      "punggol",
+      "coast"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Punggol Coast",
+    "stationId": "punggol-coast",
+    "listing1": {
+      "id": "7cdcd014-9381-4315-84ed-59d3a1d7ae29",
+      "name": "Hee Hee Steamed Fish (Punggol Coast)",
+      "address": "84 Punggol Way, #02-K55, Punggol Coast Hawker Centre, Singapore 829911",
+      "source": "timeout-2025"
+    },
+    "listing2": {
+      "id": "b7831fdc-d145-40f4-a99e-816eb53382e4",
+      "name": "What The Puff! (Punggol Coast)",
+      "address": "84 Punggol Way, Punggol Coast Hawker Centre, Singapore 829911",
+      "source": "sethlui"
+    },
+    "sharedWords": [
+      "punggol",
+      "coast"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Punggol Coast",
+    "stationId": "punggol-coast",
+    "listing1": {
+      "id": "d401458e-7984-4dc8-9a79-ad0a83fbea4b",
+      "name": "Pin Wei Hong Kong Style Chee Cheong Fun (Punggol Coast)",
+      "address": "84 Punggol Way, Punggol Coast Hawker Centre, Singapore 829911",
+      "source": "timeout-2025"
+    },
+    "listing2": {
+      "id": "bac1e491-bb39-4ae1-86c9-c0225fb1e893",
+      "name": "South Buona Vista Braised Duck (Punggol Coast)",
+      "address": "84 Punggol Way, #02-K59, Punggol Coast Hawker Centre, Singapore 829911",
+      "source": "honeycombers"
+    },
+    "sharedWords": [
+      "punggol",
+      "coast"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Punggol Coast",
+    "stationId": "punggol-coast",
+    "listing1": {
+      "id": "d401458e-7984-4dc8-9a79-ad0a83fbea4b",
+      "name": "Pin Wei Hong Kong Style Chee Cheong Fun (Punggol Coast)",
+      "address": "84 Punggol Way, Punggol Coast Hawker Centre, Singapore 829911",
+      "source": "timeout-2025"
+    },
+    "listing2": {
+      "id": "b7831fdc-d145-40f4-a99e-816eb53382e4",
+      "name": "What The Puff! (Punggol Coast)",
+      "address": "84 Punggol Way, Punggol Coast Hawker Centre, Singapore 829911",
+      "source": "sethlui"
+    },
+    "sharedWords": [
+      "punggol",
+      "coast"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Punggol Coast",
+    "stationId": "punggol-coast",
+    "listing1": {
+      "id": "bac1e491-bb39-4ae1-86c9-c0225fb1e893",
+      "name": "South Buona Vista Braised Duck (Punggol Coast)",
+      "address": "84 Punggol Way, #02-K59, Punggol Coast Hawker Centre, Singapore 829911",
+      "source": "honeycombers"
+    },
+    "listing2": {
+      "id": "b7831fdc-d145-40f4-a99e-816eb53382e4",
+      "name": "What The Puff! (Punggol Coast)",
+      "address": "84 Punggol Way, Punggol Coast Hawker Centre, Singapore 829911",
+      "source": "sethlui"
+    },
+    "sharedWords": [
+      "punggol",
+      "coast"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Queenstown",
+    "stationId": "queenstown",
+    "listing1": {
+      "id": "a2159e84-3fa6-416d-b9cc-59af052f1da4",
+      "name": "Liu Liang Mian",
+      "address": "321 Alexandra Rd, #01-03 Outside Alexandra Mall, Singapore 159971",
+      "source": "get-fed"
+    },
+    "listing2": {
+      "id": "34b33acd-c101-4094-91af-2957ae41c483",
+      "name": "Liu Lang Mian",
+      "address": "Alexandra Retail Centre, Singapore",
+      "source": "editors-choice"
+    },
+    "sharedWords": [
+      "liu",
+      "mian"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Queenstown",
+    "stationId": "queenstown",
+    "listing1": {
+      "id": "cf3519c9-fa9a-4b95-b9e3-d37e765288b1",
+      "name": "Ar Er Soup",
+      "address": "6 Jalan Bukit Merah, #01-141",
+      "source": "michelin-hawker"
+    },
+    "listing2": {
+      "id": "6971bffc-77bf-4eea-b1db-c36df5983720",
+      "name": "Ah Er Soup",
+      "address": "ABC Brickworks #01-143",
+      "source": "michelin-hawker"
+    },
+    "sharedWords": [
+      "er",
+      "soup"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Redhill",
+    "stationId": "redhill",
+    "listing1": {
+      "id": "1d3f0f90-936b-41fd-83d7-e57ab3785376",
+      "name": "Lan Xiang Ban Mian",
+      "address": "163 Bukit Merah Central, #02-06",
+      "source": "eatbook"
+    },
+    "listing2": {
+      "id": "5eb5202c-ffea-47d7-877b-36d22dc2ca0b",
+      "name": "He Jia Huan Ban Mian (Redhill)",
+      "address": "85 Redhill Ln, #01-69, Singapore 150085",
+      "source": null
+    },
+    "sharedWords": [
+      "ban",
+      "mian"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Sengkang",
+    "stationId": "sengkang",
+    "listing1": {
+      "id": "545871b3-cecb-4ca3-999e-1152faf1cdd8",
+      "name": "Nakhon Kitchen (Compass One)",
+      "address": "1 Sengkang Square, #02-30, Compass One, Singapore 545078",
+      "source": "sethlui"
+    },
+    "listing2": {
+      "id": "ded22173-ecb3-48e8-8151-fa0f1e59a3dd",
+      "name": "Nakhon Kitchen",
+      "address": "212 Hougang St 21 #01-341",
+      "source": "editors-choice"
+    },
+    "sharedWords": [
+      "nakhon",
+      "kitchen"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Senja",
+    "stationId": "senja",
+    "listing1": {
+      "id": "e3774756-aa5a-4a95-9b13-64a3028c3973",
+      "name": "Project Penyek",
+      "address": "Senja Hawker Centre #02-17",
+      "source": "sethlui"
+    },
+    "listing2": {
+      "id": "73734054-7157-4021-9af4-73410c38ccb6",
+      "name": "Project Penyek by Ansar",
+      "address": "2 Senja Close, #02-17, Senja Hawker Centre, Singapore 677632",
+      "source": "eatbook"
+    },
+    "sharedWords": [
+      "project",
+      "penyek"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Somerset",
+    "stationId": "somerset",
+    "listing1": {
+      "id": "e60f9eb8-14f2-45fb-a4cd-a1367e530db2",
+      "name": "FYP Cafe",
+      "address": "181 Orchard Rd, #04-22 Orchard Central Singapore 238896",
+      "source": "eatbook"
+    },
+    "listing2": {
+      "id": "4381ac8a-3148-4bf3-814a-30728bd2b994",
+      "name": "FYP (For You People) Cafe",
+      "address": "181 Orchard Rd #04-22 Orchard Central",
+      "source": "sethlui"
+    },
+    "sharedWords": [
+      "fyp",
+      "cafe"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Somerset",
+    "stationId": "somerset",
+    "listing1": {
+      "id": "438da192-4c1f-413e-a80d-4a4f4ba45320",
+      "name": "Kiseki Japanese Buffet Restaurant",
+      "address": "181 Orchard Road, #08-01/02/03, Orchard Central, Singapore 238896",
+      "source": null
+    },
+    "listing2": {
+      "id": "4349c43f-ee8e-4a17-94fa-03af6e49c86f",
+      "name": "Suju Japanese Restaurant",
+      "address": "333A Orchard Rd, Mandarin Gallery #04-05, Singapore 238897",
+      "source": "editors-choice"
+    },
+    "sharedWords": [
+      "japanese",
+      "restaurant"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Tanjong Pagar",
+    "stationId": "tanjong-pagar",
+    "listing1": {
+      "id": "40913331-f5f5-458f-9330-d9746b608da3",
+      "name": "The Blue Ginger",
+      "address": "97 Tanjong Pagar Road",
+      "source": "michelin-hawker"
+    },
+    "listing2": {
+      "id": "24168c8c-1832-4389-95f3-631496e0bc9f",
+      "name": "Blue Ginger",
+      "address": "97 Tg Pagar Rd",
+      "source": "michelin-hawker"
+    },
+    "sharedWords": [
+      "blue",
+      "ginger"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Telok Ayer",
+    "stationId": "telok-ayer",
+    "listing1": {
+      "id": "38b9f435-b613-4f99-b87d-1c8a7d2996a8",
+      "name": "Dal In Korean Restaurant",
+      "address": "17 Boon Tat St",
+      "source": "sethlui"
+    },
+    "listing2": {
+      "id": "f1d8a8db-0c7c-4c8f-87a8-b340ff9ca4c3",
+      "name": "SOT Korean Restaurant",
+      "address": "177 Telok Ayer Street, Singapore 068625",
+      "source": null
+    },
+    "sharedWords": [
+      "korean",
+      "restaurant"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Telok Ayer",
+    "stationId": "telok-ayer",
+    "listing1": {
+      "id": "38b9f435-b613-4f99-b87d-1c8a7d2996a8",
+      "name": "Dal In Korean Restaurant",
+      "address": "17 Boon Tat St",
+      "source": "sethlui"
+    },
+    "listing2": {
+      "id": "77678c0c-8910-43aa-9e8f-d335be80e400",
+      "name": "SODENG Korean Restaurant",
+      "address": "175 Telok Ayer Street, Singapore 068623",
+      "source": null
+    },
+    "sharedWords": [
+      "korean",
+      "restaurant"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Telok Ayer",
+    "stationId": "telok-ayer",
+    "listing1": {
+      "id": "38b9f435-b613-4f99-b87d-1c8a7d2996a8",
+      "name": "Dal In Korean Restaurant",
+      "address": "17 Boon Tat St",
+      "source": "sethlui"
+    },
+    "listing2": {
+      "id": "7cbfd100-8be5-4e6d-a81e-4cf00327a1c6",
+      "name": "Hyang Yeon Korean Restaurant",
+      "address": "128 Telok Ayer Street, #01-01, Singapore 068597",
+      "source": null
+    },
+    "sharedWords": [
+      "korean",
+      "restaurant"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Telok Ayer",
+    "stationId": "telok-ayer",
+    "listing1": {
+      "id": "3bcf80c0-3de9-4598-82d1-cf9e368f7ba2",
+      "name": "Uptown Nasi Lemak",
+      "address": "121 Telok Ayer Street, #01-01, Singapore 068590",
+      "source": null
+    },
+    "listing2": {
+      "id": "96f61b85-375e-459a-b353-e629aa26043c",
+      "name": "Market Street HC - Nasi Lemak",
+      "address": "86 Market St, CapitaSpring, S048947",
+      "source": "timeout-2025"
+    },
+    "sharedWords": [
+      "nasi",
+      "lemak"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Telok Ayer",
+    "stationId": "telok-ayer",
+    "listing1": {
+      "id": "f1d8a8db-0c7c-4c8f-87a8-b340ff9ca4c3",
+      "name": "SOT Korean Restaurant",
+      "address": "177 Telok Ayer Street, Singapore 068625",
+      "source": null
+    },
+    "listing2": {
+      "id": "77678c0c-8910-43aa-9e8f-d335be80e400",
+      "name": "SODENG Korean Restaurant",
+      "address": "175 Telok Ayer Street, Singapore 068623",
+      "source": null
+    },
+    "sharedWords": [
+      "korean",
+      "restaurant"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Telok Ayer",
+    "stationId": "telok-ayer",
+    "listing1": {
+      "id": "f1d8a8db-0c7c-4c8f-87a8-b340ff9ca4c3",
+      "name": "SOT Korean Restaurant",
+      "address": "177 Telok Ayer Street, Singapore 068625",
+      "source": null
+    },
+    "listing2": {
+      "id": "7cbfd100-8be5-4e6d-a81e-4cf00327a1c6",
+      "name": "Hyang Yeon Korean Restaurant",
+      "address": "128 Telok Ayer Street, #01-01, Singapore 068597",
+      "source": null
+    },
+    "sharedWords": [
+      "korean",
+      "restaurant"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Telok Ayer",
+    "stationId": "telok-ayer",
+    "listing1": {
+      "id": "77678c0c-8910-43aa-9e8f-d335be80e400",
+      "name": "SODENG Korean Restaurant",
+      "address": "175 Telok Ayer Street, Singapore 068623",
+      "source": null
+    },
+    "listing2": {
+      "id": "7cbfd100-8be5-4e6d-a81e-4cf00327a1c6",
+      "name": "Hyang Yeon Korean Restaurant",
+      "address": "128 Telok Ayer Street, #01-01, Singapore 068597",
+      "source": null
+    },
+    "sharedWords": [
+      "korean",
+      "restaurant"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Tiong Bahru",
+    "stationId": "tiong-bahru",
+    "listing1": {
+      "id": "a3aacfed-08c2-41ab-a901-9f06f41570a4",
+      "name": "Tiong Bahru Market",
+      "address": "30 JALAN KLINIK, Singapore 160030",
+      "source": null
+    },
+    "listing2": {
+      "id": "dd9f9a86-5c16-473b-95e7-f552f40951ab",
+      "name": "Jia Li Seafood Soup (Tiong Bahru)",
+      "address": "302 Tiong Bahru Rd, #B1-135, Singapore 168732",
+      "source": "eatbook"
+    },
+    "sharedWords": [
+      "tiong",
+      "bahru"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Toa Payoh",
+    "stationId": "toa-payoh",
+    "listing1": {
+      "id": "ed5c6b6e-65ba-43b2-8bce-d80522a56366",
+      "name": "Ah Kow Mushroom Minced Pork Mee",
+      "address": "Singapore",
+      "source": "eatbook"
+    },
+    "listing2": {
+      "id": "75225a92-b8c3-412a-8c23-e4879875fac4",
+      "name": "Lai Heng Mushroom Minced Meat Noodles",
+      "address": "01-611 Lor 4 Toa Payoh, Singapore 310073",
+      "source": "eatbook"
+    },
+    "sharedWords": [
+      "mushroom",
+      "minced"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Toa Payoh",
+    "stationId": "toa-payoh",
+    "listing1": {
+      "id": "e84d00cf-c537-4de0-856a-04bbf4b90148",
+      "name": "Da Ji Hainanese Chicken Rice",
+      "address": "75 Lor. 5 Toa Payoh, #01-31, Singapore 310075",
+      "source": "get-fed"
+    },
+    "listing2": {
+      "id": "831b0f1d-36e2-4a83-8956-e8302b5a2043",
+      "name": "Loy Kee Chicken Rice",
+      "address": "342 Balestier Rd, Singapore 329774",
+      "source": "eatbook"
+    },
+    "sharedWords": [
+      "chicken",
+      "rice"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Toa Payoh",
+    "stationId": "toa-payoh",
+    "listing1": {
+      "id": "1c49666e-e6ba-4dd2-b506-a0cf6b18bf7a",
+      "name": "Kim Keat Hokkien Mee",
+      "address": "26 TOA PAYOH EAST, Singapore 310026",
+      "source": null
+    },
+    "listing2": {
+      "id": "0167037d-dbb2-4e87-ade7-0a598886d8b5",
+      "name": "Balestier Road Hokkien Mee",
+      "address": "Balestier Road area",
+      "source": "editors-choice"
+    },
+    "sharedWords": [
+      "hokkien",
+      "mee"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Toa Payoh",
+    "stationId": "toa-payoh",
+    "listing1": {
+      "id": "0177ee8b-9397-4545-a3d3-8d0b038c85e6",
+      "name": "Xiang Ji Chicken Rice",
+      "address": "73 Lor 4 Toa Payoh, Singapore 310073",
+      "source": "get-fed"
+    },
+    "listing2": {
+      "id": "831b0f1d-36e2-4a83-8956-e8302b5a2043",
+      "name": "Loy Kee Chicken Rice",
+      "address": "342 Balestier Rd, Singapore 329774",
+      "source": "eatbook"
+    },
+    "sharedWords": [
+      "chicken",
+      "rice"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Upper Thomson",
+    "stationId": "upper-thomson",
+    "listing1": {
+      "id": "d901fa1d-e725-40b6-b9d4-79b543296483",
+      "name": "Nam Kee Chicken Rice",
+      "address": "Upper Thomson Road, Singapore",
+      "source": "editors-choice"
+    },
+    "listing2": {
+      "id": "d255d14f-03c0-4d65-b5b3-73d42f473724",
+      "name": "Kampung Chicken Rice",
+      "address": "255 Upper Thomson Road, Singapore 574382",
+      "source": null
+    },
+    "sharedWords": [
+      "chicken",
+      "rice"
+    ],
+    "sharedCount": 2
+  },
+  {
+    "station": "Upper Thomson",
+    "stationId": "upper-thomson",
+    "listing1": {
+      "id": "2bf946c4-bfbc-49fd-aa76-625733822d5c",
+      "name": "Sin Ming Roti Prata",
+      "address": "24 Sin Ming Road, #01-51, Gim Huat Coffeeshop, Singapore 570024",
+      "source": null
+    },
+    "listing2": {
+      "id": "dc9e6c04-97c0-497a-8841-d0e6cb07ca58",
+      "name": "The Roti Prata House",
+      "address": "246 Upper Thomson Rd, Singapore 574370",
+      "source": "supper"
+    },
+    "sharedWords": [
+      "roti",
+      "prata"
+    ],
+    "sharedCount": 2
+  }
+]

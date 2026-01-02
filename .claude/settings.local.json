@@ -64,7 +64,8 @@
       "Bash(for i in 700 800 900 1000)",
       "Bash(do echo \"Starting batch offset $i\")",
       "Bash(done)",
-      "Bash(npx depcheck:*)"
+      "Bash(npx depcheck:*)",
+      "Bash(npx vercel:*)"
     ],
     "deny": [],
     "ask": []
