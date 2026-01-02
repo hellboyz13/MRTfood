@@ -75,25 +75,32 @@ async function scrapePhotos(page, listing) {
     }
 
     // Look for photos section - click on main image or photos tab
-    const photosButton = await page.$('button[aria-label*="Photo"]');
-    if (photosButton) {
-      await photosButton.click();
-      await delay(2000);
-    } else {
-      // Try clicking the main image
-      const mainImage = await page.$('button[aria-label*="photos"]');
-      if (mainImage) {
-        await mainImage.click();
-        await delay(2000);
+    try {
+      const photosButton = await page.$('button[aria-label*="Photo"]');
+      if (photosButton) {
+        await photosButton.click({ timeout: 5000 });
+        await delay(1500);
+      } else {
+        const mainImage = await page.$('button[aria-label*="photos"]');
+        if (mainImage) {
+          await mainImage.click({ timeout: 5000 });
+          await delay(1500);
+        }
       }
+    } catch (e) {
+      // Ignore click errors
     }
 
     // Try to find and click "Menu" tab in photos if available
-    const menuTab = await page.$('button[aria-label*="Menu"]');
-    if (menuTab) {
-      console.log('Found Menu tab, clicking...');
-      await menuTab.click();
-      await delay(1500);
+    try {
+      const menuTab = await page.$('button[aria-label*="Menu"]');
+      if (menuTab) {
+        console.log('Found Menu tab');
+        await menuTab.click({ timeout: 3000 });
+        await delay(1000);
+      }
+    } catch (e) {
+      // Menu tab not clickable, continue anyway
     }
 
     // Collect photo URLs from the page
