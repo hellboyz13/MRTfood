@@ -682,18 +682,15 @@ function getDessertPriority(category: string | null): number {
   if (!category) return 0;
   const cat = category.toLowerCase();
 
-  // Priority 1: Actual dessert places (ice cream, desserts, bubble tea)
-  if (cat.includes('dessert') || cat.includes('ice cream')) return 4;
-  if (cat.includes('bubble tea') || cat.includes('bbt')) return 3;
+  // Priority 1: Actual dessert places (ice cream, gelato, desserts, patisserie)
+  if (cat.includes('dessert') || cat.includes('ice cream') || cat.includes('gelato')) return 4;
+  if (cat.includes('patisserie') || cat.includes('pastry')) return 3;
 
-  // Priority 2: Cafes (often serve desserts, waffles, cakes)
-  if (cat.includes('cafe') && !cat.includes('bakery')) return 2;
+  // Priority 2: Bubble tea (sweet drinks)
+  if (cat.includes('bubble tea') || cat.includes('bbt')) return 2;
 
-  // Priority 3: Bakery-cafes (mix of both)
-  if (cat.includes('cafe') && cat.includes('bakery')) return 1;
-
-  // Priority 4: Pure bakeries (mostly bread)
-  if (cat.includes('bakery')) return 0;
+  // Priority 3: Pure bakeries (mostly bread)
+  if (cat.includes('bakery')) return 1;
 
   return 0;
 }
@@ -712,13 +709,14 @@ export async function getDessertSpotsByStation(options?: { limit?: number; offse
     .contains('tags', ['Dessert']);
 
   // Fetch mall outlets with dessert-related categories (case-insensitive search)
+  // Note: Excluding plain "cafe" to avoid coffee shops - only specific dessert/bakery categories
   const { data: mallOutlets, error: mallError } = await supabase
     .from('mall_outlets')
     .select(`
       id, name, mall_id, category,
       malls!inner (id, name, station_id)
     `)
-    .or('category.ilike.%dessert%,category.ilike.%ice cream%,category.ilike.%cafe%,category.ilike.%bakery%,category.ilike.%bubble tea%,category.ilike.%bbt%');
+    .or('category.ilike.%dessert%,category.ilike.%ice cream%,category.ilike.%gelato%,category.ilike.%bakery%,category.ilike.%bubble tea%,category.ilike.%bbt%,category.ilike.%patisserie%,category.ilike.%pastry%');
 
   if (listingsError) console.error('Error fetching dessert listings:', listingsError);
   if (mallError) console.error('Error fetching dessert mall outlets:', mallError);
