@@ -61,13 +61,15 @@ export default function SearchResultsPanel({
   return (
     <>
       {/* Mobile: Slide-able Panel - White background theme */}
-      <div className="md:hidden fixed top-20 left-0 z-40 flex items-start">
+      <div
+        className={`md:hidden fixed top-20 left-0 z-40 flex items-start transition-transform duration-300 ease-out ${
+          isCollapsed ? '-translate-x-[200px]' : 'translate-x-0'
+        }`}
+      >
         {/* Panel content */}
         <div
           ref={mobilePanelRef}
-          className={`w-[200px] max-h-[calc(4*60px+44px)] bg-white/95 backdrop-blur-sm rounded-r-xl shadow-xl border-2 border-[#FF6B4A] border-l-0 overflow-hidden flex flex-col transition-all duration-350 ease-out ${
-            isCollapsed ? 'opacity-0 -translate-x-[200px] pointer-events-none' : 'opacity-100 translate-x-0'
-          }`}
+          className="w-[200px] max-h-[calc(4*60px+44px)] bg-white/95 backdrop-blur-sm rounded-r-xl shadow-xl border-2 border-[#FF6B4A] border-l-0 overflow-hidden flex flex-col"
         >
             {/* Close button */}
             <button
@@ -157,13 +159,15 @@ export default function SearchResultsPanel({
 
 
       {/* Desktop: Slide-able Full Panel - White background theme */}
-      <div className="hidden md:flex fixed top-20 left-4 z-40 items-start">
+      <div
+        className={`hidden md:flex fixed top-20 left-4 z-40 items-start transition-transform duration-300 ease-out ${
+          isCollapsed ? '-translate-x-[calc(24rem+16px)]' : 'translate-x-0'
+        }`}
+      >
         {/* Panel content */}
         <div
           ref={desktopPanelRef}
-          className={`w-96 max-h-[calc(100vh-160px)] bg-white rounded-xl shadow-2xl border-2 border-[#FF6B4A] overflow-hidden flex flex-col transition-all duration-400 ease-out ${
-            isCollapsed ? 'opacity-0 -translate-x-[400px] pointer-events-none' : 'opacity-100 translate-x-0'
-          }`}
+          className="w-96 max-h-[calc(100vh-160px)] bg-white rounded-xl shadow-2xl border-2 border-[#FF6B4A] overflow-hidden flex flex-col"
         >
             {/* Header */}
             <div className="bg-[#FF6B4A] px-4 py-3 flex items-center justify-between flex-shrink-0">
