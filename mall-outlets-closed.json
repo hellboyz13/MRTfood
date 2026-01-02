@@ -97,6 +97,38 @@
         "address": "17 Petir Rd, B2-52A Hillion Mall, Singapore 678278"
       },
       "finalStatus": "CLOSED_PERMANENTLY"
+    },
+    {
+      "id": "four-leaves-heartland-mall-kovan",
+      "name": "Four Leaves",
+      "mall": "Heartland Mall Kovan",
+      "status": "CLOSED_PERMANENTLY",
+      "evidence": "permanently closed",
+      "searchQuery": "Four Leaves Heartland Mall Kovan Singapore"
+    },
+    {
+      "id": "69a55cdb-0da2-43ff-b28a-8cb455b46635",
+      "name": "Tea Dough Pet Café",
+      "mall": "Kap Mall",
+      "status": "CLOSED_PERMANENTLY",
+      "evidence": "permanently closed",
+      "searchQuery": "Tea Dough Pet Café Kap Mall Singapore"
+    },
+    {
+      "id": "old-airport-road-food-centre-bai-nian-niang-dou-fu-mjohd22x",
+      "name": "Bai Nian Niang Dou Fu",
+      "mall": "Old Airport Road Food Centre",
+      "status": "CLOSED_PERMANENTLY",
+      "evidence": "permanently closed",
+      "searchQuery": "Bai Nian Niang Dou Fu Old Airport Road Food Centre Singapore"
+    },
+    {
+      "id": "yuan-ji-seafood-limbang-shopping-centre",
+      "name": "Yuan Ji Seafood",
+      "mall": "Limbang Shopping Centre",
+      "status": "CLOSED_PERMANENTLY",
+      "evidence": "permanently closed",
+      "searchQuery": "Yuan Ji Seafood Limbang Shopping Centre Singapore"
     }
   ],
   "errors": []

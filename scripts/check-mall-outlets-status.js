@@ -3,7 +3,7 @@ const { chromium } = require('playwright');
 const fs = require('fs');
 require('dotenv').config({ path: '.env.local' });
 
-const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.SUPABASE_SERVICE_KEY);
+const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY);
 
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
