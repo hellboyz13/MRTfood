@@ -1,1 +1,3 @@
-Station,Confidence,Guide Name,Mall Outlet,Mall,Outlet ID
+Station,Match Type,Guide Name,Mall Outlet,Mall,Outlet ID
+"City Hall","CONTAINS","Thai Express","TALAD THAI BANANA","Raffles City","talad-thai-banana-raffles-city"
+"City Hall","CONTAINS","Thai Express","Bold Thai","Capitol Singapore","bold-thai-capitol"
