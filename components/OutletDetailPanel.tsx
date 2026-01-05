@@ -1,6 +1,5 @@
 'use client';
 
-import { useState } from 'react';
 import { MallOutlet } from '@/types/database';
 
 interface OutletDetailPanelProps {
@@ -19,51 +18,6 @@ interface OpeningHours {
   formatted?: string[];
 }
 
-// Helper to get today's hours (just the time range, no open/closed status)
-function getTodayHours(openingHours: OpeningHours | string | null): string | null {
-  if (!openingHours) {
-    return null;
-  }
-
-  // Handle plain text string (e.g., "Daily 10am to 8pm")
-  if (typeof openingHours === 'string') {
-    return formatHoursDisplay(openingHours);
-  }
-
-  // If we have formatted hours, use the first line as compact display
-  if (openingHours.formatted && openingHours.formatted.length > 0) {
-    return openingHours.formatted[0];
-  }
-
-  // Handle structured object with weekday_text
-  if (!openingHours.weekday_text || openingHours.weekday_text.length === 0) {
-    return null;
-  }
-
-  // If weekday_text has only 1 item, it's a generic "Daily" format
-  if (openingHours.weekday_text.length === 1) {
-    return formatHoursDisplay(openingHours.weekday_text[0]);
-  }
-
-  const now = new Date();
-  const currentDay = now.getDay(); // 0 = Sunday
-
-  // Map Sunday=0 to index 6, Mon=1 to index 0, etc.
-  const todayIndex = currentDay === 0 ? 6 : currentDay - 1;
-  const todayText = openingHours.weekday_text[todayIndex];
-
-  if (!todayText) {
-    // Fallback to first item if index out of bounds
-    return formatHoursDisplay(openingHours.weekday_text[0]);
-  }
-
-  // Extract hours part (after "Day: ")
-  const match = todayText.match(/:\s*(.+)$/);
-  const hours = match ? match[1].trim() : todayText;
-
-  return formatHoursDisplay(hours);
-}
-
 // Format hours for display
 function formatHoursDisplay(hours: string): string {
   return hours
@@ -75,19 +29,45 @@ function formatHoursDisplay(hours: string): string {
     .trim();
 }
 
-export default function OutletDetailPanel({ outlet, mallName, onBack }: OutletDetailPanelProps) {
-  const [showFullHours, setShowFullHours] = useState(false);
+// Split hours string into multiple lines for better readability
+function splitHoursIntoLines(hours: string): string[] {
+  // Split on comma followed by day name, using non-capturing group
+  const parts = hours.split(/,\s*(?=(?:Mon|Tue|Wed|Thu|Fri|Sat|Sun))/i);
+  return parts.map(p => formatHoursDisplay(p.trim())).filter(Boolean);
+}
 
+// Get all hours as array of lines for display
+function getHoursLines(openingHours: OpeningHours | string | null): string[] | null {
+  if (!openingHours) return null;
+
+  // Handle plain text string
+  if (typeof openingHours === 'string') {
+    const lines = splitHoursIntoLines(openingHours);
+    return lines.length > 0 ? lines : null;
+  }
+
+  // If we have formatted hours, use them
+  if (openingHours.formatted && openingHours.formatted.length > 0) {
+    return openingHours.formatted;
+  }
+
+  // Handle structured object with weekday_text
+  if (openingHours.weekday_text && openingHours.weekday_text.length > 0) {
+    if (openingHours.weekday_text.length === 1) {
+      const lines = splitHoursIntoLines(openingHours.weekday_text[0]);
+      return lines.length > 0 ? lines : null;
+    }
+    // For full 7-day weekday_text, just return formatted version of each
+    return openingHours.weekday_text.map(formatHoursDisplay);
+  }
+
+  return null;
+}
+
+export default function OutletDetailPanel({ outlet, mallName, onBack }: OutletDetailPanelProps) {
   // Get opening hours directly from outlet (can be JSON object or plain string)
   const openingHours = outlet.opening_hours as OpeningHours | string | null;
-
-  // Get formatted hours array if available
-  const formattedHours = typeof openingHours === 'object' && openingHours?.formatted
-    ? openingHours.formatted
-    : null;
-
-  // Get today's hours (just time range)
-  const todayHours = getTodayHours(openingHours);
+  const hoursLines = getHoursLines(openingHours);
 
   // Generate Google Maps search URL for mall + outlet name
   const mapsSearchUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${outlet.name} ${mallName} Singapore`)}`;
@@ -122,39 +102,17 @@ export default function OutletDetailPanel({ outlet, mallName, onBack }: OutletDe
         </div>
       )}
 
-      {/* Opening hours - tappable to show full schedule */}
-      {todayHours && (
-        <div
-          className="detail-info-row detail-hours-compact"
-          onClick={() => formattedHours && setShowFullHours(!showFullHours)}
-          style={{ cursor: formattedHours ? 'pointer' : 'default' }}
-        >
+      {/* Opening hours - show all hours directly */}
+      {hoursLines && hoursLines.length > 0 && (
+        <div className="detail-info-row detail-info-static">
           <div className="detail-info-icon">
             <span>🕐</span>
           </div>
           <div className="detail-info-content">
-            {showFullHours && formattedHours ? (
-              <div className="detail-hours-full">
-                {formattedHours.map((line, idx) => (
-                  <p key={idx} className="detail-info-text" style={{ whiteSpace: 'pre' }}>{line}</p>
-                ))}
-              </div>
-            ) : (
-              <>
-                <p className="detail-info-text">{todayHours}</p>
-                {formattedHours && (
-                  <p className="detail-info-hint">Tap to see full hours</p>
-                )}
-              </>
-            )}
+            {hoursLines.map((line, idx) => (
+              <p key={idx} className="detail-info-text">{line}</p>
+            ))}
           </div>
-          {formattedHours && (
-            <div className="detail-info-arrow" style={{ transform: showFullHours ? 'rotate(90deg)' : 'none', transition: 'transform 0.2s' }}>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M9 18l6-6-6-6" />
-              </svg>
-            </div>
-          )}
         </div>
       )}
     </div>
