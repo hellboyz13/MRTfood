@@ -85,12 +85,22 @@ function getTodayHours(openingHours: OpeningHours | string | null): string | nul
 
   // Handle plain text string (e.g., "Daily 10am to 8pm")
   if (typeof openingHours === 'string') {
-    return openingHours;
+    return formatHoursDisplay(openingHours);
+  }
+
+  // If we have formatted hours, use the first line as compact display
+  if (openingHours.formatted && openingHours.formatted.length > 0) {
+    return openingHours.formatted[0];
   }
 
   // Handle structured object with weekday_text
   if (!openingHours.weekday_text || openingHours.weekday_text.length === 0) {
     return null;
+  }
+
+  // If weekday_text has only 1 item, it's a generic "Daily" format
+  if (openingHours.weekday_text.length === 1) {
+    return formatHoursDisplay(openingHours.weekday_text[0]);
   }
 
   const now = new Date();
@@ -100,18 +110,27 @@ function getTodayHours(openingHours: OpeningHours | string | null): string | nul
   const todayIndex = currentDay === 0 ? 6 : currentDay - 1;
   const todayText = openingHours.weekday_text[todayIndex];
 
+  if (!todayText) {
+    // Fallback to first item if index out of bounds
+    return formatHoursDisplay(openingHours.weekday_text[0]);
+  }
+
   // Extract hours part (after "Day: ")
   const match = todayText.match(/:\s*(.+)$/);
-  let hours = match ? match[1].trim() : todayText;
+  const hours = match ? match[1].trim() : todayText;
 
-  // Shorten common phrases
-  hours = hours
+  return formatHoursDisplay(hours);
+}
+
+// Format hours for display
+function formatHoursDisplay(hours: string): string {
+  return hours
     .replace('Open 24 hours', '24h')
-    .replace(/\s*[–-]\s*/g, ' - ')
-    .replace(/(\d{1,2}):00/g, '$1')
-    .replace(/\s*(AM|PM)/gi, (_, p) => p.toLowerCase());
-
-  return hours;
+    .replace(/\s*[–-]\s*/g, ' – ')
+    .replace(/(\d{1,2}):00\s*/g, '$1')
+    .replace(/\s*(AM|PM)/gi, (_, p) => ' ' + p.toUpperCase())
+    .replace(/\s*(am|pm)/gi, (_, p) => ' ' + p.toUpperCase())
+    .trim();
 }
 
 export default function MenuPreview({ listing, onBack }: MenuPreviewProps) {
