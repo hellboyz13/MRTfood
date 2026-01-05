@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import { MallOutlet } from '@/types/database';
 
 interface OutletDetailPanelProps {
@@ -15,6 +16,7 @@ interface OpeningHours {
     close?: { day: number; time: string };
   }>;
   weekday_text?: string[];
+  formatted?: string[];
 }
 
 // Helper to get today's hours (just the time range, no open/closed status)
@@ -55,8 +57,15 @@ function getTodayHours(openingHours: OpeningHours | string | null): string | nul
 }
 
 export default function OutletDetailPanel({ outlet, mallName, onBack }: OutletDetailPanelProps) {
+  const [showFullHours, setShowFullHours] = useState(false);
+
   // Get opening hours directly from outlet (can be JSON object or plain string)
   const openingHours = outlet.opening_hours as OpeningHours | string | null;
+
+  // Get formatted hours array if available
+  const formattedHours = typeof openingHours === 'object' && openingHours?.formatted
+    ? openingHours.formatted
+    : null;
 
   // Get today's hours (just time range)
   const todayHours = getTodayHours(openingHours);
@@ -94,15 +103,39 @@ export default function OutletDetailPanel({ outlet, mallName, onBack }: OutletDe
         </div>
       )}
 
-      {/* Opening hours - just today's time range */}
+      {/* Opening hours - tappable to show full schedule */}
       {todayHours && (
-        <div className="detail-info-row detail-hours-compact">
+        <div
+          className="detail-info-row detail-hours-compact"
+          onClick={() => formattedHours && setShowFullHours(!showFullHours)}
+          style={{ cursor: formattedHours ? 'pointer' : 'default' }}
+        >
           <div className="detail-info-icon">
             <span>🕐</span>
           </div>
           <div className="detail-info-content">
-            <p className="detail-info-text">{todayHours}</p>
+            {showFullHours && formattedHours ? (
+              <div className="detail-hours-full">
+                {formattedHours.map((line, idx) => (
+                  <p key={idx} className="detail-info-text" style={{ whiteSpace: 'pre' }}>{line}</p>
+                ))}
+              </div>
+            ) : (
+              <>
+                <p className="detail-info-text">{todayHours}</p>
+                {formattedHours && (
+                  <p className="detail-info-hint">Tap to see full hours</p>
+                )}
+              </>
+            )}
           </div>
+          {formattedHours && (
+            <div className="detail-info-arrow" style={{ transform: showFullHours ? 'rotate(90deg)' : 'none', transition: 'transform 0.2s' }}>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M9 18l6-6-6-6" />
+              </svg>
+            </div>
+          )}
         </div>
       )}
     </div>
