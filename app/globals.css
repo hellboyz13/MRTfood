@@ -725,13 +725,41 @@ svg circle.station-highlighted {
   font-weight: 500;
 }
 
-/* Compact opening hours - single row */
+/* Compact opening hours - collapsible */
 .detail-hours-compact {
-  cursor: default;
+  cursor: pointer;
 }
 
+.detail-hours-compact.expanded {
+  align-items: flex-start;
+}
+
+.detail-hours-compact.expanded .detail-info-icon {
+  margin-top: 2px;
+}
+
+/* Hours status badge */
 .detail-hours-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
   font-weight: 600;
+}
+
+.detail-hours-status .status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.detail-hours-status.open .status-dot {
+  background: #16a34a;
+}
+
+.detail-hours-status.closed .status-dot {
+  background: #dc2626;
 }
 
 .detail-hours-status.open {
@@ -742,9 +770,67 @@ svg circle.station-highlighted {
   color: #dc2626;
 }
 
-.detail-hours-compact .detail-hours-time {
+.detail-hours-closes {
   color: var(--text-muted);
   font-weight: 400;
+  font-size: 14px;
+}
+
+/* Expanded hours table */
+.detail-hours-table {
+  width: 100%;
+  margin-top: 10px;
+  border-top: 1px solid var(--border);
+  padding-top: 10px;
+}
+
+.detail-hours-table-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 4px 0;
+  font-size: 13px;
+}
+
+.detail-hours-table-row.today {
+  background: #FFF0ED;
+  margin: 0 -8px;
+  padding: 6px 8px;
+  border-radius: 6px;
+}
+
+.detail-hours-table-day {
+  color: var(--text-dark);
+  font-weight: 500;
+  min-width: 70px;
+  flex-shrink: 0;
+}
+
+.detail-hours-table-row.today .detail-hours-table-day {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.detail-hours-table-time {
+  color: var(--text-muted);
+  text-align: right;
+  line-height: 1.5;
+}
+
+.detail-hours-table-row.today .detail-hours-table-time {
+  color: var(--primary);
+}
+
+/* Chevron rotation */
+.detail-hours-chevron {
+  transition: transform 0.2s ease;
+  color: var(--text-muted);
+  flex-shrink: 0;
+  margin-left: 8px;
+}
+
+.detail-hours-chevron.expanded {
+  transform: rotate(180deg);
 }
 
 /* View more on Google Maps link */
