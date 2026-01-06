@@ -1,0 +1,6220 @@
+{
+  "mall": "Paragon",
+  "address": "290 Orchard Road, Singapore 238859",
+  "nearestMRT": "Orchard",
+  "category": "Food & Beverage",
+  "scrapedAt": "2026-01-06T04:46:10.072Z",
+  "totalStores": 59,
+  "stores": [
+    {
+      "name": "1855 The Bottle Shop",
+      "unit": "#B1-13",
+      "category": "Food & Beverage",
+      "link": "https://paragon.com.sg/store-detail/1855-the-bottle-shop",
+      "logo": "https://paragon.com.sg/wp-content/uploads/2024/10/1855-The-Bottle-Shop.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 10:00 AM – 9:30 PM",
+          "Tuesday: 10:00 AM – 9:30 PM",
+          "Wednesday: 10:00 AM – 9:30 PM",
+          "Thursday: 10:00 AM – 9:30 PM",
+          "Friday: 10:00 AM – 9:30 PM",
+          "Saturday: 10:00 AM – 9:30 PM",
+          "Sunday: 10:00 AM – 9:30 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 30
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJ8RKIfioZ2jERONORSG2cwcg"
+    },
+    {
+      "name": "Aburi-EN Grand",
+      "unit": "#B1-45/46",
+      "category": "Food & Beverage",
+      "link": "https://paragon.com.sg/store-detail/aburi-en-grand",
+      "logo": "https://paragon.com.sg/wp-content/uploads/2024/10/Aburi-EN-Grand.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 11:00 AM – 10:00 PM",
+          "Tuesday: 11:00 AM – 10:00 PM",
+          "Wednesday: 11:00 AM – 10:00 PM",
+          "Thursday: 11:00 AM – 10:00 PM",
+          "Friday: 11:00 AM – 10:00 PM",
+          "Saturday: 11:00 AM – 10:00 PM",
+          "Sunday: 11:00 AM – 10:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJhTJ-_OwZ2jERHbFVHY1dd9I"
+    },
+    {
+      "name": "Akashi Japanese Restaurant",
+      "unit": "#B1-01/02",
+      "category": "Food & Beverage",
+      "link": "https://paragon.com.sg/store-detail/akashi-japanese-restaurant",
+      "logo": "https://paragon.com.sg/wp-content/uploads/2024/10/Akashi.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 11:30 AM – 10:00 PM",
+          "Tuesday: 11:30 AM – 10:00 PM",
+          "Wednesday: 11:30 AM – 10:00 PM",
+          "Thursday: 11:30 AM – 10:00 PM",
+          "Friday: 11:30 AM – 10:00 PM",
+          "Saturday: 11:30 AM – 10:00 PM",
+          "Sunday: 11:30 AM – 10:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 0,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 1,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 2,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 3,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 4,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJl_sOMpIZ2jERS1oVkXQTBS8"
+    },
+    {
+      "name": "Auntie Anne's",
+      "unit": "#B1-K34",
+      "category": "Food & Beverage",
+      "link": "https://paragon.com.sg/store-detail/auntie-annes",
+      "logo": "https://paragon.com.sg/wp-content/uploads/2024/10/Auntie-Annes.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 11:00 AM – 9:00 PM",
+          "Tuesday: 11:00 AM – 9:00 PM",
+          "Wednesday: 11:00 AM – 9:00 PM",
+          "Thursday: 11:00 AM – 9:00 PM",
+          "Friday: 11:00 AM – 9:00 PM",
+          "Saturday: 11:00 AM – 9:00 PM",
+          "Sunday: 11:00 AM – 9:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJNed1H04Z2jERmWbcxQ3DYhs"
+    },
+    {
+      "name": "Avenue on 3 Café",
+      "unit": "#03-48/56",
+      "category": "Food & Beverage",
+      "link": "https://paragon.com.sg/store-detail/avenue-on-3-cafe",
+      "logo": "https://paragon.com.sg/wp-content/uploads/2025/02/AO3-AO3-Cafe-Logo-900-X-900_AO3-Cafe-Logo-900-X-900.jpg",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 10:00 AM – 9:00 PM",
+          "Tuesday: 10:00 AM – 9:00 PM",
+          "Wednesday: 10:00 AM – 9:00 PM",
+          "Thursday: 10:00 AM – 9:00 PM",
+          "Friday: 10:00 AM – 9:00 PM",
+          "Saturday: 10:00 AM – 9:00 PM",
+          "Sunday: 10:00 AM – 9:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJd1m7Ao8Z2jERpeK9iJ9pXWg"
+    },
+    {
+      "name": "Bee Cheng Hiang",
+      "unit": "#B1-10A",
+      "category": "Food & Beverage",
+      "link": "https://paragon.com.sg/store-detail/bee-cheng-hiang",
+      "logo": "https://paragon.com.sg/wp-content/uploads/2024/10/Bee-Cheng-Hiang.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 10:00 AM – 10:00 PM",
+          "Tuesday: 10:00 AM – 10:00 PM",
+          "Wednesday: 10:00 AM – 10:00 PM",
+          "Thursday: 10:00 AM – 10:00 PM",
+          "Friday: 10:00 AM – 10:00 PM",
+          "Saturday: 10:00 AM – 10:00 PM",
+          "Sunday: 10:00 AM – 10:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJS5LBL5IZ2jERg4DMVnT8m8M"
+    },
+    {
+      "name": "Blue Bottle Coffee",
+      "unit": "#01-37",
+      "category": "Food & Beverage",
+      "link": "https://paragon.com.sg/store-detail/blue-bottle-coffee",
+      "logo": "https://paragon.com.sg/wp-content/uploads/2025/06/BBC_Logo_Digital_2025_Stacked_Primary_Blue.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 8:00 AM – 9:00 PM",
+          "Tuesday: 8:00 AM – 9:00 PM",
+          "Wednesday: 8:00 AM – 9:00 PM",
+          "Thursday: 8:00 AM – 9:00 PM",
+          "Friday: 8:00 AM – 9:00 PM",
+          "Saturday: 8:00 AM – 9:00 PM",
+          "Sunday: 8:00 AM – 9:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJkxPiaQAZ2jERNxNhzwxXlI4"
+    },
+    {
+      "name": "Boost Juice",
+      "unit": "#B1-K31",
+      "category": "Food & Beverage",
+      "link": "https://paragon.com.sg/store-detail/boost-juice",
+      "logo": "https://paragon.com.sg/wp-content/uploads/2024/10/Boost.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 10:00 AM – 9:30 PM",
+          "Tuesday: 10:00 AM – 9:30 PM",
+          "Wednesday: 10:00 AM – 9:30 PM",
+          "Thursday: 10:00 AM – 9:30 PM",
+          "Friday: 10:00 AM – 9:30 PM",
+          "Saturday: 10:00 AM – 9:30 PM",
+          "Sunday: 10:00 AM – 9:30 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 30
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJg---DW4Z2jERIZ1fgz0n6xc"
+    },
+    {
+      "name": "Cedele",
+      "unit": "#B1-09",
+      "category": "Food & Beverage",
+      "link": "https://paragon.com.sg/store-detail/cedele",
+      "logo": "https://paragon.com.sg/wp-content/uploads/2024/10/Cedele.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 9:00 AM – 9:00 PM",
+          "Tuesday: 9:00 AM – 9:00 PM",
+          "Wednesday: 9:00 AM – 9:00 PM",
+          "Thursday: 9:00 AM – 9:00 PM",
+          "Friday: 9:00 AM – 9:00 PM",
+          "Saturday: 9:00 AM – 9:00 PM",
+          "Sunday: 9:30 AM – 9:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 9,
+              "minute": 30
+            },
+            "close": {
+              "day": 0,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJf0KqypMZ2jERoclPRRXSFnA"
+    },
+    {
+      "name": "Chalk Farm",
+      "unit": "#B1-K5/K6",
+      "category": "Food & Beverage",
+      "link": "https://paragon.com.sg/store-detail/chalk-farm",
+      "logo": "https://paragon.com.sg/wp-content/uploads/2024/10/Chalk-Farm.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 11:00 AM – 9:00 PM",
+          "Tuesday: 11:00 AM – 9:00 PM",
+          "Wednesday: 11:00 AM – 9:00 PM",
+          "Thursday: 11:00 AM – 9:00 PM",
+          "Friday: 11:00 AM – 9:00 PM",
+          "Saturday: 11:00 AM – 9:00 PM",
+          "Sunday: 11:00 AM – 9:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJmQOmJZoZ2jERJfKu56PJsQU"
+    },
+    {
+      "name": "Chen's Kitchen",
+      "unit": "#B1-43",
+      "category": "Food & Beverage",
+      "link": "https://paragon.com.sg/store-detail/chens-kitchen",
+      "logo": "https://paragon.com.sg/wp-content/uploads/2025/01/Chens.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 11:00 AM – 9:30 PM",
+          "Tuesday: 11:00 AM – 9:30 PM",
+          "Wednesday: 11:00 AM – 9:30 PM",
+          "Thursday: 11:00 AM – 9:30 PM",
+          "Friday: 11:00 AM – 9:30 PM",
+          "Saturday: 11:00 AM – 9:30 PM",
+          "Sunday: 11:00 AM – 9:30 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 30
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJUcuK6M4Z2jERpTElHo7Fk8Q"
+    },
+    {
+      "name": "coast & roast (Halal-Certified)",
+      "unit": "#B1-35/36",
+      "category": "Food & Beverage",
+      "link": "https://paragon.com.sg/store-detail/coast-roast-halal-certified",
+      "logo": "https://paragon.com.sg/wp-content/uploads/2024/10/coast-roast.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 11:00 AM – 9:30 PM",
+          "Tuesday: 11:00 AM – 9:30 PM",
+          "Wednesday: 11:00 AM – 9:30 PM",
+          "Thursday: 11:00 AM – 9:30 PM",
+          "Friday: 11:00 AM – 9:30 PM",
+          "Saturday: 11:00 AM – 9:30 PM",
+          "Sunday: 11:00 AM – 9:30 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 30
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJXV8kL5IZ2jERJMAlfF9Mfow"
+    },
+    {
+      "name": "Coffee Bee by the coffee lab #5",
+      "unit": "#B1-K33",
+      "category": "Food & Beverage",
+      "link": "https://paragon.com.sg/store-detail/coffee-bee-by-the-coffee-lab-5",
+      "logo": "https://paragon.com.sg/wp-content/uploads/2025/06/Coffeebee-Store-Logo-900-x-900px-900-x-900-px.png"
+    },
+    {
+      "name": "Crystal Jade Golden Palace",
+      "unit": "#05-21/22/23",
+      "category": "Food & Beverage",
+      "link": "https://paragon.com.sg/store-detail/crystal-jade-golden-palace",
+      "logo": "https://paragon.com.sg/wp-content/uploads/2024/10/Crystal-Jade.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 11:00 AM – 3:00 PM, 6:00 – 10:00 PM",
+          "Tuesday: 11:00 AM – 3:00 PM, 6:00 – 10:00 PM",
+          "Wednesday: 11:00 AM – 3:00 PM, 6:00 – 10:00 PM",
+          "Thursday: 11:00 AM – 3:00 PM, 6:00 – 10:00 PM",
+          "Friday: 11:00 AM – 3:00 PM, 6:00 – 10:00 PM",
+          "Saturday: 10:30 AM – 3:30 PM, 6:00 – 10:00 PM",
+          "Sunday: 10:30 AM – 3:30 PM, 6:00 – 10:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 0,
+              "hour": 15,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 0,
+              "hour": 18,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 15,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 18,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 15,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 18,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 15,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 18,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 15,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 18,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 15,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 18,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 6,
+              "hour": 15,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 18,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJl_sOMpIZ2jERFHUflP3pEWs"
+    },
+    {
+      "name": "Da Paolo Gastronomia",
+      "unit": "#B1-K8",
+      "category": "Food & Beverage",
+      "link": "https://paragon.com.sg/store-detail/da-paolo-gastronomia",
+      "logo": "https://paragon.com.sg/wp-content/uploads/2024/10/Da-Paolo.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 8:00 AM – 10:00 PM",
+          "Tuesday: 8:00 AM – 10:00 PM",
+          "Wednesday: 8:00 AM – 10:00 PM",
+          "Thursday: 8:00 AM – 10:00 PM",
+          "Friday: 8:00 AM – 10:00 PM",
+          "Saturday: 8:00 AM – 10:00 PM",
+          "Sunday: 8:00 AM – 10:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJl_sOMpIZ2jERt8xvlw_Gh0M"
+    },
+    {
+      "name": "Din Tai Fung",
+      "unit": "#B1-03/05",
+      "category": "Food & Beverage",
+      "link": "https://paragon.com.sg/store-detail/din-tai-fung",
+      "logo": "https://paragon.com.sg/wp-content/uploads/2024/10/Din-Tai-Fung.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 11:00 AM – 9:00 PM",
+          "Tuesday: 11:00 AM – 9:00 PM",
+          "Wednesday: 11:00 AM – 9:00 PM",
+          "Thursday: 11:00 AM – 9:00 PM",
+          "Friday: 11:00 AM – 9:15 PM",
+          "Saturday: 11:00 AM – 9:15 PM",
+          "Sunday: 11:00 AM – 9:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 15
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 15
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJl_sOMpIZ2jEROuDbvYr9GLo"
+    },
+    {
+      "name": "H&C Cafe",
+      "unit": "#03-09/09A",
+      "category": "Food & Beverage",
+      "link": "https://paragon.com.sg/store-detail/hc-cafe",
+      "logo": "https://paragon.com.sg/wp-content/uploads/2024/10/HC.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 8:30 AM – 8:30 PM",
+          "Tuesday: 8:30 AM – 8:30 PM",
+          "Wednesday: 8:30 AM – 8:30 PM",
+          "Thursday: 8:30 AM – 8:30 PM",
+          "Friday: 8:30 AM – 10:00 PM",
+          "Saturday: 8:30 AM – 10:00 PM",
+          "Sunday: 8:30 AM – 8:30 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 8,
+              "minute": 30
+            },
+            "close": {
+              "day": 0,
+              "hour": 20,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 8,
+              "minute": 30
+            },
+            "close": {
+              "day": 1,
+              "hour": 20,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 8,
+              "minute": 30
+            },
+            "close": {
+              "day": 2,
+              "hour": 20,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 8,
+              "minute": 30
+            },
+            "close": {
+              "day": 3,
+              "hour": 20,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 8,
+              "minute": 30
+            },
+            "close": {
+              "day": 4,
+              "hour": 20,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 8,
+              "minute": 30
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 8,
+              "minute": 30
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJK9AGIaAZ2jERIN6y_TJYR4o"
+    },
+    {
+      "name": "Imperial Treasure Super Peking Duck",
+      "unit": "#05-42/45",
+      "category": "Food & Beverage",
+      "link": "https://paragon.com.sg/store-detail/imperial-treasure-super-peking-duck",
+      "logo": "https://paragon.com.sg/wp-content/uploads/2024/10/Imperial-Treasure-Super-Peking-Duck.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 11:30 AM – 2:45 PM, 6:00 – 10:00 PM",
+          "Tuesday: 11:30 AM – 2:45 PM, 6:00 – 10:00 PM",
+          "Wednesday: 11:30 AM – 2:45 PM, 6:00 – 10:00 PM",
+          "Thursday: 11:30 AM – 2:45 PM, 6:00 – 10:00 PM",
+          "Friday: 11:30 AM – 2:45 PM, 6:00 – 10:00 PM",
+          "Saturday: 11:00 AM – 2:45 PM, 6:00 – 10:00 PM",
+          "Sunday: 10:30 AM – 2:45 PM, 6:00 – 10:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 0,
+              "hour": 14,
+              "minute": 45
+            }
+          },
+          {
+            "open": {
+              "day": 0,
+              "hour": 18,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 1,
+              "hour": 14,
+              "minute": 45
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 18,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 2,
+              "hour": 14,
+              "minute": 45
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 18,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 3,
+              "hour": 14,
+              "minute": 45
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 18,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 4,
+              "hour": 14,
+              "minute": 45
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 18,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 5,
+              "hour": 14,
+              "minute": 45
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 18,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 14,
+              "minute": 45
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 18,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": false
+      },
+      "googlePlaceId": "ChIJye26KJIZ2jERQ-cRCW2All0"
+    },
+    {
+      "name": "Janice Wong Singapore",
+      "unit": "#B1-K28",
+      "category": "Food & Beverage",
+      "link": "https://paragon.com.sg/store-detail/janice-wong-singapore",
+      "logo": "https://paragon.com.sg/wp-content/uploads/2024/10/Janice-Wong-1.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 10:00 AM – 9:30 PM",
+          "Tuesday: 10:00 AM – 9:30 PM",
+          "Wednesday: 10:00 AM – 9:30 PM",
+          "Thursday: 10:00 AM – 9:30 PM",
+          "Friday: 10:00 AM – 9:30 PM",
+          "Saturday: 10:00 AM – 9:30 PM",
+          "Sunday: 10:00 AM – 9:30 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 30
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJ64cCMpIZ2jER8NA0txT9uVg"
+    },
+    {
+      "name": "Kin No Mame",
+      "unit": "#B1-K2",
+      "category": "Food & Beverage",
+      "link": "https://paragon.com.sg/store-detail/kin-no-mame",
+      "logo": "https://paragon.com.sg/wp-content/uploads/2024/10/Kin-No-Mame.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 11:00 AM – 9:00 PM",
+          "Tuesday: 11:00 AM – 9:00 PM",
+          "Wednesday: 11:00 AM – 9:00 PM",
+          "Thursday: 11:00 AM – 9:00 PM",
+          "Friday: 11:00 AM – 9:00 PM",
+          "Saturday: 11:00 AM – 9:00 PM",
+          "Sunday: 11:00 AM – 9:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJNXRwIT4Z2jERwH8_hQscyZs"
+    },
+    {
+      "name": "Kind Kones",
+      "unit": "#B1-15",
+      "category": "Food & Beverage",
+      "link": "https://paragon.com.sg/store-detail/kind-kones",
+      "logo": "https://paragon.com.sg/wp-content/uploads/2024/10/Kind-Kones.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 10:00 AM – 10:00 PM",
+          "Tuesday: 10:00 AM – 10:00 PM",
+          "Wednesday: 10:00 AM – 10:00 PM",
+          "Thursday: 10:00 AM – 10:00 PM",
+          "Friday: 10:00 AM – 10:00 PM",
+          "Saturday: 10:00 AM – 10:00 PM",
+          "Sunday: 10:00 AM – 10:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJ8RvrAcsZ2jERX7CELo7-zgo"
+    },
+    {
+      "name": "KOI Thé",
+      "unit": "#B1-33",
+      "category": "Food & Beverage",
+      "link": "https://paragon.com.sg/store-detail/koi-the",
+      "logo": "https://paragon.com.sg/wp-content/uploads/2024/10/KOI.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 10:00 AM – 9:30 PM",
+          "Tuesday: 10:00 AM – 9:30 PM",
+          "Wednesday: 10:00 AM – 9:30 PM",
+          "Thursday: 10:00 AM – 9:30 PM",
+          "Friday: 10:00 AM – 9:30 PM",
+          "Saturday: 10:00 AM – 9:30 PM",
+          "Sunday: 10:00 AM – 9:30 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 30
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJT7SeImIZ2jER6ItiaxSlizE"
+    },
+    {
+      "name": "Krispy Kreme (Halal-Certified)",
+      "unit": "#B1-K7",
+      "category": "Food & Beverage",
+      "link": "https://paragon.com.sg/store-detail/krispy-kreme-halal-certified",
+      "logo": "https://paragon.com.sg/wp-content/uploads/2024/10/Krispy-Kreme.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 10:00 AM – 9:30 PM",
+          "Tuesday: 10:00 AM – 9:30 PM",
+          "Wednesday: 10:00 AM – 9:30 PM",
+          "Thursday: 10:00 AM – 9:30 PM",
+          "Friday: 10:00 AM – 9:30 PM",
+          "Saturday: 10:00 AM – 9:30 PM",
+          "Sunday: 10:00 AM – 9:30 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 30
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJV8rHMZIZ2jERydpOj6hE9ho"
+    },
+    {
+      "name": "Kuriya Japanese Market",
+      "unit": "#B1-K26",
+      "category": "Food & Beverage",
+      "link": "https://paragon.com.sg/store-detail/kuriya-japanese-market",
+      "logo": "https://paragon.com.sg/wp-content/uploads/2024/10/Kuriya.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 10:00 AM – 9:30 PM",
+          "Tuesday: 10:00 AM – 9:30 PM",
+          "Wednesday: 10:00 AM – 9:30 PM",
+          "Thursday: 10:00 AM – 9:30 PM",
+          "Friday: 10:00 AM – 9:30 PM",
+          "Saturday: 10:00 AM – 9:30 PM",
+          "Sunday: 10:00 AM – 9:30 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 30
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJD2TvEzgZ2jERvKAAxPDbXRA"
+    },
+    {
+      "name": "Kuroki",
+      "unit": "#05-03",
+      "category": "Food & Beverage",
+      "link": "https://paragon.com.sg/store-detail/kuroki",
+      "logo": "https://paragon.com.sg/wp-content/uploads/2024/10/Kuroki-1.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 11:30 AM – 10:00 PM",
+          "Tuesday: 11:30 AM – 10:00 PM",
+          "Wednesday: 11:30 AM – 10:00 PM",
+          "Thursday: 11:30 AM – 10:00 PM",
+          "Friday: 11:30 AM – 10:00 PM",
+          "Saturday: 11:30 AM – 10:00 PM",
+          "Sunday: 11:30 AM – 10:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 0,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 1,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 2,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 3,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 4,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJNbUSjJgZ2jERKFBij1Jy8qQ"
+    },
+    {
+      "name": "Le Shrimp Ramen",
+      "unit": "#B1-42",
+      "category": "Food & Beverage",
+      "link": "https://paragon.com.sg/store-detail/le-shrimp-ramen",
+      "logo": "https://paragon.com.sg/wp-content/uploads/2024/10/Le-Shrimp-Ramen.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 11:00 AM – 10:00 PM",
+          "Tuesday: 11:00 AM – 10:00 PM",
+          "Wednesday: 11:00 AM – 10:00 PM",
+          "Thursday: 11:00 AM – 10:00 PM",
+          "Friday: 11:00 AM – 10:00 PM",
+          "Saturday: 10:30 AM – 10:00 PM",
+          "Sunday: 10:30 AM – 10:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 0,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJtdW6lJoZ2jER8P9R072Yzig"
+    },
+    {
+      "name": "Madam Ang KK",
+      "unit": "#B1-K12",
+      "category": "Food & Beverage",
+      "link": "https://paragon.com.sg/store-detail/madam-ang-kk",
+      "logo": "https://paragon.com.sg/wp-content/uploads/2024/10/Madam-Ang-KK.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 9:00 AM – 7:30 PM",
+          "Tuesday: 9:00 AM – 7:30 PM",
+          "Wednesday: 9:00 AM – 7:30 PM",
+          "Thursday: 9:00 AM – 7:30 PM",
+          "Friday: 9:00 AM – 7:30 PM",
+          "Saturday: 9:00 AM – 7:30 PM",
+          "Sunday: 9:00 AM – 7:30 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 19,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 19,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 19,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 19,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 19,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 19,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 19,
+              "minute": 30
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJ9Y-1KZIZ2jER_PlpsgZBlDM"
+    },
+    {
+      "name": "Patisserie Woo",
+      "unit": "#B1-20A",
+      "category": "Food & Beverage",
+      "link": "https://paragon.com.sg/store-detail/patisserie-woo",
+      "logo": "https://paragon.com.sg/wp-content/uploads/2025/05/PW-Logo-website-900x900-1.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 9:00 AM – 9:00 PM",
+          "Tuesday: 9:00 AM – 9:00 PM",
+          "Wednesday: 9:00 AM – 9:00 PM",
+          "Thursday: 9:00 AM – 9:00 PM",
+          "Friday: 9:00 AM – 9:00 PM",
+          "Saturday: 9:00 AM – 9:00 PM",
+          "Sunday: 9:00 AM – 9:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJn8Q6PycZ2jERUSfU_mRhuCM"
+    },
+    {
+      "name": "Matsukiya",
+      "unit": "#05-04",
+      "category": "Food & Beverage",
+      "link": "https://paragon.com.sg/store-detail/matsukiya",
+      "logo": "https://paragon.com.sg/wp-content/uploads/2024/10/Matsukiya-1.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 11:30 AM – 3:00 PM, 6:00 – 10:00 PM",
+          "Tuesday: 11:30 AM – 3:00 PM, 6:00 – 10:00 PM",
+          "Wednesday: 11:30 AM – 3:00 PM, 6:00 – 10:00 PM",
+          "Thursday: 11:30 AM – 3:00 PM, 6:00 – 10:00 PM",
+          "Friday: 11:30 AM – 3:00 PM, 6:00 – 10:00 PM",
+          "Saturday: 11:30 AM – 3:00 PM, 6:00 – 10:00 PM",
+          "Sunday: 11:30 AM – 3:00 PM, 6:00 – 10:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 0,
+              "hour": 15,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 0,
+              "hour": 18,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 1,
+              "hour": 15,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 18,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 2,
+              "hour": 15,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 18,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 3,
+              "hour": 15,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 18,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 4,
+              "hour": 15,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 18,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 5,
+              "hour": 15,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 18,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 6,
+              "hour": 15,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 18,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJ7VBxKzUZ2jERJbD5E_UHTek"
+    },
+    {
+      "name": "Meat Co.",
+      "unit": "#B1-K27",
+      "category": "Food & Beverage",
+      "link": "https://paragon.com.sg/store-detail/meat-co",
+      "logo": "https://paragon.com.sg/wp-content/uploads/2025/11/Meat-Co.-logo-scaled.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 11:00 AM – 9:30 PM",
+          "Tuesday: 11:00 AM – 9:30 PM",
+          "Wednesday: 11:00 AM – 9:30 PM",
+          "Thursday: 11:00 AM – 9:30 PM",
+          "Friday: 11:00 AM – 9:30 PM",
+          "Saturday: 11:00 AM – 9:30 PM",
+          "Sunday: 11:00 AM – 9:30 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 30
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJXV8kL5IZ2jERJMAlfF9Mfow"
+    },
+    {
+      "name": "O'Coffee Club Indulgence",
+      "unit": "#05-46, #05-K3/K4",
+      "category": "Food & Beverage",
+      "link": "https://paragon.com.sg/store-detail/ocoffee-club-indulgence",
+      "logo": "https://paragon.com.sg/wp-content/uploads/2024/10/OCoffee-Club-Indulgence.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 10:00 AM – 9:00 PM",
+          "Tuesday: 10:00 AM – 9:00 PM",
+          "Wednesday: 10:00 AM – 9:00 PM",
+          "Thursday: 10:00 AM – 9:00 PM",
+          "Friday: 10:00 AM – 9:00 PM",
+          "Saturday: 10:00 AM – 9:00 PM",
+          "Sunday: 10:00 AM – 9:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJj9QdO5IZ2jERhCXdv1xeEiA"
+    },
+    {
+      "name": "Old Chang Kee (Halal-Certified)",
+      "unit": "#B1-10",
+      "category": "Food & Beverage",
+      "link": "https://paragon.com.sg/store-detail/old-chang-kee-halal-certified",
+      "logo": "https://paragon.com.sg/wp-content/uploads/2024/10/OCK-1.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 9:00 AM – 9:30 PM",
+          "Tuesday: 9:00 AM – 9:30 PM",
+          "Wednesday: 9:00 AM – 9:30 PM",
+          "Thursday: 9:00 AM – 9:30 PM",
+          "Friday: 9:00 AM – 9:30 PM",
+          "Saturday: 9:00 AM – 9:30 PM",
+          "Sunday: 9:00 AM – 9:30 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 30
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJHT6TL5IZ2jERJRnF5Mf4hcY"
+    },
+    {
+      "name": "Old Seng Choong",
+      "unit": "#B1-14",
+      "category": "Food & Beverage",
+      "link": "https://paragon.com.sg/store-detail/old-seng-choong",
+      "logo": "https://paragon.com.sg/wp-content/uploads/2024/10/OSC-1.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 10:00 AM – 9:00 PM",
+          "Tuesday: 10:00 AM – 9:00 PM",
+          "Wednesday: 10:00 AM – 9:00 PM",
+          "Thursday: 10:00 AM – 9:00 PM",
+          "Friday: 10:00 AM – 9:00 PM",
+          "Saturday: 10:00 AM – 9:00 PM",
+          "Sunday: 10:00 AM – 9:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJTyL1Pz0Z2jERbjs7ulSMGa4"
+    },
+    {
+      "name": "PAUL",
+      "unit": "#02-09/K1",
+      "category": "Food & Beverage",
+      "link": "https://paragon.com.sg/store-detail/paul",
+      "logo": "https://paragon.com.sg/wp-content/uploads/2024/10/PAUL-1.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 8:00 AM – 9:00 PM",
+          "Tuesday: 8:00 AM – 9:00 PM",
+          "Wednesday: 8:00 AM – 9:00 PM",
+          "Thursday: 8:00 AM – 9:00 PM",
+          "Friday: 8:00 AM – 9:00 PM",
+          "Saturday: 8:00 AM – 9:00 PM",
+          "Sunday: 8:00 AM – 9:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJg7ZWOpIZ2jERt27_f6aYJb4"
+    },
+    {
+      "name": "PS.Cafe",
+      "unit": "#03-41/42/K4",
+      "category": "Food & Beverage",
+      "link": "https://paragon.com.sg/store-detail/ps-cafe",
+      "logo": "https://paragon.com.sg/wp-content/uploads/2024/10/PS-Cafe.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 10:00 AM – 10:00 PM",
+          "Tuesday: 10:00 AM – 10:00 PM",
+          "Wednesday: 10:00 AM – 10:00 PM",
+          "Thursday: 10:00 AM – 10:00 PM",
+          "Friday: 10:00 AM – 10:00 PM",
+          "Saturday: 10:00 AM – 10:00 PM",
+          "Sunday: 10:00 AM – 10:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJl_sOMpIZ2jERxRthBVZ5gyc"
+    },
+    {
+      "name": "R-slice by Roberta's",
+      "unit": "#B1-32",
+      "category": "Food & Beverage",
+      "link": "https://paragon.com.sg/store-detail/r-slice-by-robertas-coming-soon",
+      "logo": "https://paragon.com.sg/wp-content/uploads/2025/05/r-slice.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 11:00 AM – 9:00 PM",
+          "Tuesday: 11:00 AM – 9:00 PM",
+          "Wednesday: 11:00 AM – 9:00 PM",
+          "Thursday: 11:00 AM – 9:00 PM",
+          "Friday: 11:00 AM – 9:00 PM",
+          "Saturday: 11:00 AM – 9:00 PM",
+          "Sunday: 11:00 AM – 9:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJE0bHqA8Z2jERRyvqAjlm7A0"
+    },
+    {
+      "name": "Sanchos taqueria (Halal-Certified)",
+      "unit": "#B1-20",
+      "category": "Food & Beverage",
+      "link": "https://paragon.com.sg/store-detail/sanchos-taqueria-halal-certified",
+      "logo": "https://paragon.com.sg/wp-content/uploads/2024/10/Sanchos-taqueria.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 10:00 AM – 10:00 PM",
+          "Tuesday: 10:00 AM – 10:00 PM",
+          "Wednesday: 10:00 AM – 10:00 PM",
+          "Thursday: 10:00 AM – 10:00 PM",
+          "Friday: 10:00 AM – 10:00 PM",
+          "Saturday: 10:00 AM – 10:00 PM",
+          "Sunday: 10:00 AM – 10:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJlVvi27wZ2jERwtyCIieIlTw"
+    },
+    {
+      "name": "Sanpoutei Ramen",
+      "unit": "#B1-47",
+      "category": "Food & Beverage",
+      "link": "https://paragon.com.sg/store-detail/sanpoutei-ramen",
+      "logo": "https://paragon.com.sg/wp-content/uploads/2025/05/FIX_sapoutei_singapore_rogo_250515_web_01.jpg",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 11:30 AM – 9:30 PM",
+          "Tuesday: 11:30 AM – 9:30 PM",
+          "Wednesday: 11:30 AM – 9:30 PM",
+          "Thursday: 11:30 AM – 9:30 PM",
+          "Friday: 11:30 AM – 10:00 PM",
+          "Saturday: 11:30 AM – 10:00 PM",
+          "Sunday: 11:30 AM – 9:30 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 0,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJ297WHQAZ2jERGVegpr7CZ7c"
+    },
+    {
+      "name": "Shimbashi Soba",
+      "unit": "#B1-41",
+      "category": "Food & Beverage",
+      "link": "https://paragon.com.sg/store-detail/shimbashi-soba",
+      "logo": "https://paragon.com.sg/wp-content/uploads/2024/10/Shimbashi-Soba.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 11:30 AM – 10:00 PM",
+          "Tuesday: 11:30 AM – 10:00 PM",
+          "Wednesday: 11:30 AM – 10:00 PM",
+          "Thursday: 11:30 AM – 10:00 PM",
+          "Friday: 11:30 AM – 10:00 PM",
+          "Saturday: 10:30 AM – 10:00 PM",
+          "Sunday: 11:30 AM – 10:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 0,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 1,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 2,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 3,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 4,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJl_sOMpIZ2jERjbaHSgI8xEg"
+    },
+    {
+      "name": "Six Hands Daily",
+      "unit": "#B1-K25",
+      "category": "Food & Beverage",
+      "link": "https://paragon.com.sg/store-detail/six-hands-daily",
+      "logo": "https://paragon.com.sg/wp-content/uploads/2025/07/Logo-scaled.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 11:00 AM – 8:00 PM",
+          "Tuesday: 11:00 AM – 8:00 PM",
+          "Wednesday: 11:00 AM – 8:00 PM",
+          "Thursday: 11:00 AM – 8:00 PM",
+          "Friday: 11:00 AM – 8:00 PM",
+          "Saturday: 11:00 AM – 8:00 PM",
+          "Sunday: 11:00 AM – 8:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 20,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 20,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 20,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 20,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 20,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 20,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 20,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJG6OFhRUZ2jERySsxrH98_TQ"
+    },
+    {
+      "name": "Sláinte",
+      "unit": "#04-09/K1",
+      "category": "Food & Beverage",
+      "link": "https://paragon.com.sg/store-detail/slainte",
+      "logo": "https://paragon.com.sg/wp-content/uploads/2024/10/Slainte.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 11:00 AM – 10:00 PM",
+          "Tuesday: 11:00 AM – 10:00 PM",
+          "Wednesday: 11:00 AM – 10:00 PM",
+          "Thursday: 11:00 AM – 10:00 PM",
+          "Friday: 11:00 AM – 10:00 PM",
+          "Saturday: 10:00 AM – 10:00 PM",
+          "Sunday: 11:00 AM – 10:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJQztBbx4Z2jERanP2Y77odSU"
+    },
+    {
+      "name": "Song Fa Signatures",
+      "unit": "#B1-06",
+      "category": "Food & Beverage",
+      "link": "https://paragon.com.sg/store-detail/song-fa-signatures",
+      "logo": "https://paragon.com.sg/wp-content/uploads/2024/10/Song-Fa.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 11:00 AM – 9:00 PM",
+          "Tuesday: 11:00 AM – 9:00 PM",
+          "Wednesday: 11:00 AM – 9:00 PM",
+          "Thursday: 11:00 AM – 9:00 PM",
+          "Friday: 11:00 AM – 9:00 PM",
+          "Saturday: 11:00 AM – 9:00 PM",
+          "Sunday: 11:00 AM – 9:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJYwZzVQAZ2jERozP_eUVyjfs"
+    },
+    {
+      "name": "Soup Restaurant",
+      "unit": "#B1-07",
+      "category": "Food & Beverage",
+      "link": "https://paragon.com.sg/store-detail/soup-restaurant",
+      "logo": "https://paragon.com.sg/wp-content/uploads/2024/10/Soup-Restaurant.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 11:00 AM – 9:30 PM",
+          "Tuesday: 11:00 AM – 9:30 PM",
+          "Wednesday: 11:00 AM – 9:30 PM",
+          "Thursday: 11:00 AM – 9:30 PM",
+          "Friday: 11:00 AM – 9:30 PM",
+          "Saturday: 11:00 AM – 10:00 PM",
+          "Sunday: 11:00 AM – 10:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJl_sOMpIZ2jERfEyxCP8JIlU"
+    },
+    {
+      "name": "Starbucks",
+      "unit": "#B1-34",
+      "category": "Food & Beverage",
+      "link": "https://paragon.com.sg/store-detail/starbucks",
+      "logo": "https://paragon.com.sg/wp-content/uploads/2024/10/Starbucks.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 7:30 AM – 10:00 PM",
+          "Tuesday: 7:30 AM – 10:00 PM",
+          "Wednesday: 7:30 AM – 10:00 PM",
+          "Thursday: 7:30 AM – 10:00 PM",
+          "Friday: 7:30 AM – 10:30 PM",
+          "Saturday: 7:30 AM – 10:30 PM",
+          "Sunday: 7:30 AM – 10:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 7,
+              "minute": 30
+            },
+            "close": {
+              "day": 0,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 7,
+              "minute": 30
+            },
+            "close": {
+              "day": 1,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 7,
+              "minute": 30
+            },
+            "close": {
+              "day": 2,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 7,
+              "minute": 30
+            },
+            "close": {
+              "day": 3,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 7,
+              "minute": 30
+            },
+            "close": {
+              "day": 4,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 7,
+              "minute": 30
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 7,
+              "minute": 30
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 30
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJRZ1c0JYZ2jERGOlQmCycUTc"
+    },
+    {
+      "name": "SUBWAY® (Halal-Certified)",
+      "unit": "#B1-39/40",
+      "category": "Food & Beverage",
+      "link": "https://paragon.com.sg/store-detail/subway-halal-certified",
+      "logo": "https://paragon.com.sg/wp-content/uploads/2024/10/Subway.png"
+    },
+    {
+      "name": "Sushi Tei",
+      "unit": "#05-05",
+      "category": "Food & Beverage",
+      "link": "https://paragon.com.sg/store-detail/sushi-tei",
+      "logo": "https://paragon.com.sg/wp-content/uploads/2024/10/Sushi-Tei.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 11:30 AM – 10:00 PM",
+          "Tuesday: 11:30 AM – 10:00 PM",
+          "Wednesday: 11:30 AM – 10:00 PM",
+          "Thursday: 11:30 AM – 10:00 PM",
+          "Friday: 11:30 AM – 10:00 PM",
+          "Saturday: 11:30 AM – 10:00 PM",
+          "Sunday: 11:30 AM – 10:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 0,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 1,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 2,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 3,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 4,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJl_sOMpIZ2jERa4tZiOdKqvc"
+    },
+    {
+      "name": "Swish Rolls",
+      "unit": "#B1-K4",
+      "category": "Food & Beverage",
+      "link": "https://paragon.com.sg/store-detail/swish-rolls",
+      "logo": "https://paragon.com.sg/wp-content/uploads/2024/10/Swish-Rolls.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 9:00 AM – 9:00 PM",
+          "Tuesday: 9:00 AM – 9:00 PM",
+          "Wednesday: 9:00 AM – 9:00 PM",
+          "Thursday: 9:00 AM – 9:00 PM",
+          "Friday: 9:00 AM – 9:00 PM",
+          "Saturday: 9:00 AM – 9:00 PM",
+          "Sunday: 9:00 AM – 9:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJQW0_xikZ2jERtvBg2mJjGtg"
+    },
+    {
+      "name": "Tambuah Mas Indonesian Restaurant (Halal-Certified)",
+      "unit": "#B1-44",
+      "category": "Food & Beverage",
+      "link": "https://paragon.com.sg/store-detail/tambuah-mas-indonesian-restaurant-halal-certified",
+      "logo": "https://paragon.com.sg/wp-content/uploads/2024/10/Tambuah-Mas-Indonesian-Restaurant.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 11:00 AM – 10:00 PM",
+          "Tuesday: 11:00 AM – 10:00 PM",
+          "Wednesday: 11:00 AM – 10:00 PM",
+          "Thursday: 11:00 AM – 10:00 PM",
+          "Friday: 11:00 AM – 10:00 PM",
+          "Saturday: 11:00 AM – 10:00 PM",
+          "Sunday: 11:00 AM – 10:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJl_sOMpIZ2jERD5mQL7KxaE8"
+    },
+    {
+      "name": "The Soup Spoon+ (Halal-Certified)",
+      "unit": "#B1-K3",
+      "category": "Food & Beverage",
+      "link": "https://paragon.com.sg/store-detail/the-soup-spoon-halal-certified",
+      "logo": "https://paragon.com.sg/wp-content/uploads/2024/10/The-Soup-Spoon.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 10:00 AM – 9:30 PM",
+          "Tuesday: 10:00 AM – 9:30 PM",
+          "Wednesday: 10:00 AM – 9:30 PM",
+          "Thursday: 10:00 AM – 9:30 PM",
+          "Friday: 10:00 AM – 9:30 PM",
+          "Saturday: 10:00 AM – 9:30 PM",
+          "Sunday: 10:00 AM – 9:30 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 30
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJL1dHLpIZ2jERL_3nMiIlAeg"
+    },
+    {
+      "name": "Thye Moh Chan",
+      "unit": "#B1-11/12",
+      "category": "Food & Beverage",
+      "link": "https://paragon.com.sg/store-detail/thye-moh-chan",
+      "logo": "https://paragon.com.sg/wp-content/uploads/2024/10/Thye-Moh-Chan.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 10:00 AM – 8:00 PM",
+          "Tuesday: 10:00 AM – 8:00 PM",
+          "Wednesday: 10:00 AM – 8:00 PM",
+          "Thursday: 10:00 AM – 8:00 PM",
+          "Friday: 10:00 AM – 8:00 PM",
+          "Saturday: 10:00 AM – 8:00 PM",
+          "Sunday: 10:00 AM – 8:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 20,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 20,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 20,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 20,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 20,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 20,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 20,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJwYrMMZIZ2jERCXLbJEyrr8U"
+    },
+    {
+      "name": "Toast Box",
+      "unit": "#02-08A",
+      "category": "Food & Beverage",
+      "link": "https://paragon.com.sg/store-detail/toast-box",
+      "logo": "https://paragon.com.sg/wp-content/uploads/2024/10/Toast-Box.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 7:30 AM – 9:30 PM",
+          "Tuesday: 7:30 AM – 9:30 PM",
+          "Wednesday: 7:30 AM – 9:30 PM",
+          "Thursday: 7:30 AM – 9:30 PM",
+          "Friday: 7:30 AM – 9:30 PM",
+          "Saturday: 7:30 AM – 9:30 PM",
+          "Sunday: 7:30 AM – 9:30 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 7,
+              "minute": 30
+            },
+            "close": {
+              "day": 0,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 7,
+              "minute": 30
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 7,
+              "minute": 30
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 7,
+              "minute": 30
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 7,
+              "minute": 30
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 7,
+              "minute": 30
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 7,
+              "minute": 30
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 30
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJgXBqOpIZ2jERVwPl6I4_rWY"
+    },
+    {
+      "name": "Tokyo Milk Cheese Factory",
+      "unit": "#B1-37",
+      "category": "Food & Beverage",
+      "link": "https://paragon.com.sg/store-detail/tokyo-milk-cheese-factory",
+      "logo": "https://paragon.com.sg/wp-content/uploads/2024/10/Tokyo-Milk-Cheese-Factory.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 10:00 AM – 9:15 PM",
+          "Tuesday: 10:00 AM – 9:15 PM",
+          "Wednesday: 10:00 AM – 9:15 PM",
+          "Thursday: 10:00 AM – 9:15 PM",
+          "Friday: 10:00 AM – 9:45 PM",
+          "Saturday: 10:00 AM – 9:45 PM",
+          "Sunday: 10:00 AM – 9:15 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 21,
+              "minute": 15
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 15
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 15
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 15
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 15
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 45
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 45
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJdy26DlMZ2jERPG8mSMc-RHo"
+    },
+    {
+      "name": "Tomacado",
+      "unit": "#01-22",
+      "category": "Food & Beverage",
+      "link": "https://paragon.com.sg/store-detail/tomacado",
+      "logo": "https://paragon.com.sg/wp-content/uploads/2025/09/tomacado.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 11:00 AM – 10:00 PM",
+          "Tuesday: 11:00 AM – 10:00 PM",
+          "Wednesday: 11:00 AM – 10:00 PM",
+          "Thursday: 11:00 AM – 10:00 PM",
+          "Friday: 11:00 AM – 10:00 PM",
+          "Saturday: 11:00 AM – 10:00 PM",
+          "Sunday: 11:00 AM – 10:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJv66XbD8Z2jERg9BYaYFqdDk"
+    },
+    {
+      "name": "Tori-Q",
+      "unit": "#B1-K1",
+      "category": "Food & Beverage",
+      "link": "https://paragon.com.sg/store-detail/tori-q",
+      "logo": "https://paragon.com.sg/wp-content/uploads/2024/10/Tori-Q-1.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 11:00 AM – 9:30 PM",
+          "Tuesday: 11:00 AM – 9:30 PM",
+          "Wednesday: 11:00 AM – 9:30 PM",
+          "Thursday: 11:00 AM – 9:30 PM",
+          "Friday: 11:00 AM – 9:30 PM",
+          "Saturday: 11:00 AM – 9:30 PM",
+          "Sunday: 11:00 AM – 9:30 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 30
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJl_sOMpIZ2jERY3NbeLfUFxo"
+    },
+    {
+      "name": "Treasures - Yi Dian Xin by Imperial Treasure",
+      "unit": "#B1-08",
+      "category": "Food & Beverage",
+      "link": "https://paragon.com.sg/store-detail/treasures-yi-dian-xin-by-imperial-treasure",
+      "logo": "https://paragon.com.sg/wp-content/uploads/2024/10/Treasures-Yi-Dian-Xin.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 10:30 AM – 9:00 PM",
+          "Tuesday: 10:30 AM – 9:00 PM",
+          "Wednesday: 10:30 AM – 9:00 PM",
+          "Thursday: 10:30 AM – 9:00 PM",
+          "Friday: 10:30 AM – 9:00 PM",
+          "Saturday: 10:00 AM – 9:00 PM",
+          "Sunday: 10:00 AM – 9:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJt2XGJZIZ2jERtyHTOY4zOsE"
+    },
+    {
+      "name": "Ultimate Midas Meal",
+      "unit": "#04-10/11/12",
+      "category": "Food & Beverage",
+      "link": "https://paragon.com.sg/store-detail/Ultimate-Midas-Meal",
+      "logo": "https://paragon.com.sg/wp-content/uploads/2026/01/%E7%94%BB%E6%9D%BF-1-%E5%89%AF%E6%9C%AC-2-2.png"
+    },
+    {
+      "name": "Venchi",
+      "unit": "#B1-25",
+      "category": "Food & Beverage",
+      "link": "https://paragon.com.sg/store-detail/venchi",
+      "logo": "https://paragon.com.sg/wp-content/uploads/2024/10/Venchi.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 10:00 AM – 9:30 PM",
+          "Tuesday: 10:00 AM – 9:30 PM",
+          "Wednesday: 10:00 AM – 9:30 PM",
+          "Thursday: 10:00 AM – 9:30 PM",
+          "Friday: 10:00 AM – 9:30 PM",
+          "Saturday: 10:00 AM – 9:30 PM",
+          "Sunday: 10:00 AM – 9:30 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 30
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJq0t9ZBEZ2jERN9FDNpRNMWM"
+    },
+    {
+      "name": "Wu Pao Chun",
+      "unit": "#B1-11/12",
+      "category": "Food & Beverage",
+      "link": "https://paragon.com.sg/store-detail/wu-pao-chun",
+      "logo": "https://paragon.com.sg/wp-content/uploads/2024/10/Wu-Pao-Chun.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 9:00 AM – 9:30 PM",
+          "Tuesday: 9:00 AM – 9:30 PM",
+          "Wednesday: 9:00 AM – 9:30 PM",
+          "Thursday: 9:00 AM – 9:30 PM",
+          "Friday: 9:00 AM – 9:30 PM",
+          "Saturday: 9:00 AM – 9:30 PM",
+          "Sunday: 9:00 AM – 9:30 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 30
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJcVeheH8Z2jERj-x0miMfjY8"
+    },
+    {
+      "name": "Ya Kun Kaya Toast",
+      "unit": "#B1-38 & K11",
+      "category": "Food & Beverage",
+      "link": "https://paragon.com.sg/store-detail/ya-kun-kaya-toast",
+      "logo": "https://paragon.com.sg/wp-content/uploads/2024/10/Ya-Kun-Kaya-Toast.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 7:30 AM – 9:00 PM",
+          "Tuesday: 7:30 AM – 9:00 PM",
+          "Wednesday: 7:30 AM – 9:00 PM",
+          "Thursday: 7:30 AM – 9:00 PM",
+          "Friday: 7:30 AM – 9:00 PM",
+          "Saturday: 7:30 AM – 9:00 PM",
+          "Sunday: 7:30 AM – 9:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 7,
+              "minute": 30
+            },
+            "close": {
+              "day": 0,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 7,
+              "minute": 30
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 7,
+              "minute": 30
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 7,
+              "minute": 30
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 7,
+              "minute": 30
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 7,
+              "minute": 30
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 7,
+              "minute": 30
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJz86vKJIZ2jER5MuwSPthTkM"
+    }
+  ],
+  "openingHoursFetchedAt": "2026-01-06T06:54:47.008Z"
+}

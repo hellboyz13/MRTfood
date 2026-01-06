@@ -1,0 +1,6907 @@
+{
+  "mall": "Pasir Ris Mall",
+  "address": "1 Pasir Ris Central Street 3, Singapore 518457",
+  "nearestMRT": "Pasir Ris",
+  "category": "Food & Beverage",
+  "scrapedAt": "2026-01-06T05:14:42.054Z",
+  "totalStores": 67,
+  "stores": [
+    {
+      "name": "SHIOK BURGER",
+      "unit": null,
+      "level": null,
+      "category": null,
+      "link": "https://pasirrismall.com.sg/shop/shiok-burger/",
+      "image": "https://greatrewards.cxcms.ascentis.com.sg/mallsmobile/media/Outlet/Outlet%20Banner/PRM_Shiok%20Burger_Image%201.jpg",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 10:30 AM – 10:00 PM",
+          "Tuesday: 10:30 AM – 10:00 PM",
+          "Wednesday: 10:30 AM – 10:00 PM",
+          "Thursday: 10:30 AM – 10:00 PM",
+          "Friday: 10:30 AM – 10:00 PM",
+          "Saturday: 10:30 AM – 10:00 PM",
+          "Sunday: 10:30 AM – 10:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 0,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 1,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 2,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 3,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 4,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJtbsaVAA92jERqh9YV_DqlJ4"
+    },
+    {
+      "name": "MI BIBIMBAP",
+      "unit": null,
+      "level": null,
+      "category": null,
+      "link": "https://pasirrismall.com.sg/shop/mi-bibimbap/",
+      "image": "https://greatrewards.cxcms.ascentis.com.sg/mallsmobile/media/Outlet/Outlet%20Banner/PRM_Mi%20Bibimbap%20Image%201.jpg",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 11:00 AM – 9:00 PM",
+          "Tuesday: 11:00 AM – 9:00 PM",
+          "Wednesday: 11:00 AM – 9:00 PM",
+          "Thursday: 11:00 AM – 9:00 PM",
+          "Friday: 11:00 AM – 9:00 PM",
+          "Saturday: 11:00 AM – 9:00 PM",
+          "Sunday: 11:00 AM – 9:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJFQavaAA92jEREg02EIpCPvo"
+    },
+    {
+      "name": "FIRST BOWL",
+      "unit": null,
+      "level": null,
+      "category": null,
+      "link": "https://pasirrismall.com.sg/shop/first-bowl/",
+      "image": "https://greatrewards.cxcms.ascentis.com.sg/mallsmobile/media/Outlet/Outlet%20Banner/PRM_First%20Bowl_Image%201.jpg",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 7:30 AM – 9:00 PM",
+          "Tuesday: 7:30 AM – 9:00 PM",
+          "Wednesday: 7:30 AM – 9:00 PM",
+          "Thursday: 7:30 AM – 9:00 PM",
+          "Friday: 7:30 AM – 9:30 PM",
+          "Saturday: 7:30 AM – 9:30 PM",
+          "Sunday: 7:30 – 10:30 AM, 11:00 AM – 9:30 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 7,
+              "minute": 30
+            },
+            "close": {
+              "day": 0,
+              "hour": 10,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 0,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 7,
+              "minute": 30
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 7,
+              "minute": 30
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 7,
+              "minute": 30
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 7,
+              "minute": 30
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 7,
+              "minute": 30
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 7,
+              "minute": 30
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 30
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJ5VTzMgA92jERF9ZRyx6JkxQ"
+    },
+    {
+      "name": "MINISTRY OF ROJAK",
+      "unit": null,
+      "level": null,
+      "category": null,
+      "link": "https://pasirrismall.com.sg/shop/ministry-of-rojak/",
+      "image": "https://greatrewards.cxcms.ascentis.com.sg/mallsmobile/media/Outlet/Outlet%20Banner/PRM_Ministry%20of%20Rojak%20Image%201.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 11:00 AM – 10:00 PM",
+          "Tuesday: 11:00 AM – 10:00 PM",
+          "Wednesday: 11:00 AM – 10:00 PM",
+          "Thursday: 11:00 AM – 10:00 PM",
+          "Friday: 11:00 AM – 10:00 PM",
+          "Saturday: 11:00 AM – 10:00 PM",
+          "Sunday: 11:00 AM – 10:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJT_oCQwA92jER8kTxSsKPfcc"
+    },
+    {
+      "name": "4FINGERS CRISPY CHICKEN",
+      "unit": "#B1-36",
+      "level": "B1",
+      "category": "Bistros",
+      "link": "https://pasirrismall.com.sg/shop/4fingers-crispy-chicken/",
+      "image": "https://greatrewards.cxcms.ascentis.com.sg/mallsmobile/media/Outlet/Outlet%20Banner/PRM_4Fingers%20Image%201.jpg",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 10:00 AM – 10:00 PM",
+          "Tuesday: 10:00 AM – 10:00 PM",
+          "Wednesday: 10:00 AM – 10:00 PM",
+          "Thursday: 10:00 AM – 10:00 PM",
+          "Friday: 10:00 AM – 10:00 PM",
+          "Saturday: 10:00 AM – 10:00 PM",
+          "Sunday: 10:00 AM – 10:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJZVh8MwA92jERAA_yFGkfCgg"
+    },
+    {
+      "name": "BARCOOK",
+      "unit": "#01-12",
+      "level": "Level 1",
+      "category": "Confectionery",
+      "link": "https://pasirrismall.com.sg/shop/barcook/",
+      "image": "https://greatrewards.cxcms.ascentis.com.sg/mallsmobile/media/Outlet/Outlet%20Banner/PRM_Barcook%20Image%201.jpg",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 10:00 AM – 10:00 PM",
+          "Tuesday: 10:00 AM – 10:00 PM",
+          "Wednesday: 10:00 AM – 10:00 PM",
+          "Thursday: 10:00 AM – 10:00 PM",
+          "Friday: 10:00 AM – 10:00 PM",
+          "Saturday: 10:00 AM – 10:00 PM",
+          "Sunday: 10:00 AM – 10:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJ2RChGgA92jER7RPxacYis4A"
+    },
+    {
+      "name": "BEARD PAPA’S",
+      "unit": "#01-32",
+      "level": "Level 1",
+      "category": "Confectionery",
+      "link": "https://pasirrismall.com.sg/shop/beard-papas/",
+      "image": "https://greatrewards.cxcms.ascentis.com.sg/mallsmobile/media/Outlet/Outlet%20Banner/PRM_Beard%20Papa's%20Image%201.jpg",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 10:00 AM – 9:00 PM",
+          "Tuesday: 10:00 AM – 9:00 PM",
+          "Wednesday: 10:00 AM – 9:00 PM",
+          "Thursday: 10:00 AM – 9:00 PM",
+          "Friday: 10:00 AM – 9:00 PM",
+          "Saturday: 10:00 AM – 9:00 PM",
+          "Sunday: 10:00 AM – 9:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJWY_xAAA92jERVvEM5tJbFQ0"
+    },
+    {
+      "name": "BREADTALK",
+      "unit": "#B1-40",
+      "level": "B1",
+      "category": "Confectionery",
+      "link": "https://pasirrismall.com.sg/shop/breadtalk/",
+      "image": "https://greatrewards.cxcms.ascentis.com.sg/mallsmobile/media/Outlet/Outlet%20Banner/PRM_BreadTalk%20Image%201.jpg",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 9:00 AM – 10:00 PM",
+          "Tuesday: 9:00 AM – 10:00 PM",
+          "Wednesday: 9:00 AM – 10:00 PM",
+          "Thursday: 9:00 AM – 10:00 PM",
+          "Friday: 9:00 AM – 10:00 PM",
+          "Saturday: 9:00 AM – 10:00 PM",
+          "Sunday: 9:00 AM – 10:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJeRG3eQA92jERcqjASJ11BCw"
+    },
+    {
+      "name": "BUDDY HOAGIES CAFÉ & GRILL",
+      "unit": "#02-65",
+      "level": "Level 2",
+      "category": "Restaurants",
+      "link": "https://pasirrismall.com.sg/shop/buddy-hoagies-cafe-grill/",
+      "image": "https://greatrewards.cxcms.ascentis.com.sg/mallsmobile/media/Outlet/Outlet%20Banner/PRM_Buddy%20Hoagies%20Image%201.jpg",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 11:30 AM – 10:00 PM",
+          "Tuesday: 11:30 AM – 10:00 PM",
+          "Wednesday: 11:30 AM – 10:00 PM",
+          "Thursday: 11:30 AM – 10:00 PM",
+          "Friday: 11:30 AM – 10:00 PM",
+          "Saturday: 11:30 AM – 10:00 PM",
+          "Sunday: 11:30 AM – 10:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 0,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 1,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 2,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 3,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 4,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJ58OJ62U92jERuOcoVpvzzNs"
+    },
+    {
+      "name": "BUTAHAGE",
+      "unit": "#B1-32",
+      "level": "B1",
+      "category": "Bistros",
+      "link": "https://pasirrismall.com.sg/shop/butahage/",
+      "image": "https://greatrewards.cxcms.ascentis.com.sg/mallsmobile/media/Outlet/Outlet%20Banner/PRM_Butahage%20Image%201.jpg",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 11:00 AM – 9:00 PM",
+          "Tuesday: 11:00 AM – 9:00 PM",
+          "Wednesday: 11:00 AM – 9:00 PM",
+          "Thursday: 11:00 AM – 9:00 PM",
+          "Friday: 11:00 AM – 9:00 PM",
+          "Saturday: 11:00 AM – 9:00 PM",
+          "Sunday: 11:00 AM – 9:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJEX2JKQA92jERnA0X3O7kMP4"
+    },
+    {
+      "name": "CANTINE BY KOPITIAM",
+      "unit": "#B2-17",
+      "level": "B2",
+      "category": "Food Court",
+      "link": "https://pasirrismall.com.sg/shop/cantine-by-kopitiam/",
+      "image": "https://greatrewards.cxcms.ascentis.com.sg/mallsmobile/media/Outlet/Outlet%20Banner/PRM_Cantine%20by%20Kopitiam%20Image%201.jpg",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 7:00 AM – 10:00 PM",
+          "Tuesday: 7:00 AM – 10:00 PM",
+          "Wednesday: 7:00 AM – 10:00 PM",
+          "Thursday: 7:00 AM – 10:00 PM",
+          "Friday: 7:00 AM – 10:00 PM",
+          "Saturday: 7:00 AM – 10:00 PM",
+          "Sunday: 7:00 AM – 10:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 7,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 7,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 7,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 7,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 7,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 7,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 7,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJmSZFdAA92jERItYmj0zSLfk"
+    },
+    {
+      "name": "CHATERAISE",
+      "unit": "#B1-11",
+      "level": "B1",
+      "category": "Confectionery",
+      "link": "https://pasirrismall.com.sg/shop/chateraise/",
+      "image": "https://greatrewards.cxcms.ascentis.com.sg/mallsmobile/media/Outlet/Outlet%20Banner/TSM_Chateraise%20Image%201.jpg"
+    },
+    {
+      "name": "CRAVE",
+      "unit": null,
+      "level": "B1",
+      "category": "Food Court",
+      "link": "https://pasirrismall.com.sg/shop/crave/",
+      "image": "https://greatrewards.cxcms.ascentis.com.sg/mallsmobile/media/Outlet/Outlet%20Banner/PRM_Crave%20Image%201a.jpg",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 7:00 AM – 10:00 PM",
+          "Tuesday: 7:00 AM – 10:00 PM",
+          "Wednesday: 7:00 AM – 10:00 PM",
+          "Thursday: 7:00 AM – 10:00 PM",
+          "Friday: 7:00 AM – 10:00 PM",
+          "Saturday: 7:00 AM – 10:00 PM",
+          "Sunday: 7:00 AM – 10:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 7,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 7,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 7,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 7,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 7,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 7,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 7,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJ5ZN4bgA92jERyEpz2bHs3wA"
+    },
+    {
+      "name": "CROLO BY SWEE HENG",
+      "unit": "#01-28",
+      "level": "Level 1",
+      "category": "Food Court",
+      "link": "https://pasirrismall.com.sg/shop/crolo-by-swee-heng/",
+      "image": "https://greatrewards.cxcms.ascentis.com.sg/mallsmobile/media/Outlet/Outlet%20Banner/PRM_Crolo%20by%20Swee%20Heng%20Image%201.jpg",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 9:00 AM – 9:30 PM",
+          "Tuesday: 9:00 AM – 9:30 PM",
+          "Wednesday: 9:00 AM – 9:30 PM",
+          "Thursday: 9:00 AM – 9:30 PM",
+          "Friday: 9:00 AM – 9:30 PM",
+          "Saturday: 9:00 AM – 9:30 PM",
+          "Sunday: 9:00 AM – 9:30 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 30
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJUVjPbwA92jER0x4uuJPslTM"
+    },
+    {
+      "name": "DUNKIN’",
+      "unit": null,
+      "level": "B1",
+      "category": "Food Court",
+      "link": "https://pasirrismall.com.sg/shop/dunkin/",
+      "image": "https://greatrewards.cxcms.ascentis.com.sg/mallsmobile/media/Outlet/Outlet%20Banner/PRM_Dunkin%20Image%201a.jpg",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 8:00 AM – 9:30 PM",
+          "Tuesday: 8:00 AM – 9:30 PM",
+          "Wednesday: 8:00 AM – 9:30 PM",
+          "Thursday: 8:00 AM – 9:30 PM",
+          "Friday: 8:00 AM – 9:30 PM",
+          "Saturday: 8:00 AM – 9:30 PM",
+          "Sunday: 8:00 AM – 9:30 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 30
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJd92ZbAA92jEREg9fRBwd85Y"
+    },
+    {
+      "name": "EARLE SWENSEN’S",
+      "unit": "#02-16",
+      "level": "Level 2",
+      "category": "Restaurants",
+      "link": "https://pasirrismall.com.sg/shop/earle-swensens/",
+      "image": "https://greatrewards.cxcms.ascentis.com.sg/mallsmobile/media/Outlet/Outlet%20Banner/PRM_ES_Image1.jpg",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 11:00 AM – 10:30 PM",
+          "Tuesday: 11:00 AM – 10:30 PM",
+          "Wednesday: 11:00 AM – 10:30 PM",
+          "Thursday: 11:00 AM – 10:30 PM",
+          "Friday: 11:00 AM – 10:30 PM",
+          "Saturday: 11:00 AM – 10:30 PM",
+          "Sunday: 11:00 AM – 10:30 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 22,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 22,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 22,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 22,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 22,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 30
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJGdcxv5w92jERPyeK6vpBBzU"
+    },
+    {
+      "name": "FIRST BOWL",
+      "unit": "#B2-44",
+      "level": "B2",
+      "category": "Restaurants",
+      "link": "https://pasirrismall.com.sg/shop/first-bowl/",
+      "image": "https://greatrewards.cxcms.ascentis.com.sg/mallsmobile/media/Outlet/Outlet%20Banner/PRM_First%20Bowl_Image%201.jpg",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 7:30 AM – 9:00 PM",
+          "Tuesday: 7:30 AM – 9:00 PM",
+          "Wednesday: 7:30 AM – 9:00 PM",
+          "Thursday: 7:30 AM – 9:00 PM",
+          "Friday: 7:30 AM – 9:30 PM",
+          "Saturday: 7:30 AM – 9:30 PM",
+          "Sunday: 7:30 – 10:30 AM, 11:00 AM – 9:30 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 7,
+              "minute": 30
+            },
+            "close": {
+              "day": 0,
+              "hour": 10,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 0,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 7,
+              "minute": 30
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 7,
+              "minute": 30
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 7,
+              "minute": 30
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 7,
+              "minute": 30
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 7,
+              "minute": 30
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 7,
+              "minute": 30
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 30
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJ5VTzMgA92jERF9ZRyx6JkxQ"
+    },
+    {
+      "name": "FRAGRANCE",
+      "unit": null,
+      "level": "B1",
+      "category": "Confectionery",
+      "link": "https://pasirrismall.com.sg/shop/fragrance/",
+      "image": "https://greatrewards.cxcms.ascentis.com.sg/mallsmobile/media/Outlet/Outlet%20Banner/PRM_Fragrance%20Image%201.jpg",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 10:00 AM – 9:45 PM",
+          "Tuesday: 10:00 AM – 9:45 PM",
+          "Wednesday: 10:00 AM – 9:45 PM",
+          "Thursday: 10:00 AM – 9:45 PM",
+          "Friday: 10:00 AM – 9:45 PM",
+          "Saturday: 10:00 AM – 9:45 PM",
+          "Sunday: 10:00 AM – 9:45 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 21,
+              "minute": 45
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 45
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 45
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 45
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 45
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 45
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 45
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJBUrvFQA92jERKAzrbAGKtsY"
+    },
+    {
+      "name": "GENKI SUSHI",
+      "unit": "#B1-33",
+      "level": "B1",
+      "category": "Bistros",
+      "link": "https://pasirrismall.com.sg/shop/genki-sushi/",
+      "image": "https://greatrewards.cxcms.ascentis.com.sg/mallsmobile/media/Outlet/Outlet%20Banner/PRM_Genki%20Sushi%20Image%201.jpg",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 11:00 AM – 9:00 PM",
+          "Tuesday: 11:00 AM – 9:00 PM",
+          "Wednesday: 11:00 AM – 9:00 PM",
+          "Thursday: 11:00 AM – 9:00 PM",
+          "Friday: 11:00 AM – 10:00 PM",
+          "Saturday: 11:00 AM – 10:00 PM",
+          "Sunday: 11:00 AM – 10:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJYdbAUgA92jERKTPwVdGS0r0"
+    },
+    {
+      "name": "GUZMAN Y GOMEZ",
+      "unit": "#01-13",
+      "level": "Level 1",
+      "category": "Bistros",
+      "link": "https://pasirrismall.com.sg/shop/guzman-y-gomez/",
+      "image": "https://greatrewards.cxcms.ascentis.com.sg/mallsmobile/media/Outlet/Outlet%20Banner/PRM_Guzman%20Y%20Gomez%20Image%201.jpg",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 10:30 AM – 9:30 PM",
+          "Tuesday: 10:30 AM – 9:30 PM",
+          "Wednesday: 10:30 AM – 9:30 PM",
+          "Thursday: 10:30 AM – 9:30 PM",
+          "Friday: 10:30 AM – 9:30 PM",
+          "Saturday: 10:30 AM – 9:30 PM",
+          "Sunday: 10:30 AM – 9:30 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 0,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 30
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJz-a7YgA92jERIqHu3PJceZo"
+    },
+    {
+      "name": "HOLLA JUICE & ACAI",
+      "unit": null,
+      "level": "B1",
+      "category": "Food Court",
+      "link": "https://pasirrismall.com.sg/shop/holla-juice-acai/",
+      "image": "https://greatrewards.cxcms.ascentis.com.sg/mallsmobile/media/Outlet/Outlet%20Banner/PRM_Holla%20Juice_Image%201.jpg"
+    },
+    {
+      "name": "JOLLIBEE",
+      "unit": "#B2-27",
+      "level": "B2",
+      "category": "Bistros",
+      "link": "https://pasirrismall.com.sg/shop/jollibee/",
+      "image": "https://greatrewards.cxcms.ascentis.com.sg/mallsmobile/media/Outlet/Outlet%20Banner/PRM_Jollibee%20Image%201.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 10:00 AM – 9:00 PM",
+          "Tuesday: 10:00 AM – 9:00 PM",
+          "Wednesday: 10:00 AM – 9:00 PM",
+          "Thursday: 10:00 AM – 9:00 PM",
+          "Friday: 10:00 AM – 9:00 PM",
+          "Saturday: 10:00 AM – 9:00 PM",
+          "Sunday: 10:00 AM – 9:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJW57kIQA92jERVhXfSkHUCzo"
+    },
+    {
+      "name": "KAZO CAFÉ",
+      "unit": "#B1-42",
+      "level": "B1",
+      "category": "Bistros",
+      "link": "https://pasirrismall.com.sg/shop/kazo-cafe/",
+      "image": "https://greatrewards.cxcms.ascentis.com.sg/mallsmobile/media/Outlet/Outlet%20Banner/PRM_Kazo%20Cafe%20Image%201.jpeg",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 10:00 AM – 10:00 PM",
+          "Tuesday: 10:00 AM – 10:00 PM",
+          "Wednesday: 10:00 AM – 10:00 PM",
+          "Thursday: 10:00 AM – 10:00 PM",
+          "Friday: 10:00 AM – 10:00 PM",
+          "Saturday: 10:00 AM – 10:00 PM",
+          "Sunday: 10:00 AM – 10:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJGSFm4z492jERrgspmacsAeI"
+    },
+    {
+      "name": "KHAO HOM BY RUNG MAMA",
+      "unit": "#01-04",
+      "level": "Level 1",
+      "category": "Restaurants",
+      "link": "https://pasirrismall.com.sg/shop/khao-hom-by-rung-mama/",
+      "image": "https://greatrewards.cxcms.ascentis.com.sg/mallsmobile/media/Outlet/Outlet%20Banner/PRM_Khao%20Hom%20By%20Rung%20Mama%20Image%201.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 11:00 AM – 10:00 PM",
+          "Tuesday: 11:00 AM – 10:00 PM",
+          "Wednesday: 11:00 AM – 10:00 PM",
+          "Thursday: 11:00 AM – 10:00 PM",
+          "Friday: 11:00 AM – 10:00 PM",
+          "Saturday: 11:00 AM – 10:00 PM",
+          "Sunday: 11:00 AM – 10:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJZ-O-9ZEZ2jERiRF6M58F_u4"
+    },
+    {
+      "name": "KOONG WOH TONG",
+      "unit": "#01-33",
+      "level": "Level 1",
+      "category": "Food Court",
+      "link": "https://pasirrismall.com.sg/shop/koong-woh-tong/",
+      "image": "https://greatrewards.cxcms.ascentis.com.sg/mallsmobile/media/Outlet/Outlet%20Banner/PRM_Koong%20Woh%20Tong%20Image%201.jpg",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 10:00 AM – 10:00 PM",
+          "Tuesday: 10:00 AM – 10:00 PM",
+          "Wednesday: 10:00 AM – 10:00 PM",
+          "Thursday: 10:00 AM – 10:00 PM",
+          "Friday: 10:00 AM – 10:00 PM",
+          "Saturday: 10:00 AM – 10:00 PM",
+          "Sunday: 10:00 AM – 10:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJc-f9BwA92jER20OAxyferas"
+    },
+    {
+      "name": "KOPIFELLAS CAFÉ",
+      "unit": "#02-59",
+      "level": "Level 2",
+      "category": "Bistros",
+      "link": "https://pasirrismall.com.sg/shop/kopifellas-cafe/",
+      "image": "https://greatrewards.cxcms.ascentis.com.sg/mallsmobile/media/Outlet/Outlet%20Banner/PRM_Kopifellas%20Cafe%20Image%201.jpg",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 8:00 AM – 8:00 PM",
+          "Tuesday: 8:00 AM – 8:00 PM",
+          "Wednesday: 8:00 AM – 8:00 PM",
+          "Thursday: 8:00 AM – 8:00 PM",
+          "Friday: 8:00 AM – 9:30 PM",
+          "Saturday: 8:00 AM – 9:30 PM",
+          "Sunday: 8:00 AM – 9:30 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 20,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 20,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 20,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 20,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 30
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJyxB3RgA92jERAjsgFlTMMqo"
+    },
+    {
+      "name": "KURIYA JAPANESE MARKET",
+      "unit": null,
+      "level": "B1",
+      "category": "Food Court",
+      "link": "https://pasirrismall.com.sg/shop/kuriya-japanese-market/",
+      "image": "https://greatrewards.cxcms.ascentis.com.sg/mallsmobile/media/Outlet/Outlet%20Banner/PRM_Kuriya%20Japanese%20Market%20Image%201.jpg",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 11:00 AM – 10:00 PM",
+          "Tuesday: 11:00 AM – 10:00 PM",
+          "Wednesday: 11:00 AM – 10:00 PM",
+          "Thursday: 11:00 AM – 10:00 PM",
+          "Friday: 11:00 AM – 10:00 PM",
+          "Saturday: 11:00 AM – 10:00 PM",
+          "Sunday: 11:00 AM – 10:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJ67dKKgA92jERzIofvEgQLXI"
+    },
+    {
+      "name": "LAU WANG CLAYPOT DELIGHTS",
+      "unit": "#B2-32",
+      "level": "B2",
+      "category": "Bistros",
+      "link": "https://pasirrismall.com.sg/shop/lau-wang-claypot-delights/",
+      "image": "https://greatrewards.cxcms.ascentis.com.sg/mallsmobile/media/Outlet/Outlet%20Banner/PRM_Lau%20Wang%20Claypot%20Delights%20Image%201.jpg",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 11:00 AM – 9:30 PM",
+          "Tuesday: 11:00 AM – 9:30 PM",
+          "Wednesday: 11:00 AM – 9:30 PM",
+          "Thursday: 11:00 AM – 9:30 PM",
+          "Friday: 11:00 AM – 9:30 PM",
+          "Saturday: 11:00 AM – 9:30 PM",
+          "Sunday: 11:00 AM – 9:30 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 30
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJA7laPgA92jERg4XTt1bQhoo"
+    },
+    {
+      "name": "LE SHRIMP RAMEN",
+      "unit": "#02-62",
+      "level": "Level 2",
+      "category": "Restaurants",
+      "link": "https://pasirrismall.com.sg/shop/le-shrimp-ramen/",
+      "image": "https://greatrewards.cxcms.ascentis.com.sg/mallsmobile/media/Outlet/Outlet%20Banner/PRM_Le%20Shrimp%20Image%201.jpg",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 11:00 AM – 10:00 PM",
+          "Tuesday: 11:00 AM – 10:00 PM",
+          "Wednesday: 11:00 AM – 10:00 PM",
+          "Thursday: 11:00 AM – 10:00 PM",
+          "Friday: 11:00 AM – 10:00 PM",
+          "Saturday: 10:30 AM – 10:00 PM",
+          "Sunday: 10:30 AM – 10:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 0,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJr_ujbgA92jERoYlYdeWzDjw"
+    },
+    {
+      "name": "LEE WEE & BROTHERS",
+      "unit": "#01-21",
+      "level": "Level 1",
+      "category": "Food Court",
+      "link": "https://pasirrismall.com.sg/shop/lee-wee-brothers/",
+      "image": "https://greatrewards.cxcms.ascentis.com.sg/mallsmobile/media/Outlet/Outlet%20Banner/PRM_Lee%20Wee%20Brothers%20Image%201.JPG",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 9:00 AM – 10:00 PM",
+          "Tuesday: 9:00 AM – 10:00 PM",
+          "Wednesday: 9:00 AM – 10:00 PM",
+          "Thursday: 9:00 AM – 10:00 PM",
+          "Friday: 9:00 AM – 10:00 PM",
+          "Saturday: 9:00 AM – 10:00 PM",
+          "Sunday: 9:00 AM – 10:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJebh3HAA92jERgebV7Ayw4Z0"
+    },
+    {
+      "name": "LENU CHEF WAI’S NOODLE BAR",
+      "unit": "#B2-31",
+      "level": "B2",
+      "category": "Restaurants",
+      "link": "https://pasirrismall.com.sg/shop/lenu-chef-wais-noodle-bar/",
+      "image": "https://greatrewards.cxcms.ascentis.com.sg/mallsmobile/media/Outlet/Outlet%20Banner/PRM_Lenu%20Image%201.jpg",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 11:00 AM – 10:00 PM",
+          "Tuesday: 11:00 AM – 10:00 PM",
+          "Wednesday: 11:00 AM – 10:00 PM",
+          "Thursday: 11:00 AM – 10:00 PM",
+          "Friday: 11:00 AM – 10:00 PM",
+          "Saturday: 10:30 AM – 10:00 PM",
+          "Sunday: 10:30 AM – 10:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 0,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJq74NOgA92jERT0bMqPqfpe8"
+    },
+    {
+      "name": "LITTLE RIBBONS PASTA CO.",
+      "unit": null,
+      "level": "B1",
+      "category": "Food Court",
+      "link": "https://pasirrismall.com.sg/shop/little-ribbons-pasta-co/",
+      "image": "https://greatrewards.cxcms.ascentis.com.sg/mallsmobile/media/Outlet/Outlet%20Logo/PRM_Little%20Ribbons%20Pasta%20Logo%202.jpg"
+    },
+    {
+      "name": "LUCKIN COFFEE",
+      "unit": "#B1-37",
+      "level": "B1",
+      "category": "Bistros",
+      "link": "https://pasirrismall.com.sg/shop/luckin-coffee/",
+      "image": "https://greatrewards.cxcms.ascentis.com.sg/mallsmobile/media/Outlet/Outlet%20Banner/PRM_luckin%20coffee%20Image%201.jpg",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 8:00 AM – 10:00 PM",
+          "Tuesday: 8:00 AM – 10:00 PM",
+          "Wednesday: 8:00 AM – 10:00 PM",
+          "Thursday: 8:00 AM – 10:00 PM",
+          "Friday: 8:00 AM – 10:00 PM",
+          "Saturday: 8:00 AM – 10:00 PM",
+          "Sunday: 8:00 AM – 10:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJAcoGKwA92jERf9ws0zEFN90"
+    },
+    {
+      "name": "MALAYSIA BOLEH",
+      "unit": "#B1-34",
+      "level": "B1",
+      "category": "Food Court",
+      "link": "https://pasirrismall.com.sg/shop/malaysia-boleh/",
+      "image": "https://greatrewards.cxcms.ascentis.com.sg/mallsmobile/media/Outlet/Outlet%20Banner/PRM_Malaysia%20Boleh%20Image%201.jpg",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 10:00 AM – 10:00 PM",
+          "Tuesday: 10:00 AM – 10:00 PM",
+          "Wednesday: 10:00 AM – 10:00 PM",
+          "Thursday: 10:00 AM – 10:00 PM",
+          "Friday: 10:00 AM – 10:00 PM",
+          "Saturday: 10:00 AM – 10:00 PM",
+          "Sunday: 10:00 AM – 10:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJS_ibBgA92jERnx9D1RGVTMs"
+    },
+    {
+      "name": "MCDONALD’S",
+      "unit": "#B1-41",
+      "level": "B1",
+      "category": "Bistros",
+      "link": "https://pasirrismall.com.sg/shop/mcdonalds/",
+      "image": "https://greatrewards.cxcms.ascentis.com.sg/mallsmobile/media/Outlet/Outlet%20Banner/PRM_McDonald's%20Image%201.jpg",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 8:00 AM – 10:00 PM",
+          "Tuesday: 8:00 AM – 10:00 PM",
+          "Wednesday: 8:00 AM – 10:00 PM",
+          "Thursday: 8:00 AM – 10:00 PM",
+          "Friday: 8:00 AM – 11:00 PM",
+          "Saturday: 8:00 AM – 11:00 PM",
+          "Sunday: 8:00 AM – 10:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 23,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 23,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJo-IMRgA92jERsGyyFog1g_w"
+    },
+    {
+      "name": "MI BIBIMBAP",
+      "unit": "#B1-39",
+      "level": "B1",
+      "category": "Restaurants",
+      "link": "https://pasirrismall.com.sg/shop/mi-bibimbap/",
+      "image": "https://greatrewards.cxcms.ascentis.com.sg/mallsmobile/media/Outlet/Outlet%20Banner/PRM_Mi%20Bibimbap%20Image%201.jpg",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 11:00 AM – 9:00 PM",
+          "Tuesday: 11:00 AM – 9:00 PM",
+          "Wednesday: 11:00 AM – 9:00 PM",
+          "Thursday: 11:00 AM – 9:00 PM",
+          "Friday: 11:00 AM – 9:00 PM",
+          "Saturday: 11:00 AM – 9:00 PM",
+          "Sunday: 11:00 AM – 9:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJFQavaAA92jEREg02EIpCPvo"
+    },
+    {
+      "name": "MINISTRY OF ROJAK",
+      "unit": "#B1-38",
+      "level": "B1",
+      "category": "Restaurants",
+      "link": "https://pasirrismall.com.sg/shop/ministry-of-rojak/",
+      "image": "https://greatrewards.cxcms.ascentis.com.sg/mallsmobile/media/Outlet/Outlet%20Banner/PRM_Ministry%20of%20Rojak%20Image%201.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 11:00 AM – 10:00 PM",
+          "Tuesday: 11:00 AM – 10:00 PM",
+          "Wednesday: 11:00 AM – 10:00 PM",
+          "Thursday: 11:00 AM – 10:00 PM",
+          "Friday: 11:00 AM – 10:00 PM",
+          "Saturday: 11:00 AM – 10:00 PM",
+          "Sunday: 11:00 AM – 10:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJT_oCQwA92jER8kTxSsKPfcc"
+    },
+    {
+      "name": "NINE FRESH",
+      "unit": null,
+      "level": "B1",
+      "category": "Food Court",
+      "link": "https://pasirrismall.com.sg/shop/nine-fresh/",
+      "image": "https://greatrewards.cxcms.ascentis.com.sg/mallsmobile/media/Outlet/Outlet%20Banner/PRM_Nine%20Fresh%20Image%201.jpg",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 11:00 AM – 10:00 PM",
+          "Tuesday: 11:00 AM – 10:00 PM",
+          "Wednesday: 11:00 AM – 10:00 PM",
+          "Thursday: 11:00 AM – 10:00 PM",
+          "Friday: 11:00 AM – 10:00 PM",
+          "Saturday: 11:00 AM – 10:00 PM",
+          "Sunday: 11:00 AM – 10:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJZ8NqZAA92jERNZMlwKNgg6c"
+    },
+    {
+      "name": "PARADISE CLASSIC",
+      "unit": "#B1-35",
+      "level": "B1",
+      "category": "Restaurants",
+      "link": "https://pasirrismall.com.sg/shop/paradise-classic/",
+      "image": "https://greatrewards.cxcms.ascentis.com.sg/mallsmobile/media/Outlet/Outlet%20Banner/PRM_Paradise%20Classic_Image%201.jpg",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 11:00 AM – 10:00 PM",
+          "Tuesday: 11:00 AM – 10:00 PM",
+          "Wednesday: 11:00 AM – 10:00 PM",
+          "Thursday: 11:00 AM – 10:00 PM",
+          "Friday: 11:00 AM – 10:00 PM",
+          "Saturday: 10:30 AM – 10:00 PM",
+          "Sunday: 10:30 AM – 10:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 0,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJJWKsIwA92jERl1BFihFl6bQ"
+    },
+    {
+      "name": "PARADISE DYNASTY",
+      "unit": "#02-61",
+      "level": "Level 2",
+      "category": "Restaurants",
+      "link": "https://pasirrismall.com.sg/shop/paradise-dynasty/",
+      "image": "https://greatrewards.cxcms.ascentis.com.sg/mallsmobile/media/Outlet/Outlet%20Banner/PRM_Paradise%20Dynasty%20Image%201.jpg",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 11:00 AM – 10:00 PM",
+          "Tuesday: 11:00 AM – 10:00 PM",
+          "Wednesday: 11:00 AM – 10:00 PM",
+          "Thursday: 11:00 AM – 10:00 PM",
+          "Friday: 11:00 AM – 10:00 PM",
+          "Saturday: 10:30 AM – 10:00 PM",
+          "Sunday: 10:30 AM – 10:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 0,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJF2BDTAA92jERTuTA0Ae0RjY"
+    },
+    {
+      "name": "PEPPER LUNCH",
+      "unit": "#B2-26",
+      "level": "B2",
+      "category": "Bistros",
+      "link": "https://pasirrismall.com.sg/shop/pepper-lunch/",
+      "image": "https://greatrewards.cxcms.ascentis.com.sg/mallsmobile/media/Outlet/Outlet%20Banner/PRM_Pepper%20Lunch%20Image%201.jpg",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 10:00 AM – 10:00 PM",
+          "Tuesday: 10:00 AM – 10:00 PM",
+          "Wednesday: 10:00 AM – 10:00 PM",
+          "Thursday: 10:00 AM – 10:00 PM",
+          "Friday: 10:00 AM – 10:00 PM",
+          "Saturday: 10:00 AM – 10:00 PM",
+          "Sunday: 10:00 AM – 10:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJZdbHAAA92jERnIEMxfU_-oM"
+    },
+    {
+      "name": "PONTIAN WANTON NOODLES",
+      "unit": "#B2-33",
+      "level": "B2",
+      "category": "Bistros",
+      "link": "https://pasirrismall.com.sg/shop/pontian-wanton-noodles/",
+      "image": "https://greatrewards.cxcms.ascentis.com.sg/mallsmobile/media/Outlet/Outlet%20Banner/PRM%20Pontian%20Wanton%20Image%201.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 10:00 AM – 9:30 PM",
+          "Tuesday: 10:00 AM – 9:30 PM",
+          "Wednesday: 10:00 AM – 9:30 PM",
+          "Thursday: 10:00 AM – 9:30 PM",
+          "Friday: 10:00 AM – 9:30 PM",
+          "Saturday: 10:00 AM – 9:30 PM",
+          "Sunday: 10:00 AM – 9:30 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 30
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJgUEuBQA92jER74XnNhwuhAQ"
+    },
+    {
+      "name": "REDMAN BY PHOON HUAT",
+      "unit": "#02-26",
+      "level": "Level 2",
+      "category": "Confectionery",
+      "link": "https://pasirrismall.com.sg/shop/redman-by-phoon-huat/",
+      "image": "https://greatrewards.cxcms.ascentis.com.sg/mallsmobile/media/Outlet/Outlet%20Banner/PRM_Redman%20Image%201.jpg",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 10:00 AM – 9:00 PM",
+          "Tuesday: 10:00 AM – 9:00 PM",
+          "Wednesday: 10:00 AM – 9:00 PM",
+          "Thursday: 10:00 AM – 9:00 PM",
+          "Friday: 10:00 AM – 9:00 PM",
+          "Saturday: 10:00 AM – 9:00 PM",
+          "Sunday: 10:00 AM – 9:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJXTyyIds92jERML9hcZbCRQg"
+    },
+    {
+      "name": "SAN.WICH",
+      "unit": null,
+      "level": "B1",
+      "category": "Confectionery",
+      "link": "https://pasirrismall.com.sg/shop/san-wich/",
+      "image": "https://greatrewards.cxcms.ascentis.com.sg/mallsmobile/media/Outlet/Outlet%20Banner/PRM_Sanwich%20Image%201.jpg",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 9:00 AM – 9:30 PM",
+          "Tuesday: 9:00 AM – 9:30 PM",
+          "Wednesday: 9:00 AM – 9:30 PM",
+          "Thursday: 9:00 AM – 9:30 PM",
+          "Friday: 9:00 AM – 9:30 PM",
+          "Saturday: 9:00 AM – 9:30 PM",
+          "Sunday: 9:00 AM – 9:30 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 30
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJ042cagA92jERNFGO7S5F7fo"
+    },
+    {
+      "name": "SHIOK BURGER",
+      "unit": "#B2-44",
+      "level": "B2",
+      "category": "Restaurants",
+      "link": "https://pasirrismall.com.sg/shop/shiok-burger/",
+      "image": "https://greatrewards.cxcms.ascentis.com.sg/mallsmobile/media/Outlet/Outlet%20Banner/PRM_Shiok%20Burger_Image%201.jpg",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 10:30 AM – 10:00 PM",
+          "Tuesday: 10:30 AM – 10:00 PM",
+          "Wednesday: 10:30 AM – 10:00 PM",
+          "Thursday: 10:30 AM – 10:00 PM",
+          "Friday: 10:30 AM – 10:00 PM",
+          "Saturday: 10:30 AM – 10:00 PM",
+          "Sunday: 10:30 AM – 10:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 0,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 1,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 2,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 3,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 4,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJtbsaVAA92jERqh9YV_DqlJ4"
+    },
+    {
+      "name": "SMOOY",
+      "unit": null,
+      "level": "B1",
+      "category": "Food Court",
+      "link": "https://pasirrismall.com.sg/shop/smooy/",
+      "image": "https://greatrewards.cxcms.ascentis.com.sg/mallsmobile/media/Outlet/Outlet%20Banner/PRM_Smooy_Image%201.jpg",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 11:30 AM – 9:30 PM",
+          "Tuesday: 11:30 AM – 9:30 PM",
+          "Wednesday: 11:30 AM – 9:30 PM",
+          "Thursday: 11:30 AM – 9:30 PM",
+          "Friday: 11:30 AM – 9:30 PM",
+          "Saturday: 11:30 AM – 9:30 PM",
+          "Sunday: 11:30 AM – 9:30 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 0,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 30
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJAdcFlaY92jER45msDJ7-sHo"
+    },
+    {
+      "name": "SNACK BOX",
+      "unit": "#B2-15",
+      "level": "B2",
+      "category": "Confectionery",
+      "link": "https://pasirrismall.com.sg/shop/snack-box/",
+      "image": "https://greatrewards.cxcms.ascentis.com.sg/mallsmobile/media/Outlet/Outlet%20Banner/PRM_Snack%20Box%20Image%201.jpg",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 10:00 AM – 10:00 PM",
+          "Tuesday: 10:00 AM – 10:00 PM",
+          "Wednesday: 10:00 AM – 10:00 PM",
+          "Thursday: 10:00 AM – 10:00 PM",
+          "Friday: 10:00 AM – 10:00 PM",
+          "Saturday: 10:00 AM – 10:00 PM",
+          "Sunday: 10:00 AM – 10:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJOzVGAwA92jERlyTKRQGX_u0"
+    },
+    {
+      "name": "SNACKING RETRO BISCUITS",
+      "unit": null,
+      "level": "Level 2",
+      "category": "Confectionery",
+      "link": "https://pasirrismall.com.sg/shop/snacking-retro-biscuits/",
+      "image": "https://greatrewards.cxcms.ascentis.com.sg/mallsmobile/media/Outlet/Outlet%20Banner/PRM_snacKING%20Retro%20Biscuits%20Image%201.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 11:00 AM – 9:30 PM",
+          "Tuesday: 11:00 AM – 9:30 PM",
+          "Wednesday: 11:00 AM – 9:30 PM",
+          "Thursday: 11:00 AM – 9:30 PM",
+          "Friday: 11:00 AM – 9:30 PM",
+          "Saturday: 11:00 AM – 9:30 PM",
+          "Sunday: 11:00 AM – 9:30 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 30
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJvf2YEAA92jERI2OXwWh8ho0"
+    },
+    {
+      "name": "SUPARAKKI RAMEN",
+      "unit": "#B2-33",
+      "level": "B2",
+      "category": "Bistros",
+      "link": "https://pasirrismall.com.sg/shop/suparakki-ramen/",
+      "image": "https://greatrewards.cxcms.ascentis.com.sg/mallsmobile/media/Outlet/Outlet%20Banner/PRM_Suparakki%20Ramen%20Image%201.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 11:00 AM – 9:30 PM",
+          "Tuesday: 11:00 AM – 9:30 PM",
+          "Wednesday: 11:00 AM – 9:30 PM",
+          "Thursday: 11:00 AM – 9:30 PM",
+          "Friday: 11:00 AM – 9:30 PM",
+          "Saturday: 11:00 AM – 9:30 PM",
+          "Sunday: 11:00 AM – 9:30 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 30
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJg8gRcwA92jERhBj-s3sPSfk"
+    },
+    {
+      "name": "TAI ER",
+      "unit": "#02-66",
+      "level": "Level 2",
+      "category": "Restaurants",
+      "link": "https://pasirrismall.com.sg/shop/tai-er/",
+      "image": "https://greatrewards.cxcms.ascentis.com.sg/mallsmobile/media/Outlet/Outlet%20Banner/PRM_TAI%20ER%20Image%201.jpg",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 11:30 AM – 9:00 PM",
+          "Tuesday: 11:30 AM – 9:00 PM",
+          "Wednesday: 11:30 AM – 9:00 PM",
+          "Thursday: 11:30 AM – 9:00 PM",
+          "Friday: 11:30 AM – 9:30 PM",
+          "Saturday: 11:00 AM – 9:30 PM",
+          "Sunday: 11:00 AM – 9:30 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 30
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJ-dQTdgA92jER91Bio0ScH-8"
+    },
+    {
+      "name": "TASTE OF INDONESIA",
+      "unit": "#B2-37",
+      "level": "B2",
+      "category": "Bistros",
+      "link": "https://pasirrismall.com.sg/shop/taste-of-indonesia/",
+      "image": "https://greatrewards.cxcms.ascentis.com.sg/mallsmobile/media/Outlet/Outlet%20Banner/PRM_Taste%20of%20Indonesia%20Image%201a.jpg",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 10:30 AM – 9:30 PM",
+          "Tuesday: 10:30 AM – 9:30 PM",
+          "Wednesday: 10:30 AM – 9:30 PM",
+          "Thursday: 10:30 AM – 9:30 PM",
+          "Friday: 10:30 AM – 10:30 PM",
+          "Saturday: 10:30 AM – 10:30 PM",
+          "Sunday: 10:30 AM – 9:30 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 0,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 30
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJlWeSSAA92jERkmb-4TnoFFE"
+    },
+    {
+      "name": "THE BREAD CLUB",
+      "unit": "#01-29",
+      "level": "Level 1",
+      "category": "Confectionery",
+      "link": "https://pasirrismall.com.sg/shop/the-bread-club/",
+      "image": "https://greatrewards.cxcms.ascentis.com.sg/mallsmobile/media/Outlet/Outlet%20Banner/PRM_The%20Bread%20Club%20Image%201a.jpg",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 10:00 AM – 10:00 PM",
+          "Tuesday: 10:00 AM – 10:00 PM",
+          "Wednesday: 10:00 AM – 10:00 PM",
+          "Thursday: 10:00 AM – 10:00 PM",
+          "Friday: 10:00 AM – 10:00 PM",
+          "Saturday: 10:00 AM – 10:00 PM",
+          "Sunday: 10:00 AM – 10:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJ6dwQNAA92jERuj3XVEN9w6Y"
+    },
+    {
+      "name": "THE HAINAN STORY COFFEE HOUSE",
+      "unit": "#B2-36",
+      "level": "B2",
+      "category": "Bistros",
+      "link": "https://pasirrismall.com.sg/shop/the-hainan-story-coffee-house/",
+      "image": "https://greatrewards.cxcms.ascentis.com.sg/mallsmobile/media/Outlet/Outlet%20Banner/PRM_The%20Hainan%20Story%20Image%201.jpg",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 8:00 AM – 9:30 PM",
+          "Tuesday: 8:00 AM – 9:30 PM",
+          "Wednesday: 8:00 AM – 9:30 PM",
+          "Thursday: 8:00 AM – 9:30 PM",
+          "Friday: 8:00 AM – 9:30 PM",
+          "Saturday: 8:00 AM – 9:30 PM",
+          "Sunday: 8:00 AM – 9:30 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 30
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJWREnYwA92jERvEBYKCYKM9w"
+    },
+    {
+      "name": "THE SEAFOOD MARKET PLACE BY SONG FISH",
+      "unit": "#B2-41",
+      "level": "B2",
+      "category": "Confectionery",
+      "link": "https://pasirrismall.com.sg/shop/the-seafood-market-place-by-song-fish/",
+      "image": "https://greatrewards.cxcms.ascentis.com.sg/mallsmobile/media/Outlet/Outlet%20Banner/PRM_The%20Seafood%20Market%20Place%20By%20Song%20Fish%20Image%201.jpg",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 10:00 AM – 9:30 PM",
+          "Tuesday: 10:00 AM – 9:30 PM",
+          "Wednesday: 10:00 AM – 9:30 PM",
+          "Thursday: 10:00 AM – 9:30 PM",
+          "Friday: 10:00 AM – 9:30 PM",
+          "Saturday: 10:00 AM – 9:30 PM",
+          "Sunday: 10:00 AM – 9:30 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 30
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJy1Z9BQA92jERyrYyGf2IXAY"
+    },
+    {
+      "name": "THE TREE CAFE",
+      "unit": "#B2-35",
+      "level": "B2",
+      "category": "Bistros",
+      "link": "https://pasirrismall.com.sg/shop/the-tree-cafe/",
+      "image": "https://greatrewards.cxcms.ascentis.com.sg/mallsmobile/media/Outlet/Outlet%20Banner/PRM_The%20Tree%20Cafe%20Image%203.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 11:30 AM – 9:30 PM",
+          "Tuesday: 11:30 AM – 9:30 PM",
+          "Wednesday: 11:30 AM – 9:30 PM",
+          "Thursday: 11:30 AM – 9:30 PM",
+          "Friday: 11:30 AM – 9:30 PM",
+          "Saturday: 11:00 AM – 10:00 PM",
+          "Sunday: 11:00 AM – 10:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJtVsCHwA92jERKRNOaGUEgDA"
+    },
+    {
+      "name": "TIM HORTONS",
+      "unit": "#02-64",
+      "level": "Level 2",
+      "category": "Bistros",
+      "link": "https://pasirrismall.com.sg/shop/tim-hortons/",
+      "image": "https://greatrewards.cxcms.ascentis.com.sg/mallsmobile/media/Outlet/Outlet%20Banner/PRM_Tim%20Hortons%20Image%201.jpg",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 10:00 AM – 10:00 PM",
+          "Tuesday: 10:00 AM – 10:00 PM",
+          "Wednesday: 10:00 AM – 10:00 PM",
+          "Thursday: 10:00 AM – 10:00 PM",
+          "Friday: 10:00 AM – 10:00 PM",
+          "Saturday: 10:00 AM – 10:00 PM",
+          "Sunday: 10:00 AM – 10:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJaZ_-RwA92jERjAUWpbjen18"
+    },
+    {
+      "name": "TOAST BOX",
+      "unit": "#B1-40",
+      "level": "B1",
+      "category": "Confectionery",
+      "link": "https://pasirrismall.com.sg/shop/toast-box/",
+      "image": "https://greatrewards.cxcms.ascentis.com.sg/mallsmobile/media/Outlet/Outlet%20Banner/PRM_Toast%20Box%20Image%201.jpg",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 7:30 AM – 9:00 PM",
+          "Tuesday: 7:30 AM – 9:00 PM",
+          "Wednesday: 7:30 AM – 9:00 PM",
+          "Thursday: 7:30 AM – 9:00 PM",
+          "Friday: 7:30 AM – 9:00 PM",
+          "Saturday: 7:30 AM – 9:00 PM",
+          "Sunday: 7:30 AM – 9:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 7,
+              "minute": 30
+            },
+            "close": {
+              "day": 0,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 7,
+              "minute": 30
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 7,
+              "minute": 30
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 7,
+              "minute": 30
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 7,
+              "minute": 30
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 7,
+              "minute": 30
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 7,
+              "minute": 30
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJZeh4AgA92jERKhTFVryx6d4"
+    },
+    {
+      "name": "TSUJIRI",
+      "unit": "#B1-11",
+      "level": "B1",
+      "category": "Confectionery",
+      "link": "https://pasirrismall.com.sg/shop/tsujiri/",
+      "image": "https://greatrewards.cxcms.ascentis.com.sg/mallsmobile/media/Outlet/Outlet%20Logo/PRM_Tsujiri%20Logo%201.jpg",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 11:00 AM – 10:00 PM",
+          "Tuesday: 11:00 AM – 10:00 PM",
+          "Wednesday: 11:00 AM – 10:00 PM",
+          "Thursday: 11:00 AM – 10:00 PM",
+          "Friday: 11:00 AM – 10:00 PM",
+          "Saturday: 11:00 AM – 10:00 PM",
+          "Sunday: 11:00 AM – 10:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJXXU2wus92jERVSRMwZZT9Ro"
+    },
+    {
+      "name": "WHITE RESTAURANT 三巴旺白米粉",
+      "unit": "#02-67",
+      "level": "Level 2",
+      "category": "Restaurants",
+      "link": "https://pasirrismall.com.sg/shop/white-restaurant-%e4%b8%89%e5%b7%b4%e6%97%ba%e7%99%bd%e7%b1%b3%e7%b2%89/",
+      "image": "https://greatrewards.cxcms.ascentis.com.sg/mallsmobile/media/Outlet/Outlet%20Banner/PRM_White%20Restaurant%20Image%201.jpg",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 11:00 AM – 10:00 PM",
+          "Tuesday: 11:00 AM – 10:00 PM",
+          "Wednesday: 11:00 AM – 10:00 PM",
+          "Thursday: 11:00 AM – 10:00 PM",
+          "Friday: 11:00 AM – 10:00 PM",
+          "Saturday: 11:00 AM – 10:00 PM",
+          "Sunday: 11:00 AM – 10:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJsxf7VAA92jER65lTTg8IUGg"
+    },
+    {
+      "name": "WINE CONNECTION",
+      "unit": null,
+      "level": "B1",
+      "category": "Confectionery",
+      "link": "https://pasirrismall.com.sg/shop/wine-connection/",
+      "image": "https://greatrewards.cxcms.ascentis.com.sg/mallsmobile/media/Outlet/Outlet%20Banner/PRM_Wine%20Connection%20Image%201.jpg",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 10:00 AM – 10:00 PM",
+          "Tuesday: 10:00 AM – 10:00 PM",
+          "Wednesday: 10:00 AM – 10:00 PM",
+          "Thursday: 10:00 AM – 10:00 PM",
+          "Friday: 10:00 AM – 10:00 PM",
+          "Saturday: 10:00 AM – 10:00 PM",
+          "Sunday: 10:00 AM – 10:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJM9NR0e892jER2rg2PZHCaHs"
+    },
+    {
+      "name": "XIANG XIANG HUNAN CUISINE",
+      "unit": "#02-60",
+      "level": "Level 2",
+      "category": "Restaurants",
+      "link": "https://pasirrismall.com.sg/shop/xiang-xiang-hunan-cuisine/",
+      "image": "https://greatrewards.cxcms.ascentis.com.sg/mallsmobile/media/Outlet/Outlet%20Banner/PRM_XIANG%20XIANG%20Hunan%20Cuisine%20Image%201.jpg",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 11:00 AM – 10:00 PM",
+          "Tuesday: 11:00 AM – 10:00 PM",
+          "Wednesday: 11:00 AM – 10:00 PM",
+          "Thursday: 11:00 AM – 10:00 PM",
+          "Friday: 11:00 AM – 10:00 PM",
+          "Saturday: 11:00 AM – 10:00 PM",
+          "Sunday: 11:00 AM – 10:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJOzJ6NgA92jERgcWTEfdAC7g"
+    },
+    {
+      "name": "YAKINIKU LIKE",
+      "unit": "#B1-31",
+      "level": "B1",
+      "category": "Bistros",
+      "link": "https://pasirrismall.com.sg/shop/yakiniku-like/",
+      "image": "https://greatrewards.cxcms.ascentis.com.sg/mallsmobile/media/Outlet/Outlet%20Banner/PRM_Yakiniku%20Like%20Image%201.jpg",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 11:00 AM – 10:00 PM",
+          "Tuesday: 11:00 AM – 10:00 PM",
+          "Wednesday: 11:00 AM – 10:00 PM",
+          "Thursday: 11:00 AM – 10:00 PM",
+          "Friday: 11:00 AM – 10:00 PM",
+          "Saturday: 11:00 AM – 10:00 PM",
+          "Sunday: 11:00 AM – 10:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJjal4YQA92jERFdQUMM0SEMU"
+    },
+    {
+      "name": "YAYOI JAPANESE TEISHOKU RESTAURANT",
+      "unit": "#02-63",
+      "level": "Level 2",
+      "category": "Restaurants",
+      "link": "https://pasirrismall.com.sg/shop/yayoi-japanese-teishoku-restaurant/",
+      "image": "https://greatrewards.cxcms.ascentis.com.sg/mallsmobile/media/Outlet/Outlet%20Banner/PRM_YAYOI%20Image%201.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 10:30 AM – 9:00 PM",
+          "Tuesday: 10:30 AM – 9:00 PM",
+          "Wednesday: 10:30 AM – 9:00 PM",
+          "Thursday: 10:30 AM – 9:00 PM",
+          "Friday: 10:30 AM – 9:00 PM",
+          "Saturday: 10:30 AM – 9:00 PM",
+          "Sunday: 10:30 AM – 9:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 0,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJ9yfXJQA92jEREuDv6wMAkeg"
+    },
+    {
+      "name": "YEW KEE SPECIALITIES",
+      "unit": "#B2-34",
+      "level": "B2",
+      "category": "Bistros",
+      "link": "https://pasirrismall.com.sg/shop/yew-kee-specialities/",
+      "image": "https://greatrewards.cxcms.ascentis.com.sg/mallsmobile/media/Outlet/Outlet%20Banner/PRM_Yew%20Kee%20Specialities%20Image%201.jpg",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 10:30 AM – 9:30 PM",
+          "Tuesday: 10:30 AM – 9:30 PM",
+          "Wednesday: 10:30 AM – 9:30 PM",
+          "Thursday: 10:30 AM – 9:30 PM",
+          "Friday: 10:30 AM – 9:30 PM",
+          "Saturday: 10:30 AM – 9:30 PM",
+          "Sunday: 10:30 AM – 9:30 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 0,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 30
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJG96BNgA92jERbMGJ7VCfs-w"
+    },
+    {
+      "name": "YGF MALATANG",
+      "unit": "#01-11",
+      "level": "Level 1",
+      "category": "Bistros",
+      "link": "https://pasirrismall.com.sg/shop/ygf-malatang/",
+      "image": "https://greatrewards.cxcms.ascentis.com.sg/mallsmobile/media/Outlet/Outlet%20Banner/PRM_YGF%20Malatang%20Image%201b.jpg",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 10:00 AM – 10:00 PM",
+          "Tuesday: 10:00 AM – 10:00 PM",
+          "Wednesday: 10:00 AM – 10:00 PM",
+          "Thursday: 10:00 AM – 10:00 PM",
+          "Friday: 10:00 AM – 10:00 PM",
+          "Saturday: 10:00 AM – 10:00 PM",
+          "Sunday: 10:00 AM – 10:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJY5UVBgA92jER5cZXJ3DLkJQ"
+    },
+    {
+      "name": "爭鮮 GO GO",
+      "unit": "#01-22",
+      "level": "Level 1",
+      "category": "Food Court",
+      "link": "https://pasirrismall.com.sg/shop/%e7%88%ad%e9%ae%ae-go-go/",
+      "image": "https://greatrewards.cxcms.ascentis.com.sg/mallsmobile/media/Outlet/Outlet%20Banner/PRM_Gogo%20Image%201.jpg",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 12:00 – 9:00 PM",
+          "Tuesday: 12:00 – 9:00 PM",
+          "Wednesday: 12:00 – 9:00 PM",
+          "Thursday: 12:00 – 9:00 PM",
+          "Friday: 12:00 – 9:00 PM",
+          "Saturday: 12:00 – 9:00 PM",
+          "Sunday: 12:00 – 9:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 12,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 12,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 12,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 12,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 12,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 12,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 12,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJcVNXqhk92jERXM-FkVL9i68"
+    },
+    {
+      "name": "署茗職茶 AT TEA",
+      "unit": "#01-30",
+      "level": "Level 1",
+      "category": "Food Court",
+      "link": "https://pasirrismall.com.sg/shop/%e7%bd%b2%e8%8c%97%e8%81%b7%e8%8c%b6-at-tea/",
+      "image": "https://greatrewards.cxcms.ascentis.com.sg/mallsmobile/media/Outlet/Outlet%20Banner/PRM_AtTea%20Image%201.jpg",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 11:00 AM – 10:00 PM",
+          "Tuesday: 11:00 AM – 10:00 PM",
+          "Wednesday: 11:00 AM – 10:00 PM",
+          "Thursday: 11:00 AM – 10:00 PM",
+          "Friday: 11:00 AM – 10:00 PM",
+          "Saturday: 11:00 AM – 10:00 PM",
+          "Sunday: 11:00 AM – 10:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJ5YhwYAA92jERgg_0RNuGCZo"
+    }
+  ],
+  "openingHoursFetchedAt": "2026-01-06T06:55:08.483Z"
+}

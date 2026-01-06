@@ -1,0 +1,2767 @@
+{
+  "mall": "White Sands",
+  "address": "1 Pasir Ris Central Street 3, Singapore 518457",
+  "nearestMRT": "Pasir Ris",
+  "category": "Food & Beverage",
+  "scrapedAt": "2026-01-06T05:49:26.138Z",
+  "totalStores": 26,
+  "stores": [
+    {
+      "name": "Ayam Penyet President",
+      "unit": null,
+      "level": "Level 3",
+      "link": "https://www.whitesands.com.sg/stores/ayam-penyet-president#/profile?location=0a23c9dc-f4e3-4f6f-943e-6f29eaa12632",
+      "image": "https://www.whitesands.com.sg/content/dam/frasersexperience/ws/store-logos/WS_AyamPenyetPresident_Logo.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 10:30 AM – 8:30 PM",
+          "Tuesday: 10:30 AM – 8:30 PM",
+          "Wednesday: 10:30 AM – 8:30 PM",
+          "Thursday: 10:30 AM – 8:30 PM",
+          "Friday: 10:30 AM – 8:30 PM",
+          "Saturday: 10:30 AM – 8:30 PM",
+          "Sunday: 10:30 AM – 8:30 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 0,
+              "hour": 20,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 1,
+              "hour": 20,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 2,
+              "hour": 20,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 3,
+              "hour": 20,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 4,
+              "hour": 20,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 5,
+              "hour": 20,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 6,
+              "hour": 20,
+              "minute": 30
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJnWA2ug092jERBUj6xVLeUwg"
+    },
+    {
+      "name": "Chewy Junior",
+      "unit": null,
+      "level": null,
+      "link": "https://www.whitesands.com.sg/stores/chewy-junior#/profile?location=2b57dc17-de4d-495b-a0b1-743c665a2821",
+      "image": "https://www.whitesands.com.sg/content/dam/frasersexperience/ws/store-logos/ChewyJuniorLogo_760x550px.jpg",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 10:00 AM – 10:00 PM",
+          "Tuesday: 10:00 AM – 10:00 PM",
+          "Wednesday: 10:00 AM – 10:00 PM",
+          "Thursday: 10:00 AM – 10:00 PM",
+          "Friday: 10:00 AM – 10:00 PM",
+          "Saturday: 10:00 AM – 10:00 PM",
+          "Sunday: 10:00 AM – 10:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJt50FAnA92jERQiIIP2ZSajw"
+    },
+    {
+      "name": "DABBA STREET",
+      "unit": null,
+      "level": null,
+      "link": "https://www.whitesands.com.sg/stores/dabba-street#/profile?location=46461430-5986-40a8-8ff3-76c097a47337",
+      "image": "https://www.whitesands.com.sg/content/dam/frasersexperience/ws/store-logos/WS_Dabba_Street_Logo.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 10:30 AM – 9:30 PM",
+          "Tuesday: 10:30 AM – 9:30 PM",
+          "Wednesday: 10:30 AM – 9:30 PM",
+          "Thursday: 10:30 AM – 9:30 PM",
+          "Friday: 10:30 AM – 9:30 PM",
+          "Saturday: 10:30 AM – 9:30 PM",
+          "Sunday: 10:30 AM – 9:30 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 0,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 30
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJk5pmt7492jERtyNEcYBAtic"
+    },
+    {
+      "name": "Fun Toast",
+      "unit": null,
+      "level": "Level 3",
+      "link": "https://www.whitesands.com.sg/stores/fun-toast#/profile?location=1c95fe14-51a1-4797-9a91-57f2402ec4cd",
+      "image": "https://www.whitesands.com.sg/content/dam/frasersexperience/ws/store-logos/WS_FunToast_Logo.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 8:00 AM – 8:00 PM",
+          "Tuesday: 8:00 AM – 8:00 PM",
+          "Wednesday: 8:00 AM – 8:00 PM",
+          "Thursday: 8:00 AM – 8:00 PM",
+          "Friday: 8:00 AM – 8:00 PM",
+          "Saturday: 8:00 AM – 8:00 PM",
+          "Sunday: 8:00 AM – 8:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 20,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 20,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 20,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 20,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 20,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 20,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 20,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJWzs91uY92jER5AdtQCdO3cQ"
+    },
+    {
+      "name": "KFC",
+      "unit": null,
+      "level": "Level 1",
+      "link": "https://www.whitesands.com.sg/stores/kfc#/profile?location=46f0d272-d600-48fb-a638-cbf15b4b8138",
+      "image": "https://www.whitesands.com.sg/content/dam/frasersexperience/ws/store-logos/WS_KFC_Logo.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 8:00 AM – 10:00 PM",
+          "Tuesday: 8:00 AM – 10:00 PM",
+          "Wednesday: 8:00 AM – 10:00 PM",
+          "Thursday: 8:00 AM – 10:00 PM",
+          "Friday: 8:00 AM – 10:00 PM",
+          "Saturday: 8:00 AM – 10:00 PM",
+          "Sunday: 8:00 AM – 10:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJByeM-6892jER4Tv-ZzZp8Es"
+    },
+    {
+      "name": "Long John Silver's",
+      "unit": null,
+      "level": "Level 2",
+      "link": "https://www.whitesands.com.sg/stores/long-john-silvers#/profile?location=65bd1e95-3b5b-4e99-b2e4-5004f870339e",
+      "image": "https://www.whitesands.com.sg/content/dam/frasersexperience/ws/store-logos/WS_LongJohnSilvers_Logo.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 7:30 AM – 10:00 PM",
+          "Tuesday: 7:30 AM – 10:00 PM",
+          "Wednesday: 7:30 AM – 10:00 PM",
+          "Thursday: 7:30 AM – 10:00 PM",
+          "Friday: 7:30 AM – 10:00 PM",
+          "Saturday: 7:30 AM – 10:00 PM",
+          "Sunday: 7:30 AM – 10:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 7,
+              "minute": 30
+            },
+            "close": {
+              "day": 0,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 7,
+              "minute": 30
+            },
+            "close": {
+              "day": 1,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 7,
+              "minute": 30
+            },
+            "close": {
+              "day": 2,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 7,
+              "minute": 30
+            },
+            "close": {
+              "day": 3,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 7,
+              "minute": 30
+            },
+            "close": {
+              "day": 4,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 7,
+              "minute": 30
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 7,
+              "minute": 30
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJn09vFo0A5L8RHgf6GC5afrg"
+    },
+    {
+      "name": "McDonald's",
+      "unit": null,
+      "level": "Level 1",
+      "link": "https://www.whitesands.com.sg/stores/mcdonalds#/profile?location=5d75348d-be6e-401b-be0b-23a1c1afe391",
+      "image": "https://www.whitesands.com.sg/content/dam/frasersexperience/ws/store-logos/WS_Mcdonald_Logo.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 6:00 AM – 12:00 AM",
+          "Tuesday: 6:00 AM – 12:00 AM",
+          "Wednesday: 6:00 AM – 12:00 AM",
+          "Thursday: 6:00 AM – 12:00 AM",
+          "Friday: 6:00 AM – 1:00 AM",
+          "Saturday: 6:00 AM – 1:00 AM",
+          "Sunday: 6:00 AM – 12:00 AM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 6,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 0,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 6,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 0,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 6,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 0,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 6,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 0,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 6,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 0,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 6,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 1,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 6,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 1,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJay3_TKA92jERer0ra1IVE_c"
+    },
+    {
+      "name": "Men Men Don Don",
+      "unit": null,
+      "level": null,
+      "link": "https://www.whitesands.com.sg/stores/men-men-don-don#/profile?location=895cecf9-eaf7-442f-a2c5-6140ab079ee0",
+      "image": "https://www.whitesands.com.sg/content/dam/frasersexperience/ws/store-logos/WS_MenMenDonDon_Logo.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 10:00 AM – 10:00 PM",
+          "Tuesday: 10:00 AM – 10:00 PM",
+          "Wednesday: 10:00 AM – 10:00 PM",
+          "Thursday: 10:00 AM – 10:00 PM",
+          "Friday: 10:00 AM – 10:00 PM",
+          "Saturday: 10:00 AM – 10:00 PM",
+          "Sunday: 10:00 AM – 10:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJQyaM-6892jER4DhQn_hqaYE"
+    },
+    {
+      "name": "Saap Saap Thai",
+      "unit": null,
+      "level": "Level 2",
+      "link": "https://www.whitesands.com.sg/stores/saap-saap-thai#/profile?location=04cdee94-3a56-40bf-ad16-639589b396d9",
+      "image": "https://www.whitesands.com.sg/content/dam/frasersexperience/ws/store-logos/SaapSaapThai-Logo-760x550px%20new.jpg",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 9:30 AM – 9:30 PM",
+          "Tuesday: 9:30 AM – 9:30 PM",
+          "Wednesday: 9:30 AM – 9:30 PM",
+          "Thursday: 9:30 AM – 9:30 PM",
+          "Friday: 9:30 AM – 9:30 PM",
+          "Saturday: 9:30 AM – 9:30 PM",
+          "Sunday: 9:30 AM – 9:30 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 9,
+              "minute": 30
+            },
+            "close": {
+              "day": 0,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 9,
+              "minute": 30
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 9,
+              "minute": 30
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 9,
+              "minute": 30
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 9,
+              "minute": 30
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 9,
+              "minute": 30
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 9,
+              "minute": 30
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 30
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJJZ6yUAA92jER0uvYOJSf8Zk"
+    },
+    {
+      "name": "Saizeriya",
+      "unit": null,
+      "level": "Level 3",
+      "link": "https://www.whitesands.com.sg/stores/saizeriya#/profile?location=99483129-c09b-4d79-b23e-d5b5e8b70c01",
+      "image": "https://www.whitesands.com.sg/content/dam/frasersexperience/ws/store-logos/WS_Saizeriya_logo.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 11:00 AM – 10:00 PM",
+          "Tuesday: 11:00 AM – 10:00 PM",
+          "Wednesday: 11:00 AM – 10:00 PM",
+          "Thursday: 11:00 AM – 10:00 PM",
+          "Friday: 11:00 AM – 10:00 PM",
+          "Saturday: 11:00 AM – 10:00 PM",
+          "Sunday: 11:00 AM – 10:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJN8v7-K892jER8LpOyub-nUo"
+    },
+    {
+      "name": "SG Ramen",
+      "unit": null,
+      "level": "Level 3",
+      "link": "https://www.whitesands.com.sg/stores/sg-ramen#/profile?location=c95d8172-c829-4120-a8f4-2e1aad7c4a73",
+      "image": "https://www.whitesands.com.sg/content/dam/frasersexperience/ws/store-logos/Sg%20Ramen%20Logo%20760x550.jpg",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 11:30 AM – 9:00 PM",
+          "Tuesday: 11:30 AM – 9:00 PM",
+          "Wednesday: 11:30 AM – 9:00 PM",
+          "Thursday: 11:30 AM – 9:00 PM",
+          "Friday: 11:30 AM – 9:00 PM",
+          "Saturday: 11:30 AM – 9:00 PM",
+          "Sunday: 11:30 AM – 9:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 0,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJgbSQlsA92jERPxmJ5ccTHbA"
+    },
+    {
+      "name": "Shi Li Fang Hot Pot & One Pot",
+      "unit": null,
+      "level": "Level 2",
+      "link": "https://www.whitesands.com.sg/stores/shi-li-fang-hot-pot----one-pot#/profile?location=8e69205f-fd24-485f-8f80-3b20ed214c15",
+      "image": "https://www.whitesands.com.sg/content/dam/frasersexperience/ws/store-logos/ShiLiFang%20Logo%20750x550.jpg",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 10:00 AM – 10:00 PM",
+          "Tuesday: 10:00 AM – 10:00 PM",
+          "Wednesday: 10:00 AM – 10:00 PM",
+          "Thursday: 10:00 AM – 10:00 PM",
+          "Friday: 10:00 AM – 10:00 PM",
+          "Saturday: 10:00 AM – 10:00 PM",
+          "Sunday: 10:00 AM – 10:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJwdM_ocgZ2jERTe7E1sEaQSo"
+    },
+    {
+      "name": "Dough Culture",
+      "unit": null,
+      "level": "Level 1",
+      "link": "https://www.whitesands.com.sg/stores/dough-culture#/profile?location=932ec499-04ba-4463-a01b-e8ce373c4553",
+      "image": "https://www.whitesands.com.sg/content/dam/frasersexperience/ws/store-logos/WS_Dough_Culture_Logo.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 8:00 AM – 9:00 PM",
+          "Tuesday: 8:00 AM – 9:00 PM",
+          "Wednesday: 8:00 AM – 9:00 PM",
+          "Thursday: 8:00 AM – 9:00 PM",
+          "Friday: 8:00 AM – 9:00 PM",
+          "Saturday: 8:00 AM – 9:00 PM",
+          "Sunday: 8:00 AM – 9:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJpWU3eDk92jERMSM3NYDV0OE"
+    },
+    {
+      "name": "Famous Amos",
+      "unit": null,
+      "level": "Level 1",
+      "link": "https://www.whitesands.com.sg/stores/famous-amos#/profile?location=90c11d52-5ba4-48a4-8050-1fce219b4301",
+      "image": "https://www.whitesands.com.sg/content/dam/frasersexperience/ws/store-logos/WS_FamousAmos_Logo.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 11:00 AM – 9:30 PM",
+          "Tuesday: 11:00 AM – 9:30 PM",
+          "Wednesday: 11:00 AM – 9:30 PM",
+          "Thursday: 11:00 AM – 9:30 PM",
+          "Friday: 11:00 AM – 9:30 PM",
+          "Saturday: 11:00 AM – 9:30 PM",
+          "Sunday: 11:00 AM – 9:30 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 30
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJneLzM2M92jER1Lkni8MldEM"
+    },
+    {
+      "name": "Kopi & Tarts",
+      "unit": null,
+      "level": "Level 1",
+      "link": "https://www.whitesands.com.sg/stores/kopi-and-tarts#/profile?location=7680ba91-c489-4a95-8afd-1698e30cb2d8",
+      "image": "https://www.whitesands.com.sg/content/dam/frasersexperience/ws/store-logos/WS_Kopi_n_Tarts_Logo.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 7:00 AM – 10:00 PM",
+          "Tuesday: 7:00 AM – 10:00 PM",
+          "Wednesday: 7:00 AM – 10:00 PM",
+          "Thursday: 7:00 AM – 10:00 PM",
+          "Friday: 7:00 AM – 10:00 PM",
+          "Saturday: 7:00 AM – 10:00 PM",
+          "Sunday: 7:00 AM – 10:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 7,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 7,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 7,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 7,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 7,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 7,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 7,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJH-a0FYo92jERsPuWkFJu4hU"
+    },
+    {
+      "name": "Munchi Pancakes",
+      "unit": null,
+      "level": "Level 1",
+      "link": "https://www.whitesands.com.sg/stores/munchi-pancakes#/profile?location=c8b8ba8a8e66bf88fefe05285eb18a5f",
+      "image": "https://www.whitesands.com.sg/content/dam/frasersexperience/ws/store-logos/Munchi%20760x550.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 7:00 AM – 10:00 PM",
+          "Tuesday: 7:00 AM – 10:00 PM",
+          "Wednesday: 7:00 AM – 10:00 PM",
+          "Thursday: 7:00 AM – 10:00 PM",
+          "Friday: 7:00 AM – 10:00 PM",
+          "Saturday: 7:00 AM – 10:00 PM",
+          "Sunday: 7:00 AM – 10:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 7,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 7,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 7,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 7,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 7,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 7,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 7,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJW12dhNc92jERhZ0Dd1EFiD4"
+    },
+    {
+      "name": "Old Chang Kee",
+      "unit": null,
+      "level": "Level 1",
+      "link": "https://www.whitesands.com.sg/stores/old-chang-kee#/profile?location=643efa75-02b6-4e2d-baef-71efa44880d1",
+      "image": "https://www.whitesands.com.sg/content/dam/frasersexperience/ws/store-logos/WS_OldChangKee_Logo.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 6:00 AM – 10:00 PM",
+          "Tuesday: 6:00 AM – 10:00 PM",
+          "Wednesday: 6:00 AM – 10:00 PM",
+          "Thursday: 6:00 AM – 10:00 PM",
+          "Friday: 6:30 AM – 10:00 PM",
+          "Saturday: 6:00 AM – 10:00 PM",
+          "Sunday: 10:00 AM – 10:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 6,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 6,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 6,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 6,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 6,
+              "minute": 30
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 6,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJHeeu2LU92jERAVwccnlXY6s"
+    },
+    {
+      "name": "Pezzo",
+      "unit": null,
+      "level": "Level 1",
+      "link": "https://www.whitesands.com.sg/stores/pezzo#/profile?location=22e25056-3442-4a7e-a658-2c6e3ff7a878",
+      "image": "https://www.whitesands.com.sg/content/dam/frasersexperience/ws/store-logos/WS_Pezzo_Logo.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 10:00 AM – 10:00 PM",
+          "Tuesday: 10:00 AM – 10:00 PM",
+          "Wednesday: 10:00 AM – 10:00 PM",
+          "Thursday: 10:00 AM – 10:00 PM",
+          "Friday: 10:00 AM – 10:00 PM",
+          "Saturday: 10:00 AM – 10:00 PM",
+          "Sunday: 10:00 AM – 10:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJMdN7_q892jERS6s75lhaHXo"
+    },
+    {
+      "name": "Polar Puffs & Cakes",
+      "unit": null,
+      "level": null,
+      "link": "https://www.whitesands.com.sg/stores/polar-puffs-and-cakes#/profile?location=6cfcbd2e-f5a6-44bf-99a8-72916f5e5afa",
+      "image": "https://www.whitesands.com.sg/content/dam/frasersexperience/ws/store-logos/WS_PolarPuffs_n_Cakes_Logo.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 9:00 AM – 10:00 PM",
+          "Tuesday: 9:00 AM – 10:00 PM",
+          "Wednesday: 9:00 AM – 10:00 PM",
+          "Thursday: 9:00 AM – 10:00 PM",
+          "Friday: 9:00 AM – 10:00 PM",
+          "Saturday: 9:00 AM – 10:00 PM",
+          "Sunday: 9:00 AM – 10:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJFUNl-6892jERci5Dltsa4tE"
+    },
+    {
+      "name": "Qi Ji",
+      "unit": null,
+      "level": null,
+      "link": "https://www.whitesands.com.sg/stores/qi-ji#/profile?location=aaa897aa-9e55-42d1-966d-3ace8324afc9",
+      "image": "https://www.whitesands.com.sg/content/dam/frasersexperience/ws/store-logos/WS_QIJI_Logo.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 8:30 AM – 10:00 PM",
+          "Tuesday: 8:30 AM – 10:00 PM",
+          "Wednesday: 8:30 AM – 10:00 PM",
+          "Thursday: 8:30 AM – 10:00 PM",
+          "Friday: 8:30 AM – 10:00 PM",
+          "Saturday: 8:30 AM – 10:00 PM",
+          "Sunday: 8:30 AM – 10:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 8,
+              "minute": 30
+            },
+            "close": {
+              "day": 0,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 8,
+              "minute": 30
+            },
+            "close": {
+              "day": 1,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 8,
+              "minute": 30
+            },
+            "close": {
+              "day": 2,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 8,
+              "minute": 30
+            },
+            "close": {
+              "day": 3,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 8,
+              "minute": 30
+            },
+            "close": {
+              "day": 4,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 8,
+              "minute": 30
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 8,
+              "minute": 30
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJa4hZYQA92jEREyUm3-n2BGc"
+    },
+    {
+      "name": "85 Redhill Teochew Fishball Noodles",
+      "unit": null,
+      "level": null,
+      "link": "https://www.whitesands.com.sg/stores/85-redhill-teochew-fishball-noodles#/profile?location=dac21051-8b7d-4f87-97c8-95435dfc2704",
+      "image": "https://www.whitesands.com.sg/content/dam/frasersexperience/ws/store-logos/WS_85Redhill_Logo.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 9:30 AM – 8:30 PM",
+          "Tuesday: 9:30 AM – 8:30 PM",
+          "Wednesday: 9:30 AM – 8:30 PM",
+          "Thursday: 9:30 AM – 8:30 PM",
+          "Friday: 9:30 AM – 8:30 PM",
+          "Saturday: 9:30 AM – 8:30 PM",
+          "Sunday: 9:30 AM – 8:30 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 9,
+              "minute": 30
+            },
+            "close": {
+              "day": 0,
+              "hour": 20,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 9,
+              "minute": 30
+            },
+            "close": {
+              "day": 1,
+              "hour": 20,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 9,
+              "minute": 30
+            },
+            "close": {
+              "day": 2,
+              "hour": 20,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 9,
+              "minute": 30
+            },
+            "close": {
+              "day": 3,
+              "hour": 20,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 9,
+              "minute": 30
+            },
+            "close": {
+              "day": 4,
+              "hour": 20,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 9,
+              "minute": 30
+            },
+            "close": {
+              "day": 5,
+              "hour": 20,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 9,
+              "minute": 30
+            },
+            "close": {
+              "day": 6,
+              "hour": 20,
+              "minute": 30
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJNwijG7A92jERZXPlB6O0R8g"
+    },
+    {
+      "name": "Bee Cheng Hiang",
+      "unit": null,
+      "level": null,
+      "link": "https://www.whitesands.com.sg/stores/bee-cheng-hiang#/profile?location=5842dc13-beae-401b-b107-d44af7686aa8",
+      "image": "https://www.whitesands.com.sg/content/dam/frasersexperience/ws/store-logos/WS_BeeChengHiang_Logo.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 10:00 AM – 10:00 PM",
+          "Tuesday: 10:00 AM – 10:00 PM",
+          "Wednesday: 10:00 AM – 10:00 PM",
+          "Thursday: 10:00 AM – 10:00 PM",
+          "Friday: 10:00 AM – 10:00 PM",
+          "Saturday: 10:00 AM – 10:00 PM",
+          "Sunday: 10:00 AM – 10:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJ3QLy_q892jERUOgkrViRpGU"
+    },
+    {
+      "name": "Bengawan Solo",
+      "unit": null,
+      "level": null,
+      "link": "https://www.whitesands.com.sg/stores/bengawan-solo#/profile?location=53d86129-2d36-4ebe-9ed7-39c99e5b0dda",
+      "image": "https://www.whitesands.com.sg/content/dam/frasersexperience/ws/store-logos/WS_Bengawan_Solo_Logo.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 10:00 AM – 10:00 PM",
+          "Tuesday: 10:00 AM – 10:00 PM",
+          "Wednesday: 10:00 AM – 10:00 PM",
+          "Thursday: 10:00 AM – 10:00 PM",
+          "Friday: 10:00 AM – 10:00 PM",
+          "Saturday: 10:00 AM – 10:00 PM",
+          "Sunday: 10:00 AM – 10:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJFUNl-6892jERlD1rYxB4fJI"
+    },
+    {
+      "name": "Boost Juice",
+      "unit": null,
+      "level": "Level 1",
+      "link": "https://www.whitesands.com.sg/stores/boost-juice-bars#/profile?location=a50f6b31-beba-4f78-871f-a6917847dd94",
+      "image": "https://www.whitesands.com.sg/content/dam/frasersexperience/ws/store-logos/WS_Boost_Logo.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 10:00 AM – 10:00 PM",
+          "Tuesday: 10:00 AM – 10:00 PM",
+          "Wednesday: 10:00 AM – 10:00 PM",
+          "Thursday: 10:00 AM – 10:00 PM",
+          "Friday: 10:00 AM – 10:00 PM",
+          "Saturday: 10:00 AM – 10:00 PM",
+          "Sunday: 10:00 AM – 10:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJ7Vm-AOA92jERAUxTJnfI7Ls"
+    },
+    {
+      "name": "CHICHA San Chen",
+      "unit": null,
+      "level": "Level 1",
+      "link": "https://www.whitesands.com.sg/stores/chicha-san-chen#/profile?location=8ce3febe-de10-442d-9647-19f538a0ee49",
+      "image": "https://www.whitesands.com.sg/content/dam/frasersexperience/ws/store-logos/WS_ChiCha_Logo.png",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 11:00 AM – 9:30 PM",
+          "Tuesday: 11:00 AM – 9:30 PM",
+          "Wednesday: 11:00 AM – 9:30 PM",
+          "Thursday: 11:00 AM – 9:30 PM",
+          "Friday: 11:00 AM – 9:30 PM",
+          "Saturday: 11:00 AM – 9:30 PM",
+          "Sunday: 11:00 AM – 9:30 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 30
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJe3NwxS092jERbg9fv4CYHOQ"
+    },
+    {
+      "name": "Chicken Pie Kitchen & Don Signature Crab",
+      "unit": null,
+      "level": null,
+      "link": "https://www.whitesands.com.sg/stores/chicken-pie-kitchen---don-signature-crab#/profile?location=6e167391c28aa8cd0b5cb33e3937259e",
+      "image": "https://www.whitesands.com.sg/content/dam/frasersexperience/ws/store-logos/4%20_%20CPK%20Logo%20_%20760x550.jpg",
+      "openingHours": {
+        "weekdayDescriptions": [
+          "Monday: 10:00 AM – 9:00 PM",
+          "Tuesday: 10:00 AM – 9:00 PM",
+          "Wednesday: 10:00 AM – 9:00 PM",
+          "Thursday: 10:00 AM – 9:00 PM",
+          "Friday: 10:00 AM – 9:00 PM",
+          "Saturday: 10:00 AM – 9:00 PM",
+          "Sunday: 10:00 AM – 9:00 PM"
+        ],
+        "periods": [
+          {
+            "open": {
+              "day": 0,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 1,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 0
+            }
+          }
+        ],
+        "openNow": true
+      },
+      "googlePlaceId": "ChIJYbcxrTQZ2jERbo_CXpCGYWk"
+    }
+  ],
+  "openingHoursFetchedAt": "2026-01-06T06:55:17.458Z"
+}
